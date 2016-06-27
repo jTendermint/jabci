@@ -67,67 +67,67 @@ public final class DefaultFallbackListener implements TMSPAPI {
 
     @Override
     public ResponseAppendTx receivedAppendTx(RequestAppendTx req) {
-        LOG.info("ResponseAppendTx DefaultFallbackListener");
+        LOG.debug("ResponseAppendTx DefaultFallbackListener");
         return ResponseAppendTx.newBuilder().setCode(CodeType.OK).build();
     }
 
     @Override
     public ResponseFlush requestFlush(RequestFlush reqfl) {
-        LOG.info("ResponseFlush DefaultFallbackListener");
+        LOG.debug("ResponseFlush DefaultFallbackListener");
         return ResponseFlush.newBuilder().build();
     }
 
     @Override
     public ResponseCommit requestCommit(RequestCommit requestCommit) {
-        LOG.info("ResponseCommit DefaultFallbackListener");
+        LOG.debug("ResponseCommit DefaultFallbackListener");
         return ResponseCommit.newBuilder().setCode(CodeType.OK).build();
     }
 
     @Override
     public ResponseBeginBlock requestBeginBlock(RequestBeginBlock req) {
-        LOG.info("ResponseBeginBlock DefaultFallbackListener");
+        LOG.debug("ResponseBeginBlock DefaultFallbackListener");
         return ResponseBeginBlock.newBuilder().build();
     }
 
     @Override
     public ResponseCheckTx requestCheckTx(RequestCheckTx req) {
-        LOG.info("ResponseCheckTx DefaultFallbackListener");
+        LOG.debug("ResponseCheckTx DefaultFallbackListener");
         return ResponseCheckTx.newBuilder().setCode(CodeType.OK).build();
     }
 
     @Override
     public ResponseEndBlock requestEndBlock(RequestEndBlock req) {
-        LOG.info("ResponseEndBlock DefaultFallbackListener");
+        LOG.debug("ResponseEndBlock DefaultFallbackListener");
         return ResponseEndBlock.newBuilder().build();
     }
 
     @Override
     public ResponseInfo requestInfo(RequestInfo req) {
-        LOG.info("ResponseInfo DefaultFallbackListener");
+        LOG.debug("ResponseInfo DefaultFallbackListener");
         return ResponseInfo.newBuilder().setInfo("NOINFO").build();
     }
 
     @Override
     public ResponseInitChain requestInitChain(RequestInitChain req) {
-        LOG.info("ResponseInitChain DefaultFallbackListener");
+        LOG.debug("ResponseInitChain DefaultFallbackListener");
         return ResponseInitChain.newBuilder().build();
     }
 
     @Override
     public ResponseQuery requestQuery(RequestQuery req) {
-        LOG.info("ResponseQuery DefaultFallbackListener");
+        LOG.debug("ResponseQuery DefaultFallbackListener");
         return ResponseQuery.newBuilder().setCode(CodeType.OK).build();
     }
 
     @Override
     public ResponseSetOption requestSetOption(RequestSetOption req) {
-        LOG.info("ResponseSetOption DefaultFallbackListener");
+        LOG.debug("ResponseSetOption DefaultFallbackListener");
         return ResponseSetOption.newBuilder().build();
     }
 
     @Override
     public ResponseEcho requestEcho(RequestEcho req) {
-        LOG.info("ResponseEcho DefaultFallbackListener");
+        LOG.debug("ResponseEcho DefaultFallbackListener");
         return ResponseEcho.newBuilder().setMessage("NOECHO").build();
     }
 

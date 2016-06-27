@@ -4,4 +4,4 @@ A Java implementation of the Tendermint socket protocol ([TMSP](https://github.c
 
 ## How to use
 
-Check out [StartupExampleDummy.java](https://github.com/jTMSP/jTMSP/blob/master/src/main/java/com/github/jtmsp/StartupExampleDummy.java)
+Check out [StartupExampleDummy.java](https://github.com/jTMSP/jTMSP/blob/master/src/main/java/com/github/jtmsp/StartupExampleDummy.java) or [JavaCounter.java](https://github.com/jTMSP/jTMSP/blob/master/src/main/java/com/github/jtmsp/JavaCounter.java) for examples.

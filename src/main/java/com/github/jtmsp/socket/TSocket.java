@@ -104,19 +104,19 @@ public class TSocket {
 
         @Override
         public void run() {
-            HANDLER_LOG.info("Starting ThreadNo: " + threadNumber);
-            HANDLER_LOG.info("accepting new client");
+            HANDLER_LOG.debug("Starting ThreadNo: " + threadNumber);
+            HANDLER_LOG.debug("accepting new client");
             try {
                 inputStream = new BufferedInputStream(socket.getInputStream());
                 outputStream = new BufferedOutputStream(socket.getOutputStream());
                 while (true) {
-                    HANDLER_LOG.info("start reading");
+                    HANDLER_LOG.debug("start reading");
                     int nRead;
                     byte[] varintLengthByte = new byte[1];
                     // requires check for negative numbers. see src/github.com/tendermint/go-wire/int.go:306
                     nRead = inputStream.read(varintLengthByte, 0, 1);
                     if (nRead < 0) {
-                        HANDLER_LOG.info("EOF encountered. Closing socket and ending thread");
+                        HANDLER_LOG.debug("EOF encountered. Closing socket and ending thread");
                         inputStream.close();
                         outputStream.close();
                         socket.close();
@@ -128,7 +128,7 @@ public class TSocket {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            HANDLER_LOG.info("Stopping ThreadNo " + threadNumber);
+            HANDLER_LOG.debug("Stopping ThreadNo " + threadNumber);
             runningThreads.getAndDecrement();
         }
 
@@ -148,7 +148,7 @@ public class TSocket {
                 throw new IllegalStateException("Sorry! Currently only messages with maxLenght=INTEGER.MAX_VALUE supported");
             }
             int msgSizeAsInt = (int) msgSizeAsLong;
-            HANDLER_LOG.info("Assuming message length: " + msgSizeAsInt);
+            HANDLER_LOG.debug("Assuming message length: " + msgSizeAsInt);
 
             // ok, this is stupid and ugly. what about gargantuan messages?
             byte[] message = new byte[msgSizeAsInt];
@@ -156,7 +156,7 @@ public class TSocket {
             final Types.Request request = Types.Request.parseFrom(message);
             switch (request.getValueCase()) {
                 case ECHO: {
-                    HANDLER_LOG.info("Received " + Types.Request.ValueCase.ECHO);
+                    HANDLER_LOG.debug("Received " + Types.Request.ValueCase.ECHO);
                     RequestEcho req = request.getEcho();
                     ResponseEcho response = getListenerForType(IEcho.class).requestEcho(req);
                     if (response != null)
@@ -164,14 +164,14 @@ public class TSocket {
                     break;
                 }
                 case FLUSH: {
-                    HANDLER_LOG.info("Received " + Types.Request.ValueCase.FLUSH);
+                    HANDLER_LOG.debug("Received " + Types.Request.ValueCase.FLUSH);
                     RequestFlush req = request.getFlush();
                     ResponseFlush response = getListenerForType(IFlush.class).requestFlush(req);
                     writeMessage(Response.newBuilder().setFlush(response).build());
                     break;
                 }
                 case INFO: {
-                    HANDLER_LOG.info("Received " + Types.Request.ValueCase.INFO);
+                    HANDLER_LOG.debug("Received " + Types.Request.ValueCase.INFO);
                     RequestInfo req = request.getInfo();
                     ResponseInfo response = getListenerForType(IInfo.class).requestInfo(req);
                     if (response != null)
@@ -179,7 +179,7 @@ public class TSocket {
                     break;
                 }
                 case SET_OPTION: {
-                    HANDLER_LOG.info("Received " + Types.Request.ValueCase.SET_OPTION);
+                    HANDLER_LOG.debug("Received " + Types.Request.ValueCase.SET_OPTION);
                     RequestSetOption req = request.getSetOption();
                     ResponseSetOption response = getListenerForType(ISetOption.class).requestSetOption(req);
                     if (response != null)
@@ -187,7 +187,7 @@ public class TSocket {
                     break;
                 }
                 case APPEND_TX: {
-                    HANDLER_LOG.info("Received " + Types.Request.ValueCase.APPEND_TX);
+                    HANDLER_LOG.debug("Received " + Types.Request.ValueCase.APPEND_TX);
                     RequestAppendTx req = request.getAppendTx();
                     ResponseAppendTx response = getListenerForType(IAppendTx.class).receivedAppendTx(req);
                     if (response != null)
@@ -195,49 +195,49 @@ public class TSocket {
                     break;
                 }
                 case CHECK_TX: {
-                    HANDLER_LOG.info("Received " + Types.Request.ValueCase.CHECK_TX);
+                    HANDLER_LOG.debug("Received " + Types.Request.ValueCase.CHECK_TX);
                     RequestCheckTx req = request.getCheckTx();
                     ResponseCheckTx response = getListenerForType(ICheckTx.class).requestCheckTx(req);
                     writeMessage(Response.newBuilder().setCheckTx(response).build());
                     break;
                 }
                 case COMMIT: {
-                    HANDLER_LOG.info("Received " + Types.Request.ValueCase.COMMIT);
+                    HANDLER_LOG.debug("Received " + Types.Request.ValueCase.COMMIT);
                     RequestCommit req = request.getCommit();
                     ResponseCommit response = getListenerForType(ICommit.class).requestCommit(req);
                     writeMessage(Response.newBuilder().setCommit(response).build());
                     break;
                 }
                 case QUERY: {
-                    HANDLER_LOG.info("Received " + Types.Request.ValueCase.QUERY);
+                    HANDLER_LOG.debug("Received " + Types.Request.ValueCase.QUERY);
                     RequestQuery req = request.getQuery();
                     ResponseQuery response = getListenerForType(IQuery.class).requestQuery(req);
                     writeMessage(Response.newBuilder().setQuery(response).build());
                     break;
                 }
                 case INIT_CHAIN: {
-                    HANDLER_LOG.info("Received " + Types.Request.ValueCase.INIT_CHAIN);
+                    HANDLER_LOG.debug("Received " + Types.Request.ValueCase.INIT_CHAIN);
                     RequestInitChain req = request.getInitChain();
                     ResponseInitChain response = getListenerForType(IInitChain.class).requestInitChain(req);
                     writeMessage(Response.newBuilder().setInitChain(response).build());
                     break;
                 }
                 case BEGIN_BLOCK: {
-                    HANDLER_LOG.info("Received " + Types.Request.ValueCase.BEGIN_BLOCK);
+                    HANDLER_LOG.debug("Received " + Types.Request.ValueCase.BEGIN_BLOCK);
                     RequestBeginBlock req = request.getBeginBlock();
                     ResponseBeginBlock response = getListenerForType(IBeginBlock.class).requestBeginBlock(req);
                     writeMessage(Response.newBuilder().setBeginBlock(response).build());
                     break;
                 }
                 case END_BLOCK: {
-                    HANDLER_LOG.info("Received " + Types.Request.ValueCase.END_BLOCK);
+                    HANDLER_LOG.debug("Received " + Types.Request.ValueCase.END_BLOCK);
                     RequestEndBlock req = request.getEndBlock();
                     ResponseEndBlock response = getListenerForType(IEndBlock.class).requestEndBlock(req);
                     writeMessage(Response.newBuilder().setEndBlock(response).build());
                     break;
                 }
                 case VALUE_NOT_SET: {
-                    HANDLER_LOG.info("Received " + Types.Request.ValueCase.VALUE_NOT_SET);
+                    HANDLER_LOG.debug("Received " + Types.Request.ValueCase.VALUE_NOT_SET);
                     break;
                 }
                 default:
@@ -252,7 +252,7 @@ public class TSocket {
          */
         public void writeMessage(GeneratedMessage message) throws IOException {
             if (message != null) {
-                HANDLER_LOG.info("writing message " + message.getAllFields().keySet());
+                HANDLER_LOG.debug("writing message " + message.getAllFields().keySet());
                 writeMessage(message.toByteArray());
             }
         }
@@ -290,17 +290,17 @@ public class TSocket {
      * @param portNumber
      */
     public void start(int portNumber) {
-        SOCKET_LOG.info("starting serversocket");
+        SOCKET_LOG.debug("starting serversocket");
 
         try (ServerSocket serverSocket = new ServerSocket(portNumber)) {
             while (true) {
                 Socket clientSocket = serverSocket.accept();
                 new Thread(new SocketHandler(clientSocket)).start();
-                SOCKET_LOG.info("Started thread for sockethandling...");
+                SOCKET_LOG.debug("Started thread for sockethandling...");
             }
         } catch (IOException e) {
-            SOCKET_LOG.info("Exception caught when trying to listen on port " + portNumber + " or listening for a connection");
-            SOCKET_LOG.info(e.getMessage());
+            SOCKET_LOG.debug("Exception caught when trying to listen on port " + portNumber + " or listening for a connection");
+            SOCKET_LOG.debug(e.getMessage());
             e.printStackTrace();
         }
     }
