@@ -60,6 +60,11 @@ public final class DefaultFallbackListener implements TMSPAPI {
 
     private final static Logger LOG = LoggerFactory.getLogger(DefaultFallbackListener.class);
 
+    public final static DefaultFallbackListener instance = new DefaultFallbackListener();
+
+    private DefaultFallbackListener() {
+    }
+
     @Override
     public ResponseAppendTx receivedAppendTx(RequestAppendTx req) {
         LOG.info("ResponseAppendTx DefaultFallbackListener");
@@ -68,7 +73,7 @@ public final class DefaultFallbackListener implements TMSPAPI {
 
     @Override
     public ResponseFlush requestFlush(RequestFlush reqfl) {
-        LOG.info("ResponseAppendTx DefaultFallbackListener");
+        LOG.info("ResponseFlush DefaultFallbackListener");
         return ResponseFlush.newBuilder().build();
     }
 

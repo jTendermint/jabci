@@ -33,7 +33,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
-import java.util.stream.Collectors;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -82,6 +81,7 @@ import com.google.protobuf.GeneratedMessage;
  * 
  * @author srmo, wolfposd
  */
+@SuppressWarnings("synthetic-access")
 public class TSocket {
 
     public static final int DEFAULT_LISTEN_SOCKET_PORT = 46658;
@@ -157,7 +157,7 @@ public class TSocket {
             switch (request.getValueCase()) {
                 case ECHO: {
                     HANDLER_LOG.info("Received " + Types.Request.ValueCase.ECHO);
-                    RequestEcho req = RequestEcho.parseFrom(message);
+                    RequestEcho req = request.getEcho();
                     ResponseEcho response = getListenerForType(IEcho.class).requestEcho(req);
                     if (response != null)
                         writeMessage(Response.newBuilder().setEcho(response).build());
@@ -165,14 +165,14 @@ public class TSocket {
                 }
                 case FLUSH: {
                     HANDLER_LOG.info("Received " + Types.Request.ValueCase.FLUSH);
-                    RequestFlush req = RequestFlush.parseFrom(message);
+                    RequestFlush req = request.getFlush();
                     ResponseFlush response = getListenerForType(IFlush.class).requestFlush(req);
                     writeMessage(Response.newBuilder().setFlush(response).build());
                     break;
                 }
                 case INFO: {
                     HANDLER_LOG.info("Received " + Types.Request.ValueCase.INFO);
-                    RequestInfo req = RequestInfo.parseFrom(message);
+                    RequestInfo req = request.getInfo();
                     ResponseInfo response = getListenerForType(IInfo.class).requestInfo(req);
                     if (response != null)
                         writeMessage(Response.newBuilder().setInfo(response).build());
@@ -180,7 +180,7 @@ public class TSocket {
                 }
                 case SET_OPTION: {
                     HANDLER_LOG.info("Received " + Types.Request.ValueCase.SET_OPTION);
-                    RequestSetOption req = RequestSetOption.parseFrom(message);
+                    RequestSetOption req = request.getSetOption();
                     ResponseSetOption response = getListenerForType(ISetOption.class).requestSetOption(req);
                     if (response != null)
                         writeMessage(Response.newBuilder().setSetOption(response).build());
@@ -188,7 +188,7 @@ public class TSocket {
                 }
                 case APPEND_TX: {
                     HANDLER_LOG.info("Received " + Types.Request.ValueCase.APPEND_TX);
-                    RequestAppendTx req = RequestAppendTx.parseFrom(message);
+                    RequestAppendTx req = request.getAppendTx();
                     ResponseAppendTx response = getListenerForType(IAppendTx.class).receivedAppendTx(req);
                     if (response != null)
                         writeMessage(Response.newBuilder().setAppendTx(response).build());
@@ -196,42 +196,42 @@ public class TSocket {
                 }
                 case CHECK_TX: {
                     HANDLER_LOG.info("Received " + Types.Request.ValueCase.CHECK_TX);
-                    RequestCheckTx req = RequestCheckTx.parseFrom(message);
+                    RequestCheckTx req = request.getCheckTx();
                     ResponseCheckTx response = getListenerForType(ICheckTx.class).requestCheckTx(req);
                     writeMessage(Response.newBuilder().setCheckTx(response).build());
                     break;
                 }
                 case COMMIT: {
                     HANDLER_LOG.info("Received " + Types.Request.ValueCase.COMMIT);
-                    RequestCommit req = RequestCommit.parseFrom(message);
+                    RequestCommit req = request.getCommit();
                     ResponseCommit response = getListenerForType(ICommit.class).requestCommit(req);
                     writeMessage(Response.newBuilder().setCommit(response).build());
                     break;
                 }
                 case QUERY: {
                     HANDLER_LOG.info("Received " + Types.Request.ValueCase.QUERY);
-                    RequestQuery req = RequestQuery.parseFrom(message);
+                    RequestQuery req = request.getQuery();
                     ResponseQuery response = getListenerForType(IQuery.class).requestQuery(req);
                     writeMessage(Response.newBuilder().setQuery(response).build());
                     break;
                 }
                 case INIT_CHAIN: {
                     HANDLER_LOG.info("Received " + Types.Request.ValueCase.INIT_CHAIN);
-                    RequestInitChain req = RequestInitChain.parseFrom(message);
+                    RequestInitChain req = request.getInitChain();
                     ResponseInitChain response = getListenerForType(IInitChain.class).requestInitChain(req);
                     writeMessage(Response.newBuilder().setInitChain(response).build());
                     break;
                 }
                 case BEGIN_BLOCK: {
                     HANDLER_LOG.info("Received " + Types.Request.ValueCase.BEGIN_BLOCK);
-                    RequestBeginBlock req = RequestBeginBlock.parseFrom(message);
+                    RequestBeginBlock req = request.getBeginBlock();
                     ResponseBeginBlock response = getListenerForType(IBeginBlock.class).requestBeginBlock(req);
                     writeMessage(Response.newBuilder().setBeginBlock(response).build());
                     break;
                 }
                 case END_BLOCK: {
                     HANDLER_LOG.info("Received " + Types.Request.ValueCase.END_BLOCK);
-                    RequestEndBlock req = RequestEndBlock.parseFrom(message);
+                    RequestEndBlock req = request.getEndBlock();
                     ResponseEndBlock response = getListenerForType(IEndBlock.class).requestEndBlock(req);
                     writeMessage(Response.newBuilder().setEndBlock(response).build());
                     break;
@@ -330,13 +330,20 @@ public class TSocket {
      */
     @SuppressWarnings("unchecked")
     private <T> T getListenerForType(Class<T> klass) {
-        List<T> list = (List<T>) _listeners.stream().filter(t -> {
-            List<Class<?>> clssss = Arrays.asList(t.getClass().getInterfaces());
-            return clssss.contains(klass) || clssss.contains(TMSPAPI.class);
-        }).collect(Collectors.toList());
-        if (list.size() > 0)
-            return list.get(0);
-        else
-            return (T) new DefaultFallbackListener();
+        for (Object object : _listeners) {
+            List<Class<?>> clssss = Arrays.asList(object.getClass().getInterfaces());
+            if (clssss.contains(klass) || clssss.contains(TMSPAPI.class)) {
+                return (T) object;
+            }
+        }
+        return (T) DefaultFallbackListener.instance;
     }
+
+    public void printByteArray(byte[] bArr) {
+        for (byte b : bArr) {
+            System.out.format("0x%x ", b);
+        }
+        System.out.print("\n");
+    }
+
 }
