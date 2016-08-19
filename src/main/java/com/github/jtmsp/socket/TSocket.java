@@ -23,7 +23,6 @@
  */
 package com.github.jtmsp.socket;
 
-import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.IOException;
 import java.math.BigInteger;
@@ -73,6 +72,7 @@ import com.github.jtmsp.types.Types.ResponseInfo;
 import com.github.jtmsp.types.Types.ResponseInitChain;
 import com.github.jtmsp.types.Types.ResponseQuery;
 import com.github.jtmsp.types.Types.ResponseSetOption;
+import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.GeneratedMessage;
 
 /**
@@ -94,7 +94,7 @@ public class TSocket {
     class SocketHandler implements Runnable {
         private final int threadNumber;
         private final Socket socket;
-        private BufferedInputStream inputStream;
+        private CodedInputStream inputStream;
         private BufferedOutputStream outputStream;
 
         public SocketHandler(Socket socket) {
@@ -107,23 +107,43 @@ public class TSocket {
             HANDLER_LOG.debug("Starting ThreadNo: " + threadNumber);
             HANDLER_LOG.debug("accepting new client");
             try {
-                inputStream = new BufferedInputStream(socket.getInputStream());
+                inputStream = CodedInputStream.newInstance(socket.getInputStream());
                 outputStream = new BufferedOutputStream(socket.getOutputStream());
                 while (true) {
                     HANDLER_LOG.debug("start reading");
-                    int nRead;
-                    byte[] varintLengthByte = new byte[1];
-                    // requires check for negative numbers. see src/github.com/tendermint/go-wire/int.go:306
-                    nRead = inputStream.read(varintLengthByte, 0, 1);
-                    if (nRead < 0) {
-                        HANDLER_LOG.debug("EOF encountered. Closing socket and ending thread");
-                        inputStream.close();
-                        outputStream.close();
-                        socket.close();
-                        break;
+
+                    // Each Message is prefixed by a header from the gitrepos.com/tendermint/go-wire protocol.
+                    // We get the message length from this header and then parse the actual message using protobuf.
+                    // To facilitate reading an exact number of bytes we use a CodedInputStream.
+                    // BufferedInputStream.read would still need to be called in a loop, to ensure that all data is received.
+
+                    // HEADER: first byte is length of length field
+                    byte varintLength = inputStream.readRawByte();
+                    if (varintLength > 4) {
+                        throw new IllegalStateException("Varint bigger than 4 bytes are not supported!");
                     }
-                    int varintLenght = varintLengthByte[0];
-                    handleMessage(varintLenght);
+
+                    // HEADER: next varintLength bytes contain messageLength:
+                    // It is a Big-Endian encoded unsigned integer.
+                    // We only allow 4 bytes, but then have to parse it with one zero byte prepended,
+                    // since Java does not support unsigned integers.
+                    byte[] messageLengthBytes = inputStream.readRawBytes(varintLength);
+                    byte[] messageLengthLongBytes = new byte[5];
+                    System.arraycopy(messageLengthBytes, 0, messageLengthLongBytes, 5 - varintLength, varintLength);
+                    long messageLengthLong = new BigInteger(messageLengthLongBytes).longValue();
+                    if(messageLengthLong > Integer.MAX_VALUE) {
+                        throw new IllegalStateException("Message lengths of more than Integer.MAX_VALUE are not supported.");
+                    }
+                    int messageLength = (int) messageLengthLong;
+                    HANDLER_LOG.debug("Assuming message length: " + messageLength);
+
+                    // PAYLOAD: limit CodedInputStream to messageLength bytes and parse Request using Protobuf:
+                    int oldLimit = inputStream.pushLimit(messageLength);
+                    final Types.Request request = Types.Request.parseFrom(inputStream);
+                    inputStream.popLimit(oldLimit);
+
+                    // Process the request that was just read:
+                    handleRequest(request);
                 }
             } catch (IOException e) {
                 e.printStackTrace();
@@ -132,28 +152,7 @@ public class TSocket {
             runningThreads.getAndDecrement();
         }
 
-        public void handleMessage(int varintLenght) throws IOException {
-
-            if (varintLenght > 8) {
-                throw new IllegalStateException("Varint bigger than 8 bytes are not supported!");
-            }
-
-            byte[] varintBytes = new byte[varintLenght];
-            // assume the maximum number of bytes for a
-            // long which makes using a bytebuffer easier
-            int nRead = inputStream.read(varintBytes, 0, varintLenght);
-
-            long msgSizeAsLong = new BigInteger(varintBytes).longValue();
-            if (msgSizeAsLong > Integer.MAX_VALUE) {
-                throw new IllegalStateException("Sorry! Currently only messages with maxLenght=INTEGER.MAX_VALUE supported");
-            }
-            int msgSizeAsInt = (int) msgSizeAsLong;
-            HANDLER_LOG.debug("Assuming message length: " + msgSizeAsInt);
-
-            // ok, this is stupid and ugly. what about gargantuan messages?
-            byte[] message = new byte[msgSizeAsInt];
-            inputStream.read(message, 0, msgSizeAsInt);
-            final Types.Request request = Types.Request.parseFrom(message);
+        private void handleRequest(Types.Request request) throws IOException {
             switch (request.getValueCase()) {
                 case ECHO: {
                     HANDLER_LOG.debug("Received " + Types.Request.ValueCase.ECHO);
