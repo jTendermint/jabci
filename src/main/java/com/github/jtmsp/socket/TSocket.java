@@ -117,6 +117,10 @@ public class TSocket {
                     // To facilitate reading an exact number of bytes we use a CodedInputStream.
                     // BufferedInputStream.read would still need to be called in a loop, to ensure that all data is received.
 
+                    // Size counter is used to enforce a size limit per message (see CodedInputStream.setSizeLimit()).
+                    // We need to reset it before reading the next message:
+                    inputStream.resetSizeCounter();
+
                     // HEADER: first byte is length of length field
                     byte varintLength = inputStream.readRawByte();
                     if (varintLength > 4) {
