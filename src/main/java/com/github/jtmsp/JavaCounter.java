@@ -56,7 +56,7 @@ public class JavaCounter implements IAppendTx, ICheckTx, ICommit {
     private TSocket socket;
 
     public JavaCounter() throws InterruptedException {
-
+        System.out.println("starting counter");
         socket = new TSocket();
 
         socket.registerListener(this);
@@ -77,14 +77,15 @@ public class JavaCounter implements IAppendTx, ICheckTx, ICommit {
         if (tx.size() == 0) {
             return ResponseAppendTx.newBuilder().setCode(CodeType.BadNonce).setLog("transaction is empty").build();
         } else if (tx.size() <= 4) {
-            int x = new BigInteger(tx.toByteArray()).intValue();
-            // this is an int, so okay
+            int x = new BigInteger(1, tx.toByteArray()).intValueExact();
+            // this is an int now, if not throws an ArithmeticException
             // but we dont actually care what it is. 
         } else {
             return ResponseAppendTx.newBuilder().setCode(CodeType.BadNonce).setLog("got a bad value").build();
         }
 
         txCount += 1;
+        System.out.println("TX Count is now: " + txCount);
         return ResponseAppendTx.newBuilder().setCode(CodeType.OK).build();
     }
 
@@ -94,9 +95,9 @@ public class JavaCounter implements IAppendTx, ICheckTx, ICommit {
         ByteString tx = req.getTx();
         if (tx.size() <= 4) {
             // hopefully parsable integer
-            int txCheck = new BigInteger(tx.toByteArray()).intValue();
+            int txCheck = new BigInteger(1, tx.toByteArray()).intValueExact();
             if (txCheck < txCount) {
-                System.out.println("txcheck is smaller als txCount, got " + txCheck + " and " + txCount);
+                System.out.println("txcheck is smaller than txCount, got " + txCheck + " and " + txCount);
                 return ResponseCheckTx.newBuilder().setCode(CodeType.BadNonce).setLog("tx-value is smaller than tx-count").build();
             }
         }
