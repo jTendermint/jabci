@@ -73,7 +73,7 @@ import com.github.jtmsp.types.Types.ResponseInitChain;
 import com.github.jtmsp.types.Types.ResponseQuery;
 import com.github.jtmsp.types.Types.ResponseSetOption;
 import com.google.protobuf.CodedInputStream;
-import com.google.protobuf.GeneratedMessage;
+import com.google.protobuf.GeneratedMessageV3;
 
 /**
  * The TSocket acts as the main socket connection to the Tendermint-Node
@@ -135,7 +135,7 @@ public class TSocket {
                     byte[] messageLengthLongBytes = new byte[5];
                     System.arraycopy(messageLengthBytes, 0, messageLengthLongBytes, 5 - varintLength, varintLength);
                     long messageLengthLong = new BigInteger(messageLengthLongBytes).longValue();
-                    if(messageLengthLong > Integer.MAX_VALUE) {
+                    if (messageLengthLong > Integer.MAX_VALUE) {
                         throw new IllegalStateException("Message lengths of more than Integer.MAX_VALUE are not supported.");
                     }
                     int messageLength = (int) messageLengthLong;
@@ -249,11 +249,11 @@ public class TSocket {
         }
 
         /**
-         * Writes a {@link GeneratedMessage} to the socket output stream
+         * Writes a {@link GeneratedMessageV3} to the socket output stream
          * @param message
          * @throws IOException
          */
-        public void writeMessage(GeneratedMessage message) throws IOException {
+        public void writeMessage(GeneratedMessageV3 message) throws IOException {
             if (message != null) {
                 HANDLER_LOG.debug("writing message " + message.getAllFields().keySet());
                 writeMessage(message.toByteArray());
