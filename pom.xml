@@ -4,8 +4,23 @@
 
 
 	<groupId>com.github.jtmsp</groupId>
-	<artifactId>jTMSP</artifactId>
+	<artifactId>jtmsp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+    
+    <distributionManagement>
+        <snapshotRepository>
+            <id>oss.sonatype</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>oss.sonatype</id>
+            <url>https://oss.sonatype.org/serivce/local/statging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
 
 	<build>
 		<plugins>
