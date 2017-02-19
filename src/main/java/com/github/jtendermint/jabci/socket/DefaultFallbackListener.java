@@ -67,7 +67,7 @@ public final class DefaultFallbackListener implements ABCIAPI {
 
     @Override
     public ResponseDeliverTx receivedDeliverTx(RequestDeliverTx req) {
-        LOG.debug("ResponseAppendTx DefaultFallbackListener");
+        LOG.debug("ResponseDeliverTx DefaultFallbackListener");
         return ResponseDeliverTx.newBuilder().setCode(CodeType.OK).build();
     }
 

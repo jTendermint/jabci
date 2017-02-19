@@ -29,7 +29,7 @@ import com.github.jtendermint.jabci.types.Types.ResponseBeginBlock;
 public interface IBeginBlock {
 
     /**
-     * Signals the beginning of a new block. Called prior to any AppendTxs.
+     * Signals the beginning of a new block. Called prior to any DeliverTxs.
      * @param req
      * @return
      */

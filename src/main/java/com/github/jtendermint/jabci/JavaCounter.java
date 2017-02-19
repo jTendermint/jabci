@@ -69,7 +69,7 @@ public class JavaCounter implements IDeliverTx, ICheckTx, ICommit {
 
     @Override
     public ResponseDeliverTx receivedDeliverTx(RequestDeliverTx req) {
-        System.out.println("got append tx");
+        System.out.println("got deliver tx");
         ByteString tx = req.getTx();
 
         socket.printByteArray(tx.toByteArray());

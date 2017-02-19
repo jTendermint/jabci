@@ -42,7 +42,7 @@ public class StartupExampleDummy {
 
         //// register TMSP-API listeners here:
         //// listeners can be TMSPAPI for accepting all messages or 
-        //// single interfaces like IInfo, IAppendTX, etc... to only target specific cases
+        //// single interfaces like IInfo, IDeliverTX, etc... to only target specific cases
         // sock.registerListener(some_listeners);
 
         new Thread(sock::start).start();
