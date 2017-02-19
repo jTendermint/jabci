@@ -10,3 +10,9 @@ Check out [StartupExampleDummy.java](https://github.com/jTendermint/jabci/blob/m
 
 When you make changes to the protobuf file, you can enable the appropriate build-phase for the compiler-plugin to generate the file(s) in the target-directory.
 Just switch the comments on lines [pom.xml](https://github.com/jTendermint/jabci/blob/master/pom.xml#L27) and 28.
+
+
+
+
+#### Looking for TMSP?
+The Tendermint protocol was changed from TMSP to ABCI. While these where just minor changes, we wanted to completely reflect all the naming changes in this project. If you're still developing with Tendermint v0.8 and prior check out the [0.8 version of jTMSP](https://github.com/jTendermint/jabci/releases/tag/v0.8)
