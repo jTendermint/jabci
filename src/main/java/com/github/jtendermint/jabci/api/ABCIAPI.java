@@ -35,6 +35,6 @@ package com.github.jtendermint.jabci.api;
  * @version 26.05.2016
  *
  */
-public interface TMSPAPI extends IDeliverTx, IBeginBlock, ICheckTx, ICommit, IEndBlock, IFlush, IInfo, IInitChain, IQuery, ISetOption, IEcho {
+public interface ABCIAPI extends IDeliverTx, IBeginBlock, ICheckTx, ICommit, IEndBlock, IFlush, IInfo, IInitChain, IQuery, ISetOption, IEcho {
 
 }

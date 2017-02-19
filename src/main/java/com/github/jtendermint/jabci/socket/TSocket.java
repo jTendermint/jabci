@@ -47,7 +47,7 @@ import com.github.jtendermint.jabci.api.IInfo;
 import com.github.jtendermint.jabci.api.IInitChain;
 import com.github.jtendermint.jabci.api.IQuery;
 import com.github.jtendermint.jabci.api.ISetOption;
-import com.github.jtendermint.jabci.api.TMSPAPI;
+import com.github.jtendermint.jabci.api.ABCIAPI;
 import com.github.jtendermint.jabci.types.Types;
 import com.github.jtendermint.jabci.types.Types.RequestBeginBlock;
 import com.github.jtendermint.jabci.types.Types.RequestCheckTx;
@@ -335,7 +335,7 @@ public class TSocket {
     private <T> T getListenerForType(Class<T> klass) {
         for (Object object : _listeners) {
             List<Class<?>> clssss = Arrays.asList(object.getClass().getInterfaces());
-            if (clssss.contains(klass) || clssss.contains(TMSPAPI.class)) {
+            if (clssss.contains(klass) || clssss.contains(ABCIAPI.class)) {
                 return (T) object;
             }
         }
