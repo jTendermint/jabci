@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  * 
- * Copyright (c) 2016 
+ * Copyright (c) 2016 - 2017
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,16 +21,18 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.github.jtmsp.api;
+package com.github.jtendermint.jabci.api;
 
-import com.github.jtmsp.types.Types.RequestQuery;
-import com.github.jtmsp.types.Types.ResponseQuery;
+import com.github.jtendermint.jabci.types.Types.RequestSetOption;
+import com.github.jtendermint.jabci.types.Types.ResponseSetOption;
 
-public interface IQuery {
+public interface ISetOption {
 
     /**
-     * Queries the Application for data
+     * Set application options. E.g. Key="mode", Value="mempool" for a mempool connection, or Key="mode", Value="consensus" for a consensus connection. Other options are application specific.
+     * @param req
+     * @return
      */
-    ResponseQuery requestQuery(RequestQuery req);
+    ResponseSetOption requestSetOption(RequestSetOption req);
 
 }

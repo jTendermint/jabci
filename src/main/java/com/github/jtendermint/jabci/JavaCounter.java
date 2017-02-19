@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  * 
- * Copyright (c) 2016 
+ * Copyright (c) 2016 - 2017
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,22 +21,22 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.github.jtmsp;
+package com.github.jtendermint.jabci;
 
 import java.math.BigInteger;
 import java.nio.ByteBuffer;
 
-import com.github.jtmsp.api.IAppendTx;
-import com.github.jtmsp.api.ICheckTx;
-import com.github.jtmsp.api.ICommit;
-import com.github.jtmsp.socket.TSocket;
-import com.github.jtmsp.types.Types.CodeType;
-import com.github.jtmsp.types.Types.RequestAppendTx;
-import com.github.jtmsp.types.Types.RequestCheckTx;
-import com.github.jtmsp.types.Types.RequestCommit;
-import com.github.jtmsp.types.Types.ResponseAppendTx;
-import com.github.jtmsp.types.Types.ResponseCheckTx;
-import com.github.jtmsp.types.Types.ResponseCommit;
+import com.github.jtendermint.jabci.api.ICheckTx;
+import com.github.jtendermint.jabci.api.ICommit;
+import com.github.jtendermint.jabci.api.IDeliverTx;
+import com.github.jtendermint.jabci.socket.TSocket;
+import com.github.jtendermint.jabci.types.Types.CodeType;
+import com.github.jtendermint.jabci.types.Types.RequestCheckTx;
+import com.github.jtendermint.jabci.types.Types.RequestCommit;
+import com.github.jtendermint.jabci.types.Types.RequestDeliverTx;
+import com.github.jtendermint.jabci.types.Types.ResponseCheckTx;
+import com.github.jtendermint.jabci.types.Types.ResponseCommit;
+import com.github.jtendermint.jabci.types.Types.ResponseDeliverTx;
 import com.google.protobuf.ByteString;
 
 /**
@@ -45,7 +45,7 @@ import com.google.protobuf.ByteString;
  * 
  * @author wolfposd
  */
-public class JavaCounter implements IAppendTx, ICheckTx, ICommit {
+public class JavaCounter implements IDeliverTx, ICheckTx, ICommit {
 
     public static void main(String[] args) throws InterruptedException {
         new JavaCounter();
@@ -68,25 +68,25 @@ public class JavaCounter implements IAppendTx, ICheckTx, ICommit {
     }
 
     @Override
-    public ResponseAppendTx receivedAppendTx(RequestAppendTx req) {
+    public ResponseDeliverTx receivedDeliverTx(RequestDeliverTx req) {
         System.out.println("got append tx");
         ByteString tx = req.getTx();
 
         socket.printByteArray(tx.toByteArray());
 
         if (tx.size() == 0) {
-            return ResponseAppendTx.newBuilder().setCode(CodeType.BadNonce).setLog("transaction is empty").build();
+            return ResponseDeliverTx.newBuilder().setCode(CodeType.BadNonce).setLog("transaction is empty").build();
         } else if (tx.size() <= 4) {
             int x = new BigInteger(1, tx.toByteArray()).intValueExact();
             // this is an int now, if not throws an ArithmeticException
             // but we dont actually care what it is. 
         } else {
-            return ResponseAppendTx.newBuilder().setCode(CodeType.BadNonce).setLog("got a bad value").build();
+            return ResponseDeliverTx.newBuilder().setCode(CodeType.BadNonce).setLog("got a bad value").build();
         }
 
         txCount += 1;
         System.out.println("TX Count is now: " + txCount);
-        return ResponseAppendTx.newBuilder().setCode(CodeType.OK).build();
+        return ResponseDeliverTx.newBuilder().setCode(CodeType.OK).build();
     }
 
     @Override

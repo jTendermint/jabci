@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  * 
- * Copyright (c) 2016 
+ * Copyright (c) 2016 - 2017
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,35 +21,35 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.github.jtmsp.socket;
+package com.github.jtendermint.jabci.socket;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.github.jtmsp.api.TMSPAPI;
-import com.github.jtmsp.types.Types.CodeType;
-import com.github.jtmsp.types.Types.RequestAppendTx;
-import com.github.jtmsp.types.Types.RequestBeginBlock;
-import com.github.jtmsp.types.Types.RequestCheckTx;
-import com.github.jtmsp.types.Types.RequestCommit;
-import com.github.jtmsp.types.Types.RequestEcho;
-import com.github.jtmsp.types.Types.RequestEndBlock;
-import com.github.jtmsp.types.Types.RequestFlush;
-import com.github.jtmsp.types.Types.RequestInfo;
-import com.github.jtmsp.types.Types.RequestInitChain;
-import com.github.jtmsp.types.Types.RequestQuery;
-import com.github.jtmsp.types.Types.RequestSetOption;
-import com.github.jtmsp.types.Types.ResponseAppendTx;
-import com.github.jtmsp.types.Types.ResponseBeginBlock;
-import com.github.jtmsp.types.Types.ResponseCheckTx;
-import com.github.jtmsp.types.Types.ResponseCommit;
-import com.github.jtmsp.types.Types.ResponseEcho;
-import com.github.jtmsp.types.Types.ResponseEndBlock;
-import com.github.jtmsp.types.Types.ResponseFlush;
-import com.github.jtmsp.types.Types.ResponseInfo;
-import com.github.jtmsp.types.Types.ResponseInitChain;
-import com.github.jtmsp.types.Types.ResponseQuery;
-import com.github.jtmsp.types.Types.ResponseSetOption;
+import com.github.jtendermint.jabci.api.TMSPAPI;
+import com.github.jtendermint.jabci.types.Types.CodeType;
+import com.github.jtendermint.jabci.types.Types.RequestBeginBlock;
+import com.github.jtendermint.jabci.types.Types.RequestCheckTx;
+import com.github.jtendermint.jabci.types.Types.RequestCommit;
+import com.github.jtendermint.jabci.types.Types.RequestDeliverTx;
+import com.github.jtendermint.jabci.types.Types.RequestEcho;
+import com.github.jtendermint.jabci.types.Types.RequestEndBlock;
+import com.github.jtendermint.jabci.types.Types.RequestFlush;
+import com.github.jtendermint.jabci.types.Types.RequestInfo;
+import com.github.jtendermint.jabci.types.Types.RequestInitChain;
+import com.github.jtendermint.jabci.types.Types.RequestQuery;
+import com.github.jtendermint.jabci.types.Types.RequestSetOption;
+import com.github.jtendermint.jabci.types.Types.ResponseBeginBlock;
+import com.github.jtendermint.jabci.types.Types.ResponseCheckTx;
+import com.github.jtendermint.jabci.types.Types.ResponseCommit;
+import com.github.jtendermint.jabci.types.Types.ResponseDeliverTx;
+import com.github.jtendermint.jabci.types.Types.ResponseEcho;
+import com.github.jtendermint.jabci.types.Types.ResponseEndBlock;
+import com.github.jtendermint.jabci.types.Types.ResponseFlush;
+import com.github.jtendermint.jabci.types.Types.ResponseInfo;
+import com.github.jtendermint.jabci.types.Types.ResponseInitChain;
+import com.github.jtendermint.jabci.types.Types.ResponseQuery;
+import com.github.jtendermint.jabci.types.Types.ResponseSetOption;
 
 /**
  * The DefaultFallbackListener answers every incoming TMSP-request with a CodeType.OK
@@ -66,9 +66,9 @@ public final class DefaultFallbackListener implements TMSPAPI {
     }
 
     @Override
-    public ResponseAppendTx receivedAppendTx(RequestAppendTx req) {
+    public ResponseDeliverTx receivedDeliverTx(RequestDeliverTx req) {
         LOG.debug("ResponseAppendTx DefaultFallbackListener");
-        return ResponseAppendTx.newBuilder().setCode(CodeType.OK).build();
+        return ResponseDeliverTx.newBuilder().setCode(CodeType.OK).build();
     }
 
     @Override
@@ -104,7 +104,7 @@ public final class DefaultFallbackListener implements TMSPAPI {
     @Override
     public ResponseInfo requestInfo(RequestInfo req) {
         LOG.debug("ResponseInfo DefaultFallbackListener");
-        return ResponseInfo.newBuilder().setInfo("NOINFO").build();
+        return ResponseInfo.newBuilder().setData("NO_INFO").build();
     }
 
     @Override

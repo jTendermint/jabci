@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  * 
- * Copyright (c) 2016 
+ * Copyright (c) 2016 - 2017
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,18 +21,19 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.github.jtmsp.api;
+package com.github.jtendermint.jabci.api;
 
-import com.github.jtmsp.types.Types.RequestCheckTx;
-import com.github.jtmsp.types.Types.ResponseCheckTx;
+import com.github.jtendermint.jabci.types.Types.RequestInitChain;
+import com.github.jtendermint.jabci.types.Types.ResponseInitChain;
 
-public interface ICheckTx {
-
+public interface IInitChain {
     /**
-     * Validate a transaction. This message should not mutate the state. Transactions are first run through CheckTx before broadcast to peers in the mempool layer. You can make CheckTx semi-stateful and clear the state upon Commit or BeginBlock, to allow for dependent sequences of transactions in the same block.
-     * @param req
-     * @return
+     * Called once upon genesis <br>
+     * Arguments:<br>
+     * 
+     * Validators ([]Validator): Initial genesis validators
+     * 
+     * @param validators
      */
-    ResponseCheckTx requestCheckTx(RequestCheckTx req);
-
+    ResponseInitChain requestInitChain(RequestInitChain req);
 }

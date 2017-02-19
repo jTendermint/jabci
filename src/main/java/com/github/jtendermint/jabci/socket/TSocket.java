@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  * 
- * Copyright (c) 2016 
+ * Copyright (c) 2016 - 2017
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.github.jtmsp.socket;
+package com.github.jtendermint.jabci.socket;
 
 import java.io.BufferedOutputStream;
 import java.io.IOException;
@@ -36,42 +36,42 @@ import java.util.concurrent.atomic.AtomicInteger;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.github.jtmsp.api.IAppendTx;
-import com.github.jtmsp.api.IBeginBlock;
-import com.github.jtmsp.api.ICheckTx;
-import com.github.jtmsp.api.ICommit;
-import com.github.jtmsp.api.IEcho;
-import com.github.jtmsp.api.IEndBlock;
-import com.github.jtmsp.api.IFlush;
-import com.github.jtmsp.api.IInfo;
-import com.github.jtmsp.api.IInitChain;
-import com.github.jtmsp.api.IQuery;
-import com.github.jtmsp.api.ISetOption;
-import com.github.jtmsp.api.TMSPAPI;
-import com.github.jtmsp.types.Types;
-import com.github.jtmsp.types.Types.RequestAppendTx;
-import com.github.jtmsp.types.Types.RequestBeginBlock;
-import com.github.jtmsp.types.Types.RequestCheckTx;
-import com.github.jtmsp.types.Types.RequestCommit;
-import com.github.jtmsp.types.Types.RequestEcho;
-import com.github.jtmsp.types.Types.RequestEndBlock;
-import com.github.jtmsp.types.Types.RequestFlush;
-import com.github.jtmsp.types.Types.RequestInfo;
-import com.github.jtmsp.types.Types.RequestInitChain;
-import com.github.jtmsp.types.Types.RequestQuery;
-import com.github.jtmsp.types.Types.RequestSetOption;
-import com.github.jtmsp.types.Types.Response;
-import com.github.jtmsp.types.Types.ResponseAppendTx;
-import com.github.jtmsp.types.Types.ResponseBeginBlock;
-import com.github.jtmsp.types.Types.ResponseCheckTx;
-import com.github.jtmsp.types.Types.ResponseCommit;
-import com.github.jtmsp.types.Types.ResponseEcho;
-import com.github.jtmsp.types.Types.ResponseEndBlock;
-import com.github.jtmsp.types.Types.ResponseFlush;
-import com.github.jtmsp.types.Types.ResponseInfo;
-import com.github.jtmsp.types.Types.ResponseInitChain;
-import com.github.jtmsp.types.Types.ResponseQuery;
-import com.github.jtmsp.types.Types.ResponseSetOption;
+import com.github.jtendermint.jabci.api.IBeginBlock;
+import com.github.jtendermint.jabci.api.ICheckTx;
+import com.github.jtendermint.jabci.api.ICommit;
+import com.github.jtendermint.jabci.api.IDeliverTx;
+import com.github.jtendermint.jabci.api.IEcho;
+import com.github.jtendermint.jabci.api.IEndBlock;
+import com.github.jtendermint.jabci.api.IFlush;
+import com.github.jtendermint.jabci.api.IInfo;
+import com.github.jtendermint.jabci.api.IInitChain;
+import com.github.jtendermint.jabci.api.IQuery;
+import com.github.jtendermint.jabci.api.ISetOption;
+import com.github.jtendermint.jabci.api.TMSPAPI;
+import com.github.jtendermint.jabci.types.Types;
+import com.github.jtendermint.jabci.types.Types.RequestBeginBlock;
+import com.github.jtendermint.jabci.types.Types.RequestCheckTx;
+import com.github.jtendermint.jabci.types.Types.RequestCommit;
+import com.github.jtendermint.jabci.types.Types.RequestDeliverTx;
+import com.github.jtendermint.jabci.types.Types.RequestEcho;
+import com.github.jtendermint.jabci.types.Types.RequestEndBlock;
+import com.github.jtendermint.jabci.types.Types.RequestFlush;
+import com.github.jtendermint.jabci.types.Types.RequestInfo;
+import com.github.jtendermint.jabci.types.Types.RequestInitChain;
+import com.github.jtendermint.jabci.types.Types.RequestQuery;
+import com.github.jtendermint.jabci.types.Types.RequestSetOption;
+import com.github.jtendermint.jabci.types.Types.Response;
+import com.github.jtendermint.jabci.types.Types.ResponseBeginBlock;
+import com.github.jtendermint.jabci.types.Types.ResponseCheckTx;
+import com.github.jtendermint.jabci.types.Types.ResponseCommit;
+import com.github.jtendermint.jabci.types.Types.ResponseDeliverTx;
+import com.github.jtendermint.jabci.types.Types.ResponseEcho;
+import com.github.jtendermint.jabci.types.Types.ResponseEndBlock;
+import com.github.jtendermint.jabci.types.Types.ResponseFlush;
+import com.github.jtendermint.jabci.types.Types.ResponseInfo;
+import com.github.jtendermint.jabci.types.Types.ResponseInitChain;
+import com.github.jtendermint.jabci.types.Types.ResponseQuery;
+import com.github.jtendermint.jabci.types.Types.ResponseSetOption;
 import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.GeneratedMessageV3;
 
@@ -189,12 +189,12 @@ public class TSocket {
                         writeMessage(Response.newBuilder().setSetOption(response).build());
                     break;
                 }
-                case APPEND_TX: {
-                    HANDLER_LOG.debug("Received " + Types.Request.ValueCase.APPEND_TX);
-                    RequestAppendTx req = request.getAppendTx();
-                    ResponseAppendTx response = getListenerForType(IAppendTx.class).receivedAppendTx(req);
+                case DELIVER_TX: {
+                    HANDLER_LOG.debug("Received " + Types.Request.ValueCase.DELIVER_TX);
+                    RequestDeliverTx req = request.getDeliverTx();
+                    ResponseDeliverTx response = getListenerForType(IDeliverTx.class).receivedDeliverTx(req);
                     if (response != null)
-                        writeMessage(Response.newBuilder().setAppendTx(response).build());
+                        writeMessage(Response.newBuilder().setDeliverTx(response).build());
                     break;
                 }
                 case CHECK_TX: {

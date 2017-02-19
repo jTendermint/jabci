@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  * 
- * Copyright (c) 2016 
+ * Copyright (c) 2016 - 2017
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,20 +21,18 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.github.jtmsp.api;
+package com.github.jtendermint.jabci.api;
 
-/**
- * TMSP-Protocol<br>
- * Bundled Interface of Sub-Interfaces
- * 
- * <br>
- * See <a
- * href="https://github.com/tendermint/tmsp">https://github.com/tendermint
- * /tmsp</a> for more info
- * 
- * @version 26.05.2016
- *
- */
-public interface TMSPAPI extends IAppendTx, IBeginBlock, ICheckTx, ICommit, IEndBlock, IFlush, IInfo, IInitChain, IQuery, ISetOption, IEcho {
+import com.github.jtendermint.jabci.types.Types.RequestInfo;
+import com.github.jtendermint.jabci.types.Types.ResponseInfo;
+
+public interface IInfo {
+
+    /**
+     * Return information about the application state. Application specific.
+     * @param req
+     * @return
+     */
+    ResponseInfo requestInfo(RequestInfo req);
 
 }

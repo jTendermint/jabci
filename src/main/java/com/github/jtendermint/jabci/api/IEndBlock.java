@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  * 
- * Copyright (c) 2016 
+ * Copyright (c) 2016 - 2017
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,18 +21,21 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.github.jtmsp.api;
+package com.github.jtendermint.jabci.api;
 
-import com.github.jtmsp.types.Types.RequestEcho;
-import com.github.jtmsp.types.Types.ResponseEcho;
+import com.github.jtendermint.jabci.types.Types.RequestEndBlock;
+import com.github.jtendermint.jabci.types.Types.ResponseEndBlock;
 
-public interface IEcho {
+public interface IEndBlock {
 
     /**
-     * Undocumented
-     * @param req
-     * @return
+     * Signals the end of a block. Called prior to each Commit after all
+     * transactions Returns:<br>
+     * Validators ([]Validator): Changed validators with new voting powers (0 to
+     * remove)
+     * 
+     * @param req the Request representing data about the EndBlock (height,...)
      */
-    ResponseEcho requestEcho(RequestEcho req);
+    ResponseEndBlock requestEndBlock(RequestEndBlock req);
 
 }

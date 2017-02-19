@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  * 
- * Copyright (c) 2016 
+ * Copyright (c) 2016 - 2017
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,16 +21,18 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.github.jtmsp.api;
+package com.github.jtendermint.jabci.api;
 
-import com.github.jtmsp.types.Types.RequestCommit;
-import com.github.jtmsp.types.Types.ResponseCommit;
+import com.github.jtendermint.jabci.types.Types.RequestDeliverTx;
+import com.github.jtendermint.jabci.types.Types.ResponseDeliverTx;
 
-public interface ICommit {
+public interface IDeliverTx {
 
-    /***
-     * Return a Merkle root hash of the application state.
+    /**
+     * Append and run a transaction. If the transaction is valid, returns CodeType.OK
+     * @param req
+     * @return
      */
-    ResponseCommit requestCommit(RequestCommit requestCommit);
+    ResponseDeliverTx receivedDeliverTx(RequestDeliverTx req);
 
 }

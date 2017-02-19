@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  * 
- * Copyright (c) 2016 
+ * Copyright (c) 2016 - 2017
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,18 +21,18 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.github.jtmsp.api;
+package com.github.jtendermint.jabci.api;
 
-import com.github.jtmsp.types.Types.RequestBeginBlock;
-import com.github.jtmsp.types.Types.ResponseBeginBlock;
+import com.github.jtendermint.jabci.types.Types.RequestEcho;
+import com.github.jtendermint.jabci.types.Types.ResponseEcho;
 
-public interface IBeginBlock {
+public interface IEcho {
 
     /**
-     * Signals the beginning of a new block. Called prior to any AppendTxs.
+     * Undocumented
      * @param req
      * @return
      */
-    ResponseBeginBlock requestBeginBlock(RequestBeginBlock req);
+    ResponseEcho requestEcho(RequestEcho req);
 
 }

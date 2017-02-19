@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  * 
- * Copyright (c) 2016 
+ * Copyright (c) 2016 - 2017
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,18 +21,18 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.github.jtmsp.api;
+package com.github.jtendermint.jabci.api;
 
-import com.github.jtmsp.types.Types.RequestSetOption;
-import com.github.jtmsp.types.Types.ResponseSetOption;
+import com.github.jtendermint.jabci.types.Types.RequestFlush;
+import com.github.jtendermint.jabci.types.Types.ResponseFlush;
 
-public interface ISetOption {
+public interface IFlush {
 
     /**
-     * Set application options. E.g. Key="mode", Value="mempool" for a mempool connection, or Key="mode", Value="consensus" for a consensus connection. Other options are application specific.
-     * @param req
+     * Flush the response queue. Applications that implement types.Application need not implement this message -- it's handled by the project.
+     * @param reqfl
      * @return
      */
-    ResponseSetOption requestSetOption(RequestSetOption req);
+    ResponseFlush requestFlush(RequestFlush reqfl);
 
 }

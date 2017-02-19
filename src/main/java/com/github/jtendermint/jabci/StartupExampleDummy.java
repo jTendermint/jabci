@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  * 
- * Copyright (c) 2016 
+ * Copyright (c) 2016 - 2017
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,18 +21,35 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.github.jtmsp.api;
+package com.github.jtendermint.jabci;
 
-import com.github.jtmsp.types.Types.RequestFlush;
-import com.github.jtmsp.types.Types.ResponseFlush;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-public interface IFlush {
+import com.github.jtendermint.jabci.socket.TSocket;
 
-    /**
-     * Flush the response queue. Applications that implement types.Application need not implement this message -- it's handled by the project.
-     * @param reqfl
-     * @return
-     */
-    ResponseFlush requestFlush(RequestFlush reqfl);
+public class StartupExampleDummy {
+    private final static Logger LOG = LoggerFactory.getLogger(StartupExampleDummy.class);
+
+    public static void main(String[] args) throws InterruptedException {
+        new StartupExampleDummy().startExampleDummy();
+    }
+
+    public void startExampleDummy() throws InterruptedException {
+        LOG.info("Starting Example Dummy");
+
+        final TSocket sock = new TSocket();
+
+        //// register TMSP-API listeners here:
+        //// listeners can be TMSPAPI for accepting all messages or 
+        //// single interfaces like IInfo, IAppendTX, etc... to only target specific cases
+        // sock.registerListener(some_listeners);
+
+        new Thread(sock::start).start();
+
+        while (true) {
+            Thread.sleep(1000L);
+        }
+    }
 
 }
