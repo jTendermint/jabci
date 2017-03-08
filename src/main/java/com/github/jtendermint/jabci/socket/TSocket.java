@@ -342,7 +342,7 @@ public class TSocket {
         return (T) DefaultFallbackListener.instance;
     }
 
-    public void printByteArray(byte[] bArr) {
+    public static void printByteArray(byte[] bArr) {
         for (byte b : bArr) {
             System.out.format("0x%x ", b);
         }
