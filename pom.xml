@@ -7,20 +7,52 @@
 	<artifactId>jabci</artifactId>
 	<version>0.9.0-SNAPSHOT</version>
 
+    <name>com.github.jtendermint:jabci</name>
+    <description>Java implementation for ABCI consensus protocol from tendermint.com and related tools</description>
+    <url>http://www.github.com/jtendermint</url>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-    
-    <!--  <distributionManagement>
+
+    <licenses>
+        <license>
+            <name>The MIT License (MIT)</name>
+            <url>https://opensource.org/licenses/MIT</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>Stephan Mueller</name>
+            <email>mueller@ponton.de</email>
+            <organization>PONTON GmbH</organization>
+            <organizationUrl>http://www.ponton.de</organizationUrl>
+        </developer>
+        <developer>
+            <name>Wolf Posdorfer</name>
+            <email>posdorfer@ponton.de</email>
+            <organization>PONTON GmbH</organization>
+            <organizationUrl>http://www.ponton.de</organizationUrl>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git://github.com/jtendermint/jabci.git</connection>
+        <developerConnection>scm:git:ssh://github.com:jtendermint/jabci.git</developerConnection>
+        <url>http://github.com/jtendermint/jabci/tree/master</url>
+    </scm>
+
+    <distributionManagement>
         <snapshotRepository>
             <id>oss.sonatype</id>
             <url>https://oss.sonatype.org/content/repositories/snapshots</url>
         </snapshotRepository>
         <repository>
             <id>oss.sonatype</id>
-            <url>https://oss.sonatype.org/serivce/local/statging/deploy/maven2/</url>
+            <url>https://oss.sonatype.org/serivce/local/staging/deploy/maven2/</url>
         </repository>
-    </distributionManagement>  -->
+    </distributionManagement>
 
 	<build>
 		<plugins>
