@@ -35,6 +35,18 @@
             <organization>PONTON GmbH</organization>
             <organizationUrl>http://www.ponton.de</organizationUrl>
         </developer>
+        <developer>
+            <name>Michael Haeusler</name>
+            <email>haeusler@ponton.de</email>
+            <organization>PONTON GmbH</organization>
+            <organizationUrl>http://www.ponton.de</organizationUrl>
+        </developer>
+        <developer>
+            <name>Manuel Meske</name>
+            <email>meske@ponton.de</email>
+            <organization>PONTON GmbH</organization>
+            <organizationUrl>http://www.ponton.de</organizationUrl>
+        </developer>
     </developers>
 
     <scm>
