@@ -6,6 +6,25 @@ A Java implementation of the Tendermint Application BlockChain Interface ([ABCI]
 
 Check out [StartupExampleDummy.java](https://github.com/jTendermint/jabci/blob/master/src/main/java/com/github/jtendermint/jabci/StartupExampleDummy.java) or [JavaCounter.java](https://github.com/jTendermint/jabci/blob/master/src/main/java/com/github/jtendermint/jabci/JavaCounter.java) for examples.
 
+#### Maven integration
+jABCI is available via central's snapshot repository. A release version should be available soon.
+use the following dependency to include jABCI in your project:
+```xml
+            <dependency>
+                <groupId>com.github.jtendermint</groupId>
+                <artifactId>jabci</artifactId>
+                <version>0.9.0-SNAPSHOT</version>
+                <scope>compile</scope>
+                <!-- you might want to exclude slf4j, depending on your setup -->
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>slf4j-simple</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+```
+
 #### Update protobuf types
 
 When you make changes to the protobuf file, you can enable the appropriate build-phase for the compiler-plugin to generate the file(s) in the target-directory.
