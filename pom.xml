@@ -119,6 +119,9 @@
     <profiles>
         <profile>
             <id>rel</id>
+            <properties>
+                <bamboo.planRepository.branchName>${bamboo_planRepository_branchName}</bamboo.planRepository.branchName>
+            </properties>
             <build>
                 <plugins>
                     <plugin>
@@ -126,7 +129,7 @@
                         <artifactId>createversion-maven-plugin</artifactId>
                         <version>1.2.0</version>
                         <configuration>
-                            <currentBranch>${bamboo_planRepository_branch}</currentBranch>
+                            <currentBranch>${bamboo.planRepository.branchName}</currentBranch>
                             <branchMappings>
                                 <branchMapping>
                                     <branchRegex>release/(.+)</branchRegex>
