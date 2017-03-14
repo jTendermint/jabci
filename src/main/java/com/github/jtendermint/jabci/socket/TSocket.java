@@ -142,11 +142,6 @@ public class TSocket extends ASocket {
             long varintLength = varint.length;
             byte[] varintPrefix = BigInteger.valueOf(varintLength).toByteArray();
 
-            
-            System.out.println(byteArrayToString(varintPrefix));
-            System.out.println(byteArrayToString(varint));
-            System.out.println(byteArrayToString(message));
-            
             if (outputStream != null) {
                 outputStream.write(varintPrefix);
                 outputStream.write(varint);
@@ -174,7 +169,6 @@ public class TSocket extends ASocket {
         try (ServerSocket serverSocket = new ServerSocket(portNumber)) {
             while (true) {
                 Socket clientSocket = serverSocket.accept();
-                System.out.println("accepted a new connection");
                 new Thread(new SocketHandler(clientSocket)).start();
                 SOCKET_LOG.debug("Started thread for sockethandling...");
             }
@@ -183,12 +177,5 @@ public class TSocket extends ASocket {
             SOCKET_LOG.debug(e.getMessage());
             e.printStackTrace();
         }
-    }
-
-    public static void printByteArray(byte[] bArr) {
-        for (byte b : bArr) {
-            System.out.format("0x%x ", b);
-        }
-        System.out.print("\n");
     }
 }

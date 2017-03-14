@@ -45,7 +45,6 @@ import com.github.jtendermint.jabci.types.Types.ResponseInfo;
 import com.github.jtendermint.jabci.types.Types.ResponseInitChain;
 import com.github.jtendermint.jabci.types.Types.ResponseQuery;
 import com.github.jtendermint.jabci.types.Types.ResponseSetOption;
-import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.GeneratedMessageV3;
 
 public abstract class ASocket {
@@ -55,78 +54,6 @@ public abstract class ASocket {
     public final static int DEFAULT_LISTEN_SOCKET_PORT = 46658;
 
     private List<Object> _listeners = new ArrayList<>();
-
-    protected ByteBuffer outputForInput(ByteBuffer buffer) {
-        try {
-            Request req = readMessage(buffer);
-            if (req != null) {
-                GeneratedMessageV3 handleRequest = handleRequest(req);
-                if (handleRequest != null)
-                    return responseToByteBuffer(handleRequest);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    protected Request readMessage(ByteBuffer buffer) throws IOException {
-
-        // attachment.buffer.flip();
-        buffer.rewind();
-        int limits = buffer.limit();
-
-        if (limits == 0)
-            return null;
-
-        byte bytes[] = new byte[limits];
-        buffer.get(bytes, 0, limits);
-
-        HANDLER_LOG.info("readMessage, capacity: {} , bytes: {}, limit: {}", buffer.capacity(), ASocket.byteArrayToString(bytes), limits);
-
-        // ===============================================================
-
-        CodedInputStream inputStream = CodedInputStream.newInstance(bytes);
-        HANDLER_LOG.debug("start reading");
-
-        // Each Message is prefixed by a header from the gitrepos.com/tendermint/go-wire protocol.
-        // We get the message length from this header and then parse the actual message using protobuf.
-        // To facilitate reading an exact number of bytes we use a CodedInputStream.
-        // BufferedInputStream.read would still need to be called in a loop, to ensure that all data is received.
-
-        // Size counter is used to enforce a size limit per message (see CodedInputStream.setSizeLimit()).
-        // We need to reset it before reading the next message:
-        // inputStream.resetSizeCounter();
-
-        // HEADER: first byte is length of length field
-        byte varintLength = inputStream.readRawByte();
-        if (varintLength > 4) {
-            throw new IllegalStateException("Varint bigger than 4 bytes are not supported! " + varintLength);
-        }
-
-        // HEADER: next varintLength bytes contain messageLength:
-        // It is a Big-Endian encoded unsigned integer.
-        // We only allow 4 bytes, but then have to parse it with one zero byte prepended,
-        // since Java does not support unsigned integers.
-        byte[] messageLengthBytes = inputStream.readRawBytes(varintLength);
-        byte[] messageLengthLongBytes = new byte[5];
-        System.arraycopy(messageLengthBytes, 0, messageLengthLongBytes, 5 - varintLength, varintLength);
-        long messageLengthLong = new BigInteger(messageLengthLongBytes).longValue();
-        if (messageLengthLong > Integer.MAX_VALUE) {
-            throw new IllegalStateException("Message lengths of more than Integer.MAX_VALUE are not supported.");
-        }
-        int messageLength = (int) messageLengthLong;
-        HANDLER_LOG.debug("Assuming message length: " + messageLength);
-
-        // PAYLOAD: limit CodedInputStream to messageLength bytes and parse Request using Protobuf:
-        int oldLimit = inputStream.pushLimit(messageLength);
-        final Types.Request request = Types.Request.parseFrom(inputStream);
-        inputStream.popLimit(oldLimit);
-
-        // ===============================================================
-
-        return request;
-    }
 
     protected GeneratedMessageV3 handleRequest(Request request) throws IOException {
         switch (request.getValueCase()) {
@@ -223,18 +150,6 @@ public abstract class ASocket {
         return combined;
     }
 
-    protected ByteBuffer[] responseBytes(GeneratedMessageV3 message) {
-        int length = message.toByteArray().length;
-        byte[] varint = BigInteger.valueOf(length).toByteArray();
-        long varintLength = varint.length;
-        byte[] varintPrefix = BigInteger.valueOf(varintLength).toByteArray();
-
-        ByteBuffer[] result = new ByteBuffer[] { ByteBuffer.wrap(varintPrefix), ByteBuffer.wrap(varint),
-                ByteBuffer.wrap(message.toByteArray()) };
-
-        return result;
-    }
-
     /**
      * Register a new listener of type TMSPAPI or supertype
      * 
@@ -283,6 +198,13 @@ public abstract class ASocket {
         }
         build.append(">");
         return build.toString();
+    }
+
+    public static void printByteArray(byte[] bArr) {
+        for (byte b : bArr) {
+            System.out.format("0x%x ", b);
+        }
+        System.out.print("\n");
     }
 
 }
