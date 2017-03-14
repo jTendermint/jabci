@@ -72,7 +72,7 @@ public class JavaCounter implements IDeliverTx, ICheckTx, ICommit {
         System.out.println("got deliver tx");
         ByteString tx = req.getTx();
 
-        socket.printByteArray(tx.toByteArray());
+        TSocket.printByteArray(tx.toByteArray());
 
         if (tx.size() == 0) {
             return ResponseDeliverTx.newBuilder().setCode(CodeType.BadNonce).setLog("transaction is empty").build();

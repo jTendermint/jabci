@@ -28,50 +28,12 @@ import java.io.IOException;
 import java.math.BigInteger;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.github.jtendermint.jabci.api.IBeginBlock;
-import com.github.jtendermint.jabci.api.ICheckTx;
-import com.github.jtendermint.jabci.api.ICommit;
-import com.github.jtendermint.jabci.api.IDeliverTx;
-import com.github.jtendermint.jabci.api.IEcho;
-import com.github.jtendermint.jabci.api.IEndBlock;
-import com.github.jtendermint.jabci.api.IFlush;
-import com.github.jtendermint.jabci.api.IInfo;
-import com.github.jtendermint.jabci.api.IInitChain;
-import com.github.jtendermint.jabci.api.IQuery;
-import com.github.jtendermint.jabci.api.ISetOption;
-import com.github.jtendermint.jabci.api.ABCIAPI;
 import com.github.jtendermint.jabci.types.Types;
-import com.github.jtendermint.jabci.types.Types.RequestBeginBlock;
-import com.github.jtendermint.jabci.types.Types.RequestCheckTx;
-import com.github.jtendermint.jabci.types.Types.RequestCommit;
-import com.github.jtendermint.jabci.types.Types.RequestDeliverTx;
-import com.github.jtendermint.jabci.types.Types.RequestEcho;
-import com.github.jtendermint.jabci.types.Types.RequestEndBlock;
-import com.github.jtendermint.jabci.types.Types.RequestFlush;
-import com.github.jtendermint.jabci.types.Types.RequestInfo;
-import com.github.jtendermint.jabci.types.Types.RequestInitChain;
-import com.github.jtendermint.jabci.types.Types.RequestQuery;
-import com.github.jtendermint.jabci.types.Types.RequestSetOption;
-import com.github.jtendermint.jabci.types.Types.Response;
-import com.github.jtendermint.jabci.types.Types.ResponseBeginBlock;
-import com.github.jtendermint.jabci.types.Types.ResponseCheckTx;
-import com.github.jtendermint.jabci.types.Types.ResponseCommit;
-import com.github.jtendermint.jabci.types.Types.ResponseDeliverTx;
-import com.github.jtendermint.jabci.types.Types.ResponseEcho;
-import com.github.jtendermint.jabci.types.Types.ResponseEndBlock;
-import com.github.jtendermint.jabci.types.Types.ResponseFlush;
-import com.github.jtendermint.jabci.types.Types.ResponseInfo;
-import com.github.jtendermint.jabci.types.Types.ResponseInitChain;
-import com.github.jtendermint.jabci.types.Types.ResponseQuery;
-import com.github.jtendermint.jabci.types.Types.ResponseSetOption;
 import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.GeneratedMessageV3;
 
@@ -82,14 +44,13 @@ import com.google.protobuf.GeneratedMessageV3;
  * @author srmo, wolfposd
  */
 @SuppressWarnings("synthetic-access")
-public class TSocket {
+public class TSocket extends ASocket {
 
     public static final int DEFAULT_LISTEN_SOCKET_PORT = 46658;
     private final static Logger SOCKET_LOG = LoggerFactory.getLogger(TSocket.class);
     private final static Logger HANDLER_LOG = LoggerFactory.getLogger(SocketHandler.class);
 
     private final static AtomicInteger runningThreads = new AtomicInteger();
-    private List<Object> _listeners = new ArrayList<>();
 
     class SocketHandler implements Runnable {
         private final int threadNumber;
@@ -147,7 +108,8 @@ public class TSocket {
                     inputStream.popLimit(oldLimit);
 
                     // Process the request that was just read:
-                    handleRequest(request);
+                    GeneratedMessageV3 response = handleRequest(request);
+                    writeMessage(response);
                 }
             } catch (IOException e) {
                 e.printStackTrace();
@@ -156,97 +118,6 @@ public class TSocket {
             runningThreads.getAndDecrement();
         }
 
-        private void handleRequest(Types.Request request) throws IOException {
-            switch (request.getValueCase()) {
-                case ECHO: {
-                    HANDLER_LOG.debug("Received " + Types.Request.ValueCase.ECHO);
-                    RequestEcho req = request.getEcho();
-                    ResponseEcho response = getListenerForType(IEcho.class).requestEcho(req);
-                    if (response != null)
-                        writeMessage(Response.newBuilder().setEcho(response).build());
-                    break;
-                }
-                case FLUSH: {
-                    HANDLER_LOG.debug("Received " + Types.Request.ValueCase.FLUSH);
-                    RequestFlush req = request.getFlush();
-                    ResponseFlush response = getListenerForType(IFlush.class).requestFlush(req);
-                    writeMessage(Response.newBuilder().setFlush(response).build());
-                    break;
-                }
-                case INFO: {
-                    HANDLER_LOG.debug("Received " + Types.Request.ValueCase.INFO);
-                    RequestInfo req = request.getInfo();
-                    ResponseInfo response = getListenerForType(IInfo.class).requestInfo(req);
-                    if (response != null)
-                        writeMessage(Response.newBuilder().setInfo(response).build());
-                    break;
-                }
-                case SET_OPTION: {
-                    HANDLER_LOG.debug("Received " + Types.Request.ValueCase.SET_OPTION);
-                    RequestSetOption req = request.getSetOption();
-                    ResponseSetOption response = getListenerForType(ISetOption.class).requestSetOption(req);
-                    if (response != null)
-                        writeMessage(Response.newBuilder().setSetOption(response).build());
-                    break;
-                }
-                case DELIVER_TX: {
-                    HANDLER_LOG.debug("Received " + Types.Request.ValueCase.DELIVER_TX);
-                    RequestDeliverTx req = request.getDeliverTx();
-                    ResponseDeliverTx response = getListenerForType(IDeliverTx.class).receivedDeliverTx(req);
-                    if (response != null)
-                        writeMessage(Response.newBuilder().setDeliverTx(response).build());
-                    break;
-                }
-                case CHECK_TX: {
-                    HANDLER_LOG.debug("Received " + Types.Request.ValueCase.CHECK_TX);
-                    RequestCheckTx req = request.getCheckTx();
-                    ResponseCheckTx response = getListenerForType(ICheckTx.class).requestCheckTx(req);
-                    writeMessage(Response.newBuilder().setCheckTx(response).build());
-                    break;
-                }
-                case COMMIT: {
-                    HANDLER_LOG.debug("Received " + Types.Request.ValueCase.COMMIT);
-                    RequestCommit req = request.getCommit();
-                    ResponseCommit response = getListenerForType(ICommit.class).requestCommit(req);
-                    writeMessage(Response.newBuilder().setCommit(response).build());
-                    break;
-                }
-                case QUERY: {
-                    HANDLER_LOG.debug("Received " + Types.Request.ValueCase.QUERY);
-                    RequestQuery req = request.getQuery();
-                    ResponseQuery response = getListenerForType(IQuery.class).requestQuery(req);
-                    writeMessage(Response.newBuilder().setQuery(response).build());
-                    break;
-                }
-                case INIT_CHAIN: {
-                    HANDLER_LOG.debug("Received " + Types.Request.ValueCase.INIT_CHAIN);
-                    RequestInitChain req = request.getInitChain();
-                    ResponseInitChain response = getListenerForType(IInitChain.class).requestInitChain(req);
-                    writeMessage(Response.newBuilder().setInitChain(response).build());
-                    break;
-                }
-                case BEGIN_BLOCK: {
-                    HANDLER_LOG.debug("Received " + Types.Request.ValueCase.BEGIN_BLOCK);
-                    RequestBeginBlock req = request.getBeginBlock();
-                    ResponseBeginBlock response = getListenerForType(IBeginBlock.class).requestBeginBlock(req);
-                    writeMessage(Response.newBuilder().setBeginBlock(response).build());
-                    break;
-                }
-                case END_BLOCK: {
-                    HANDLER_LOG.debug("Received " + Types.Request.ValueCase.END_BLOCK);
-                    RequestEndBlock req = request.getEndBlock();
-                    ResponseEndBlock response = getListenerForType(IEndBlock.class).requestEndBlock(req);
-                    writeMessage(Response.newBuilder().setEndBlock(response).build());
-                    break;
-                }
-                case VALUE_NOT_SET: {
-                    HANDLER_LOG.debug("Received " + Types.Request.ValueCase.VALUE_NOT_SET);
-                    break;
-                }
-                default:
-                    throw new IllegalStateException(String.format("Received unknown ValueCase '%s' in request", request.getValueCase()));
-            }
-        }
 
         /**
          * Writes a {@link GeneratedMessageV3} to the socket output stream
@@ -271,6 +142,11 @@ public class TSocket {
             long varintLength = varint.length;
             byte[] varintPrefix = BigInteger.valueOf(varintLength).toByteArray();
 
+            
+            System.out.println(byteArrayToString(varintPrefix));
+            System.out.println(byteArrayToString(varint));
+            System.out.println(byteArrayToString(message));
+            
             if (outputStream != null) {
                 outputStream.write(varintPrefix);
                 outputStream.write(varint);
@@ -298,6 +174,7 @@ public class TSocket {
         try (ServerSocket serverSocket = new ServerSocket(portNumber)) {
             while (true) {
                 Socket clientSocket = serverSocket.accept();
+                System.out.println("accepted a new connection");
                 new Thread(new SocketHandler(clientSocket)).start();
                 SOCKET_LOG.debug("Started thread for sockethandling...");
             }
@@ -308,45 +185,10 @@ public class TSocket {
         }
     }
 
-    /**
-     * Register a new listener of type TMSPAPI or supertype
-     * @param listener
-     */
-    public void registerListener(Object listener) {
-        _listeners.add(listener);
-    }
-
-    /**
-     * Register a new listener of type TMSPAPI or supertype
-     * @param listener
-     */
-    public void removeListener(Object listener) {
-        _listeners.remove(listener);
-    }
-
-    /**
-     * Returns the <b>first</b> listener for specified class or a
-     * {@link DefaultFallbackListener} if nothing was found
-     * 
-     * @param klass
-     * @return
-     */
-    @SuppressWarnings("unchecked")
-    private <T> T getListenerForType(Class<T> klass) {
-        for (Object object : _listeners) {
-            List<Class<?>> clssss = Arrays.asList(object.getClass().getInterfaces());
-            if (clssss.contains(klass) || clssss.contains(ABCIAPI.class)) {
-                return (T) object;
-            }
-        }
-        return (T) DefaultFallbackListener.instance;
-    }
-
     public static void printByteArray(byte[] bArr) {
         for (byte b : bArr) {
             System.out.format("0x%x ", b);
         }
         System.out.print("\n");
     }
-
 }
