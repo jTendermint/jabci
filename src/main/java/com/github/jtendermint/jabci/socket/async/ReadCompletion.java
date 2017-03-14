@@ -4,11 +4,11 @@ import java.nio.channels.CompletionHandler;
 
 public final class ReadCompletion implements CompletionHandler<Integer, Object> {
 
-    private Lambda d;
+    private Lambda lambda;
 
     @Override
     public void completed(Integer bytes, Object attachment) {
-        d.onCompletion(bytes, attachment);
+        lambda.onCompletion(bytes, attachment);
     }
 
     @Override
@@ -16,14 +16,15 @@ public final class ReadCompletion implements CompletionHandler<Integer, Object> 
         System.err.println(exc.getMessage());
     }
 
-    public static ReadCompletion make(Lambda d) {
-        ReadCompletion r = new ReadCompletion();
-        r.d = d;
-        return r;
+    public static ReadCompletion lambda(Lambda lambda) {
+        return new ReadCompletion(lambda);
+    }
+
+    private ReadCompletion(Lambda lamb) {
+        this.lambda = lamb;
     }
 
     public interface Lambda {
         public void onCompletion(Integer bytesRead, Object attachment);
     }
-
 }

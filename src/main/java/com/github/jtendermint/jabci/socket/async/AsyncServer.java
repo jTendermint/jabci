@@ -8,41 +8,33 @@ import java.nio.channels.AsynchronousServerSocketChannel;
 import java.nio.channels.AsynchronousSocketChannel;
 import java.nio.channels.CompletionHandler;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.github.jtendermint.jabci.socket.ASocket;
 import com.github.jtendermint.jabci.types.Types;
 import com.google.protobuf.GeneratedMessageV3;
 
 public class AsyncServer extends ASocket {
 
+    private final static Logger LOG = LoggerFactory.getLogger(AsyncServer.class);
+
     private InetSocketAddress sockAddr;
 
-    public static void main(String[] args) {
+    public AsyncServer() throws IOException {
+        this(DEFAULT_LISTEN_SOCKET_PORT);
+    }
 
-        newConnection();
+    public AsyncServer(int bindPort) throws IOException {
+        sockAddr = new InetSocketAddress("localhost", bindPort);
+    }
 
-        while (true) {
-            try {
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
-            }
+    public void start() {
+        try {
+            acceptConnection();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-
-    }
-
-    public static void newConnection() {
-        new Thread(() -> {
-            try {
-                System.out.println("starting server");
-                AsyncServer server = new AsyncServer("127.0.0.1", DEFAULT_LISTEN_SOCKET_PORT);
-                server.acceptConnection();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }).start();
-    }
-
-    public AsyncServer(String bindIpAddress, int bindPort) throws IOException {
-        sockAddr = new InetSocketAddress(bindIpAddress, bindPort);
     }
 
     private void acceptConnection() throws IOException {
@@ -58,22 +50,20 @@ public class AsyncServer extends ASocket {
         public void completed(AsynchronousSocketChannel client, Attachment att) {
 
             try {
-                System.out.println("accepting connections from : " + client.getRemoteAddress());
+                LOG.debug("accepting connections from : {}", client.getRemoteAddress());
             } catch (IOException e) {
-                System.out.println("accepting connections from : " + client);
+                LOG.debug("accepting connections from : {}", client);
             }
             att.server.accept(att, new ConnectionHandler());
 
             Attachment newAttachment = new Attachment(att.server, client, ByteBuffer.allocate(1), att.isRead);
-            System.out.println(newAttachment);
 
             client.read(newAttachment.buffer, newAttachment, new FirstRead());
         }
 
         @Override
         public void failed(Throwable exc, Attachment attachment) {
-            System.err.println("Failed to accept a connection from: " + attachment);
-            exc.printStackTrace();
+            LOG.error("Failed to connect", exc);
         }
     }
 
@@ -85,27 +75,23 @@ public class AsyncServer extends ASocket {
             final ByteBuffer buf1 = attachment.buffer;
 
             if (bytes == 1) {
-                System.out.println("reading 1 byte");
+                // read 1. byte
                 final int varintlength = buf1.get(0);
                 final ByteBuffer buf2 = ByteBuffer.allocate(varintlength);
 
-                client.read(buf2, buf2, ReadCompletion.make((bytes2, attmn2) -> {
+                client.read(buf2, buf2, ReadCompletion.lambda((bytes2, attmn2) -> {
 
-                    System.out.println("reading next bytes");
+                    // read bytes that define message length
                     long messageLengthLong = new BigInteger(buf2.array()).longValue();
-
                     final ByteBuffer buf3 = ByteBuffer.allocate((int) messageLengthLong);
-                    client.read(buf3, buf3, ReadCompletion.make((bytes3, attmn3) -> {
-                        System.out.println("reading last bytes");
-                        System.out.println(byteArrayToString(buf3.array()));
 
+                    client.read(buf3, buf3, ReadCompletion.lambda((bytes3, attmn3) -> {
                         try {
-
+                            // read the actual message
                             final Types.Request request = Types.Request.parseFrom(buf3.array());
-                            GeneratedMessageV3 msg = handleRequest(request);
-                            ByteBuffer output = responseToByteBuffer(msg);
+                            final GeneratedMessageV3 msg = handleRequest(request);
+                            final ByteBuffer output = responseToByteBuffer(msg);
                             client.write(output);
-
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
@@ -120,7 +106,7 @@ public class AsyncServer extends ASocket {
 
         @Override
         public void failed(Throwable exc, Attachment attachment) {
-
+            LOG.error("Failed to read", exc);
         }
 
     }
