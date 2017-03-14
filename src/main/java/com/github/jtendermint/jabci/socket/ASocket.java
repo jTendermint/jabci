@@ -4,13 +4,11 @@ import java.io.IOException;
 import java.math.BigInteger;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.github.jtendermint.jabci.api.ABCIAPI;
 import com.github.jtendermint.jabci.api.IBeginBlock;
 import com.github.jtendermint.jabci.api.ICheckTx;
 import com.github.jtendermint.jabci.api.ICommit;
@@ -22,7 +20,6 @@ import com.github.jtendermint.jabci.api.IInfo;
 import com.github.jtendermint.jabci.api.IInitChain;
 import com.github.jtendermint.jabci.api.IQuery;
 import com.github.jtendermint.jabci.api.ISetOption;
-import com.github.jtendermint.jabci.socket.async.Attachment;
 import com.github.jtendermint.jabci.types.Types;
 import com.github.jtendermint.jabci.types.Types.Request;
 import com.github.jtendermint.jabci.types.Types.RequestBeginBlock;
@@ -54,7 +51,7 @@ import com.google.protobuf.GeneratedMessageV3;
 public abstract class ASocket {
 
     private final static Logger HANDLER_LOG = LoggerFactory.getLogger(ASocket.class);
-    
+
     public final static int DEFAULT_LISTEN_SOCKET_PORT = 46658;
 
     private List<Object> _listeners = new ArrayList<>();
@@ -64,7 +61,7 @@ public abstract class ASocket {
             Request req = readMessage(buffer);
             if (req != null) {
                 GeneratedMessageV3 handleRequest = handleRequest(req);
-                if(handleRequest != null)
+                if (handleRequest != null)
                     return responseToByteBuffer(handleRequest);
             }
         } catch (IOException e) {
@@ -225,9 +222,8 @@ public abstract class ASocket {
         combined.flip();
         return combined;
     }
-    
-    protected ByteBuffer[] responseBytes(GeneratedMessageV3 message)
-    {
+
+    protected ByteBuffer[] responseBytes(GeneratedMessageV3 message) {
         int length = message.toByteArray().length;
         byte[] varint = BigInteger.valueOf(length).toByteArray();
         long varintLength = varint.length;

@@ -1,15 +1,15 @@
 package com.github.jtendermint.jabci.socket.async;
 
 import java.io.IOException;
+import java.math.BigInteger;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
 import java.nio.channels.AsynchronousServerSocketChannel;
 import java.nio.channels.AsynchronousSocketChannel;
 import java.nio.channels.CompletionHandler;
-import java.util.concurrent.ExecutionException;
 
 import com.github.jtendermint.jabci.socket.ASocket;
-import com.github.jtendermint.jabci.types.Types.Request;
+import com.github.jtendermint.jabci.types.Types;
 import com.google.protobuf.GeneratedMessageV3;
 
 public class AsyncServer extends ASocket {
@@ -64,18 +64,10 @@ public class AsyncServer extends ASocket {
             }
             att.server.accept(att, new ConnectionHandler());
 
-            client.supportedOptions().forEach(e -> {
-                try {
-                    System.out.println(e.name() + ", " + e.type() + ", " + client.getOption(e));
-                } catch (IOException e1) {
-                }
-
-            });
-            
-
-            Attachment newAttachment = new Attachment(att.server, client, ByteBuffer.allocate(4096), att.isRead);
+            Attachment newAttachment = new Attachment(att.server, client, ByteBuffer.allocate(1), att.isRead);
             System.out.println(newAttachment);
-            client.read(newAttachment.buffer, newAttachment, new ReadWriteHandler());
+
+            client.read(newAttachment.buffer, newAttachment, new FirstRead());
         }
 
         @Override
@@ -83,81 +75,53 @@ public class AsyncServer extends ASocket {
             System.err.println("Failed to accept a connection from: " + attachment);
             exc.printStackTrace();
         }
-
     }
 
-    class ReadWriteHandler implements CompletionHandler<Integer, Attachment> {
+    class FirstRead implements CompletionHandler<Integer, Attachment> {
+
         @Override
-        public void completed(Integer result, Attachment attachment) {
-            if (result == -1) {
-                try {
-                    attachment.client.close();
-                    System.out.format("Stopped listening to the client %s%n", attachment.clientAddress);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                return;
+        public void completed(Integer bytes, Attachment attachment) {
+            AsynchronousSocketChannel client = attachment.client;
+            final ByteBuffer buf1 = attachment.buffer;
+
+            if (bytes == 1) {
+                System.out.println("reading 1 byte");
+                final int varintlength = buf1.get(0);
+                final ByteBuffer buf2 = ByteBuffer.allocate(varintlength);
+
+                client.read(buf2, buf2, ReadCompletion.make((bytes2, attmn2) -> {
+
+                    System.out.println("reading next bytes");
+                    long messageLengthLong = new BigInteger(buf2.array()).longValue();
+
+                    final ByteBuffer buf3 = ByteBuffer.allocate((int) messageLengthLong);
+                    client.read(buf3, buf3, ReadCompletion.make((bytes3, attmn3) -> {
+                        System.out.println("reading last bytes");
+                        System.out.println(byteArrayToString(buf3.array()));
+
+                        try {
+
+                            final Types.Request request = Types.Request.parseFrom(buf3.array());
+                            GeneratedMessageV3 msg = handleRequest(request);
+                            ByteBuffer output = responseToByteBuffer(msg);
+                            client.write(output);
+
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+
+                        client.read(ByteBuffer.allocate(1), attachment, FirstRead.this);
+                    }));
+
+                }));
+
             }
-
-            if (attachment.isRead) {
-                attachment.buffer.flip();
-
-                try {
-                    System.out.format("Client at  %s  says: %s%n", attachment.client.getRemoteAddress(),
-                            byteArrayToString(attachment.buffer.array()));
-                } catch (IOException e1) {
-                }
-
-                // try {
-                // Request request = readMessage(attachment.buffer);
-                // if (request != null) {
-                // GeneratedMessageV3 answerMessage = handleRequest(request);
-                // if (answerMessage != null) {
-                // for (ByteBuffer buff : responseBytes(answerMessage)) {
-                // System.out.println("writing: " + ASocket.byteArrayToString(buff.array()));
-                // attachment.client.write(buff, attachment, new EmptyHandler());
-                // }
-                // }
-                // }
-                // } catch (Exception e) {
-                // e.printStackTrace();
-                // }
-
-                 attachment.buffer = outputForInput(attachment.buffer);
-                 System.out.println("writing answer: " + byteArrayToString(attachment.buffer.array()));
-                 attachment.isRead = false; // It is a write
-                 System.out.println("writing attachment " + attachment);
-                 attachment.client.write(attachment.buffer, attachment, new EmptyHandler());
-
-                 
-                 
-                System.out.println("resetting buffers for read");
-                attachment.isRead = true;
-                attachment.buffer = ByteBuffer.allocate(4096);
-                attachment.client.read(attachment.buffer, attachment, this);
-            } else {
-                System.out.println("got a write incoming");
-            }
-        }
-
-        @Override
-        public void failed(Throwable e, Attachment attach) {
-            e.printStackTrace();
-        }
-
-    }
-
-    class EmptyHandler implements CompletionHandler<Integer, Attachment> {
-
-        @Override
-        public void completed(Integer result, Attachment attachment) {
-            System.out.println("wrote Something: " + attachment);
         }
 
         @Override
         public void failed(Throwable exc, Attachment attachment) {
+
         }
 
     }
-
 }
