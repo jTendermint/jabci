@@ -8,7 +8,17 @@ Check out [StartupExampleDummy.java](https://github.com/jTendermint/jabci/blob/m
 
 #### Maven integration
 jABCI is available via central's snapshot repository. A release version should be available soon.
-The current snapshot repository is: `https://oss.sonatype.org/content/repositories/snapshots/`
+
+The current snapshot repository is: `https://oss.sonatype.org/content/repositories/snapshots/` which can be used by adding the repository:
+```xml
+      <repository>
+         <id>snapshots-repo</id>
+         <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+         <releases><enabled>false</enabled></releases>
+         <snapshots><enabled>true</enabled></snapshots>
+       </repository>
+```
+
 Use the following dependency to include jABCI in your project:
 ```xml
             <dependency>
