@@ -39,7 +39,7 @@ Use the following dependency to include jABCI in your project:
 #### Update protobuf types
 
 When you make changes to the protobuf file, you can enable the appropriate build-phase for the compiler-plugin to generate the file(s) in the target-directory.
-Just switch the comments on lines [pom.xml](https://github.com/jTendermint/jabci/blob/master/pom.xml#L27) and 28.
+Just switch the comments on line [pom.xml](https://github.com/jTendermint/jabci/blob/master/pom.xml#L86).
 
 
 
