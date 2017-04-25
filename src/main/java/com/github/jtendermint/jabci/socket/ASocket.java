@@ -32,6 +32,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.github.jtendermint.jabci.api.ABCIAPI;
 import com.github.jtendermint.jabci.api.IBeginBlock;
 import com.github.jtendermint.jabci.api.ICheckTx;
 import com.github.jtendermint.jabci.api.ICommit;
@@ -203,6 +204,9 @@ public abstract class ASocket {
             for (Class<?> clsss : object.getClass().getInterfaces()) {
                 if (clsss == klass)
                     return (T) object;
+                else if( clsss == ABCIAPI.class ) {
+                	return (T) object;
+                }
             }
             //
             // List<Class<?>> clssss = Arrays.asList(object.getClass().getInterfaces());
