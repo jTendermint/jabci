@@ -65,57 +65,59 @@ public class TSocket extends ASocket {
 
         @Override
         public void run() {
-            HANDLER_LOG.debug("Starting ThreadNo: " + threadNumber);
-            HANDLER_LOG.debug("accepting new client");
-            try {
-                inputStream = CodedInputStream.newInstance(socket.getInputStream());
-                outputStream = new BufferedOutputStream(socket.getOutputStream());
-                while (true) {
-                    HANDLER_LOG.debug("start reading");
+            while(!Thread.currentThread().isInterrupted()) {
+                HANDLER_LOG.debug("Starting ThreadNo: " + threadNumber);
+                HANDLER_LOG.debug("accepting new client");
+                try {
+                    inputStream = CodedInputStream.newInstance(socket.getInputStream());
+                    outputStream = new BufferedOutputStream(socket.getOutputStream());
+                    while (true) {
+                        HANDLER_LOG.debug("start reading");
 
-                    // Each Message is prefixed by a header from the gitrepos.com/tendermint/go-wire protocol.
-                    // We get the message length from this header and then parse the actual message using protobuf.
-                    // To facilitate reading an exact number of bytes we use a CodedInputStream.
-                    // BufferedInputStream.read would still need to be called in a loop, to ensure that all data is received.
+                        // Each Message is prefixed by a header from the gitrepos.com/tendermint/go-wire protocol.
+                        // We get the message length from this header and then parse the actual message using protobuf.
+                        // To facilitate reading an exact number of bytes we use a CodedInputStream.
+                        // BufferedInputStream.read would still need to be called in a loop, to ensure that all data is received.
 
-                    // Size counter is used to enforce a size limit per message (see CodedInputStream.setSizeLimit()).
-                    // We need to reset it before reading the next message:
-                    inputStream.resetSizeCounter();
+                        // Size counter is used to enforce a size limit per message (see CodedInputStream.setSizeLimit()).
+                        // We need to reset it before reading the next message:
+                        inputStream.resetSizeCounter();
 
-                    // HEADER: first byte is length of length field
-                    byte varintLength = inputStream.readRawByte();
-                    if (varintLength > 4) {
-                        throw new IllegalStateException("Varint bigger than 4 bytes are not supported!");
+                        // HEADER: first byte is length of length field
+                        byte varintLength = inputStream.readRawByte();
+                        if (varintLength > 4) {
+                            throw new IllegalStateException("Varint bigger than 4 bytes are not supported!");
+                        }
+
+                        // HEADER: next varintLength bytes contain messageLength:
+                        // It is a Big-Endian encoded unsigned integer.
+                        // We only allow 4 bytes, but then have to parse it with one zero byte prepended,
+                        // since Java does not support unsigned integers.
+                        byte[] messageLengthBytes = inputStream.readRawBytes(varintLength);
+                        byte[] messageLengthLongBytes = new byte[5];
+                        System.arraycopy(messageLengthBytes, 0, messageLengthLongBytes, 5 - varintLength, varintLength);
+                        long messageLengthLong = new BigInteger(messageLengthLongBytes).longValue();
+                        if (messageLengthLong > Integer.MAX_VALUE) {
+                            throw new IllegalStateException("Message lengths of more than Integer.MAX_VALUE are not supported.");
+                        }
+                        int messageLength = (int) messageLengthLong;
+                        HANDLER_LOG.debug("Assuming message length: " + messageLength);
+
+                        // PAYLOAD: limit CodedInputStream to messageLength bytes and parse Request using Protobuf:
+                        int oldLimit = inputStream.pushLimit(messageLength);
+                        final Types.Request request = Types.Request.parseFrom(inputStream);
+                        inputStream.popLimit(oldLimit);
+
+                        // Process the request that was just read:
+                        GeneratedMessageV3 response = handleRequest(request);
+                        writeMessage(response);
                     }
-
-                    // HEADER: next varintLength bytes contain messageLength:
-                    // It is a Big-Endian encoded unsigned integer.
-                    // We only allow 4 bytes, but then have to parse it with one zero byte prepended,
-                    // since Java does not support unsigned integers.
-                    byte[] messageLengthBytes = inputStream.readRawBytes(varintLength);
-                    byte[] messageLengthLongBytes = new byte[5];
-                    System.arraycopy(messageLengthBytes, 0, messageLengthLongBytes, 5 - varintLength, varintLength);
-                    long messageLengthLong = new BigInteger(messageLengthLongBytes).longValue();
-                    if (messageLengthLong > Integer.MAX_VALUE) {
-                        throw new IllegalStateException("Message lengths of more than Integer.MAX_VALUE are not supported.");
-                    }
-                    int messageLength = (int) messageLengthLong;
-                    HANDLER_LOG.debug("Assuming message length: " + messageLength);
-
-                    // PAYLOAD: limit CodedInputStream to messageLength bytes and parse Request using Protobuf:
-                    int oldLimit = inputStream.pushLimit(messageLength);
-                    final Types.Request request = Types.Request.parseFrom(inputStream);
-                    inputStream.popLimit(oldLimit);
-
-                    // Process the request that was just read:
-                    GeneratedMessageV3 response = handleRequest(request);
-                    writeMessage(response);
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
-            } catch (IOException e) {
-                e.printStackTrace();
+                HANDLER_LOG.debug("Stopping ThreadNo " + threadNumber);
+                runningThreads.getAndDecrement();
             }
-            HANDLER_LOG.debug("Stopping ThreadNo " + threadNumber);
-            runningThreads.getAndDecrement();
         }
 
 
@@ -178,4 +180,12 @@ public class TSocket extends ASocket {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Requests to stop any action.
+     */
+    public void requestShutdown() {
+        Thread.currentThread().interrupt();
+    }
+
 }
