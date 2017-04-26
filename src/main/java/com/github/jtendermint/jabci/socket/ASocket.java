@@ -200,15 +200,8 @@ public abstract class ASocket {
     @SuppressWarnings("unchecked")
     private <T> T getListenerForType(Class<T> klass) {
         for (Object object : _listeners) {
-            for (Class<?> clsss : object.getClass().getInterfaces()) {
-                if (clsss == klass)
-                    return (T) object;
-            }
-            //
-            // List<Class<?>> clssss = Arrays.asList(object.getClass().getInterfaces());
-            // if (clssss.contains(klass) || clssss.contains(ABCIAPI.class)) {
-            // return (T) object;
-            // }
+            if (klass.isInstance(object))
+                return (T) object;
         }
         return (T) DefaultFallbackListener.instance;
     }
