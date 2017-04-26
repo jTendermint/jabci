@@ -59,11 +59,22 @@ public class TSocket extends ASocket {
         private final Socket socket;
         private CodedInputStream inputStream;
         private BufferedOutputStream outputStream;
+        private boolean nameSet = false;
 
         public SocketHandler(Socket socket) {
-            this.socket = socket;
             this.setDaemon(true);
-            this.setName("SocketThread" + socket.getPort());
+            this.socket = socket;
+            this.updateName("" + socket.getPort());
+        }
+        public SocketHandler(Socket socket, String name) {
+            this.setDaemon(true);
+            this.socket = socket;
+            nameSet = true;
+            this.updateName(name);
+        }
+
+        public void updateName(String name) {
+            this.setName("SocketThread " + name);
         }
 
         @Override
@@ -133,6 +144,25 @@ public class TSocket extends ASocket {
                     int oldLimit = inputStream.pushLimit(messageLength);
                     final Types.Request request = Types.Request.parseFrom(inputStream);
                     inputStream.popLimit(oldLimit);
+
+                    if (!nameSet) {
+                        switch (request.getValueCase()) {
+                        case FLUSH:
+                            break;
+                        case INFO:
+                            this.updateName("-Info-Socket");
+                            nameSet = true;
+                            break;
+                        case CHECK_TX:
+                            this.updateName("-Mempool-Socket");
+                            nameSet = true;
+                            break;
+                        default:
+                            this.updateName("-Consensus-Socket");
+                            nameSet = true;
+                            break;
+                        }
+                    }
 
                     // Process the request that was just read:
                     GeneratedMessageV3 response = handleRequest(request);
@@ -204,7 +234,6 @@ public class TSocket extends ASocket {
                 SocketHandler t = new SocketHandler(clientSocket);
                 t.start();
                 runningThreads.add(t);
-
                 SOCKET_LOG.debug("Started thread for sockethandling...");
             }
             SOCKET_LOG.debug("TSocket Stopped Running");
