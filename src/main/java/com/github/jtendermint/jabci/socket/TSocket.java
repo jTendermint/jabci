@@ -28,7 +28,7 @@ import java.io.IOException;
 import java.math.BigInteger;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.concurrent.atomic.AtomicInteger;
+import java.util.HashSet;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -50,27 +50,54 @@ public class TSocket extends ASocket {
     private final static Logger SOCKET_LOG = LoggerFactory.getLogger(TSocket.class);
     private final static Logger HANDLER_LOG = LoggerFactory.getLogger(SocketHandler.class);
 
-    private final static AtomicInteger runningThreads = new AtomicInteger();
+    private final HashSet<SocketHandler> runningThreads = new HashSet<>();
 
-    class SocketHandler implements Runnable {
-        private final int threadNumber;
+    private boolean continueRunning = true;
+
+    class SocketHandler extends Thread {
+
         private final Socket socket;
         private CodedInputStream inputStream;
         private BufferedOutputStream outputStream;
 
         public SocketHandler(Socket socket) {
             this.socket = socket;
-            this.threadNumber = runningThreads.getAndIncrement();
+            this.setDaemon(true);
+            this.setName("SocketThread" + socket.getPort());
+        }
+
+        @Override
+        public void interrupt() {
+            HANDLER_LOG.debug("{} being interrupted", this.getName());
+            super.interrupt();
+        }
+
+        public void closeConnections() {
+            try {
+                if (socket != null) {
+                    HANDLER_LOG.debug("{} outputStream close", getName());
+                    if (!socket.isClosed())
+                        socket.getOutputStream().close();
+
+                    HANDLER_LOG.debug("{} inputStream close", getName());
+                    if (!socket.isClosed())
+                        socket.getInputStream().close();
+
+                    HANDLER_LOG.debug("{} socket close", getName());
+                    socket.close();
+                }
+            } catch (Exception e) {
+            }
         }
 
         @Override
         public void run() {
-            HANDLER_LOG.debug("Starting ThreadNo: " + threadNumber);
+            HANDLER_LOG.debug("Starting ThreadNo: " + getName());
             HANDLER_LOG.debug("accepting new client");
             try {
                 inputStream = CodedInputStream.newInstance(socket.getInputStream());
                 outputStream = new BufferedOutputStream(socket.getOutputStream());
-                while (true) {
+                while (!isInterrupted() && !socket.isClosed()) {
                     HANDLER_LOG.debug("start reading");
 
                     // Each Message is prefixed by a header from the gitrepos.com/tendermint/go-wire protocol.
@@ -112,15 +139,18 @@ public class TSocket extends ASocket {
                     writeMessage(response);
                 }
             } catch (IOException e) {
-                e.printStackTrace();
+                if (!isInterrupted()) {
+                    e.printStackTrace();
+                }
             }
-            HANDLER_LOG.debug("Stopping ThreadNo " + threadNumber);
-            runningThreads.getAndDecrement();
+            HANDLER_LOG.debug("Stopping ThreadNo " + this.getName());
+            Thread.currentThread().interrupt();
+            runningThreads.remove(this);
         }
-
 
         /**
          * Writes a {@link GeneratedMessageV3} to the socket output stream
+         * 
          * @param message
          * @throws IOException
          */
@@ -133,6 +163,7 @@ public class TSocket extends ASocket {
 
         /**
          * writes raw-bytes to the socket output stream
+         * 
          * @param message
          * @throws IOException
          */
@@ -161,21 +192,45 @@ public class TSocket extends ASocket {
 
     /**
      * Start listening on the specified port
+     * 
      * @param portNumber
      */
     public void start(int portNumber) {
         SOCKET_LOG.debug("starting serversocket");
-
+        continueRunning = true;
         try (ServerSocket serverSocket = new ServerSocket(portNumber)) {
-            while (true) {
+            while (continueRunning) {
                 Socket clientSocket = serverSocket.accept();
-                new Thread(new SocketHandler(clientSocket)).start();
+                SocketHandler t = new SocketHandler(clientSocket);
+                t.start();
+                runningThreads.add(t);
+
                 SOCKET_LOG.debug("Started thread for sockethandling...");
             }
+            SOCKET_LOG.debug("TSocket Stopped Running");
         } catch (IOException e) {
             SOCKET_LOG.debug("Exception caught when trying to listen on port " + portNumber + " or listening for a connection");
             SOCKET_LOG.debug(e.getMessage());
             e.printStackTrace();
         }
+    }
+
+    public void stop() {
+        continueRunning = false;
+        runningThreads.forEach(t -> t.interrupt());
+
+        try {
+            // wait two seconds to finalize last messages on streams
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+        }
+
+        // close socket connections
+        runningThreads.forEach(t -> {
+            t.closeConnections();
+        });
+
+        runningThreads.clear();
+        Thread.currentThread().interrupt();
     }
 }

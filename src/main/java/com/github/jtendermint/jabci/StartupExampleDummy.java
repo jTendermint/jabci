@@ -41,15 +41,39 @@ public class StartupExampleDummy {
         final TSocket sock = new TSocket();
 
         //// register TMSP-API listeners here:
-        //// listeners can be TMSPAPI for accepting all messages or 
+        //// listeners can be TMSPAPI for accepting all messages or
         //// single interfaces like IInfo, IDeliverTX, etc... to only target specific cases
         // sock.registerListener(some_listeners);
 
-        new Thread(sock::start).start();
+        Thread mainThread = new Thread(sock::start);
+        mainThread.setDaemon(true);
+        mainThread.start();
 
-        while (true) {
+        Wrapper<Boolean> killed = new Wrapper<Boolean>(false);
+
+        int i = 0;
+        while (!killed.value) {
             Thread.sleep(1000L);
+            i++;
+
+            if (i >= 10) {
+                sock.stop();
+                killed.value = true;
+            }
         }
+
+        System.out.println("killed");
+        System.out.println("Process should terminate at this point");
+    }
+
+    public class Wrapper<K> {
+
+        public K value;
+
+        public Wrapper(K k) {
+            value = k;
+        }
+
     }
 
 }
