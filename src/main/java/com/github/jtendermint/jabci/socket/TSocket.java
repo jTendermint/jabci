@@ -112,7 +112,7 @@ public class TSocket extends ASocket {
                     writeMessage(response);
                 }
             } catch (IOException e) {
-                e.printStackTrace();
+                HANDLER_LOG.error( "Connection to Tendermint lost" );
             }
             HANDLER_LOG.debug("Stopping ThreadNo " + threadNumber);
             runningThreads.getAndDecrement();
