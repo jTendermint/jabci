@@ -49,31 +49,20 @@ public class StartupExampleDummy {
         mainThread.setDaemon(true);
         mainThread.start();
 
-        Wrapper<Boolean> killed = new Wrapper<Boolean>(false);
+        boolean killed = false;
 
         int i = 0;
-        while (!killed.value) {
+        while (!killed) {
             Thread.sleep(1000L);
             i++;
 
             if (i >= 10) {
                 sock.stop();
-                killed.value = true;
+                killed = true;
             }
         }
 
         System.out.println("killed");
         System.out.println("Process should terminate at this point");
     }
-
-    public class Wrapper<K> {
-
-        public K value;
-
-        public Wrapper(K k) {
-            value = k;
-        }
-
-    }
-
 }
