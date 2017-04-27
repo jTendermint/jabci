@@ -34,6 +34,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.github.jtendermint.jabci.types.Types;
+import com.github.jtendermint.jabci.types.Types.Request;
 import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.GeneratedMessageV3;
 
@@ -47,12 +48,82 @@ import com.google.protobuf.GeneratedMessageV3;
 public class TSocket extends ASocket {
 
     public static final int DEFAULT_LISTEN_SOCKET_PORT = 46658;
-    private final static Logger SOCKET_LOG = LoggerFactory.getLogger(TSocket.class);
-    private final static Logger HANDLER_LOG = LoggerFactory.getLogger(SocketHandler.class);
+    private static final Logger TSOCKET_LOG = LoggerFactory.getLogger(TSocket.class);
+    private static final Logger HANDLER_LOG = LoggerFactory.getLogger(SocketHandler.class);
+
+    public static final String INFO_SOCKET = "-Info";
+    public static final String MEMPOOL_SOCKET = "-MemPool";
+    public static final String CONSENSUS_SOCKET = "-Consensus";
 
     private final HashSet<SocketHandler> runningThreads = new HashSet<>();
 
     private boolean continueRunning = true;
+
+    /**
+     * Start listening on the default tmsp port 46658
+     */
+    public void start() {
+        this.start(DEFAULT_LISTEN_SOCKET_PORT);
+    }
+
+    /**
+     * Start listening on the specified port
+     * 
+     * @param portNumber
+     */
+    public void start(int portNumber) {
+        TSOCKET_LOG.debug("starting serversocket");
+        continueRunning = true;
+        int socketcount = 0;
+        try (ServerSocket serverSocket = new ServerSocket(portNumber)) {
+            while (continueRunning) {
+                Socket clientSocket = serverSocket.accept();
+                String socketName = socketNameForCount(++socketcount);
+                System.out.println("starting socket with: " + socketName);
+                SocketHandler t = (socketName != null) ? new SocketHandler(clientSocket, socketName) : new SocketHandler(clientSocket);
+                t.start();
+                runningThreads.add(t);
+                TSOCKET_LOG.debug("Started thread for sockethandling...");
+            }
+            TSOCKET_LOG.debug("TSocket Stopped Running");
+        } catch (IOException e) {
+            TSOCKET_LOG.debug("Exception caught when trying to listen on port " + portNumber + " or listening for a connection");
+            TSOCKET_LOG.debug(e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    private String socketNameForCount(int c) {
+        switch (c) {
+            case 1 :
+                return INFO_SOCKET;
+            case 2 :
+                return MEMPOOL_SOCKET;
+            case 3 :
+                return CONSENSUS_SOCKET;
+            default :
+                return null;
+        }
+    }
+
+    public void stop() {
+        continueRunning = false;
+        runningThreads.forEach(t -> t.interrupt());
+
+        try {
+            // wait two seconds to finalize last messages on streams
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+        }
+
+        // close socket connections
+        runningThreads.forEach(t -> {
+            t.closeConnections();
+        });
+
+        runningThreads.clear();
+        Thread.currentThread().interrupt();
+    }
 
     class SocketHandler extends Thread {
 
@@ -83,7 +154,7 @@ public class TSocket extends ASocket {
             super.interrupt();
         }
 
-        public void closeConnections() {
+        private void closeConnections() {
             try {
                 if (socket != null) {
                     HANDLER_LOG.debug("{} outputStream close", getName());
@@ -146,22 +217,7 @@ public class TSocket extends ASocket {
                     inputStream.popLimit(oldLimit);
 
                     if (!nameSet) {
-                        switch (request.getValueCase()) {
-                        case FLUSH:
-                            break;
-                        case INFO:
-                            this.updateName("-Info-Socket");
-                            nameSet = true;
-                            break;
-                        case CHECK_TX:
-                            this.updateName("-Mempool-Socket");
-                            nameSet = true;
-                            break;
-                        default:
-                            this.updateName("-Consensus-Socket");
-                            nameSet = true;
-                            break;
-                        }
+                        determineSocketNameAndUpdate(request.getValueCase());
                     }
 
                     // Process the request that was just read:
@@ -170,12 +226,31 @@ public class TSocket extends ASocket {
                 }
             } catch (IOException e) {
                 if (!isInterrupted()) {
-                    e.printStackTrace();
+                    HANDLER_LOG.error("Error with " + this.getName(), e);
                 }
             }
-            HANDLER_LOG.debug("Stopping ThreadNo " + this.getName());
+            HANDLER_LOG.debug("Stopping Thread " + this.getName());
             Thread.currentThread().interrupt();
             runningThreads.remove(this);
+        }
+
+        private void determineSocketNameAndUpdate(Request.ValueCase valuecase) {
+            switch (valuecase) {
+                case FLUSH :
+                    break;
+                case INFO :
+                    this.updateName(INFO_SOCKET);
+                    nameSet = true;
+                    break;
+                case CHECK_TX :
+                    this.updateName(MEMPOOL_SOCKET);
+                    nameSet = true;
+                    break;
+                default :
+                    this.updateName(CONSENSUS_SOCKET);
+                    nameSet = true;
+                    break;
+            }
         }
 
         /**
@@ -211,55 +286,5 @@ public class TSocket extends ASocket {
             }
         }
 
-    }
-
-    /**
-     * Start listening on the default tmsp port 46658
-     */
-    public void start() {
-        this.start(DEFAULT_LISTEN_SOCKET_PORT);
-    }
-
-    /**
-     * Start listening on the specified port
-     * 
-     * @param portNumber
-     */
-    public void start(int portNumber) {
-        SOCKET_LOG.debug("starting serversocket");
-        continueRunning = true;
-        try (ServerSocket serverSocket = new ServerSocket(portNumber)) {
-            while (continueRunning) {
-                Socket clientSocket = serverSocket.accept();
-                SocketHandler t = new SocketHandler(clientSocket);
-                t.start();
-                runningThreads.add(t);
-                SOCKET_LOG.debug("Started thread for sockethandling...");
-            }
-            SOCKET_LOG.debug("TSocket Stopped Running");
-        } catch (IOException e) {
-            SOCKET_LOG.debug("Exception caught when trying to listen on port " + portNumber + " or listening for a connection");
-            SOCKET_LOG.debug(e.getMessage());
-            e.printStackTrace();
-        }
-    }
-
-    public void stop() {
-        continueRunning = false;
-        runningThreads.forEach(t -> t.interrupt());
-
-        try {
-            // wait two seconds to finalize last messages on streams
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-        }
-
-        // close socket connections
-        runningThreads.forEach(t -> {
-            t.closeConnections();
-        });
-
-        runningThreads.clear();
-        Thread.currentThread().interrupt();
     }
 }
