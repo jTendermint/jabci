@@ -79,7 +79,7 @@ public class TSocket extends ASocket {
             while (continueRunning) {
                 Socket clientSocket = serverSocket.accept();
                 String socketName = socketNameForCount(++socketcount);
-                System.out.println("starting socket with: " + socketName);
+                TSOCKET_LOG.debug("starting socket with: {}", socketName);
                 SocketHandler t = (socketName != null) ? new SocketHandler(clientSocket, socketName) : new SocketHandler(clientSocket);
                 t.start();
                 runningThreads.add(t);
