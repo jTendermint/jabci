@@ -7,7 +7,16 @@ A Java implementation of the Tendermint Application BlockChain Interface ([ABCI]
 Check out [StartupExampleDummy.java](https://github.com/jTendermint/jabci/blob/master/src/main/java/com/github/jtendermint/jabci/StartupExampleDummy.java) or [JavaCounter.java](https://github.com/jTendermint/jabci/blob/master/src/main/java/com/github/jtendermint/jabci/JavaCounter.java) for examples.
 
 #### Maven integration
-jABCI is available via central's snapshot repository. A release version should be available soon.
+jABCI v0.9.0 Release is now available via maven central. Use the following dependency to include the latest release:
+```xml
+<dependency>
+    <groupId>com.github.jtendermint</groupId>
+    <artifactId>jabci</artifactId>
+    <version>0.9.0</version>
+</dependency>
+```
+
+Development will move onto a dedicated `develop` branch in the short term and it's artifacts will be available in Central's snapshot repository
 
 The current snapshot repository is: `https://oss.sonatype.org/content/repositories/snapshots/` which can be used by adding the repository:
 ```xml
@@ -19,7 +28,7 @@ The current snapshot repository is: `https://oss.sonatype.org/content/repositori
        </repository>
 ```
 
-Use the following dependency to include jABCI in your project:
+Use the following dependency to include current snapshot of jABCI in your project:
 ```xml
             <dependency>
                 <groupId>com.github.jtendermint</groupId>
