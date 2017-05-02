@@ -62,7 +62,7 @@
         </snapshotRepository>
         <repository>
             <id>oss.sonatype</id>
-            <url>https://oss.sonatype.org/serivce/local/staging/deploy/maven2/</url>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
         </repository>
     </distributionManagement>
 
