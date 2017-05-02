@@ -24,13 +24,11 @@
 package com.github.jtendermint.jabci.api;
 
 /**
- * TMSP-Protocol<br>
+ * ABCI-Protocol<br>
  * Bundled Interface of Sub-Interfaces
  * 
  * <br>
- * See <a
- * href="https://github.com/tendermint/tmsp">https://github.com/tendermint
- * /tmsp</a> for more info
+ * See <a href="https://github.com/tendermint/abci">https://github.com/tendermint /abci</a> for more info
  * 
  * @version 26.05.2016
  *

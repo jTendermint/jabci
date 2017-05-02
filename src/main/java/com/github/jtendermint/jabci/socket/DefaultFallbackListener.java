@@ -52,7 +52,7 @@ import com.github.jtendermint.jabci.types.Types.ResponseQuery;
 import com.github.jtendermint.jabci.types.Types.ResponseSetOption;
 
 /**
- * The DefaultFallbackListener answers every incoming TMSP-request with a CodeType.OK
+ * The DefaultFallbackListener answers every incoming ABCI-request with a CodeType.OK
  *
  * @author wolfposd
  */

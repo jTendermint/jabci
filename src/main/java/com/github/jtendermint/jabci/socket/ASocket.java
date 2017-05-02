@@ -174,7 +174,7 @@ public abstract class ASocket {
     }
 
     /**
-     * Register a new listener of type TMSPAPI or supertype
+     * Register a new listener of type ABCIAPI or supertype
      * 
      * @param listener
      */
@@ -183,7 +183,7 @@ public abstract class ASocket {
     }
 
     /**
-     * Register a new listener of type TMSPAPI or supertype
+     * Register a new listener of type ABCIAPI or supertype
      * 
      * @param listener
      */

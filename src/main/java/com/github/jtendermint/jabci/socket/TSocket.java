@@ -60,7 +60,7 @@ public class TSocket extends ASocket {
     private boolean continueRunning = true;
 
     /**
-     * Start listening on the default tmsp port 46658
+     * Start listening on the default ABCI port 46658
      */
     public void start() {
         this.start(DEFAULT_LISTEN_SOCKET_PORT);
@@ -87,9 +87,7 @@ public class TSocket extends ASocket {
             }
             TSOCKET_LOG.debug("TSocket Stopped Running");
         } catch (IOException e) {
-            TSOCKET_LOG.debug("Exception caught when trying to listen on port " + portNumber + " or listening for a connection");
-            TSOCKET_LOG.debug(e.getMessage());
-            e.printStackTrace();
+            TSOCKET_LOG.error("Exception caught when trying to listen on port " + portNumber + " or listening for a connection", e);
         }
     }
 

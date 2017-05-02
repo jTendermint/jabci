@@ -42,8 +42,8 @@ public class StartupExampleDummyAsyncServer {
 
         final AsyncServer sock = new AsyncServer();
 
-        //// register TMSP-API listeners here:
-        //// listeners can be TMSPAPI for accepting all messages or
+        //// register ABCI-API listeners here:
+        //// listeners can be ABCIAPI for accepting all messages or
         //// single interfaces like IInfo, IDeliverTX, etc... to only target specific cases
         // sock.registerListener(some_listeners);
         
