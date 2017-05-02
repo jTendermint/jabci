@@ -33,7 +33,7 @@ public interface IInitChain {
      * 
      * Validators ([]Validator): Initial genesis validators
      * 
-     * @param validators
+     * @param req
      */
     ResponseInitChain requestInitChain(RequestInitChain req);
 }
