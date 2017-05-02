@@ -30,6 +30,7 @@ public interface IInfo {
 
     /**
      * Return information about the application state. Application specific.
+     * 
      * @param req
      * @return
      */

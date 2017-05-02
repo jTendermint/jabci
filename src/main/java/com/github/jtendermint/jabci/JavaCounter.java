@@ -23,20 +23,24 @@
  */
 package com.github.jtendermint.jabci;
 
+import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
 import java.nio.ByteBuffer;
 
 import com.github.jtendermint.jabci.api.ICheckTx;
 import com.github.jtendermint.jabci.api.ICommit;
 import com.github.jtendermint.jabci.api.IDeliverTx;
+import com.github.jtendermint.jabci.api.IQuery;
 import com.github.jtendermint.jabci.socket.TSocket;
 import com.github.jtendermint.jabci.types.Types.CodeType;
 import com.github.jtendermint.jabci.types.Types.RequestCheckTx;
 import com.github.jtendermint.jabci.types.Types.RequestCommit;
 import com.github.jtendermint.jabci.types.Types.RequestDeliverTx;
+import com.github.jtendermint.jabci.types.Types.RequestQuery;
 import com.github.jtendermint.jabci.types.Types.ResponseCheckTx;
 import com.github.jtendermint.jabci.types.Types.ResponseCommit;
 import com.github.jtendermint.jabci.types.Types.ResponseDeliverTx;
+import com.github.jtendermint.jabci.types.Types.ResponseQuery;
 import com.google.protobuf.ByteString;
 
 /**
@@ -45,7 +49,7 @@ import com.google.protobuf.ByteString;
  * 
  * @author wolfposd
  */
-public class JavaCounter implements IDeliverTx, ICheckTx, ICommit {
+public class JavaCounter implements IDeliverTx, ICheckTx, ICommit, IQuery {
 
     public static void main(String[] args) throws InterruptedException {
         new JavaCounter();
@@ -69,17 +73,20 @@ public class JavaCounter implements IDeliverTx, ICheckTx, ICommit {
 
     @Override
     public ResponseDeliverTx receivedDeliverTx(RequestDeliverTx req) {
-        System.out.println("got deliver tx");
         ByteString tx = req.getTx();
-
-        TSocket.printByteArray(tx.toByteArray());
+        System.out.println("got deliver tx, with" + TSocket.byteArrayToString(tx.toByteArray()));
 
         if (tx.size() == 0) {
             return ResponseDeliverTx.newBuilder().setCode(CodeType.BadNonce).setLog("transaction is empty").build();
         } else if (tx.size() <= 4) {
             int x = new BigInteger(1, tx.toByteArray()).intValueExact();
             // this is an int now, if not throws an ArithmeticException
-            // but we dont actually care what it is. 
+            // but we dont actually care what it is.
+
+            if (x != txCount)
+                return ResponseDeliverTx.newBuilder().setCode(CodeType.BadNonce).setLog("Invalid Nonce. Expected " + txCount + ", got " + x)
+                        .build();
+
         } else {
             return ResponseDeliverTx.newBuilder().setCode(CodeType.BadNonce).setLog("got a bad value").build();
         }
@@ -92,13 +99,18 @@ public class JavaCounter implements IDeliverTx, ICheckTx, ICommit {
     @Override
     public ResponseCheckTx requestCheckTx(RequestCheckTx req) {
         System.out.println("got check tx");
+
         ByteString tx = req.getTx();
         if (tx.size() <= 4) {
             // hopefully parsable integer
             int txCheck = new BigInteger(1, tx.toByteArray()).intValueExact();
+
+            System.out.println("tx value is: " + txCheck);
+
             if (txCheck < txCount) {
-                System.out.println("txcheck is smaller than txCount, got " + txCheck + " and " + txCount);
-                return ResponseCheckTx.newBuilder().setCode(CodeType.BadNonce).setLog("tx-value is smaller than tx-count").build();
+                String err = "Invalid nonce. Expected >= " + txCount + ", got " + txCheck;
+                System.out.println(err);
+                return ResponseCheckTx.newBuilder().setCode(CodeType.BadNonce).setLog(err).build();
             }
         }
 
@@ -116,6 +128,35 @@ public class JavaCounter implements IDeliverTx, ICheckTx, ICommit {
             ByteBuffer buf = ByteBuffer.allocate(Integer.SIZE);
             buf.putInt(txCount);
             return ResponseCommit.newBuilder().setCode(CodeType.OK).setData(ByteString.copyFrom(buf)).build();
+        }
+    }
+
+    @Override
+    public ResponseQuery requestQuery(RequestQuery req) {
+
+        final ResponseQuery internalError = ResponseQuery.newBuilder().setCode(CodeType.InternalError).setLog("some shit happened").build();
+        
+        final String query = req.getQuery().toString();
+
+        System.out.println("Query is: " + query);
+
+        switch (query) {
+        case "hash":
+            try {
+                return ResponseQuery.newBuilder().setCode(CodeType.OK).setData(ByteString.copyFrom("" + hashCount, "UTF-8")).build();
+            } catch (UnsupportedEncodingException e) {
+                return internalError;
+            }
+        case "tx":
+            try {
+                return ResponseQuery.newBuilder().setCode(CodeType.OK).setData(ByteString.copyFrom("" + txCount, "UTF-8")).build();
+            } catch (UnsupportedEncodingException e) {
+                return internalError;
+            }
+        default:
+
+            return ResponseQuery.newBuilder().setLog("Invalid query path. Expected hash or tx, got " + query).build();
+
         }
     }
 }
