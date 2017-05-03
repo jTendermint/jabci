@@ -225,6 +225,7 @@ public class TSocket extends ASocket {
             } catch (IOException e) {
                 if (!isInterrupted()) {
                     HANDLER_LOG.error("Error with " + this.getName(), e);
+                    HANDLER_LOG.info("Note: If \"the input ended unexpectedly\" it could mean the protobuf file is not up to date.");
                 }
             }
             HANDLER_LOG.debug("Stopping Thread " + this.getName());

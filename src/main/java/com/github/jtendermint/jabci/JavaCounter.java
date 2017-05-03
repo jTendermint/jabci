@@ -23,7 +23,6 @@
  */
 package com.github.jtendermint.jabci;
 
-import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
 import java.nio.ByteBuffer;
 
@@ -65,7 +64,9 @@ public class JavaCounter implements IDeliverTx, ICheckTx, ICommit, IQuery {
 
         socket.registerListener(this);
 
-        new Thread(socket::start).start();
+        Thread t = new Thread(socket::start);
+        t.setName("Java Counter Main Thread");
+        t.start();
         while (true) {
             Thread.sleep(1000L);
         }
@@ -133,30 +134,15 @@ public class JavaCounter implements IDeliverTx, ICheckTx, ICommit, IQuery {
 
     @Override
     public ResponseQuery requestQuery(RequestQuery req) {
-
-        final ResponseQuery internalError = ResponseQuery.newBuilder().setCode(CodeType.InternalError).setLog("some shit happened").build();
-        
-        final String query = req.getQuery().toString();
-
-        System.out.println("Query is: " + query);
-
+        final String query = new String(req.getData().toByteArray());
         switch (query) {
         case "hash":
-            try {
-                return ResponseQuery.newBuilder().setCode(CodeType.OK).setData(ByteString.copyFrom("" + hashCount, "UTF-8")).build();
-            } catch (UnsupportedEncodingException e) {
-                return internalError;
-            }
+            return ResponseQuery.newBuilder().setCode(CodeType.OK).setValue(ByteString.copyFrom(("" + hashCount).getBytes())).build();
         case "tx":
-            try {
-                return ResponseQuery.newBuilder().setCode(CodeType.OK).setData(ByteString.copyFrom("" + txCount, "UTF-8")).build();
-            } catch (UnsupportedEncodingException e) {
-                return internalError;
-            }
+            return ResponseQuery.newBuilder().setCode(CodeType.OK).setValue(ByteString.copyFrom(("" + txCount).getBytes())).build();
         default:
-
-            return ResponseQuery.newBuilder().setLog("Invalid query path. Expected hash or tx, got " + query).build();
-
+            return ResponseQuery.newBuilder().setCode(CodeType.BadNonce).setLog("Invalid query path. Expected hash or tx, got " + query)
+                    .build();
         }
     }
 }

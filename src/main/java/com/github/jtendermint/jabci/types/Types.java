@@ -16,7 +16,7 @@ public final class Types {
   }
   /**
    * <pre>
-   * Not being used 
+   * Not being used
    * Could be added to request/response
    * so we don't have to type switch
    * (would be twice as fast, but we're talking about 15ns)
@@ -5981,9 +5981,29 @@ public final class Types {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>bytes query = 1;</code>
+     * <code>bytes data = 1;</code>
      */
-    com.google.protobuf.ByteString getQuery();
+    com.google.protobuf.ByteString getData();
+
+    /**
+     * <code>string path = 2;</code>
+     */
+    java.lang.String getPath();
+    /**
+     * <code>string path = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getPathBytes();
+
+    /**
+     * <code>uint64 height = 3;</code>
+     */
+    long getHeight();
+
+    /**
+     * <code>bool prove = 4;</code>
+     */
+    boolean getProve();
   }
   /**
    * Protobuf type {@code com.github.jtendermint.jabci.types.RequestQuery}
@@ -5997,7 +6017,10 @@ public final class Types {
       super(builder);
     }
     private RequestQuery() {
-      query_ = com.google.protobuf.ByteString.EMPTY;
+      data_ = com.google.protobuf.ByteString.EMPTY;
+      path_ = "";
+      height_ = 0L;
+      prove_ = false;
     }
 
     @java.lang.Override
@@ -6027,7 +6050,23 @@ public final class Types {
             }
             case 10: {
 
-              query_ = input.readBytes();
+              data_ = input.readBytes();
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              path_ = s;
+              break;
+            }
+            case 24: {
+
+              height_ = input.readUInt64();
+              break;
+            }
+            case 32: {
+
+              prove_ = input.readBool();
               break;
             }
           }
@@ -6053,13 +6092,65 @@ public final class Types {
               com.github.jtendermint.jabci.types.Types.RequestQuery.class, com.github.jtendermint.jabci.types.Types.RequestQuery.Builder.class);
     }
 
-    public static final int QUERY_FIELD_NUMBER = 1;
-    private com.google.protobuf.ByteString query_;
+    public static final int DATA_FIELD_NUMBER = 1;
+    private com.google.protobuf.ByteString data_;
     /**
-     * <code>bytes query = 1;</code>
+     * <code>bytes data = 1;</code>
      */
-    public com.google.protobuf.ByteString getQuery() {
-      return query_;
+    public com.google.protobuf.ByteString getData() {
+      return data_;
+    }
+
+    public static final int PATH_FIELD_NUMBER = 2;
+    private volatile java.lang.Object path_;
+    /**
+     * <code>string path = 2;</code>
+     */
+    public java.lang.String getPath() {
+      java.lang.Object ref = path_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        path_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string path = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getPathBytes() {
+      java.lang.Object ref = path_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        path_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int HEIGHT_FIELD_NUMBER = 3;
+    private long height_;
+    /**
+     * <code>uint64 height = 3;</code>
+     */
+    public long getHeight() {
+      return height_;
+    }
+
+    public static final int PROVE_FIELD_NUMBER = 4;
+    private boolean prove_;
+    /**
+     * <code>bool prove = 4;</code>
+     */
+    public boolean getProve() {
+      return prove_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -6074,8 +6165,17 @@ public final class Types {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!query_.isEmpty()) {
-        output.writeBytes(1, query_);
+      if (!data_.isEmpty()) {
+        output.writeBytes(1, data_);
+      }
+      if (!getPathBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, path_);
+      }
+      if (height_ != 0L) {
+        output.writeUInt64(3, height_);
+      }
+      if (prove_ != false) {
+        output.writeBool(4, prove_);
       }
     }
 
@@ -6084,9 +6184,20 @@ public final class Types {
       if (size != -1) return size;
 
       size = 0;
-      if (!query_.isEmpty()) {
+      if (!data_.isEmpty()) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(1, query_);
+          .computeBytesSize(1, data_);
+      }
+      if (!getPathBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, path_);
+      }
+      if (height_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(3, height_);
+      }
+      if (prove_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(4, prove_);
       }
       memoizedSize = size;
       return size;
@@ -6104,8 +6215,14 @@ public final class Types {
       com.github.jtendermint.jabci.types.Types.RequestQuery other = (com.github.jtendermint.jabci.types.Types.RequestQuery) obj;
 
       boolean result = true;
-      result = result && getQuery()
-          .equals(other.getQuery());
+      result = result && getData()
+          .equals(other.getData());
+      result = result && getPath()
+          .equals(other.getPath());
+      result = result && (getHeight()
+          == other.getHeight());
+      result = result && (getProve()
+          == other.getProve());
       return result;
     }
 
@@ -6116,8 +6233,16 @@ public final class Types {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + QUERY_FIELD_NUMBER;
-      hash = (53 * hash) + getQuery().hashCode();
+      hash = (37 * hash) + DATA_FIELD_NUMBER;
+      hash = (53 * hash) + getData().hashCode();
+      hash = (37 * hash) + PATH_FIELD_NUMBER;
+      hash = (53 * hash) + getPath().hashCode();
+      hash = (37 * hash) + HEIGHT_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getHeight());
+      hash = (37 * hash) + PROVE_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getProve());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -6236,7 +6361,13 @@ public final class Types {
       }
       public Builder clear() {
         super.clear();
-        query_ = com.google.protobuf.ByteString.EMPTY;
+        data_ = com.google.protobuf.ByteString.EMPTY;
+
+        path_ = "";
+
+        height_ = 0L;
+
+        prove_ = false;
 
         return this;
       }
@@ -6260,7 +6391,10 @@ public final class Types {
 
       public com.github.jtendermint.jabci.types.Types.RequestQuery buildPartial() {
         com.github.jtendermint.jabci.types.Types.RequestQuery result = new com.github.jtendermint.jabci.types.Types.RequestQuery(this);
-        result.query_ = query_;
+        result.data_ = data_;
+        result.path_ = path_;
+        result.height_ = height_;
+        result.prove_ = prove_;
         onBuilt();
         return result;
       }
@@ -6302,8 +6436,18 @@ public final class Types {
 
       public Builder mergeFrom(com.github.jtendermint.jabci.types.Types.RequestQuery other) {
         if (other == com.github.jtendermint.jabci.types.Types.RequestQuery.getDefaultInstance()) return this;
-        if (other.getQuery() != com.google.protobuf.ByteString.EMPTY) {
-          setQuery(other.getQuery());
+        if (other.getData() != com.google.protobuf.ByteString.EMPTY) {
+          setData(other.getData());
+        }
+        if (!other.getPath().isEmpty()) {
+          path_ = other.path_;
+          onChanged();
+        }
+        if (other.getHeight() != 0L) {
+          setHeight(other.getHeight());
+        }
+        if (other.getProve() != false) {
+          setProve(other.getProve());
         }
         onChanged();
         return this;
@@ -6331,31 +6475,152 @@ public final class Types {
         return this;
       }
 
-      private com.google.protobuf.ByteString query_ = com.google.protobuf.ByteString.EMPTY;
+      private com.google.protobuf.ByteString data_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>bytes query = 1;</code>
+       * <code>bytes data = 1;</code>
        */
-      public com.google.protobuf.ByteString getQuery() {
-        return query_;
+      public com.google.protobuf.ByteString getData() {
+        return data_;
       }
       /**
-       * <code>bytes query = 1;</code>
+       * <code>bytes data = 1;</code>
        */
-      public Builder setQuery(com.google.protobuf.ByteString value) {
+      public Builder setData(com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        query_ = value;
+        data_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>bytes query = 1;</code>
+       * <code>bytes data = 1;</code>
        */
-      public Builder clearQuery() {
+      public Builder clearData() {
         
-        query_ = getDefaultInstance().getQuery();
+        data_ = getDefaultInstance().getData();
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object path_ = "";
+      /**
+       * <code>string path = 2;</code>
+       */
+      public java.lang.String getPath() {
+        java.lang.Object ref = path_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          path_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string path = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getPathBytes() {
+        java.lang.Object ref = path_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          path_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string path = 2;</code>
+       */
+      public Builder setPath(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        path_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string path = 2;</code>
+       */
+      public Builder clearPath() {
+        
+        path_ = getDefaultInstance().getPath();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string path = 2;</code>
+       */
+      public Builder setPathBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        path_ = value;
+        onChanged();
+        return this;
+      }
+
+      private long height_ ;
+      /**
+       * <code>uint64 height = 3;</code>
+       */
+      public long getHeight() {
+        return height_;
+      }
+      /**
+       * <code>uint64 height = 3;</code>
+       */
+      public Builder setHeight(long value) {
+        
+        height_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint64 height = 3;</code>
+       */
+      public Builder clearHeight() {
+        
+        height_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private boolean prove_ ;
+      /**
+       * <code>bool prove = 4;</code>
+       */
+      public boolean getProve() {
+        return prove_;
+      }
+      /**
+       * <code>bool prove = 4;</code>
+       */
+      public Builder setProve(boolean value) {
+        
+        prove_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool prove = 4;</code>
+       */
+      public Builder clearProve() {
+        
+        prove_ = false;
         onChanged();
         return this;
       }
@@ -15392,16 +15657,36 @@ public final class Types {
     com.github.jtendermint.jabci.types.Types.CodeType getCode();
 
     /**
-     * <code>bytes data = 2;</code>
+     * <code>int64 index = 2;</code>
      */
-    com.google.protobuf.ByteString getData();
+    long getIndex();
 
     /**
-     * <code>string log = 3;</code>
+     * <code>bytes key = 3;</code>
+     */
+    com.google.protobuf.ByteString getKey();
+
+    /**
+     * <code>bytes value = 4;</code>
+     */
+    com.google.protobuf.ByteString getValue();
+
+    /**
+     * <code>bytes proof = 5;</code>
+     */
+    com.google.protobuf.ByteString getProof();
+
+    /**
+     * <code>uint64 height = 6;</code>
+     */
+    long getHeight();
+
+    /**
+     * <code>string log = 7;</code>
      */
     java.lang.String getLog();
     /**
-     * <code>string log = 3;</code>
+     * <code>string log = 7;</code>
      */
     com.google.protobuf.ByteString
         getLogBytes();
@@ -15419,7 +15704,11 @@ public final class Types {
     }
     private ResponseQuery() {
       code_ = 0;
-      data_ = com.google.protobuf.ByteString.EMPTY;
+      index_ = 0L;
+      key_ = com.google.protobuf.ByteString.EMPTY;
+      value_ = com.google.protobuf.ByteString.EMPTY;
+      proof_ = com.google.protobuf.ByteString.EMPTY;
+      height_ = 0L;
       log_ = "";
     }
 
@@ -15454,12 +15743,32 @@ public final class Types {
               code_ = rawValue;
               break;
             }
-            case 18: {
+            case 16: {
 
-              data_ = input.readBytes();
+              index_ = input.readInt64();
               break;
             }
             case 26: {
+
+              key_ = input.readBytes();
+              break;
+            }
+            case 34: {
+
+              value_ = input.readBytes();
+              break;
+            }
+            case 42: {
+
+              proof_ = input.readBytes();
+              break;
+            }
+            case 48: {
+
+              height_ = input.readUInt64();
+              break;
+            }
+            case 58: {
               java.lang.String s = input.readStringRequireUtf8();
 
               log_ = s;
@@ -15504,19 +15813,55 @@ public final class Types {
       return result == null ? com.github.jtendermint.jabci.types.Types.CodeType.UNRECOGNIZED : result;
     }
 
-    public static final int DATA_FIELD_NUMBER = 2;
-    private com.google.protobuf.ByteString data_;
+    public static final int INDEX_FIELD_NUMBER = 2;
+    private long index_;
     /**
-     * <code>bytes data = 2;</code>
+     * <code>int64 index = 2;</code>
      */
-    public com.google.protobuf.ByteString getData() {
-      return data_;
+    public long getIndex() {
+      return index_;
     }
 
-    public static final int LOG_FIELD_NUMBER = 3;
+    public static final int KEY_FIELD_NUMBER = 3;
+    private com.google.protobuf.ByteString key_;
+    /**
+     * <code>bytes key = 3;</code>
+     */
+    public com.google.protobuf.ByteString getKey() {
+      return key_;
+    }
+
+    public static final int VALUE_FIELD_NUMBER = 4;
+    private com.google.protobuf.ByteString value_;
+    /**
+     * <code>bytes value = 4;</code>
+     */
+    public com.google.protobuf.ByteString getValue() {
+      return value_;
+    }
+
+    public static final int PROOF_FIELD_NUMBER = 5;
+    private com.google.protobuf.ByteString proof_;
+    /**
+     * <code>bytes proof = 5;</code>
+     */
+    public com.google.protobuf.ByteString getProof() {
+      return proof_;
+    }
+
+    public static final int HEIGHT_FIELD_NUMBER = 6;
+    private long height_;
+    /**
+     * <code>uint64 height = 6;</code>
+     */
+    public long getHeight() {
+      return height_;
+    }
+
+    public static final int LOG_FIELD_NUMBER = 7;
     private volatile java.lang.Object log_;
     /**
-     * <code>string log = 3;</code>
+     * <code>string log = 7;</code>
      */
     public java.lang.String getLog() {
       java.lang.Object ref = log_;
@@ -15531,7 +15876,7 @@ public final class Types {
       }
     }
     /**
-     * <code>string log = 3;</code>
+     * <code>string log = 7;</code>
      */
     public com.google.protobuf.ByteString
         getLogBytes() {
@@ -15562,11 +15907,23 @@ public final class Types {
       if (code_ != com.github.jtendermint.jabci.types.Types.CodeType.OK.getNumber()) {
         output.writeEnum(1, code_);
       }
-      if (!data_.isEmpty()) {
-        output.writeBytes(2, data_);
+      if (index_ != 0L) {
+        output.writeInt64(2, index_);
+      }
+      if (!key_.isEmpty()) {
+        output.writeBytes(3, key_);
+      }
+      if (!value_.isEmpty()) {
+        output.writeBytes(4, value_);
+      }
+      if (!proof_.isEmpty()) {
+        output.writeBytes(5, proof_);
+      }
+      if (height_ != 0L) {
+        output.writeUInt64(6, height_);
       }
       if (!getLogBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, log_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, log_);
       }
     }
 
@@ -15579,12 +15936,28 @@ public final class Types {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(1, code_);
       }
-      if (!data_.isEmpty()) {
+      if (index_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(2, data_);
+          .computeInt64Size(2, index_);
+      }
+      if (!key_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(3, key_);
+      }
+      if (!value_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(4, value_);
+      }
+      if (!proof_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(5, proof_);
+      }
+      if (height_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(6, height_);
       }
       if (!getLogBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, log_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, log_);
       }
       memoizedSize = size;
       return size;
@@ -15603,8 +15976,16 @@ public final class Types {
 
       boolean result = true;
       result = result && code_ == other.code_;
-      result = result && getData()
-          .equals(other.getData());
+      result = result && (getIndex()
+          == other.getIndex());
+      result = result && getKey()
+          .equals(other.getKey());
+      result = result && getValue()
+          .equals(other.getValue());
+      result = result && getProof()
+          .equals(other.getProof());
+      result = result && (getHeight()
+          == other.getHeight());
       result = result && getLog()
           .equals(other.getLog());
       return result;
@@ -15619,8 +16000,18 @@ public final class Types {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + CODE_FIELD_NUMBER;
       hash = (53 * hash) + code_;
-      hash = (37 * hash) + DATA_FIELD_NUMBER;
-      hash = (53 * hash) + getData().hashCode();
+      hash = (37 * hash) + INDEX_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getIndex());
+      hash = (37 * hash) + KEY_FIELD_NUMBER;
+      hash = (53 * hash) + getKey().hashCode();
+      hash = (37 * hash) + VALUE_FIELD_NUMBER;
+      hash = (53 * hash) + getValue().hashCode();
+      hash = (37 * hash) + PROOF_FIELD_NUMBER;
+      hash = (53 * hash) + getProof().hashCode();
+      hash = (37 * hash) + HEIGHT_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getHeight());
       hash = (37 * hash) + LOG_FIELD_NUMBER;
       hash = (53 * hash) + getLog().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
@@ -15743,7 +16134,15 @@ public final class Types {
         super.clear();
         code_ = 0;
 
-        data_ = com.google.protobuf.ByteString.EMPTY;
+        index_ = 0L;
+
+        key_ = com.google.protobuf.ByteString.EMPTY;
+
+        value_ = com.google.protobuf.ByteString.EMPTY;
+
+        proof_ = com.google.protobuf.ByteString.EMPTY;
+
+        height_ = 0L;
 
         log_ = "";
 
@@ -15770,7 +16169,11 @@ public final class Types {
       public com.github.jtendermint.jabci.types.Types.ResponseQuery buildPartial() {
         com.github.jtendermint.jabci.types.Types.ResponseQuery result = new com.github.jtendermint.jabci.types.Types.ResponseQuery(this);
         result.code_ = code_;
-        result.data_ = data_;
+        result.index_ = index_;
+        result.key_ = key_;
+        result.value_ = value_;
+        result.proof_ = proof_;
+        result.height_ = height_;
         result.log_ = log_;
         onBuilt();
         return result;
@@ -15816,8 +16219,20 @@ public final class Types {
         if (other.code_ != 0) {
           setCodeValue(other.getCodeValue());
         }
-        if (other.getData() != com.google.protobuf.ByteString.EMPTY) {
-          setData(other.getData());
+        if (other.getIndex() != 0L) {
+          setIndex(other.getIndex());
+        }
+        if (other.getKey() != com.google.protobuf.ByteString.EMPTY) {
+          setKey(other.getKey());
+        }
+        if (other.getValue() != com.google.protobuf.ByteString.EMPTY) {
+          setValue(other.getValue());
+        }
+        if (other.getProof() != com.google.protobuf.ByteString.EMPTY) {
+          setProof(other.getProof());
+        }
+        if (other.getHeight() != 0L) {
+          setHeight(other.getHeight());
         }
         if (!other.getLog().isEmpty()) {
           log_ = other.log_;
@@ -15893,38 +16308,148 @@ public final class Types {
         return this;
       }
 
-      private com.google.protobuf.ByteString data_ = com.google.protobuf.ByteString.EMPTY;
+      private long index_ ;
       /**
-       * <code>bytes data = 2;</code>
+       * <code>int64 index = 2;</code>
        */
-      public com.google.protobuf.ByteString getData() {
-        return data_;
+      public long getIndex() {
+        return index_;
       }
       /**
-       * <code>bytes data = 2;</code>
+       * <code>int64 index = 2;</code>
        */
-      public Builder setData(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        data_ = value;
+      public Builder setIndex(long value) {
+        
+        index_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>bytes data = 2;</code>
+       * <code>int64 index = 2;</code>
        */
-      public Builder clearData() {
+      public Builder clearIndex() {
         
-        data_ = getDefaultInstance().getData();
+        index_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.ByteString key_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>bytes key = 3;</code>
+       */
+      public com.google.protobuf.ByteString getKey() {
+        return key_;
+      }
+      /**
+       * <code>bytes key = 3;</code>
+       */
+      public Builder setKey(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        key_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bytes key = 3;</code>
+       */
+      public Builder clearKey() {
+        
+        key_ = getDefaultInstance().getKey();
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.ByteString value_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>bytes value = 4;</code>
+       */
+      public com.google.protobuf.ByteString getValue() {
+        return value_;
+      }
+      /**
+       * <code>bytes value = 4;</code>
+       */
+      public Builder setValue(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        value_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bytes value = 4;</code>
+       */
+      public Builder clearValue() {
+        
+        value_ = getDefaultInstance().getValue();
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.ByteString proof_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>bytes proof = 5;</code>
+       */
+      public com.google.protobuf.ByteString getProof() {
+        return proof_;
+      }
+      /**
+       * <code>bytes proof = 5;</code>
+       */
+      public Builder setProof(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        proof_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bytes proof = 5;</code>
+       */
+      public Builder clearProof() {
+        
+        proof_ = getDefaultInstance().getProof();
+        onChanged();
+        return this;
+      }
+
+      private long height_ ;
+      /**
+       * <code>uint64 height = 6;</code>
+       */
+      public long getHeight() {
+        return height_;
+      }
+      /**
+       * <code>uint64 height = 6;</code>
+       */
+      public Builder setHeight(long value) {
+        
+        height_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint64 height = 6;</code>
+       */
+      public Builder clearHeight() {
+        
+        height_ = 0L;
         onChanged();
         return this;
       }
 
       private java.lang.Object log_ = "";
       /**
-       * <code>string log = 3;</code>
+       * <code>string log = 7;</code>
        */
       public java.lang.String getLog() {
         java.lang.Object ref = log_;
@@ -15939,7 +16464,7 @@ public final class Types {
         }
       }
       /**
-       * <code>string log = 3;</code>
+       * <code>string log = 7;</code>
        */
       public com.google.protobuf.ByteString
           getLogBytes() {
@@ -15955,7 +16480,7 @@ public final class Types {
         }
       }
       /**
-       * <code>string log = 3;</code>
+       * <code>string log = 7;</code>
        */
       public Builder setLog(
           java.lang.String value) {
@@ -15968,7 +16493,7 @@ public final class Types {
         return this;
       }
       /**
-       * <code>string log = 3;</code>
+       * <code>string log = 7;</code>
        */
       public Builder clearLog() {
         
@@ -15977,7 +16502,7 @@ public final class Types {
         return this;
       }
       /**
-       * <code>string log = 3;</code>
+       * <code>string log = 7;</code>
        */
       public Builder setLogBytes(
           com.google.protobuf.ByteString value) {
@@ -17435,25 +17960,25 @@ public final class Types {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>repeated .com.github.jtendermint.jabci.types.Validator diffs = 4;</code>
+     * <code>repeated .com.github.jtendermint.jabci.types.Validator diffs = 1;</code>
      */
     java.util.List<com.github.jtendermint.jabci.types.Types.Validator> 
         getDiffsList();
     /**
-     * <code>repeated .com.github.jtendermint.jabci.types.Validator diffs = 4;</code>
+     * <code>repeated .com.github.jtendermint.jabci.types.Validator diffs = 1;</code>
      */
     com.github.jtendermint.jabci.types.Types.Validator getDiffs(int index);
     /**
-     * <code>repeated .com.github.jtendermint.jabci.types.Validator diffs = 4;</code>
+     * <code>repeated .com.github.jtendermint.jabci.types.Validator diffs = 1;</code>
      */
     int getDiffsCount();
     /**
-     * <code>repeated .com.github.jtendermint.jabci.types.Validator diffs = 4;</code>
+     * <code>repeated .com.github.jtendermint.jabci.types.Validator diffs = 1;</code>
      */
     java.util.List<? extends com.github.jtendermint.jabci.types.Types.ValidatorOrBuilder> 
         getDiffsOrBuilderList();
     /**
-     * <code>repeated .com.github.jtendermint.jabci.types.Validator diffs = 4;</code>
+     * <code>repeated .com.github.jtendermint.jabci.types.Validator diffs = 1;</code>
      */
     com.github.jtendermint.jabci.types.Types.ValidatorOrBuilder getDiffsOrBuilder(
         int index);
@@ -17498,7 +18023,7 @@ public final class Types {
               }
               break;
             }
-            case 34: {
+            case 10: {
               if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
                 diffs_ = new java.util.ArrayList<com.github.jtendermint.jabci.types.Types.Validator>();
                 mutable_bitField0_ |= 0x00000001;
@@ -17533,35 +18058,35 @@ public final class Types {
               com.github.jtendermint.jabci.types.Types.ResponseEndBlock.class, com.github.jtendermint.jabci.types.Types.ResponseEndBlock.Builder.class);
     }
 
-    public static final int DIFFS_FIELD_NUMBER = 4;
+    public static final int DIFFS_FIELD_NUMBER = 1;
     private java.util.List<com.github.jtendermint.jabci.types.Types.Validator> diffs_;
     /**
-     * <code>repeated .com.github.jtendermint.jabci.types.Validator diffs = 4;</code>
+     * <code>repeated .com.github.jtendermint.jabci.types.Validator diffs = 1;</code>
      */
     public java.util.List<com.github.jtendermint.jabci.types.Types.Validator> getDiffsList() {
       return diffs_;
     }
     /**
-     * <code>repeated .com.github.jtendermint.jabci.types.Validator diffs = 4;</code>
+     * <code>repeated .com.github.jtendermint.jabci.types.Validator diffs = 1;</code>
      */
     public java.util.List<? extends com.github.jtendermint.jabci.types.Types.ValidatorOrBuilder> 
         getDiffsOrBuilderList() {
       return diffs_;
     }
     /**
-     * <code>repeated .com.github.jtendermint.jabci.types.Validator diffs = 4;</code>
+     * <code>repeated .com.github.jtendermint.jabci.types.Validator diffs = 1;</code>
      */
     public int getDiffsCount() {
       return diffs_.size();
     }
     /**
-     * <code>repeated .com.github.jtendermint.jabci.types.Validator diffs = 4;</code>
+     * <code>repeated .com.github.jtendermint.jabci.types.Validator diffs = 1;</code>
      */
     public com.github.jtendermint.jabci.types.Types.Validator getDiffs(int index) {
       return diffs_.get(index);
     }
     /**
-     * <code>repeated .com.github.jtendermint.jabci.types.Validator diffs = 4;</code>
+     * <code>repeated .com.github.jtendermint.jabci.types.Validator diffs = 1;</code>
      */
     public com.github.jtendermint.jabci.types.Types.ValidatorOrBuilder getDiffsOrBuilder(
         int index) {
@@ -17581,7 +18106,7 @@ public final class Types {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       for (int i = 0; i < diffs_.size(); i++) {
-        output.writeMessage(4, diffs_.get(i));
+        output.writeMessage(1, diffs_.get(i));
       }
     }
 
@@ -17592,7 +18117,7 @@ public final class Types {
       size = 0;
       for (int i = 0; i < diffs_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(4, diffs_.get(i));
+          .computeMessageSize(1, diffs_.get(i));
       }
       memoizedSize = size;
       return size;
@@ -17890,7 +18415,7 @@ public final class Types {
           com.github.jtendermint.jabci.types.Types.Validator, com.github.jtendermint.jabci.types.Types.Validator.Builder, com.github.jtendermint.jabci.types.Types.ValidatorOrBuilder> diffsBuilder_;
 
       /**
-       * <code>repeated .com.github.jtendermint.jabci.types.Validator diffs = 4;</code>
+       * <code>repeated .com.github.jtendermint.jabci.types.Validator diffs = 1;</code>
        */
       public java.util.List<com.github.jtendermint.jabci.types.Types.Validator> getDiffsList() {
         if (diffsBuilder_ == null) {
@@ -17900,7 +18425,7 @@ public final class Types {
         }
       }
       /**
-       * <code>repeated .com.github.jtendermint.jabci.types.Validator diffs = 4;</code>
+       * <code>repeated .com.github.jtendermint.jabci.types.Validator diffs = 1;</code>
        */
       public int getDiffsCount() {
         if (diffsBuilder_ == null) {
@@ -17910,7 +18435,7 @@ public final class Types {
         }
       }
       /**
-       * <code>repeated .com.github.jtendermint.jabci.types.Validator diffs = 4;</code>
+       * <code>repeated .com.github.jtendermint.jabci.types.Validator diffs = 1;</code>
        */
       public com.github.jtendermint.jabci.types.Types.Validator getDiffs(int index) {
         if (diffsBuilder_ == null) {
@@ -17920,7 +18445,7 @@ public final class Types {
         }
       }
       /**
-       * <code>repeated .com.github.jtendermint.jabci.types.Validator diffs = 4;</code>
+       * <code>repeated .com.github.jtendermint.jabci.types.Validator diffs = 1;</code>
        */
       public Builder setDiffs(
           int index, com.github.jtendermint.jabci.types.Types.Validator value) {
@@ -17937,7 +18462,7 @@ public final class Types {
         return this;
       }
       /**
-       * <code>repeated .com.github.jtendermint.jabci.types.Validator diffs = 4;</code>
+       * <code>repeated .com.github.jtendermint.jabci.types.Validator diffs = 1;</code>
        */
       public Builder setDiffs(
           int index, com.github.jtendermint.jabci.types.Types.Validator.Builder builderForValue) {
@@ -17951,7 +18476,7 @@ public final class Types {
         return this;
       }
       /**
-       * <code>repeated .com.github.jtendermint.jabci.types.Validator diffs = 4;</code>
+       * <code>repeated .com.github.jtendermint.jabci.types.Validator diffs = 1;</code>
        */
       public Builder addDiffs(com.github.jtendermint.jabci.types.Types.Validator value) {
         if (diffsBuilder_ == null) {
@@ -17967,7 +18492,7 @@ public final class Types {
         return this;
       }
       /**
-       * <code>repeated .com.github.jtendermint.jabci.types.Validator diffs = 4;</code>
+       * <code>repeated .com.github.jtendermint.jabci.types.Validator diffs = 1;</code>
        */
       public Builder addDiffs(
           int index, com.github.jtendermint.jabci.types.Types.Validator value) {
@@ -17984,7 +18509,7 @@ public final class Types {
         return this;
       }
       /**
-       * <code>repeated .com.github.jtendermint.jabci.types.Validator diffs = 4;</code>
+       * <code>repeated .com.github.jtendermint.jabci.types.Validator diffs = 1;</code>
        */
       public Builder addDiffs(
           com.github.jtendermint.jabci.types.Types.Validator.Builder builderForValue) {
@@ -17998,7 +18523,7 @@ public final class Types {
         return this;
       }
       /**
-       * <code>repeated .com.github.jtendermint.jabci.types.Validator diffs = 4;</code>
+       * <code>repeated .com.github.jtendermint.jabci.types.Validator diffs = 1;</code>
        */
       public Builder addDiffs(
           int index, com.github.jtendermint.jabci.types.Types.Validator.Builder builderForValue) {
@@ -18012,7 +18537,7 @@ public final class Types {
         return this;
       }
       /**
-       * <code>repeated .com.github.jtendermint.jabci.types.Validator diffs = 4;</code>
+       * <code>repeated .com.github.jtendermint.jabci.types.Validator diffs = 1;</code>
        */
       public Builder addAllDiffs(
           java.lang.Iterable<? extends com.github.jtendermint.jabci.types.Types.Validator> values) {
@@ -18027,7 +18552,7 @@ public final class Types {
         return this;
       }
       /**
-       * <code>repeated .com.github.jtendermint.jabci.types.Validator diffs = 4;</code>
+       * <code>repeated .com.github.jtendermint.jabci.types.Validator diffs = 1;</code>
        */
       public Builder clearDiffs() {
         if (diffsBuilder_ == null) {
@@ -18040,7 +18565,7 @@ public final class Types {
         return this;
       }
       /**
-       * <code>repeated .com.github.jtendermint.jabci.types.Validator diffs = 4;</code>
+       * <code>repeated .com.github.jtendermint.jabci.types.Validator diffs = 1;</code>
        */
       public Builder removeDiffs(int index) {
         if (diffsBuilder_ == null) {
@@ -18053,14 +18578,14 @@ public final class Types {
         return this;
       }
       /**
-       * <code>repeated .com.github.jtendermint.jabci.types.Validator diffs = 4;</code>
+       * <code>repeated .com.github.jtendermint.jabci.types.Validator diffs = 1;</code>
        */
       public com.github.jtendermint.jabci.types.Types.Validator.Builder getDiffsBuilder(
           int index) {
         return getDiffsFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .com.github.jtendermint.jabci.types.Validator diffs = 4;</code>
+       * <code>repeated .com.github.jtendermint.jabci.types.Validator diffs = 1;</code>
        */
       public com.github.jtendermint.jabci.types.Types.ValidatorOrBuilder getDiffsOrBuilder(
           int index) {
@@ -18070,7 +18595,7 @@ public final class Types {
         }
       }
       /**
-       * <code>repeated .com.github.jtendermint.jabci.types.Validator diffs = 4;</code>
+       * <code>repeated .com.github.jtendermint.jabci.types.Validator diffs = 1;</code>
        */
       public java.util.List<? extends com.github.jtendermint.jabci.types.Types.ValidatorOrBuilder> 
            getDiffsOrBuilderList() {
@@ -18081,14 +18606,14 @@ public final class Types {
         }
       }
       /**
-       * <code>repeated .com.github.jtendermint.jabci.types.Validator diffs = 4;</code>
+       * <code>repeated .com.github.jtendermint.jabci.types.Validator diffs = 1;</code>
        */
       public com.github.jtendermint.jabci.types.Types.Validator.Builder addDiffsBuilder() {
         return getDiffsFieldBuilder().addBuilder(
             com.github.jtendermint.jabci.types.Types.Validator.getDefaultInstance());
       }
       /**
-       * <code>repeated .com.github.jtendermint.jabci.types.Validator diffs = 4;</code>
+       * <code>repeated .com.github.jtendermint.jabci.types.Validator diffs = 1;</code>
        */
       public com.github.jtendermint.jabci.types.Types.Validator.Builder addDiffsBuilder(
           int index) {
@@ -18096,7 +18621,7 @@ public final class Types {
             index, com.github.jtendermint.jabci.types.Types.Validator.getDefaultInstance());
       }
       /**
-       * <code>repeated .com.github.jtendermint.jabci.types.Validator diffs = 4;</code>
+       * <code>repeated .com.github.jtendermint.jabci.types.Validator diffs = 1;</code>
        */
       public java.util.List<com.github.jtendermint.jabci.types.Types.Validator.Builder> 
            getDiffsBuilderList() {
@@ -21115,120 +21640,123 @@ public final class Types {
       "e\030\001 \001(\t\"\016\n\014RequestFlush\"\r\n\013RequestInfo\"." +
       "\n\020RequestSetOption\022\013\n\003key\030\001 \001(\t\022\r\n\005value" +
       "\030\002 \001(\t\"\036\n\020RequestDeliverTx\022\n\n\002tx\030\001 \001(\014\"\034" +
-      "\n\016RequestCheckTx\022\n\n\002tx\030\001 \001(\014\"\035\n\014RequestQ" +
-      "uery\022\r\n\005query\030\001 \001(\014\"\017\n\rRequestCommit\"U\n\020" +
-      "RequestInitChain\022A\n\nvalidators\030\001 \003(\0132-.c" +
-      "om.github.jtendermint.jabci.types.Valida" +
-      "tor\"]\n\021RequestBeginBlock\022\014\n\004hash\030\001 \001(\014\022:",
-      "\n\006header\030\002 \001(\0132*.com.github.jtendermint." +
-      "jabci.types.Header\"!\n\017RequestEndBlock\022\016\n" +
-      "\006height\030\001 \001(\004\"\373\006\n\010Response\022J\n\texception\030" +
-      "\001 \001(\01325.com.github.jtendermint.jabci.typ" +
-      "es.ResponseExceptionH\000\022@\n\004echo\030\002 \001(\01320.c" +
+      "\n\016RequestCheckTx\022\n\n\002tx\030\001 \001(\014\"I\n\014RequestQ" +
+      "uery\022\014\n\004data\030\001 \001(\014\022\014\n\004path\030\002 \001(\t\022\016\n\006heig" +
+      "ht\030\003 \001(\004\022\r\n\005prove\030\004 \001(\010\"\017\n\rRequestCommit" +
+      "\"U\n\020RequestInitChain\022A\n\nvalidators\030\001 \003(\013" +
+      "2-.com.github.jtendermint.jabci.types.Va",
+      "lidator\"]\n\021RequestBeginBlock\022\014\n\004hash\030\001 \001" +
+      "(\014\022:\n\006header\030\002 \001(\0132*.com.github.jtenderm" +
+      "int.jabci.types.Header\"!\n\017RequestEndBloc" +
+      "k\022\016\n\006height\030\001 \001(\004\"\373\006\n\010Response\022J\n\texcept" +
+      "ion\030\001 \001(\01325.com.github.jtendermint.jabci" +
+      ".types.ResponseExceptionH\000\022@\n\004echo\030\002 \001(\013" +
+      "20.com.github.jtendermint.jabci.types.Re" +
+      "sponseEchoH\000\022B\n\005flush\030\003 \001(\01321.com.github" +
+      ".jtendermint.jabci.types.ResponseFlushH\000" +
+      "\022@\n\004info\030\004 \001(\01320.com.github.jtendermint.",
+      "jabci.types.ResponseInfoH\000\022K\n\nset_option" +
+      "\030\005 \001(\01325.com.github.jtendermint.jabci.ty" +
+      "pes.ResponseSetOptionH\000\022K\n\ndeliver_tx\030\006 " +
+      "\001(\01325.com.github.jtendermint.jabci.types" +
+      ".ResponseDeliverTxH\000\022G\n\010check_tx\030\007 \001(\01323" +
+      ".com.github.jtendermint.jabci.types.Resp" +
+      "onseCheckTxH\000\022D\n\006commit\030\010 \001(\01322.com.gith" +
+      "ub.jtendermint.jabci.types.ResponseCommi" +
+      "tH\000\022B\n\005query\030\t \001(\01321.com.github.jtenderm" +
+      "int.jabci.types.ResponseQueryH\000\022K\n\ninit_",
+      "chain\030\n \001(\01325.com.github.jtendermint.jab" +
+      "ci.types.ResponseInitChainH\000\022M\n\013begin_bl" +
+      "ock\030\013 \001(\01326.com.github.jtendermint.jabci" +
+      ".types.ResponseBeginBlockH\000\022I\n\tend_block" +
+      "\030\014 \001(\01324.com.github.jtendermint.jabci.ty" +
+      "pes.ResponseEndBlockH\000B\007\n\005value\"\"\n\021Respo" +
+      "nseException\022\r\n\005error\030\001 \001(\t\"\037\n\014ResponseE" +
+      "cho\022\017\n\007message\030\001 \001(\t\"\017\n\rResponseFlush\"e\n" +
+      "\014ResponseInfo\022\014\n\004data\030\001 \001(\t\022\017\n\007version\030\002" +
+      " \001(\t\022\031\n\021last_block_height\030\003 \001(\004\022\033\n\023last_",
+      "block_app_hash\030\004 \001(\014\" \n\021ResponseSetOptio" +
+      "n\022\013\n\003log\030\001 \001(\t\"j\n\021ResponseDeliverTx\022:\n\004c" +
+      "ode\030\001 \001(\0162,.com.github.jtendermint.jabci" +
+      ".types.CodeType\022\014\n\004data\030\002 \001(\014\022\013\n\003log\030\003 \001" +
+      "(\t\"h\n\017ResponseCheckTx\022:\n\004code\030\001 \001(\0162,.co" +
+      "m.github.jtendermint.jabci.types.CodeTyp" +
+      "e\022\014\n\004data\030\002 \001(\014\022\013\n\003log\030\003 \001(\t\"\242\001\n\rRespons" +
+      "eQuery\022:\n\004code\030\001 \001(\0162,.com.github.jtende" +
+      "rmint.jabci.types.CodeType\022\r\n\005index\030\002 \001(" +
+      "\003\022\013\n\003key\030\003 \001(\014\022\r\n\005value\030\004 \001(\014\022\r\n\005proof\030\005",
+      " \001(\014\022\016\n\006height\030\006 \001(\004\022\013\n\003log\030\007 \001(\t\"g\n\016Res" +
+      "ponseCommit\022:\n\004code\030\001 \001(\0162,.com.github.j" +
+      "tendermint.jabci.types.CodeType\022\014\n\004data\030" +
+      "\002 \001(\014\022\013\n\003log\030\003 \001(\t\"\023\n\021ResponseInitChain\"" +
+      "\024\n\022ResponseBeginBlock\"P\n\020ResponseEndBloc" +
+      "k\022<\n\005diffs\030\001 \003(\0132-.com.github.jtendermin" +
+      "t.jabci.types.Validator\"\345\001\n\006Header\022\020\n\010ch" +
+      "ain_id\030\001 \001(\t\022\016\n\006height\030\002 \001(\004\022\014\n\004time\030\003 \001" +
+      "(\004\022\017\n\007num_txs\030\004 \001(\004\022B\n\rlast_block_id\030\005 \001" +
+      "(\0132+.com.github.jtendermint.jabci.types.",
+      "BlockID\022\030\n\020last_commit_hash\030\006 \001(\014\022\021\n\tdat" +
+      "a_hash\030\007 \001(\014\022\027\n\017validators_hash\030\010 \001(\014\022\020\n" +
+      "\010app_hash\030\t \001(\014\"Y\n\007BlockID\022\014\n\004hash\030\001 \001(\014" +
+      "\022@\n\005parts\030\002 \001(\01321.com.github.jtendermint" +
+      ".jabci.types.PartSetHeader\",\n\rPartSetHea" +
+      "der\022\r\n\005total\030\001 \001(\004\022\014\n\004hash\030\002 \001(\014\"*\n\tVali" +
+      "dator\022\016\n\006pubKey\030\001 \001(\014\022\r\n\005power\030\002 \001(\004*\273\001\n" +
+      "\013MessageType\022\017\n\013NullMessage\020\000\022\010\n\004Echo\020\001\022" +
+      "\t\n\005Flush\020\002\022\010\n\004Info\020\003\022\r\n\tSetOption\020\004\022\r\n\tE" +
+      "xception\020\005\022\r\n\tDeliverTx\020\021\022\013\n\007CheckTx\020\022\022\n",
+      "\n\006Commit\020\023\022\t\n\005Query\020\024\022\r\n\tInitChain\020\025\022\016\n\n" +
+      "BeginBlock\020\026\022\014\n\010EndBlock\020\027*\265\005\n\010CodeType\022" +
+      "\006\n\002OK\020\000\022\021\n\rInternalError\020\001\022\021\n\rEncodingEr" +
+      "ror\020\002\022\014\n\010BadNonce\020\003\022\020\n\014Unauthorized\020\004\022\025\n" +
+      "\021InsufficientFunds\020\005\022\022\n\016UnknownRequest\020\006" +
+      "\022\030\n\024BaseDuplicateAddress\020e\022\025\n\021BaseEncodi" +
+      "ngError\020f\022\030\n\024BaseInsufficientFees\020g\022\031\n\025B" +
+      "aseInsufficientFunds\020h\022\034\n\030BaseInsufficie" +
+      "ntGasPrice\020i\022\024\n\020BaseInvalidInput\020j\022\025\n\021Ba" +
+      "seInvalidOutput\020k\022\025\n\021BaseInvalidPubKey\020l",
+      "\022\027\n\023BaseInvalidSequence\020m\022\030\n\024BaseInvalid" +
+      "Signature\020n\022\026\n\022BaseUnknownAddress\020o\022\025\n\021B" +
+      "aseUnknownPubKey\020p\022\025\n\021BaseUnknownPlugin\020" +
+      "q\022\025\n\020GovUnknownEntity\020\311\001\022\024\n\017GovUnknownGr" +
+      "oup\020\312\001\022\027\n\022GovUnknownProposal\020\313\001\022\026\n\021GovDu" +
+      "plicateGroup\020\314\001\022\027\n\022GovDuplicateMember\020\315\001" +
+      "\022\031\n\024GovDuplicateProposal\020\316\001\022\025\n\020GovDuplic" +
+      "ateVote\020\317\001\022\025\n\020GovInvalidMember\020\320\001\022\023\n\016Gov" +
+      "InvalidVote\020\321\001\022\032\n\025GovInvalidVotingPower\020" +
+      "\322\0012\212\n\n\017ABCIApplication\022i\n\004Echo\022/.com.git",
+      "hub.jtendermint.jabci.types.RequestEcho\032" +
+      "0.com.github.jtendermint.jabci.types.Res" +
+      "ponseEcho\022l\n\005Flush\0220.com.github.jtenderm" +
+      "int.jabci.types.RequestFlush\0321.com.githu" +
+      "b.jtendermint.jabci.types.ResponseFlush\022" +
+      "i\n\004Info\022/.com.github.jtendermint.jabci.t" +
+      "ypes.RequestInfo\0320.com.github.jtendermin" +
+      "t.jabci.types.ResponseInfo\022x\n\tSetOption\022" +
+      "4.com.github.jtendermint.jabci.types.Req" +
+      "uestSetOption\0325.com.github.jtendermint.j",
+      "abci.types.ResponseSetOption\022x\n\tDeliverT" +
+      "x\0224.com.github.jtendermint.jabci.types.R" +
+      "equestDeliverTx\0325.com.github.jtendermint" +
+      ".jabci.types.ResponseDeliverTx\022r\n\007CheckT" +
+      "x\0222.com.github.jtendermint.jabci.types.R" +
+      "equestCheckTx\0323.com.github.jtendermint.j" +
+      "abci.types.ResponseCheckTx\022l\n\005Query\0220.co" +
+      "m.github.jtendermint.jabci.types.Request" +
+      "Query\0321.com.github.jtendermint.jabci.typ" +
+      "es.ResponseQuery\022o\n\006Commit\0221.com.github.",
+      "jtendermint.jabci.types.RequestCommit\0322." +
+      "com.github.jtendermint.jabci.types.Respo" +
+      "nseCommit\022x\n\tInitChain\0224.com.github.jten" +
+      "dermint.jabci.types.RequestInitChain\0325.c" +
       "om.github.jtendermint.jabci.types.Respon" +
-      "seEchoH\000\022B\n\005flush\030\003 \001(\01321.com.github.jte" +
-      "ndermint.jabci.types.ResponseFlushH\000\022@\n\004" +
-      "info\030\004 \001(\01320.com.github.jtendermint.jabc" +
-      "i.types.ResponseInfoH\000\022K\n\nset_option\030\005 \001",
-      "(\01325.com.github.jtendermint.jabci.types." +
-      "ResponseSetOptionH\000\022K\n\ndeliver_tx\030\006 \001(\0132" +
-      "5.com.github.jtendermint.jabci.types.Res" +
-      "ponseDeliverTxH\000\022G\n\010check_tx\030\007 \001(\01323.com" +
-      ".github.jtendermint.jabci.types.Response" +
-      "CheckTxH\000\022D\n\006commit\030\010 \001(\01322.com.github.j" +
-      "tendermint.jabci.types.ResponseCommitH\000\022" +
-      "B\n\005query\030\t \001(\01321.com.github.jtendermint." +
-      "jabci.types.ResponseQueryH\000\022K\n\ninit_chai" +
-      "n\030\n \001(\01325.com.github.jtendermint.jabci.t",
-      "ypes.ResponseInitChainH\000\022M\n\013begin_block\030" +
-      "\013 \001(\01326.com.github.jtendermint.jabci.typ" +
-      "es.ResponseBeginBlockH\000\022I\n\tend_block\030\014 \001" +
-      "(\01324.com.github.jtendermint.jabci.types." +
-      "ResponseEndBlockH\000B\007\n\005value\"\"\n\021ResponseE" +
-      "xception\022\r\n\005error\030\001 \001(\t\"\037\n\014ResponseEcho\022" +
-      "\017\n\007message\030\001 \001(\t\"\017\n\rResponseFlush\"e\n\014Res" +
-      "ponseInfo\022\014\n\004data\030\001 \001(\t\022\017\n\007version\030\002 \001(\t" +
-      "\022\031\n\021last_block_height\030\003 \001(\004\022\033\n\023last_bloc" +
-      "k_app_hash\030\004 \001(\014\" \n\021ResponseSetOption\022\013\n",
-      "\003log\030\001 \001(\t\"j\n\021ResponseDeliverTx\022:\n\004code\030" +
-      "\001 \001(\0162,.com.github.jtendermint.jabci.typ" +
-      "es.CodeType\022\014\n\004data\030\002 \001(\014\022\013\n\003log\030\003 \001(\t\"h" +
-      "\n\017ResponseCheckTx\022:\n\004code\030\001 \001(\0162,.com.gi" +
-      "thub.jtendermint.jabci.types.CodeType\022\014\n" +
-      "\004data\030\002 \001(\014\022\013\n\003log\030\003 \001(\t\"f\n\rResponseQuer" +
-      "y\022:\n\004code\030\001 \001(\0162,.com.github.jtendermint" +
-      ".jabci.types.CodeType\022\014\n\004data\030\002 \001(\014\022\013\n\003l" +
-      "og\030\003 \001(\t\"g\n\016ResponseCommit\022:\n\004code\030\001 \001(\016" +
-      "2,.com.github.jtendermint.jabci.types.Co",
-      "deType\022\014\n\004data\030\002 \001(\014\022\013\n\003log\030\003 \001(\t\"\023\n\021Res" +
-      "ponseInitChain\"\024\n\022ResponseBeginBlock\"P\n\020" +
-      "ResponseEndBlock\022<\n\005diffs\030\004 \003(\0132-.com.gi" +
-      "thub.jtendermint.jabci.types.Validator\"\345" +
-      "\001\n\006Header\022\020\n\010chain_id\030\001 \001(\t\022\016\n\006height\030\002 " +
-      "\001(\004\022\014\n\004time\030\003 \001(\004\022\017\n\007num_txs\030\004 \001(\004\022B\n\rla" +
-      "st_block_id\030\005 \001(\0132+.com.github.jtendermi" +
-      "nt.jabci.types.BlockID\022\030\n\020last_commit_ha" +
-      "sh\030\006 \001(\014\022\021\n\tdata_hash\030\007 \001(\014\022\027\n\017validator" +
-      "s_hash\030\010 \001(\014\022\020\n\010app_hash\030\t \001(\014\"Y\n\007BlockI",
-      "D\022\014\n\004hash\030\001 \001(\014\022@\n\005parts\030\002 \001(\01321.com.git" +
-      "hub.jtendermint.jabci.types.PartSetHeade" +
-      "r\",\n\rPartSetHeader\022\r\n\005total\030\001 \001(\004\022\014\n\004has" +
-      "h\030\002 \001(\014\"*\n\tValidator\022\016\n\006pubKey\030\001 \001(\014\022\r\n\005" +
-      "power\030\002 \001(\004*\273\001\n\013MessageType\022\017\n\013NullMessa" +
-      "ge\020\000\022\010\n\004Echo\020\001\022\t\n\005Flush\020\002\022\010\n\004Info\020\003\022\r\n\tS" +
-      "etOption\020\004\022\r\n\tException\020\005\022\r\n\tDeliverTx\020\021" +
-      "\022\013\n\007CheckTx\020\022\022\n\n\006Commit\020\023\022\t\n\005Query\020\024\022\r\n\t" +
-      "InitChain\020\025\022\016\n\nBeginBlock\020\026\022\014\n\010EndBlock\020" +
-      "\027*\265\005\n\010CodeType\022\006\n\002OK\020\000\022\021\n\rInternalError\020",
-      "\001\022\021\n\rEncodingError\020\002\022\014\n\010BadNonce\020\003\022\020\n\014Un" +
-      "authorized\020\004\022\025\n\021InsufficientFunds\020\005\022\022\n\016U" +
-      "nknownRequest\020\006\022\030\n\024BaseDuplicateAddress\020" +
-      "e\022\025\n\021BaseEncodingError\020f\022\030\n\024BaseInsuffic" +
-      "ientFees\020g\022\031\n\025BaseInsufficientFunds\020h\022\034\n" +
-      "\030BaseInsufficientGasPrice\020i\022\024\n\020BaseInval" +
-      "idInput\020j\022\025\n\021BaseInvalidOutput\020k\022\025\n\021Base" +
-      "InvalidPubKey\020l\022\027\n\023BaseInvalidSequence\020m" +
-      "\022\030\n\024BaseInvalidSignature\020n\022\026\n\022BaseUnknow" +
-      "nAddress\020o\022\025\n\021BaseUnknownPubKey\020p\022\025\n\021Bas",
-      "eUnknownPlugin\020q\022\025\n\020GovUnknownEntity\020\311\001\022" +
-      "\024\n\017GovUnknownGroup\020\312\001\022\027\n\022GovUnknownPropo" +
-      "sal\020\313\001\022\026\n\021GovDuplicateGroup\020\314\001\022\027\n\022GovDup" +
-      "licateMember\020\315\001\022\031\n\024GovDuplicateProposal\020" +
-      "\316\001\022\025\n\020GovDuplicateVote\020\317\001\022\025\n\020GovInvalidM" +
-      "ember\020\320\001\022\023\n\016GovInvalidVote\020\321\001\022\032\n\025GovInva" +
-      "lidVotingPower\020\322\0012\212\n\n\017ABCIApplication\022i\n" +
-      "\004Echo\022/.com.github.jtendermint.jabci.typ" +
-      "es.RequestEcho\0320.com.github.jtendermint." +
-      "jabci.types.ResponseEcho\022l\n\005Flush\0220.com.",
-      "github.jtendermint.jabci.types.RequestFl" +
-      "ush\0321.com.github.jtendermint.jabci.types" +
-      ".ResponseFlush\022i\n\004Info\022/.com.github.jten" +
-      "dermint.jabci.types.RequestInfo\0320.com.gi" +
-      "thub.jtendermint.jabci.types.ResponseInf" +
-      "o\022x\n\tSetOption\0224.com.github.jtendermint." +
-      "jabci.types.RequestSetOption\0325.com.githu" +
-      "b.jtendermint.jabci.types.ResponseSetOpt" +
-      "ion\022x\n\tDeliverTx\0224.com.github.jtendermin" +
-      "t.jabci.types.RequestDeliverTx\0325.com.git",
-      "hub.jtendermint.jabci.types.ResponseDeli" +
-      "verTx\022r\n\007CheckTx\0222.com.github.jtendermin" +
-      "t.jabci.types.RequestCheckTx\0323.com.githu" +
-      "b.jtendermint.jabci.types.ResponseCheckT" +
-      "x\022l\n\005Query\0220.com.github.jtendermint.jabc" +
-      "i.types.RequestQuery\0321.com.github.jtende" +
-      "rmint.jabci.types.ResponseQuery\022o\n\006Commi" +
-      "t\0221.com.github.jtendermint.jabci.types.R" +
-      "equestCommit\0322.com.github.jtendermint.ja" +
-      "bci.types.ResponseCommit\022x\n\tInitChain\0224.",
-      "com.github.jtendermint.jabci.types.Reque" +
-      "stInitChain\0325.com.github.jtendermint.jab" +
-      "ci.types.ResponseInitChain\022{\n\nBeginBlock" +
-      "\0225.com.github.jtendermint.jabci.types.Re" +
-      "questBeginBlock\0326.com.github.jtendermint" +
-      ".jabci.types.ResponseBeginBlock\022u\n\010EndBl" +
-      "ock\0223.com.github.jtendermint.jabci.types" +
-      ".RequestEndBlock\0324.com.github.jtendermin" +
-      "t.jabci.types.ResponseEndBlockb\006proto3"
+      "seInitChain\022{\n\nBeginBlock\0225.com.github.j" +
+      "tendermint.jabci.types.RequestBeginBlock" +
+      "\0326.com.github.jtendermint.jabci.types.Re" +
+      "sponseBeginBlock\022u\n\010EndBlock\0223.com.githu" +
+      "b.jtendermint.jabci.types.RequestEndBloc",
+      "k\0324.com.github.jtendermint.jabci.types.R" +
+      "esponseEndBlockb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -21289,7 +21817,7 @@ public final class Types {
     internal_static_com_github_jtendermint_jabci_types_RequestQuery_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_github_jtendermint_jabci_types_RequestQuery_descriptor,
-        new java.lang.String[] { "Query", });
+        new java.lang.String[] { "Data", "Path", "Height", "Prove", });
     internal_static_com_github_jtendermint_jabci_types_RequestCommit_descriptor =
       getDescriptor().getMessageTypes().get(8);
     internal_static_com_github_jtendermint_jabci_types_RequestCommit_fieldAccessorTable = new
@@ -21367,7 +21895,7 @@ public final class Types {
     internal_static_com_github_jtendermint_jabci_types_ResponseQuery_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_github_jtendermint_jabci_types_ResponseQuery_descriptor,
-        new java.lang.String[] { "Code", "Data", "Log", });
+        new java.lang.String[] { "Code", "Index", "Key", "Value", "Proof", "Height", "Log", });
     internal_static_com_github_jtendermint_jabci_types_ResponseCommit_descriptor =
       getDescriptor().getMessageTypes().get(21);
     internal_static_com_github_jtendermint_jabci_types_ResponseCommit_fieldAccessorTable = new
