@@ -25,6 +25,7 @@ package com.github.jtendermint.jabci;
 
 import java.math.BigInteger;
 import java.nio.ByteBuffer;
+import java.nio.charset.Charset;
 
 import com.github.jtendermint.jabci.api.ICheckTx;
 import com.github.jtendermint.jabci.api.ICommit;
@@ -48,7 +49,7 @@ import com.google.protobuf.ByteString;
  * 
  * @author wolfposd
  */
-public class JavaCounter implements IDeliverTx, ICheckTx, ICommit, IQuery {
+public final class JavaCounter implements IDeliverTx, ICheckTx, ICommit, IQuery {
 
     public static void main(String[] args) throws InterruptedException {
         new JavaCounter();
@@ -64,6 +65,11 @@ public class JavaCounter implements IDeliverTx, ICheckTx, ICommit, IQuery {
 
         socket.registerListener(this);
 
+        // TODO this is wrong once you subclass this JavaCounter
+        /*
+         * The constructor starts a thread. This is likely to be wrong if the class is ever extended/subclassed, since the thread will be
+         * started before the subclass constructor is started.
+         */
         Thread t = new Thread(socket::start);
         t.setName("Java Counter Main Thread");
         t.start();
@@ -134,12 +140,13 @@ public class JavaCounter implements IDeliverTx, ICheckTx, ICommit, IQuery {
 
     @Override
     public ResponseQuery requestQuery(RequestQuery req) {
-        final String query = new String(req.getData().toByteArray());
+        final String query = new String(req.getData().toByteArray(), Charset.forName("UTF-8"));
         switch (query) {
         case "hash":
-            return ResponseQuery.newBuilder().setCode(CodeType.OK).setValue(ByteString.copyFrom(("" + hashCount).getBytes())).build();
+            return ResponseQuery.newBuilder().setCode(CodeType.OK)
+                    .setValue(ByteString.copyFrom(("" + hashCount).getBytes(Charset.forName("UTF-8")))).build();
         case "tx":
-            return ResponseQuery.newBuilder().setCode(CodeType.OK).setValue(ByteString.copyFrom(("" + txCount).getBytes())).build();
+            return ResponseQuery.newBuilder().setCode(CodeType.OK).setValue(ByteString.copyFrom(("" + txCount).getBytes(Charset.forName("UTF-8")))).build();
         default:
             return ResponseQuery.newBuilder().setCode(CodeType.BadNonce).setLog("Invalid query path. Expected hash or tx, got " + query)
                     .build();
