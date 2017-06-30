@@ -146,7 +146,8 @@ public final class JavaCounter implements IDeliverTx, ICheckTx, ICommit, IQuery 
             return ResponseQuery.newBuilder().setCode(CodeType.OK)
                     .setValue(ByteString.copyFrom(("" + hashCount).getBytes(Charset.forName("UTF-8")))).build();
         case "tx":
-            return ResponseQuery.newBuilder().setCode(CodeType.OK).setValue(ByteString.copyFrom(("" + txCount).getBytes(Charset.forName("UTF-8")))).build();
+            return ResponseQuery.newBuilder().setCode(CodeType.OK)
+                    .setValue(ByteString.copyFrom(("" + txCount).getBytes(Charset.forName("UTF-8")))).build();
         default:
             return ResponseQuery.newBuilder().setCode(CodeType.BadNonce).setLog("Invalid query path. Expected hash or tx, got " + query)
                     .build();
