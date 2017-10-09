@@ -395,12 +395,20 @@ public final class Types {
     /**
      * <code>.com.github.jtendermint.jabci.types.RequestEcho echo = 1;</code>
      */
+    boolean hasEcho();
+    /**
+     * <code>.com.github.jtendermint.jabci.types.RequestEcho echo = 1;</code>
+     */
     com.github.jtendermint.jabci.types.Types.RequestEcho getEcho();
     /**
      * <code>.com.github.jtendermint.jabci.types.RequestEcho echo = 1;</code>
      */
     com.github.jtendermint.jabci.types.Types.RequestEchoOrBuilder getEchoOrBuilder();
 
+    /**
+     * <code>.com.github.jtendermint.jabci.types.RequestFlush flush = 2;</code>
+     */
+    boolean hasFlush();
     /**
      * <code>.com.github.jtendermint.jabci.types.RequestFlush flush = 2;</code>
      */
@@ -413,12 +421,20 @@ public final class Types {
     /**
      * <code>.com.github.jtendermint.jabci.types.RequestInfo info = 3;</code>
      */
+    boolean hasInfo();
+    /**
+     * <code>.com.github.jtendermint.jabci.types.RequestInfo info = 3;</code>
+     */
     com.github.jtendermint.jabci.types.Types.RequestInfo getInfo();
     /**
      * <code>.com.github.jtendermint.jabci.types.RequestInfo info = 3;</code>
      */
     com.github.jtendermint.jabci.types.Types.RequestInfoOrBuilder getInfoOrBuilder();
 
+    /**
+     * <code>.com.github.jtendermint.jabci.types.RequestSetOption set_option = 4;</code>
+     */
+    boolean hasSetOption();
     /**
      * <code>.com.github.jtendermint.jabci.types.RequestSetOption set_option = 4;</code>
      */
@@ -431,12 +447,20 @@ public final class Types {
     /**
      * <code>.com.github.jtendermint.jabci.types.RequestDeliverTx deliver_tx = 5;</code>
      */
+    boolean hasDeliverTx();
+    /**
+     * <code>.com.github.jtendermint.jabci.types.RequestDeliverTx deliver_tx = 5;</code>
+     */
     com.github.jtendermint.jabci.types.Types.RequestDeliverTx getDeliverTx();
     /**
      * <code>.com.github.jtendermint.jabci.types.RequestDeliverTx deliver_tx = 5;</code>
      */
     com.github.jtendermint.jabci.types.Types.RequestDeliverTxOrBuilder getDeliverTxOrBuilder();
 
+    /**
+     * <code>.com.github.jtendermint.jabci.types.RequestCheckTx check_tx = 6;</code>
+     */
+    boolean hasCheckTx();
     /**
      * <code>.com.github.jtendermint.jabci.types.RequestCheckTx check_tx = 6;</code>
      */
@@ -449,12 +473,20 @@ public final class Types {
     /**
      * <code>.com.github.jtendermint.jabci.types.RequestCommit commit = 7;</code>
      */
+    boolean hasCommit();
+    /**
+     * <code>.com.github.jtendermint.jabci.types.RequestCommit commit = 7;</code>
+     */
     com.github.jtendermint.jabci.types.Types.RequestCommit getCommit();
     /**
      * <code>.com.github.jtendermint.jabci.types.RequestCommit commit = 7;</code>
      */
     com.github.jtendermint.jabci.types.Types.RequestCommitOrBuilder getCommitOrBuilder();
 
+    /**
+     * <code>.com.github.jtendermint.jabci.types.RequestQuery query = 8;</code>
+     */
+    boolean hasQuery();
     /**
      * <code>.com.github.jtendermint.jabci.types.RequestQuery query = 8;</code>
      */
@@ -467,6 +499,10 @@ public final class Types {
     /**
      * <code>.com.github.jtendermint.jabci.types.RequestInitChain init_chain = 9;</code>
      */
+    boolean hasInitChain();
+    /**
+     * <code>.com.github.jtendermint.jabci.types.RequestInitChain init_chain = 9;</code>
+     */
     com.github.jtendermint.jabci.types.Types.RequestInitChain getInitChain();
     /**
      * <code>.com.github.jtendermint.jabci.types.RequestInitChain init_chain = 9;</code>
@@ -476,12 +512,20 @@ public final class Types {
     /**
      * <code>.com.github.jtendermint.jabci.types.RequestBeginBlock begin_block = 10;</code>
      */
+    boolean hasBeginBlock();
+    /**
+     * <code>.com.github.jtendermint.jabci.types.RequestBeginBlock begin_block = 10;</code>
+     */
     com.github.jtendermint.jabci.types.Types.RequestBeginBlock getBeginBlock();
     /**
      * <code>.com.github.jtendermint.jabci.types.RequestBeginBlock begin_block = 10;</code>
      */
     com.github.jtendermint.jabci.types.Types.RequestBeginBlockOrBuilder getBeginBlockOrBuilder();
 
+    /**
+     * <code>.com.github.jtendermint.jabci.types.RequestEndBlock end_block = 11;</code>
+     */
+    boolean hasEndBlock();
     /**
      * <code>.com.github.jtendermint.jabci.types.RequestEndBlock end_block = 11;</code>
      */
@@ -500,6 +544,7 @@ public final class Types {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.github.jtendermint.jabci.types.Request)
       RequestOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use Request.newBuilder() to construct.
     private Request(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -510,7 +555,7 @@ public final class Types {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+      return this.unknownFields;
     }
     private Request(
         com.google.protobuf.CodedInputStream input,
@@ -518,6 +563,8 @@ public final class Types {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -527,7 +574,8 @@ public final class Types {
               done = true;
               break;
             default: {
-              if (!input.skipField(tag)) {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
               break;
@@ -694,6 +742,7 @@ public final class Types {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -769,6 +818,12 @@ public final class Types {
     /**
      * <code>.com.github.jtendermint.jabci.types.RequestEcho echo = 1;</code>
      */
+    public boolean hasEcho() {
+      return valueCase_ == 1;
+    }
+    /**
+     * <code>.com.github.jtendermint.jabci.types.RequestEcho echo = 1;</code>
+     */
     public com.github.jtendermint.jabci.types.Types.RequestEcho getEcho() {
       if (valueCase_ == 1) {
          return (com.github.jtendermint.jabci.types.Types.RequestEcho) value_;
@@ -786,6 +841,12 @@ public final class Types {
     }
 
     public static final int FLUSH_FIELD_NUMBER = 2;
+    /**
+     * <code>.com.github.jtendermint.jabci.types.RequestFlush flush = 2;</code>
+     */
+    public boolean hasFlush() {
+      return valueCase_ == 2;
+    }
     /**
      * <code>.com.github.jtendermint.jabci.types.RequestFlush flush = 2;</code>
      */
@@ -809,6 +870,12 @@ public final class Types {
     /**
      * <code>.com.github.jtendermint.jabci.types.RequestInfo info = 3;</code>
      */
+    public boolean hasInfo() {
+      return valueCase_ == 3;
+    }
+    /**
+     * <code>.com.github.jtendermint.jabci.types.RequestInfo info = 3;</code>
+     */
     public com.github.jtendermint.jabci.types.Types.RequestInfo getInfo() {
       if (valueCase_ == 3) {
          return (com.github.jtendermint.jabci.types.Types.RequestInfo) value_;
@@ -826,6 +893,12 @@ public final class Types {
     }
 
     public static final int SET_OPTION_FIELD_NUMBER = 4;
+    /**
+     * <code>.com.github.jtendermint.jabci.types.RequestSetOption set_option = 4;</code>
+     */
+    public boolean hasSetOption() {
+      return valueCase_ == 4;
+    }
     /**
      * <code>.com.github.jtendermint.jabci.types.RequestSetOption set_option = 4;</code>
      */
@@ -849,6 +922,12 @@ public final class Types {
     /**
      * <code>.com.github.jtendermint.jabci.types.RequestDeliverTx deliver_tx = 5;</code>
      */
+    public boolean hasDeliverTx() {
+      return valueCase_ == 5;
+    }
+    /**
+     * <code>.com.github.jtendermint.jabci.types.RequestDeliverTx deliver_tx = 5;</code>
+     */
     public com.github.jtendermint.jabci.types.Types.RequestDeliverTx getDeliverTx() {
       if (valueCase_ == 5) {
          return (com.github.jtendermint.jabci.types.Types.RequestDeliverTx) value_;
@@ -866,6 +945,12 @@ public final class Types {
     }
 
     public static final int CHECK_TX_FIELD_NUMBER = 6;
+    /**
+     * <code>.com.github.jtendermint.jabci.types.RequestCheckTx check_tx = 6;</code>
+     */
+    public boolean hasCheckTx() {
+      return valueCase_ == 6;
+    }
     /**
      * <code>.com.github.jtendermint.jabci.types.RequestCheckTx check_tx = 6;</code>
      */
@@ -889,6 +974,12 @@ public final class Types {
     /**
      * <code>.com.github.jtendermint.jabci.types.RequestCommit commit = 7;</code>
      */
+    public boolean hasCommit() {
+      return valueCase_ == 7;
+    }
+    /**
+     * <code>.com.github.jtendermint.jabci.types.RequestCommit commit = 7;</code>
+     */
     public com.github.jtendermint.jabci.types.Types.RequestCommit getCommit() {
       if (valueCase_ == 7) {
          return (com.github.jtendermint.jabci.types.Types.RequestCommit) value_;
@@ -906,6 +997,12 @@ public final class Types {
     }
 
     public static final int QUERY_FIELD_NUMBER = 8;
+    /**
+     * <code>.com.github.jtendermint.jabci.types.RequestQuery query = 8;</code>
+     */
+    public boolean hasQuery() {
+      return valueCase_ == 8;
+    }
     /**
      * <code>.com.github.jtendermint.jabci.types.RequestQuery query = 8;</code>
      */
@@ -929,6 +1026,12 @@ public final class Types {
     /**
      * <code>.com.github.jtendermint.jabci.types.RequestInitChain init_chain = 9;</code>
      */
+    public boolean hasInitChain() {
+      return valueCase_ == 9;
+    }
+    /**
+     * <code>.com.github.jtendermint.jabci.types.RequestInitChain init_chain = 9;</code>
+     */
     public com.github.jtendermint.jabci.types.Types.RequestInitChain getInitChain() {
       if (valueCase_ == 9) {
          return (com.github.jtendermint.jabci.types.Types.RequestInitChain) value_;
@@ -949,6 +1052,12 @@ public final class Types {
     /**
      * <code>.com.github.jtendermint.jabci.types.RequestBeginBlock begin_block = 10;</code>
      */
+    public boolean hasBeginBlock() {
+      return valueCase_ == 10;
+    }
+    /**
+     * <code>.com.github.jtendermint.jabci.types.RequestBeginBlock begin_block = 10;</code>
+     */
     public com.github.jtendermint.jabci.types.Types.RequestBeginBlock getBeginBlock() {
       if (valueCase_ == 10) {
          return (com.github.jtendermint.jabci.types.Types.RequestBeginBlock) value_;
@@ -966,6 +1075,12 @@ public final class Types {
     }
 
     public static final int END_BLOCK_FIELD_NUMBER = 11;
+    /**
+     * <code>.com.github.jtendermint.jabci.types.RequestEndBlock end_block = 11;</code>
+     */
+    public boolean hasEndBlock() {
+      return valueCase_ == 11;
+    }
     /**
      * <code>.com.github.jtendermint.jabci.types.RequestEndBlock end_block = 11;</code>
      */
@@ -1030,6 +1145,7 @@ public final class Types {
       if (valueCase_ == 11) {
         output.writeMessage(11, (com.github.jtendermint.jabci.types.Types.RequestEndBlock) value_);
       }
+      unknownFields.writeTo(output);
     }
 
     public int getSerializedSize() {
@@ -1081,11 +1197,11 @@ public final class Types {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(11, (com.github.jtendermint.jabci.types.Types.RequestEndBlock) value_);
       }
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -1148,6 +1264,7 @@ public final class Types {
         case 0:
         default:
       }
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
@@ -1211,6 +1328,17 @@ public final class Types {
       return hash;
     }
 
+    public static com.github.jtendermint.jabci.types.Types.Request parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.github.jtendermint.jabci.types.Types.Request parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static com.github.jtendermint.jabci.types.Types.Request parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -1435,7 +1563,7 @@ public final class Types {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -1448,12 +1576,12 @@ public final class Types {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -1516,6 +1644,7 @@ public final class Types {
             break;
           }
         }
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -1559,6 +1688,12 @@ public final class Types {
 
       private com.google.protobuf.SingleFieldBuilderV3<
           com.github.jtendermint.jabci.types.Types.RequestEcho, com.github.jtendermint.jabci.types.Types.RequestEcho.Builder, com.github.jtendermint.jabci.types.Types.RequestEchoOrBuilder> echoBuilder_;
+      /**
+       * <code>.com.github.jtendermint.jabci.types.RequestEcho echo = 1;</code>
+       */
+      public boolean hasEcho() {
+        return valueCase_ == 1;
+      }
       /**
        * <code>.com.github.jtendermint.jabci.types.RequestEcho echo = 1;</code>
        */
@@ -1692,6 +1827,12 @@ public final class Types {
       /**
        * <code>.com.github.jtendermint.jabci.types.RequestFlush flush = 2;</code>
        */
+      public boolean hasFlush() {
+        return valueCase_ == 2;
+      }
+      /**
+       * <code>.com.github.jtendermint.jabci.types.RequestFlush flush = 2;</code>
+       */
       public com.github.jtendermint.jabci.types.Types.RequestFlush getFlush() {
         if (flushBuilder_ == null) {
           if (valueCase_ == 2) {
@@ -1819,6 +1960,12 @@ public final class Types {
 
       private com.google.protobuf.SingleFieldBuilderV3<
           com.github.jtendermint.jabci.types.Types.RequestInfo, com.github.jtendermint.jabci.types.Types.RequestInfo.Builder, com.github.jtendermint.jabci.types.Types.RequestInfoOrBuilder> infoBuilder_;
+      /**
+       * <code>.com.github.jtendermint.jabci.types.RequestInfo info = 3;</code>
+       */
+      public boolean hasInfo() {
+        return valueCase_ == 3;
+      }
       /**
        * <code>.com.github.jtendermint.jabci.types.RequestInfo info = 3;</code>
        */
@@ -1952,6 +2099,12 @@ public final class Types {
       /**
        * <code>.com.github.jtendermint.jabci.types.RequestSetOption set_option = 4;</code>
        */
+      public boolean hasSetOption() {
+        return valueCase_ == 4;
+      }
+      /**
+       * <code>.com.github.jtendermint.jabci.types.RequestSetOption set_option = 4;</code>
+       */
       public com.github.jtendermint.jabci.types.Types.RequestSetOption getSetOption() {
         if (setOptionBuilder_ == null) {
           if (valueCase_ == 4) {
@@ -2079,6 +2232,12 @@ public final class Types {
 
       private com.google.protobuf.SingleFieldBuilderV3<
           com.github.jtendermint.jabci.types.Types.RequestDeliverTx, com.github.jtendermint.jabci.types.Types.RequestDeliverTx.Builder, com.github.jtendermint.jabci.types.Types.RequestDeliverTxOrBuilder> deliverTxBuilder_;
+      /**
+       * <code>.com.github.jtendermint.jabci.types.RequestDeliverTx deliver_tx = 5;</code>
+       */
+      public boolean hasDeliverTx() {
+        return valueCase_ == 5;
+      }
       /**
        * <code>.com.github.jtendermint.jabci.types.RequestDeliverTx deliver_tx = 5;</code>
        */
@@ -2212,6 +2371,12 @@ public final class Types {
       /**
        * <code>.com.github.jtendermint.jabci.types.RequestCheckTx check_tx = 6;</code>
        */
+      public boolean hasCheckTx() {
+        return valueCase_ == 6;
+      }
+      /**
+       * <code>.com.github.jtendermint.jabci.types.RequestCheckTx check_tx = 6;</code>
+       */
       public com.github.jtendermint.jabci.types.Types.RequestCheckTx getCheckTx() {
         if (checkTxBuilder_ == null) {
           if (valueCase_ == 6) {
@@ -2339,6 +2504,12 @@ public final class Types {
 
       private com.google.protobuf.SingleFieldBuilderV3<
           com.github.jtendermint.jabci.types.Types.RequestCommit, com.github.jtendermint.jabci.types.Types.RequestCommit.Builder, com.github.jtendermint.jabci.types.Types.RequestCommitOrBuilder> commitBuilder_;
+      /**
+       * <code>.com.github.jtendermint.jabci.types.RequestCommit commit = 7;</code>
+       */
+      public boolean hasCommit() {
+        return valueCase_ == 7;
+      }
       /**
        * <code>.com.github.jtendermint.jabci.types.RequestCommit commit = 7;</code>
        */
@@ -2472,6 +2643,12 @@ public final class Types {
       /**
        * <code>.com.github.jtendermint.jabci.types.RequestQuery query = 8;</code>
        */
+      public boolean hasQuery() {
+        return valueCase_ == 8;
+      }
+      /**
+       * <code>.com.github.jtendermint.jabci.types.RequestQuery query = 8;</code>
+       */
       public com.github.jtendermint.jabci.types.Types.RequestQuery getQuery() {
         if (queryBuilder_ == null) {
           if (valueCase_ == 8) {
@@ -2599,6 +2776,12 @@ public final class Types {
 
       private com.google.protobuf.SingleFieldBuilderV3<
           com.github.jtendermint.jabci.types.Types.RequestInitChain, com.github.jtendermint.jabci.types.Types.RequestInitChain.Builder, com.github.jtendermint.jabci.types.Types.RequestInitChainOrBuilder> initChainBuilder_;
+      /**
+       * <code>.com.github.jtendermint.jabci.types.RequestInitChain init_chain = 9;</code>
+       */
+      public boolean hasInitChain() {
+        return valueCase_ == 9;
+      }
       /**
        * <code>.com.github.jtendermint.jabci.types.RequestInitChain init_chain = 9;</code>
        */
@@ -2732,6 +2915,12 @@ public final class Types {
       /**
        * <code>.com.github.jtendermint.jabci.types.RequestBeginBlock begin_block = 10;</code>
        */
+      public boolean hasBeginBlock() {
+        return valueCase_ == 10;
+      }
+      /**
+       * <code>.com.github.jtendermint.jabci.types.RequestBeginBlock begin_block = 10;</code>
+       */
       public com.github.jtendermint.jabci.types.Types.RequestBeginBlock getBeginBlock() {
         if (beginBlockBuilder_ == null) {
           if (valueCase_ == 10) {
@@ -2862,6 +3051,12 @@ public final class Types {
       /**
        * <code>.com.github.jtendermint.jabci.types.RequestEndBlock end_block = 11;</code>
        */
+      public boolean hasEndBlock() {
+        return valueCase_ == 11;
+      }
+      /**
+       * <code>.com.github.jtendermint.jabci.types.RequestEndBlock end_block = 11;</code>
+       */
       public com.github.jtendermint.jabci.types.Types.RequestEndBlock getEndBlock() {
         if (endBlockBuilder_ == null) {
           if (valueCase_ == 11) {
@@ -2988,12 +3183,12 @@ public final class Types {
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.mergeUnknownFields(unknownFields);
       }
 
 
@@ -3056,6 +3251,7 @@ public final class Types {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.github.jtendermint.jabci.types.RequestEcho)
       RequestEchoOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use RequestEcho.newBuilder() to construct.
     private RequestEcho(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -3067,7 +3263,7 @@ public final class Types {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+      return this.unknownFields;
     }
     private RequestEcho(
         com.google.protobuf.CodedInputStream input,
@@ -3075,6 +3271,8 @@ public final class Types {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -3084,7 +3282,8 @@ public final class Types {
               done = true;
               break;
             default: {
-              if (!input.skipField(tag)) {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
               break;
@@ -3103,6 +3302,7 @@ public final class Types {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -3167,6 +3367,7 @@ public final class Types {
       if (!getMessageBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, message_);
       }
+      unknownFields.writeTo(output);
     }
 
     public int getSerializedSize() {
@@ -3177,11 +3378,11 @@ public final class Types {
       if (!getMessageBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, message_);
       }
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -3195,6 +3396,7 @@ public final class Types {
       boolean result = true;
       result = result && getMessage()
           .equals(other.getMessage());
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
@@ -3212,6 +3414,17 @@ public final class Types {
       return hash;
     }
 
+    public static com.github.jtendermint.jabci.types.Types.RequestEcho parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.github.jtendermint.jabci.types.Types.RequestEcho parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static com.github.jtendermint.jabci.types.Types.RequestEcho parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -3359,7 +3572,7 @@ public final class Types {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -3372,12 +3585,12 @@ public final class Types {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -3395,6 +3608,7 @@ public final class Types {
           message_ = other.message_;
           onChanged();
         }
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -3491,12 +3705,12 @@ public final class Types {
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.mergeUnknownFields(unknownFields);
       }
 
 
@@ -3549,6 +3763,7 @@ public final class Types {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.github.jtendermint.jabci.types.RequestFlush)
       RequestFlushOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use RequestFlush.newBuilder() to construct.
     private RequestFlush(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -3559,13 +3774,15 @@ public final class Types {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+      return this.unknownFields;
     }
     private RequestFlush(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -3575,7 +3792,8 @@ public final class Types {
               done = true;
               break;
             default: {
-              if (!input.skipField(tag)) {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
               break;
@@ -3588,6 +3806,7 @@ public final class Types {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -3615,6 +3834,7 @@ public final class Types {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      unknownFields.writeTo(output);
     }
 
     public int getSerializedSize() {
@@ -3622,11 +3842,11 @@ public final class Types {
       if (size != -1) return size;
 
       size = 0;
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -3638,6 +3858,7 @@ public final class Types {
       com.github.jtendermint.jabci.types.Types.RequestFlush other = (com.github.jtendermint.jabci.types.Types.RequestFlush) obj;
 
       boolean result = true;
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
@@ -3653,6 +3874,17 @@ public final class Types {
       return hash;
     }
 
+    public static com.github.jtendermint.jabci.types.Types.RequestFlush parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.github.jtendermint.jabci.types.Types.RequestFlush parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static com.github.jtendermint.jabci.types.Types.RequestFlush parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -3797,7 +4029,7 @@ public final class Types {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -3810,12 +4042,12 @@ public final class Types {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -3829,6 +4061,7 @@ public final class Types {
 
       public Builder mergeFrom(com.github.jtendermint.jabci.types.Types.RequestFlush other) {
         if (other == com.github.jtendermint.jabci.types.Types.RequestFlush.getDefaultInstance()) return this;
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -3856,12 +4089,12 @@ public final class Types {
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.mergeUnknownFields(unknownFields);
       }
 
 
@@ -3906,6 +4139,16 @@ public final class Types {
   public interface RequestInfoOrBuilder extends
       // @@protoc_insertion_point(interface_extends:com.github.jtendermint.jabci.types.RequestInfo)
       com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string version = 1;</code>
+     */
+    java.lang.String getVersion();
+    /**
+     * <code>string version = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getVersionBytes();
   }
   /**
    * Protobuf type {@code com.github.jtendermint.jabci.types.RequestInfo}
@@ -3914,23 +4157,28 @@ public final class Types {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.github.jtendermint.jabci.types.RequestInfo)
       RequestInfoOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use RequestInfo.newBuilder() to construct.
     private RequestInfo(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
     private RequestInfo() {
+      version_ = "";
     }
 
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+      return this.unknownFields;
     }
     private RequestInfo(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -3940,9 +4188,16 @@ public final class Types {
               done = true;
               break;
             default: {
-              if (!input.skipField(tag)) {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
+              break;
+            }
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              version_ = s;
               break;
             }
           }
@@ -3953,6 +4208,7 @@ public final class Types {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -3968,6 +4224,40 @@ public final class Types {
               com.github.jtendermint.jabci.types.Types.RequestInfo.class, com.github.jtendermint.jabci.types.Types.RequestInfo.Builder.class);
     }
 
+    public static final int VERSION_FIELD_NUMBER = 1;
+    private volatile java.lang.Object version_;
+    /**
+     * <code>string version = 1;</code>
+     */
+    public java.lang.String getVersion() {
+      java.lang.Object ref = version_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        version_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string version = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getVersionBytes() {
+      java.lang.Object ref = version_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        version_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -3980,6 +4270,10 @@ public final class Types {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      if (!getVersionBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, version_);
+      }
+      unknownFields.writeTo(output);
     }
 
     public int getSerializedSize() {
@@ -3987,11 +4281,14 @@ public final class Types {
       if (size != -1) return size;
 
       size = 0;
+      if (!getVersionBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, version_);
+      }
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -4003,6 +4300,9 @@ public final class Types {
       com.github.jtendermint.jabci.types.Types.RequestInfo other = (com.github.jtendermint.jabci.types.Types.RequestInfo) obj;
 
       boolean result = true;
+      result = result && getVersion()
+          .equals(other.getVersion());
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
@@ -4013,11 +4313,24 @@ public final class Types {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + VERSION_FIELD_NUMBER;
+      hash = (53 * hash) + getVersion().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
+    public static com.github.jtendermint.jabci.types.Types.RequestInfo parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.github.jtendermint.jabci.types.Types.RequestInfo parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static com.github.jtendermint.jabci.types.Types.RequestInfo parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -4131,6 +4444,8 @@ public final class Types {
       }
       public Builder clear() {
         super.clear();
+        version_ = "";
+
         return this;
       }
 
@@ -4153,6 +4468,7 @@ public final class Types {
 
       public com.github.jtendermint.jabci.types.Types.RequestInfo buildPartial() {
         com.github.jtendermint.jabci.types.Types.RequestInfo result = new com.github.jtendermint.jabci.types.Types.RequestInfo(this);
+        result.version_ = version_;
         onBuilt();
         return result;
       }
@@ -4162,7 +4478,7 @@ public final class Types {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -4175,12 +4491,12 @@ public final class Types {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -4194,6 +4510,11 @@ public final class Types {
 
       public Builder mergeFrom(com.github.jtendermint.jabci.types.Types.RequestInfo other) {
         if (other == com.github.jtendermint.jabci.types.Types.RequestInfo.getDefaultInstance()) return this;
+        if (!other.getVersion().isEmpty()) {
+          version_ = other.version_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -4219,14 +4540,83 @@ public final class Types {
         }
         return this;
       }
+
+      private java.lang.Object version_ = "";
+      /**
+       * <code>string version = 1;</code>
+       */
+      public java.lang.String getVersion() {
+        java.lang.Object ref = version_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          version_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string version = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getVersionBytes() {
+        java.lang.Object ref = version_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          version_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string version = 1;</code>
+       */
+      public Builder setVersion(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        version_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string version = 1;</code>
+       */
+      public Builder clearVersion() {
+        
+        version_ = getDefaultInstance().getVersion();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string version = 1;</code>
+       */
+      public Builder setVersionBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        version_ = value;
+        onChanged();
+        return this;
+      }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.mergeUnknownFields(unknownFields);
       }
 
 
@@ -4299,6 +4689,7 @@ public final class Types {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.github.jtendermint.jabci.types.RequestSetOption)
       RequestSetOptionOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use RequestSetOption.newBuilder() to construct.
     private RequestSetOption(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -4311,7 +4702,7 @@ public final class Types {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+      return this.unknownFields;
     }
     private RequestSetOption(
         com.google.protobuf.CodedInputStream input,
@@ -4319,6 +4710,8 @@ public final class Types {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -4328,7 +4721,8 @@ public final class Types {
               done = true;
               break;
             default: {
-              if (!input.skipField(tag)) {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
               break;
@@ -4353,6 +4747,7 @@ public final class Types {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -4454,6 +4849,7 @@ public final class Types {
       if (!getValueBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, value_);
       }
+      unknownFields.writeTo(output);
     }
 
     public int getSerializedSize() {
@@ -4467,11 +4863,11 @@ public final class Types {
       if (!getValueBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, value_);
       }
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -4487,6 +4883,7 @@ public final class Types {
           .equals(other.getKey());
       result = result && getValue()
           .equals(other.getValue());
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
@@ -4506,6 +4903,17 @@ public final class Types {
       return hash;
     }
 
+    public static com.github.jtendermint.jabci.types.Types.RequestSetOption parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.github.jtendermint.jabci.types.Types.RequestSetOption parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static com.github.jtendermint.jabci.types.Types.RequestSetOption parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -4656,7 +5064,7 @@ public final class Types {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -4669,12 +5077,12 @@ public final class Types {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -4696,6 +5104,7 @@ public final class Types {
           value_ = other.value_;
           onChanged();
         }
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -4861,12 +5270,12 @@ public final class Types {
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.mergeUnknownFields(unknownFields);
       }
 
 
@@ -4924,6 +5333,7 @@ public final class Types {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.github.jtendermint.jabci.types.RequestDeliverTx)
       RequestDeliverTxOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use RequestDeliverTx.newBuilder() to construct.
     private RequestDeliverTx(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -4935,7 +5345,7 @@ public final class Types {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+      return this.unknownFields;
     }
     private RequestDeliverTx(
         com.google.protobuf.CodedInputStream input,
@@ -4943,6 +5353,8 @@ public final class Types {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -4952,7 +5364,8 @@ public final class Types {
               done = true;
               break;
             default: {
-              if (!input.skipField(tag)) {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
               break;
@@ -4970,6 +5383,7 @@ public final class Types {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -5009,6 +5423,7 @@ public final class Types {
       if (!tx_.isEmpty()) {
         output.writeBytes(1, tx_);
       }
+      unknownFields.writeTo(output);
     }
 
     public int getSerializedSize() {
@@ -5020,11 +5435,11 @@ public final class Types {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(1, tx_);
       }
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -5038,6 +5453,7 @@ public final class Types {
       boolean result = true;
       result = result && getTx()
           .equals(other.getTx());
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
@@ -5055,6 +5471,17 @@ public final class Types {
       return hash;
     }
 
+    public static com.github.jtendermint.jabci.types.Types.RequestDeliverTx parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.github.jtendermint.jabci.types.Types.RequestDeliverTx parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static com.github.jtendermint.jabci.types.Types.RequestDeliverTx parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -5202,7 +5629,7 @@ public final class Types {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -5215,12 +5642,12 @@ public final class Types {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -5237,6 +5664,7 @@ public final class Types {
         if (other.getTx() != com.google.protobuf.ByteString.EMPTY) {
           setTx(other.getTx());
         }
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -5293,12 +5721,12 @@ public final class Types {
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.mergeUnknownFields(unknownFields);
       }
 
 
@@ -5356,6 +5784,7 @@ public final class Types {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.github.jtendermint.jabci.types.RequestCheckTx)
       RequestCheckTxOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use RequestCheckTx.newBuilder() to construct.
     private RequestCheckTx(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -5367,7 +5796,7 @@ public final class Types {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+      return this.unknownFields;
     }
     private RequestCheckTx(
         com.google.protobuf.CodedInputStream input,
@@ -5375,6 +5804,8 @@ public final class Types {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -5384,7 +5815,8 @@ public final class Types {
               done = true;
               break;
             default: {
-              if (!input.skipField(tag)) {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
               break;
@@ -5402,6 +5834,7 @@ public final class Types {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -5441,6 +5874,7 @@ public final class Types {
       if (!tx_.isEmpty()) {
         output.writeBytes(1, tx_);
       }
+      unknownFields.writeTo(output);
     }
 
     public int getSerializedSize() {
@@ -5452,11 +5886,11 @@ public final class Types {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(1, tx_);
       }
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -5470,6 +5904,7 @@ public final class Types {
       boolean result = true;
       result = result && getTx()
           .equals(other.getTx());
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
@@ -5487,6 +5922,17 @@ public final class Types {
       return hash;
     }
 
+    public static com.github.jtendermint.jabci.types.Types.RequestCheckTx parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.github.jtendermint.jabci.types.Types.RequestCheckTx parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static com.github.jtendermint.jabci.types.Types.RequestCheckTx parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -5634,7 +6080,7 @@ public final class Types {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -5647,12 +6093,12 @@ public final class Types {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -5669,6 +6115,7 @@ public final class Types {
         if (other.getTx() != com.google.protobuf.ByteString.EMPTY) {
           setTx(other.getTx());
         }
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -5725,12 +6172,12 @@ public final class Types {
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.mergeUnknownFields(unknownFields);
       }
 
 
@@ -5808,6 +6255,7 @@ public final class Types {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.github.jtendermint.jabci.types.RequestQuery)
       RequestQueryOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use RequestQuery.newBuilder() to construct.
     private RequestQuery(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -5822,7 +6270,7 @@ public final class Types {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+      return this.unknownFields;
     }
     private RequestQuery(
         com.google.protobuf.CodedInputStream input,
@@ -5830,6 +6278,8 @@ public final class Types {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -5839,7 +6289,8 @@ public final class Types {
               done = true;
               break;
             default: {
-              if (!input.skipField(tag)) {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
               break;
@@ -5873,6 +6324,7 @@ public final class Types {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -5973,6 +6425,7 @@ public final class Types {
       if (prove_ != false) {
         output.writeBool(4, prove_);
       }
+      unknownFields.writeTo(output);
     }
 
     public int getSerializedSize() {
@@ -5995,11 +6448,11 @@ public final class Types {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(4, prove_);
       }
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -6019,6 +6472,7 @@ public final class Types {
           == other.getHeight());
       result = result && (getProve()
           == other.getProve());
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
@@ -6044,6 +6498,17 @@ public final class Types {
       return hash;
     }
 
+    public static com.github.jtendermint.jabci.types.Types.RequestQuery parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.github.jtendermint.jabci.types.Types.RequestQuery parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static com.github.jtendermint.jabci.types.Types.RequestQuery parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -6200,7 +6665,7 @@ public final class Types {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -6213,12 +6678,12 @@ public final class Types {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -6245,6 +6710,7 @@ public final class Types {
         if (other.getProve() != false) {
           setProve(other.getProve());
         }
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -6422,12 +6888,12 @@ public final class Types {
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.mergeUnknownFields(unknownFields);
       }
 
 
@@ -6480,6 +6946,7 @@ public final class Types {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.github.jtendermint.jabci.types.RequestCommit)
       RequestCommitOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use RequestCommit.newBuilder() to construct.
     private RequestCommit(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -6490,13 +6957,15 @@ public final class Types {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+      return this.unknownFields;
     }
     private RequestCommit(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -6506,7 +6975,8 @@ public final class Types {
               done = true;
               break;
             default: {
-              if (!input.skipField(tag)) {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
               break;
@@ -6519,6 +6989,7 @@ public final class Types {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -6546,6 +7017,7 @@ public final class Types {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      unknownFields.writeTo(output);
     }
 
     public int getSerializedSize() {
@@ -6553,11 +7025,11 @@ public final class Types {
       if (size != -1) return size;
 
       size = 0;
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -6569,6 +7041,7 @@ public final class Types {
       com.github.jtendermint.jabci.types.Types.RequestCommit other = (com.github.jtendermint.jabci.types.Types.RequestCommit) obj;
 
       boolean result = true;
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
@@ -6584,6 +7057,17 @@ public final class Types {
       return hash;
     }
 
+    public static com.github.jtendermint.jabci.types.Types.RequestCommit parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.github.jtendermint.jabci.types.Types.RequestCommit parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static com.github.jtendermint.jabci.types.Types.RequestCommit parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -6728,7 +7212,7 @@ public final class Types {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -6741,12 +7225,12 @@ public final class Types {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -6760,6 +7244,7 @@ public final class Types {
 
       public Builder mergeFrom(com.github.jtendermint.jabci.types.Types.RequestCommit other) {
         if (other == com.github.jtendermint.jabci.types.Types.RequestCommit.getDefaultInstance()) return this;
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -6787,12 +7272,12 @@ public final class Types {
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.mergeUnknownFields(unknownFields);
       }
 
 
@@ -6869,6 +7354,7 @@ public final class Types {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.github.jtendermint.jabci.types.RequestInitChain)
       RequestInitChainOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use RequestInitChain.newBuilder() to construct.
     private RequestInitChain(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -6880,7 +7366,7 @@ public final class Types {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+      return this.unknownFields;
     }
     private RequestInitChain(
         com.google.protobuf.CodedInputStream input,
@@ -6888,6 +7374,8 @@ public final class Types {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -6897,7 +7385,8 @@ public final class Types {
               done = true;
               break;
             default: {
-              if (!input.skipField(tag)) {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
               break;
@@ -6922,6 +7411,7 @@ public final class Types {
         if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
           validators_ = java.util.Collections.unmodifiableList(validators_);
         }
+        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -6987,6 +7477,7 @@ public final class Types {
       for (int i = 0; i < validators_.size(); i++) {
         output.writeMessage(1, validators_.get(i));
       }
+      unknownFields.writeTo(output);
     }
 
     public int getSerializedSize() {
@@ -6998,11 +7489,11 @@ public final class Types {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, validators_.get(i));
       }
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -7016,6 +7507,7 @@ public final class Types {
       boolean result = true;
       result = result && getValidatorsList()
           .equals(other.getValidatorsList());
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
@@ -7035,6 +7527,17 @@ public final class Types {
       return hash;
     }
 
+    public static com.github.jtendermint.jabci.types.Types.RequestInitChain parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.github.jtendermint.jabci.types.Types.RequestInitChain parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static com.github.jtendermint.jabci.types.Types.RequestInitChain parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -7196,7 +7699,7 @@ public final class Types {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -7209,12 +7712,12 @@ public final class Types {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -7254,6 +7757,7 @@ public final class Types {
             }
           }
         }
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -7522,12 +8026,12 @@ public final class Types {
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.mergeUnknownFields(unknownFields);
       }
 
 
@@ -7598,6 +8102,7 @@ public final class Types {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.github.jtendermint.jabci.types.RequestBeginBlock)
       RequestBeginBlockOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use RequestBeginBlock.newBuilder() to construct.
     private RequestBeginBlock(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -7609,7 +8114,7 @@ public final class Types {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+      return this.unknownFields;
     }
     private RequestBeginBlock(
         com.google.protobuf.CodedInputStream input,
@@ -7617,6 +8122,8 @@ public final class Types {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -7626,7 +8133,8 @@ public final class Types {
               done = true;
               break;
             default: {
-              if (!input.skipField(tag)) {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
               break;
@@ -7657,6 +8165,7 @@ public final class Types {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -7720,6 +8229,7 @@ public final class Types {
       if (header_ != null) {
         output.writeMessage(2, getHeader());
       }
+      unknownFields.writeTo(output);
     }
 
     public int getSerializedSize() {
@@ -7735,11 +8245,11 @@ public final class Types {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getHeader());
       }
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -7758,6 +8268,7 @@ public final class Types {
         result = result && getHeader()
             .equals(other.getHeader());
       }
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
@@ -7779,6 +8290,17 @@ public final class Types {
       return hash;
     }
 
+    public static com.github.jtendermint.jabci.types.Types.RequestBeginBlock parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.github.jtendermint.jabci.types.Types.RequestBeginBlock parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static com.github.jtendermint.jabci.types.Types.RequestBeginBlock parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -7937,7 +8459,7 @@ public final class Types {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -7950,12 +8472,12 @@ public final class Types {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -7975,6 +8497,7 @@ public final class Types {
         if (other.hasHeader()) {
           mergeHeader(other.getHeader());
         }
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -8148,12 +8671,12 @@ public final class Types {
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.mergeUnknownFields(unknownFields);
       }
 
 
@@ -8211,6 +8734,7 @@ public final class Types {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.github.jtendermint.jabci.types.RequestEndBlock)
       RequestEndBlockOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use RequestEndBlock.newBuilder() to construct.
     private RequestEndBlock(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -8222,7 +8746,7 @@ public final class Types {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+      return this.unknownFields;
     }
     private RequestEndBlock(
         com.google.protobuf.CodedInputStream input,
@@ -8230,6 +8754,8 @@ public final class Types {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -8239,7 +8765,8 @@ public final class Types {
               done = true;
               break;
             default: {
-              if (!input.skipField(tag)) {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
               break;
@@ -8257,6 +8784,7 @@ public final class Types {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -8296,6 +8824,7 @@ public final class Types {
       if (height_ != 0L) {
         output.writeUInt64(1, height_);
       }
+      unknownFields.writeTo(output);
     }
 
     public int getSerializedSize() {
@@ -8307,11 +8836,11 @@ public final class Types {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(1, height_);
       }
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -8325,6 +8854,7 @@ public final class Types {
       boolean result = true;
       result = result && (getHeight()
           == other.getHeight());
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
@@ -8343,6 +8873,17 @@ public final class Types {
       return hash;
     }
 
+    public static com.github.jtendermint.jabci.types.Types.RequestEndBlock parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.github.jtendermint.jabci.types.Types.RequestEndBlock parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static com.github.jtendermint.jabci.types.Types.RequestEndBlock parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -8490,7 +9031,7 @@ public final class Types {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -8503,12 +9044,12 @@ public final class Types {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -8525,6 +9066,7 @@ public final class Types {
         if (other.getHeight() != 0L) {
           setHeight(other.getHeight());
         }
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -8578,12 +9120,12 @@ public final class Types {
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.mergeUnknownFields(unknownFields);
       }
 
 
@@ -8632,12 +9174,20 @@ public final class Types {
     /**
      * <code>.com.github.jtendermint.jabci.types.ResponseException exception = 1;</code>
      */
+    boolean hasException();
+    /**
+     * <code>.com.github.jtendermint.jabci.types.ResponseException exception = 1;</code>
+     */
     com.github.jtendermint.jabci.types.Types.ResponseException getException();
     /**
      * <code>.com.github.jtendermint.jabci.types.ResponseException exception = 1;</code>
      */
     com.github.jtendermint.jabci.types.Types.ResponseExceptionOrBuilder getExceptionOrBuilder();
 
+    /**
+     * <code>.com.github.jtendermint.jabci.types.ResponseEcho echo = 2;</code>
+     */
+    boolean hasEcho();
     /**
      * <code>.com.github.jtendermint.jabci.types.ResponseEcho echo = 2;</code>
      */
@@ -8650,12 +9200,20 @@ public final class Types {
     /**
      * <code>.com.github.jtendermint.jabci.types.ResponseFlush flush = 3;</code>
      */
+    boolean hasFlush();
+    /**
+     * <code>.com.github.jtendermint.jabci.types.ResponseFlush flush = 3;</code>
+     */
     com.github.jtendermint.jabci.types.Types.ResponseFlush getFlush();
     /**
      * <code>.com.github.jtendermint.jabci.types.ResponseFlush flush = 3;</code>
      */
     com.github.jtendermint.jabci.types.Types.ResponseFlushOrBuilder getFlushOrBuilder();
 
+    /**
+     * <code>.com.github.jtendermint.jabci.types.ResponseInfo info = 4;</code>
+     */
+    boolean hasInfo();
     /**
      * <code>.com.github.jtendermint.jabci.types.ResponseInfo info = 4;</code>
      */
@@ -8668,12 +9226,20 @@ public final class Types {
     /**
      * <code>.com.github.jtendermint.jabci.types.ResponseSetOption set_option = 5;</code>
      */
+    boolean hasSetOption();
+    /**
+     * <code>.com.github.jtendermint.jabci.types.ResponseSetOption set_option = 5;</code>
+     */
     com.github.jtendermint.jabci.types.Types.ResponseSetOption getSetOption();
     /**
      * <code>.com.github.jtendermint.jabci.types.ResponseSetOption set_option = 5;</code>
      */
     com.github.jtendermint.jabci.types.Types.ResponseSetOptionOrBuilder getSetOptionOrBuilder();
 
+    /**
+     * <code>.com.github.jtendermint.jabci.types.ResponseDeliverTx deliver_tx = 6;</code>
+     */
+    boolean hasDeliverTx();
     /**
      * <code>.com.github.jtendermint.jabci.types.ResponseDeliverTx deliver_tx = 6;</code>
      */
@@ -8686,12 +9252,20 @@ public final class Types {
     /**
      * <code>.com.github.jtendermint.jabci.types.ResponseCheckTx check_tx = 7;</code>
      */
+    boolean hasCheckTx();
+    /**
+     * <code>.com.github.jtendermint.jabci.types.ResponseCheckTx check_tx = 7;</code>
+     */
     com.github.jtendermint.jabci.types.Types.ResponseCheckTx getCheckTx();
     /**
      * <code>.com.github.jtendermint.jabci.types.ResponseCheckTx check_tx = 7;</code>
      */
     com.github.jtendermint.jabci.types.Types.ResponseCheckTxOrBuilder getCheckTxOrBuilder();
 
+    /**
+     * <code>.com.github.jtendermint.jabci.types.ResponseCommit commit = 8;</code>
+     */
+    boolean hasCommit();
     /**
      * <code>.com.github.jtendermint.jabci.types.ResponseCommit commit = 8;</code>
      */
@@ -8704,12 +9278,20 @@ public final class Types {
     /**
      * <code>.com.github.jtendermint.jabci.types.ResponseQuery query = 9;</code>
      */
+    boolean hasQuery();
+    /**
+     * <code>.com.github.jtendermint.jabci.types.ResponseQuery query = 9;</code>
+     */
     com.github.jtendermint.jabci.types.Types.ResponseQuery getQuery();
     /**
      * <code>.com.github.jtendermint.jabci.types.ResponseQuery query = 9;</code>
      */
     com.github.jtendermint.jabci.types.Types.ResponseQueryOrBuilder getQueryOrBuilder();
 
+    /**
+     * <code>.com.github.jtendermint.jabci.types.ResponseInitChain init_chain = 10;</code>
+     */
+    boolean hasInitChain();
     /**
      * <code>.com.github.jtendermint.jabci.types.ResponseInitChain init_chain = 10;</code>
      */
@@ -8722,12 +9304,20 @@ public final class Types {
     /**
      * <code>.com.github.jtendermint.jabci.types.ResponseBeginBlock begin_block = 11;</code>
      */
+    boolean hasBeginBlock();
+    /**
+     * <code>.com.github.jtendermint.jabci.types.ResponseBeginBlock begin_block = 11;</code>
+     */
     com.github.jtendermint.jabci.types.Types.ResponseBeginBlock getBeginBlock();
     /**
      * <code>.com.github.jtendermint.jabci.types.ResponseBeginBlock begin_block = 11;</code>
      */
     com.github.jtendermint.jabci.types.Types.ResponseBeginBlockOrBuilder getBeginBlockOrBuilder();
 
+    /**
+     * <code>.com.github.jtendermint.jabci.types.ResponseEndBlock end_block = 12;</code>
+     */
+    boolean hasEndBlock();
     /**
      * <code>.com.github.jtendermint.jabci.types.ResponseEndBlock end_block = 12;</code>
      */
@@ -8746,6 +9336,7 @@ public final class Types {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.github.jtendermint.jabci.types.Response)
       ResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use Response.newBuilder() to construct.
     private Response(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -8756,7 +9347,7 @@ public final class Types {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+      return this.unknownFields;
     }
     private Response(
         com.google.protobuf.CodedInputStream input,
@@ -8764,6 +9355,8 @@ public final class Types {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -8773,7 +9366,8 @@ public final class Types {
               done = true;
               break;
             default: {
-              if (!input.skipField(tag)) {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
               break;
@@ -8954,6 +9548,7 @@ public final class Types {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -9031,6 +9626,12 @@ public final class Types {
     /**
      * <code>.com.github.jtendermint.jabci.types.ResponseException exception = 1;</code>
      */
+    public boolean hasException() {
+      return valueCase_ == 1;
+    }
+    /**
+     * <code>.com.github.jtendermint.jabci.types.ResponseException exception = 1;</code>
+     */
     public com.github.jtendermint.jabci.types.Types.ResponseException getException() {
       if (valueCase_ == 1) {
          return (com.github.jtendermint.jabci.types.Types.ResponseException) value_;
@@ -9048,6 +9649,12 @@ public final class Types {
     }
 
     public static final int ECHO_FIELD_NUMBER = 2;
+    /**
+     * <code>.com.github.jtendermint.jabci.types.ResponseEcho echo = 2;</code>
+     */
+    public boolean hasEcho() {
+      return valueCase_ == 2;
+    }
     /**
      * <code>.com.github.jtendermint.jabci.types.ResponseEcho echo = 2;</code>
      */
@@ -9071,6 +9678,12 @@ public final class Types {
     /**
      * <code>.com.github.jtendermint.jabci.types.ResponseFlush flush = 3;</code>
      */
+    public boolean hasFlush() {
+      return valueCase_ == 3;
+    }
+    /**
+     * <code>.com.github.jtendermint.jabci.types.ResponseFlush flush = 3;</code>
+     */
     public com.github.jtendermint.jabci.types.Types.ResponseFlush getFlush() {
       if (valueCase_ == 3) {
          return (com.github.jtendermint.jabci.types.Types.ResponseFlush) value_;
@@ -9088,6 +9701,12 @@ public final class Types {
     }
 
     public static final int INFO_FIELD_NUMBER = 4;
+    /**
+     * <code>.com.github.jtendermint.jabci.types.ResponseInfo info = 4;</code>
+     */
+    public boolean hasInfo() {
+      return valueCase_ == 4;
+    }
     /**
      * <code>.com.github.jtendermint.jabci.types.ResponseInfo info = 4;</code>
      */
@@ -9111,6 +9730,12 @@ public final class Types {
     /**
      * <code>.com.github.jtendermint.jabci.types.ResponseSetOption set_option = 5;</code>
      */
+    public boolean hasSetOption() {
+      return valueCase_ == 5;
+    }
+    /**
+     * <code>.com.github.jtendermint.jabci.types.ResponseSetOption set_option = 5;</code>
+     */
     public com.github.jtendermint.jabci.types.Types.ResponseSetOption getSetOption() {
       if (valueCase_ == 5) {
          return (com.github.jtendermint.jabci.types.Types.ResponseSetOption) value_;
@@ -9128,6 +9753,12 @@ public final class Types {
     }
 
     public static final int DELIVER_TX_FIELD_NUMBER = 6;
+    /**
+     * <code>.com.github.jtendermint.jabci.types.ResponseDeliverTx deliver_tx = 6;</code>
+     */
+    public boolean hasDeliverTx() {
+      return valueCase_ == 6;
+    }
     /**
      * <code>.com.github.jtendermint.jabci.types.ResponseDeliverTx deliver_tx = 6;</code>
      */
@@ -9151,6 +9782,12 @@ public final class Types {
     /**
      * <code>.com.github.jtendermint.jabci.types.ResponseCheckTx check_tx = 7;</code>
      */
+    public boolean hasCheckTx() {
+      return valueCase_ == 7;
+    }
+    /**
+     * <code>.com.github.jtendermint.jabci.types.ResponseCheckTx check_tx = 7;</code>
+     */
     public com.github.jtendermint.jabci.types.Types.ResponseCheckTx getCheckTx() {
       if (valueCase_ == 7) {
          return (com.github.jtendermint.jabci.types.Types.ResponseCheckTx) value_;
@@ -9168,6 +9805,12 @@ public final class Types {
     }
 
     public static final int COMMIT_FIELD_NUMBER = 8;
+    /**
+     * <code>.com.github.jtendermint.jabci.types.ResponseCommit commit = 8;</code>
+     */
+    public boolean hasCommit() {
+      return valueCase_ == 8;
+    }
     /**
      * <code>.com.github.jtendermint.jabci.types.ResponseCommit commit = 8;</code>
      */
@@ -9191,6 +9834,12 @@ public final class Types {
     /**
      * <code>.com.github.jtendermint.jabci.types.ResponseQuery query = 9;</code>
      */
+    public boolean hasQuery() {
+      return valueCase_ == 9;
+    }
+    /**
+     * <code>.com.github.jtendermint.jabci.types.ResponseQuery query = 9;</code>
+     */
     public com.github.jtendermint.jabci.types.Types.ResponseQuery getQuery() {
       if (valueCase_ == 9) {
          return (com.github.jtendermint.jabci.types.Types.ResponseQuery) value_;
@@ -9208,6 +9857,12 @@ public final class Types {
     }
 
     public static final int INIT_CHAIN_FIELD_NUMBER = 10;
+    /**
+     * <code>.com.github.jtendermint.jabci.types.ResponseInitChain init_chain = 10;</code>
+     */
+    public boolean hasInitChain() {
+      return valueCase_ == 10;
+    }
     /**
      * <code>.com.github.jtendermint.jabci.types.ResponseInitChain init_chain = 10;</code>
      */
@@ -9231,6 +9886,12 @@ public final class Types {
     /**
      * <code>.com.github.jtendermint.jabci.types.ResponseBeginBlock begin_block = 11;</code>
      */
+    public boolean hasBeginBlock() {
+      return valueCase_ == 11;
+    }
+    /**
+     * <code>.com.github.jtendermint.jabci.types.ResponseBeginBlock begin_block = 11;</code>
+     */
     public com.github.jtendermint.jabci.types.Types.ResponseBeginBlock getBeginBlock() {
       if (valueCase_ == 11) {
          return (com.github.jtendermint.jabci.types.Types.ResponseBeginBlock) value_;
@@ -9248,6 +9909,12 @@ public final class Types {
     }
 
     public static final int END_BLOCK_FIELD_NUMBER = 12;
+    /**
+     * <code>.com.github.jtendermint.jabci.types.ResponseEndBlock end_block = 12;</code>
+     */
+    public boolean hasEndBlock() {
+      return valueCase_ == 12;
+    }
     /**
      * <code>.com.github.jtendermint.jabci.types.ResponseEndBlock end_block = 12;</code>
      */
@@ -9315,6 +9982,7 @@ public final class Types {
       if (valueCase_ == 12) {
         output.writeMessage(12, (com.github.jtendermint.jabci.types.Types.ResponseEndBlock) value_);
       }
+      unknownFields.writeTo(output);
     }
 
     public int getSerializedSize() {
@@ -9370,11 +10038,11 @@ public final class Types {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(12, (com.github.jtendermint.jabci.types.Types.ResponseEndBlock) value_);
       }
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -9441,6 +10109,7 @@ public final class Types {
         case 0:
         default:
       }
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
@@ -9508,6 +10177,17 @@ public final class Types {
       return hash;
     }
 
+    public static com.github.jtendermint.jabci.types.Types.Response parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.github.jtendermint.jabci.types.Types.Response parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static com.github.jtendermint.jabci.types.Types.Response parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -9739,7 +10419,7 @@ public final class Types {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -9752,12 +10432,12 @@ public final class Types {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -9824,6 +10504,7 @@ public final class Types {
             break;
           }
         }
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -9867,6 +10548,12 @@ public final class Types {
 
       private com.google.protobuf.SingleFieldBuilderV3<
           com.github.jtendermint.jabci.types.Types.ResponseException, com.github.jtendermint.jabci.types.Types.ResponseException.Builder, com.github.jtendermint.jabci.types.Types.ResponseExceptionOrBuilder> exceptionBuilder_;
+      /**
+       * <code>.com.github.jtendermint.jabci.types.ResponseException exception = 1;</code>
+       */
+      public boolean hasException() {
+        return valueCase_ == 1;
+      }
       /**
        * <code>.com.github.jtendermint.jabci.types.ResponseException exception = 1;</code>
        */
@@ -10000,6 +10687,12 @@ public final class Types {
       /**
        * <code>.com.github.jtendermint.jabci.types.ResponseEcho echo = 2;</code>
        */
+      public boolean hasEcho() {
+        return valueCase_ == 2;
+      }
+      /**
+       * <code>.com.github.jtendermint.jabci.types.ResponseEcho echo = 2;</code>
+       */
       public com.github.jtendermint.jabci.types.Types.ResponseEcho getEcho() {
         if (echoBuilder_ == null) {
           if (valueCase_ == 2) {
@@ -10127,6 +10820,12 @@ public final class Types {
 
       private com.google.protobuf.SingleFieldBuilderV3<
           com.github.jtendermint.jabci.types.Types.ResponseFlush, com.github.jtendermint.jabci.types.Types.ResponseFlush.Builder, com.github.jtendermint.jabci.types.Types.ResponseFlushOrBuilder> flushBuilder_;
+      /**
+       * <code>.com.github.jtendermint.jabci.types.ResponseFlush flush = 3;</code>
+       */
+      public boolean hasFlush() {
+        return valueCase_ == 3;
+      }
       /**
        * <code>.com.github.jtendermint.jabci.types.ResponseFlush flush = 3;</code>
        */
@@ -10260,6 +10959,12 @@ public final class Types {
       /**
        * <code>.com.github.jtendermint.jabci.types.ResponseInfo info = 4;</code>
        */
+      public boolean hasInfo() {
+        return valueCase_ == 4;
+      }
+      /**
+       * <code>.com.github.jtendermint.jabci.types.ResponseInfo info = 4;</code>
+       */
       public com.github.jtendermint.jabci.types.Types.ResponseInfo getInfo() {
         if (infoBuilder_ == null) {
           if (valueCase_ == 4) {
@@ -10387,6 +11092,12 @@ public final class Types {
 
       private com.google.protobuf.SingleFieldBuilderV3<
           com.github.jtendermint.jabci.types.Types.ResponseSetOption, com.github.jtendermint.jabci.types.Types.ResponseSetOption.Builder, com.github.jtendermint.jabci.types.Types.ResponseSetOptionOrBuilder> setOptionBuilder_;
+      /**
+       * <code>.com.github.jtendermint.jabci.types.ResponseSetOption set_option = 5;</code>
+       */
+      public boolean hasSetOption() {
+        return valueCase_ == 5;
+      }
       /**
        * <code>.com.github.jtendermint.jabci.types.ResponseSetOption set_option = 5;</code>
        */
@@ -10520,6 +11231,12 @@ public final class Types {
       /**
        * <code>.com.github.jtendermint.jabci.types.ResponseDeliverTx deliver_tx = 6;</code>
        */
+      public boolean hasDeliverTx() {
+        return valueCase_ == 6;
+      }
+      /**
+       * <code>.com.github.jtendermint.jabci.types.ResponseDeliverTx deliver_tx = 6;</code>
+       */
       public com.github.jtendermint.jabci.types.Types.ResponseDeliverTx getDeliverTx() {
         if (deliverTxBuilder_ == null) {
           if (valueCase_ == 6) {
@@ -10647,6 +11364,12 @@ public final class Types {
 
       private com.google.protobuf.SingleFieldBuilderV3<
           com.github.jtendermint.jabci.types.Types.ResponseCheckTx, com.github.jtendermint.jabci.types.Types.ResponseCheckTx.Builder, com.github.jtendermint.jabci.types.Types.ResponseCheckTxOrBuilder> checkTxBuilder_;
+      /**
+       * <code>.com.github.jtendermint.jabci.types.ResponseCheckTx check_tx = 7;</code>
+       */
+      public boolean hasCheckTx() {
+        return valueCase_ == 7;
+      }
       /**
        * <code>.com.github.jtendermint.jabci.types.ResponseCheckTx check_tx = 7;</code>
        */
@@ -10780,6 +11503,12 @@ public final class Types {
       /**
        * <code>.com.github.jtendermint.jabci.types.ResponseCommit commit = 8;</code>
        */
+      public boolean hasCommit() {
+        return valueCase_ == 8;
+      }
+      /**
+       * <code>.com.github.jtendermint.jabci.types.ResponseCommit commit = 8;</code>
+       */
       public com.github.jtendermint.jabci.types.Types.ResponseCommit getCommit() {
         if (commitBuilder_ == null) {
           if (valueCase_ == 8) {
@@ -10907,6 +11636,12 @@ public final class Types {
 
       private com.google.protobuf.SingleFieldBuilderV3<
           com.github.jtendermint.jabci.types.Types.ResponseQuery, com.github.jtendermint.jabci.types.Types.ResponseQuery.Builder, com.github.jtendermint.jabci.types.Types.ResponseQueryOrBuilder> queryBuilder_;
+      /**
+       * <code>.com.github.jtendermint.jabci.types.ResponseQuery query = 9;</code>
+       */
+      public boolean hasQuery() {
+        return valueCase_ == 9;
+      }
       /**
        * <code>.com.github.jtendermint.jabci.types.ResponseQuery query = 9;</code>
        */
@@ -11040,6 +11775,12 @@ public final class Types {
       /**
        * <code>.com.github.jtendermint.jabci.types.ResponseInitChain init_chain = 10;</code>
        */
+      public boolean hasInitChain() {
+        return valueCase_ == 10;
+      }
+      /**
+       * <code>.com.github.jtendermint.jabci.types.ResponseInitChain init_chain = 10;</code>
+       */
       public com.github.jtendermint.jabci.types.Types.ResponseInitChain getInitChain() {
         if (initChainBuilder_ == null) {
           if (valueCase_ == 10) {
@@ -11167,6 +11908,12 @@ public final class Types {
 
       private com.google.protobuf.SingleFieldBuilderV3<
           com.github.jtendermint.jabci.types.Types.ResponseBeginBlock, com.github.jtendermint.jabci.types.Types.ResponseBeginBlock.Builder, com.github.jtendermint.jabci.types.Types.ResponseBeginBlockOrBuilder> beginBlockBuilder_;
+      /**
+       * <code>.com.github.jtendermint.jabci.types.ResponseBeginBlock begin_block = 11;</code>
+       */
+      public boolean hasBeginBlock() {
+        return valueCase_ == 11;
+      }
       /**
        * <code>.com.github.jtendermint.jabci.types.ResponseBeginBlock begin_block = 11;</code>
        */
@@ -11300,6 +12047,12 @@ public final class Types {
       /**
        * <code>.com.github.jtendermint.jabci.types.ResponseEndBlock end_block = 12;</code>
        */
+      public boolean hasEndBlock() {
+        return valueCase_ == 12;
+      }
+      /**
+       * <code>.com.github.jtendermint.jabci.types.ResponseEndBlock end_block = 12;</code>
+       */
       public com.github.jtendermint.jabci.types.Types.ResponseEndBlock getEndBlock() {
         if (endBlockBuilder_ == null) {
           if (valueCase_ == 12) {
@@ -11426,12 +12179,12 @@ public final class Types {
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.mergeUnknownFields(unknownFields);
       }
 
 
@@ -11494,6 +12247,7 @@ public final class Types {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.github.jtendermint.jabci.types.ResponseException)
       ResponseExceptionOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use ResponseException.newBuilder() to construct.
     private ResponseException(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -11505,7 +12259,7 @@ public final class Types {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+      return this.unknownFields;
     }
     private ResponseException(
         com.google.protobuf.CodedInputStream input,
@@ -11513,6 +12267,8 @@ public final class Types {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -11522,7 +12278,8 @@ public final class Types {
               done = true;
               break;
             default: {
-              if (!input.skipField(tag)) {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
               break;
@@ -11541,6 +12298,7 @@ public final class Types {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -11605,6 +12363,7 @@ public final class Types {
       if (!getErrorBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, error_);
       }
+      unknownFields.writeTo(output);
     }
 
     public int getSerializedSize() {
@@ -11615,11 +12374,11 @@ public final class Types {
       if (!getErrorBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, error_);
       }
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -11633,6 +12392,7 @@ public final class Types {
       boolean result = true;
       result = result && getError()
           .equals(other.getError());
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
@@ -11650,6 +12410,17 @@ public final class Types {
       return hash;
     }
 
+    public static com.github.jtendermint.jabci.types.Types.ResponseException parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.github.jtendermint.jabci.types.Types.ResponseException parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static com.github.jtendermint.jabci.types.Types.ResponseException parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -11797,7 +12568,7 @@ public final class Types {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -11810,12 +12581,12 @@ public final class Types {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -11833,6 +12604,7 @@ public final class Types {
           error_ = other.error_;
           onChanged();
         }
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -11929,12 +12701,12 @@ public final class Types {
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.mergeUnknownFields(unknownFields);
       }
 
 
@@ -11997,6 +12769,7 @@ public final class Types {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.github.jtendermint.jabci.types.ResponseEcho)
       ResponseEchoOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use ResponseEcho.newBuilder() to construct.
     private ResponseEcho(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -12008,7 +12781,7 @@ public final class Types {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+      return this.unknownFields;
     }
     private ResponseEcho(
         com.google.protobuf.CodedInputStream input,
@@ -12016,6 +12789,8 @@ public final class Types {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -12025,7 +12800,8 @@ public final class Types {
               done = true;
               break;
             default: {
-              if (!input.skipField(tag)) {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
               break;
@@ -12044,6 +12820,7 @@ public final class Types {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -12108,6 +12885,7 @@ public final class Types {
       if (!getMessageBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, message_);
       }
+      unknownFields.writeTo(output);
     }
 
     public int getSerializedSize() {
@@ -12118,11 +12896,11 @@ public final class Types {
       if (!getMessageBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, message_);
       }
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -12136,6 +12914,7 @@ public final class Types {
       boolean result = true;
       result = result && getMessage()
           .equals(other.getMessage());
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
@@ -12153,6 +12932,17 @@ public final class Types {
       return hash;
     }
 
+    public static com.github.jtendermint.jabci.types.Types.ResponseEcho parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.github.jtendermint.jabci.types.Types.ResponseEcho parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static com.github.jtendermint.jabci.types.Types.ResponseEcho parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -12300,7 +13090,7 @@ public final class Types {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -12313,12 +13103,12 @@ public final class Types {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -12336,6 +13126,7 @@ public final class Types {
           message_ = other.message_;
           onChanged();
         }
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -12432,12 +13223,12 @@ public final class Types {
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.mergeUnknownFields(unknownFields);
       }
 
 
@@ -12490,6 +13281,7 @@ public final class Types {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.github.jtendermint.jabci.types.ResponseFlush)
       ResponseFlushOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use ResponseFlush.newBuilder() to construct.
     private ResponseFlush(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -12500,13 +13292,15 @@ public final class Types {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+      return this.unknownFields;
     }
     private ResponseFlush(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -12516,7 +13310,8 @@ public final class Types {
               done = true;
               break;
             default: {
-              if (!input.skipField(tag)) {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
               break;
@@ -12529,6 +13324,7 @@ public final class Types {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -12556,6 +13352,7 @@ public final class Types {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      unknownFields.writeTo(output);
     }
 
     public int getSerializedSize() {
@@ -12563,11 +13360,11 @@ public final class Types {
       if (size != -1) return size;
 
       size = 0;
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -12579,6 +13376,7 @@ public final class Types {
       com.github.jtendermint.jabci.types.Types.ResponseFlush other = (com.github.jtendermint.jabci.types.Types.ResponseFlush) obj;
 
       boolean result = true;
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
@@ -12594,6 +13392,17 @@ public final class Types {
       return hash;
     }
 
+    public static com.github.jtendermint.jabci.types.Types.ResponseFlush parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.github.jtendermint.jabci.types.Types.ResponseFlush parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static com.github.jtendermint.jabci.types.Types.ResponseFlush parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -12738,7 +13547,7 @@ public final class Types {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -12751,12 +13560,12 @@ public final class Types {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -12770,6 +13579,7 @@ public final class Types {
 
       public Builder mergeFrom(com.github.jtendermint.jabci.types.Types.ResponseFlush other) {
         if (other == com.github.jtendermint.jabci.types.Types.ResponseFlush.getDefaultInstance()) return this;
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -12797,12 +13607,12 @@ public final class Types {
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.mergeUnknownFields(unknownFields);
       }
 
 
@@ -12885,6 +13695,7 @@ public final class Types {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.github.jtendermint.jabci.types.ResponseInfo)
       ResponseInfoOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use ResponseInfo.newBuilder() to construct.
     private ResponseInfo(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -12899,7 +13710,7 @@ public final class Types {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+      return this.unknownFields;
     }
     private ResponseInfo(
         com.google.protobuf.CodedInputStream input,
@@ -12907,6 +13718,8 @@ public final class Types {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -12916,7 +13729,8 @@ public final class Types {
               done = true;
               break;
             default: {
-              if (!input.skipField(tag)) {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
               break;
@@ -12951,6 +13765,7 @@ public final class Types {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -13076,6 +13891,7 @@ public final class Types {
       if (!lastBlockAppHash_.isEmpty()) {
         output.writeBytes(4, lastBlockAppHash_);
       }
+      unknownFields.writeTo(output);
     }
 
     public int getSerializedSize() {
@@ -13097,11 +13913,11 @@ public final class Types {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(4, lastBlockAppHash_);
       }
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -13121,6 +13937,7 @@ public final class Types {
           == other.getLastBlockHeight());
       result = result && getLastBlockAppHash()
           .equals(other.getLastBlockAppHash());
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
@@ -13145,6 +13962,17 @@ public final class Types {
       return hash;
     }
 
+    public static com.github.jtendermint.jabci.types.Types.ResponseInfo parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.github.jtendermint.jabci.types.Types.ResponseInfo parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static com.github.jtendermint.jabci.types.Types.ResponseInfo parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -13301,7 +14129,7 @@ public final class Types {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -13314,12 +14142,12 @@ public final class Types {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -13347,6 +14175,7 @@ public final class Types {
         if (other.getLastBlockAppHash() != com.google.protobuf.ByteString.EMPTY) {
           setLastBlockAppHash(other.getLastBlockAppHash());
         }
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -13567,12 +14396,12 @@ public final class Types {
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.mergeUnknownFields(unknownFields);
       }
 
 
@@ -13635,6 +14464,7 @@ public final class Types {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.github.jtendermint.jabci.types.ResponseSetOption)
       ResponseSetOptionOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use ResponseSetOption.newBuilder() to construct.
     private ResponseSetOption(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -13646,7 +14476,7 @@ public final class Types {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+      return this.unknownFields;
     }
     private ResponseSetOption(
         com.google.protobuf.CodedInputStream input,
@@ -13654,6 +14484,8 @@ public final class Types {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -13663,7 +14495,8 @@ public final class Types {
               done = true;
               break;
             default: {
-              if (!input.skipField(tag)) {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
               break;
@@ -13682,6 +14515,7 @@ public final class Types {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -13746,6 +14580,7 @@ public final class Types {
       if (!getLogBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, log_);
       }
+      unknownFields.writeTo(output);
     }
 
     public int getSerializedSize() {
@@ -13756,11 +14591,11 @@ public final class Types {
       if (!getLogBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, log_);
       }
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -13774,6 +14609,7 @@ public final class Types {
       boolean result = true;
       result = result && getLog()
           .equals(other.getLog());
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
@@ -13791,6 +14627,17 @@ public final class Types {
       return hash;
     }
 
+    public static com.github.jtendermint.jabci.types.Types.ResponseSetOption parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.github.jtendermint.jabci.types.Types.ResponseSetOption parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static com.github.jtendermint.jabci.types.Types.ResponseSetOption parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -13938,7 +14785,7 @@ public final class Types {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -13951,12 +14798,12 @@ public final class Types {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -13974,6 +14821,7 @@ public final class Types {
           log_ = other.log_;
           onChanged();
         }
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -14070,12 +14918,12 @@ public final class Types {
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.mergeUnknownFields(unknownFields);
       }
 
 
@@ -14152,6 +15000,7 @@ public final class Types {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.github.jtendermint.jabci.types.ResponseDeliverTx)
       ResponseDeliverTxOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use ResponseDeliverTx.newBuilder() to construct.
     private ResponseDeliverTx(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -14165,7 +15014,7 @@ public final class Types {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+      return this.unknownFields;
     }
     private ResponseDeliverTx(
         com.google.protobuf.CodedInputStream input,
@@ -14173,6 +15022,8 @@ public final class Types {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -14182,7 +15033,8 @@ public final class Types {
               done = true;
               break;
             default: {
-              if (!input.skipField(tag)) {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
               break;
@@ -14212,6 +15064,7 @@ public final class Types {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -14307,6 +15160,7 @@ public final class Types {
       if (!getLogBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, log_);
       }
+      unknownFields.writeTo(output);
     }
 
     public int getSerializedSize() {
@@ -14325,11 +15179,11 @@ public final class Types {
       if (!getLogBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, log_);
       }
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -14346,6 +15200,7 @@ public final class Types {
           .equals(other.getData());
       result = result && getLog()
           .equals(other.getLog());
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
@@ -14367,6 +15222,17 @@ public final class Types {
       return hash;
     }
 
+    public static com.github.jtendermint.jabci.types.Types.ResponseDeliverTx parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.github.jtendermint.jabci.types.Types.ResponseDeliverTx parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static com.github.jtendermint.jabci.types.Types.ResponseDeliverTx parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -14520,7 +15386,7 @@ public final class Types {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -14533,12 +15399,12 @@ public final class Types {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -14562,6 +15428,7 @@ public final class Types {
           log_ = other.log_;
           onChanged();
         }
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -14731,12 +15598,12 @@ public final class Types {
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.mergeUnknownFields(unknownFields);
       }
 
 
@@ -14813,6 +15680,7 @@ public final class Types {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.github.jtendermint.jabci.types.ResponseCheckTx)
       ResponseCheckTxOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use ResponseCheckTx.newBuilder() to construct.
     private ResponseCheckTx(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -14826,7 +15694,7 @@ public final class Types {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+      return this.unknownFields;
     }
     private ResponseCheckTx(
         com.google.protobuf.CodedInputStream input,
@@ -14834,6 +15702,8 @@ public final class Types {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -14843,7 +15713,8 @@ public final class Types {
               done = true;
               break;
             default: {
-              if (!input.skipField(tag)) {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
               break;
@@ -14873,6 +15744,7 @@ public final class Types {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -14968,6 +15840,7 @@ public final class Types {
       if (!getLogBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, log_);
       }
+      unknownFields.writeTo(output);
     }
 
     public int getSerializedSize() {
@@ -14986,11 +15859,11 @@ public final class Types {
       if (!getLogBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, log_);
       }
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -15007,6 +15880,7 @@ public final class Types {
           .equals(other.getData());
       result = result && getLog()
           .equals(other.getLog());
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
@@ -15028,6 +15902,17 @@ public final class Types {
       return hash;
     }
 
+    public static com.github.jtendermint.jabci.types.Types.ResponseCheckTx parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.github.jtendermint.jabci.types.Types.ResponseCheckTx parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static com.github.jtendermint.jabci.types.Types.ResponseCheckTx parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -15181,7 +16066,7 @@ public final class Types {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -15194,12 +16079,12 @@ public final class Types {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -15223,6 +16108,7 @@ public final class Types {
           log_ = other.log_;
           onChanged();
         }
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -15392,12 +16278,12 @@ public final class Types {
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.mergeUnknownFields(unknownFields);
       }
 
 
@@ -15494,6 +16380,7 @@ public final class Types {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.github.jtendermint.jabci.types.ResponseQuery)
       ResponseQueryOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use ResponseQuery.newBuilder() to construct.
     private ResponseQuery(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -15511,7 +16398,7 @@ public final class Types {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+      return this.unknownFields;
     }
     private ResponseQuery(
         com.google.protobuf.CodedInputStream input,
@@ -15519,6 +16406,8 @@ public final class Types {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -15528,7 +16417,8 @@ public final class Types {
               done = true;
               break;
             default: {
-              if (!input.skipField(tag)) {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
               break;
@@ -15578,6 +16468,7 @@ public final class Types {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -15721,6 +16612,7 @@ public final class Types {
       if (!getLogBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 7, log_);
       }
+      unknownFields.writeTo(output);
     }
 
     public int getSerializedSize() {
@@ -15755,11 +16647,11 @@ public final class Types {
       if (!getLogBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, log_);
       }
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -15784,6 +16676,7 @@ public final class Types {
           == other.getHeight());
       result = result && getLog()
           .equals(other.getLog());
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
@@ -15815,6 +16708,17 @@ public final class Types {
       return hash;
     }
 
+    public static com.github.jtendermint.jabci.types.Types.ResponseQuery parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.github.jtendermint.jabci.types.Types.ResponseQuery parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static com.github.jtendermint.jabci.types.Types.ResponseQuery parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -15980,7 +16884,7 @@ public final class Types {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -15993,12 +16897,12 @@ public final class Types {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -16034,6 +16938,7 @@ public final class Types {
           log_ = other.log_;
           onChanged();
         }
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -16313,12 +17218,12 @@ public final class Types {
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.mergeUnknownFields(unknownFields);
       }
 
 
@@ -16395,6 +17300,7 @@ public final class Types {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.github.jtendermint.jabci.types.ResponseCommit)
       ResponseCommitOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use ResponseCommit.newBuilder() to construct.
     private ResponseCommit(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -16408,7 +17314,7 @@ public final class Types {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+      return this.unknownFields;
     }
     private ResponseCommit(
         com.google.protobuf.CodedInputStream input,
@@ -16416,6 +17322,8 @@ public final class Types {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -16425,7 +17333,8 @@ public final class Types {
               done = true;
               break;
             default: {
-              if (!input.skipField(tag)) {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
               break;
@@ -16455,6 +17364,7 @@ public final class Types {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -16550,6 +17460,7 @@ public final class Types {
       if (!getLogBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, log_);
       }
+      unknownFields.writeTo(output);
     }
 
     public int getSerializedSize() {
@@ -16568,11 +17479,11 @@ public final class Types {
       if (!getLogBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, log_);
       }
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -16589,6 +17500,7 @@ public final class Types {
           .equals(other.getData());
       result = result && getLog()
           .equals(other.getLog());
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
@@ -16610,6 +17522,17 @@ public final class Types {
       return hash;
     }
 
+    public static com.github.jtendermint.jabci.types.Types.ResponseCommit parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.github.jtendermint.jabci.types.Types.ResponseCommit parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static com.github.jtendermint.jabci.types.Types.ResponseCommit parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -16763,7 +17686,7 @@ public final class Types {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -16776,12 +17699,12 @@ public final class Types {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -16805,6 +17728,7 @@ public final class Types {
           log_ = other.log_;
           onChanged();
         }
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -16974,12 +17898,12 @@ public final class Types {
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.mergeUnknownFields(unknownFields);
       }
 
 
@@ -17032,6 +17956,7 @@ public final class Types {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.github.jtendermint.jabci.types.ResponseInitChain)
       ResponseInitChainOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use ResponseInitChain.newBuilder() to construct.
     private ResponseInitChain(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -17042,13 +17967,15 @@ public final class Types {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+      return this.unknownFields;
     }
     private ResponseInitChain(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -17058,7 +17985,8 @@ public final class Types {
               done = true;
               break;
             default: {
-              if (!input.skipField(tag)) {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
               break;
@@ -17071,6 +17999,7 @@ public final class Types {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -17098,6 +18027,7 @@ public final class Types {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      unknownFields.writeTo(output);
     }
 
     public int getSerializedSize() {
@@ -17105,11 +18035,11 @@ public final class Types {
       if (size != -1) return size;
 
       size = 0;
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -17121,6 +18051,7 @@ public final class Types {
       com.github.jtendermint.jabci.types.Types.ResponseInitChain other = (com.github.jtendermint.jabci.types.Types.ResponseInitChain) obj;
 
       boolean result = true;
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
@@ -17136,6 +18067,17 @@ public final class Types {
       return hash;
     }
 
+    public static com.github.jtendermint.jabci.types.Types.ResponseInitChain parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.github.jtendermint.jabci.types.Types.ResponseInitChain parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static com.github.jtendermint.jabci.types.Types.ResponseInitChain parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -17280,7 +18222,7 @@ public final class Types {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -17293,12 +18235,12 @@ public final class Types {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -17312,6 +18254,7 @@ public final class Types {
 
       public Builder mergeFrom(com.github.jtendermint.jabci.types.Types.ResponseInitChain other) {
         if (other == com.github.jtendermint.jabci.types.Types.ResponseInitChain.getDefaultInstance()) return this;
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -17339,12 +18282,12 @@ public final class Types {
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.mergeUnknownFields(unknownFields);
       }
 
 
@@ -17397,6 +18340,7 @@ public final class Types {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.github.jtendermint.jabci.types.ResponseBeginBlock)
       ResponseBeginBlockOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use ResponseBeginBlock.newBuilder() to construct.
     private ResponseBeginBlock(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -17407,13 +18351,15 @@ public final class Types {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+      return this.unknownFields;
     }
     private ResponseBeginBlock(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -17423,7 +18369,8 @@ public final class Types {
               done = true;
               break;
             default: {
-              if (!input.skipField(tag)) {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
               break;
@@ -17436,6 +18383,7 @@ public final class Types {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -17463,6 +18411,7 @@ public final class Types {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      unknownFields.writeTo(output);
     }
 
     public int getSerializedSize() {
@@ -17470,11 +18419,11 @@ public final class Types {
       if (size != -1) return size;
 
       size = 0;
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -17486,6 +18435,7 @@ public final class Types {
       com.github.jtendermint.jabci.types.Types.ResponseBeginBlock other = (com.github.jtendermint.jabci.types.Types.ResponseBeginBlock) obj;
 
       boolean result = true;
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
@@ -17501,6 +18451,17 @@ public final class Types {
       return hash;
     }
 
+    public static com.github.jtendermint.jabci.types.Types.ResponseBeginBlock parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.github.jtendermint.jabci.types.Types.ResponseBeginBlock parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static com.github.jtendermint.jabci.types.Types.ResponseBeginBlock parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -17645,7 +18606,7 @@ public final class Types {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -17658,12 +18619,12 @@ public final class Types {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -17677,6 +18638,7 @@ public final class Types {
 
       public Builder mergeFrom(com.github.jtendermint.jabci.types.Types.ResponseBeginBlock other) {
         if (other == com.github.jtendermint.jabci.types.Types.ResponseBeginBlock.getDefaultInstance()) return this;
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -17704,12 +18666,12 @@ public final class Types {
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.mergeUnknownFields(unknownFields);
       }
 
 
@@ -17786,6 +18748,7 @@ public final class Types {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.github.jtendermint.jabci.types.ResponseEndBlock)
       ResponseEndBlockOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use ResponseEndBlock.newBuilder() to construct.
     private ResponseEndBlock(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -17797,7 +18760,7 @@ public final class Types {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+      return this.unknownFields;
     }
     private ResponseEndBlock(
         com.google.protobuf.CodedInputStream input,
@@ -17805,6 +18768,8 @@ public final class Types {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -17814,7 +18779,8 @@ public final class Types {
               done = true;
               break;
             default: {
-              if (!input.skipField(tag)) {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
               break;
@@ -17839,6 +18805,7 @@ public final class Types {
         if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
           diffs_ = java.util.Collections.unmodifiableList(diffs_);
         }
+        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -17904,6 +18871,7 @@ public final class Types {
       for (int i = 0; i < diffs_.size(); i++) {
         output.writeMessage(1, diffs_.get(i));
       }
+      unknownFields.writeTo(output);
     }
 
     public int getSerializedSize() {
@@ -17915,11 +18883,11 @@ public final class Types {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, diffs_.get(i));
       }
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -17933,6 +18901,7 @@ public final class Types {
       boolean result = true;
       result = result && getDiffsList()
           .equals(other.getDiffsList());
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
@@ -17952,6 +18921,17 @@ public final class Types {
       return hash;
     }
 
+    public static com.github.jtendermint.jabci.types.Types.ResponseEndBlock parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.github.jtendermint.jabci.types.Types.ResponseEndBlock parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static com.github.jtendermint.jabci.types.Types.ResponseEndBlock parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -18113,7 +19093,7 @@ public final class Types {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -18126,12 +19106,12 @@ public final class Types {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -18171,6 +19151,7 @@ public final class Types {
             }
           }
         }
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -18439,12 +19420,12 @@ public final class Types {
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.mergeUnknownFields(unknownFields);
       }
 
 
@@ -18555,6 +19536,7 @@ public final class Types {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.github.jtendermint.jabci.types.Header)
       HeaderOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use Header.newBuilder() to construct.
     private Header(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -18573,7 +19555,7 @@ public final class Types {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+      return this.unknownFields;
     }
     private Header(
         com.google.protobuf.CodedInputStream input,
@@ -18581,6 +19563,8 @@ public final class Types {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -18590,7 +19574,8 @@ public final class Types {
               done = true;
               break;
             default: {
-              if (!input.skipField(tag)) {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
               break;
@@ -18657,6 +19642,7 @@ public final class Types {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -18829,6 +19815,7 @@ public final class Types {
       if (!appHash_.isEmpty()) {
         output.writeBytes(9, appHash_);
       }
+      unknownFields.writeTo(output);
     }
 
     public int getSerializedSize() {
@@ -18871,11 +19858,11 @@ public final class Types {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(9, appHash_);
       }
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -18908,6 +19895,7 @@ public final class Types {
           .equals(other.getValidatorsHash());
       result = result && getAppHash()
           .equals(other.getAppHash());
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
@@ -18946,6 +19934,17 @@ public final class Types {
       return hash;
     }
 
+    public static com.github.jtendermint.jabci.types.Types.Header parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.github.jtendermint.jabci.types.Types.Header parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static com.github.jtendermint.jabci.types.Types.Header parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -19125,7 +20124,7 @@ public final class Types {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -19138,12 +20137,12 @@ public final class Types {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -19185,6 +20184,7 @@ public final class Types {
         if (other.getAppHash() != com.google.protobuf.ByteString.EMPTY) {
           setAppHash(other.getAppHash());
         }
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -19592,12 +20592,12 @@ public final class Types {
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.mergeUnknownFields(unknownFields);
       }
 
 
@@ -19668,6 +20668,7 @@ public final class Types {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.github.jtendermint.jabci.types.BlockID)
       BlockIDOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use BlockID.newBuilder() to construct.
     private BlockID(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -19679,7 +20680,7 @@ public final class Types {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+      return this.unknownFields;
     }
     private BlockID(
         com.google.protobuf.CodedInputStream input,
@@ -19687,6 +20688,8 @@ public final class Types {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -19696,7 +20699,8 @@ public final class Types {
               done = true;
               break;
             default: {
-              if (!input.skipField(tag)) {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
               break;
@@ -19727,6 +20731,7 @@ public final class Types {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -19790,6 +20795,7 @@ public final class Types {
       if (parts_ != null) {
         output.writeMessage(2, getParts());
       }
+      unknownFields.writeTo(output);
     }
 
     public int getSerializedSize() {
@@ -19805,11 +20811,11 @@ public final class Types {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getParts());
       }
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -19828,6 +20834,7 @@ public final class Types {
         result = result && getParts()
             .equals(other.getParts());
       }
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
@@ -19849,6 +20856,17 @@ public final class Types {
       return hash;
     }
 
+    public static com.github.jtendermint.jabci.types.Types.BlockID parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.github.jtendermint.jabci.types.Types.BlockID parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static com.github.jtendermint.jabci.types.Types.BlockID parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -20007,7 +21025,7 @@ public final class Types {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -20020,12 +21038,12 @@ public final class Types {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -20045,6 +21063,7 @@ public final class Types {
         if (other.hasParts()) {
           mergeParts(other.getParts());
         }
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -20218,12 +21237,12 @@ public final class Types {
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.mergeUnknownFields(unknownFields);
       }
 
 
@@ -20286,6 +21305,7 @@ public final class Types {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.github.jtendermint.jabci.types.PartSetHeader)
       PartSetHeaderOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use PartSetHeader.newBuilder() to construct.
     private PartSetHeader(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -20298,7 +21318,7 @@ public final class Types {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+      return this.unknownFields;
     }
     private PartSetHeader(
         com.google.protobuf.CodedInputStream input,
@@ -20306,6 +21326,8 @@ public final class Types {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -20315,7 +21337,8 @@ public final class Types {
               done = true;
               break;
             default: {
-              if (!input.skipField(tag)) {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
               break;
@@ -20338,6 +21361,7 @@ public final class Types {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -20389,6 +21413,7 @@ public final class Types {
       if (!hash_.isEmpty()) {
         output.writeBytes(2, hash_);
       }
+      unknownFields.writeTo(output);
     }
 
     public int getSerializedSize() {
@@ -20404,11 +21429,11 @@ public final class Types {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(2, hash_);
       }
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -20424,6 +21449,7 @@ public final class Types {
           == other.getTotal());
       result = result && getHash()
           .equals(other.getHash());
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
@@ -20444,6 +21470,17 @@ public final class Types {
       return hash;
     }
 
+    public static com.github.jtendermint.jabci.types.Types.PartSetHeader parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.github.jtendermint.jabci.types.Types.PartSetHeader parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static com.github.jtendermint.jabci.types.Types.PartSetHeader parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -20594,7 +21631,7 @@ public final class Types {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -20607,12 +21644,12 @@ public final class Types {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -20632,6 +21669,7 @@ public final class Types {
         if (other.getHash() != com.google.protobuf.ByteString.EMPTY) {
           setHash(other.getHash());
         }
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -20714,12 +21752,12 @@ public final class Types {
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.mergeUnknownFields(unknownFields);
       }
 
 
@@ -20782,6 +21820,7 @@ public final class Types {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.github.jtendermint.jabci.types.Validator)
       ValidatorOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use Validator.newBuilder() to construct.
     private Validator(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -20794,7 +21833,7 @@ public final class Types {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+      return this.unknownFields;
     }
     private Validator(
         com.google.protobuf.CodedInputStream input,
@@ -20802,6 +21841,8 @@ public final class Types {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -20811,7 +21852,8 @@ public final class Types {
               done = true;
               break;
             default: {
-              if (!input.skipField(tag)) {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
               break;
@@ -20834,6 +21876,7 @@ public final class Types {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -20885,6 +21928,7 @@ public final class Types {
       if (power_ != 0L) {
         output.writeUInt64(2, power_);
       }
+      unknownFields.writeTo(output);
     }
 
     public int getSerializedSize() {
@@ -20900,11 +21944,11 @@ public final class Types {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(2, power_);
       }
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -20920,6 +21964,7 @@ public final class Types {
           .equals(other.getPubKey());
       result = result && (getPower()
           == other.getPower());
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
@@ -20940,6 +21985,17 @@ public final class Types {
       return hash;
     }
 
+    public static com.github.jtendermint.jabci.types.Types.Validator parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.github.jtendermint.jabci.types.Types.Validator parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static com.github.jtendermint.jabci.types.Types.Validator parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -21090,7 +22146,7 @@ public final class Types {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -21103,12 +22159,12 @@ public final class Types {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -21128,6 +22184,7 @@ public final class Types {
         if (other.getPower() != 0L) {
           setPower(other.getPower());
         }
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -21210,12 +22267,12 @@ public final class Types {
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.mergeUnknownFields(unknownFields);
       }
 
 
@@ -21433,121 +22490,122 @@ public final class Types {
       "equestBeginBlockH\000\022H\n\tend_block\030\013 \001(\01323.",
       "com.github.jtendermint.jabci.types.Reque" +
       "stEndBlockH\000B\007\n\005value\"\036\n\013RequestEcho\022\017\n\007" +
-      "message\030\001 \001(\t\"\016\n\014RequestFlush\"\r\n\013Request" +
-      "Info\".\n\020RequestSetOption\022\013\n\003key\030\001 \001(\t\022\r\n" +
-      "\005value\030\002 \001(\t\"\036\n\020RequestDeliverTx\022\n\n\002tx\030\001" +
-      " \001(\014\"\034\n\016RequestCheckTx\022\n\n\002tx\030\001 \001(\014\"I\n\014Re" +
-      "questQuery\022\014\n\004data\030\001 \001(\014\022\014\n\004path\030\002 \001(\t\022\016" +
-      "\n\006height\030\003 \001(\004\022\r\n\005prove\030\004 \001(\010\"\017\n\rRequest" +
-      "Commit\"U\n\020RequestInitChain\022A\n\nvalidators" +
-      "\030\001 \003(\0132-.com.github.jtendermint.jabci.ty",
-      "pes.Validator\"]\n\021RequestBeginBlock\022\014\n\004ha" +
-      "sh\030\001 \001(\014\022:\n\006header\030\002 \001(\0132*.com.github.jt" +
-      "endermint.jabci.types.Header\"!\n\017RequestE" +
-      "ndBlock\022\016\n\006height\030\001 \001(\004\"\373\006\n\010Response\022J\n\t" +
-      "exception\030\001 \001(\01325.com.github.jtendermint" +
-      ".jabci.types.ResponseExceptionH\000\022@\n\004echo" +
-      "\030\002 \001(\01320.com.github.jtendermint.jabci.ty" +
-      "pes.ResponseEchoH\000\022B\n\005flush\030\003 \001(\01321.com." +
-      "github.jtendermint.jabci.types.ResponseF" +
-      "lushH\000\022@\n\004info\030\004 \001(\01320.com.github.jtende",
-      "rmint.jabci.types.ResponseInfoH\000\022K\n\nset_" +
-      "option\030\005 \001(\01325.com.github.jtendermint.ja" +
-      "bci.types.ResponseSetOptionH\000\022K\n\ndeliver" +
-      "_tx\030\006 \001(\01325.com.github.jtendermint.jabci" +
-      ".types.ResponseDeliverTxH\000\022G\n\010check_tx\030\007" +
-      " \001(\01323.com.github.jtendermint.jabci.type" +
-      "s.ResponseCheckTxH\000\022D\n\006commit\030\010 \001(\01322.co" +
-      "m.github.jtendermint.jabci.types.Respons" +
-      "eCommitH\000\022B\n\005query\030\t \001(\01321.com.github.jt" +
-      "endermint.jabci.types.ResponseQueryH\000\022K\n",
-      "\ninit_chain\030\n \001(\01325.com.github.jtendermi" +
-      "nt.jabci.types.ResponseInitChainH\000\022M\n\013be" +
-      "gin_block\030\013 \001(\01326.com.github.jtendermint" +
-      ".jabci.types.ResponseBeginBlockH\000\022I\n\tend" +
-      "_block\030\014 \001(\01324.com.github.jtendermint.ja" +
-      "bci.types.ResponseEndBlockH\000B\007\n\005value\"\"\n" +
-      "\021ResponseException\022\r\n\005error\030\001 \001(\t\"\037\n\014Res" +
-      "ponseEcho\022\017\n\007message\030\001 \001(\t\"\017\n\rResponseFl" +
-      "ush\"e\n\014ResponseInfo\022\014\n\004data\030\001 \001(\t\022\017\n\007ver" +
-      "sion\030\002 \001(\t\022\031\n\021last_block_height\030\003 \001(\004\022\033\n",
-      "\023last_block_app_hash\030\004 \001(\014\" \n\021ResponseSe" +
-      "tOption\022\013\n\003log\030\001 \001(\t\"j\n\021ResponseDeliverT" +
-      "x\022:\n\004code\030\001 \001(\0162,.com.github.jtendermint" +
-      ".jabci.types.CodeType\022\014\n\004data\030\002 \001(\014\022\013\n\003l" +
-      "og\030\003 \001(\t\"h\n\017ResponseCheckTx\022:\n\004code\030\001 \001(" +
-      "\0162,.com.github.jtendermint.jabci.types.C" +
-      "odeType\022\014\n\004data\030\002 \001(\014\022\013\n\003log\030\003 \001(\t\"\242\001\n\rR" +
-      "esponseQuery\022:\n\004code\030\001 \001(\0162,.com.github." +
-      "jtendermint.jabci.types.CodeType\022\r\n\005inde" +
-      "x\030\002 \001(\003\022\013\n\003key\030\003 \001(\014\022\r\n\005value\030\004 \001(\014\022\r\n\005p",
-      "roof\030\005 \001(\014\022\016\n\006height\030\006 \001(\004\022\013\n\003log\030\007 \001(\t\"" +
-      "g\n\016ResponseCommit\022:\n\004code\030\001 \001(\0162,.com.gi" +
-      "thub.jtendermint.jabci.types.CodeType\022\014\n" +
-      "\004data\030\002 \001(\014\022\013\n\003log\030\003 \001(\t\"\023\n\021ResponseInit" +
-      "Chain\"\024\n\022ResponseBeginBlock\"P\n\020ResponseE" +
-      "ndBlock\022<\n\005diffs\030\001 \003(\0132-.com.github.jten" +
-      "dermint.jabci.types.Validator\"\345\001\n\006Header" +
-      "\022\020\n\010chain_id\030\001 \001(\t\022\016\n\006height\030\002 \001(\004\022\014\n\004ti" +
-      "me\030\003 \001(\004\022\017\n\007num_txs\030\004 \001(\004\022B\n\rlast_block_" +
-      "id\030\005 \001(\0132+.com.github.jtendermint.jabci.",
-      "types.BlockID\022\030\n\020last_commit_hash\030\006 \001(\014\022" +
-      "\021\n\tdata_hash\030\007 \001(\014\022\027\n\017validators_hash\030\010 " +
-      "\001(\014\022\020\n\010app_hash\030\t \001(\014\"Y\n\007BlockID\022\014\n\004hash" +
-      "\030\001 \001(\014\022@\n\005parts\030\002 \001(\01321.com.github.jtend" +
-      "ermint.jabci.types.PartSetHeader\",\n\rPart" +
-      "SetHeader\022\r\n\005total\030\001 \001(\004\022\014\n\004hash\030\002 \001(\014\"*" +
-      "\n\tValidator\022\016\n\006pubKey\030\001 \001(\014\022\r\n\005power\030\002 \001" +
-      "(\004*\265\005\n\010CodeType\022\006\n\002OK\020\000\022\021\n\rInternalError" +
-      "\020\001\022\021\n\rEncodingError\020\002\022\014\n\010BadNonce\020\003\022\020\n\014U" +
-      "nauthorized\020\004\022\025\n\021InsufficientFunds\020\005\022\022\n\016",
-      "UnknownRequest\020\006\022\030\n\024BaseDuplicateAddress" +
-      "\020e\022\025\n\021BaseEncodingError\020f\022\030\n\024BaseInsuffi" +
-      "cientFees\020g\022\031\n\025BaseInsufficientFunds\020h\022\034" +
-      "\n\030BaseInsufficientGasPrice\020i\022\024\n\020BaseInva" +
-      "lidInput\020j\022\025\n\021BaseInvalidOutput\020k\022\025\n\021Bas" +
-      "eInvalidPubKey\020l\022\027\n\023BaseInvalidSequence\020" +
-      "m\022\030\n\024BaseInvalidSignature\020n\022\026\n\022BaseUnkno" +
-      "wnAddress\020o\022\025\n\021BaseUnknownPubKey\020p\022\025\n\021Ba" +
-      "seUnknownPlugin\020q\022\025\n\020GovUnknownEntity\020\311\001" +
-      "\022\024\n\017GovUnknownGroup\020\312\001\022\027\n\022GovUnknownProp",
-      "osal\020\313\001\022\026\n\021GovDuplicateGroup\020\314\001\022\027\n\022GovDu" +
-      "plicateMember\020\315\001\022\031\n\024GovDuplicateProposal" +
-      "\020\316\001\022\025\n\020GovDuplicateVote\020\317\001\022\025\n\020GovInvalid" +
-      "Member\020\320\001\022\023\n\016GovInvalidVote\020\321\001\022\032\n\025GovInv" +
-      "alidVotingPower\020\322\0012\212\n\n\017ABCIApplication\022i" +
-      "\n\004Echo\022/.com.github.jtendermint.jabci.ty" +
-      "pes.RequestEcho\0320.com.github.jtendermint" +
-      ".jabci.types.ResponseEcho\022l\n\005Flush\0220.com" +
-      ".github.jtendermint.jabci.types.RequestF" +
-      "lush\0321.com.github.jtendermint.jabci.type",
-      "s.ResponseFlush\022i\n\004Info\022/.com.github.jte" +
-      "ndermint.jabci.types.RequestInfo\0320.com.g" +
-      "ithub.jtendermint.jabci.types.ResponseIn" +
-      "fo\022x\n\tSetOption\0224.com.github.jtendermint" +
-      ".jabci.types.RequestSetOption\0325.com.gith" +
+      "message\030\001 \001(\t\"\016\n\014RequestFlush\"\036\n\013Request" +
+      "Info\022\017\n\007version\030\001 \001(\t\".\n\020RequestSetOptio" +
+      "n\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\"\036\n\020Request" +
+      "DeliverTx\022\n\n\002tx\030\001 \001(\014\"\034\n\016RequestCheckTx\022" +
+      "\n\n\002tx\030\001 \001(\014\"I\n\014RequestQuery\022\014\n\004data\030\001 \001(" +
+      "\014\022\014\n\004path\030\002 \001(\t\022\016\n\006height\030\003 \001(\004\022\r\n\005prove" +
+      "\030\004 \001(\010\"\017\n\rRequestCommit\"U\n\020RequestInitCh" +
+      "ain\022A\n\nvalidators\030\001 \003(\0132-.com.github.jte",
+      "ndermint.jabci.types.Validator\"]\n\021Reques" +
+      "tBeginBlock\022\014\n\004hash\030\001 \001(\014\022:\n\006header\030\002 \001(" +
+      "\0132*.com.github.jtendermint.jabci.types.H" +
+      "eader\"!\n\017RequestEndBlock\022\016\n\006height\030\001 \001(\004" +
+      "\"\373\006\n\010Response\022J\n\texception\030\001 \001(\01325.com.g" +
+      "ithub.jtendermint.jabci.types.ResponseEx" +
+      "ceptionH\000\022@\n\004echo\030\002 \001(\01320.com.github.jte" +
+      "ndermint.jabci.types.ResponseEchoH\000\022B\n\005f" +
+      "lush\030\003 \001(\01321.com.github.jtendermint.jabc" +
+      "i.types.ResponseFlushH\000\022@\n\004info\030\004 \001(\01320.",
+      "com.github.jtendermint.jabci.types.Respo" +
+      "nseInfoH\000\022K\n\nset_option\030\005 \001(\01325.com.gith" +
       "ub.jtendermint.jabci.types.ResponseSetOp" +
-      "tion\022x\n\tDeliverTx\0224.com.github.jtendermi" +
-      "nt.jabci.types.RequestDeliverTx\0325.com.gi" +
-      "thub.jtendermint.jabci.types.ResponseDel" +
-      "iverTx\022r\n\007CheckTx\0222.com.github.jtendermi",
-      "nt.jabci.types.RequestCheckTx\0323.com.gith" +
-      "ub.jtendermint.jabci.types.ResponseCheck" +
-      "Tx\022l\n\005Query\0220.com.github.jtendermint.jab" +
-      "ci.types.RequestQuery\0321.com.github.jtend" +
-      "ermint.jabci.types.ResponseQuery\022o\n\006Comm" +
-      "it\0221.com.github.jtendermint.jabci.types." +
-      "RequestCommit\0322.com.github.jtendermint.j" +
-      "abci.types.ResponseCommit\022x\n\tInitChain\0224" +
-      ".com.github.jtendermint.jabci.types.Requ" +
-      "estInitChain\0325.com.github.jtendermint.ja",
-      "bci.types.ResponseInitChain\022{\n\nBeginBloc" +
-      "k\0225.com.github.jtendermint.jabci.types.R" +
-      "equestBeginBlock\0326.com.github.jtendermin" +
-      "t.jabci.types.ResponseBeginBlock\022u\n\010EndB" +
-      "lock\0223.com.github.jtendermint.jabci.type" +
-      "s.RequestEndBlock\0324.com.github.jtendermi" +
-      "nt.jabci.types.ResponseEndBlockb\006proto3"
+      "tionH\000\022K\n\ndeliver_tx\030\006 \001(\01325.com.github." +
+      "jtendermint.jabci.types.ResponseDeliverT" +
+      "xH\000\022G\n\010check_tx\030\007 \001(\01323.com.github.jtend" +
+      "ermint.jabci.types.ResponseCheckTxH\000\022D\n\006" +
+      "commit\030\010 \001(\01322.com.github.jtendermint.ja" +
+      "bci.types.ResponseCommitH\000\022B\n\005query\030\t \001(" +
+      "\01321.com.github.jtendermint.jabci.types.R",
+      "esponseQueryH\000\022K\n\ninit_chain\030\n \001(\01325.com" +
+      ".github.jtendermint.jabci.types.Response" +
+      "InitChainH\000\022M\n\013begin_block\030\013 \001(\01326.com.g" +
+      "ithub.jtendermint.jabci.types.ResponseBe" +
+      "ginBlockH\000\022I\n\tend_block\030\014 \001(\01324.com.gith" +
+      "ub.jtendermint.jabci.types.ResponseEndBl" +
+      "ockH\000B\007\n\005value\"\"\n\021ResponseException\022\r\n\005e" +
+      "rror\030\001 \001(\t\"\037\n\014ResponseEcho\022\017\n\007message\030\001 " +
+      "\001(\t\"\017\n\rResponseFlush\"e\n\014ResponseInfo\022\014\n\004" +
+      "data\030\001 \001(\t\022\017\n\007version\030\002 \001(\t\022\031\n\021last_bloc",
+      "k_height\030\003 \001(\004\022\033\n\023last_block_app_hash\030\004 " +
+      "\001(\014\" \n\021ResponseSetOption\022\013\n\003log\030\001 \001(\t\"j\n" +
+      "\021ResponseDeliverTx\022:\n\004code\030\001 \001(\0162,.com.g" +
+      "ithub.jtendermint.jabci.types.CodeType\022\014" +
+      "\n\004data\030\002 \001(\014\022\013\n\003log\030\003 \001(\t\"h\n\017ResponseChe" +
+      "ckTx\022:\n\004code\030\001 \001(\0162,.com.github.jtenderm" +
+      "int.jabci.types.CodeType\022\014\n\004data\030\002 \001(\014\022\013" +
+      "\n\003log\030\003 \001(\t\"\242\001\n\rResponseQuery\022:\n\004code\030\001 " +
+      "\001(\0162,.com.github.jtendermint.jabci.types" +
+      ".CodeType\022\r\n\005index\030\002 \001(\003\022\013\n\003key\030\003 \001(\014\022\r\n",
+      "\005value\030\004 \001(\014\022\r\n\005proof\030\005 \001(\014\022\016\n\006height\030\006 " +
+      "\001(\004\022\013\n\003log\030\007 \001(\t\"g\n\016ResponseCommit\022:\n\004co" +
+      "de\030\001 \001(\0162,.com.github.jtendermint.jabci." +
+      "types.CodeType\022\014\n\004data\030\002 \001(\014\022\013\n\003log\030\003 \001(" +
+      "\t\"\023\n\021ResponseInitChain\"\024\n\022ResponseBeginB" +
+      "lock\"P\n\020ResponseEndBlock\022<\n\005diffs\030\001 \003(\0132" +
+      "-.com.github.jtendermint.jabci.types.Val" +
+      "idator\"\345\001\n\006Header\022\020\n\010chain_id\030\001 \001(\t\022\016\n\006h" +
+      "eight\030\002 \001(\004\022\014\n\004time\030\003 \001(\004\022\017\n\007num_txs\030\004 \001" +
+      "(\004\022B\n\rlast_block_id\030\005 \001(\0132+.com.github.j",
+      "tendermint.jabci.types.BlockID\022\030\n\020last_c" +
+      "ommit_hash\030\006 \001(\014\022\021\n\tdata_hash\030\007 \001(\014\022\027\n\017v" +
+      "alidators_hash\030\010 \001(\014\022\020\n\010app_hash\030\t \001(\014\"Y" +
+      "\n\007BlockID\022\014\n\004hash\030\001 \001(\014\022@\n\005parts\030\002 \001(\01321" +
+      ".com.github.jtendermint.jabci.types.Part" +
+      "SetHeader\",\n\rPartSetHeader\022\r\n\005total\030\001 \001(" +
+      "\004\022\014\n\004hash\030\002 \001(\014\"*\n\tValidator\022\016\n\006pubKey\030\001" +
+      " \001(\014\022\r\n\005power\030\002 \001(\004*\265\005\n\010CodeType\022\006\n\002OK\020\000" +
+      "\022\021\n\rInternalError\020\001\022\021\n\rEncodingError\020\002\022\014" +
+      "\n\010BadNonce\020\003\022\020\n\014Unauthorized\020\004\022\025\n\021Insuff",
+      "icientFunds\020\005\022\022\n\016UnknownRequest\020\006\022\030\n\024Bas" +
+      "eDuplicateAddress\020e\022\025\n\021BaseEncodingError" +
+      "\020f\022\030\n\024BaseInsufficientFees\020g\022\031\n\025BaseInsu" +
+      "fficientFunds\020h\022\034\n\030BaseInsufficientGasPr" +
+      "ice\020i\022\024\n\020BaseInvalidInput\020j\022\025\n\021BaseInval" +
+      "idOutput\020k\022\025\n\021BaseInvalidPubKey\020l\022\027\n\023Bas" +
+      "eInvalidSequence\020m\022\030\n\024BaseInvalidSignatu" +
+      "re\020n\022\026\n\022BaseUnknownAddress\020o\022\025\n\021BaseUnkn" +
+      "ownPubKey\020p\022\025\n\021BaseUnknownPlugin\020q\022\025\n\020Go" +
+      "vUnknownEntity\020\311\001\022\024\n\017GovUnknownGroup\020\312\001\022",
+      "\027\n\022GovUnknownProposal\020\313\001\022\026\n\021GovDuplicate" +
+      "Group\020\314\001\022\027\n\022GovDuplicateMember\020\315\001\022\031\n\024Gov" +
+      "DuplicateProposal\020\316\001\022\025\n\020GovDuplicateVote" +
+      "\020\317\001\022\025\n\020GovInvalidMember\020\320\001\022\023\n\016GovInvalid" +
+      "Vote\020\321\001\022\032\n\025GovInvalidVotingPower\020\322\0012\212\n\n\017" +
+      "ABCIApplication\022i\n\004Echo\022/.com.github.jte" +
+      "ndermint.jabci.types.RequestEcho\0320.com.g" +
+      "ithub.jtendermint.jabci.types.ResponseEc" +
+      "ho\022l\n\005Flush\0220.com.github.jtendermint.jab" +
+      "ci.types.RequestFlush\0321.com.github.jtend",
+      "ermint.jabci.types.ResponseFlush\022i\n\004Info" +
+      "\022/.com.github.jtendermint.jabci.types.Re" +
+      "questInfo\0320.com.github.jtendermint.jabci" +
+      ".types.ResponseInfo\022x\n\tSetOption\0224.com.g" +
+      "ithub.jtendermint.jabci.types.RequestSet" +
+      "Option\0325.com.github.jtendermint.jabci.ty" +
+      "pes.ResponseSetOption\022x\n\tDeliverTx\0224.com" +
+      ".github.jtendermint.jabci.types.RequestD" +
+      "eliverTx\0325.com.github.jtendermint.jabci." +
+      "types.ResponseDeliverTx\022r\n\007CheckTx\0222.com",
+      ".github.jtendermint.jabci.types.RequestC" +
+      "heckTx\0323.com.github.jtendermint.jabci.ty" +
+      "pes.ResponseCheckTx\022l\n\005Query\0220.com.githu" +
+      "b.jtendermint.jabci.types.RequestQuery\0321" +
+      ".com.github.jtendermint.jabci.types.Resp" +
+      "onseQuery\022o\n\006Commit\0221.com.github.jtender" +
+      "mint.jabci.types.RequestCommit\0322.com.git" +
+      "hub.jtendermint.jabci.types.ResponseComm" +
+      "it\022x\n\tInitChain\0224.com.github.jtendermint" +
+      ".jabci.types.RequestInitChain\0325.com.gith",
+      "ub.jtendermint.jabci.types.ResponseInitC" +
+      "hain\022{\n\nBeginBlock\0225.com.github.jtenderm" +
+      "int.jabci.types.RequestBeginBlock\0326.com." +
+      "github.jtendermint.jabci.types.ResponseB" +
+      "eginBlock\022u\n\010EndBlock\0223.com.github.jtend" +
+      "ermint.jabci.types.RequestEndBlock\0324.com" +
+      ".github.jtendermint.jabci.types.Response" +
+      "EndBlockb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -21584,7 +22642,7 @@ public final class Types {
     internal_static_com_github_jtendermint_jabci_types_RequestInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_github_jtendermint_jabci_types_RequestInfo_descriptor,
-        new java.lang.String[] { });
+        new java.lang.String[] { "Version", });
     internal_static_com_github_jtendermint_jabci_types_RequestSetOption_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_com_github_jtendermint_jabci_types_RequestSetOption_fieldAccessorTable = new
