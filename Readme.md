@@ -2,6 +2,8 @@
 
 A Java implementation of the Tendermint Application BlockChain Interface ([ABCI](https://github.com/tendermint/abci))
 
+[![CircleCI](https://circleci.com/gh/jTendermint/jabci.svg?style=shield)](https://circleci.com/gh/jTendermint/jabci)
+
 ## How to use
 
 Check out [StartupExampleDummy.java](https://github.com/jTendermint/jabci/blob/master/src/main/java/com/github/jtendermint/jabci/StartupExampleDummy.java) or [JavaCounter.java](https://github.com/jTendermint/jabci/blob/master/src/main/java/com/github/jtendermint/jabci/JavaCounter.java) for examples.
