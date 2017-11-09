@@ -5,7 +5,7 @@
 
     <groupId>com.github.jtendermint</groupId>
     <artifactId>jabci</artifactId>
-    <version>0.11.0-SNAPSHOT</version>
+    <version>0.12.0</version>
 
     <name>com.github.jtendermint:jabci</name>
     <description>Java implementation for ABCI consensus protocol from tendermint.com and related tools</description>
@@ -152,37 +152,7 @@
 
     <profiles>
         <profile>
-            <id>rel</id>
-            <properties>
-                <bamboo.planRepository.branchName>${bamboo_planRepository_branchName}</bamboo.planRepository.branchName>
-            </properties>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>ponton.product.maven.plugins</groupId>
-                        <artifactId>createversion-maven-plugin</artifactId>
-                        <version>1.2.0</version>
-                        <configuration>
-                            <currentBranch>${bamboo.planRepository.branchName}</currentBranch>
-                            <branchMappings>
-                                <branchMapping>
-                                    <branchRegex>release/(.+)</branchRegex>
-                                    <version>#{project.simpleVersion}</version>
-                                    <tagFileName>release</tagFileName>
-                                </branchMapping>
-                            </branchMappings>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-        <profile>
             <id>release</id>
-            <activation>
-                <file>
-                    <exists>target/release</exists>
-                </file>
-            </activation>
             <build>
                 <plugins>
                     <plugin>
