@@ -40,8 +40,8 @@ jobs:
       # run tests!
       - run: mvn clean install
 
-deployment:
-  main:
-    branch: master
-    commands:
-      - mvn -s .circleci.settings.xml -DskipTests deploy
+  deployment:
+    main:
+      branch: master
+      commands:
+        - mvn -s .circleci.settings.xml -DskipTests deploy
