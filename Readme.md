@@ -9,12 +9,12 @@ A Java implementation of the Tendermint Application BlockChain Interface ([ABCI]
 Check out [StartupExampleDummy.java](https://github.com/jTendermint/jabci/blob/master/src/main/java/com/github/jtendermint/jabci/StartupExampleDummy.java) or [JavaCounter.java](https://github.com/jTendermint/jabci/blob/master/src/main/java/com/github/jtendermint/jabci/JavaCounter.java) for examples.
 
 #### Maven integration
-jABCI v0.10.0 Release is now available via maven central. Use the following dependency to include the latest release:
+jABCI v0.12.0 Release is now available via maven central. Use the following dependency to include the latest release:
 ```xml
 <dependency>
     <groupId>com.github.jtendermint</groupId>
     <artifactId>jabci</artifactId>
-    <version>0.10.0</version>
+    <version>0.12.0</version>
 </dependency>
 ```
 
@@ -35,7 +35,7 @@ Use the following dependency to include current snapshot of jABCI in your projec
             <dependency>
                 <groupId>com.github.jtendermint</groupId>
                 <artifactId>jabci</artifactId>
-                <version>0.10.0</version>
+                <version>0.12.0</version>
                 <scope>compile</scope>
                 <!-- you might want to exclude slf4j, depending on your setup -->
                 <exclusions>
