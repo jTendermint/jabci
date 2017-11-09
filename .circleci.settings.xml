@@ -8,7 +8,7 @@
         </server>
         <server>
             <id>gpg.passphrase</id>
-            <passphrase>${env.OSS_SONATYPE_PASSPHRASE}</passphrase>
+            <passphrase>${env.GPG_PASSPHRASE}</passphrase>
         </server>
     </servers>
 </settings>
