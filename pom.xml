@@ -152,31 +152,6 @@
 
     <profiles>
         <profile>
-            <id>rel</id>
-            <properties>
-                <bamboo.planRepository.branchName>${bamboo_planRepository_branchName}</bamboo.planRepository.branchName>
-            </properties>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>ponton.product.maven.plugins</groupId>
-                        <artifactId>createversion-maven-plugin</artifactId>
-                        <version>1.2.0</version>
-                        <configuration>
-                            <currentBranch>${bamboo.planRepository.branchName}</currentBranch>
-                            <branchMappings>
-                                <branchMapping>
-                                    <branchRegex>release/(.+)</branchRegex>
-                                    <version>#{project.simpleVersion}</version>
-                                    <tagFileName>release</tagFileName>
-                                </branchMapping>
-                            </branchMappings>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-        <profile>
             <id>release</id>
             <activation>
                 <file>
