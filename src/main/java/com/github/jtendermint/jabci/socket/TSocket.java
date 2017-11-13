@@ -177,7 +177,7 @@ public class TSocket extends ASocket {
             try {
                 inputStream = CodedInputStream.newInstance(socket.getInputStream());
                 outputStream = new BufferedOutputStream(socket.getOutputStream());
-                while (!isInterrupted() && !socket.isClosed()) {
+                while (!isInterrupted() && !inputStream.isAtEnd()) {
                     HANDLER_LOG.debug("start reading");
 
                     // Each Message is prefixed by a header from the gitrepos.com/tendermint/go-wire protocol.
