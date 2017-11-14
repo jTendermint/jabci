@@ -1,0 +1,13 @@
+dependencies:
+  pre:
+    - mkdir -p ~/.gnupg
+    - cp gpg/pubring.gpg ~/.gnupg/pubring.gpg
+    - openssl aes-256-cbc -d -in gpg/secret -k $SIGN_SECRET >> ~/.gnupg/secring.gpg
+  override:
+    - mvn clean install dependency:resolve-plugins dependency:go-offline
+
+deployment:
+  main:
+    branch: master
+    commands:
+      - mvn -P release -s .circleci.settings.xml -DskipTests deploy -Dgpg.passphrase=$GPG_PASSPHRASE
