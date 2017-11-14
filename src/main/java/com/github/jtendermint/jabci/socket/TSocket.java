@@ -56,6 +56,8 @@ public class TSocket extends ASocket {
     public static final String CONSENSUS_SOCKET = "-Consensus";
 
     private final HashSet<SocketHandler> runningThreads = new HashSet<>();
+    
+    private long lastConnectedSocketTime = -1;
 
     private boolean continueRunning = true;
 
@@ -78,6 +80,7 @@ public class TSocket extends ASocket {
         try (ServerSocket serverSocket = new ServerSocket(portNumber)) {
             while (continueRunning) {
                 Socket clientSocket = serverSocket.accept();
+                lastConnectedSocketTime = System.currentTimeMillis();
                 String socketName = socketNameForCount(++socketcount);
                 TSOCKET_LOG.debug("starting socket with: {}", socketName);
                 SocketHandler t = (socketName != null) ? new SocketHandler(clientSocket, socketName) : new SocketHandler(clientSocket);
@@ -122,7 +125,17 @@ public class TSocket extends ASocket {
         runningThreads.clear();
         Thread.currentThread().interrupt();
     }
-
+    /**
+     * @return the amount of connected sockets, this should usually be 3: info,mempool and consensus
+     */
+    public int sizeOfConnectedABCISockets() {
+        return runningThreads.size();
+    }
+    
+    public long getLastConnectedTime() {
+        return lastConnectedSocketTime;
+    }
+    
     class SocketHandler extends Thread {
 
         private final Socket socket;
@@ -168,6 +181,7 @@ public class TSocket extends ASocket {
                 }
             } catch (Exception e) {
             }
+            runningThreads.remove(this);
         }
 
         @Override
