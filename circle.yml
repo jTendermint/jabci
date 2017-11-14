@@ -10,4 +10,4 @@ deployment:
   main:
     branch: master
     commands:
-      - mvn -P release -s .circleci.settings.xml -DskipTests deploy -Dgpg.passphrase=$GPG_PASSPHRASE
+      - mvn -P release -s circleci.settings.xml -DskipTests deploy -Dgpg.passphrase=$GPG_PASSPHRASE
