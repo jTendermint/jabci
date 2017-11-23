@@ -28,6 +28,7 @@ import java.io.IOException;
 import java.math.BigInteger;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.net.SocketTimeoutException;
 import java.util.HashSet;
 
 import org.slf4j.Logger;
@@ -56,7 +57,7 @@ public class TSocket extends ASocket {
     public static final String CONSENSUS_SOCKET = "-Consensus";
 
     private final HashSet<SocketHandler> runningThreads = new HashSet<>();
-    
+
     private long lastConnectedSocketTime = -1;
 
     private boolean continueRunning = true;
@@ -78,20 +79,26 @@ public class TSocket extends ASocket {
         continueRunning = true;
         int socketcount = 0;
         try (ServerSocket serverSocket = new ServerSocket(portNumber)) {
+            serverSocket.setSoTimeout(1000);
             while (continueRunning) {
-                Socket clientSocket = serverSocket.accept();
-                lastConnectedSocketTime = System.currentTimeMillis();
-                String socketName = socketNameForCount(++socketcount);
-                TSOCKET_LOG.debug("starting socket with: {}", socketName);
-                SocketHandler t = (socketName != null) ? new SocketHandler(clientSocket, socketName) : new SocketHandler(clientSocket);
-                t.start();
-                runningThreads.add(t);
-                TSOCKET_LOG.debug("Started thread for sockethandling...");
+                try {
+                    Socket clientSocket = serverSocket.accept();
+                    lastConnectedSocketTime = System.currentTimeMillis();
+                    String socketName = socketNameForCount(++socketcount);
+                    TSOCKET_LOG.debug("starting socket with: {}", socketName);
+                    SocketHandler t = (socketName != null) ? new SocketHandler(clientSocket, socketName) : new SocketHandler(clientSocket);
+                    t.start();
+                    runningThreads.add(t);
+                    TSOCKET_LOG.debug("Started thread for sockethandling...");
+                } catch (SocketTimeoutException ste) {
+                    // this is triggered by accept()
+                }
             }
             TSOCKET_LOG.debug("TSocket Stopped Running");
         } catch (IOException e) {
             TSOCKET_LOG.error("Exception caught when trying to listen on port " + portNumber + " or listening for a connection", e);
         }
+        TSOCKET_LOG.debug("Exited main-run-while loop");
     }
 
     private String socketNameForCount(int c) {
@@ -124,6 +131,7 @@ public class TSocket extends ASocket {
 
         runningThreads.clear();
         Thread.currentThread().interrupt();
+        TSOCKET_LOG.debug("Finished calling stop on members.");
     }
     /**
      * @return the amount of connected sockets, this should usually be 3: info,mempool and consensus
@@ -131,11 +139,11 @@ public class TSocket extends ASocket {
     public int sizeOfConnectedABCISockets() {
         return runningThreads.size();
     }
-    
+
     public long getLastConnectedTime() {
         return lastConnectedSocketTime;
     }
-    
+
     class SocketHandler extends Thread {
 
         private final Socket socket;
