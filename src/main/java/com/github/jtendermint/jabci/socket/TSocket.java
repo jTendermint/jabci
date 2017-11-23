@@ -49,6 +49,7 @@ import com.google.protobuf.GeneratedMessageV3;
 public class TSocket extends ASocket {
 
     public static final int DEFAULT_LISTEN_SOCKET_PORT = 46658;
+    private static final int DEFAULT_LISTEN_SOCKET_TIMEOUT = 1000;
     private static final Logger TSOCKET_LOG = LoggerFactory.getLogger(TSocket.class);
     private static final Logger HANDLER_LOG = LoggerFactory.getLogger(SocketHandler.class);
 
@@ -66,7 +67,7 @@ public class TSocket extends ASocket {
      * Start listening on the default ABCI port 46658
      */
     public void start() {
-        this.start(DEFAULT_LISTEN_SOCKET_PORT);
+        this.start(DEFAULT_LISTEN_SOCKET_PORT, DEFAULT_LISTEN_SOCKET_TIMEOUT);
     }
 
     /**
@@ -74,12 +75,22 @@ public class TSocket extends ASocket {
      * 
      * @param portNumber
      */
-    public void start(int portNumber) {
+    public void start(final int portNumber) {
+        this.start(portNumber, DEFAULT_LISTEN_SOCKET_TIMEOUT);
+    }
+
+    /**
+     * Start listening on the specified port
+     * 
+     * @param portNumber
+     * @param socketTimeout
+     */
+    public void start(final int portNumber,final int socketTimeout) {
         TSOCKET_LOG.debug("starting serversocket");
         continueRunning = true;
         int socketcount = 0;
         try (ServerSocket serverSocket = new ServerSocket(portNumber)) {
-            serverSocket.setSoTimeout(1000);
+            serverSocket.setSoTimeout(socketTimeout);
             while (continueRunning) {
                 try {
                     Socket clientSocket = serverSocket.accept();
