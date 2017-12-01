@@ -28,6 +28,7 @@ import java.io.IOException;
 import java.math.BigInteger;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.net.SocketTimeoutException;
 import java.util.HashSet;
 
 import org.slf4j.Logger;
@@ -48,6 +49,7 @@ import com.google.protobuf.GeneratedMessageV3;
 public class TSocket extends ASocket {
 
     public static final int DEFAULT_LISTEN_SOCKET_PORT = 46658;
+    private static final int DEFAULT_LISTEN_SOCKET_TIMEOUT = 1000;
     private static final Logger TSOCKET_LOG = LoggerFactory.getLogger(TSocket.class);
     private static final Logger HANDLER_LOG = LoggerFactory.getLogger(SocketHandler.class);
 
@@ -56,7 +58,7 @@ public class TSocket extends ASocket {
     public static final String CONSENSUS_SOCKET = "-Consensus";
 
     private final HashSet<SocketHandler> runningThreads = new HashSet<>();
-    
+
     private long lastConnectedSocketTime = -1;
 
     private boolean continueRunning = true;
@@ -65,7 +67,7 @@ public class TSocket extends ASocket {
      * Start listening on the default ABCI port 46658
      */
     public void start() {
-        this.start(DEFAULT_LISTEN_SOCKET_PORT);
+        this.start(DEFAULT_LISTEN_SOCKET_PORT, DEFAULT_LISTEN_SOCKET_TIMEOUT);
     }
 
     /**
@@ -73,25 +75,41 @@ public class TSocket extends ASocket {
      * 
      * @param portNumber
      */
-    public void start(int portNumber) {
+    public void start(final int portNumber) {
+        this.start(portNumber, DEFAULT_LISTEN_SOCKET_TIMEOUT);
+    }
+
+    /**
+     * Start listening on the specified port
+     * 
+     * @param portNumber
+     * @param socketTimeout
+     */
+    public void start(final int portNumber,final int socketTimeout) {
         TSOCKET_LOG.debug("starting serversocket");
         continueRunning = true;
         int socketcount = 0;
         try (ServerSocket serverSocket = new ServerSocket(portNumber)) {
+            serverSocket.setSoTimeout(socketTimeout);
             while (continueRunning) {
-                Socket clientSocket = serverSocket.accept();
-                lastConnectedSocketTime = System.currentTimeMillis();
-                String socketName = socketNameForCount(++socketcount);
-                TSOCKET_LOG.debug("starting socket with: {}", socketName);
-                SocketHandler t = (socketName != null) ? new SocketHandler(clientSocket, socketName) : new SocketHandler(clientSocket);
-                t.start();
-                runningThreads.add(t);
-                TSOCKET_LOG.debug("Started thread for sockethandling...");
+                try {
+                    Socket clientSocket = serverSocket.accept();
+                    lastConnectedSocketTime = System.currentTimeMillis();
+                    String socketName = socketNameForCount(++socketcount);
+                    TSOCKET_LOG.debug("starting socket with: {}", socketName);
+                    SocketHandler t = (socketName != null) ? new SocketHandler(clientSocket, socketName) : new SocketHandler(clientSocket);
+                    t.start();
+                    runningThreads.add(t);
+                    TSOCKET_LOG.debug("Started thread for sockethandling...");
+                } catch (SocketTimeoutException ste) {
+                    // this is triggered by accept()
+                }
             }
             TSOCKET_LOG.debug("TSocket Stopped Running");
         } catch (IOException e) {
             TSOCKET_LOG.error("Exception caught when trying to listen on port " + portNumber + " or listening for a connection", e);
         }
+        TSOCKET_LOG.debug("Exited main-run-while loop");
     }
 
     private String socketNameForCount(int c) {
@@ -124,6 +142,7 @@ public class TSocket extends ASocket {
 
         runningThreads.clear();
         Thread.currentThread().interrupt();
+        TSOCKET_LOG.debug("Finished calling stop on members.");
     }
     /**
      * @return the amount of connected sockets, this should usually be 3: info,mempool and consensus
@@ -131,11 +150,11 @@ public class TSocket extends ASocket {
     public int sizeOfConnectedABCISockets() {
         return runningThreads.size();
     }
-    
+
     public long getLastConnectedTime() {
         return lastConnectedSocketTime;
     }
-    
+
     class SocketHandler extends Thread {
 
         private final Socket socket;

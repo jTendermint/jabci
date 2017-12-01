@@ -132,8 +132,9 @@ public final class JavaCounter implements IDeliverTx, ICheckTx, ICommit, IQuery 
         if (txCount == 0) {
             return ResponseCommit.newBuilder().setCode(CodeType.OK).build();
         } else {
-            ByteBuffer buf = ByteBuffer.allocate(Integer.SIZE);
+            ByteBuffer buf = ByteBuffer.allocate(Integer.BYTES);
             buf.putInt(txCount);
+            buf.rewind();
             return ResponseCommit.newBuilder().setCode(CodeType.OK).setData(ByteString.copyFrom(buf)).build();
         }
     }
