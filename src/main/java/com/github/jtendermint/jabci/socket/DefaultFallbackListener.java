@@ -23,11 +23,11 @@
  */
 package com.github.jtendermint.jabci.socket;
 
+import com.github.jtendermint.jabci.types.CodeType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.github.jtendermint.jabci.api.ABCIAPI;
-import com.github.jtendermint.jabci.types.Types.CodeType;
 import com.github.jtendermint.jabci.types.Types.RequestBeginBlock;
 import com.github.jtendermint.jabci.types.Types.RequestCheckTx;
 import com.github.jtendermint.jabci.types.Types.RequestCommit;
