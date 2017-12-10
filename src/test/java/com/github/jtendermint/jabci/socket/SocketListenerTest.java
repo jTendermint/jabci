@@ -27,12 +27,12 @@ import static org.junit.Assert.*;
 
 import java.io.IOException;
 
+import com.github.jtendermint.jabci.types.CodeType;
 import org.junit.Test;
 
 import com.github.jtendermint.jabci.api.ABCIAPI;
 import com.github.jtendermint.jabci.api.ICheckTx;
 import com.github.jtendermint.jabci.api.IInfo;
-import com.github.jtendermint.jabci.types.Types.CodeType;
 import com.github.jtendermint.jabci.types.Types.Request;
 import com.github.jtendermint.jabci.types.Types.RequestBeginBlock;
 import com.github.jtendermint.jabci.types.Types.RequestCheckTx;

@@ -32,6 +32,7 @@ import com.github.jtendermint.jabci.api.ICommit;
 import com.github.jtendermint.jabci.api.IDeliverTx;
 import com.github.jtendermint.jabci.api.IQuery;
 import com.github.jtendermint.jabci.socket.TSocket;
+import com.github.jtendermint.jabci.types.CodeType;
 import com.github.jtendermint.jabci.types.Types.RequestCheckTx;
 import com.github.jtendermint.jabci.types.Types.RequestCommit;
 import com.github.jtendermint.jabci.types.Types.RequestDeliverTx;
