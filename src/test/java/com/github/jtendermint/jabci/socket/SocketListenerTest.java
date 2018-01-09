@@ -27,12 +27,12 @@ import static org.junit.Assert.*;
 
 import java.io.IOException;
 
+import com.github.jtendermint.jabci.CodeType;
 import org.junit.Test;
 
 import com.github.jtendermint.jabci.api.ABCIAPI;
 import com.github.jtendermint.jabci.api.ICheckTx;
 import com.github.jtendermint.jabci.api.IInfo;
-import com.github.jtendermint.jabci.types.Types.CodeType;
 import com.github.jtendermint.jabci.types.Types.Request;
 import com.github.jtendermint.jabci.types.Types.RequestBeginBlock;
 import com.github.jtendermint.jabci.types.Types.RequestCheckTx;
@@ -92,7 +92,7 @@ public class SocketListenerTest {
 
         socket.registerListener((ICheckTx) tx -> {
             wasCalled.value = true;
-            return ResponseCheckTx.newBuilder().setCode(CodeType.OK).build();
+            return ResponseCheckTx.newBuilder().setCode(CodeType.OK.getNumber()).build();
         });
 
         // Test IInfo
@@ -125,7 +125,7 @@ public class SocketListenerTest {
 
         socket.registerListener((ICheckTx) tx -> {
             wasCalled.value = true;
-            return ResponseCheckTx.newBuilder().setCode(CodeType.OK).build();
+            return ResponseCheckTx.newBuilder().setCode(CodeType.OK.getNumber()).build();
         });
 
         // setup a whole ABCI-API, which changes the value to false for Info and CheckTx
@@ -166,7 +166,7 @@ public class SocketListenerTest {
 
             public ResponseCheckTx requestCheckTx(RequestCheckTx req) {
                 wasCalled.value = false;
-                return ResponseCheckTx.newBuilder().setCode(CodeType.OK).build();
+                return ResponseCheckTx.newBuilder().setCode(CodeType.OK.getNumber()).build();
             }
 
             public ResponseBeginBlock requestBeginBlock(RequestBeginBlock req) {
