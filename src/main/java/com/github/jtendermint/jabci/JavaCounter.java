@@ -32,7 +32,7 @@ import com.github.jtendermint.jabci.api.ICommit;
 import com.github.jtendermint.jabci.api.IDeliverTx;
 import com.github.jtendermint.jabci.api.IQuery;
 import com.github.jtendermint.jabci.socket.TSocket;
-import com.github.jtendermint.jabci.types.Types.CodeType;
+import com.github.jtendermint.jabci.CodeType;
 import com.github.jtendermint.jabci.types.Types.RequestCheckTx;
 import com.github.jtendermint.jabci.types.Types.RequestCommit;
 import com.github.jtendermint.jabci.types.Types.RequestDeliverTx;
@@ -84,23 +84,23 @@ public final class JavaCounter implements IDeliverTx, ICheckTx, ICommit, IQuery 
         System.out.println("got deliver tx, with" + TSocket.byteArrayToString(tx.toByteArray()));
 
         if (tx.size() == 0) {
-            return ResponseDeliverTx.newBuilder().setCode(CodeType.BadNonce).setLog("transaction is empty").build();
+            return ResponseDeliverTx.newBuilder().setCode(CodeType.BadNonce.getNumber()).setLog("transaction is empty").build();
         } else if (tx.size() <= 4) {
             int x = new BigInteger(1, tx.toByteArray()).intValueExact();
             // this is an int now, if not throws an ArithmeticException
             // but we dont actually care what it is.
 
             if (x != txCount)
-                return ResponseDeliverTx.newBuilder().setCode(CodeType.BadNonce).setLog("Invalid Nonce. Expected " + txCount + ", got " + x)
+                return ResponseDeliverTx.newBuilder().setCode(CodeType.BadNonce.getNumber()).setLog("Invalid Nonce. Expected " + txCount + ", got " + x)
                         .build();
 
         } else {
-            return ResponseDeliverTx.newBuilder().setCode(CodeType.BadNonce).setLog("got a bad value").build();
+            return ResponseDeliverTx.newBuilder().setCode(CodeType.BadNonce.getNumber()).setLog("got a bad value").build();
         }
 
         txCount += 1;
         System.out.println("TX Count is now: " + txCount);
-        return ResponseDeliverTx.newBuilder().setCode(CodeType.OK).build();
+        return ResponseDeliverTx.newBuilder().setCode(CodeType.OK.getNumber()).build();
     }
 
     @Override
@@ -117,12 +117,12 @@ public final class JavaCounter implements IDeliverTx, ICheckTx, ICommit, IQuery 
             if (txCheck < txCount) {
                 String err = "Invalid nonce. Expected >= " + txCount + ", got " + txCheck;
                 System.out.println(err);
-                return ResponseCheckTx.newBuilder().setCode(CodeType.BadNonce).setLog(err).build();
+                return ResponseCheckTx.newBuilder().setCode(CodeType.BadNonce.getNumber()).setLog(err).build();
             }
         }
 
         System.out.println("SENDING OK");
-        return ResponseCheckTx.newBuilder().setCode(CodeType.OK).build();
+        return ResponseCheckTx.newBuilder().setCode(CodeType.OK.getNumber()).build();
     }
 
     @Override
@@ -130,12 +130,12 @@ public final class JavaCounter implements IDeliverTx, ICheckTx, ICommit, IQuery 
         hashCount += 1;
 
         if (txCount == 0) {
-            return ResponseCommit.newBuilder().setCode(CodeType.OK).build();
+            return ResponseCommit.newBuilder().setCode(CodeType.OK.getNumber()).build();
         } else {
             ByteBuffer buf = ByteBuffer.allocate(Integer.BYTES);
             buf.putInt(txCount);
             buf.rewind();
-            return ResponseCommit.newBuilder().setCode(CodeType.OK).setData(ByteString.copyFrom(buf)).build();
+            return ResponseCommit.newBuilder().setCode(CodeType.OK.getNumber()).setData(ByteString.copyFrom(buf)).build();
         }
     }
 
@@ -144,13 +144,13 @@ public final class JavaCounter implements IDeliverTx, ICheckTx, ICommit, IQuery 
         final String query = new String(req.getData().toByteArray(), Charset.forName("UTF-8"));
         switch (query) {
         case "hash":
-            return ResponseQuery.newBuilder().setCode(CodeType.OK)
+            return ResponseQuery.newBuilder().setCode(CodeType.OK.getNumber())
                     .setValue(ByteString.copyFrom(("" + hashCount).getBytes(Charset.forName("UTF-8")))).build();
         case "tx":
-            return ResponseQuery.newBuilder().setCode(CodeType.OK)
+            return ResponseQuery.newBuilder().setCode(CodeType.OK.getNumber())
                     .setValue(ByteString.copyFrom(("" + txCount).getBytes(Charset.forName("UTF-8")))).build();
         default:
-            return ResponseQuery.newBuilder().setCode(CodeType.BadNonce).setLog("Invalid query path. Expected hash or tx, got " + query)
+            return ResponseQuery.newBuilder().setCode(CodeType.BadNonce.getNumber()).setLog("Invalid query path. Expected hash or tx, got " + query)
                     .build();
         }
     }
