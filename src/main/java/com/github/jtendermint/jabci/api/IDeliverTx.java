@@ -23,8 +23,8 @@
  */
 package com.github.jtendermint.jabci.api;
 
-import com.github.jtendermint.jabci.types.Types.RequestDeliverTx;
-import com.github.jtendermint.jabci.types.Types.ResponseDeliverTx;
+import com.github.jtendermint.jabci.protobuf.types.RequestDeliverTx;
+import com.github.jtendermint.jabci.protobuf.types.ResponseDeliverTx;
 
 public interface IDeliverTx {
 

@@ -23,8 +23,8 @@
  */
 package com.github.jtendermint.jabci.api;
 
-import com.github.jtendermint.jabci.types.Types.RequestSetOption;
-import com.github.jtendermint.jabci.types.Types.ResponseSetOption;
+import com.github.jtendermint.jabci.protobuf.types.RequestSetOption;
+import com.github.jtendermint.jabci.protobuf.types.ResponseSetOption;
 
 public interface ISetOption {
 

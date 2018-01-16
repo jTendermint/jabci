@@ -23,8 +23,8 @@
  */
 package com.github.jtendermint.jabci.api;
 
-import com.github.jtendermint.jabci.types.Types.RequestQuery;
-import com.github.jtendermint.jabci.types.Types.ResponseQuery;
+import com.github.jtendermint.jabci.protobuf.types.RequestQuery;
+import com.github.jtendermint.jabci.protobuf.types.ResponseQuery;
 
 public interface IQuery {
 

@@ -34,8 +34,8 @@ import java.util.HashSet;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.github.jtendermint.jabci.types.Types;
-import com.github.jtendermint.jabci.types.Types.Request;
+
+import com.github.jtendermint.jabci.protobuf.types.Request;
 import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.GeneratedMessageV3;
 
@@ -244,7 +244,7 @@ public class TSocket extends ASocket {
 
                     // PAYLOAD: limit CodedInputStream to messageLength bytes and parse Request using Protobuf:
                     int oldLimit = inputStream.pushLimit(messageLength);
-                    final Types.Request request = Types.Request.parseFrom(inputStream);
+                    final Request request = Request.parseFrom(inputStream);
                     inputStream.popLimit(oldLimit);
 
                     if (!nameSet) {

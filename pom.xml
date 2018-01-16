@@ -80,21 +80,22 @@
             <plugin>
                 <groupId>com.github.os72</groupId>
                 <artifactId>protoc-jar-maven-plugin</artifactId>
-                <version>3.0.0.1</version>
+                <version>3.5.0</version>
                 <executions>
                     <execution>
-                        <!--<phase>generate-sources</phase> -->
+                        <!--<phase>generate-sources</phase>-->
                         <phase>none</phase>
                         <goals>
                             <goal>run</goal>
                         </goals>
                         <configuration>
-                            <protocVersion>3.0.0</protocVersion> <!-- 2.4.1, 2.5.0, 2.6.1, 3.0.0 -->
-                            <includeDirectories>
-                                <include>src/main/proto</include>
-                            </includeDirectories>
+                            <!-- java is default, but make it clear here :) -->
+                            <type>java</type>
+                            <!-- required to not complain about the google import in gogo.proto -->
+                            <includeStdTypes>true</includeStdTypes>
+                            <protocVersion>3.5.1</protocVersion>
                             <inputDirectories>
-                                <include>src/main/proto</include>
+                                <include>src/main/proto/includes</include>
                             </inputDirectories>
                         </configuration>
                     </execution>
@@ -136,7 +137,7 @@
         <dependency>
             <groupId>com.google.protobuf</groupId>
             <artifactId>protobuf-java</artifactId>
-            <version>3.4.0</version>
+            <version>3.5.1</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>

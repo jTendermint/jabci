@@ -32,15 +32,15 @@ import com.github.jtendermint.jabci.api.ICommit;
 import com.github.jtendermint.jabci.api.IDeliverTx;
 import com.github.jtendermint.jabci.api.IQuery;
 import com.github.jtendermint.jabci.socket.TSocket;
-import com.github.jtendermint.jabci.types.Types.CodeType;
-import com.github.jtendermint.jabci.types.Types.RequestCheckTx;
-import com.github.jtendermint.jabci.types.Types.RequestCommit;
-import com.github.jtendermint.jabci.types.Types.RequestDeliverTx;
-import com.github.jtendermint.jabci.types.Types.RequestQuery;
-import com.github.jtendermint.jabci.types.Types.ResponseCheckTx;
-import com.github.jtendermint.jabci.types.Types.ResponseCommit;
-import com.github.jtendermint.jabci.types.Types.ResponseDeliverTx;
-import com.github.jtendermint.jabci.types.Types.ResponseQuery;
+import com.github.jtendermint.jabci.protobuf.CodeType;
+import com.github.jtendermint.jabci.protobuf.types.RequestCheckTx;
+import com.github.jtendermint.jabci.protobuf.types.RequestCommit;
+import com.github.jtendermint.jabci.protobuf.types.RequestDeliverTx;
+import com.github.jtendermint.jabci.protobuf.types.RequestQuery;
+import com.github.jtendermint.jabci.protobuf.types.ResponseCheckTx;
+import com.github.jtendermint.jabci.protobuf.types.ResponseCommit;
+import com.github.jtendermint.jabci.protobuf.types.ResponseDeliverTx;
+import com.github.jtendermint.jabci.protobuf.types.ResponseQuery;
 import com.google.protobuf.ByteString;
 
 /**
