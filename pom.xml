@@ -6,7 +6,7 @@
     <groupId>com.github.jtendermint</groupId>
     <artifactId>jabci</artifactId>
     <version>0.15</version>
-  
+
     <name>com.github.jtendermint:jabci</name>
     <description>Java implementation for ABCI consensus protocol from tendermint.com and related tools</description>
     <url>http://www.github.com/jtendermint</url>
@@ -146,7 +146,6 @@
             <version>1.7.25</version>
         </dependency>
         <dependency>
-        	<scope>test</scope>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.12</version>
