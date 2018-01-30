@@ -23,8 +23,8 @@
  */
 package com.github.jtendermint.jabci.api;
 
-import com.github.jtendermint.jabci.types.Types.RequestCheckTx;
-import com.github.jtendermint.jabci.types.Types.ResponseCheckTx;
+import com.github.jtendermint.jabci.types.RequestCheckTx;
+import com.github.jtendermint.jabci.types.ResponseCheckTx;
 
 public interface ICheckTx {
 

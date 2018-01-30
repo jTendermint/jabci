@@ -35,7 +35,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.github.jtendermint.jabci.socket.ASocket;
-import com.github.jtendermint.jabci.types.Types;
+import com.github.jtendermint.jabci.types.Request;
 import com.google.protobuf.GeneratedMessageV3;
 
 public class AsyncServer extends ASocket {
@@ -111,7 +111,7 @@ public class AsyncServer extends ASocket {
                     client.read(buf3, buf3, ReadCompletion.lambda((bytes3, attmn3) -> {
                         try {
                             // read the actual message
-                            final Types.Request request = Types.Request.parseFrom(buf3.array());
+                            final Request request = Request.parseFrom(buf3.array());
                             final GeneratedMessageV3 msg = handleRequest(request);
                             final ByteBuffer output = responseToByteBuffer(msg);
                             client.write(output);
