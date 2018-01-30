@@ -23,39 +23,40 @@
  */
 package com.github.jtendermint.jabci.socket;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
 
 import org.junit.Test;
 
 import com.github.jtendermint.jabci.api.ABCIAPI;
+import com.github.jtendermint.jabci.api.CodeType;
 import com.github.jtendermint.jabci.api.ICheckTx;
 import com.github.jtendermint.jabci.api.IInfo;
-import com.github.jtendermint.jabci.types.Types.CodeType;
-import com.github.jtendermint.jabci.types.Types.Request;
-import com.github.jtendermint.jabci.types.Types.RequestBeginBlock;
-import com.github.jtendermint.jabci.types.Types.RequestCheckTx;
-import com.github.jtendermint.jabci.types.Types.RequestCommit;
-import com.github.jtendermint.jabci.types.Types.RequestDeliverTx;
-import com.github.jtendermint.jabci.types.Types.RequestEcho;
-import com.github.jtendermint.jabci.types.Types.RequestEndBlock;
-import com.github.jtendermint.jabci.types.Types.RequestFlush;
-import com.github.jtendermint.jabci.types.Types.RequestInfo;
-import com.github.jtendermint.jabci.types.Types.RequestInitChain;
-import com.github.jtendermint.jabci.types.Types.RequestQuery;
-import com.github.jtendermint.jabci.types.Types.RequestSetOption;
-import com.github.jtendermint.jabci.types.Types.ResponseBeginBlock;
-import com.github.jtendermint.jabci.types.Types.ResponseCheckTx;
-import com.github.jtendermint.jabci.types.Types.ResponseCommit;
-import com.github.jtendermint.jabci.types.Types.ResponseDeliverTx;
-import com.github.jtendermint.jabci.types.Types.ResponseEcho;
-import com.github.jtendermint.jabci.types.Types.ResponseEndBlock;
-import com.github.jtendermint.jabci.types.Types.ResponseFlush;
-import com.github.jtendermint.jabci.types.Types.ResponseInfo;
-import com.github.jtendermint.jabci.types.Types.ResponseInitChain;
-import com.github.jtendermint.jabci.types.Types.ResponseQuery;
-import com.github.jtendermint.jabci.types.Types.ResponseSetOption;
+import com.github.jtendermint.jabci.types.Request;
+import com.github.jtendermint.jabci.types.RequestBeginBlock;
+import com.github.jtendermint.jabci.types.RequestCheckTx;
+import com.github.jtendermint.jabci.types.RequestCommit;
+import com.github.jtendermint.jabci.types.RequestDeliverTx;
+import com.github.jtendermint.jabci.types.RequestEcho;
+import com.github.jtendermint.jabci.types.RequestEndBlock;
+import com.github.jtendermint.jabci.types.RequestFlush;
+import com.github.jtendermint.jabci.types.RequestInfo;
+import com.github.jtendermint.jabci.types.RequestInitChain;
+import com.github.jtendermint.jabci.types.RequestQuery;
+import com.github.jtendermint.jabci.types.RequestSetOption;
+import com.github.jtendermint.jabci.types.ResponseBeginBlock;
+import com.github.jtendermint.jabci.types.ResponseCheckTx;
+import com.github.jtendermint.jabci.types.ResponseCommit;
+import com.github.jtendermint.jabci.types.ResponseDeliverTx;
+import com.github.jtendermint.jabci.types.ResponseEcho;
+import com.github.jtendermint.jabci.types.ResponseEndBlock;
+import com.github.jtendermint.jabci.types.ResponseFlush;
+import com.github.jtendermint.jabci.types.ResponseInfo;
+import com.github.jtendermint.jabci.types.ResponseInitChain;
+import com.github.jtendermint.jabci.types.ResponseQuery;
+import com.github.jtendermint.jabci.types.ResponseSetOption;
 import com.google.protobuf.ByteString;
 
 public class SocketListenerTest {
