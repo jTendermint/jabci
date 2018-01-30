@@ -23,24 +23,36 @@
  */
 package com.github.jtendermint.jabci;
 
+import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
 import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
 
-import com.github.jtendermint.jabci.api.ICheckTx;
-import com.github.jtendermint.jabci.api.ICommit;
-import com.github.jtendermint.jabci.api.IDeliverTx;
-import com.github.jtendermint.jabci.api.IQuery;
+import com.github.jtendermint.jabci.api.ABCIAPI;
+import com.github.jtendermint.jabci.api.CodeType;
 import com.github.jtendermint.jabci.socket.TSocket;
-import com.github.jtendermint.jabci.types.Types.CodeType;
-import com.github.jtendermint.jabci.types.Types.RequestCheckTx;
-import com.github.jtendermint.jabci.types.Types.RequestCommit;
-import com.github.jtendermint.jabci.types.Types.RequestDeliverTx;
-import com.github.jtendermint.jabci.types.Types.RequestQuery;
-import com.github.jtendermint.jabci.types.Types.ResponseCheckTx;
-import com.github.jtendermint.jabci.types.Types.ResponseCommit;
-import com.github.jtendermint.jabci.types.Types.ResponseDeliverTx;
-import com.github.jtendermint.jabci.types.Types.ResponseQuery;
+import com.github.jtendermint.jabci.types.RequestBeginBlock;
+import com.github.jtendermint.jabci.types.RequestCheckTx;
+import com.github.jtendermint.jabci.types.RequestCommit;
+import com.github.jtendermint.jabci.types.RequestDeliverTx;
+import com.github.jtendermint.jabci.types.RequestEcho;
+import com.github.jtendermint.jabci.types.RequestEndBlock;
+import com.github.jtendermint.jabci.types.RequestFlush;
+import com.github.jtendermint.jabci.types.RequestInfo;
+import com.github.jtendermint.jabci.types.RequestInitChain;
+import com.github.jtendermint.jabci.types.RequestQuery;
+import com.github.jtendermint.jabci.types.RequestSetOption;
+import com.github.jtendermint.jabci.types.ResponseBeginBlock;
+import com.github.jtendermint.jabci.types.ResponseCheckTx;
+import com.github.jtendermint.jabci.types.ResponseCommit;
+import com.github.jtendermint.jabci.types.ResponseDeliverTx;
+import com.github.jtendermint.jabci.types.ResponseEcho;
+import com.github.jtendermint.jabci.types.ResponseEndBlock;
+import com.github.jtendermint.jabci.types.ResponseFlush;
+import com.github.jtendermint.jabci.types.ResponseInfo;
+import com.github.jtendermint.jabci.types.ResponseInitChain;
+import com.github.jtendermint.jabci.types.ResponseQuery;
+import com.github.jtendermint.jabci.types.ResponseSetOption;
 import com.google.protobuf.ByteString;
 
 /**
@@ -49,7 +61,7 @@ import com.google.protobuf.ByteString;
  * 
  * @author wolfposd
  */
-public final class JavaCounter implements IDeliverTx, ICheckTx, ICommit, IQuery {
+public final class JavaCounter implements ABCIAPI {
 
     public static void main(String[] args) throws InterruptedException {
         new JavaCounter();
@@ -153,5 +165,49 @@ public final class JavaCounter implements IDeliverTx, ICheckTx, ICommit, IQuery 
             return ResponseQuery.newBuilder().setCode(CodeType.BadNonce).setLog("Invalid query path. Expected hash or tx, got " + query)
                     .build();
         }
+    }
+
+    @Override
+    public ResponseBeginBlock requestBeginBlock(RequestBeginBlock req) {
+        return ResponseBeginBlock.newBuilder().build();
+    }
+
+    @Override
+    public ResponseEndBlock requestEndBlock(RequestEndBlock req) {
+        return ResponseEndBlock.newBuilder().build();
+    }
+
+    @Override
+    public ResponseFlush requestFlush(RequestFlush reqfl) {
+        return ResponseFlush.newBuilder().build();
+    }
+
+    @Override
+    public ResponseInfo requestInfo(RequestInfo req) {
+        ByteString copyFrom = null;
+        try {
+            copyFrom = ByteString.copyFrom("hello", "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+        }
+        return ResponseInfo.newBuilder() //
+                .setData("hello") //
+                .setLastBlockHeight(10) //
+                .setLastBlockAppHash(copyFrom) //
+                .build();
+    }
+
+    @Override
+    public ResponseInitChain requestInitChain(RequestInitChain req) {
+        return ResponseInitChain.newBuilder().build();
+    }
+
+    @Override
+    public ResponseSetOption requestSetOption(RequestSetOption req) {
+        return ResponseSetOption.newBuilder().build();
+    }
+
+    @Override
+    public ResponseEcho requestEcho(RequestEcho req) {
+        return ResponseEcho.newBuilder().setMessage("hello").build();
     }
 }

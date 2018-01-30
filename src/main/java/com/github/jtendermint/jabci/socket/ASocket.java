@@ -43,31 +43,30 @@ import com.github.jtendermint.jabci.api.IInfo;
 import com.github.jtendermint.jabci.api.IInitChain;
 import com.github.jtendermint.jabci.api.IQuery;
 import com.github.jtendermint.jabci.api.ISetOption;
-import com.github.jtendermint.jabci.types.Types;
-import com.github.jtendermint.jabci.types.Types.Request;
-import com.github.jtendermint.jabci.types.Types.RequestBeginBlock;
-import com.github.jtendermint.jabci.types.Types.RequestCheckTx;
-import com.github.jtendermint.jabci.types.Types.RequestCommit;
-import com.github.jtendermint.jabci.types.Types.RequestDeliverTx;
-import com.github.jtendermint.jabci.types.Types.RequestEcho;
-import com.github.jtendermint.jabci.types.Types.RequestEndBlock;
-import com.github.jtendermint.jabci.types.Types.RequestFlush;
-import com.github.jtendermint.jabci.types.Types.RequestInfo;
-import com.github.jtendermint.jabci.types.Types.RequestInitChain;
-import com.github.jtendermint.jabci.types.Types.RequestQuery;
-import com.github.jtendermint.jabci.types.Types.RequestSetOption;
-import com.github.jtendermint.jabci.types.Types.Response;
-import com.github.jtendermint.jabci.types.Types.ResponseBeginBlock;
-import com.github.jtendermint.jabci.types.Types.ResponseCheckTx;
-import com.github.jtendermint.jabci.types.Types.ResponseCommit;
-import com.github.jtendermint.jabci.types.Types.ResponseDeliverTx;
-import com.github.jtendermint.jabci.types.Types.ResponseEcho;
-import com.github.jtendermint.jabci.types.Types.ResponseEndBlock;
-import com.github.jtendermint.jabci.types.Types.ResponseFlush;
-import com.github.jtendermint.jabci.types.Types.ResponseInfo;
-import com.github.jtendermint.jabci.types.Types.ResponseInitChain;
-import com.github.jtendermint.jabci.types.Types.ResponseQuery;
-import com.github.jtendermint.jabci.types.Types.ResponseSetOption;
+import com.github.jtendermint.jabci.types.Request;
+import com.github.jtendermint.jabci.types.RequestBeginBlock;
+import com.github.jtendermint.jabci.types.RequestCheckTx;
+import com.github.jtendermint.jabci.types.RequestCommit;
+import com.github.jtendermint.jabci.types.RequestDeliverTx;
+import com.github.jtendermint.jabci.types.RequestEcho;
+import com.github.jtendermint.jabci.types.RequestEndBlock;
+import com.github.jtendermint.jabci.types.RequestFlush;
+import com.github.jtendermint.jabci.types.RequestInfo;
+import com.github.jtendermint.jabci.types.RequestInitChain;
+import com.github.jtendermint.jabci.types.RequestQuery;
+import com.github.jtendermint.jabci.types.RequestSetOption;
+import com.github.jtendermint.jabci.types.Response;
+import com.github.jtendermint.jabci.types.ResponseBeginBlock;
+import com.github.jtendermint.jabci.types.ResponseCheckTx;
+import com.github.jtendermint.jabci.types.ResponseCommit;
+import com.github.jtendermint.jabci.types.ResponseDeliverTx;
+import com.github.jtendermint.jabci.types.ResponseEcho;
+import com.github.jtendermint.jabci.types.ResponseEndBlock;
+import com.github.jtendermint.jabci.types.ResponseFlush;
+import com.github.jtendermint.jabci.types.ResponseInfo;
+import com.github.jtendermint.jabci.types.ResponseInitChain;
+import com.github.jtendermint.jabci.types.ResponseQuery;
+import com.github.jtendermint.jabci.types.ResponseSetOption;
 import com.google.protobuf.GeneratedMessageV3;
 
 public abstract class ASocket {
@@ -81,7 +80,7 @@ public abstract class ASocket {
     protected GeneratedMessageV3 handleRequest(Request request) throws IOException {
         switch (request.getValueCase()) {
         case ECHO: {
-            HANDLER_LOG.debug("Received " + Types.Request.ValueCase.ECHO);
+            HANDLER_LOG.debug("Received " + Request.ValueCase.ECHO);
             RequestEcho req = request.getEcho();
             ResponseEcho response = getListenerForType(IEcho.class).requestEcho(req);
             if (response != null)
@@ -89,67 +88,67 @@ public abstract class ASocket {
             break;
         }
         case FLUSH: {
-            HANDLER_LOG.debug("Received " + Types.Request.ValueCase.FLUSH);
+            HANDLER_LOG.debug("Received " + Request.ValueCase.FLUSH);
             RequestFlush req = request.getFlush();
             ResponseFlush response = getListenerForType(IFlush.class).requestFlush(req);
             return (Response.newBuilder().setFlush(response).build());
         }
         case INFO: {
-            HANDLER_LOG.debug("Received " + Types.Request.ValueCase.INFO);
+            HANDLER_LOG.debug("Received " + Request.ValueCase.INFO);
             RequestInfo req = request.getInfo();
             ResponseInfo response = getListenerForType(IInfo.class).requestInfo(req);
             return (Response.newBuilder().setInfo(response).build());
         }
         case SET_OPTION: {
-            HANDLER_LOG.debug("Received " + Types.Request.ValueCase.SET_OPTION);
+            HANDLER_LOG.debug("Received " + Request.ValueCase.SET_OPTION);
             RequestSetOption req = request.getSetOption();
             ResponseSetOption response = getListenerForType(ISetOption.class).requestSetOption(req);
             return (Response.newBuilder().setSetOption(response).build());
         }
         case DELIVER_TX: {
-            HANDLER_LOG.debug("Received " + Types.Request.ValueCase.DELIVER_TX);
+            HANDLER_LOG.debug("Received " + Request.ValueCase.DELIVER_TX);
             RequestDeliverTx req = request.getDeliverTx();
             ResponseDeliverTx response = getListenerForType(IDeliverTx.class).receivedDeliverTx(req);
             return (Response.newBuilder().setDeliverTx(response).build());
         }
         case CHECK_TX: {
-            HANDLER_LOG.debug("Received " + Types.Request.ValueCase.CHECK_TX);
+            HANDLER_LOG.debug("Received " + Request.ValueCase.CHECK_TX);
             RequestCheckTx req = request.getCheckTx();
             ResponseCheckTx response = getListenerForType(ICheckTx.class).requestCheckTx(req);
             return (Response.newBuilder().setCheckTx(response).build());
         }
         case COMMIT: {
-            HANDLER_LOG.debug("Received " + Types.Request.ValueCase.COMMIT);
+            HANDLER_LOG.debug("Received " + Request.ValueCase.COMMIT);
             RequestCommit req = request.getCommit();
             ResponseCommit response = getListenerForType(ICommit.class).requestCommit(req);
             return (Response.newBuilder().setCommit(response).build());
         }
         case QUERY: {
-            HANDLER_LOG.debug("Received " + Types.Request.ValueCase.QUERY);
+            HANDLER_LOG.debug("Received " + Request.ValueCase.QUERY);
             RequestQuery req = request.getQuery();
             ResponseQuery response = getListenerForType(IQuery.class).requestQuery(req);
             return (Response.newBuilder().setQuery(response).build());
         }
         case INIT_CHAIN: {
-            HANDLER_LOG.debug("Received " + Types.Request.ValueCase.INIT_CHAIN);
+            HANDLER_LOG.debug("Received " + Request.ValueCase.INIT_CHAIN);
             RequestInitChain req = request.getInitChain();
             ResponseInitChain response = getListenerForType(IInitChain.class).requestInitChain(req);
             return (Response.newBuilder().setInitChain(response).build());
         }
         case BEGIN_BLOCK: {
-            HANDLER_LOG.debug("Received " + Types.Request.ValueCase.BEGIN_BLOCK);
+            HANDLER_LOG.debug("Received " + Request.ValueCase.BEGIN_BLOCK);
             RequestBeginBlock req = request.getBeginBlock();
             ResponseBeginBlock response = getListenerForType(IBeginBlock.class).requestBeginBlock(req);
             return Response.newBuilder().setBeginBlock(response).build();
         }
         case END_BLOCK: {
-            HANDLER_LOG.debug("Received " + Types.Request.ValueCase.END_BLOCK);
+            HANDLER_LOG.debug("Received " + Request.ValueCase.END_BLOCK);
             RequestEndBlock req = request.getEndBlock();
             ResponseEndBlock response = getListenerForType(IEndBlock.class).requestEndBlock(req);
             return (Response.newBuilder().setEndBlock(response).build());
         }
         case VALUE_NOT_SET: {
-            HANDLER_LOG.debug("Received " + Types.Request.ValueCase.VALUE_NOT_SET);
+            HANDLER_LOG.debug("Received " + Request.ValueCase.VALUE_NOT_SET);
             return null;
         }
         default:
