@@ -222,7 +222,8 @@ public class TSocket extends ASocket {
                     // to come from a int64 length that will be encoded to uint64 and shifted left by 1 (== *2)
                     // ... well, ok? So we still can only use int for pushLimit on the encoded stream...whatever
                     // also, see writeMessage for the other way round
-                    int varintLengthByte = (int) inputStream.readUInt64() / 2;
+//                    int varintLengthByte = (int) inputStream.readUInt64() / 2;
+                    int varintLengthByte = (int) CodedInputStream.decodeZigZag64(inputStream.readUInt64());
 
                     System.out.println(Thread.currentThread().getName() + " - bytes: " + varintLengthByte);
 
@@ -286,7 +287,8 @@ public class TSocket extends ASocket {
                 // to come from a int64 length that will be encoded to uint64 and shifted left by 1 (== *2)
                 // ... well, ok? So we still can only use int for pushLimit on the encoded stream...whatever
                 // also, see writeMessage for the other way round
-                outputStream.writeUInt64NoTag(length << 1);
+                //outputStream.writeUInt64NoTag(length << 1);
+                outputStream.writeUInt64NoTag(CodedOutputStream.encodeZigZag64(length));
                 message.writeTo(outputStream);
                 outputStream.flush();
             }
