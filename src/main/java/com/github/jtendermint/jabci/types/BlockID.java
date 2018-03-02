@@ -10,7 +10,6 @@ public  final class BlockID extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:com.github.jtendermint.jabci.types.BlockID)
     BlockIDOrBuilder {
-private static final long serialVersionUID = 0L;
   // Use BlockID.newBuilder() to construct.
   private BlockID(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
@@ -22,19 +21,14 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
-    return this.unknownFields;
+    return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
   }
   private BlockID(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
     int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
       boolean done = false;
       while (!done) {
@@ -44,8 +38,7 @@ private static final long serialVersionUID = 0L;
             done = true;
             break;
           default: {
-            if (!parseUnknownFieldProto3(
-                input, unknownFields, extensionRegistry, tag)) {
+            if (!input.skipField(tag)) {
               done = true;
             }
             break;
@@ -76,7 +69,6 @@ private static final long serialVersionUID = 0L;
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
-      this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
     }
   }
@@ -95,7 +87,7 @@ private static final long serialVersionUID = 0L;
   public static final int HASH_FIELD_NUMBER = 1;
   private com.google.protobuf.ByteString hash_;
   /**
-   * <code>bytes hash = 1;</code>
+   * <code>optional bytes hash = 1;</code>
    */
   public com.google.protobuf.ByteString getHash() {
     return hash_;
@@ -104,19 +96,19 @@ private static final long serialVersionUID = 0L;
   public static final int PARTS_FIELD_NUMBER = 2;
   private com.github.jtendermint.jabci.types.PartSetHeader parts_;
   /**
-   * <code>.com.github.jtendermint.jabci.types.PartSetHeader parts = 2;</code>
+   * <code>optional .com.github.jtendermint.jabci.types.PartSetHeader parts = 2;</code>
    */
   public boolean hasParts() {
     return parts_ != null;
   }
   /**
-   * <code>.com.github.jtendermint.jabci.types.PartSetHeader parts = 2;</code>
+   * <code>optional .com.github.jtendermint.jabci.types.PartSetHeader parts = 2;</code>
    */
   public com.github.jtendermint.jabci.types.PartSetHeader getParts() {
     return parts_ == null ? com.github.jtendermint.jabci.types.PartSetHeader.getDefaultInstance() : parts_;
   }
   /**
-   * <code>.com.github.jtendermint.jabci.types.PartSetHeader parts = 2;</code>
+   * <code>optional .com.github.jtendermint.jabci.types.PartSetHeader parts = 2;</code>
    */
   public com.github.jtendermint.jabci.types.PartSetHeaderOrBuilder getPartsOrBuilder() {
     return getParts();
@@ -140,7 +132,6 @@ private static final long serialVersionUID = 0L;
     if (parts_ != null) {
       output.writeMessage(2, getParts());
     }
-    unknownFields.writeTo(output);
   }
 
   public int getSerializedSize() {
@@ -156,11 +147,11 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getParts());
     }
-    size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
   }
 
+  private static final long serialVersionUID = 0L;
   @java.lang.Override
   public boolean equals(final java.lang.Object obj) {
     if (obj == this) {
@@ -179,7 +170,6 @@ private static final long serialVersionUID = 0L;
       result = result && getParts()
           .equals(other.getParts());
     }
-    result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
 
@@ -189,7 +179,7 @@ private static final long serialVersionUID = 0L;
       return memoizedHashCode;
     }
     int hash = 41;
-    hash = (19 * hash) + getDescriptor().hashCode();
+    hash = (19 * hash) + getDescriptorForType().hashCode();
     hash = (37 * hash) + HASH_FIELD_NUMBER;
     hash = (53 * hash) + getHash().hashCode();
     if (hasParts()) {
@@ -201,17 +191,6 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static com.github.jtendermint.jabci.types.BlockID parseFrom(
-      java.nio.ByteBuffer data)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    return PARSER.parseFrom(data);
-  }
-  public static com.github.jtendermint.jabci.types.BlockID parseFrom(
-      java.nio.ByteBuffer data,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    return PARSER.parseFrom(data, extensionRegistry);
-  }
   public static com.github.jtendermint.jabci.types.BlockID parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -370,7 +349,7 @@ private static final long serialVersionUID = 0L;
     }
     public Builder setField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
+        Object value) {
       return (Builder) super.setField(field, value);
     }
     public Builder clearField(
@@ -383,12 +362,12 @@ private static final long serialVersionUID = 0L;
     }
     public Builder setRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        int index, java.lang.Object value) {
+        int index, Object value) {
       return (Builder) super.setRepeatedField(field, index, value);
     }
     public Builder addRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
+        Object value) {
       return (Builder) super.addRepeatedField(field, value);
     }
     public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -408,7 +387,6 @@ private static final long serialVersionUID = 0L;
       if (other.hasParts()) {
         mergeParts(other.getParts());
       }
-      this.mergeUnknownFields(other.unknownFields);
       onChanged();
       return this;
     }
@@ -437,13 +415,13 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.ByteString hash_ = com.google.protobuf.ByteString.EMPTY;
     /**
-     * <code>bytes hash = 1;</code>
+     * <code>optional bytes hash = 1;</code>
      */
     public com.google.protobuf.ByteString getHash() {
       return hash_;
     }
     /**
-     * <code>bytes hash = 1;</code>
+     * <code>optional bytes hash = 1;</code>
      */
     public Builder setHash(com.google.protobuf.ByteString value) {
       if (value == null) {
@@ -455,7 +433,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>bytes hash = 1;</code>
+     * <code>optional bytes hash = 1;</code>
      */
     public Builder clearHash() {
       
@@ -468,13 +446,13 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.github.jtendermint.jabci.types.PartSetHeader, com.github.jtendermint.jabci.types.PartSetHeader.Builder, com.github.jtendermint.jabci.types.PartSetHeaderOrBuilder> partsBuilder_;
     /**
-     * <code>.com.github.jtendermint.jabci.types.PartSetHeader parts = 2;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.PartSetHeader parts = 2;</code>
      */
     public boolean hasParts() {
       return partsBuilder_ != null || parts_ != null;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.PartSetHeader parts = 2;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.PartSetHeader parts = 2;</code>
      */
     public com.github.jtendermint.jabci.types.PartSetHeader getParts() {
       if (partsBuilder_ == null) {
@@ -484,7 +462,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.PartSetHeader parts = 2;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.PartSetHeader parts = 2;</code>
      */
     public Builder setParts(com.github.jtendermint.jabci.types.PartSetHeader value) {
       if (partsBuilder_ == null) {
@@ -500,7 +478,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.PartSetHeader parts = 2;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.PartSetHeader parts = 2;</code>
      */
     public Builder setParts(
         com.github.jtendermint.jabci.types.PartSetHeader.Builder builderForValue) {
@@ -514,7 +492,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.PartSetHeader parts = 2;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.PartSetHeader parts = 2;</code>
      */
     public Builder mergeParts(com.github.jtendermint.jabci.types.PartSetHeader value) {
       if (partsBuilder_ == null) {
@@ -532,7 +510,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.PartSetHeader parts = 2;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.PartSetHeader parts = 2;</code>
      */
     public Builder clearParts() {
       if (partsBuilder_ == null) {
@@ -546,7 +524,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.PartSetHeader parts = 2;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.PartSetHeader parts = 2;</code>
      */
     public com.github.jtendermint.jabci.types.PartSetHeader.Builder getPartsBuilder() {
       
@@ -554,7 +532,7 @@ private static final long serialVersionUID = 0L;
       return getPartsFieldBuilder().getBuilder();
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.PartSetHeader parts = 2;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.PartSetHeader parts = 2;</code>
      */
     public com.github.jtendermint.jabci.types.PartSetHeaderOrBuilder getPartsOrBuilder() {
       if (partsBuilder_ != null) {
@@ -565,7 +543,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.PartSetHeader parts = 2;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.PartSetHeader parts = 2;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.github.jtendermint.jabci.types.PartSetHeader, com.github.jtendermint.jabci.types.PartSetHeader.Builder, com.github.jtendermint.jabci.types.PartSetHeaderOrBuilder> 
@@ -582,12 +560,12 @@ private static final long serialVersionUID = 0L;
     }
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
-      return super.setUnknownFieldsProto3(unknownFields);
+      return this;
     }
 
     public final Builder mergeUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
-      return super.mergeUnknownFields(unknownFields);
+      return this;
     }
 
 
@@ -610,7 +588,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new BlockID(input, extensionRegistry);
+        return new BlockID(input, extensionRegistry);
     }
   };
 

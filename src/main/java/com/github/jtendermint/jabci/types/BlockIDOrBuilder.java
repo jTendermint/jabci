@@ -8,20 +8,20 @@ public interface BlockIDOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>bytes hash = 1;</code>
+   * <code>optional bytes hash = 1;</code>
    */
   com.google.protobuf.ByteString getHash();
 
   /**
-   * <code>.com.github.jtendermint.jabci.types.PartSetHeader parts = 2;</code>
+   * <code>optional .com.github.jtendermint.jabci.types.PartSetHeader parts = 2;</code>
    */
   boolean hasParts();
   /**
-   * <code>.com.github.jtendermint.jabci.types.PartSetHeader parts = 2;</code>
+   * <code>optional .com.github.jtendermint.jabci.types.PartSetHeader parts = 2;</code>
    */
   com.github.jtendermint.jabci.types.PartSetHeader getParts();
   /**
-   * <code>.com.github.jtendermint.jabci.types.PartSetHeader parts = 2;</code>
+   * <code>optional .com.github.jtendermint.jabci.types.PartSetHeader parts = 2;</code>
    */
   com.github.jtendermint.jabci.types.PartSetHeaderOrBuilder getPartsOrBuilder();
 }

@@ -14,7 +14,6 @@ public  final class TxSize extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:com.github.jtendermint.jabci.types.TxSize)
     TxSizeOrBuilder {
-private static final long serialVersionUID = 0L;
   // Use TxSize.newBuilder() to construct.
   private TxSize(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
@@ -27,19 +26,14 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
-    return this.unknownFields;
+    return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
   }
   private TxSize(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
     int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
       boolean done = false;
       while (!done) {
@@ -49,8 +43,7 @@ private static final long serialVersionUID = 0L;
             done = true;
             break;
           default: {
-            if (!parseUnknownFieldProto3(
-                input, unknownFields, extensionRegistry, tag)) {
+            if (!input.skipField(tag)) {
               done = true;
             }
             break;
@@ -73,7 +66,6 @@ private static final long serialVersionUID = 0L;
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
-      this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
     }
   }
@@ -92,7 +84,7 @@ private static final long serialVersionUID = 0L;
   public static final int MAX_BYTES_FIELD_NUMBER = 1;
   private int maxBytes_;
   /**
-   * <code>int32 max_bytes = 1;</code>
+   * <code>optional int32 max_bytes = 1;</code>
    */
   public int getMaxBytes() {
     return maxBytes_;
@@ -101,7 +93,7 @@ private static final long serialVersionUID = 0L;
   public static final int MAX_GAS_FIELD_NUMBER = 2;
   private long maxGas_;
   /**
-   * <code>int64 max_gas = 2;</code>
+   * <code>optional int64 max_gas = 2;</code>
    */
   public long getMaxGas() {
     return maxGas_;
@@ -125,7 +117,6 @@ private static final long serialVersionUID = 0L;
     if (maxGas_ != 0L) {
       output.writeInt64(2, maxGas_);
     }
-    unknownFields.writeTo(output);
   }
 
   public int getSerializedSize() {
@@ -141,11 +132,11 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(2, maxGas_);
     }
-    size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
   }
 
+  private static final long serialVersionUID = 0L;
   @java.lang.Override
   public boolean equals(final java.lang.Object obj) {
     if (obj == this) {
@@ -161,7 +152,6 @@ private static final long serialVersionUID = 0L;
         == other.getMaxBytes());
     result = result && (getMaxGas()
         == other.getMaxGas());
-    result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
 
@@ -171,7 +161,7 @@ private static final long serialVersionUID = 0L;
       return memoizedHashCode;
     }
     int hash = 41;
-    hash = (19 * hash) + getDescriptor().hashCode();
+    hash = (19 * hash) + getDescriptorForType().hashCode();
     hash = (37 * hash) + MAX_BYTES_FIELD_NUMBER;
     hash = (53 * hash) + getMaxBytes();
     hash = (37 * hash) + MAX_GAS_FIELD_NUMBER;
@@ -182,17 +172,6 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static com.github.jtendermint.jabci.types.TxSize parseFrom(
-      java.nio.ByteBuffer data)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    return PARSER.parseFrom(data);
-  }
-  public static com.github.jtendermint.jabci.types.TxSize parseFrom(
-      java.nio.ByteBuffer data,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    return PARSER.parseFrom(data, extensionRegistry);
-  }
   public static com.github.jtendermint.jabci.types.TxSize parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -347,7 +326,7 @@ private static final long serialVersionUID = 0L;
     }
     public Builder setField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
+        Object value) {
       return (Builder) super.setField(field, value);
     }
     public Builder clearField(
@@ -360,12 +339,12 @@ private static final long serialVersionUID = 0L;
     }
     public Builder setRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        int index, java.lang.Object value) {
+        int index, Object value) {
       return (Builder) super.setRepeatedField(field, index, value);
     }
     public Builder addRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
+        Object value) {
       return (Builder) super.addRepeatedField(field, value);
     }
     public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -385,7 +364,6 @@ private static final long serialVersionUID = 0L;
       if (other.getMaxGas() != 0L) {
         setMaxGas(other.getMaxGas());
       }
-      this.mergeUnknownFields(other.unknownFields);
       onChanged();
       return this;
     }
@@ -414,13 +392,13 @@ private static final long serialVersionUID = 0L;
 
     private int maxBytes_ ;
     /**
-     * <code>int32 max_bytes = 1;</code>
+     * <code>optional int32 max_bytes = 1;</code>
      */
     public int getMaxBytes() {
       return maxBytes_;
     }
     /**
-     * <code>int32 max_bytes = 1;</code>
+     * <code>optional int32 max_bytes = 1;</code>
      */
     public Builder setMaxBytes(int value) {
       
@@ -429,7 +407,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int32 max_bytes = 1;</code>
+     * <code>optional int32 max_bytes = 1;</code>
      */
     public Builder clearMaxBytes() {
       
@@ -440,13 +418,13 @@ private static final long serialVersionUID = 0L;
 
     private long maxGas_ ;
     /**
-     * <code>int64 max_gas = 2;</code>
+     * <code>optional int64 max_gas = 2;</code>
      */
     public long getMaxGas() {
       return maxGas_;
     }
     /**
-     * <code>int64 max_gas = 2;</code>
+     * <code>optional int64 max_gas = 2;</code>
      */
     public Builder setMaxGas(long value) {
       
@@ -455,7 +433,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 max_gas = 2;</code>
+     * <code>optional int64 max_gas = 2;</code>
      */
     public Builder clearMaxGas() {
       
@@ -465,12 +443,12 @@ private static final long serialVersionUID = 0L;
     }
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
-      return super.setUnknownFieldsProto3(unknownFields);
+      return this;
     }
 
     public final Builder mergeUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
-      return super.mergeUnknownFields(unknownFields);
+      return this;
     }
 
 
@@ -493,7 +471,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new TxSize(input, extensionRegistry);
+        return new TxSize(input, extensionRegistry);
     }
   };
 

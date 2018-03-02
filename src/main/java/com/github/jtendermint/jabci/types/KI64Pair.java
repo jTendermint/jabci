@@ -4,18 +4,23 @@
 package com.github.jtendermint.jabci.types;
 
 /**
- * Protobuf type {@code com.github.jtendermint.jabci.types.ResponseCommit}
+ * <pre>
+ * Define these here for compatibility but use tmlibs/common.KI64Pair.
+ * </pre>
+ *
+ * Protobuf type {@code com.github.jtendermint.jabci.types.KI64Pair}
  */
-public  final class ResponseCommit extends
+public  final class KI64Pair extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:com.github.jtendermint.jabci.types.ResponseCommit)
-    ResponseCommitOrBuilder {
-  // Use ResponseCommit.newBuilder() to construct.
-  private ResponseCommit(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // @@protoc_insertion_point(message_implements:com.github.jtendermint.jabci.types.KI64Pair)
+    KI64PairOrBuilder {
+  // Use KI64Pair.newBuilder() to construct.
+  private KI64Pair(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private ResponseCommit() {
-    data_ = com.google.protobuf.ByteString.EMPTY;
+  private KI64Pair() {
+    key_ = com.google.protobuf.ByteString.EMPTY;
+    value_ = 0L;
   }
 
   @java.lang.Override
@@ -23,7 +28,7 @@ public  final class ResponseCommit extends
   getUnknownFields() {
     return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
   }
-  private ResponseCommit(
+  private KI64Pair(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -43,9 +48,14 @@ public  final class ResponseCommit extends
             }
             break;
           }
-          case 18: {
+          case 10: {
 
-            data_ = input.readBytes();
+            key_ = input.readBytes();
+            break;
+          }
+          case 16: {
+
+            value_ = input.readInt64();
             break;
           }
         }
@@ -61,27 +71,32 @@ public  final class ResponseCommit extends
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseCommit_descriptor;
+    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_KI64Pair_descriptor;
   }
 
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseCommit_fieldAccessorTable
+    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_KI64Pair_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.github.jtendermint.jabci.types.ResponseCommit.class, com.github.jtendermint.jabci.types.ResponseCommit.Builder.class);
+            com.github.jtendermint.jabci.types.KI64Pair.class, com.github.jtendermint.jabci.types.KI64Pair.Builder.class);
   }
 
-  public static final int DATA_FIELD_NUMBER = 2;
-  private com.google.protobuf.ByteString data_;
+  public static final int KEY_FIELD_NUMBER = 1;
+  private com.google.protobuf.ByteString key_;
   /**
-   * <pre>
-   * reserve 1
-   * </pre>
-   *
-   * <code>optional bytes data = 2;</code>
+   * <code>optional bytes key = 1;</code>
    */
-  public com.google.protobuf.ByteString getData() {
-    return data_;
+  public com.google.protobuf.ByteString getKey() {
+    return key_;
+  }
+
+  public static final int VALUE_FIELD_NUMBER = 2;
+  private long value_;
+  /**
+   * <code>optional int64 value = 2;</code>
+   */
+  public long getValue() {
+    return value_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -96,8 +111,11 @@ public  final class ResponseCommit extends
 
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!data_.isEmpty()) {
-      output.writeBytes(2, data_);
+    if (!key_.isEmpty()) {
+      output.writeBytes(1, key_);
+    }
+    if (value_ != 0L) {
+      output.writeInt64(2, value_);
     }
   }
 
@@ -106,9 +124,13 @@ public  final class ResponseCommit extends
     if (size != -1) return size;
 
     size = 0;
-    if (!data_.isEmpty()) {
+    if (!key_.isEmpty()) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBytesSize(2, data_);
+        .computeBytesSize(1, key_);
+    }
+    if (value_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(2, value_);
     }
     memoizedSize = size;
     return size;
@@ -120,14 +142,16 @@ public  final class ResponseCommit extends
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.github.jtendermint.jabci.types.ResponseCommit)) {
+    if (!(obj instanceof com.github.jtendermint.jabci.types.KI64Pair)) {
       return super.equals(obj);
     }
-    com.github.jtendermint.jabci.types.ResponseCommit other = (com.github.jtendermint.jabci.types.ResponseCommit) obj;
+    com.github.jtendermint.jabci.types.KI64Pair other = (com.github.jtendermint.jabci.types.KI64Pair) obj;
 
     boolean result = true;
-    result = result && getData()
-        .equals(other.getData());
+    result = result && getKey()
+        .equals(other.getKey());
+    result = result && (getValue()
+        == other.getValue());
     return result;
   }
 
@@ -138,65 +162,68 @@ public  final class ResponseCommit extends
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptorForType().hashCode();
-    hash = (37 * hash) + DATA_FIELD_NUMBER;
-    hash = (53 * hash) + getData().hashCode();
+    hash = (37 * hash) + KEY_FIELD_NUMBER;
+    hash = (53 * hash) + getKey().hashCode();
+    hash = (37 * hash) + VALUE_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getValue());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static com.github.jtendermint.jabci.types.ResponseCommit parseFrom(
+  public static com.github.jtendermint.jabci.types.KI64Pair parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.github.jtendermint.jabci.types.ResponseCommit parseFrom(
+  public static com.github.jtendermint.jabci.types.KI64Pair parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.ResponseCommit parseFrom(byte[] data)
+  public static com.github.jtendermint.jabci.types.KI64Pair parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.github.jtendermint.jabci.types.ResponseCommit parseFrom(
+  public static com.github.jtendermint.jabci.types.KI64Pair parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.ResponseCommit parseFrom(java.io.InputStream input)
+  public static com.github.jtendermint.jabci.types.KI64Pair parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.github.jtendermint.jabci.types.ResponseCommit parseFrom(
+  public static com.github.jtendermint.jabci.types.KI64Pair parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.ResponseCommit parseDelimitedFrom(java.io.InputStream input)
+  public static com.github.jtendermint.jabci.types.KI64Pair parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.github.jtendermint.jabci.types.ResponseCommit parseDelimitedFrom(
+  public static com.github.jtendermint.jabci.types.KI64Pair parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.ResponseCommit parseFrom(
+  public static com.github.jtendermint.jabci.types.KI64Pair parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.github.jtendermint.jabci.types.ResponseCommit parseFrom(
+  public static com.github.jtendermint.jabci.types.KI64Pair parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -208,7 +235,7 @@ public  final class ResponseCommit extends
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.github.jtendermint.jabci.types.ResponseCommit prototype) {
+  public static Builder newBuilder(com.github.jtendermint.jabci.types.KI64Pair prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   public Builder toBuilder() {
@@ -223,25 +250,29 @@ public  final class ResponseCommit extends
     return builder;
   }
   /**
-   * Protobuf type {@code com.github.jtendermint.jabci.types.ResponseCommit}
+   * <pre>
+   * Define these here for compatibility but use tmlibs/common.KI64Pair.
+   * </pre>
+   *
+   * Protobuf type {@code com.github.jtendermint.jabci.types.KI64Pair}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:com.github.jtendermint.jabci.types.ResponseCommit)
-      com.github.jtendermint.jabci.types.ResponseCommitOrBuilder {
+      // @@protoc_insertion_point(builder_implements:com.github.jtendermint.jabci.types.KI64Pair)
+      com.github.jtendermint.jabci.types.KI64PairOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseCommit_descriptor;
+      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_KI64Pair_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseCommit_fieldAccessorTable
+      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_KI64Pair_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.github.jtendermint.jabci.types.ResponseCommit.class, com.github.jtendermint.jabci.types.ResponseCommit.Builder.class);
+              com.github.jtendermint.jabci.types.KI64Pair.class, com.github.jtendermint.jabci.types.KI64Pair.Builder.class);
     }
 
-    // Construct using com.github.jtendermint.jabci.types.ResponseCommit.newBuilder()
+    // Construct using com.github.jtendermint.jabci.types.KI64Pair.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -258,31 +289,34 @@ public  final class ResponseCommit extends
     }
     public Builder clear() {
       super.clear();
-      data_ = com.google.protobuf.ByteString.EMPTY;
+      key_ = com.google.protobuf.ByteString.EMPTY;
+
+      value_ = 0L;
 
       return this;
     }
 
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseCommit_descriptor;
+      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_KI64Pair_descriptor;
     }
 
-    public com.github.jtendermint.jabci.types.ResponseCommit getDefaultInstanceForType() {
-      return com.github.jtendermint.jabci.types.ResponseCommit.getDefaultInstance();
+    public com.github.jtendermint.jabci.types.KI64Pair getDefaultInstanceForType() {
+      return com.github.jtendermint.jabci.types.KI64Pair.getDefaultInstance();
     }
 
-    public com.github.jtendermint.jabci.types.ResponseCommit build() {
-      com.github.jtendermint.jabci.types.ResponseCommit result = buildPartial();
+    public com.github.jtendermint.jabci.types.KI64Pair build() {
+      com.github.jtendermint.jabci.types.KI64Pair result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
       return result;
     }
 
-    public com.github.jtendermint.jabci.types.ResponseCommit buildPartial() {
-      com.github.jtendermint.jabci.types.ResponseCommit result = new com.github.jtendermint.jabci.types.ResponseCommit(this);
-      result.data_ = data_;
+    public com.github.jtendermint.jabci.types.KI64Pair buildPartial() {
+      com.github.jtendermint.jabci.types.KI64Pair result = new com.github.jtendermint.jabci.types.KI64Pair(this);
+      result.key_ = key_;
+      result.value_ = value_;
       onBuilt();
       return result;
     }
@@ -314,18 +348,21 @@ public  final class ResponseCommit extends
       return (Builder) super.addRepeatedField(field, value);
     }
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.github.jtendermint.jabci.types.ResponseCommit) {
-        return mergeFrom((com.github.jtendermint.jabci.types.ResponseCommit)other);
+      if (other instanceof com.github.jtendermint.jabci.types.KI64Pair) {
+        return mergeFrom((com.github.jtendermint.jabci.types.KI64Pair)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.github.jtendermint.jabci.types.ResponseCommit other) {
-      if (other == com.github.jtendermint.jabci.types.ResponseCommit.getDefaultInstance()) return this;
-      if (other.getData() != com.google.protobuf.ByteString.EMPTY) {
-        setData(other.getData());
+    public Builder mergeFrom(com.github.jtendermint.jabci.types.KI64Pair other) {
+      if (other == com.github.jtendermint.jabci.types.KI64Pair.getDefaultInstance()) return this;
+      if (other.getKey() != com.google.protobuf.ByteString.EMPTY) {
+        setKey(other.getKey());
+      }
+      if (other.getValue() != 0L) {
+        setValue(other.getValue());
       }
       onChanged();
       return this;
@@ -339,11 +376,11 @@ public  final class ResponseCommit extends
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.github.jtendermint.jabci.types.ResponseCommit parsedMessage = null;
+      com.github.jtendermint.jabci.types.KI64Pair parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.github.jtendermint.jabci.types.ResponseCommit) e.getUnfinishedMessage();
+        parsedMessage = (com.github.jtendermint.jabci.types.KI64Pair) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -353,43 +390,57 @@ public  final class ResponseCommit extends
       return this;
     }
 
-    private com.google.protobuf.ByteString data_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString key_ = com.google.protobuf.ByteString.EMPTY;
     /**
-     * <pre>
-     * reserve 1
-     * </pre>
-     *
-     * <code>optional bytes data = 2;</code>
+     * <code>optional bytes key = 1;</code>
      */
-    public com.google.protobuf.ByteString getData() {
-      return data_;
+    public com.google.protobuf.ByteString getKey() {
+      return key_;
     }
     /**
-     * <pre>
-     * reserve 1
-     * </pre>
-     *
-     * <code>optional bytes data = 2;</code>
+     * <code>optional bytes key = 1;</code>
      */
-    public Builder setData(com.google.protobuf.ByteString value) {
+    public Builder setKey(com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      data_ = value;
+      key_ = value;
       onChanged();
       return this;
     }
     /**
-     * <pre>
-     * reserve 1
-     * </pre>
-     *
-     * <code>optional bytes data = 2;</code>
+     * <code>optional bytes key = 1;</code>
      */
-    public Builder clearData() {
+    public Builder clearKey() {
       
-      data_ = getDefaultInstance().getData();
+      key_ = getDefaultInstance().getKey();
+      onChanged();
+      return this;
+    }
+
+    private long value_ ;
+    /**
+     * <code>optional int64 value = 2;</code>
+     */
+    public long getValue() {
+      return value_;
+    }
+    /**
+     * <code>optional int64 value = 2;</code>
+     */
+    public Builder setValue(long value) {
+      
+      value_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional int64 value = 2;</code>
+     */
+    public Builder clearValue() {
+      
+      value_ = 0L;
       onChanged();
       return this;
     }
@@ -404,39 +455,39 @@ public  final class ResponseCommit extends
     }
 
 
-    // @@protoc_insertion_point(builder_scope:com.github.jtendermint.jabci.types.ResponseCommit)
+    // @@protoc_insertion_point(builder_scope:com.github.jtendermint.jabci.types.KI64Pair)
   }
 
-  // @@protoc_insertion_point(class_scope:com.github.jtendermint.jabci.types.ResponseCommit)
-  private static final com.github.jtendermint.jabci.types.ResponseCommit DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:com.github.jtendermint.jabci.types.KI64Pair)
+  private static final com.github.jtendermint.jabci.types.KI64Pair DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.github.jtendermint.jabci.types.ResponseCommit();
+    DEFAULT_INSTANCE = new com.github.jtendermint.jabci.types.KI64Pair();
   }
 
-  public static com.github.jtendermint.jabci.types.ResponseCommit getDefaultInstance() {
+  public static com.github.jtendermint.jabci.types.KI64Pair getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<ResponseCommit>
-      PARSER = new com.google.protobuf.AbstractParser<ResponseCommit>() {
-    public ResponseCommit parsePartialFrom(
+  private static final com.google.protobuf.Parser<KI64Pair>
+      PARSER = new com.google.protobuf.AbstractParser<KI64Pair>() {
+    public KI64Pair parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ResponseCommit(input, extensionRegistry);
+        return new KI64Pair(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<ResponseCommit> parser() {
+  public static com.google.protobuf.Parser<KI64Pair> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<ResponseCommit> getParserForType() {
+  public com.google.protobuf.Parser<KI64Pair> getParserForType() {
     return PARSER;
   }
 
-  public com.github.jtendermint.jabci.types.ResponseCommit getDefaultInstanceForType() {
+  public com.github.jtendermint.jabci.types.KI64Pair getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

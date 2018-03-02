@@ -8,54 +8,68 @@ public interface ResponseQueryOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>uint32 code = 1;</code>
+   * <code>optional uint32 code = 1;</code>
    */
   int getCode();
 
   /**
-   * <code>int64 index = 2;</code>
+   * <pre>
+   * bytes data = 2; // use "value" instead.
+   * </pre>
+   *
+   * <code>optional string log = 3;</code>
+   */
+  java.lang.String getLog();
+  /**
+   * <pre>
+   * bytes data = 2; // use "value" instead.
+   * </pre>
+   *
+   * <code>optional string log = 3;</code>
+   */
+  com.google.protobuf.ByteString
+      getLogBytes();
+
+  /**
+   * <pre>
+   * nondeterministic
+   * </pre>
+   *
+   * <code>optional string info = 4;</code>
+   */
+  java.lang.String getInfo();
+  /**
+   * <pre>
+   * nondeterministic
+   * </pre>
+   *
+   * <code>optional string info = 4;</code>
+   */
+  com.google.protobuf.ByteString
+      getInfoBytes();
+
+  /**
+   * <code>optional int64 index = 5;</code>
    */
   long getIndex();
 
   /**
-   * <pre>
-   *[(gogoproto.customtype) = "github.com/tendermint/go-wire/data.Bytes", (gogoproto.nullable) = false];
-   * </pre>
-   *
-   * <code>bytes key = 3;</code>
+   * <code>optional bytes key = 6;</code>
    */
   com.google.protobuf.ByteString getKey();
 
   /**
-   * <pre>
-   *[(gogoproto.customtype) = "github.com/tendermint/go-wire/data.Bytes", (gogoproto.nullable) = false];
-   * </pre>
-   *
-   * <code>bytes value = 4;</code>
+   * <code>optional bytes value = 7;</code>
    */
   com.google.protobuf.ByteString getValue();
 
   /**
-   * <pre>
-   *[(gogoproto.customtype) = "github.com/tendermint/go-wire/data.Bytes", (gogoproto.nullable) = false];
-   * </pre>
-   *
-   * <code>bytes proof = 5;</code>
+   * <code>optional bytes proof = 8;</code>
    */
   com.google.protobuf.ByteString getProof();
 
   /**
-   * <code>int64 height = 6;</code>
+   * <code>optional int64 height = 9;</code>
    */
   long getHeight();
-
-  /**
-   * <code>string log = 7;</code>
-   */
-  java.lang.String getLog();
-  /**
-   * <code>string log = 7;</code>
-   */
-  com.google.protobuf.ByteString
-      getLogBytes();
 }

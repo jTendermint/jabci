@@ -10,7 +10,6 @@ public  final class ResponseCheckTx extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:com.github.jtendermint.jabci.types.ResponseCheckTx)
     ResponseCheckTxOrBuilder {
-private static final long serialVersionUID = 0L;
   // Use ResponseCheckTx.newBuilder() to construct.
   private ResponseCheckTx(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
@@ -19,26 +18,22 @@ private static final long serialVersionUID = 0L;
     code_ = 0;
     data_ = com.google.protobuf.ByteString.EMPTY;
     log_ = "";
-    gas_ = 0L;
-    fee_ = 0L;
+    info_ = "";
+    gasWanted_ = 0L;
+    tags_ = java.util.Collections.emptyList();
   }
 
   @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
-    return this.unknownFields;
+    return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
   }
   private ResponseCheckTx(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
     int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
       boolean done = false;
       while (!done) {
@@ -48,8 +43,7 @@ private static final long serialVersionUID = 0L;
             done = true;
             break;
           default: {
-            if (!parseUnknownFieldProto3(
-                input, unknownFields, extensionRegistry, tag)) {
+            if (!input.skipField(tag)) {
               done = true;
             }
             break;
@@ -70,14 +64,37 @@ private static final long serialVersionUID = 0L;
             log_ = s;
             break;
           }
-          case 32: {
+          case 34: {
+            java.lang.String s = input.readStringRequireUtf8();
 
-            gas_ = input.readInt64();
+            info_ = s;
             break;
           }
           case 40: {
 
-            fee_ = input.readInt64();
+            gasWanted_ = input.readInt64();
+            break;
+          }
+          case 58: {
+            if (!((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
+              tags_ = new java.util.ArrayList<com.github.jtendermint.jabci.types.KVPair>();
+              mutable_bitField0_ |= 0x00000020;
+            }
+            tags_.add(
+                input.readMessage(com.github.jtendermint.jabci.types.KVPair.parser(), extensionRegistry));
+            break;
+          }
+          case 66: {
+            com.github.jtendermint.jabci.types.KI64Pair.Builder subBuilder = null;
+            if (fee_ != null) {
+              subBuilder = fee_.toBuilder();
+            }
+            fee_ = input.readMessage(com.github.jtendermint.jabci.types.KI64Pair.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(fee_);
+              fee_ = subBuilder.buildPartial();
+            }
+
             break;
           }
         }
@@ -88,7 +105,9 @@ private static final long serialVersionUID = 0L;
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
-      this.unknownFields = unknownFields.build();
+      if (((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
+        tags_ = java.util.Collections.unmodifiableList(tags_);
+      }
       makeExtensionsImmutable();
     }
   }
@@ -104,10 +123,11 @@ private static final long serialVersionUID = 0L;
             com.github.jtendermint.jabci.types.ResponseCheckTx.class, com.github.jtendermint.jabci.types.ResponseCheckTx.Builder.class);
   }
 
+  private int bitField0_;
   public static final int CODE_FIELD_NUMBER = 1;
   private int code_;
   /**
-   * <code>uint32 code = 1;</code>
+   * <code>optional uint32 code = 1;</code>
    */
   public int getCode() {
     return code_;
@@ -116,11 +136,7 @@ private static final long serialVersionUID = 0L;
   public static final int DATA_FIELD_NUMBER = 2;
   private com.google.protobuf.ByteString data_;
   /**
-   * <pre>
-   *[(gogoproto.customtype) = "github.com/tendermint/go-wire/data.Bytes", (gogoproto.nullable) = false];
-   * </pre>
-   *
-   * <code>bytes data = 2;</code>
+   * <code>optional bytes data = 2;</code>
    */
   public com.google.protobuf.ByteString getData() {
     return data_;
@@ -129,7 +145,11 @@ private static final long serialVersionUID = 0L;
   public static final int LOG_FIELD_NUMBER = 3;
   private volatile java.lang.Object log_;
   /**
-   * <code>string log = 3;</code>
+   * <pre>
+   * nondeterministic
+   * </pre>
+   *
+   * <code>optional string log = 3;</code>
    */
   public java.lang.String getLog() {
     java.lang.Object ref = log_;
@@ -144,7 +164,11 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string log = 3;</code>
+   * <pre>
+   * nondeterministic
+   * </pre>
+   *
+   * <code>optional string log = 3;</code>
    */
   public com.google.protobuf.ByteString
       getLogBytes() {
@@ -160,22 +184,131 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int GAS_FIELD_NUMBER = 4;
-  private long gas_;
+  public static final int INFO_FIELD_NUMBER = 4;
+  private volatile java.lang.Object info_;
   /**
-   * <code>int64 gas = 4;</code>
+   * <pre>
+   * nondeterministic
+   * </pre>
+   *
+   * <code>optional string info = 4;</code>
    */
-  public long getGas() {
-    return gas_;
+  public java.lang.String getInfo() {
+    java.lang.Object ref = info_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      info_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * nondeterministic
+   * </pre>
+   *
+   * <code>optional string info = 4;</code>
+   */
+  public com.google.protobuf.ByteString
+      getInfoBytes() {
+    java.lang.Object ref = info_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      info_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
   }
 
-  public static final int FEE_FIELD_NUMBER = 5;
-  private long fee_;
+  public static final int GAS_WANTED_FIELD_NUMBER = 5;
+  private long gasWanted_;
   /**
-   * <code>int64 fee = 5;</code>
+   * <code>optional int64 gas_wanted = 5;</code>
    */
-  public long getFee() {
-    return fee_;
+  public long getGasWanted() {
+    return gasWanted_;
+  }
+
+  public static final int TAGS_FIELD_NUMBER = 7;
+  private java.util.List<com.github.jtendermint.jabci.types.KVPair> tags_;
+  /**
+   * <pre>
+   * int64 gas_used = 6;
+   * </pre>
+   *
+   * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
+   */
+  public java.util.List<com.github.jtendermint.jabci.types.KVPair> getTagsList() {
+    return tags_;
+  }
+  /**
+   * <pre>
+   * int64 gas_used = 6;
+   * </pre>
+   *
+   * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
+   */
+  public java.util.List<? extends com.github.jtendermint.jabci.types.KVPairOrBuilder> 
+      getTagsOrBuilderList() {
+    return tags_;
+  }
+  /**
+   * <pre>
+   * int64 gas_used = 6;
+   * </pre>
+   *
+   * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
+   */
+  public int getTagsCount() {
+    return tags_.size();
+  }
+  /**
+   * <pre>
+   * int64 gas_used = 6;
+   * </pre>
+   *
+   * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
+   */
+  public com.github.jtendermint.jabci.types.KVPair getTags(int index) {
+    return tags_.get(index);
+  }
+  /**
+   * <pre>
+   * int64 gas_used = 6;
+   * </pre>
+   *
+   * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
+   */
+  public com.github.jtendermint.jabci.types.KVPairOrBuilder getTagsOrBuilder(
+      int index) {
+    return tags_.get(index);
+  }
+
+  public static final int FEE_FIELD_NUMBER = 8;
+  private com.github.jtendermint.jabci.types.KI64Pair fee_;
+  /**
+   * <code>optional .com.github.jtendermint.jabci.types.KI64Pair fee = 8;</code>
+   */
+  public boolean hasFee() {
+    return fee_ != null;
+  }
+  /**
+   * <code>optional .com.github.jtendermint.jabci.types.KI64Pair fee = 8;</code>
+   */
+  public com.github.jtendermint.jabci.types.KI64Pair getFee() {
+    return fee_ == null ? com.github.jtendermint.jabci.types.KI64Pair.getDefaultInstance() : fee_;
+  }
+  /**
+   * <code>optional .com.github.jtendermint.jabci.types.KI64Pair fee = 8;</code>
+   */
+  public com.github.jtendermint.jabci.types.KI64PairOrBuilder getFeeOrBuilder() {
+    return getFee();
   }
 
   private byte memoizedIsInitialized = -1;
@@ -199,13 +332,18 @@ private static final long serialVersionUID = 0L;
     if (!getLogBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, log_);
     }
-    if (gas_ != 0L) {
-      output.writeInt64(4, gas_);
+    if (!getInfoBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, info_);
     }
-    if (fee_ != 0L) {
-      output.writeInt64(5, fee_);
+    if (gasWanted_ != 0L) {
+      output.writeInt64(5, gasWanted_);
     }
-    unknownFields.writeTo(output);
+    for (int i = 0; i < tags_.size(); i++) {
+      output.writeMessage(7, tags_.get(i));
+    }
+    if (fee_ != null) {
+      output.writeMessage(8, getFee());
+    }
   }
 
   public int getSerializedSize() {
@@ -224,19 +362,26 @@ private static final long serialVersionUID = 0L;
     if (!getLogBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, log_);
     }
-    if (gas_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(4, gas_);
+    if (!getInfoBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, info_);
     }
-    if (fee_ != 0L) {
+    if (gasWanted_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(5, fee_);
+        .computeInt64Size(5, gasWanted_);
     }
-    size += unknownFields.getSerializedSize();
+    for (int i = 0; i < tags_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(7, tags_.get(i));
+    }
+    if (fee_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(8, getFee());
+    }
     memoizedSize = size;
     return size;
   }
 
+  private static final long serialVersionUID = 0L;
   @java.lang.Override
   public boolean equals(final java.lang.Object obj) {
     if (obj == this) {
@@ -254,11 +399,17 @@ private static final long serialVersionUID = 0L;
         .equals(other.getData());
     result = result && getLog()
         .equals(other.getLog());
-    result = result && (getGas()
-        == other.getGas());
-    result = result && (getFee()
-        == other.getFee());
-    result = result && unknownFields.equals(other.unknownFields);
+    result = result && getInfo()
+        .equals(other.getInfo());
+    result = result && (getGasWanted()
+        == other.getGasWanted());
+    result = result && getTagsList()
+        .equals(other.getTagsList());
+    result = result && (hasFee() == other.hasFee());
+    if (hasFee()) {
+      result = result && getFee()
+          .equals(other.getFee());
+    }
     return result;
   }
 
@@ -268,35 +419,31 @@ private static final long serialVersionUID = 0L;
       return memoizedHashCode;
     }
     int hash = 41;
-    hash = (19 * hash) + getDescriptor().hashCode();
+    hash = (19 * hash) + getDescriptorForType().hashCode();
     hash = (37 * hash) + CODE_FIELD_NUMBER;
     hash = (53 * hash) + getCode();
     hash = (37 * hash) + DATA_FIELD_NUMBER;
     hash = (53 * hash) + getData().hashCode();
     hash = (37 * hash) + LOG_FIELD_NUMBER;
     hash = (53 * hash) + getLog().hashCode();
-    hash = (37 * hash) + GAS_FIELD_NUMBER;
+    hash = (37 * hash) + INFO_FIELD_NUMBER;
+    hash = (53 * hash) + getInfo().hashCode();
+    hash = (37 * hash) + GAS_WANTED_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getGas());
-    hash = (37 * hash) + FEE_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getFee());
+        getGasWanted());
+    if (getTagsCount() > 0) {
+      hash = (37 * hash) + TAGS_FIELD_NUMBER;
+      hash = (53 * hash) + getTagsList().hashCode();
+    }
+    if (hasFee()) {
+      hash = (37 * hash) + FEE_FIELD_NUMBER;
+      hash = (53 * hash) + getFee().hashCode();
+    }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static com.github.jtendermint.jabci.types.ResponseCheckTx parseFrom(
-      java.nio.ByteBuffer data)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    return PARSER.parseFrom(data);
-  }
-  public static com.github.jtendermint.jabci.types.ResponseCheckTx parseFrom(
-      java.nio.ByteBuffer data,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    return PARSER.parseFrom(data, extensionRegistry);
-  }
   public static com.github.jtendermint.jabci.types.ResponseCheckTx parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -406,6 +553,7 @@ private static final long serialVersionUID = 0L;
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessageV3
               .alwaysUseFieldBuilders) {
+        getTagsFieldBuilder();
       }
     }
     public Builder clear() {
@@ -416,10 +564,22 @@ private static final long serialVersionUID = 0L;
 
       log_ = "";
 
-      gas_ = 0L;
+      info_ = "";
 
-      fee_ = 0L;
+      gasWanted_ = 0L;
 
+      if (tagsBuilder_ == null) {
+        tags_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000020);
+      } else {
+        tagsBuilder_.clear();
+      }
+      if (feeBuilder_ == null) {
+        fee_ = null;
+      } else {
+        fee_ = null;
+        feeBuilder_ = null;
+      }
       return this;
     }
 
@@ -442,11 +602,28 @@ private static final long serialVersionUID = 0L;
 
     public com.github.jtendermint.jabci.types.ResponseCheckTx buildPartial() {
       com.github.jtendermint.jabci.types.ResponseCheckTx result = new com.github.jtendermint.jabci.types.ResponseCheckTx(this);
+      int from_bitField0_ = bitField0_;
+      int to_bitField0_ = 0;
       result.code_ = code_;
       result.data_ = data_;
       result.log_ = log_;
-      result.gas_ = gas_;
-      result.fee_ = fee_;
+      result.info_ = info_;
+      result.gasWanted_ = gasWanted_;
+      if (tagsBuilder_ == null) {
+        if (((bitField0_ & 0x00000020) == 0x00000020)) {
+          tags_ = java.util.Collections.unmodifiableList(tags_);
+          bitField0_ = (bitField0_ & ~0x00000020);
+        }
+        result.tags_ = tags_;
+      } else {
+        result.tags_ = tagsBuilder_.build();
+      }
+      if (feeBuilder_ == null) {
+        result.fee_ = fee_;
+      } else {
+        result.fee_ = feeBuilder_.build();
+      }
+      result.bitField0_ = to_bitField0_;
       onBuilt();
       return result;
     }
@@ -456,7 +633,7 @@ private static final long serialVersionUID = 0L;
     }
     public Builder setField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
+        Object value) {
       return (Builder) super.setField(field, value);
     }
     public Builder clearField(
@@ -469,12 +646,12 @@ private static final long serialVersionUID = 0L;
     }
     public Builder setRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        int index, java.lang.Object value) {
+        int index, Object value) {
       return (Builder) super.setRepeatedField(field, index, value);
     }
     public Builder addRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
+        Object value) {
       return (Builder) super.addRepeatedField(field, value);
     }
     public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -498,13 +675,42 @@ private static final long serialVersionUID = 0L;
         log_ = other.log_;
         onChanged();
       }
-      if (other.getGas() != 0L) {
-        setGas(other.getGas());
+      if (!other.getInfo().isEmpty()) {
+        info_ = other.info_;
+        onChanged();
       }
-      if (other.getFee() != 0L) {
-        setFee(other.getFee());
+      if (other.getGasWanted() != 0L) {
+        setGasWanted(other.getGasWanted());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (tagsBuilder_ == null) {
+        if (!other.tags_.isEmpty()) {
+          if (tags_.isEmpty()) {
+            tags_ = other.tags_;
+            bitField0_ = (bitField0_ & ~0x00000020);
+          } else {
+            ensureTagsIsMutable();
+            tags_.addAll(other.tags_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.tags_.isEmpty()) {
+          if (tagsBuilder_.isEmpty()) {
+            tagsBuilder_.dispose();
+            tagsBuilder_ = null;
+            tags_ = other.tags_;
+            bitField0_ = (bitField0_ & ~0x00000020);
+            tagsBuilder_ = 
+              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                 getTagsFieldBuilder() : null;
+          } else {
+            tagsBuilder_.addAllMessages(other.tags_);
+          }
+        }
+      }
+      if (other.hasFee()) {
+        mergeFee(other.getFee());
+      }
       onChanged();
       return this;
     }
@@ -530,16 +736,17 @@ private static final long serialVersionUID = 0L;
       }
       return this;
     }
+    private int bitField0_;
 
     private int code_ ;
     /**
-     * <code>uint32 code = 1;</code>
+     * <code>optional uint32 code = 1;</code>
      */
     public int getCode() {
       return code_;
     }
     /**
-     * <code>uint32 code = 1;</code>
+     * <code>optional uint32 code = 1;</code>
      */
     public Builder setCode(int value) {
       
@@ -548,7 +755,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>uint32 code = 1;</code>
+     * <code>optional uint32 code = 1;</code>
      */
     public Builder clearCode() {
       
@@ -559,21 +766,13 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.ByteString data_ = com.google.protobuf.ByteString.EMPTY;
     /**
-     * <pre>
-     *[(gogoproto.customtype) = "github.com/tendermint/go-wire/data.Bytes", (gogoproto.nullable) = false];
-     * </pre>
-     *
-     * <code>bytes data = 2;</code>
+     * <code>optional bytes data = 2;</code>
      */
     public com.google.protobuf.ByteString getData() {
       return data_;
     }
     /**
-     * <pre>
-     *[(gogoproto.customtype) = "github.com/tendermint/go-wire/data.Bytes", (gogoproto.nullable) = false];
-     * </pre>
-     *
-     * <code>bytes data = 2;</code>
+     * <code>optional bytes data = 2;</code>
      */
     public Builder setData(com.google.protobuf.ByteString value) {
       if (value == null) {
@@ -585,11 +784,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <pre>
-     *[(gogoproto.customtype) = "github.com/tendermint/go-wire/data.Bytes", (gogoproto.nullable) = false];
-     * </pre>
-     *
-     * <code>bytes data = 2;</code>
+     * <code>optional bytes data = 2;</code>
      */
     public Builder clearData() {
       
@@ -600,7 +795,11 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object log_ = "";
     /**
-     * <code>string log = 3;</code>
+     * <pre>
+     * nondeterministic
+     * </pre>
+     *
+     * <code>optional string log = 3;</code>
      */
     public java.lang.String getLog() {
       java.lang.Object ref = log_;
@@ -615,7 +814,11 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string log = 3;</code>
+     * <pre>
+     * nondeterministic
+     * </pre>
+     *
+     * <code>optional string log = 3;</code>
      */
     public com.google.protobuf.ByteString
         getLogBytes() {
@@ -631,7 +834,11 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string log = 3;</code>
+     * <pre>
+     * nondeterministic
+     * </pre>
+     *
+     * <code>optional string log = 3;</code>
      */
     public Builder setLog(
         java.lang.String value) {
@@ -644,7 +851,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string log = 3;</code>
+     * <pre>
+     * nondeterministic
+     * </pre>
+     *
+     * <code>optional string log = 3;</code>
      */
     public Builder clearLog() {
       
@@ -653,7 +864,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string log = 3;</code>
+     * <pre>
+     * nondeterministic
+     * </pre>
+     *
+     * <code>optional string log = 3;</code>
      */
     public Builder setLogBytes(
         com.google.protobuf.ByteString value) {
@@ -667,65 +882,557 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long gas_ ;
+    private java.lang.Object info_ = "";
     /**
-     * <code>int64 gas = 4;</code>
+     * <pre>
+     * nondeterministic
+     * </pre>
+     *
+     * <code>optional string info = 4;</code>
      */
-    public long getGas() {
-      return gas_;
+    public java.lang.String getInfo() {
+      java.lang.Object ref = info_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        info_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
     }
     /**
-     * <code>int64 gas = 4;</code>
+     * <pre>
+     * nondeterministic
+     * </pre>
+     *
+     * <code>optional string info = 4;</code>
      */
-    public Builder setGas(long value) {
-      
-      gas_ = value;
+    public com.google.protobuf.ByteString
+        getInfoBytes() {
+      java.lang.Object ref = info_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        info_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * nondeterministic
+     * </pre>
+     *
+     * <code>optional string info = 4;</code>
+     */
+    public Builder setInfo(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      info_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int64 gas = 4;</code>
+     * <pre>
+     * nondeterministic
+     * </pre>
+     *
+     * <code>optional string info = 4;</code>
      */
-    public Builder clearGas() {
+    public Builder clearInfo() {
       
-      gas_ = 0L;
+      info_ = getDefaultInstance().getInfo();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * nondeterministic
+     * </pre>
+     *
+     * <code>optional string info = 4;</code>
+     */
+    public Builder setInfoBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      info_ = value;
       onChanged();
       return this;
     }
 
-    private long fee_ ;
+    private long gasWanted_ ;
     /**
-     * <code>int64 fee = 5;</code>
+     * <code>optional int64 gas_wanted = 5;</code>
      */
-    public long getFee() {
-      return fee_;
+    public long getGasWanted() {
+      return gasWanted_;
     }
     /**
-     * <code>int64 fee = 5;</code>
+     * <code>optional int64 gas_wanted = 5;</code>
      */
-    public Builder setFee(long value) {
+    public Builder setGasWanted(long value) {
       
-      fee_ = value;
+      gasWanted_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int64 fee = 5;</code>
+     * <code>optional int64 gas_wanted = 5;</code>
+     */
+    public Builder clearGasWanted() {
+      
+      gasWanted_ = 0L;
+      onChanged();
+      return this;
+    }
+
+    private java.util.List<com.github.jtendermint.jabci.types.KVPair> tags_ =
+      java.util.Collections.emptyList();
+    private void ensureTagsIsMutable() {
+      if (!((bitField0_ & 0x00000020) == 0x00000020)) {
+        tags_ = new java.util.ArrayList<com.github.jtendermint.jabci.types.KVPair>(tags_);
+        bitField0_ |= 0x00000020;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.github.jtendermint.jabci.types.KVPair, com.github.jtendermint.jabci.types.KVPair.Builder, com.github.jtendermint.jabci.types.KVPairOrBuilder> tagsBuilder_;
+
+    /**
+     * <pre>
+     * int64 gas_used = 6;
+     * </pre>
+     *
+     * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
+     */
+    public java.util.List<com.github.jtendermint.jabci.types.KVPair> getTagsList() {
+      if (tagsBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(tags_);
+      } else {
+        return tagsBuilder_.getMessageList();
+      }
+    }
+    /**
+     * <pre>
+     * int64 gas_used = 6;
+     * </pre>
+     *
+     * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
+     */
+    public int getTagsCount() {
+      if (tagsBuilder_ == null) {
+        return tags_.size();
+      } else {
+        return tagsBuilder_.getCount();
+      }
+    }
+    /**
+     * <pre>
+     * int64 gas_used = 6;
+     * </pre>
+     *
+     * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
+     */
+    public com.github.jtendermint.jabci.types.KVPair getTags(int index) {
+      if (tagsBuilder_ == null) {
+        return tags_.get(index);
+      } else {
+        return tagsBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <pre>
+     * int64 gas_used = 6;
+     * </pre>
+     *
+     * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
+     */
+    public Builder setTags(
+        int index, com.github.jtendermint.jabci.types.KVPair value) {
+      if (tagsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureTagsIsMutable();
+        tags_.set(index, value);
+        onChanged();
+      } else {
+        tagsBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * int64 gas_used = 6;
+     * </pre>
+     *
+     * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
+     */
+    public Builder setTags(
+        int index, com.github.jtendermint.jabci.types.KVPair.Builder builderForValue) {
+      if (tagsBuilder_ == null) {
+        ensureTagsIsMutable();
+        tags_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        tagsBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * int64 gas_used = 6;
+     * </pre>
+     *
+     * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
+     */
+    public Builder addTags(com.github.jtendermint.jabci.types.KVPair value) {
+      if (tagsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureTagsIsMutable();
+        tags_.add(value);
+        onChanged();
+      } else {
+        tagsBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * int64 gas_used = 6;
+     * </pre>
+     *
+     * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
+     */
+    public Builder addTags(
+        int index, com.github.jtendermint.jabci.types.KVPair value) {
+      if (tagsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureTagsIsMutable();
+        tags_.add(index, value);
+        onChanged();
+      } else {
+        tagsBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * int64 gas_used = 6;
+     * </pre>
+     *
+     * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
+     */
+    public Builder addTags(
+        com.github.jtendermint.jabci.types.KVPair.Builder builderForValue) {
+      if (tagsBuilder_ == null) {
+        ensureTagsIsMutable();
+        tags_.add(builderForValue.build());
+        onChanged();
+      } else {
+        tagsBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * int64 gas_used = 6;
+     * </pre>
+     *
+     * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
+     */
+    public Builder addTags(
+        int index, com.github.jtendermint.jabci.types.KVPair.Builder builderForValue) {
+      if (tagsBuilder_ == null) {
+        ensureTagsIsMutable();
+        tags_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        tagsBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * int64 gas_used = 6;
+     * </pre>
+     *
+     * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
+     */
+    public Builder addAllTags(
+        java.lang.Iterable<? extends com.github.jtendermint.jabci.types.KVPair> values) {
+      if (tagsBuilder_ == null) {
+        ensureTagsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, tags_);
+        onChanged();
+      } else {
+        tagsBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * int64 gas_used = 6;
+     * </pre>
+     *
+     * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
+     */
+    public Builder clearTags() {
+      if (tagsBuilder_ == null) {
+        tags_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000020);
+        onChanged();
+      } else {
+        tagsBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * int64 gas_used = 6;
+     * </pre>
+     *
+     * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
+     */
+    public Builder removeTags(int index) {
+      if (tagsBuilder_ == null) {
+        ensureTagsIsMutable();
+        tags_.remove(index);
+        onChanged();
+      } else {
+        tagsBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * int64 gas_used = 6;
+     * </pre>
+     *
+     * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
+     */
+    public com.github.jtendermint.jabci.types.KVPair.Builder getTagsBuilder(
+        int index) {
+      return getTagsFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <pre>
+     * int64 gas_used = 6;
+     * </pre>
+     *
+     * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
+     */
+    public com.github.jtendermint.jabci.types.KVPairOrBuilder getTagsOrBuilder(
+        int index) {
+      if (tagsBuilder_ == null) {
+        return tags_.get(index);  } else {
+        return tagsBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <pre>
+     * int64 gas_used = 6;
+     * </pre>
+     *
+     * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
+     */
+    public java.util.List<? extends com.github.jtendermint.jabci.types.KVPairOrBuilder> 
+         getTagsOrBuilderList() {
+      if (tagsBuilder_ != null) {
+        return tagsBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(tags_);
+      }
+    }
+    /**
+     * <pre>
+     * int64 gas_used = 6;
+     * </pre>
+     *
+     * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
+     */
+    public com.github.jtendermint.jabci.types.KVPair.Builder addTagsBuilder() {
+      return getTagsFieldBuilder().addBuilder(
+          com.github.jtendermint.jabci.types.KVPair.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * int64 gas_used = 6;
+     * </pre>
+     *
+     * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
+     */
+    public com.github.jtendermint.jabci.types.KVPair.Builder addTagsBuilder(
+        int index) {
+      return getTagsFieldBuilder().addBuilder(
+          index, com.github.jtendermint.jabci.types.KVPair.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * int64 gas_used = 6;
+     * </pre>
+     *
+     * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
+     */
+    public java.util.List<com.github.jtendermint.jabci.types.KVPair.Builder> 
+         getTagsBuilderList() {
+      return getTagsFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.github.jtendermint.jabci.types.KVPair, com.github.jtendermint.jabci.types.KVPair.Builder, com.github.jtendermint.jabci.types.KVPairOrBuilder> 
+        getTagsFieldBuilder() {
+      if (tagsBuilder_ == null) {
+        tagsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+            com.github.jtendermint.jabci.types.KVPair, com.github.jtendermint.jabci.types.KVPair.Builder, com.github.jtendermint.jabci.types.KVPairOrBuilder>(
+                tags_,
+                ((bitField0_ & 0x00000020) == 0x00000020),
+                getParentForChildren(),
+                isClean());
+        tags_ = null;
+      }
+      return tagsBuilder_;
+    }
+
+    private com.github.jtendermint.jabci.types.KI64Pair fee_ = null;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.github.jtendermint.jabci.types.KI64Pair, com.github.jtendermint.jabci.types.KI64Pair.Builder, com.github.jtendermint.jabci.types.KI64PairOrBuilder> feeBuilder_;
+    /**
+     * <code>optional .com.github.jtendermint.jabci.types.KI64Pair fee = 8;</code>
+     */
+    public boolean hasFee() {
+      return feeBuilder_ != null || fee_ != null;
+    }
+    /**
+     * <code>optional .com.github.jtendermint.jabci.types.KI64Pair fee = 8;</code>
+     */
+    public com.github.jtendermint.jabci.types.KI64Pair getFee() {
+      if (feeBuilder_ == null) {
+        return fee_ == null ? com.github.jtendermint.jabci.types.KI64Pair.getDefaultInstance() : fee_;
+      } else {
+        return feeBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>optional .com.github.jtendermint.jabci.types.KI64Pair fee = 8;</code>
+     */
+    public Builder setFee(com.github.jtendermint.jabci.types.KI64Pair value) {
+      if (feeBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        fee_ = value;
+        onChanged();
+      } else {
+        feeBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>optional .com.github.jtendermint.jabci.types.KI64Pair fee = 8;</code>
+     */
+    public Builder setFee(
+        com.github.jtendermint.jabci.types.KI64Pair.Builder builderForValue) {
+      if (feeBuilder_ == null) {
+        fee_ = builderForValue.build();
+        onChanged();
+      } else {
+        feeBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>optional .com.github.jtendermint.jabci.types.KI64Pair fee = 8;</code>
+     */
+    public Builder mergeFee(com.github.jtendermint.jabci.types.KI64Pair value) {
+      if (feeBuilder_ == null) {
+        if (fee_ != null) {
+          fee_ =
+            com.github.jtendermint.jabci.types.KI64Pair.newBuilder(fee_).mergeFrom(value).buildPartial();
+        } else {
+          fee_ = value;
+        }
+        onChanged();
+      } else {
+        feeBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>optional .com.github.jtendermint.jabci.types.KI64Pair fee = 8;</code>
      */
     public Builder clearFee() {
-      
-      fee_ = 0L;
-      onChanged();
+      if (feeBuilder_ == null) {
+        fee_ = null;
+        onChanged();
+      } else {
+        fee_ = null;
+        feeBuilder_ = null;
+      }
+
       return this;
+    }
+    /**
+     * <code>optional .com.github.jtendermint.jabci.types.KI64Pair fee = 8;</code>
+     */
+    public com.github.jtendermint.jabci.types.KI64Pair.Builder getFeeBuilder() {
+      
+      onChanged();
+      return getFeeFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>optional .com.github.jtendermint.jabci.types.KI64Pair fee = 8;</code>
+     */
+    public com.github.jtendermint.jabci.types.KI64PairOrBuilder getFeeOrBuilder() {
+      if (feeBuilder_ != null) {
+        return feeBuilder_.getMessageOrBuilder();
+      } else {
+        return fee_ == null ?
+            com.github.jtendermint.jabci.types.KI64Pair.getDefaultInstance() : fee_;
+      }
+    }
+    /**
+     * <code>optional .com.github.jtendermint.jabci.types.KI64Pair fee = 8;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.github.jtendermint.jabci.types.KI64Pair, com.github.jtendermint.jabci.types.KI64Pair.Builder, com.github.jtendermint.jabci.types.KI64PairOrBuilder> 
+        getFeeFieldBuilder() {
+      if (feeBuilder_ == null) {
+        feeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.github.jtendermint.jabci.types.KI64Pair, com.github.jtendermint.jabci.types.KI64Pair.Builder, com.github.jtendermint.jabci.types.KI64PairOrBuilder>(
+                getFee(),
+                getParentForChildren(),
+                isClean());
+        fee_ = null;
+      }
+      return feeBuilder_;
     }
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
-      return super.setUnknownFieldsProto3(unknownFields);
+      return this;
     }
 
     public final Builder mergeUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
-      return super.mergeUnknownFields(unknownFields);
+      return this;
     }
 
 
@@ -748,7 +1455,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ResponseCheckTx(input, extensionRegistry);
+        return new ResponseCheckTx(input, extensionRegistry);
     }
   };
 

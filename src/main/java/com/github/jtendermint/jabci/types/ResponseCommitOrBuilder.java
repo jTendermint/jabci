@@ -8,26 +8,11 @@ public interface ResponseCommitOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>uint32 code = 1;</code>
-   */
-  int getCode();
-
-  /**
    * <pre>
-   *[(gogoproto.customtype) = "github.com/tendermint/go-wire/data.Bytes", (gogoproto.nullable) = false];
+   * reserve 1
    * </pre>
    *
-   * <code>bytes data = 2;</code>
+   * <code>optional bytes data = 2;</code>
    */
   com.google.protobuf.ByteString getData();
-
-  /**
-   * <code>string log = 3;</code>
-   */
-  java.lang.String getLog();
-  /**
-   * <code>string log = 3;</code>
-   */
-  com.google.protobuf.ByteString
-      getLogBytes();
 }

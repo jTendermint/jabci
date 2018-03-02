@@ -8,12 +8,12 @@ public interface TxSizeOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int32 max_bytes = 1;</code>
+   * <code>optional int32 max_bytes = 1;</code>
    */
   int getMaxBytes();
 
   /**
-   * <code>int64 max_gas = 2;</code>
+   * <code>optional int64 max_gas = 2;</code>
    */
   long getMaxGas();
 }

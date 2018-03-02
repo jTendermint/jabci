@@ -10,31 +10,26 @@ public  final class RequestInitChain extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:com.github.jtendermint.jabci.types.RequestInitChain)
     RequestInitChainOrBuilder {
-private static final long serialVersionUID = 0L;
   // Use RequestInitChain.newBuilder() to construct.
   private RequestInitChain(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
   private RequestInitChain() {
     validators_ = java.util.Collections.emptyList();
+    appStateBytes_ = com.google.protobuf.ByteString.EMPTY;
   }
 
   @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
-    return this.unknownFields;
+    return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
   }
   private RequestInitChain(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
     int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
       boolean done = false;
       while (!done) {
@@ -44,8 +39,7 @@ private static final long serialVersionUID = 0L;
             done = true;
             break;
           default: {
-            if (!parseUnknownFieldProto3(
-                input, unknownFields, extensionRegistry, tag)) {
+            if (!input.skipField(tag)) {
               done = true;
             }
             break;
@@ -59,6 +53,11 @@ private static final long serialVersionUID = 0L;
                 input.readMessage(com.github.jtendermint.jabci.types.Validator.parser(), extensionRegistry));
             break;
           }
+          case 18: {
+
+            appStateBytes_ = input.readBytes();
+            break;
+          }
         }
       }
     } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -70,7 +69,6 @@ private static final long serialVersionUID = 0L;
       if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
         validators_ = java.util.Collections.unmodifiableList(validators_);
       }
-      this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
     }
   }
@@ -86,6 +84,7 @@ private static final long serialVersionUID = 0L;
             com.github.jtendermint.jabci.types.RequestInitChain.class, com.github.jtendermint.jabci.types.RequestInitChain.Builder.class);
   }
 
+  private int bitField0_;
   public static final int VALIDATORS_FIELD_NUMBER = 1;
   private java.util.List<com.github.jtendermint.jabci.types.Validator> validators_;
   /**
@@ -121,6 +120,15 @@ private static final long serialVersionUID = 0L;
     return validators_.get(index);
   }
 
+  public static final int APP_STATE_BYTES_FIELD_NUMBER = 2;
+  private com.google.protobuf.ByteString appStateBytes_;
+  /**
+   * <code>optional bytes app_state_bytes = 2;</code>
+   */
+  public com.google.protobuf.ByteString getAppStateBytes() {
+    return appStateBytes_;
+  }
+
   private byte memoizedIsInitialized = -1;
   public final boolean isInitialized() {
     byte isInitialized = memoizedIsInitialized;
@@ -136,7 +144,9 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < validators_.size(); i++) {
       output.writeMessage(1, validators_.get(i));
     }
-    unknownFields.writeTo(output);
+    if (!appStateBytes_.isEmpty()) {
+      output.writeBytes(2, appStateBytes_);
+    }
   }
 
   public int getSerializedSize() {
@@ -148,11 +158,15 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, validators_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    if (!appStateBytes_.isEmpty()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBytesSize(2, appStateBytes_);
+    }
     memoizedSize = size;
     return size;
   }
 
+  private static final long serialVersionUID = 0L;
   @java.lang.Override
   public boolean equals(final java.lang.Object obj) {
     if (obj == this) {
@@ -166,7 +180,8 @@ private static final long serialVersionUID = 0L;
     boolean result = true;
     result = result && getValidatorsList()
         .equals(other.getValidatorsList());
-    result = result && unknownFields.equals(other.unknownFields);
+    result = result && getAppStateBytes()
+        .equals(other.getAppStateBytes());
     return result;
   }
 
@@ -176,27 +191,18 @@ private static final long serialVersionUID = 0L;
       return memoizedHashCode;
     }
     int hash = 41;
-    hash = (19 * hash) + getDescriptor().hashCode();
+    hash = (19 * hash) + getDescriptorForType().hashCode();
     if (getValidatorsCount() > 0) {
       hash = (37 * hash) + VALIDATORS_FIELD_NUMBER;
       hash = (53 * hash) + getValidatorsList().hashCode();
     }
+    hash = (37 * hash) + APP_STATE_BYTES_FIELD_NUMBER;
+    hash = (53 * hash) + getAppStateBytes().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static com.github.jtendermint.jabci.types.RequestInitChain parseFrom(
-      java.nio.ByteBuffer data)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    return PARSER.parseFrom(data);
-  }
-  public static com.github.jtendermint.jabci.types.RequestInitChain parseFrom(
-      java.nio.ByteBuffer data,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    return PARSER.parseFrom(data, extensionRegistry);
-  }
   public static com.github.jtendermint.jabci.types.RequestInitChain parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -317,6 +323,8 @@ private static final long serialVersionUID = 0L;
       } else {
         validatorsBuilder_.clear();
       }
+      appStateBytes_ = com.google.protobuf.ByteString.EMPTY;
+
       return this;
     }
 
@@ -340,6 +348,7 @@ private static final long serialVersionUID = 0L;
     public com.github.jtendermint.jabci.types.RequestInitChain buildPartial() {
       com.github.jtendermint.jabci.types.RequestInitChain result = new com.github.jtendermint.jabci.types.RequestInitChain(this);
       int from_bitField0_ = bitField0_;
+      int to_bitField0_ = 0;
       if (validatorsBuilder_ == null) {
         if (((bitField0_ & 0x00000001) == 0x00000001)) {
           validators_ = java.util.Collections.unmodifiableList(validators_);
@@ -349,6 +358,8 @@ private static final long serialVersionUID = 0L;
       } else {
         result.validators_ = validatorsBuilder_.build();
       }
+      result.appStateBytes_ = appStateBytes_;
+      result.bitField0_ = to_bitField0_;
       onBuilt();
       return result;
     }
@@ -358,7 +369,7 @@ private static final long serialVersionUID = 0L;
     }
     public Builder setField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
+        Object value) {
       return (Builder) super.setField(field, value);
     }
     public Builder clearField(
@@ -371,12 +382,12 @@ private static final long serialVersionUID = 0L;
     }
     public Builder setRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        int index, java.lang.Object value) {
+        int index, Object value) {
       return (Builder) super.setRepeatedField(field, index, value);
     }
     public Builder addRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
+        Object value) {
       return (Builder) super.addRepeatedField(field, value);
     }
     public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -416,7 +427,9 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (other.getAppStateBytes() != com.google.protobuf.ByteString.EMPTY) {
+        setAppStateBytes(other.getAppStateBytes());
+      }
       onChanged();
       return this;
     }
@@ -683,14 +696,43 @@ private static final long serialVersionUID = 0L;
       }
       return validatorsBuilder_;
     }
+
+    private com.google.protobuf.ByteString appStateBytes_ = com.google.protobuf.ByteString.EMPTY;
+    /**
+     * <code>optional bytes app_state_bytes = 2;</code>
+     */
+    public com.google.protobuf.ByteString getAppStateBytes() {
+      return appStateBytes_;
+    }
+    /**
+     * <code>optional bytes app_state_bytes = 2;</code>
+     */
+    public Builder setAppStateBytes(com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      appStateBytes_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional bytes app_state_bytes = 2;</code>
+     */
+    public Builder clearAppStateBytes() {
+      
+      appStateBytes_ = getDefaultInstance().getAppStateBytes();
+      onChanged();
+      return this;
+    }
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
-      return super.setUnknownFieldsProto3(unknownFields);
+      return this;
     }
 
     public final Builder mergeUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
-      return super.mergeUnknownFields(unknownFields);
+      return this;
     }
 
 
@@ -713,7 +755,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new RequestInitChain(input, extensionRegistry);
+        return new RequestInitChain(input, extensionRegistry);
     }
   };
 

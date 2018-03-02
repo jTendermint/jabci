@@ -8,12 +8,12 @@ public interface ValidatorOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>bytes pub_key = 1;</code>
+   * <code>optional bytes pub_key = 1;</code>
    */
   com.google.protobuf.ByteString getPubKey();
 
   /**
-   * <code>int64 power = 2;</code>
+   * <code>optional int64 power = 2;</code>
    */
   long getPower();
 }

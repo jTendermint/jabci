@@ -80,7 +80,7 @@ public final class DefaultFallbackListener implements ABCIAPI {
     @Override
     public ResponseCommit requestCommit(RequestCommit requestCommit) {
         LOG.debug("ResponseCommit DefaultFallbackListener");
-        return ResponseCommit.newBuilder().setCode(CodeType.OK).build();
+        return ResponseCommit.newBuilder().build();
     }
 
     @Override
