@@ -10,7 +10,6 @@ public  final class Request extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:com.github.jtendermint.jabci.types.Request)
     RequestOrBuilder {
-private static final long serialVersionUID = 0L;
   // Use Request.newBuilder() to construct.
   private Request(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
@@ -21,19 +20,14 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
-    return this.unknownFields;
+    return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
   }
   private Request(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
     int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
       boolean done = false;
       while (!done) {
@@ -43,8 +37,7 @@ private static final long serialVersionUID = 0L;
             done = true;
             break;
           default: {
-            if (!parseUnknownFieldProto3(
-                input, unknownFields, extensionRegistry, tag)) {
+            if (!input.skipField(tag)) {
               done = true;
             }
             break;
@@ -211,7 +204,6 @@ private static final long serialVersionUID = 0L;
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
-      this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
     }
   }
@@ -285,13 +277,7 @@ private static final long serialVersionUID = 0L;
 
   public static final int ECHO_FIELD_NUMBER = 2;
   /**
-   * <code>.com.github.jtendermint.jabci.types.RequestEcho echo = 2;</code>
-   */
-  public boolean hasEcho() {
-    return valueCase_ == 2;
-  }
-  /**
-   * <code>.com.github.jtendermint.jabci.types.RequestEcho echo = 2;</code>
+   * <code>optional .com.github.jtendermint.jabci.types.RequestEcho echo = 2;</code>
    */
   public com.github.jtendermint.jabci.types.RequestEcho getEcho() {
     if (valueCase_ == 2) {
@@ -300,7 +286,7 @@ private static final long serialVersionUID = 0L;
     return com.github.jtendermint.jabci.types.RequestEcho.getDefaultInstance();
   }
   /**
-   * <code>.com.github.jtendermint.jabci.types.RequestEcho echo = 2;</code>
+   * <code>optional .com.github.jtendermint.jabci.types.RequestEcho echo = 2;</code>
    */
   public com.github.jtendermint.jabci.types.RequestEchoOrBuilder getEchoOrBuilder() {
     if (valueCase_ == 2) {
@@ -311,13 +297,7 @@ private static final long serialVersionUID = 0L;
 
   public static final int FLUSH_FIELD_NUMBER = 3;
   /**
-   * <code>.com.github.jtendermint.jabci.types.RequestFlush flush = 3;</code>
-   */
-  public boolean hasFlush() {
-    return valueCase_ == 3;
-  }
-  /**
-   * <code>.com.github.jtendermint.jabci.types.RequestFlush flush = 3;</code>
+   * <code>optional .com.github.jtendermint.jabci.types.RequestFlush flush = 3;</code>
    */
   public com.github.jtendermint.jabci.types.RequestFlush getFlush() {
     if (valueCase_ == 3) {
@@ -326,7 +306,7 @@ private static final long serialVersionUID = 0L;
     return com.github.jtendermint.jabci.types.RequestFlush.getDefaultInstance();
   }
   /**
-   * <code>.com.github.jtendermint.jabci.types.RequestFlush flush = 3;</code>
+   * <code>optional .com.github.jtendermint.jabci.types.RequestFlush flush = 3;</code>
    */
   public com.github.jtendermint.jabci.types.RequestFlushOrBuilder getFlushOrBuilder() {
     if (valueCase_ == 3) {
@@ -337,13 +317,7 @@ private static final long serialVersionUID = 0L;
 
   public static final int INFO_FIELD_NUMBER = 4;
   /**
-   * <code>.com.github.jtendermint.jabci.types.RequestInfo info = 4;</code>
-   */
-  public boolean hasInfo() {
-    return valueCase_ == 4;
-  }
-  /**
-   * <code>.com.github.jtendermint.jabci.types.RequestInfo info = 4;</code>
+   * <code>optional .com.github.jtendermint.jabci.types.RequestInfo info = 4;</code>
    */
   public com.github.jtendermint.jabci.types.RequestInfo getInfo() {
     if (valueCase_ == 4) {
@@ -352,7 +326,7 @@ private static final long serialVersionUID = 0L;
     return com.github.jtendermint.jabci.types.RequestInfo.getDefaultInstance();
   }
   /**
-   * <code>.com.github.jtendermint.jabci.types.RequestInfo info = 4;</code>
+   * <code>optional .com.github.jtendermint.jabci.types.RequestInfo info = 4;</code>
    */
   public com.github.jtendermint.jabci.types.RequestInfoOrBuilder getInfoOrBuilder() {
     if (valueCase_ == 4) {
@@ -363,13 +337,7 @@ private static final long serialVersionUID = 0L;
 
   public static final int SET_OPTION_FIELD_NUMBER = 5;
   /**
-   * <code>.com.github.jtendermint.jabci.types.RequestSetOption set_option = 5;</code>
-   */
-  public boolean hasSetOption() {
-    return valueCase_ == 5;
-  }
-  /**
-   * <code>.com.github.jtendermint.jabci.types.RequestSetOption set_option = 5;</code>
+   * <code>optional .com.github.jtendermint.jabci.types.RequestSetOption set_option = 5;</code>
    */
   public com.github.jtendermint.jabci.types.RequestSetOption getSetOption() {
     if (valueCase_ == 5) {
@@ -378,7 +346,7 @@ private static final long serialVersionUID = 0L;
     return com.github.jtendermint.jabci.types.RequestSetOption.getDefaultInstance();
   }
   /**
-   * <code>.com.github.jtendermint.jabci.types.RequestSetOption set_option = 5;</code>
+   * <code>optional .com.github.jtendermint.jabci.types.RequestSetOption set_option = 5;</code>
    */
   public com.github.jtendermint.jabci.types.RequestSetOptionOrBuilder getSetOptionOrBuilder() {
     if (valueCase_ == 5) {
@@ -389,13 +357,7 @@ private static final long serialVersionUID = 0L;
 
   public static final int INIT_CHAIN_FIELD_NUMBER = 6;
   /**
-   * <code>.com.github.jtendermint.jabci.types.RequestInitChain init_chain = 6;</code>
-   */
-  public boolean hasInitChain() {
-    return valueCase_ == 6;
-  }
-  /**
-   * <code>.com.github.jtendermint.jabci.types.RequestInitChain init_chain = 6;</code>
+   * <code>optional .com.github.jtendermint.jabci.types.RequestInitChain init_chain = 6;</code>
    */
   public com.github.jtendermint.jabci.types.RequestInitChain getInitChain() {
     if (valueCase_ == 6) {
@@ -404,7 +366,7 @@ private static final long serialVersionUID = 0L;
     return com.github.jtendermint.jabci.types.RequestInitChain.getDefaultInstance();
   }
   /**
-   * <code>.com.github.jtendermint.jabci.types.RequestInitChain init_chain = 6;</code>
+   * <code>optional .com.github.jtendermint.jabci.types.RequestInitChain init_chain = 6;</code>
    */
   public com.github.jtendermint.jabci.types.RequestInitChainOrBuilder getInitChainOrBuilder() {
     if (valueCase_ == 6) {
@@ -415,13 +377,7 @@ private static final long serialVersionUID = 0L;
 
   public static final int QUERY_FIELD_NUMBER = 7;
   /**
-   * <code>.com.github.jtendermint.jabci.types.RequestQuery query = 7;</code>
-   */
-  public boolean hasQuery() {
-    return valueCase_ == 7;
-  }
-  /**
-   * <code>.com.github.jtendermint.jabci.types.RequestQuery query = 7;</code>
+   * <code>optional .com.github.jtendermint.jabci.types.RequestQuery query = 7;</code>
    */
   public com.github.jtendermint.jabci.types.RequestQuery getQuery() {
     if (valueCase_ == 7) {
@@ -430,7 +386,7 @@ private static final long serialVersionUID = 0L;
     return com.github.jtendermint.jabci.types.RequestQuery.getDefaultInstance();
   }
   /**
-   * <code>.com.github.jtendermint.jabci.types.RequestQuery query = 7;</code>
+   * <code>optional .com.github.jtendermint.jabci.types.RequestQuery query = 7;</code>
    */
   public com.github.jtendermint.jabci.types.RequestQueryOrBuilder getQueryOrBuilder() {
     if (valueCase_ == 7) {
@@ -441,13 +397,7 @@ private static final long serialVersionUID = 0L;
 
   public static final int BEGIN_BLOCK_FIELD_NUMBER = 8;
   /**
-   * <code>.com.github.jtendermint.jabci.types.RequestBeginBlock begin_block = 8;</code>
-   */
-  public boolean hasBeginBlock() {
-    return valueCase_ == 8;
-  }
-  /**
-   * <code>.com.github.jtendermint.jabci.types.RequestBeginBlock begin_block = 8;</code>
+   * <code>optional .com.github.jtendermint.jabci.types.RequestBeginBlock begin_block = 8;</code>
    */
   public com.github.jtendermint.jabci.types.RequestBeginBlock getBeginBlock() {
     if (valueCase_ == 8) {
@@ -456,7 +406,7 @@ private static final long serialVersionUID = 0L;
     return com.github.jtendermint.jabci.types.RequestBeginBlock.getDefaultInstance();
   }
   /**
-   * <code>.com.github.jtendermint.jabci.types.RequestBeginBlock begin_block = 8;</code>
+   * <code>optional .com.github.jtendermint.jabci.types.RequestBeginBlock begin_block = 8;</code>
    */
   public com.github.jtendermint.jabci.types.RequestBeginBlockOrBuilder getBeginBlockOrBuilder() {
     if (valueCase_ == 8) {
@@ -467,13 +417,7 @@ private static final long serialVersionUID = 0L;
 
   public static final int CHECK_TX_FIELD_NUMBER = 9;
   /**
-   * <code>.com.github.jtendermint.jabci.types.RequestCheckTx check_tx = 9;</code>
-   */
-  public boolean hasCheckTx() {
-    return valueCase_ == 9;
-  }
-  /**
-   * <code>.com.github.jtendermint.jabci.types.RequestCheckTx check_tx = 9;</code>
+   * <code>optional .com.github.jtendermint.jabci.types.RequestCheckTx check_tx = 9;</code>
    */
   public com.github.jtendermint.jabci.types.RequestCheckTx getCheckTx() {
     if (valueCase_ == 9) {
@@ -482,7 +426,7 @@ private static final long serialVersionUID = 0L;
     return com.github.jtendermint.jabci.types.RequestCheckTx.getDefaultInstance();
   }
   /**
-   * <code>.com.github.jtendermint.jabci.types.RequestCheckTx check_tx = 9;</code>
+   * <code>optional .com.github.jtendermint.jabci.types.RequestCheckTx check_tx = 9;</code>
    */
   public com.github.jtendermint.jabci.types.RequestCheckTxOrBuilder getCheckTxOrBuilder() {
     if (valueCase_ == 9) {
@@ -493,13 +437,7 @@ private static final long serialVersionUID = 0L;
 
   public static final int DELIVER_TX_FIELD_NUMBER = 19;
   /**
-   * <code>.com.github.jtendermint.jabci.types.RequestDeliverTx deliver_tx = 19;</code>
-   */
-  public boolean hasDeliverTx() {
-    return valueCase_ == 19;
-  }
-  /**
-   * <code>.com.github.jtendermint.jabci.types.RequestDeliverTx deliver_tx = 19;</code>
+   * <code>optional .com.github.jtendermint.jabci.types.RequestDeliverTx deliver_tx = 19;</code>
    */
   public com.github.jtendermint.jabci.types.RequestDeliverTx getDeliverTx() {
     if (valueCase_ == 19) {
@@ -508,7 +446,7 @@ private static final long serialVersionUID = 0L;
     return com.github.jtendermint.jabci.types.RequestDeliverTx.getDefaultInstance();
   }
   /**
-   * <code>.com.github.jtendermint.jabci.types.RequestDeliverTx deliver_tx = 19;</code>
+   * <code>optional .com.github.jtendermint.jabci.types.RequestDeliverTx deliver_tx = 19;</code>
    */
   public com.github.jtendermint.jabci.types.RequestDeliverTxOrBuilder getDeliverTxOrBuilder() {
     if (valueCase_ == 19) {
@@ -519,13 +457,7 @@ private static final long serialVersionUID = 0L;
 
   public static final int END_BLOCK_FIELD_NUMBER = 11;
   /**
-   * <code>.com.github.jtendermint.jabci.types.RequestEndBlock end_block = 11;</code>
-   */
-  public boolean hasEndBlock() {
-    return valueCase_ == 11;
-  }
-  /**
-   * <code>.com.github.jtendermint.jabci.types.RequestEndBlock end_block = 11;</code>
+   * <code>optional .com.github.jtendermint.jabci.types.RequestEndBlock end_block = 11;</code>
    */
   public com.github.jtendermint.jabci.types.RequestEndBlock getEndBlock() {
     if (valueCase_ == 11) {
@@ -534,7 +466,7 @@ private static final long serialVersionUID = 0L;
     return com.github.jtendermint.jabci.types.RequestEndBlock.getDefaultInstance();
   }
   /**
-   * <code>.com.github.jtendermint.jabci.types.RequestEndBlock end_block = 11;</code>
+   * <code>optional .com.github.jtendermint.jabci.types.RequestEndBlock end_block = 11;</code>
    */
   public com.github.jtendermint.jabci.types.RequestEndBlockOrBuilder getEndBlockOrBuilder() {
     if (valueCase_ == 11) {
@@ -545,13 +477,7 @@ private static final long serialVersionUID = 0L;
 
   public static final int COMMIT_FIELD_NUMBER = 12;
   /**
-   * <code>.com.github.jtendermint.jabci.types.RequestCommit commit = 12;</code>
-   */
-  public boolean hasCommit() {
-    return valueCase_ == 12;
-  }
-  /**
-   * <code>.com.github.jtendermint.jabci.types.RequestCommit commit = 12;</code>
+   * <code>optional .com.github.jtendermint.jabci.types.RequestCommit commit = 12;</code>
    */
   public com.github.jtendermint.jabci.types.RequestCommit getCommit() {
     if (valueCase_ == 12) {
@@ -560,7 +486,7 @@ private static final long serialVersionUID = 0L;
     return com.github.jtendermint.jabci.types.RequestCommit.getDefaultInstance();
   }
   /**
-   * <code>.com.github.jtendermint.jabci.types.RequestCommit commit = 12;</code>
+   * <code>optional .com.github.jtendermint.jabci.types.RequestCommit commit = 12;</code>
    */
   public com.github.jtendermint.jabci.types.RequestCommitOrBuilder getCommitOrBuilder() {
     if (valueCase_ == 12) {
@@ -614,7 +540,6 @@ private static final long serialVersionUID = 0L;
     if (valueCase_ == 19) {
       output.writeMessage(19, (com.github.jtendermint.jabci.types.RequestDeliverTx) value_);
     }
-    unknownFields.writeTo(output);
   }
 
   public int getSerializedSize() {
@@ -666,11 +591,11 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(19, (com.github.jtendermint.jabci.types.RequestDeliverTx) value_);
     }
-    size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
   }
 
+  private static final long serialVersionUID = 0L;
   @java.lang.Override
   public boolean equals(final java.lang.Object obj) {
     if (obj == this) {
@@ -733,7 +658,6 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
 
@@ -743,7 +667,7 @@ private static final long serialVersionUID = 0L;
       return memoizedHashCode;
     }
     int hash = 41;
-    hash = (19 * hash) + getDescriptor().hashCode();
+    hash = (19 * hash) + getDescriptorForType().hashCode();
     switch (valueCase_) {
       case 2:
         hash = (37 * hash) + ECHO_FIELD_NUMBER;
@@ -797,17 +721,6 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static com.github.jtendermint.jabci.types.Request parseFrom(
-      java.nio.ByteBuffer data)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    return PARSER.parseFrom(data);
-  }
-  public static com.github.jtendermint.jabci.types.Request parseFrom(
-      java.nio.ByteBuffer data,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    return PARSER.parseFrom(data, extensionRegistry);
-  }
   public static com.github.jtendermint.jabci.types.Request parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -1032,7 +945,7 @@ private static final long serialVersionUID = 0L;
     }
     public Builder setField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
+        Object value) {
       return (Builder) super.setField(field, value);
     }
     public Builder clearField(
@@ -1045,12 +958,12 @@ private static final long serialVersionUID = 0L;
     }
     public Builder setRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        int index, java.lang.Object value) {
+        int index, Object value) {
       return (Builder) super.setRepeatedField(field, index, value);
     }
     public Builder addRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
+        Object value) {
       return (Builder) super.addRepeatedField(field, value);
     }
     public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -1113,7 +1026,6 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
       onChanged();
       return this;
     }
@@ -1158,13 +1070,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.github.jtendermint.jabci.types.RequestEcho, com.github.jtendermint.jabci.types.RequestEcho.Builder, com.github.jtendermint.jabci.types.RequestEchoOrBuilder> echoBuilder_;
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestEcho echo = 2;</code>
-     */
-    public boolean hasEcho() {
-      return valueCase_ == 2;
-    }
-    /**
-     * <code>.com.github.jtendermint.jabci.types.RequestEcho echo = 2;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestEcho echo = 2;</code>
      */
     public com.github.jtendermint.jabci.types.RequestEcho getEcho() {
       if (echoBuilder_ == null) {
@@ -1180,7 +1086,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestEcho echo = 2;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestEcho echo = 2;</code>
      */
     public Builder setEcho(com.github.jtendermint.jabci.types.RequestEcho value) {
       if (echoBuilder_ == null) {
@@ -1196,7 +1102,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestEcho echo = 2;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestEcho echo = 2;</code>
      */
     public Builder setEcho(
         com.github.jtendermint.jabci.types.RequestEcho.Builder builderForValue) {
@@ -1210,7 +1116,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestEcho echo = 2;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestEcho echo = 2;</code>
      */
     public Builder mergeEcho(com.github.jtendermint.jabci.types.RequestEcho value) {
       if (echoBuilder_ == null) {
@@ -1232,7 +1138,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestEcho echo = 2;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestEcho echo = 2;</code>
      */
     public Builder clearEcho() {
       if (echoBuilder_ == null) {
@@ -1251,13 +1157,13 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestEcho echo = 2;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestEcho echo = 2;</code>
      */
     public com.github.jtendermint.jabci.types.RequestEcho.Builder getEchoBuilder() {
       return getEchoFieldBuilder().getBuilder();
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestEcho echo = 2;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestEcho echo = 2;</code>
      */
     public com.github.jtendermint.jabci.types.RequestEchoOrBuilder getEchoOrBuilder() {
       if ((valueCase_ == 2) && (echoBuilder_ != null)) {
@@ -1270,7 +1176,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestEcho echo = 2;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestEcho echo = 2;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.github.jtendermint.jabci.types.RequestEcho, com.github.jtendermint.jabci.types.RequestEcho.Builder, com.github.jtendermint.jabci.types.RequestEchoOrBuilder> 
@@ -1294,13 +1200,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.github.jtendermint.jabci.types.RequestFlush, com.github.jtendermint.jabci.types.RequestFlush.Builder, com.github.jtendermint.jabci.types.RequestFlushOrBuilder> flushBuilder_;
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestFlush flush = 3;</code>
-     */
-    public boolean hasFlush() {
-      return valueCase_ == 3;
-    }
-    /**
-     * <code>.com.github.jtendermint.jabci.types.RequestFlush flush = 3;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestFlush flush = 3;</code>
      */
     public com.github.jtendermint.jabci.types.RequestFlush getFlush() {
       if (flushBuilder_ == null) {
@@ -1316,7 +1216,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestFlush flush = 3;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestFlush flush = 3;</code>
      */
     public Builder setFlush(com.github.jtendermint.jabci.types.RequestFlush value) {
       if (flushBuilder_ == null) {
@@ -1332,7 +1232,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestFlush flush = 3;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestFlush flush = 3;</code>
      */
     public Builder setFlush(
         com.github.jtendermint.jabci.types.RequestFlush.Builder builderForValue) {
@@ -1346,7 +1246,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestFlush flush = 3;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestFlush flush = 3;</code>
      */
     public Builder mergeFlush(com.github.jtendermint.jabci.types.RequestFlush value) {
       if (flushBuilder_ == null) {
@@ -1368,7 +1268,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestFlush flush = 3;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestFlush flush = 3;</code>
      */
     public Builder clearFlush() {
       if (flushBuilder_ == null) {
@@ -1387,13 +1287,13 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestFlush flush = 3;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestFlush flush = 3;</code>
      */
     public com.github.jtendermint.jabci.types.RequestFlush.Builder getFlushBuilder() {
       return getFlushFieldBuilder().getBuilder();
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestFlush flush = 3;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestFlush flush = 3;</code>
      */
     public com.github.jtendermint.jabci.types.RequestFlushOrBuilder getFlushOrBuilder() {
       if ((valueCase_ == 3) && (flushBuilder_ != null)) {
@@ -1406,7 +1306,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestFlush flush = 3;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestFlush flush = 3;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.github.jtendermint.jabci.types.RequestFlush, com.github.jtendermint.jabci.types.RequestFlush.Builder, com.github.jtendermint.jabci.types.RequestFlushOrBuilder> 
@@ -1430,13 +1330,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.github.jtendermint.jabci.types.RequestInfo, com.github.jtendermint.jabci.types.RequestInfo.Builder, com.github.jtendermint.jabci.types.RequestInfoOrBuilder> infoBuilder_;
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestInfo info = 4;</code>
-     */
-    public boolean hasInfo() {
-      return valueCase_ == 4;
-    }
-    /**
-     * <code>.com.github.jtendermint.jabci.types.RequestInfo info = 4;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestInfo info = 4;</code>
      */
     public com.github.jtendermint.jabci.types.RequestInfo getInfo() {
       if (infoBuilder_ == null) {
@@ -1452,7 +1346,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestInfo info = 4;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestInfo info = 4;</code>
      */
     public Builder setInfo(com.github.jtendermint.jabci.types.RequestInfo value) {
       if (infoBuilder_ == null) {
@@ -1468,7 +1362,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestInfo info = 4;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestInfo info = 4;</code>
      */
     public Builder setInfo(
         com.github.jtendermint.jabci.types.RequestInfo.Builder builderForValue) {
@@ -1482,7 +1376,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestInfo info = 4;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestInfo info = 4;</code>
      */
     public Builder mergeInfo(com.github.jtendermint.jabci.types.RequestInfo value) {
       if (infoBuilder_ == null) {
@@ -1504,7 +1398,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestInfo info = 4;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestInfo info = 4;</code>
      */
     public Builder clearInfo() {
       if (infoBuilder_ == null) {
@@ -1523,13 +1417,13 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestInfo info = 4;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestInfo info = 4;</code>
      */
     public com.github.jtendermint.jabci.types.RequestInfo.Builder getInfoBuilder() {
       return getInfoFieldBuilder().getBuilder();
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestInfo info = 4;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestInfo info = 4;</code>
      */
     public com.github.jtendermint.jabci.types.RequestInfoOrBuilder getInfoOrBuilder() {
       if ((valueCase_ == 4) && (infoBuilder_ != null)) {
@@ -1542,7 +1436,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestInfo info = 4;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestInfo info = 4;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.github.jtendermint.jabci.types.RequestInfo, com.github.jtendermint.jabci.types.RequestInfo.Builder, com.github.jtendermint.jabci.types.RequestInfoOrBuilder> 
@@ -1566,13 +1460,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.github.jtendermint.jabci.types.RequestSetOption, com.github.jtendermint.jabci.types.RequestSetOption.Builder, com.github.jtendermint.jabci.types.RequestSetOptionOrBuilder> setOptionBuilder_;
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestSetOption set_option = 5;</code>
-     */
-    public boolean hasSetOption() {
-      return valueCase_ == 5;
-    }
-    /**
-     * <code>.com.github.jtendermint.jabci.types.RequestSetOption set_option = 5;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestSetOption set_option = 5;</code>
      */
     public com.github.jtendermint.jabci.types.RequestSetOption getSetOption() {
       if (setOptionBuilder_ == null) {
@@ -1588,7 +1476,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestSetOption set_option = 5;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestSetOption set_option = 5;</code>
      */
     public Builder setSetOption(com.github.jtendermint.jabci.types.RequestSetOption value) {
       if (setOptionBuilder_ == null) {
@@ -1604,7 +1492,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestSetOption set_option = 5;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestSetOption set_option = 5;</code>
      */
     public Builder setSetOption(
         com.github.jtendermint.jabci.types.RequestSetOption.Builder builderForValue) {
@@ -1618,7 +1506,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestSetOption set_option = 5;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestSetOption set_option = 5;</code>
      */
     public Builder mergeSetOption(com.github.jtendermint.jabci.types.RequestSetOption value) {
       if (setOptionBuilder_ == null) {
@@ -1640,7 +1528,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestSetOption set_option = 5;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestSetOption set_option = 5;</code>
      */
     public Builder clearSetOption() {
       if (setOptionBuilder_ == null) {
@@ -1659,13 +1547,13 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestSetOption set_option = 5;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestSetOption set_option = 5;</code>
      */
     public com.github.jtendermint.jabci.types.RequestSetOption.Builder getSetOptionBuilder() {
       return getSetOptionFieldBuilder().getBuilder();
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestSetOption set_option = 5;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestSetOption set_option = 5;</code>
      */
     public com.github.jtendermint.jabci.types.RequestSetOptionOrBuilder getSetOptionOrBuilder() {
       if ((valueCase_ == 5) && (setOptionBuilder_ != null)) {
@@ -1678,7 +1566,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestSetOption set_option = 5;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestSetOption set_option = 5;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.github.jtendermint.jabci.types.RequestSetOption, com.github.jtendermint.jabci.types.RequestSetOption.Builder, com.github.jtendermint.jabci.types.RequestSetOptionOrBuilder> 
@@ -1702,13 +1590,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.github.jtendermint.jabci.types.RequestInitChain, com.github.jtendermint.jabci.types.RequestInitChain.Builder, com.github.jtendermint.jabci.types.RequestInitChainOrBuilder> initChainBuilder_;
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestInitChain init_chain = 6;</code>
-     */
-    public boolean hasInitChain() {
-      return valueCase_ == 6;
-    }
-    /**
-     * <code>.com.github.jtendermint.jabci.types.RequestInitChain init_chain = 6;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestInitChain init_chain = 6;</code>
      */
     public com.github.jtendermint.jabci.types.RequestInitChain getInitChain() {
       if (initChainBuilder_ == null) {
@@ -1724,7 +1606,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestInitChain init_chain = 6;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestInitChain init_chain = 6;</code>
      */
     public Builder setInitChain(com.github.jtendermint.jabci.types.RequestInitChain value) {
       if (initChainBuilder_ == null) {
@@ -1740,7 +1622,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestInitChain init_chain = 6;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestInitChain init_chain = 6;</code>
      */
     public Builder setInitChain(
         com.github.jtendermint.jabci.types.RequestInitChain.Builder builderForValue) {
@@ -1754,7 +1636,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestInitChain init_chain = 6;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestInitChain init_chain = 6;</code>
      */
     public Builder mergeInitChain(com.github.jtendermint.jabci.types.RequestInitChain value) {
       if (initChainBuilder_ == null) {
@@ -1776,7 +1658,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestInitChain init_chain = 6;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestInitChain init_chain = 6;</code>
      */
     public Builder clearInitChain() {
       if (initChainBuilder_ == null) {
@@ -1795,13 +1677,13 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestInitChain init_chain = 6;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestInitChain init_chain = 6;</code>
      */
     public com.github.jtendermint.jabci.types.RequestInitChain.Builder getInitChainBuilder() {
       return getInitChainFieldBuilder().getBuilder();
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestInitChain init_chain = 6;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestInitChain init_chain = 6;</code>
      */
     public com.github.jtendermint.jabci.types.RequestInitChainOrBuilder getInitChainOrBuilder() {
       if ((valueCase_ == 6) && (initChainBuilder_ != null)) {
@@ -1814,7 +1696,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestInitChain init_chain = 6;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestInitChain init_chain = 6;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.github.jtendermint.jabci.types.RequestInitChain, com.github.jtendermint.jabci.types.RequestInitChain.Builder, com.github.jtendermint.jabci.types.RequestInitChainOrBuilder> 
@@ -1838,13 +1720,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.github.jtendermint.jabci.types.RequestQuery, com.github.jtendermint.jabci.types.RequestQuery.Builder, com.github.jtendermint.jabci.types.RequestQueryOrBuilder> queryBuilder_;
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestQuery query = 7;</code>
-     */
-    public boolean hasQuery() {
-      return valueCase_ == 7;
-    }
-    /**
-     * <code>.com.github.jtendermint.jabci.types.RequestQuery query = 7;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestQuery query = 7;</code>
      */
     public com.github.jtendermint.jabci.types.RequestQuery getQuery() {
       if (queryBuilder_ == null) {
@@ -1860,7 +1736,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestQuery query = 7;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestQuery query = 7;</code>
      */
     public Builder setQuery(com.github.jtendermint.jabci.types.RequestQuery value) {
       if (queryBuilder_ == null) {
@@ -1876,7 +1752,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestQuery query = 7;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestQuery query = 7;</code>
      */
     public Builder setQuery(
         com.github.jtendermint.jabci.types.RequestQuery.Builder builderForValue) {
@@ -1890,7 +1766,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestQuery query = 7;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestQuery query = 7;</code>
      */
     public Builder mergeQuery(com.github.jtendermint.jabci.types.RequestQuery value) {
       if (queryBuilder_ == null) {
@@ -1912,7 +1788,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestQuery query = 7;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestQuery query = 7;</code>
      */
     public Builder clearQuery() {
       if (queryBuilder_ == null) {
@@ -1931,13 +1807,13 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestQuery query = 7;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestQuery query = 7;</code>
      */
     public com.github.jtendermint.jabci.types.RequestQuery.Builder getQueryBuilder() {
       return getQueryFieldBuilder().getBuilder();
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestQuery query = 7;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestQuery query = 7;</code>
      */
     public com.github.jtendermint.jabci.types.RequestQueryOrBuilder getQueryOrBuilder() {
       if ((valueCase_ == 7) && (queryBuilder_ != null)) {
@@ -1950,7 +1826,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestQuery query = 7;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestQuery query = 7;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.github.jtendermint.jabci.types.RequestQuery, com.github.jtendermint.jabci.types.RequestQuery.Builder, com.github.jtendermint.jabci.types.RequestQueryOrBuilder> 
@@ -1974,13 +1850,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.github.jtendermint.jabci.types.RequestBeginBlock, com.github.jtendermint.jabci.types.RequestBeginBlock.Builder, com.github.jtendermint.jabci.types.RequestBeginBlockOrBuilder> beginBlockBuilder_;
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestBeginBlock begin_block = 8;</code>
-     */
-    public boolean hasBeginBlock() {
-      return valueCase_ == 8;
-    }
-    /**
-     * <code>.com.github.jtendermint.jabci.types.RequestBeginBlock begin_block = 8;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestBeginBlock begin_block = 8;</code>
      */
     public com.github.jtendermint.jabci.types.RequestBeginBlock getBeginBlock() {
       if (beginBlockBuilder_ == null) {
@@ -1996,7 +1866,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestBeginBlock begin_block = 8;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestBeginBlock begin_block = 8;</code>
      */
     public Builder setBeginBlock(com.github.jtendermint.jabci.types.RequestBeginBlock value) {
       if (beginBlockBuilder_ == null) {
@@ -2012,7 +1882,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestBeginBlock begin_block = 8;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestBeginBlock begin_block = 8;</code>
      */
     public Builder setBeginBlock(
         com.github.jtendermint.jabci.types.RequestBeginBlock.Builder builderForValue) {
@@ -2026,7 +1896,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestBeginBlock begin_block = 8;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestBeginBlock begin_block = 8;</code>
      */
     public Builder mergeBeginBlock(com.github.jtendermint.jabci.types.RequestBeginBlock value) {
       if (beginBlockBuilder_ == null) {
@@ -2048,7 +1918,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestBeginBlock begin_block = 8;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestBeginBlock begin_block = 8;</code>
      */
     public Builder clearBeginBlock() {
       if (beginBlockBuilder_ == null) {
@@ -2067,13 +1937,13 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestBeginBlock begin_block = 8;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestBeginBlock begin_block = 8;</code>
      */
     public com.github.jtendermint.jabci.types.RequestBeginBlock.Builder getBeginBlockBuilder() {
       return getBeginBlockFieldBuilder().getBuilder();
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestBeginBlock begin_block = 8;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestBeginBlock begin_block = 8;</code>
      */
     public com.github.jtendermint.jabci.types.RequestBeginBlockOrBuilder getBeginBlockOrBuilder() {
       if ((valueCase_ == 8) && (beginBlockBuilder_ != null)) {
@@ -2086,7 +1956,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestBeginBlock begin_block = 8;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestBeginBlock begin_block = 8;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.github.jtendermint.jabci.types.RequestBeginBlock, com.github.jtendermint.jabci.types.RequestBeginBlock.Builder, com.github.jtendermint.jabci.types.RequestBeginBlockOrBuilder> 
@@ -2110,13 +1980,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.github.jtendermint.jabci.types.RequestCheckTx, com.github.jtendermint.jabci.types.RequestCheckTx.Builder, com.github.jtendermint.jabci.types.RequestCheckTxOrBuilder> checkTxBuilder_;
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestCheckTx check_tx = 9;</code>
-     */
-    public boolean hasCheckTx() {
-      return valueCase_ == 9;
-    }
-    /**
-     * <code>.com.github.jtendermint.jabci.types.RequestCheckTx check_tx = 9;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestCheckTx check_tx = 9;</code>
      */
     public com.github.jtendermint.jabci.types.RequestCheckTx getCheckTx() {
       if (checkTxBuilder_ == null) {
@@ -2132,7 +1996,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestCheckTx check_tx = 9;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestCheckTx check_tx = 9;</code>
      */
     public Builder setCheckTx(com.github.jtendermint.jabci.types.RequestCheckTx value) {
       if (checkTxBuilder_ == null) {
@@ -2148,7 +2012,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestCheckTx check_tx = 9;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestCheckTx check_tx = 9;</code>
      */
     public Builder setCheckTx(
         com.github.jtendermint.jabci.types.RequestCheckTx.Builder builderForValue) {
@@ -2162,7 +2026,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestCheckTx check_tx = 9;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestCheckTx check_tx = 9;</code>
      */
     public Builder mergeCheckTx(com.github.jtendermint.jabci.types.RequestCheckTx value) {
       if (checkTxBuilder_ == null) {
@@ -2184,7 +2048,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestCheckTx check_tx = 9;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestCheckTx check_tx = 9;</code>
      */
     public Builder clearCheckTx() {
       if (checkTxBuilder_ == null) {
@@ -2203,13 +2067,13 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestCheckTx check_tx = 9;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestCheckTx check_tx = 9;</code>
      */
     public com.github.jtendermint.jabci.types.RequestCheckTx.Builder getCheckTxBuilder() {
       return getCheckTxFieldBuilder().getBuilder();
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestCheckTx check_tx = 9;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestCheckTx check_tx = 9;</code>
      */
     public com.github.jtendermint.jabci.types.RequestCheckTxOrBuilder getCheckTxOrBuilder() {
       if ((valueCase_ == 9) && (checkTxBuilder_ != null)) {
@@ -2222,7 +2086,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestCheckTx check_tx = 9;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestCheckTx check_tx = 9;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.github.jtendermint.jabci.types.RequestCheckTx, com.github.jtendermint.jabci.types.RequestCheckTx.Builder, com.github.jtendermint.jabci.types.RequestCheckTxOrBuilder> 
@@ -2246,13 +2110,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.github.jtendermint.jabci.types.RequestDeliverTx, com.github.jtendermint.jabci.types.RequestDeliverTx.Builder, com.github.jtendermint.jabci.types.RequestDeliverTxOrBuilder> deliverTxBuilder_;
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestDeliverTx deliver_tx = 19;</code>
-     */
-    public boolean hasDeliverTx() {
-      return valueCase_ == 19;
-    }
-    /**
-     * <code>.com.github.jtendermint.jabci.types.RequestDeliverTx deliver_tx = 19;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestDeliverTx deliver_tx = 19;</code>
      */
     public com.github.jtendermint.jabci.types.RequestDeliverTx getDeliverTx() {
       if (deliverTxBuilder_ == null) {
@@ -2268,7 +2126,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestDeliverTx deliver_tx = 19;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestDeliverTx deliver_tx = 19;</code>
      */
     public Builder setDeliverTx(com.github.jtendermint.jabci.types.RequestDeliverTx value) {
       if (deliverTxBuilder_ == null) {
@@ -2284,7 +2142,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestDeliverTx deliver_tx = 19;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestDeliverTx deliver_tx = 19;</code>
      */
     public Builder setDeliverTx(
         com.github.jtendermint.jabci.types.RequestDeliverTx.Builder builderForValue) {
@@ -2298,7 +2156,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestDeliverTx deliver_tx = 19;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestDeliverTx deliver_tx = 19;</code>
      */
     public Builder mergeDeliverTx(com.github.jtendermint.jabci.types.RequestDeliverTx value) {
       if (deliverTxBuilder_ == null) {
@@ -2320,7 +2178,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestDeliverTx deliver_tx = 19;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestDeliverTx deliver_tx = 19;</code>
      */
     public Builder clearDeliverTx() {
       if (deliverTxBuilder_ == null) {
@@ -2339,13 +2197,13 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestDeliverTx deliver_tx = 19;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestDeliverTx deliver_tx = 19;</code>
      */
     public com.github.jtendermint.jabci.types.RequestDeliverTx.Builder getDeliverTxBuilder() {
       return getDeliverTxFieldBuilder().getBuilder();
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestDeliverTx deliver_tx = 19;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestDeliverTx deliver_tx = 19;</code>
      */
     public com.github.jtendermint.jabci.types.RequestDeliverTxOrBuilder getDeliverTxOrBuilder() {
       if ((valueCase_ == 19) && (deliverTxBuilder_ != null)) {
@@ -2358,7 +2216,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestDeliverTx deliver_tx = 19;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestDeliverTx deliver_tx = 19;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.github.jtendermint.jabci.types.RequestDeliverTx, com.github.jtendermint.jabci.types.RequestDeliverTx.Builder, com.github.jtendermint.jabci.types.RequestDeliverTxOrBuilder> 
@@ -2382,13 +2240,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.github.jtendermint.jabci.types.RequestEndBlock, com.github.jtendermint.jabci.types.RequestEndBlock.Builder, com.github.jtendermint.jabci.types.RequestEndBlockOrBuilder> endBlockBuilder_;
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestEndBlock end_block = 11;</code>
-     */
-    public boolean hasEndBlock() {
-      return valueCase_ == 11;
-    }
-    /**
-     * <code>.com.github.jtendermint.jabci.types.RequestEndBlock end_block = 11;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestEndBlock end_block = 11;</code>
      */
     public com.github.jtendermint.jabci.types.RequestEndBlock getEndBlock() {
       if (endBlockBuilder_ == null) {
@@ -2404,7 +2256,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestEndBlock end_block = 11;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestEndBlock end_block = 11;</code>
      */
     public Builder setEndBlock(com.github.jtendermint.jabci.types.RequestEndBlock value) {
       if (endBlockBuilder_ == null) {
@@ -2420,7 +2272,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestEndBlock end_block = 11;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestEndBlock end_block = 11;</code>
      */
     public Builder setEndBlock(
         com.github.jtendermint.jabci.types.RequestEndBlock.Builder builderForValue) {
@@ -2434,7 +2286,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestEndBlock end_block = 11;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestEndBlock end_block = 11;</code>
      */
     public Builder mergeEndBlock(com.github.jtendermint.jabci.types.RequestEndBlock value) {
       if (endBlockBuilder_ == null) {
@@ -2456,7 +2308,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestEndBlock end_block = 11;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestEndBlock end_block = 11;</code>
      */
     public Builder clearEndBlock() {
       if (endBlockBuilder_ == null) {
@@ -2475,13 +2327,13 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestEndBlock end_block = 11;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestEndBlock end_block = 11;</code>
      */
     public com.github.jtendermint.jabci.types.RequestEndBlock.Builder getEndBlockBuilder() {
       return getEndBlockFieldBuilder().getBuilder();
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestEndBlock end_block = 11;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestEndBlock end_block = 11;</code>
      */
     public com.github.jtendermint.jabci.types.RequestEndBlockOrBuilder getEndBlockOrBuilder() {
       if ((valueCase_ == 11) && (endBlockBuilder_ != null)) {
@@ -2494,7 +2346,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestEndBlock end_block = 11;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestEndBlock end_block = 11;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.github.jtendermint.jabci.types.RequestEndBlock, com.github.jtendermint.jabci.types.RequestEndBlock.Builder, com.github.jtendermint.jabci.types.RequestEndBlockOrBuilder> 
@@ -2518,13 +2370,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.github.jtendermint.jabci.types.RequestCommit, com.github.jtendermint.jabci.types.RequestCommit.Builder, com.github.jtendermint.jabci.types.RequestCommitOrBuilder> commitBuilder_;
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestCommit commit = 12;</code>
-     */
-    public boolean hasCommit() {
-      return valueCase_ == 12;
-    }
-    /**
-     * <code>.com.github.jtendermint.jabci.types.RequestCommit commit = 12;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestCommit commit = 12;</code>
      */
     public com.github.jtendermint.jabci.types.RequestCommit getCommit() {
       if (commitBuilder_ == null) {
@@ -2540,7 +2386,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestCommit commit = 12;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestCommit commit = 12;</code>
      */
     public Builder setCommit(com.github.jtendermint.jabci.types.RequestCommit value) {
       if (commitBuilder_ == null) {
@@ -2556,7 +2402,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestCommit commit = 12;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestCommit commit = 12;</code>
      */
     public Builder setCommit(
         com.github.jtendermint.jabci.types.RequestCommit.Builder builderForValue) {
@@ -2570,7 +2416,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestCommit commit = 12;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestCommit commit = 12;</code>
      */
     public Builder mergeCommit(com.github.jtendermint.jabci.types.RequestCommit value) {
       if (commitBuilder_ == null) {
@@ -2592,7 +2438,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestCommit commit = 12;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestCommit commit = 12;</code>
      */
     public Builder clearCommit() {
       if (commitBuilder_ == null) {
@@ -2611,13 +2457,13 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestCommit commit = 12;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestCommit commit = 12;</code>
      */
     public com.github.jtendermint.jabci.types.RequestCommit.Builder getCommitBuilder() {
       return getCommitFieldBuilder().getBuilder();
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestCommit commit = 12;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestCommit commit = 12;</code>
      */
     public com.github.jtendermint.jabci.types.RequestCommitOrBuilder getCommitOrBuilder() {
       if ((valueCase_ == 12) && (commitBuilder_ != null)) {
@@ -2630,7 +2476,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.RequestCommit commit = 12;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.RequestCommit commit = 12;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.github.jtendermint.jabci.types.RequestCommit, com.github.jtendermint.jabci.types.RequestCommit.Builder, com.github.jtendermint.jabci.types.RequestCommitOrBuilder> 
@@ -2652,12 +2498,12 @@ private static final long serialVersionUID = 0L;
     }
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
-      return super.setUnknownFieldsProto3(unknownFields);
+      return this;
     }
 
     public final Builder mergeUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
-      return super.mergeUnknownFields(unknownFields);
+      return this;
     }
 
 
@@ -2680,7 +2526,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Request(input, extensionRegistry);
+        return new Request(input, extensionRegistry);
     }
   };
 

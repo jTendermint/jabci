@@ -10,37 +10,32 @@ public  final class ResponseQuery extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:com.github.jtendermint.jabci.types.ResponseQuery)
     ResponseQueryOrBuilder {
-private static final long serialVersionUID = 0L;
   // Use ResponseQuery.newBuilder() to construct.
   private ResponseQuery(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
   private ResponseQuery() {
     code_ = 0;
+    log_ = "";
+    info_ = "";
     index_ = 0L;
     key_ = com.google.protobuf.ByteString.EMPTY;
     value_ = com.google.protobuf.ByteString.EMPTY;
     proof_ = com.google.protobuf.ByteString.EMPTY;
     height_ = 0L;
-    log_ = "";
   }
 
   @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
-    return this.unknownFields;
+    return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
   }
   private ResponseQuery(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
     int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
       boolean done = false;
       while (!done) {
@@ -50,8 +45,7 @@ private static final long serialVersionUID = 0L;
             done = true;
             break;
           default: {
-            if (!parseUnknownFieldProto3(
-                input, unknownFields, extensionRegistry, tag)) {
+            if (!input.skipField(tag)) {
               done = true;
             }
             break;
@@ -61,35 +55,41 @@ private static final long serialVersionUID = 0L;
             code_ = input.readUInt32();
             break;
           }
-          case 16: {
+          case 26: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            log_ = s;
+            break;
+          }
+          case 34: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            info_ = s;
+            break;
+          }
+          case 40: {
 
             index_ = input.readInt64();
             break;
           }
-          case 26: {
+          case 50: {
 
             key_ = input.readBytes();
             break;
           }
-          case 34: {
+          case 58: {
 
             value_ = input.readBytes();
             break;
           }
-          case 42: {
+          case 66: {
 
             proof_ = input.readBytes();
             break;
           }
-          case 48: {
+          case 72: {
 
             height_ = input.readInt64();
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            log_ = s;
             break;
           }
         }
@@ -100,7 +100,6 @@ private static final long serialVersionUID = 0L;
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
-      this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
     }
   }
@@ -119,73 +118,20 @@ private static final long serialVersionUID = 0L;
   public static final int CODE_FIELD_NUMBER = 1;
   private int code_;
   /**
-   * <code>uint32 code = 1;</code>
+   * <code>optional uint32 code = 1;</code>
    */
   public int getCode() {
     return code_;
   }
 
-  public static final int INDEX_FIELD_NUMBER = 2;
-  private long index_;
-  /**
-   * <code>int64 index = 2;</code>
-   */
-  public long getIndex() {
-    return index_;
-  }
-
-  public static final int KEY_FIELD_NUMBER = 3;
-  private com.google.protobuf.ByteString key_;
-  /**
-   * <pre>
-   *[(gogoproto.customtype) = "github.com/tendermint/go-wire/data.Bytes", (gogoproto.nullable) = false];
-   * </pre>
-   *
-   * <code>bytes key = 3;</code>
-   */
-  public com.google.protobuf.ByteString getKey() {
-    return key_;
-  }
-
-  public static final int VALUE_FIELD_NUMBER = 4;
-  private com.google.protobuf.ByteString value_;
-  /**
-   * <pre>
-   *[(gogoproto.customtype) = "github.com/tendermint/go-wire/data.Bytes", (gogoproto.nullable) = false];
-   * </pre>
-   *
-   * <code>bytes value = 4;</code>
-   */
-  public com.google.protobuf.ByteString getValue() {
-    return value_;
-  }
-
-  public static final int PROOF_FIELD_NUMBER = 5;
-  private com.google.protobuf.ByteString proof_;
-  /**
-   * <pre>
-   *[(gogoproto.customtype) = "github.com/tendermint/go-wire/data.Bytes", (gogoproto.nullable) = false];
-   * </pre>
-   *
-   * <code>bytes proof = 5;</code>
-   */
-  public com.google.protobuf.ByteString getProof() {
-    return proof_;
-  }
-
-  public static final int HEIGHT_FIELD_NUMBER = 6;
-  private long height_;
-  /**
-   * <code>int64 height = 6;</code>
-   */
-  public long getHeight() {
-    return height_;
-  }
-
-  public static final int LOG_FIELD_NUMBER = 7;
+  public static final int LOG_FIELD_NUMBER = 3;
   private volatile java.lang.Object log_;
   /**
-   * <code>string log = 7;</code>
+   * <pre>
+   * bytes data = 2; // use "value" instead.
+   * </pre>
+   *
+   * <code>optional string log = 3;</code>
    */
   public java.lang.String getLog() {
     java.lang.Object ref = log_;
@@ -200,7 +146,11 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string log = 7;</code>
+   * <pre>
+   * bytes data = 2; // use "value" instead.
+   * </pre>
+   *
+   * <code>optional string log = 3;</code>
    */
   public com.google.protobuf.ByteString
       getLogBytes() {
@@ -214,6 +164,93 @@ private static final long serialVersionUID = 0L;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
+  }
+
+  public static final int INFO_FIELD_NUMBER = 4;
+  private volatile java.lang.Object info_;
+  /**
+   * <pre>
+   * nondeterministic
+   * </pre>
+   *
+   * <code>optional string info = 4;</code>
+   */
+  public java.lang.String getInfo() {
+    java.lang.Object ref = info_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      info_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * nondeterministic
+   * </pre>
+   *
+   * <code>optional string info = 4;</code>
+   */
+  public com.google.protobuf.ByteString
+      getInfoBytes() {
+    java.lang.Object ref = info_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      info_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int INDEX_FIELD_NUMBER = 5;
+  private long index_;
+  /**
+   * <code>optional int64 index = 5;</code>
+   */
+  public long getIndex() {
+    return index_;
+  }
+
+  public static final int KEY_FIELD_NUMBER = 6;
+  private com.google.protobuf.ByteString key_;
+  /**
+   * <code>optional bytes key = 6;</code>
+   */
+  public com.google.protobuf.ByteString getKey() {
+    return key_;
+  }
+
+  public static final int VALUE_FIELD_NUMBER = 7;
+  private com.google.protobuf.ByteString value_;
+  /**
+   * <code>optional bytes value = 7;</code>
+   */
+  public com.google.protobuf.ByteString getValue() {
+    return value_;
+  }
+
+  public static final int PROOF_FIELD_NUMBER = 8;
+  private com.google.protobuf.ByteString proof_;
+  /**
+   * <code>optional bytes proof = 8;</code>
+   */
+  public com.google.protobuf.ByteString getProof() {
+    return proof_;
+  }
+
+  public static final int HEIGHT_FIELD_NUMBER = 9;
+  private long height_;
+  /**
+   * <code>optional int64 height = 9;</code>
+   */
+  public long getHeight() {
+    return height_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -231,25 +268,27 @@ private static final long serialVersionUID = 0L;
     if (code_ != 0) {
       output.writeUInt32(1, code_);
     }
+    if (!getLogBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, log_);
+    }
+    if (!getInfoBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, info_);
+    }
     if (index_ != 0L) {
-      output.writeInt64(2, index_);
+      output.writeInt64(5, index_);
     }
     if (!key_.isEmpty()) {
-      output.writeBytes(3, key_);
+      output.writeBytes(6, key_);
     }
     if (!value_.isEmpty()) {
-      output.writeBytes(4, value_);
+      output.writeBytes(7, value_);
     }
     if (!proof_.isEmpty()) {
-      output.writeBytes(5, proof_);
+      output.writeBytes(8, proof_);
     }
     if (height_ != 0L) {
-      output.writeInt64(6, height_);
+      output.writeInt64(9, height_);
     }
-    if (!getLogBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 7, log_);
-    }
-    unknownFields.writeTo(output);
   }
 
   public int getSerializedSize() {
@@ -261,34 +300,37 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeUInt32Size(1, code_);
     }
+    if (!getLogBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, log_);
+    }
+    if (!getInfoBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, info_);
+    }
     if (index_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(2, index_);
+        .computeInt64Size(5, index_);
     }
     if (!key_.isEmpty()) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBytesSize(3, key_);
+        .computeBytesSize(6, key_);
     }
     if (!value_.isEmpty()) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBytesSize(4, value_);
+        .computeBytesSize(7, value_);
     }
     if (!proof_.isEmpty()) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBytesSize(5, proof_);
+        .computeBytesSize(8, proof_);
     }
     if (height_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(6, height_);
+        .computeInt64Size(9, height_);
     }
-    if (!getLogBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, log_);
-    }
-    size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
   }
 
+  private static final long serialVersionUID = 0L;
   @java.lang.Override
   public boolean equals(final java.lang.Object obj) {
     if (obj == this) {
@@ -302,6 +344,10 @@ private static final long serialVersionUID = 0L;
     boolean result = true;
     result = result && (getCode()
         == other.getCode());
+    result = result && getLog()
+        .equals(other.getLog());
+    result = result && getInfo()
+        .equals(other.getInfo());
     result = result && (getIndex()
         == other.getIndex());
     result = result && getKey()
@@ -312,9 +358,6 @@ private static final long serialVersionUID = 0L;
         .equals(other.getProof());
     result = result && (getHeight()
         == other.getHeight());
-    result = result && getLog()
-        .equals(other.getLog());
-    result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
 
@@ -324,9 +367,13 @@ private static final long serialVersionUID = 0L;
       return memoizedHashCode;
     }
     int hash = 41;
-    hash = (19 * hash) + getDescriptor().hashCode();
+    hash = (19 * hash) + getDescriptorForType().hashCode();
     hash = (37 * hash) + CODE_FIELD_NUMBER;
     hash = (53 * hash) + getCode();
+    hash = (37 * hash) + LOG_FIELD_NUMBER;
+    hash = (53 * hash) + getLog().hashCode();
+    hash = (37 * hash) + INFO_FIELD_NUMBER;
+    hash = (53 * hash) + getInfo().hashCode();
     hash = (37 * hash) + INDEX_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getIndex());
@@ -339,24 +386,11 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + HEIGHT_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getHeight());
-    hash = (37 * hash) + LOG_FIELD_NUMBER;
-    hash = (53 * hash) + getLog().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static com.github.jtendermint.jabci.types.ResponseQuery parseFrom(
-      java.nio.ByteBuffer data)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    return PARSER.parseFrom(data);
-  }
-  public static com.github.jtendermint.jabci.types.ResponseQuery parseFrom(
-      java.nio.ByteBuffer data,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    return PARSER.parseFrom(data, extensionRegistry);
-  }
   public static com.github.jtendermint.jabci.types.ResponseQuery parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -472,6 +506,10 @@ private static final long serialVersionUID = 0L;
       super.clear();
       code_ = 0;
 
+      log_ = "";
+
+      info_ = "";
+
       index_ = 0L;
 
       key_ = com.google.protobuf.ByteString.EMPTY;
@@ -481,8 +519,6 @@ private static final long serialVersionUID = 0L;
       proof_ = com.google.protobuf.ByteString.EMPTY;
 
       height_ = 0L;
-
-      log_ = "";
 
       return this;
     }
@@ -507,12 +543,13 @@ private static final long serialVersionUID = 0L;
     public com.github.jtendermint.jabci.types.ResponseQuery buildPartial() {
       com.github.jtendermint.jabci.types.ResponseQuery result = new com.github.jtendermint.jabci.types.ResponseQuery(this);
       result.code_ = code_;
+      result.log_ = log_;
+      result.info_ = info_;
       result.index_ = index_;
       result.key_ = key_;
       result.value_ = value_;
       result.proof_ = proof_;
       result.height_ = height_;
-      result.log_ = log_;
       onBuilt();
       return result;
     }
@@ -522,7 +559,7 @@ private static final long serialVersionUID = 0L;
     }
     public Builder setField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
+        Object value) {
       return (Builder) super.setField(field, value);
     }
     public Builder clearField(
@@ -535,12 +572,12 @@ private static final long serialVersionUID = 0L;
     }
     public Builder setRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        int index, java.lang.Object value) {
+        int index, Object value) {
       return (Builder) super.setRepeatedField(field, index, value);
     }
     public Builder addRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
+        Object value) {
       return (Builder) super.addRepeatedField(field, value);
     }
     public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -557,6 +594,14 @@ private static final long serialVersionUID = 0L;
       if (other.getCode() != 0) {
         setCode(other.getCode());
       }
+      if (!other.getLog().isEmpty()) {
+        log_ = other.log_;
+        onChanged();
+      }
+      if (!other.getInfo().isEmpty()) {
+        info_ = other.info_;
+        onChanged();
+      }
       if (other.getIndex() != 0L) {
         setIndex(other.getIndex());
       }
@@ -572,11 +617,6 @@ private static final long serialVersionUID = 0L;
       if (other.getHeight() != 0L) {
         setHeight(other.getHeight());
       }
-      if (!other.getLog().isEmpty()) {
-        log_ = other.log_;
-        onChanged();
-      }
-      this.mergeUnknownFields(other.unknownFields);
       onChanged();
       return this;
     }
@@ -605,13 +645,13 @@ private static final long serialVersionUID = 0L;
 
     private int code_ ;
     /**
-     * <code>uint32 code = 1;</code>
+     * <code>optional uint32 code = 1;</code>
      */
     public int getCode() {
       return code_;
     }
     /**
-     * <code>uint32 code = 1;</code>
+     * <code>optional uint32 code = 1;</code>
      */
     public Builder setCode(int value) {
       
@@ -620,7 +660,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>uint32 code = 1;</code>
+     * <code>optional uint32 code = 1;</code>
      */
     public Builder clearCode() {
       
@@ -629,184 +669,13 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long index_ ;
-    /**
-     * <code>int64 index = 2;</code>
-     */
-    public long getIndex() {
-      return index_;
-    }
-    /**
-     * <code>int64 index = 2;</code>
-     */
-    public Builder setIndex(long value) {
-      
-      index_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>int64 index = 2;</code>
-     */
-    public Builder clearIndex() {
-      
-      index_ = 0L;
-      onChanged();
-      return this;
-    }
-
-    private com.google.protobuf.ByteString key_ = com.google.protobuf.ByteString.EMPTY;
-    /**
-     * <pre>
-     *[(gogoproto.customtype) = "github.com/tendermint/go-wire/data.Bytes", (gogoproto.nullable) = false];
-     * </pre>
-     *
-     * <code>bytes key = 3;</code>
-     */
-    public com.google.protobuf.ByteString getKey() {
-      return key_;
-    }
-    /**
-     * <pre>
-     *[(gogoproto.customtype) = "github.com/tendermint/go-wire/data.Bytes", (gogoproto.nullable) = false];
-     * </pre>
-     *
-     * <code>bytes key = 3;</code>
-     */
-    public Builder setKey(com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      key_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     *[(gogoproto.customtype) = "github.com/tendermint/go-wire/data.Bytes", (gogoproto.nullable) = false];
-     * </pre>
-     *
-     * <code>bytes key = 3;</code>
-     */
-    public Builder clearKey() {
-      
-      key_ = getDefaultInstance().getKey();
-      onChanged();
-      return this;
-    }
-
-    private com.google.protobuf.ByteString value_ = com.google.protobuf.ByteString.EMPTY;
-    /**
-     * <pre>
-     *[(gogoproto.customtype) = "github.com/tendermint/go-wire/data.Bytes", (gogoproto.nullable) = false];
-     * </pre>
-     *
-     * <code>bytes value = 4;</code>
-     */
-    public com.google.protobuf.ByteString getValue() {
-      return value_;
-    }
-    /**
-     * <pre>
-     *[(gogoproto.customtype) = "github.com/tendermint/go-wire/data.Bytes", (gogoproto.nullable) = false];
-     * </pre>
-     *
-     * <code>bytes value = 4;</code>
-     */
-    public Builder setValue(com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      value_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     *[(gogoproto.customtype) = "github.com/tendermint/go-wire/data.Bytes", (gogoproto.nullable) = false];
-     * </pre>
-     *
-     * <code>bytes value = 4;</code>
-     */
-    public Builder clearValue() {
-      
-      value_ = getDefaultInstance().getValue();
-      onChanged();
-      return this;
-    }
-
-    private com.google.protobuf.ByteString proof_ = com.google.protobuf.ByteString.EMPTY;
-    /**
-     * <pre>
-     *[(gogoproto.customtype) = "github.com/tendermint/go-wire/data.Bytes", (gogoproto.nullable) = false];
-     * </pre>
-     *
-     * <code>bytes proof = 5;</code>
-     */
-    public com.google.protobuf.ByteString getProof() {
-      return proof_;
-    }
-    /**
-     * <pre>
-     *[(gogoproto.customtype) = "github.com/tendermint/go-wire/data.Bytes", (gogoproto.nullable) = false];
-     * </pre>
-     *
-     * <code>bytes proof = 5;</code>
-     */
-    public Builder setProof(com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      proof_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     *[(gogoproto.customtype) = "github.com/tendermint/go-wire/data.Bytes", (gogoproto.nullable) = false];
-     * </pre>
-     *
-     * <code>bytes proof = 5;</code>
-     */
-    public Builder clearProof() {
-      
-      proof_ = getDefaultInstance().getProof();
-      onChanged();
-      return this;
-    }
-
-    private long height_ ;
-    /**
-     * <code>int64 height = 6;</code>
-     */
-    public long getHeight() {
-      return height_;
-    }
-    /**
-     * <code>int64 height = 6;</code>
-     */
-    public Builder setHeight(long value) {
-      
-      height_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>int64 height = 6;</code>
-     */
-    public Builder clearHeight() {
-      
-      height_ = 0L;
-      onChanged();
-      return this;
-    }
-
     private java.lang.Object log_ = "";
     /**
-     * <code>string log = 7;</code>
+     * <pre>
+     * bytes data = 2; // use "value" instead.
+     * </pre>
+     *
+     * <code>optional string log = 3;</code>
      */
     public java.lang.String getLog() {
       java.lang.Object ref = log_;
@@ -821,7 +690,11 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string log = 7;</code>
+     * <pre>
+     * bytes data = 2; // use "value" instead.
+     * </pre>
+     *
+     * <code>optional string log = 3;</code>
      */
     public com.google.protobuf.ByteString
         getLogBytes() {
@@ -837,7 +710,11 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string log = 7;</code>
+     * <pre>
+     * bytes data = 2; // use "value" instead.
+     * </pre>
+     *
+     * <code>optional string log = 3;</code>
      */
     public Builder setLog(
         java.lang.String value) {
@@ -850,7 +727,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string log = 7;</code>
+     * <pre>
+     * bytes data = 2; // use "value" instead.
+     * </pre>
+     *
+     * <code>optional string log = 3;</code>
      */
     public Builder clearLog() {
       
@@ -859,7 +740,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string log = 7;</code>
+     * <pre>
+     * bytes data = 2; // use "value" instead.
+     * </pre>
+     *
+     * <code>optional string log = 3;</code>
      */
     public Builder setLogBytes(
         com.google.protobuf.ByteString value) {
@@ -872,14 +757,242 @@ private static final long serialVersionUID = 0L;
       onChanged();
       return this;
     }
+
+    private java.lang.Object info_ = "";
+    /**
+     * <pre>
+     * nondeterministic
+     * </pre>
+     *
+     * <code>optional string info = 4;</code>
+     */
+    public java.lang.String getInfo() {
+      java.lang.Object ref = info_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        info_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * nondeterministic
+     * </pre>
+     *
+     * <code>optional string info = 4;</code>
+     */
+    public com.google.protobuf.ByteString
+        getInfoBytes() {
+      java.lang.Object ref = info_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        info_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * nondeterministic
+     * </pre>
+     *
+     * <code>optional string info = 4;</code>
+     */
+    public Builder setInfo(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      info_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * nondeterministic
+     * </pre>
+     *
+     * <code>optional string info = 4;</code>
+     */
+    public Builder clearInfo() {
+      
+      info_ = getDefaultInstance().getInfo();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * nondeterministic
+     * </pre>
+     *
+     * <code>optional string info = 4;</code>
+     */
+    public Builder setInfoBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      info_ = value;
+      onChanged();
+      return this;
+    }
+
+    private long index_ ;
+    /**
+     * <code>optional int64 index = 5;</code>
+     */
+    public long getIndex() {
+      return index_;
+    }
+    /**
+     * <code>optional int64 index = 5;</code>
+     */
+    public Builder setIndex(long value) {
+      
+      index_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional int64 index = 5;</code>
+     */
+    public Builder clearIndex() {
+      
+      index_ = 0L;
+      onChanged();
+      return this;
+    }
+
+    private com.google.protobuf.ByteString key_ = com.google.protobuf.ByteString.EMPTY;
+    /**
+     * <code>optional bytes key = 6;</code>
+     */
+    public com.google.protobuf.ByteString getKey() {
+      return key_;
+    }
+    /**
+     * <code>optional bytes key = 6;</code>
+     */
+    public Builder setKey(com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      key_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional bytes key = 6;</code>
+     */
+    public Builder clearKey() {
+      
+      key_ = getDefaultInstance().getKey();
+      onChanged();
+      return this;
+    }
+
+    private com.google.protobuf.ByteString value_ = com.google.protobuf.ByteString.EMPTY;
+    /**
+     * <code>optional bytes value = 7;</code>
+     */
+    public com.google.protobuf.ByteString getValue() {
+      return value_;
+    }
+    /**
+     * <code>optional bytes value = 7;</code>
+     */
+    public Builder setValue(com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      value_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional bytes value = 7;</code>
+     */
+    public Builder clearValue() {
+      
+      value_ = getDefaultInstance().getValue();
+      onChanged();
+      return this;
+    }
+
+    private com.google.protobuf.ByteString proof_ = com.google.protobuf.ByteString.EMPTY;
+    /**
+     * <code>optional bytes proof = 8;</code>
+     */
+    public com.google.protobuf.ByteString getProof() {
+      return proof_;
+    }
+    /**
+     * <code>optional bytes proof = 8;</code>
+     */
+    public Builder setProof(com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      proof_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional bytes proof = 8;</code>
+     */
+    public Builder clearProof() {
+      
+      proof_ = getDefaultInstance().getProof();
+      onChanged();
+      return this;
+    }
+
+    private long height_ ;
+    /**
+     * <code>optional int64 height = 9;</code>
+     */
+    public long getHeight() {
+      return height_;
+    }
+    /**
+     * <code>optional int64 height = 9;</code>
+     */
+    public Builder setHeight(long value) {
+      
+      height_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional int64 height = 9;</code>
+     */
+    public Builder clearHeight() {
+      
+      height_ = 0L;
+      onChanged();
+      return this;
+    }
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
-      return super.setUnknownFieldsProto3(unknownFields);
+      return this;
     }
 
     public final Builder mergeUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
-      return super.mergeUnknownFields(unknownFields);
+      return this;
     }
 
 
@@ -902,7 +1015,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ResponseQuery(input, extensionRegistry);
+        return new ResponseQuery(input, extensionRegistry);
     }
   };
 

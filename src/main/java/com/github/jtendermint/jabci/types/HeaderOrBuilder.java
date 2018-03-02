@@ -8,80 +8,60 @@ public interface HeaderOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <pre>
-   *[(gogoproto.customname) = "ChainID"];
-   * </pre>
-   *
-   * <code>string chain_id = 1;</code>
+   * <code>optional string chain_id = 1;</code>
    */
   java.lang.String getChainId();
   /**
-   * <pre>
-   *[(gogoproto.customname) = "ChainID"];
-   * </pre>
-   *
-   * <code>string chain_id = 1;</code>
+   * <code>optional string chain_id = 1;</code>
    */
   com.google.protobuf.ByteString
       getChainIdBytes();
 
   /**
-   * <code>int64 height = 2;</code>
+   * <code>optional int64 height = 2;</code>
    */
   long getHeight();
 
   /**
-   * <code>int64 time = 3;</code>
+   * <code>optional int64 time = 3;</code>
    */
   long getTime();
 
   /**
-   * <code>int32 num_txs = 4;</code>
+   * <code>optional int32 num_txs = 4;</code>
    */
   int getNumTxs();
 
   /**
-   * <pre>
-   *[(gogoproto.customname) = "LastBlockID"];
-   * </pre>
-   *
-   * <code>.com.github.jtendermint.jabci.types.BlockID last_block_id = 5;</code>
+   * <code>optional .com.github.jtendermint.jabci.types.BlockID last_block_id = 5;</code>
    */
   boolean hasLastBlockId();
   /**
-   * <pre>
-   *[(gogoproto.customname) = "LastBlockID"];
-   * </pre>
-   *
-   * <code>.com.github.jtendermint.jabci.types.BlockID last_block_id = 5;</code>
+   * <code>optional .com.github.jtendermint.jabci.types.BlockID last_block_id = 5;</code>
    */
   com.github.jtendermint.jabci.types.BlockID getLastBlockId();
   /**
-   * <pre>
-   *[(gogoproto.customname) = "LastBlockID"];
-   * </pre>
-   *
-   * <code>.com.github.jtendermint.jabci.types.BlockID last_block_id = 5;</code>
+   * <code>optional .com.github.jtendermint.jabci.types.BlockID last_block_id = 5;</code>
    */
   com.github.jtendermint.jabci.types.BlockIDOrBuilder getLastBlockIdOrBuilder();
 
   /**
-   * <code>bytes last_commit_hash = 6;</code>
+   * <code>optional bytes last_commit_hash = 6;</code>
    */
   com.google.protobuf.ByteString getLastCommitHash();
 
   /**
-   * <code>bytes data_hash = 7;</code>
+   * <code>optional bytes data_hash = 7;</code>
    */
   com.google.protobuf.ByteString getDataHash();
 
   /**
-   * <code>bytes validators_hash = 8;</code>
+   * <code>optional bytes validators_hash = 8;</code>
    */
   com.google.protobuf.ByteString getValidatorsHash();
 
   /**
-   * <code>bytes app_hash = 9;</code>
+   * <code>optional bytes app_hash = 9;</code>
    */
   com.google.protobuf.ByteString getAppHash();
 }

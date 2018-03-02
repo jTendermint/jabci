@@ -15,7 +15,6 @@ public  final class ConsensusParams extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:com.github.jtendermint.jabci.types.ConsensusParams)
     ConsensusParamsOrBuilder {
-private static final long serialVersionUID = 0L;
   // Use ConsensusParams.newBuilder() to construct.
   private ConsensusParams(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
@@ -26,19 +25,14 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
-    return this.unknownFields;
+    return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
   }
   private ConsensusParams(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
     int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
       boolean done = false;
       while (!done) {
@@ -48,8 +42,7 @@ private static final long serialVersionUID = 0L;
             done = true;
             break;
           default: {
-            if (!parseUnknownFieldProto3(
-                input, unknownFields, extensionRegistry, tag)) {
+            if (!input.skipField(tag)) {
               done = true;
             }
             break;
@@ -101,7 +94,6 @@ private static final long serialVersionUID = 0L;
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
-      this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
     }
   }
@@ -120,19 +112,19 @@ private static final long serialVersionUID = 0L;
   public static final int BLOCK_SIZE_FIELD_NUMBER = 1;
   private com.github.jtendermint.jabci.types.BlockSize blockSize_;
   /**
-   * <code>.com.github.jtendermint.jabci.types.BlockSize block_size = 1;</code>
+   * <code>optional .com.github.jtendermint.jabci.types.BlockSize block_size = 1;</code>
    */
   public boolean hasBlockSize() {
     return blockSize_ != null;
   }
   /**
-   * <code>.com.github.jtendermint.jabci.types.BlockSize block_size = 1;</code>
+   * <code>optional .com.github.jtendermint.jabci.types.BlockSize block_size = 1;</code>
    */
   public com.github.jtendermint.jabci.types.BlockSize getBlockSize() {
     return blockSize_ == null ? com.github.jtendermint.jabci.types.BlockSize.getDefaultInstance() : blockSize_;
   }
   /**
-   * <code>.com.github.jtendermint.jabci.types.BlockSize block_size = 1;</code>
+   * <code>optional .com.github.jtendermint.jabci.types.BlockSize block_size = 1;</code>
    */
   public com.github.jtendermint.jabci.types.BlockSizeOrBuilder getBlockSizeOrBuilder() {
     return getBlockSize();
@@ -141,19 +133,19 @@ private static final long serialVersionUID = 0L;
   public static final int TX_SIZE_FIELD_NUMBER = 2;
   private com.github.jtendermint.jabci.types.TxSize txSize_;
   /**
-   * <code>.com.github.jtendermint.jabci.types.TxSize tx_size = 2;</code>
+   * <code>optional .com.github.jtendermint.jabci.types.TxSize tx_size = 2;</code>
    */
   public boolean hasTxSize() {
     return txSize_ != null;
   }
   /**
-   * <code>.com.github.jtendermint.jabci.types.TxSize tx_size = 2;</code>
+   * <code>optional .com.github.jtendermint.jabci.types.TxSize tx_size = 2;</code>
    */
   public com.github.jtendermint.jabci.types.TxSize getTxSize() {
     return txSize_ == null ? com.github.jtendermint.jabci.types.TxSize.getDefaultInstance() : txSize_;
   }
   /**
-   * <code>.com.github.jtendermint.jabci.types.TxSize tx_size = 2;</code>
+   * <code>optional .com.github.jtendermint.jabci.types.TxSize tx_size = 2;</code>
    */
   public com.github.jtendermint.jabci.types.TxSizeOrBuilder getTxSizeOrBuilder() {
     return getTxSize();
@@ -162,19 +154,19 @@ private static final long serialVersionUID = 0L;
   public static final int BLOCK_GOSSIP_FIELD_NUMBER = 3;
   private com.github.jtendermint.jabci.types.BlockGossip blockGossip_;
   /**
-   * <code>.com.github.jtendermint.jabci.types.BlockGossip block_gossip = 3;</code>
+   * <code>optional .com.github.jtendermint.jabci.types.BlockGossip block_gossip = 3;</code>
    */
   public boolean hasBlockGossip() {
     return blockGossip_ != null;
   }
   /**
-   * <code>.com.github.jtendermint.jabci.types.BlockGossip block_gossip = 3;</code>
+   * <code>optional .com.github.jtendermint.jabci.types.BlockGossip block_gossip = 3;</code>
    */
   public com.github.jtendermint.jabci.types.BlockGossip getBlockGossip() {
     return blockGossip_ == null ? com.github.jtendermint.jabci.types.BlockGossip.getDefaultInstance() : blockGossip_;
   }
   /**
-   * <code>.com.github.jtendermint.jabci.types.BlockGossip block_gossip = 3;</code>
+   * <code>optional .com.github.jtendermint.jabci.types.BlockGossip block_gossip = 3;</code>
    */
   public com.github.jtendermint.jabci.types.BlockGossipOrBuilder getBlockGossipOrBuilder() {
     return getBlockGossip();
@@ -201,7 +193,6 @@ private static final long serialVersionUID = 0L;
     if (blockGossip_ != null) {
       output.writeMessage(3, getBlockGossip());
     }
-    unknownFields.writeTo(output);
   }
 
   public int getSerializedSize() {
@@ -221,11 +212,11 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getBlockGossip());
     }
-    size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
   }
 
+  private static final long serialVersionUID = 0L;
   @java.lang.Override
   public boolean equals(final java.lang.Object obj) {
     if (obj == this) {
@@ -252,7 +243,6 @@ private static final long serialVersionUID = 0L;
       result = result && getBlockGossip()
           .equals(other.getBlockGossip());
     }
-    result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
 
@@ -262,7 +252,7 @@ private static final long serialVersionUID = 0L;
       return memoizedHashCode;
     }
     int hash = 41;
-    hash = (19 * hash) + getDescriptor().hashCode();
+    hash = (19 * hash) + getDescriptorForType().hashCode();
     if (hasBlockSize()) {
       hash = (37 * hash) + BLOCK_SIZE_FIELD_NUMBER;
       hash = (53 * hash) + getBlockSize().hashCode();
@@ -280,17 +270,6 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static com.github.jtendermint.jabci.types.ConsensusParams parseFrom(
-      java.nio.ByteBuffer data)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    return PARSER.parseFrom(data);
-  }
-  public static com.github.jtendermint.jabci.types.ConsensusParams parseFrom(
-      java.nio.ByteBuffer data,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    return PARSER.parseFrom(data, extensionRegistry);
-  }
   public static com.github.jtendermint.jabci.types.ConsensusParams parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -473,7 +452,7 @@ private static final long serialVersionUID = 0L;
     }
     public Builder setField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
+        Object value) {
       return (Builder) super.setField(field, value);
     }
     public Builder clearField(
@@ -486,12 +465,12 @@ private static final long serialVersionUID = 0L;
     }
     public Builder setRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        int index, java.lang.Object value) {
+        int index, Object value) {
       return (Builder) super.setRepeatedField(field, index, value);
     }
     public Builder addRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
+        Object value) {
       return (Builder) super.addRepeatedField(field, value);
     }
     public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -514,7 +493,6 @@ private static final long serialVersionUID = 0L;
       if (other.hasBlockGossip()) {
         mergeBlockGossip(other.getBlockGossip());
       }
-      this.mergeUnknownFields(other.unknownFields);
       onChanged();
       return this;
     }
@@ -545,13 +523,13 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.github.jtendermint.jabci.types.BlockSize, com.github.jtendermint.jabci.types.BlockSize.Builder, com.github.jtendermint.jabci.types.BlockSizeOrBuilder> blockSizeBuilder_;
     /**
-     * <code>.com.github.jtendermint.jabci.types.BlockSize block_size = 1;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.BlockSize block_size = 1;</code>
      */
     public boolean hasBlockSize() {
       return blockSizeBuilder_ != null || blockSize_ != null;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.BlockSize block_size = 1;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.BlockSize block_size = 1;</code>
      */
     public com.github.jtendermint.jabci.types.BlockSize getBlockSize() {
       if (blockSizeBuilder_ == null) {
@@ -561,7 +539,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.BlockSize block_size = 1;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.BlockSize block_size = 1;</code>
      */
     public Builder setBlockSize(com.github.jtendermint.jabci.types.BlockSize value) {
       if (blockSizeBuilder_ == null) {
@@ -577,7 +555,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.BlockSize block_size = 1;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.BlockSize block_size = 1;</code>
      */
     public Builder setBlockSize(
         com.github.jtendermint.jabci.types.BlockSize.Builder builderForValue) {
@@ -591,7 +569,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.BlockSize block_size = 1;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.BlockSize block_size = 1;</code>
      */
     public Builder mergeBlockSize(com.github.jtendermint.jabci.types.BlockSize value) {
       if (blockSizeBuilder_ == null) {
@@ -609,7 +587,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.BlockSize block_size = 1;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.BlockSize block_size = 1;</code>
      */
     public Builder clearBlockSize() {
       if (blockSizeBuilder_ == null) {
@@ -623,7 +601,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.BlockSize block_size = 1;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.BlockSize block_size = 1;</code>
      */
     public com.github.jtendermint.jabci.types.BlockSize.Builder getBlockSizeBuilder() {
       
@@ -631,7 +609,7 @@ private static final long serialVersionUID = 0L;
       return getBlockSizeFieldBuilder().getBuilder();
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.BlockSize block_size = 1;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.BlockSize block_size = 1;</code>
      */
     public com.github.jtendermint.jabci.types.BlockSizeOrBuilder getBlockSizeOrBuilder() {
       if (blockSizeBuilder_ != null) {
@@ -642,7 +620,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.BlockSize block_size = 1;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.BlockSize block_size = 1;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.github.jtendermint.jabci.types.BlockSize, com.github.jtendermint.jabci.types.BlockSize.Builder, com.github.jtendermint.jabci.types.BlockSizeOrBuilder> 
@@ -662,13 +640,13 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.github.jtendermint.jabci.types.TxSize, com.github.jtendermint.jabci.types.TxSize.Builder, com.github.jtendermint.jabci.types.TxSizeOrBuilder> txSizeBuilder_;
     /**
-     * <code>.com.github.jtendermint.jabci.types.TxSize tx_size = 2;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.TxSize tx_size = 2;</code>
      */
     public boolean hasTxSize() {
       return txSizeBuilder_ != null || txSize_ != null;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.TxSize tx_size = 2;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.TxSize tx_size = 2;</code>
      */
     public com.github.jtendermint.jabci.types.TxSize getTxSize() {
       if (txSizeBuilder_ == null) {
@@ -678,7 +656,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.TxSize tx_size = 2;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.TxSize tx_size = 2;</code>
      */
     public Builder setTxSize(com.github.jtendermint.jabci.types.TxSize value) {
       if (txSizeBuilder_ == null) {
@@ -694,7 +672,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.TxSize tx_size = 2;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.TxSize tx_size = 2;</code>
      */
     public Builder setTxSize(
         com.github.jtendermint.jabci.types.TxSize.Builder builderForValue) {
@@ -708,7 +686,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.TxSize tx_size = 2;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.TxSize tx_size = 2;</code>
      */
     public Builder mergeTxSize(com.github.jtendermint.jabci.types.TxSize value) {
       if (txSizeBuilder_ == null) {
@@ -726,7 +704,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.TxSize tx_size = 2;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.TxSize tx_size = 2;</code>
      */
     public Builder clearTxSize() {
       if (txSizeBuilder_ == null) {
@@ -740,7 +718,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.TxSize tx_size = 2;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.TxSize tx_size = 2;</code>
      */
     public com.github.jtendermint.jabci.types.TxSize.Builder getTxSizeBuilder() {
       
@@ -748,7 +726,7 @@ private static final long serialVersionUID = 0L;
       return getTxSizeFieldBuilder().getBuilder();
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.TxSize tx_size = 2;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.TxSize tx_size = 2;</code>
      */
     public com.github.jtendermint.jabci.types.TxSizeOrBuilder getTxSizeOrBuilder() {
       if (txSizeBuilder_ != null) {
@@ -759,7 +737,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.TxSize tx_size = 2;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.TxSize tx_size = 2;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.github.jtendermint.jabci.types.TxSize, com.github.jtendermint.jabci.types.TxSize.Builder, com.github.jtendermint.jabci.types.TxSizeOrBuilder> 
@@ -779,13 +757,13 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.github.jtendermint.jabci.types.BlockGossip, com.github.jtendermint.jabci.types.BlockGossip.Builder, com.github.jtendermint.jabci.types.BlockGossipOrBuilder> blockGossipBuilder_;
     /**
-     * <code>.com.github.jtendermint.jabci.types.BlockGossip block_gossip = 3;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.BlockGossip block_gossip = 3;</code>
      */
     public boolean hasBlockGossip() {
       return blockGossipBuilder_ != null || blockGossip_ != null;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.BlockGossip block_gossip = 3;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.BlockGossip block_gossip = 3;</code>
      */
     public com.github.jtendermint.jabci.types.BlockGossip getBlockGossip() {
       if (blockGossipBuilder_ == null) {
@@ -795,7 +773,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.BlockGossip block_gossip = 3;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.BlockGossip block_gossip = 3;</code>
      */
     public Builder setBlockGossip(com.github.jtendermint.jabci.types.BlockGossip value) {
       if (blockGossipBuilder_ == null) {
@@ -811,7 +789,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.BlockGossip block_gossip = 3;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.BlockGossip block_gossip = 3;</code>
      */
     public Builder setBlockGossip(
         com.github.jtendermint.jabci.types.BlockGossip.Builder builderForValue) {
@@ -825,7 +803,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.BlockGossip block_gossip = 3;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.BlockGossip block_gossip = 3;</code>
      */
     public Builder mergeBlockGossip(com.github.jtendermint.jabci.types.BlockGossip value) {
       if (blockGossipBuilder_ == null) {
@@ -843,7 +821,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.BlockGossip block_gossip = 3;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.BlockGossip block_gossip = 3;</code>
      */
     public Builder clearBlockGossip() {
       if (blockGossipBuilder_ == null) {
@@ -857,7 +835,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.BlockGossip block_gossip = 3;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.BlockGossip block_gossip = 3;</code>
      */
     public com.github.jtendermint.jabci.types.BlockGossip.Builder getBlockGossipBuilder() {
       
@@ -865,7 +843,7 @@ private static final long serialVersionUID = 0L;
       return getBlockGossipFieldBuilder().getBuilder();
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.BlockGossip block_gossip = 3;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.BlockGossip block_gossip = 3;</code>
      */
     public com.github.jtendermint.jabci.types.BlockGossipOrBuilder getBlockGossipOrBuilder() {
       if (blockGossipBuilder_ != null) {
@@ -876,7 +854,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.BlockGossip block_gossip = 3;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.BlockGossip block_gossip = 3;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.github.jtendermint.jabci.types.BlockGossip, com.github.jtendermint.jabci.types.BlockGossip.Builder, com.github.jtendermint.jabci.types.BlockGossipOrBuilder> 
@@ -893,12 +871,12 @@ private static final long serialVersionUID = 0L;
     }
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
-      return super.setUnknownFieldsProto3(unknownFields);
+      return this;
     }
 
     public final Builder mergeUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
-      return super.mergeUnknownFields(unknownFields);
+      return this;
     }
 
 
@@ -921,7 +899,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ConsensusParams(input, extensionRegistry);
+        return new ConsensusParams(input, extensionRegistry);
     }
   };
 

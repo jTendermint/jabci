@@ -4,40 +4,36 @@
 package com.github.jtendermint.jabci.types;
 
 /**
+ * <pre>
+ * Define these here for compatibility but use tmlibs/common.KVPair.
+ * </pre>
+ *
  * Protobuf type {@code com.github.jtendermint.jabci.types.KVPair}
  */
 public  final class KVPair extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:com.github.jtendermint.jabci.types.KVPair)
     KVPairOrBuilder {
-private static final long serialVersionUID = 0L;
   // Use KVPair.newBuilder() to construct.
   private KVPair(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
   private KVPair() {
-    key_ = "";
-    valueType_ = 0;
-    valueString_ = "";
-    valueInt_ = 0L;
+    key_ = com.google.protobuf.ByteString.EMPTY;
+    value_ = com.google.protobuf.ByteString.EMPTY;
   }
 
   @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
-    return this.unknownFields;
+    return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
   }
   private KVPair(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
     int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
       boolean done = false;
       while (!done) {
@@ -47,33 +43,19 @@ private static final long serialVersionUID = 0L;
             done = true;
             break;
           default: {
-            if (!parseUnknownFieldProto3(
-                input, unknownFields, extensionRegistry, tag)) {
+            if (!input.skipField(tag)) {
               done = true;
             }
             break;
           }
           case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
 
-            key_ = s;
+            key_ = input.readBytes();
             break;
           }
-          case 16: {
-            int rawValue = input.readEnum();
+          case 18: {
 
-            valueType_ = rawValue;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            valueString_ = s;
-            break;
-          }
-          case 32: {
-
-            valueInt_ = input.readInt64();
+            value_ = input.readBytes();
             break;
           }
         }
@@ -84,7 +66,6 @@ private static final long serialVersionUID = 0L;
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
-      this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
     }
   }
@@ -100,195 +81,22 @@ private static final long serialVersionUID = 0L;
             com.github.jtendermint.jabci.types.KVPair.class, com.github.jtendermint.jabci.types.KVPair.Builder.class);
   }
 
-  /**
-   * Protobuf enum {@code com.github.jtendermint.jabci.types.KVPair.Type}
-   */
-  public enum Type
-      implements com.google.protobuf.ProtocolMessageEnum {
-    /**
-     * <code>STRING = 0;</code>
-     */
-    STRING(0),
-    /**
-     * <code>INT = 1;</code>
-     */
-    INT(1),
-    UNRECOGNIZED(-1),
-    ;
-
-    /**
-     * <code>STRING = 0;</code>
-     */
-    public static final int STRING_VALUE = 0;
-    /**
-     * <code>INT = 1;</code>
-     */
-    public static final int INT_VALUE = 1;
-
-
-    public final int getNumber() {
-      if (this == UNRECOGNIZED) {
-        throw new java.lang.IllegalArgumentException(
-            "Can't get the number of an unknown enum value.");
-      }
-      return value;
-    }
-
-    /**
-     * @deprecated Use {@link #forNumber(int)} instead.
-     */
-    @java.lang.Deprecated
-    public static Type valueOf(int value) {
-      return forNumber(value);
-    }
-
-    public static Type forNumber(int value) {
-      switch (value) {
-        case 0: return STRING;
-        case 1: return INT;
-        default: return null;
-      }
-    }
-
-    public static com.google.protobuf.Internal.EnumLiteMap<Type>
-        internalGetValueMap() {
-      return internalValueMap;
-    }
-    private static final com.google.protobuf.Internal.EnumLiteMap<
-        Type> internalValueMap =
-          new com.google.protobuf.Internal.EnumLiteMap<Type>() {
-            public Type findValueByNumber(int number) {
-              return Type.forNumber(number);
-            }
-          };
-
-    public final com.google.protobuf.Descriptors.EnumValueDescriptor
-        getValueDescriptor() {
-      return getDescriptor().getValues().get(ordinal());
-    }
-    public final com.google.protobuf.Descriptors.EnumDescriptor
-        getDescriptorForType() {
-      return getDescriptor();
-    }
-    public static final com.google.protobuf.Descriptors.EnumDescriptor
-        getDescriptor() {
-      return com.github.jtendermint.jabci.types.KVPair.getDescriptor().getEnumTypes().get(0);
-    }
-
-    private static final Type[] VALUES = values();
-
-    public static Type valueOf(
-        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
-      if (desc.getType() != getDescriptor()) {
-        throw new java.lang.IllegalArgumentException(
-          "EnumValueDescriptor is not for this type.");
-      }
-      if (desc.getIndex() == -1) {
-        return UNRECOGNIZED;
-      }
-      return VALUES[desc.getIndex()];
-    }
-
-    private final int value;
-
-    private Type(int value) {
-      this.value = value;
-    }
-
-    // @@protoc_insertion_point(enum_scope:com.github.jtendermint.jabci.types.KVPair.Type)
-  }
-
   public static final int KEY_FIELD_NUMBER = 1;
-  private volatile java.lang.Object key_;
+  private com.google.protobuf.ByteString key_;
   /**
-   * <code>string key = 1;</code>
+   * <code>optional bytes key = 1;</code>
    */
-  public java.lang.String getKey() {
-    java.lang.Object ref = key_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      key_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string key = 1;</code>
-   */
-  public com.google.protobuf.ByteString
-      getKeyBytes() {
-    java.lang.Object ref = key_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      key_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  public com.google.protobuf.ByteString getKey() {
+    return key_;
   }
 
-  public static final int VALUE_TYPE_FIELD_NUMBER = 2;
-  private int valueType_;
+  public static final int VALUE_FIELD_NUMBER = 2;
+  private com.google.protobuf.ByteString value_;
   /**
-   * <code>.com.github.jtendermint.jabci.types.KVPair.Type value_type = 2;</code>
+   * <code>optional bytes value = 2;</code>
    */
-  public int getValueTypeValue() {
-    return valueType_;
-  }
-  /**
-   * <code>.com.github.jtendermint.jabci.types.KVPair.Type value_type = 2;</code>
-   */
-  public com.github.jtendermint.jabci.types.KVPair.Type getValueType() {
-    com.github.jtendermint.jabci.types.KVPair.Type result = com.github.jtendermint.jabci.types.KVPair.Type.valueOf(valueType_);
-    return result == null ? com.github.jtendermint.jabci.types.KVPair.Type.UNRECOGNIZED : result;
-  }
-
-  public static final int VALUE_STRING_FIELD_NUMBER = 3;
-  private volatile java.lang.Object valueString_;
-  /**
-   * <code>string value_string = 3;</code>
-   */
-  public java.lang.String getValueString() {
-    java.lang.Object ref = valueString_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      valueString_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string value_string = 3;</code>
-   */
-  public com.google.protobuf.ByteString
-      getValueStringBytes() {
-    java.lang.Object ref = valueString_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      valueString_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int VALUE_INT_FIELD_NUMBER = 4;
-  private long valueInt_;
-  /**
-   * <code>int64 value_int = 4;</code>
-   */
-  public long getValueInt() {
-    return valueInt_;
+  public com.google.protobuf.ByteString getValue() {
+    return value_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -303,19 +111,12 @@ private static final long serialVersionUID = 0L;
 
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getKeyBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, key_);
+    if (!key_.isEmpty()) {
+      output.writeBytes(1, key_);
     }
-    if (valueType_ != com.github.jtendermint.jabci.types.KVPair.Type.STRING.getNumber()) {
-      output.writeEnum(2, valueType_);
+    if (!value_.isEmpty()) {
+      output.writeBytes(2, value_);
     }
-    if (!getValueStringBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, valueString_);
-    }
-    if (valueInt_ != 0L) {
-      output.writeInt64(4, valueInt_);
-    }
-    unknownFields.writeTo(output);
   }
 
   public int getSerializedSize() {
@@ -323,25 +124,19 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getKeyBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, key_);
-    }
-    if (valueType_ != com.github.jtendermint.jabci.types.KVPair.Type.STRING.getNumber()) {
+    if (!key_.isEmpty()) {
       size += com.google.protobuf.CodedOutputStream
-        .computeEnumSize(2, valueType_);
+        .computeBytesSize(1, key_);
     }
-    if (!getValueStringBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, valueString_);
-    }
-    if (valueInt_ != 0L) {
+    if (!value_.isEmpty()) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(4, valueInt_);
+        .computeBytesSize(2, value_);
     }
-    size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
   }
 
+  private static final long serialVersionUID = 0L;
   @java.lang.Override
   public boolean equals(final java.lang.Object obj) {
     if (obj == this) {
@@ -355,12 +150,8 @@ private static final long serialVersionUID = 0L;
     boolean result = true;
     result = result && getKey()
         .equals(other.getKey());
-    result = result && valueType_ == other.valueType_;
-    result = result && getValueString()
-        .equals(other.getValueString());
-    result = result && (getValueInt()
-        == other.getValueInt());
-    result = result && unknownFields.equals(other.unknownFields);
+    result = result && getValue()
+        .equals(other.getValue());
     return result;
   }
 
@@ -370,32 +161,16 @@ private static final long serialVersionUID = 0L;
       return memoizedHashCode;
     }
     int hash = 41;
-    hash = (19 * hash) + getDescriptor().hashCode();
+    hash = (19 * hash) + getDescriptorForType().hashCode();
     hash = (37 * hash) + KEY_FIELD_NUMBER;
     hash = (53 * hash) + getKey().hashCode();
-    hash = (37 * hash) + VALUE_TYPE_FIELD_NUMBER;
-    hash = (53 * hash) + valueType_;
-    hash = (37 * hash) + VALUE_STRING_FIELD_NUMBER;
-    hash = (53 * hash) + getValueString().hashCode();
-    hash = (37 * hash) + VALUE_INT_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getValueInt());
+    hash = (37 * hash) + VALUE_FIELD_NUMBER;
+    hash = (53 * hash) + getValue().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static com.github.jtendermint.jabci.types.KVPair parseFrom(
-      java.nio.ByteBuffer data)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    return PARSER.parseFrom(data);
-  }
-  public static com.github.jtendermint.jabci.types.KVPair parseFrom(
-      java.nio.ByteBuffer data,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    return PARSER.parseFrom(data, extensionRegistry);
-  }
   public static com.github.jtendermint.jabci.types.KVPair parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -474,6 +249,10 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
+   * <pre>
+   * Define these here for compatibility but use tmlibs/common.KVPair.
+   * </pre>
+   *
    * Protobuf type {@code com.github.jtendermint.jabci.types.KVPair}
    */
   public static final class Builder extends
@@ -509,13 +288,9 @@ private static final long serialVersionUID = 0L;
     }
     public Builder clear() {
       super.clear();
-      key_ = "";
+      key_ = com.google.protobuf.ByteString.EMPTY;
 
-      valueType_ = 0;
-
-      valueString_ = "";
-
-      valueInt_ = 0L;
+      value_ = com.google.protobuf.ByteString.EMPTY;
 
       return this;
     }
@@ -540,9 +315,7 @@ private static final long serialVersionUID = 0L;
     public com.github.jtendermint.jabci.types.KVPair buildPartial() {
       com.github.jtendermint.jabci.types.KVPair result = new com.github.jtendermint.jabci.types.KVPair(this);
       result.key_ = key_;
-      result.valueType_ = valueType_;
-      result.valueString_ = valueString_;
-      result.valueInt_ = valueInt_;
+      result.value_ = value_;
       onBuilt();
       return result;
     }
@@ -552,7 +325,7 @@ private static final long serialVersionUID = 0L;
     }
     public Builder setField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
+        Object value) {
       return (Builder) super.setField(field, value);
     }
     public Builder clearField(
@@ -565,12 +338,12 @@ private static final long serialVersionUID = 0L;
     }
     public Builder setRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        int index, java.lang.Object value) {
+        int index, Object value) {
       return (Builder) super.setRepeatedField(field, index, value);
     }
     public Builder addRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
+        Object value) {
       return (Builder) super.addRepeatedField(field, value);
     }
     public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -584,21 +357,12 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(com.github.jtendermint.jabci.types.KVPair other) {
       if (other == com.github.jtendermint.jabci.types.KVPair.getDefaultInstance()) return this;
-      if (!other.getKey().isEmpty()) {
-        key_ = other.key_;
-        onChanged();
+      if (other.getKey() != com.google.protobuf.ByteString.EMPTY) {
+        setKey(other.getKey());
       }
-      if (other.valueType_ != 0) {
-        setValueTypeValue(other.getValueTypeValue());
+      if (other.getValue() != com.google.protobuf.ByteString.EMPTY) {
+        setValue(other.getValue());
       }
-      if (!other.getValueString().isEmpty()) {
-        valueString_ = other.valueString_;
-        onChanged();
-      }
-      if (other.getValueInt() != 0L) {
-        setValueInt(other.getValueInt());
-      }
-      this.mergeUnknownFields(other.unknownFields);
       onChanged();
       return this;
     }
@@ -625,43 +389,17 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object key_ = "";
+    private com.google.protobuf.ByteString key_ = com.google.protobuf.ByteString.EMPTY;
     /**
-     * <code>string key = 1;</code>
+     * <code>optional bytes key = 1;</code>
      */
-    public java.lang.String getKey() {
-      java.lang.Object ref = key_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        key_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
+    public com.google.protobuf.ByteString getKey() {
+      return key_;
     }
     /**
-     * <code>string key = 1;</code>
+     * <code>optional bytes key = 1;</code>
      */
-    public com.google.protobuf.ByteString
-        getKeyBytes() {
-      java.lang.Object ref = key_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        key_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string key = 1;</code>
-     */
-    public Builder setKey(
-        java.lang.String value) {
+    public Builder setKey(com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
@@ -671,7 +409,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string key = 1;</code>
+     * <code>optional bytes key = 1;</code>
      */
     public Builder clearKey() {
       
@@ -679,167 +417,43 @@ private static final long serialVersionUID = 0L;
       onChanged();
       return this;
     }
-    /**
-     * <code>string key = 1;</code>
-     */
-    public Builder setKeyBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      key_ = value;
-      onChanged();
-      return this;
-    }
 
-    private int valueType_ = 0;
+    private com.google.protobuf.ByteString value_ = com.google.protobuf.ByteString.EMPTY;
     /**
-     * <code>.com.github.jtendermint.jabci.types.KVPair.Type value_type = 2;</code>
+     * <code>optional bytes value = 2;</code>
      */
-    public int getValueTypeValue() {
-      return valueType_;
+    public com.google.protobuf.ByteString getValue() {
+      return value_;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.KVPair.Type value_type = 2;</code>
+     * <code>optional bytes value = 2;</code>
      */
-    public Builder setValueTypeValue(int value) {
-      valueType_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>.com.github.jtendermint.jabci.types.KVPair.Type value_type = 2;</code>
-     */
-    public com.github.jtendermint.jabci.types.KVPair.Type getValueType() {
-      com.github.jtendermint.jabci.types.KVPair.Type result = com.github.jtendermint.jabci.types.KVPair.Type.valueOf(valueType_);
-      return result == null ? com.github.jtendermint.jabci.types.KVPair.Type.UNRECOGNIZED : result;
-    }
-    /**
-     * <code>.com.github.jtendermint.jabci.types.KVPair.Type value_type = 2;</code>
-     */
-    public Builder setValueType(com.github.jtendermint.jabci.types.KVPair.Type value) {
-      if (value == null) {
-        throw new NullPointerException();
-      }
-      
-      valueType_ = value.getNumber();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>.com.github.jtendermint.jabci.types.KVPair.Type value_type = 2;</code>
-     */
-    public Builder clearValueType() {
-      
-      valueType_ = 0;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object valueString_ = "";
-    /**
-     * <code>string value_string = 3;</code>
-     */
-    public java.lang.String getValueString() {
-      java.lang.Object ref = valueString_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        valueString_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <code>string value_string = 3;</code>
-     */
-    public com.google.protobuf.ByteString
-        getValueStringBytes() {
-      java.lang.Object ref = valueString_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        valueString_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string value_string = 3;</code>
-     */
-    public Builder setValueString(
-        java.lang.String value) {
+    public Builder setValue(com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      valueString_ = value;
+      value_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string value_string = 3;</code>
+     * <code>optional bytes value = 2;</code>
      */
-    public Builder clearValueString() {
+    public Builder clearValue() {
       
-      valueString_ = getDefaultInstance().getValueString();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string value_string = 3;</code>
-     */
-    public Builder setValueStringBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      valueString_ = value;
-      onChanged();
-      return this;
-    }
-
-    private long valueInt_ ;
-    /**
-     * <code>int64 value_int = 4;</code>
-     */
-    public long getValueInt() {
-      return valueInt_;
-    }
-    /**
-     * <code>int64 value_int = 4;</code>
-     */
-    public Builder setValueInt(long value) {
-      
-      valueInt_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>int64 value_int = 4;</code>
-     */
-    public Builder clearValueInt() {
-      
-      valueInt_ = 0L;
+      value_ = getDefaultInstance().getValue();
       onChanged();
       return this;
     }
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
-      return super.setUnknownFieldsProto3(unknownFields);
+      return this;
     }
 
     public final Builder mergeUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
-      return super.mergeUnknownFields(unknownFields);
+      return this;
     }
 
 
@@ -862,7 +476,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new KVPair(input, extensionRegistry);
+        return new KVPair(input, extensionRegistry);
     }
   };
 

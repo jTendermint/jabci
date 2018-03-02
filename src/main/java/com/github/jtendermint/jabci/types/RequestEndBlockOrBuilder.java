@@ -8,7 +8,7 @@ public interface RequestEndBlockOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int64 height = 1;</code>
+   * <code>optional int64 height = 1;</code>
    */
   long getHeight();
 }

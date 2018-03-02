@@ -10,7 +10,6 @@ public  final class RequestQuery extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:com.github.jtendermint.jabci.types.RequestQuery)
     RequestQueryOrBuilder {
-private static final long serialVersionUID = 0L;
   // Use RequestQuery.newBuilder() to construct.
   private RequestQuery(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
@@ -25,19 +24,14 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
-    return this.unknownFields;
+    return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
   }
   private RequestQuery(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
     int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
       boolean done = false;
       while (!done) {
@@ -47,8 +41,7 @@ private static final long serialVersionUID = 0L;
             done = true;
             break;
           default: {
-            if (!parseUnknownFieldProto3(
-                input, unknownFields, extensionRegistry, tag)) {
+            if (!input.skipField(tag)) {
               done = true;
             }
             break;
@@ -82,7 +75,6 @@ private static final long serialVersionUID = 0L;
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
-      this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
     }
   }
@@ -101,7 +93,7 @@ private static final long serialVersionUID = 0L;
   public static final int DATA_FIELD_NUMBER = 1;
   private com.google.protobuf.ByteString data_;
   /**
-   * <code>bytes data = 1;</code>
+   * <code>optional bytes data = 1;</code>
    */
   public com.google.protobuf.ByteString getData() {
     return data_;
@@ -110,7 +102,7 @@ private static final long serialVersionUID = 0L;
   public static final int PATH_FIELD_NUMBER = 2;
   private volatile java.lang.Object path_;
   /**
-   * <code>string path = 2;</code>
+   * <code>optional string path = 2;</code>
    */
   public java.lang.String getPath() {
     java.lang.Object ref = path_;
@@ -125,7 +117,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string path = 2;</code>
+   * <code>optional string path = 2;</code>
    */
   public com.google.protobuf.ByteString
       getPathBytes() {
@@ -144,7 +136,7 @@ private static final long serialVersionUID = 0L;
   public static final int HEIGHT_FIELD_NUMBER = 3;
   private long height_;
   /**
-   * <code>int64 height = 3;</code>
+   * <code>optional int64 height = 3;</code>
    */
   public long getHeight() {
     return height_;
@@ -153,7 +145,7 @@ private static final long serialVersionUID = 0L;
   public static final int PROVE_FIELD_NUMBER = 4;
   private boolean prove_;
   /**
-   * <code>bool prove = 4;</code>
+   * <code>optional bool prove = 4;</code>
    */
   public boolean getProve() {
     return prove_;
@@ -183,7 +175,6 @@ private static final long serialVersionUID = 0L;
     if (prove_ != false) {
       output.writeBool(4, prove_);
     }
-    unknownFields.writeTo(output);
   }
 
   public int getSerializedSize() {
@@ -206,11 +197,11 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(4, prove_);
     }
-    size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
   }
 
+  private static final long serialVersionUID = 0L;
   @java.lang.Override
   public boolean equals(final java.lang.Object obj) {
     if (obj == this) {
@@ -230,7 +221,6 @@ private static final long serialVersionUID = 0L;
         == other.getHeight());
     result = result && (getProve()
         == other.getProve());
-    result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
 
@@ -240,7 +230,7 @@ private static final long serialVersionUID = 0L;
       return memoizedHashCode;
     }
     int hash = 41;
-    hash = (19 * hash) + getDescriptor().hashCode();
+    hash = (19 * hash) + getDescriptorForType().hashCode();
     hash = (37 * hash) + DATA_FIELD_NUMBER;
     hash = (53 * hash) + getData().hashCode();
     hash = (37 * hash) + PATH_FIELD_NUMBER;
@@ -256,17 +246,6 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static com.github.jtendermint.jabci.types.RequestQuery parseFrom(
-      java.nio.ByteBuffer data)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    return PARSER.parseFrom(data);
-  }
-  public static com.github.jtendermint.jabci.types.RequestQuery parseFrom(
-      java.nio.ByteBuffer data,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    return PARSER.parseFrom(data, extensionRegistry);
-  }
   public static com.github.jtendermint.jabci.types.RequestQuery parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -423,7 +402,7 @@ private static final long serialVersionUID = 0L;
     }
     public Builder setField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
+        Object value) {
       return (Builder) super.setField(field, value);
     }
     public Builder clearField(
@@ -436,12 +415,12 @@ private static final long serialVersionUID = 0L;
     }
     public Builder setRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        int index, java.lang.Object value) {
+        int index, Object value) {
       return (Builder) super.setRepeatedField(field, index, value);
     }
     public Builder addRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
+        Object value) {
       return (Builder) super.addRepeatedField(field, value);
     }
     public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -468,7 +447,6 @@ private static final long serialVersionUID = 0L;
       if (other.getProve() != false) {
         setProve(other.getProve());
       }
-      this.mergeUnknownFields(other.unknownFields);
       onChanged();
       return this;
     }
@@ -497,13 +475,13 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.ByteString data_ = com.google.protobuf.ByteString.EMPTY;
     /**
-     * <code>bytes data = 1;</code>
+     * <code>optional bytes data = 1;</code>
      */
     public com.google.protobuf.ByteString getData() {
       return data_;
     }
     /**
-     * <code>bytes data = 1;</code>
+     * <code>optional bytes data = 1;</code>
      */
     public Builder setData(com.google.protobuf.ByteString value) {
       if (value == null) {
@@ -515,7 +493,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>bytes data = 1;</code>
+     * <code>optional bytes data = 1;</code>
      */
     public Builder clearData() {
       
@@ -526,7 +504,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object path_ = "";
     /**
-     * <code>string path = 2;</code>
+     * <code>optional string path = 2;</code>
      */
     public java.lang.String getPath() {
       java.lang.Object ref = path_;
@@ -541,7 +519,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string path = 2;</code>
+     * <code>optional string path = 2;</code>
      */
     public com.google.protobuf.ByteString
         getPathBytes() {
@@ -557,7 +535,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string path = 2;</code>
+     * <code>optional string path = 2;</code>
      */
     public Builder setPath(
         java.lang.String value) {
@@ -570,7 +548,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string path = 2;</code>
+     * <code>optional string path = 2;</code>
      */
     public Builder clearPath() {
       
@@ -579,7 +557,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string path = 2;</code>
+     * <code>optional string path = 2;</code>
      */
     public Builder setPathBytes(
         com.google.protobuf.ByteString value) {
@@ -595,13 +573,13 @@ private static final long serialVersionUID = 0L;
 
     private long height_ ;
     /**
-     * <code>int64 height = 3;</code>
+     * <code>optional int64 height = 3;</code>
      */
     public long getHeight() {
       return height_;
     }
     /**
-     * <code>int64 height = 3;</code>
+     * <code>optional int64 height = 3;</code>
      */
     public Builder setHeight(long value) {
       
@@ -610,7 +588,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 height = 3;</code>
+     * <code>optional int64 height = 3;</code>
      */
     public Builder clearHeight() {
       
@@ -621,13 +599,13 @@ private static final long serialVersionUID = 0L;
 
     private boolean prove_ ;
     /**
-     * <code>bool prove = 4;</code>
+     * <code>optional bool prove = 4;</code>
      */
     public boolean getProve() {
       return prove_;
     }
     /**
-     * <code>bool prove = 4;</code>
+     * <code>optional bool prove = 4;</code>
      */
     public Builder setProve(boolean value) {
       
@@ -636,7 +614,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>bool prove = 4;</code>
+     * <code>optional bool prove = 4;</code>
      */
     public Builder clearProve() {
       
@@ -646,12 +624,12 @@ private static final long serialVersionUID = 0L;
     }
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
-      return super.setUnknownFieldsProto3(unknownFields);
+      return this;
     }
 
     public final Builder mergeUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
-      return super.mergeUnknownFields(unknownFields);
+      return this;
     }
 
 
@@ -674,7 +652,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new RequestQuery(input, extensionRegistry);
+        return new RequestQuery(input, extensionRegistry);
     }
   };
 

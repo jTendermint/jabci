@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  * 
- * Copyright (c) 2016 - 2017
+ * Copyright (c) 2016 - 2018
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -80,7 +80,7 @@ public final class DefaultFallbackListener implements ABCIAPI {
     @Override
     public ResponseCommit requestCommit(RequestCommit requestCommit) {
         LOG.debug("ResponseCommit DefaultFallbackListener");
-        return ResponseCommit.newBuilder().setCode(CodeType.OK).build();
+        return ResponseCommit.newBuilder().build();
     }
 
     @Override

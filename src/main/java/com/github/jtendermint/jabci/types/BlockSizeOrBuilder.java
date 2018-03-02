@@ -8,17 +8,17 @@ public interface BlockSizeOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int32 max_bytes = 1;</code>
+   * <code>optional int32 max_bytes = 1;</code>
    */
   int getMaxBytes();
 
   /**
-   * <code>int32 max_txs = 2;</code>
+   * <code>optional int32 max_txs = 2;</code>
    */
   int getMaxTxs();
 
   /**
-   * <code>int64 max_gas = 3;</code>
+   * <code>optional int64 max_gas = 3;</code>
    */
   long getMaxGas();
 }

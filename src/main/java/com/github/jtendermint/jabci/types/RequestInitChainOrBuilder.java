@@ -30,4 +30,9 @@ public interface RequestInitChainOrBuilder extends
    */
   com.github.jtendermint.jabci.types.ValidatorOrBuilder getValidatorsOrBuilder(
       int index);
+
+  /**
+   * <code>optional bytes app_state_bytes = 2;</code>
+   */
+  com.google.protobuf.ByteString getAppStateBytes();
 }

@@ -8,41 +8,41 @@ public interface ConsensusParamsOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>.com.github.jtendermint.jabci.types.BlockSize block_size = 1;</code>
+   * <code>optional .com.github.jtendermint.jabci.types.BlockSize block_size = 1;</code>
    */
   boolean hasBlockSize();
   /**
-   * <code>.com.github.jtendermint.jabci.types.BlockSize block_size = 1;</code>
+   * <code>optional .com.github.jtendermint.jabci.types.BlockSize block_size = 1;</code>
    */
   com.github.jtendermint.jabci.types.BlockSize getBlockSize();
   /**
-   * <code>.com.github.jtendermint.jabci.types.BlockSize block_size = 1;</code>
+   * <code>optional .com.github.jtendermint.jabci.types.BlockSize block_size = 1;</code>
    */
   com.github.jtendermint.jabci.types.BlockSizeOrBuilder getBlockSizeOrBuilder();
 
   /**
-   * <code>.com.github.jtendermint.jabci.types.TxSize tx_size = 2;</code>
+   * <code>optional .com.github.jtendermint.jabci.types.TxSize tx_size = 2;</code>
    */
   boolean hasTxSize();
   /**
-   * <code>.com.github.jtendermint.jabci.types.TxSize tx_size = 2;</code>
+   * <code>optional .com.github.jtendermint.jabci.types.TxSize tx_size = 2;</code>
    */
   com.github.jtendermint.jabci.types.TxSize getTxSize();
   /**
-   * <code>.com.github.jtendermint.jabci.types.TxSize tx_size = 2;</code>
+   * <code>optional .com.github.jtendermint.jabci.types.TxSize tx_size = 2;</code>
    */
   com.github.jtendermint.jabci.types.TxSizeOrBuilder getTxSizeOrBuilder();
 
   /**
-   * <code>.com.github.jtendermint.jabci.types.BlockGossip block_gossip = 3;</code>
+   * <code>optional .com.github.jtendermint.jabci.types.BlockGossip block_gossip = 3;</code>
    */
   boolean hasBlockGossip();
   /**
-   * <code>.com.github.jtendermint.jabci.types.BlockGossip block_gossip = 3;</code>
+   * <code>optional .com.github.jtendermint.jabci.types.BlockGossip block_gossip = 3;</code>
    */
   com.github.jtendermint.jabci.types.BlockGossip getBlockGossip();
   /**
-   * <code>.com.github.jtendermint.jabci.types.BlockGossip block_gossip = 3;</code>
+   * <code>optional .com.github.jtendermint.jabci.types.BlockGossip block_gossip = 3;</code>
    */
   com.github.jtendermint.jabci.types.BlockGossipOrBuilder getBlockGossipOrBuilder();
 }

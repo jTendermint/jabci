@@ -8,11 +8,11 @@ public interface RequestEchoOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string message = 1;</code>
+   * <code>optional string message = 1;</code>
    */
   java.lang.String getMessage();
   /**
-   * <code>string message = 1;</code>
+   * <code>optional string message = 1;</code>
    */
   com.google.protobuf.ByteString
       getMessageBytes();

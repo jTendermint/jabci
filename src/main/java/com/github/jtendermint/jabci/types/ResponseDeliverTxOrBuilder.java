@@ -8,49 +8,101 @@ public interface ResponseDeliverTxOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>uint32 code = 1;</code>
+   * <code>optional uint32 code = 1;</code>
    */
   int getCode();
 
   /**
-   * <pre>
-   *[(gogoproto.customtype) = "github.com/tendermint/go-wire/data.Bytes", (gogoproto.nullable) = false];
-   * </pre>
-   *
-   * <code>bytes data = 2;</code>
+   * <code>optional bytes data = 2;</code>
    */
   com.google.protobuf.ByteString getData();
 
   /**
-   * <code>string log = 3;</code>
+   * <pre>
+   * nondeterministic
+   * </pre>
+   *
+   * <code>optional string log = 3;</code>
    */
   java.lang.String getLog();
   /**
-   * <code>string log = 3;</code>
+   * <pre>
+   * nondeterministic
+   * </pre>
+   *
+   * <code>optional string log = 3;</code>
    */
   com.google.protobuf.ByteString
       getLogBytes();
 
   /**
-   * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 4;</code>
+   * <pre>
+   * nondeterministic
+   * </pre>
+   *
+   * <code>optional string info = 4;</code>
+   */
+  java.lang.String getInfo();
+  /**
+   * <pre>
+   * nondeterministic
+   * </pre>
+   *
+   * <code>optional string info = 4;</code>
+   */
+  com.google.protobuf.ByteString
+      getInfoBytes();
+
+  /**
+   * <code>optional int64 gas_wanted = 5;</code>
+   */
+  long getGasWanted();
+
+  /**
+   * <code>optional int64 gas_used = 6;</code>
+   */
+  long getGasUsed();
+
+  /**
+   * <pre>
+   * common.KI64Pair fee = 8;
+   * </pre>
+   *
+   * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
    */
   java.util.List<com.github.jtendermint.jabci.types.KVPair> 
       getTagsList();
   /**
-   * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 4;</code>
+   * <pre>
+   * common.KI64Pair fee = 8;
+   * </pre>
+   *
+   * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
    */
   com.github.jtendermint.jabci.types.KVPair getTags(int index);
   /**
-   * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 4;</code>
+   * <pre>
+   * common.KI64Pair fee = 8;
+   * </pre>
+   *
+   * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
    */
   int getTagsCount();
   /**
-   * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 4;</code>
+   * <pre>
+   * common.KI64Pair fee = 8;
+   * </pre>
+   *
+   * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
    */
   java.util.List<? extends com.github.jtendermint.jabci.types.KVPairOrBuilder> 
       getTagsOrBuilderList();
   /**
-   * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 4;</code>
+   * <pre>
+   * common.KI64Pair fee = 8;
+   * </pre>
+   *
+   * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
    */
   com.github.jtendermint.jabci.types.KVPairOrBuilder getTagsOrBuilder(
       int index);

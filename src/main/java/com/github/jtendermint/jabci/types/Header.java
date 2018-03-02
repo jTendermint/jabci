@@ -10,7 +10,6 @@ public  final class Header extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:com.github.jtendermint.jabci.types.Header)
     HeaderOrBuilder {
-private static final long serialVersionUID = 0L;
   // Use Header.newBuilder() to construct.
   private Header(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
@@ -29,19 +28,14 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
-    return this.unknownFields;
+    return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
   }
   private Header(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
     int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
       boolean done = false;
       while (!done) {
@@ -51,8 +45,7 @@ private static final long serialVersionUID = 0L;
             done = true;
             break;
           default: {
-            if (!parseUnknownFieldProto3(
-                input, unknownFields, extensionRegistry, tag)) {
+            if (!input.skipField(tag)) {
               done = true;
             }
             break;
@@ -119,7 +112,6 @@ private static final long serialVersionUID = 0L;
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
-      this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
     }
   }
@@ -138,11 +130,7 @@ private static final long serialVersionUID = 0L;
   public static final int CHAIN_ID_FIELD_NUMBER = 1;
   private volatile java.lang.Object chainId_;
   /**
-   * <pre>
-   *[(gogoproto.customname) = "ChainID"];
-   * </pre>
-   *
-   * <code>string chain_id = 1;</code>
+   * <code>optional string chain_id = 1;</code>
    */
   public java.lang.String getChainId() {
     java.lang.Object ref = chainId_;
@@ -157,11 +145,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <pre>
-   *[(gogoproto.customname) = "ChainID"];
-   * </pre>
-   *
-   * <code>string chain_id = 1;</code>
+   * <code>optional string chain_id = 1;</code>
    */
   public com.google.protobuf.ByteString
       getChainIdBytes() {
@@ -180,7 +164,7 @@ private static final long serialVersionUID = 0L;
   public static final int HEIGHT_FIELD_NUMBER = 2;
   private long height_;
   /**
-   * <code>int64 height = 2;</code>
+   * <code>optional int64 height = 2;</code>
    */
   public long getHeight() {
     return height_;
@@ -189,7 +173,7 @@ private static final long serialVersionUID = 0L;
   public static final int TIME_FIELD_NUMBER = 3;
   private long time_;
   /**
-   * <code>int64 time = 3;</code>
+   * <code>optional int64 time = 3;</code>
    */
   public long getTime() {
     return time_;
@@ -198,7 +182,7 @@ private static final long serialVersionUID = 0L;
   public static final int NUM_TXS_FIELD_NUMBER = 4;
   private int numTxs_;
   /**
-   * <code>int32 num_txs = 4;</code>
+   * <code>optional int32 num_txs = 4;</code>
    */
   public int getNumTxs() {
     return numTxs_;
@@ -207,31 +191,19 @@ private static final long serialVersionUID = 0L;
   public static final int LAST_BLOCK_ID_FIELD_NUMBER = 5;
   private com.github.jtendermint.jabci.types.BlockID lastBlockId_;
   /**
-   * <pre>
-   *[(gogoproto.customname) = "LastBlockID"];
-   * </pre>
-   *
-   * <code>.com.github.jtendermint.jabci.types.BlockID last_block_id = 5;</code>
+   * <code>optional .com.github.jtendermint.jabci.types.BlockID last_block_id = 5;</code>
    */
   public boolean hasLastBlockId() {
     return lastBlockId_ != null;
   }
   /**
-   * <pre>
-   *[(gogoproto.customname) = "LastBlockID"];
-   * </pre>
-   *
-   * <code>.com.github.jtendermint.jabci.types.BlockID last_block_id = 5;</code>
+   * <code>optional .com.github.jtendermint.jabci.types.BlockID last_block_id = 5;</code>
    */
   public com.github.jtendermint.jabci.types.BlockID getLastBlockId() {
     return lastBlockId_ == null ? com.github.jtendermint.jabci.types.BlockID.getDefaultInstance() : lastBlockId_;
   }
   /**
-   * <pre>
-   *[(gogoproto.customname) = "LastBlockID"];
-   * </pre>
-   *
-   * <code>.com.github.jtendermint.jabci.types.BlockID last_block_id = 5;</code>
+   * <code>optional .com.github.jtendermint.jabci.types.BlockID last_block_id = 5;</code>
    */
   public com.github.jtendermint.jabci.types.BlockIDOrBuilder getLastBlockIdOrBuilder() {
     return getLastBlockId();
@@ -240,7 +212,7 @@ private static final long serialVersionUID = 0L;
   public static final int LAST_COMMIT_HASH_FIELD_NUMBER = 6;
   private com.google.protobuf.ByteString lastCommitHash_;
   /**
-   * <code>bytes last_commit_hash = 6;</code>
+   * <code>optional bytes last_commit_hash = 6;</code>
    */
   public com.google.protobuf.ByteString getLastCommitHash() {
     return lastCommitHash_;
@@ -249,7 +221,7 @@ private static final long serialVersionUID = 0L;
   public static final int DATA_HASH_FIELD_NUMBER = 7;
   private com.google.protobuf.ByteString dataHash_;
   /**
-   * <code>bytes data_hash = 7;</code>
+   * <code>optional bytes data_hash = 7;</code>
    */
   public com.google.protobuf.ByteString getDataHash() {
     return dataHash_;
@@ -258,7 +230,7 @@ private static final long serialVersionUID = 0L;
   public static final int VALIDATORS_HASH_FIELD_NUMBER = 8;
   private com.google.protobuf.ByteString validatorsHash_;
   /**
-   * <code>bytes validators_hash = 8;</code>
+   * <code>optional bytes validators_hash = 8;</code>
    */
   public com.google.protobuf.ByteString getValidatorsHash() {
     return validatorsHash_;
@@ -267,7 +239,7 @@ private static final long serialVersionUID = 0L;
   public static final int APP_HASH_FIELD_NUMBER = 9;
   private com.google.protobuf.ByteString appHash_;
   /**
-   * <code>bytes app_hash = 9;</code>
+   * <code>optional bytes app_hash = 9;</code>
    */
   public com.google.protobuf.ByteString getAppHash() {
     return appHash_;
@@ -312,7 +284,6 @@ private static final long serialVersionUID = 0L;
     if (!appHash_.isEmpty()) {
       output.writeBytes(9, appHash_);
     }
-    unknownFields.writeTo(output);
   }
 
   public int getSerializedSize() {
@@ -355,11 +326,11 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBytesSize(9, appHash_);
     }
-    size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
   }
 
+  private static final long serialVersionUID = 0L;
   @java.lang.Override
   public boolean equals(final java.lang.Object obj) {
     if (obj == this) {
@@ -392,7 +363,6 @@ private static final long serialVersionUID = 0L;
         .equals(other.getValidatorsHash());
     result = result && getAppHash()
         .equals(other.getAppHash());
-    result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
 
@@ -402,7 +372,7 @@ private static final long serialVersionUID = 0L;
       return memoizedHashCode;
     }
     int hash = 41;
-    hash = (19 * hash) + getDescriptor().hashCode();
+    hash = (19 * hash) + getDescriptorForType().hashCode();
     hash = (37 * hash) + CHAIN_ID_FIELD_NUMBER;
     hash = (53 * hash) + getChainId().hashCode();
     hash = (37 * hash) + HEIGHT_FIELD_NUMBER;
@@ -430,17 +400,6 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static com.github.jtendermint.jabci.types.Header parseFrom(
-      java.nio.ByteBuffer data)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    return PARSER.parseFrom(data);
-  }
-  public static com.github.jtendermint.jabci.types.Header parseFrom(
-      java.nio.ByteBuffer data,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    return PARSER.parseFrom(data, extensionRegistry);
-  }
   public static com.github.jtendermint.jabci.types.Header parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -620,7 +579,7 @@ private static final long serialVersionUID = 0L;
     }
     public Builder setField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
+        Object value) {
       return (Builder) super.setField(field, value);
     }
     public Builder clearField(
@@ -633,12 +592,12 @@ private static final long serialVersionUID = 0L;
     }
     public Builder setRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        int index, java.lang.Object value) {
+        int index, Object value) {
       return (Builder) super.setRepeatedField(field, index, value);
     }
     public Builder addRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
+        Object value) {
       return (Builder) super.addRepeatedField(field, value);
     }
     public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -680,7 +639,6 @@ private static final long serialVersionUID = 0L;
       if (other.getAppHash() != com.google.protobuf.ByteString.EMPTY) {
         setAppHash(other.getAppHash());
       }
-      this.mergeUnknownFields(other.unknownFields);
       onChanged();
       return this;
     }
@@ -709,11 +667,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object chainId_ = "";
     /**
-     * <pre>
-     *[(gogoproto.customname) = "ChainID"];
-     * </pre>
-     *
-     * <code>string chain_id = 1;</code>
+     * <code>optional string chain_id = 1;</code>
      */
     public java.lang.String getChainId() {
       java.lang.Object ref = chainId_;
@@ -728,11 +682,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <pre>
-     *[(gogoproto.customname) = "ChainID"];
-     * </pre>
-     *
-     * <code>string chain_id = 1;</code>
+     * <code>optional string chain_id = 1;</code>
      */
     public com.google.protobuf.ByteString
         getChainIdBytes() {
@@ -748,11 +698,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <pre>
-     *[(gogoproto.customname) = "ChainID"];
-     * </pre>
-     *
-     * <code>string chain_id = 1;</code>
+     * <code>optional string chain_id = 1;</code>
      */
     public Builder setChainId(
         java.lang.String value) {
@@ -765,11 +711,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <pre>
-     *[(gogoproto.customname) = "ChainID"];
-     * </pre>
-     *
-     * <code>string chain_id = 1;</code>
+     * <code>optional string chain_id = 1;</code>
      */
     public Builder clearChainId() {
       
@@ -778,11 +720,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <pre>
-     *[(gogoproto.customname) = "ChainID"];
-     * </pre>
-     *
-     * <code>string chain_id = 1;</code>
+     * <code>optional string chain_id = 1;</code>
      */
     public Builder setChainIdBytes(
         com.google.protobuf.ByteString value) {
@@ -798,13 +736,13 @@ private static final long serialVersionUID = 0L;
 
     private long height_ ;
     /**
-     * <code>int64 height = 2;</code>
+     * <code>optional int64 height = 2;</code>
      */
     public long getHeight() {
       return height_;
     }
     /**
-     * <code>int64 height = 2;</code>
+     * <code>optional int64 height = 2;</code>
      */
     public Builder setHeight(long value) {
       
@@ -813,7 +751,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 height = 2;</code>
+     * <code>optional int64 height = 2;</code>
      */
     public Builder clearHeight() {
       
@@ -824,13 +762,13 @@ private static final long serialVersionUID = 0L;
 
     private long time_ ;
     /**
-     * <code>int64 time = 3;</code>
+     * <code>optional int64 time = 3;</code>
      */
     public long getTime() {
       return time_;
     }
     /**
-     * <code>int64 time = 3;</code>
+     * <code>optional int64 time = 3;</code>
      */
     public Builder setTime(long value) {
       
@@ -839,7 +777,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 time = 3;</code>
+     * <code>optional int64 time = 3;</code>
      */
     public Builder clearTime() {
       
@@ -850,13 +788,13 @@ private static final long serialVersionUID = 0L;
 
     private int numTxs_ ;
     /**
-     * <code>int32 num_txs = 4;</code>
+     * <code>optional int32 num_txs = 4;</code>
      */
     public int getNumTxs() {
       return numTxs_;
     }
     /**
-     * <code>int32 num_txs = 4;</code>
+     * <code>optional int32 num_txs = 4;</code>
      */
     public Builder setNumTxs(int value) {
       
@@ -865,7 +803,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int32 num_txs = 4;</code>
+     * <code>optional int32 num_txs = 4;</code>
      */
     public Builder clearNumTxs() {
       
@@ -878,21 +816,13 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.github.jtendermint.jabci.types.BlockID, com.github.jtendermint.jabci.types.BlockID.Builder, com.github.jtendermint.jabci.types.BlockIDOrBuilder> lastBlockIdBuilder_;
     /**
-     * <pre>
-     *[(gogoproto.customname) = "LastBlockID"];
-     * </pre>
-     *
-     * <code>.com.github.jtendermint.jabci.types.BlockID last_block_id = 5;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.BlockID last_block_id = 5;</code>
      */
     public boolean hasLastBlockId() {
       return lastBlockIdBuilder_ != null || lastBlockId_ != null;
     }
     /**
-     * <pre>
-     *[(gogoproto.customname) = "LastBlockID"];
-     * </pre>
-     *
-     * <code>.com.github.jtendermint.jabci.types.BlockID last_block_id = 5;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.BlockID last_block_id = 5;</code>
      */
     public com.github.jtendermint.jabci.types.BlockID getLastBlockId() {
       if (lastBlockIdBuilder_ == null) {
@@ -902,11 +832,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <pre>
-     *[(gogoproto.customname) = "LastBlockID"];
-     * </pre>
-     *
-     * <code>.com.github.jtendermint.jabci.types.BlockID last_block_id = 5;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.BlockID last_block_id = 5;</code>
      */
     public Builder setLastBlockId(com.github.jtendermint.jabci.types.BlockID value) {
       if (lastBlockIdBuilder_ == null) {
@@ -922,11 +848,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <pre>
-     *[(gogoproto.customname) = "LastBlockID"];
-     * </pre>
-     *
-     * <code>.com.github.jtendermint.jabci.types.BlockID last_block_id = 5;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.BlockID last_block_id = 5;</code>
      */
     public Builder setLastBlockId(
         com.github.jtendermint.jabci.types.BlockID.Builder builderForValue) {
@@ -940,11 +862,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <pre>
-     *[(gogoproto.customname) = "LastBlockID"];
-     * </pre>
-     *
-     * <code>.com.github.jtendermint.jabci.types.BlockID last_block_id = 5;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.BlockID last_block_id = 5;</code>
      */
     public Builder mergeLastBlockId(com.github.jtendermint.jabci.types.BlockID value) {
       if (lastBlockIdBuilder_ == null) {
@@ -962,11 +880,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <pre>
-     *[(gogoproto.customname) = "LastBlockID"];
-     * </pre>
-     *
-     * <code>.com.github.jtendermint.jabci.types.BlockID last_block_id = 5;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.BlockID last_block_id = 5;</code>
      */
     public Builder clearLastBlockId() {
       if (lastBlockIdBuilder_ == null) {
@@ -980,11 +894,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <pre>
-     *[(gogoproto.customname) = "LastBlockID"];
-     * </pre>
-     *
-     * <code>.com.github.jtendermint.jabci.types.BlockID last_block_id = 5;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.BlockID last_block_id = 5;</code>
      */
     public com.github.jtendermint.jabci.types.BlockID.Builder getLastBlockIdBuilder() {
       
@@ -992,11 +902,7 @@ private static final long serialVersionUID = 0L;
       return getLastBlockIdFieldBuilder().getBuilder();
     }
     /**
-     * <pre>
-     *[(gogoproto.customname) = "LastBlockID"];
-     * </pre>
-     *
-     * <code>.com.github.jtendermint.jabci.types.BlockID last_block_id = 5;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.BlockID last_block_id = 5;</code>
      */
     public com.github.jtendermint.jabci.types.BlockIDOrBuilder getLastBlockIdOrBuilder() {
       if (lastBlockIdBuilder_ != null) {
@@ -1007,11 +913,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <pre>
-     *[(gogoproto.customname) = "LastBlockID"];
-     * </pre>
-     *
-     * <code>.com.github.jtendermint.jabci.types.BlockID last_block_id = 5;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.BlockID last_block_id = 5;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.github.jtendermint.jabci.types.BlockID, com.github.jtendermint.jabci.types.BlockID.Builder, com.github.jtendermint.jabci.types.BlockIDOrBuilder> 
@@ -1029,13 +931,13 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.ByteString lastCommitHash_ = com.google.protobuf.ByteString.EMPTY;
     /**
-     * <code>bytes last_commit_hash = 6;</code>
+     * <code>optional bytes last_commit_hash = 6;</code>
      */
     public com.google.protobuf.ByteString getLastCommitHash() {
       return lastCommitHash_;
     }
     /**
-     * <code>bytes last_commit_hash = 6;</code>
+     * <code>optional bytes last_commit_hash = 6;</code>
      */
     public Builder setLastCommitHash(com.google.protobuf.ByteString value) {
       if (value == null) {
@@ -1047,7 +949,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>bytes last_commit_hash = 6;</code>
+     * <code>optional bytes last_commit_hash = 6;</code>
      */
     public Builder clearLastCommitHash() {
       
@@ -1058,13 +960,13 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.ByteString dataHash_ = com.google.protobuf.ByteString.EMPTY;
     /**
-     * <code>bytes data_hash = 7;</code>
+     * <code>optional bytes data_hash = 7;</code>
      */
     public com.google.protobuf.ByteString getDataHash() {
       return dataHash_;
     }
     /**
-     * <code>bytes data_hash = 7;</code>
+     * <code>optional bytes data_hash = 7;</code>
      */
     public Builder setDataHash(com.google.protobuf.ByteString value) {
       if (value == null) {
@@ -1076,7 +978,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>bytes data_hash = 7;</code>
+     * <code>optional bytes data_hash = 7;</code>
      */
     public Builder clearDataHash() {
       
@@ -1087,13 +989,13 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.ByteString validatorsHash_ = com.google.protobuf.ByteString.EMPTY;
     /**
-     * <code>bytes validators_hash = 8;</code>
+     * <code>optional bytes validators_hash = 8;</code>
      */
     public com.google.protobuf.ByteString getValidatorsHash() {
       return validatorsHash_;
     }
     /**
-     * <code>bytes validators_hash = 8;</code>
+     * <code>optional bytes validators_hash = 8;</code>
      */
     public Builder setValidatorsHash(com.google.protobuf.ByteString value) {
       if (value == null) {
@@ -1105,7 +1007,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>bytes validators_hash = 8;</code>
+     * <code>optional bytes validators_hash = 8;</code>
      */
     public Builder clearValidatorsHash() {
       
@@ -1116,13 +1018,13 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.ByteString appHash_ = com.google.protobuf.ByteString.EMPTY;
     /**
-     * <code>bytes app_hash = 9;</code>
+     * <code>optional bytes app_hash = 9;</code>
      */
     public com.google.protobuf.ByteString getAppHash() {
       return appHash_;
     }
     /**
-     * <code>bytes app_hash = 9;</code>
+     * <code>optional bytes app_hash = 9;</code>
      */
     public Builder setAppHash(com.google.protobuf.ByteString value) {
       if (value == null) {
@@ -1134,7 +1036,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>bytes app_hash = 9;</code>
+     * <code>optional bytes app_hash = 9;</code>
      */
     public Builder clearAppHash() {
       
@@ -1144,12 +1046,12 @@ private static final long serialVersionUID = 0L;
     }
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
-      return super.setUnknownFieldsProto3(unknownFields);
+      return this;
     }
 
     public final Builder mergeUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
-      return super.mergeUnknownFields(unknownFields);
+      return this;
     }
 
 
@@ -1172,7 +1074,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Header(input, extensionRegistry);
+        return new Header(input, extensionRegistry);
     }
   };
 

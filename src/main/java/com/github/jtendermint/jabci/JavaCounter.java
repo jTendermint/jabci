@@ -1,18 +1,18 @@
 /*
  * The MIT License (MIT)
- * 
- * Copyright (c) 2016 - 2017
- * 
+ *
+ * Copyright (c) 2016 - 2018
+ *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- * 
+ *
  * The above copyright notice and this permission notice shall be included in all
  * copies or substantial portions of the Software.
- * 
+ *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -44,16 +44,11 @@ import com.github.jtendermint.jabci.types.ResponseQuery;
 import com.google.protobuf.ByteString;
 
 /**
- * 
  * Implements a sample counter app. every tx-data must be bigger than the current amount of tx
- * 
+ *
  * @author wolfposd
  */
 public final class JavaCounter implements IDeliverTx, ICheckTx, ICommit, IQuery {
-
-    public static void main(String[] args) throws InterruptedException {
-        new JavaCounter();
-    }
 
     private int hashCount = 0;
     private int txCount = 0;
@@ -70,12 +65,16 @@ public final class JavaCounter implements IDeliverTx, ICheckTx, ICommit, IQuery 
          * The constructor starts a thread. This is likely to be wrong if the class is ever extended/subclassed, since the thread will be
          * started before the subclass constructor is started.
          */
-        Thread t = new Thread(socket::start);
+        Thread t = new Thread(() -> socket.start(46658));
         t.setName("Java Counter Main Thread");
         t.start();
         while (true) {
             Thread.sleep(1000L);
         }
+    }
+
+    public static void main(String[] args) throws InterruptedException {
+        new JavaCounter();
     }
 
     @Override
@@ -84,17 +83,21 @@ public final class JavaCounter implements IDeliverTx, ICheckTx, ICommit, IQuery 
         System.out.println("got deliver tx, with" + TSocket.byteArrayToString(tx.toByteArray()));
 
         if (tx.size() == 0) {
+            System.out.println("returning BAD, transaction is empty");
             return ResponseDeliverTx.newBuilder().setCode(CodeType.BadNonce).setLog("transaction is empty").build();
         } else if (tx.size() <= 4) {
             int x = new BigInteger(1, tx.toByteArray()).intValueExact();
             // this is an int now, if not throws an ArithmeticException
             // but we dont actually care what it is.
 
-            if (x != txCount)
-                return ResponseDeliverTx.newBuilder().setCode(CodeType.BadNonce).setLog("Invalid Nonce. Expected " + txCount + ", got " + x)
-                        .build();
+            if (x != txCount) {
+                String message = "Invalid Nonce. Expected " + txCount + ", got " + x;
+                System.out.println("returning BAD, " + message);
+                return ResponseDeliverTx.newBuilder().setCode(CodeType.BadNonce).setLog(message).build();
+            }
 
         } else {
+            System.out.println("returning BAD, got a bad value");
             return ResponseDeliverTx.newBuilder().setCode(CodeType.BadNonce).setLog("got a bad value").build();
         }
 
@@ -130,12 +133,12 @@ public final class JavaCounter implements IDeliverTx, ICheckTx, ICommit, IQuery 
         hashCount += 1;
 
         if (txCount == 0) {
-            return ResponseCommit.newBuilder().setCode(CodeType.OK).build();
+            return ResponseCommit.newBuilder().build();
         } else {
             ByteBuffer buf = ByteBuffer.allocate(Integer.BYTES);
             buf.putInt(txCount);
             buf.rewind();
-            return ResponseCommit.newBuilder().setCode(CodeType.OK).setData(ByteString.copyFrom(buf)).build();
+            return ResponseCommit.newBuilder().setData(ByteString.copyFrom(buf)).build();
         }
     }
 
@@ -143,14 +146,14 @@ public final class JavaCounter implements IDeliverTx, ICheckTx, ICommit, IQuery 
     public ResponseQuery requestQuery(RequestQuery req) {
         final String query = new String(req.getData().toByteArray(), Charset.forName("UTF-8"));
         switch (query) {
-        case "hash":
-            return ResponseQuery.newBuilder().setCode(CodeType.OK)
+            case "hash":
+                return ResponseQuery.newBuilder().setCode(CodeType.OK)
                     .setValue(ByteString.copyFrom(("" + hashCount).getBytes(Charset.forName("UTF-8")))).build();
-        case "tx":
-            return ResponseQuery.newBuilder().setCode(CodeType.OK)
+            case "tx":
+                return ResponseQuery.newBuilder().setCode(CodeType.OK)
                     .setValue(ByteString.copyFrom(("" + txCount).getBytes(Charset.forName("UTF-8")))).build();
-        default:
-            return ResponseQuery.newBuilder().setCode(CodeType.BadNonce).setLog("Invalid query path. Expected hash or tx, got " + query)
+            default:
+                return ResponseQuery.newBuilder().setCode(CodeType.BadNonce).setLog("Invalid query path. Expected hash or tx, got " + query)
                     .build();
         }
     }

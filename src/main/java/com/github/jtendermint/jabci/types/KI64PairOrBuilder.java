@@ -3,8 +3,8 @@
 
 package com.github.jtendermint.jabci.types;
 
-public interface KVPairOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:com.github.jtendermint.jabci.types.KVPair)
+public interface KI64PairOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:com.github.jtendermint.jabci.types.KI64Pair)
     com.google.protobuf.MessageOrBuilder {
 
   /**
@@ -13,7 +13,7 @@ public interface KVPairOrBuilder extends
   com.google.protobuf.ByteString getKey();
 
   /**
-   * <code>optional bytes value = 2;</code>
+   * <code>optional int64 value = 2;</code>
    */
-  com.google.protobuf.ByteString getValue();
+  long getValue();
 }

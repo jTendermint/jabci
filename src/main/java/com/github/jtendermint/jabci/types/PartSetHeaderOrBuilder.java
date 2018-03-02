@@ -8,12 +8,12 @@ public interface PartSetHeaderOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int32 total = 1;</code>
+   * <code>optional int32 total = 1;</code>
    */
   int getTotal();
 
   /**
-   * <code>bytes hash = 2;</code>
+   * <code>optional bytes hash = 2;</code>
    */
   com.google.protobuf.ByteString getHash();
 }

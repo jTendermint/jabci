@@ -32,15 +32,15 @@ public interface ResponseEndBlockOrBuilder extends
       int index);
 
   /**
-   * <code>.com.github.jtendermint.jabci.types.ConsensusParams consensus_param_updates = 2;</code>
+   * <code>optional .com.github.jtendermint.jabci.types.ConsensusParams consensus_param_updates = 2;</code>
    */
   boolean hasConsensusParamUpdates();
   /**
-   * <code>.com.github.jtendermint.jabci.types.ConsensusParams consensus_param_updates = 2;</code>
+   * <code>optional .com.github.jtendermint.jabci.types.ConsensusParams consensus_param_updates = 2;</code>
    */
   com.github.jtendermint.jabci.types.ConsensusParams getConsensusParamUpdates();
   /**
-   * <code>.com.github.jtendermint.jabci.types.ConsensusParams consensus_param_updates = 2;</code>
+   * <code>optional .com.github.jtendermint.jabci.types.ConsensusParams consensus_param_updates = 2;</code>
    */
   com.github.jtendermint.jabci.types.ConsensusParamsOrBuilder getConsensusParamUpdatesOrBuilder();
 }

@@ -8,27 +8,27 @@ public interface RequestQueryOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>bytes data = 1;</code>
+   * <code>optional bytes data = 1;</code>
    */
   com.google.protobuf.ByteString getData();
 
   /**
-   * <code>string path = 2;</code>
+   * <code>optional string path = 2;</code>
    */
   java.lang.String getPath();
   /**
-   * <code>string path = 2;</code>
+   * <code>optional string path = 2;</code>
    */
   com.google.protobuf.ByteString
       getPathBytes();
 
   /**
-   * <code>int64 height = 3;</code>
+   * <code>optional int64 height = 3;</code>
    */
   long getHeight();
 
   /**
-   * <code>bool prove = 4;</code>
+   * <code>optional bool prove = 4;</code>
    */
   boolean getProve();
 }

@@ -10,7 +10,6 @@ public  final class PartSetHeader extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:com.github.jtendermint.jabci.types.PartSetHeader)
     PartSetHeaderOrBuilder {
-private static final long serialVersionUID = 0L;
   // Use PartSetHeader.newBuilder() to construct.
   private PartSetHeader(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
@@ -23,19 +22,14 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
-    return this.unknownFields;
+    return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
   }
   private PartSetHeader(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
     int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
       boolean done = false;
       while (!done) {
@@ -45,8 +39,7 @@ private static final long serialVersionUID = 0L;
             done = true;
             break;
           default: {
-            if (!parseUnknownFieldProto3(
-                input, unknownFields, extensionRegistry, tag)) {
+            if (!input.skipField(tag)) {
               done = true;
             }
             break;
@@ -69,7 +62,6 @@ private static final long serialVersionUID = 0L;
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
-      this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
     }
   }
@@ -88,7 +80,7 @@ private static final long serialVersionUID = 0L;
   public static final int TOTAL_FIELD_NUMBER = 1;
   private int total_;
   /**
-   * <code>int32 total = 1;</code>
+   * <code>optional int32 total = 1;</code>
    */
   public int getTotal() {
     return total_;
@@ -97,7 +89,7 @@ private static final long serialVersionUID = 0L;
   public static final int HASH_FIELD_NUMBER = 2;
   private com.google.protobuf.ByteString hash_;
   /**
-   * <code>bytes hash = 2;</code>
+   * <code>optional bytes hash = 2;</code>
    */
   public com.google.protobuf.ByteString getHash() {
     return hash_;
@@ -121,7 +113,6 @@ private static final long serialVersionUID = 0L;
     if (!hash_.isEmpty()) {
       output.writeBytes(2, hash_);
     }
-    unknownFields.writeTo(output);
   }
 
   public int getSerializedSize() {
@@ -137,11 +128,11 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBytesSize(2, hash_);
     }
-    size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
   }
 
+  private static final long serialVersionUID = 0L;
   @java.lang.Override
   public boolean equals(final java.lang.Object obj) {
     if (obj == this) {
@@ -157,7 +148,6 @@ private static final long serialVersionUID = 0L;
         == other.getTotal());
     result = result && getHash()
         .equals(other.getHash());
-    result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
 
@@ -167,7 +157,7 @@ private static final long serialVersionUID = 0L;
       return memoizedHashCode;
     }
     int hash = 41;
-    hash = (19 * hash) + getDescriptor().hashCode();
+    hash = (19 * hash) + getDescriptorForType().hashCode();
     hash = (37 * hash) + TOTAL_FIELD_NUMBER;
     hash = (53 * hash) + getTotal();
     hash = (37 * hash) + HASH_FIELD_NUMBER;
@@ -177,17 +167,6 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static com.github.jtendermint.jabci.types.PartSetHeader parseFrom(
-      java.nio.ByteBuffer data)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    return PARSER.parseFrom(data);
-  }
-  public static com.github.jtendermint.jabci.types.PartSetHeader parseFrom(
-      java.nio.ByteBuffer data,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    return PARSER.parseFrom(data, extensionRegistry);
-  }
   public static com.github.jtendermint.jabci.types.PartSetHeader parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -338,7 +317,7 @@ private static final long serialVersionUID = 0L;
     }
     public Builder setField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
+        Object value) {
       return (Builder) super.setField(field, value);
     }
     public Builder clearField(
@@ -351,12 +330,12 @@ private static final long serialVersionUID = 0L;
     }
     public Builder setRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        int index, java.lang.Object value) {
+        int index, Object value) {
       return (Builder) super.setRepeatedField(field, index, value);
     }
     public Builder addRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
+        Object value) {
       return (Builder) super.addRepeatedField(field, value);
     }
     public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -376,7 +355,6 @@ private static final long serialVersionUID = 0L;
       if (other.getHash() != com.google.protobuf.ByteString.EMPTY) {
         setHash(other.getHash());
       }
-      this.mergeUnknownFields(other.unknownFields);
       onChanged();
       return this;
     }
@@ -405,13 +383,13 @@ private static final long serialVersionUID = 0L;
 
     private int total_ ;
     /**
-     * <code>int32 total = 1;</code>
+     * <code>optional int32 total = 1;</code>
      */
     public int getTotal() {
       return total_;
     }
     /**
-     * <code>int32 total = 1;</code>
+     * <code>optional int32 total = 1;</code>
      */
     public Builder setTotal(int value) {
       
@@ -420,7 +398,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int32 total = 1;</code>
+     * <code>optional int32 total = 1;</code>
      */
     public Builder clearTotal() {
       
@@ -431,13 +409,13 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.ByteString hash_ = com.google.protobuf.ByteString.EMPTY;
     /**
-     * <code>bytes hash = 2;</code>
+     * <code>optional bytes hash = 2;</code>
      */
     public com.google.protobuf.ByteString getHash() {
       return hash_;
     }
     /**
-     * <code>bytes hash = 2;</code>
+     * <code>optional bytes hash = 2;</code>
      */
     public Builder setHash(com.google.protobuf.ByteString value) {
       if (value == null) {
@@ -449,7 +427,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>bytes hash = 2;</code>
+     * <code>optional bytes hash = 2;</code>
      */
     public Builder clearHash() {
       
@@ -459,12 +437,12 @@ private static final long serialVersionUID = 0L;
     }
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
-      return super.setUnknownFieldsProto3(unknownFields);
+      return this;
     }
 
     public final Builder mergeUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
-      return super.mergeUnknownFields(unknownFields);
+      return this;
     }
 
 
@@ -487,7 +465,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new PartSetHeader(input, extensionRegistry);
+        return new PartSetHeader(input, extensionRegistry);
     }
   };
 

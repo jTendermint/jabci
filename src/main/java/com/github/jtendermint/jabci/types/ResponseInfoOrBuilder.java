@@ -8,32 +8,32 @@ public interface ResponseInfoOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string data = 1;</code>
+   * <code>optional string data = 1;</code>
    */
   java.lang.String getData();
   /**
-   * <code>string data = 1;</code>
+   * <code>optional string data = 1;</code>
    */
   com.google.protobuf.ByteString
       getDataBytes();
 
   /**
-   * <code>string version = 2;</code>
+   * <code>optional string version = 2;</code>
    */
   java.lang.String getVersion();
   /**
-   * <code>string version = 2;</code>
+   * <code>optional string version = 2;</code>
    */
   com.google.protobuf.ByteString
       getVersionBytes();
 
   /**
-   * <code>int64 last_block_height = 3;</code>
+   * <code>optional int64 last_block_height = 3;</code>
    */
   long getLastBlockHeight();
 
   /**
-   * <code>bytes last_block_app_hash = 4;</code>
+   * <code>optional bytes last_block_app_hash = 4;</code>
    */
   com.google.protobuf.ByteString getLastBlockAppHash();
 }
