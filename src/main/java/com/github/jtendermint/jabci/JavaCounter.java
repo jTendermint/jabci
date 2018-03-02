@@ -23,46 +23,33 @@
  */
 package com.github.jtendermint.jabci;
 
-import com.github.jtendermint.jabci.api.ABCIAPI;
-import com.github.jtendermint.jabci.api.CodeType;
-import com.github.jtendermint.jabci.socket.DefaultFallbackListener;
-import com.github.jtendermint.jabci.socket.TSocket;
-import com.github.jtendermint.jabci.types.RequestBeginBlock;
-import com.github.jtendermint.jabci.types.RequestCheckTx;
-import com.github.jtendermint.jabci.types.RequestCommit;
-import com.github.jtendermint.jabci.types.RequestDeliverTx;
-import com.github.jtendermint.jabci.types.RequestEcho;
-import com.github.jtendermint.jabci.types.RequestEndBlock;
-import com.github.jtendermint.jabci.types.RequestFlush;
-import com.github.jtendermint.jabci.types.RequestInfo;
-import com.github.jtendermint.jabci.types.RequestInitChain;
-import com.github.jtendermint.jabci.types.RequestQuery;
-import com.github.jtendermint.jabci.types.RequestSetOption;
-import com.github.jtendermint.jabci.types.ResponseBeginBlock;
-import com.github.jtendermint.jabci.types.ResponseCheckTx;
-import com.github.jtendermint.jabci.types.ResponseCommit;
-import com.github.jtendermint.jabci.types.ResponseDeliverTx;
-import com.github.jtendermint.jabci.types.ResponseEcho;
-import com.github.jtendermint.jabci.types.ResponseEndBlock;
-import com.github.jtendermint.jabci.types.ResponseFlush;
-import com.github.jtendermint.jabci.types.ResponseInfo;
-import com.github.jtendermint.jabci.types.ResponseInitChain;
-import com.github.jtendermint.jabci.types.ResponseQuery;
-import com.github.jtendermint.jabci.types.ResponseSetOption;
-import com.google.protobuf.ByteString;
-
 import java.math.BigInteger;
 import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
+
+import com.github.jtendermint.jabci.api.CodeType;
+import com.github.jtendermint.jabci.api.ICheckTx;
+import com.github.jtendermint.jabci.api.ICommit;
+import com.github.jtendermint.jabci.api.IDeliverTx;
+import com.github.jtendermint.jabci.api.IQuery;
+import com.github.jtendermint.jabci.socket.TSocket;
+import com.github.jtendermint.jabci.types.RequestCheckTx;
+import com.github.jtendermint.jabci.types.RequestCommit;
+import com.github.jtendermint.jabci.types.RequestDeliverTx;
+import com.github.jtendermint.jabci.types.RequestQuery;
+import com.github.jtendermint.jabci.types.ResponseCheckTx;
+import com.github.jtendermint.jabci.types.ResponseCommit;
+import com.github.jtendermint.jabci.types.ResponseDeliverTx;
+import com.github.jtendermint.jabci.types.ResponseQuery;
+import com.google.protobuf.ByteString;
 
 /**
  * Implements a sample counter app. every tx-data must be bigger than the current amount of tx
  *
  * @author wolfposd
  */
-public final class JavaCounter implements ABCIAPI {
+public final class JavaCounter implements IDeliverTx, ICheckTx, ICommit, IQuery {
 
-    private DefaultFallbackListener defaultListener = DefaultFallbackListener.instance;
     private int hashCount = 0;
     private int txCount = 0;
     private TSocket socket;
@@ -96,17 +83,21 @@ public final class JavaCounter implements ABCIAPI {
         System.out.println("got deliver tx, with" + TSocket.byteArrayToString(tx.toByteArray()));
 
         if (tx.size() == 0) {
+            System.out.println("returning BAD, transaction is empty");
             return ResponseDeliverTx.newBuilder().setCode(CodeType.BadNonce).setLog("transaction is empty").build();
         } else if (tx.size() <= 4) {
             int x = new BigInteger(1, tx.toByteArray()).intValueExact();
             // this is an int now, if not throws an ArithmeticException
             // but we dont actually care what it is.
 
-            if (x != txCount)
-                return ResponseDeliverTx.newBuilder().setCode(CodeType.BadNonce).setLog("Invalid Nonce. Expected " + txCount + ", got " + x)
-                    .build();
+            if (x != txCount) {
+                String message = "Invalid Nonce. Expected " + txCount + ", got " + x;
+                System.out.println("returning BAD, " + message);
+                return ResponseDeliverTx.newBuilder().setCode(CodeType.BadNonce).setLog(message).build();
+            }
 
         } else {
+            System.out.println("returning BAD, got a bad value");
             return ResponseDeliverTx.newBuilder().setCode(CodeType.BadNonce).setLog("got a bad value").build();
         }
 
@@ -165,47 +156,5 @@ public final class JavaCounter implements ABCIAPI {
                 return ResponseQuery.newBuilder().setCode(CodeType.BadNonce).setLog("Invalid query path. Expected hash or tx, got " + query)
                     .build();
         }
-    }
-
-    @Override
-    public ResponseBeginBlock requestBeginBlock(RequestBeginBlock req) {
-        System.out.println(req);
-        return defaultListener.requestBeginBlock(req);
-    }
-
-    @Override
-    public ResponseEcho requestEcho(RequestEcho req) {
-        System.out.println(req);
-        return defaultListener.requestEcho(req);
-    }
-
-    @Override
-    public ResponseEndBlock requestEndBlock(RequestEndBlock req) {
-        System.out.println(req);
-        return defaultListener.requestEndBlock(req);
-    }
-
-    @Override
-    public ResponseFlush requestFlush(RequestFlush reqfl) {
-        System.out.println(reqfl);
-        return defaultListener.requestFlush(reqfl);
-    }
-
-    @Override
-    public ResponseInfo requestInfo(RequestInfo req) {
-        System.out.println(req);
-        return defaultListener.requestInfo(req);
-    }
-
-    @Override
-    public ResponseInitChain requestInitChain(RequestInitChain req) {
-        System.out.println(req);
-        return defaultListener.requestInitChain(req);
-    }
-
-    @Override
-    public ResponseSetOption requestSetOption(RequestSetOption req) {
-        System.out.println(req);
-        return defaultListener.requestSetOption(req);
     }
 }

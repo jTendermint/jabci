@@ -23,15 +23,12 @@
  */
 package com.github.jtendermint.jabci.socket;
 
-import java.io.BufferedOutputStream;
 import java.io.IOException;
-import java.math.BigInteger;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.SocketTimeoutException;
 import java.util.HashSet;
 
-import com.github.jtendermint.jabci.types.Response;
 import com.google.protobuf.CodedOutputStream;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -217,19 +214,12 @@ public class TSocket extends ASocket {
                     // We need to reset it before reading the next message:
                     inputStream.resetSizeCounter();
 
-                    // HEADER: first byte is length of length field
-                    // tm 0.16 following path in abci/types/messages.go:encodeByteSlice shows that they use some strange way
-                    // to come from a int64 length that will be encoded to uint64 and shifted left by 1 (== *2)
-                    // ... well, ok? So we still can only use int for pushLimit on the encoded stream...whatever
-                    // also, see writeMessage for the other way round
-//                    int varintLengthByte = (int) inputStream.readUInt64() / 2;
+                    // HEADER: first byte(s) is length of the following message;
+                    // it is protobuf encoded as a varint-uint64
                     int varintLengthByte = (int) CodedInputStream.decodeZigZag64(inputStream.readUInt64());
-
-                    System.out.println(Thread.currentThread().getName() + " - bytes: " + varintLengthByte);
 
                     int oldLimit = inputStream.pushLimit(varintLengthByte);
                     final Request request = Request.parseFrom(inputStream);
-                    System.out.println("Parsed " + request);
                     inputStream.popLimit(oldLimit);
 
                     if (!nameSet) {
@@ -238,13 +228,12 @@ public class TSocket extends ASocket {
 
                     // Process the request that was just read:
                     GeneratedMessageV3 response = handleRequest(request);
-                    System.out.println("Writing response " + response);
                     writeMessage(response);
                 }
             } catch (IOException e) {
                 if (!isInterrupted()) {
                     HANDLER_LOG.error("Error with " + this.getName(), e);
-                    HANDLER_LOG.info("Note: If \"the input ended unexpectedly\" it could mean the protobuf file is not up to date.");
+                    HANDLER_LOG.info("Note: If \"the input ended unexpectedly\" it could mean: \n - tendermint was shut down\n - the protobuf file is not up to date.");
                 }
             }
             HANDLER_LOG.debug("Stopping Thread " + this.getName());
@@ -282,12 +271,8 @@ public class TSocket extends ASocket {
                 HANDLER_LOG.debug("writing message " + message.getAllFields().keySet());
                 long length = message.getSerializedSize();
 
-                // HEADER: first byte is length of length field
-                // tm 0.16 following path in abci/types/messages.go:encodeByteSlice shows that they use some strange way
-                // to come from a int64 length that will be encoded to uint64 and shifted left by 1 (== *2)
-                // ... well, ok? So we still can only use int for pushLimit on the encoded stream...whatever
+                // HEADER: first byte(s) is varint encoded length of the message
                 // also, see writeMessage for the other way round
-                //outputStream.writeUInt64NoTag(length << 1);
                 outputStream.writeUInt64NoTag(CodedOutputStream.encodeZigZag64(length));
                 message.writeTo(outputStream);
                 outputStream.flush();
