@@ -60,11 +60,6 @@ public final class JavaCounter implements IDeliverTx, ICheckTx, ICommit, IQuery 
 
         socket.registerListener(this);
 
-        // TODO this is wrong once you subclass this JavaCounter
-        /*
-         * The constructor starts a thread. This is likely to be wrong if the class is ever extended/subclassed, since the thread will be
-         * started before the subclass constructor is started.
-         */
         Thread t = new Thread(() -> socket.start(46658));
         t.setName("Java Counter Main Thread");
         t.start();
