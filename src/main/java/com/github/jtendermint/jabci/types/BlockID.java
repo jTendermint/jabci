@@ -18,7 +18,7 @@ public  final class BlockID extends
     hash_ = com.google.protobuf.ByteString.EMPTY;
   }
 
-  @java.lang.Override
+  @Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
@@ -77,11 +77,11 @@ public  final class BlockID extends
     return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_BlockID_descriptor;
   }
 
-  protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+  protected FieldAccessorTable
       internalGetFieldAccessorTable() {
     return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_BlockID_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.github.jtendermint.jabci.types.BlockID.class, com.github.jtendermint.jabci.types.BlockID.Builder.class);
+            BlockID.class, Builder.class);
   }
 
   public static final int HASH_FIELD_NUMBER = 1;
@@ -152,15 +152,15 @@ public  final class BlockID extends
   }
 
   private static final long serialVersionUID = 0L;
-  @java.lang.Override
-  public boolean equals(final java.lang.Object obj) {
+  @Override
+  public boolean equals(final Object obj) {
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.github.jtendermint.jabci.types.BlockID)) {
+    if (!(obj instanceof BlockID)) {
       return super.equals(obj);
     }
-    com.github.jtendermint.jabci.types.BlockID other = (com.github.jtendermint.jabci.types.BlockID) obj;
+    BlockID other = (BlockID) obj;
 
     boolean result = true;
     result = result && getHash()
@@ -173,7 +173,7 @@ public  final class BlockID extends
     return result;
   }
 
-  @java.lang.Override
+  @Override
   public int hashCode() {
     if (memoizedHashCode != 0) {
       return memoizedHashCode;
@@ -191,58 +191,58 @@ public  final class BlockID extends
     return hash;
   }
 
-  public static com.github.jtendermint.jabci.types.BlockID parseFrom(
+  public static BlockID parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.github.jtendermint.jabci.types.BlockID parseFrom(
+  public static BlockID parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.BlockID parseFrom(byte[] data)
+  public static BlockID parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.github.jtendermint.jabci.types.BlockID parseFrom(
+  public static BlockID parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.BlockID parseFrom(java.io.InputStream input)
+  public static BlockID parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.github.jtendermint.jabci.types.BlockID parseFrom(
+  public static BlockID parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.BlockID parseDelimitedFrom(java.io.InputStream input)
+  public static BlockID parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.github.jtendermint.jabci.types.BlockID parseDelimitedFrom(
+  public static BlockID parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.BlockID parseFrom(
+  public static BlockID parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.github.jtendermint.jabci.types.BlockID parseFrom(
+  public static BlockID parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -254,7 +254,7 @@ public  final class BlockID extends
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.github.jtendermint.jabci.types.BlockID prototype) {
+  public static Builder newBuilder(BlockID prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   public Builder toBuilder() {
@@ -262,9 +262,9 @@ public  final class BlockID extends
         ? new Builder() : new Builder().mergeFrom(this);
   }
 
-  @java.lang.Override
+  @Override
   protected Builder newBuilderForType(
-      com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      BuilderParent parent) {
     Builder builder = new Builder(parent);
     return builder;
   }
@@ -280,11 +280,11 @@ public  final class BlockID extends
       return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_BlockID_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_BlockID_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.github.jtendermint.jabci.types.BlockID.class, com.github.jtendermint.jabci.types.BlockID.Builder.class);
+              BlockID.class, Builder.class);
     }
 
     // Construct using com.github.jtendermint.jabci.types.BlockID.newBuilder()
@@ -293,7 +293,7 @@ public  final class BlockID extends
     }
 
     private Builder(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       super(parent);
       maybeForceBuilderInitialization();
     }
@@ -320,20 +320,20 @@ public  final class BlockID extends
       return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_BlockID_descriptor;
     }
 
-    public com.github.jtendermint.jabci.types.BlockID getDefaultInstanceForType() {
-      return com.github.jtendermint.jabci.types.BlockID.getDefaultInstance();
+    public BlockID getDefaultInstanceForType() {
+      return BlockID.getDefaultInstance();
     }
 
-    public com.github.jtendermint.jabci.types.BlockID build() {
-      com.github.jtendermint.jabci.types.BlockID result = buildPartial();
+    public BlockID build() {
+      BlockID result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
       return result;
     }
 
-    public com.github.jtendermint.jabci.types.BlockID buildPartial() {
-      com.github.jtendermint.jabci.types.BlockID result = new com.github.jtendermint.jabci.types.BlockID(this);
+    public BlockID buildPartial() {
+      BlockID result = new BlockID(this);
       result.hash_ = hash_;
       if (partsBuilder_ == null) {
         result.parts_ = parts_;
@@ -371,16 +371,16 @@ public  final class BlockID extends
       return (Builder) super.addRepeatedField(field, value);
     }
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.github.jtendermint.jabci.types.BlockID) {
-        return mergeFrom((com.github.jtendermint.jabci.types.BlockID)other);
+      if (other instanceof BlockID) {
+        return mergeFrom((BlockID)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.github.jtendermint.jabci.types.BlockID other) {
-      if (other == com.github.jtendermint.jabci.types.BlockID.getDefaultInstance()) return this;
+    public Builder mergeFrom(BlockID other) {
+      if (other == BlockID.getDefaultInstance()) return this;
       if (other.getHash() != com.google.protobuf.ByteString.EMPTY) {
         setHash(other.getHash());
       }
@@ -399,11 +399,11 @@ public  final class BlockID extends
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.github.jtendermint.jabci.types.BlockID parsedMessage = null;
+      BlockID parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.github.jtendermint.jabci.types.BlockID) e.getUnfinishedMessage();
+        parsedMessage = (BlockID) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -573,12 +573,12 @@ public  final class BlockID extends
   }
 
   // @@protoc_insertion_point(class_scope:com.github.jtendermint.jabci.types.BlockID)
-  private static final com.github.jtendermint.jabci.types.BlockID DEFAULT_INSTANCE;
+  private static final BlockID DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.github.jtendermint.jabci.types.BlockID();
+    DEFAULT_INSTANCE = new BlockID();
   }
 
-  public static com.github.jtendermint.jabci.types.BlockID getDefaultInstance() {
+  public static BlockID getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
@@ -596,12 +596,12 @@ public  final class BlockID extends
     return PARSER;
   }
 
-  @java.lang.Override
+  @Override
   public com.google.protobuf.Parser<BlockID> getParserForType() {
     return PARSER;
   }
 
-  public com.github.jtendermint.jabci.types.BlockID getDefaultInstanceForType() {
+  public BlockID getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

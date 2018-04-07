@@ -22,7 +22,7 @@ public  final class ResponseException extends
     error_ = "";
   }
 
-  @java.lang.Override
+  @Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
@@ -48,7 +48,7 @@ public  final class ResponseException extends
             break;
           }
           case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
+            String s = input.readStringRequireUtf8();
 
             error_ = s;
             break;
@@ -69,26 +69,26 @@ public  final class ResponseException extends
     return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseException_descriptor;
   }
 
-  protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+  protected FieldAccessorTable
       internalGetFieldAccessorTable() {
     return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseException_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.github.jtendermint.jabci.types.ResponseException.class, com.github.jtendermint.jabci.types.ResponseException.Builder.class);
+            ResponseException.class, Builder.class);
   }
 
   public static final int ERROR_FIELD_NUMBER = 1;
-  private volatile java.lang.Object error_;
+  private volatile Object error_;
   /**
    * <code>optional string error = 1;</code>
    */
-  public java.lang.String getError() {
-    java.lang.Object ref = error_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
+  public String getError() {
+    Object ref = error_;
+    if (ref instanceof String) {
+      return (String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
+      String s = bs.toStringUtf8();
       error_ = s;
       return s;
     }
@@ -98,11 +98,11 @@ public  final class ResponseException extends
    */
   public com.google.protobuf.ByteString
       getErrorBytes() {
-    java.lang.Object ref = error_;
-    if (ref instanceof java.lang.String) {
+    Object ref = error_;
+    if (ref instanceof String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
+              (String) ref);
       error_ = b;
       return b;
     } else {
@@ -140,15 +140,15 @@ public  final class ResponseException extends
   }
 
   private static final long serialVersionUID = 0L;
-  @java.lang.Override
-  public boolean equals(final java.lang.Object obj) {
+  @Override
+  public boolean equals(final Object obj) {
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.github.jtendermint.jabci.types.ResponseException)) {
+    if (!(obj instanceof ResponseException)) {
       return super.equals(obj);
     }
-    com.github.jtendermint.jabci.types.ResponseException other = (com.github.jtendermint.jabci.types.ResponseException) obj;
+    ResponseException other = (ResponseException) obj;
 
     boolean result = true;
     result = result && getError()
@@ -156,7 +156,7 @@ public  final class ResponseException extends
     return result;
   }
 
-  @java.lang.Override
+  @Override
   public int hashCode() {
     if (memoizedHashCode != 0) {
       return memoizedHashCode;
@@ -170,58 +170,58 @@ public  final class ResponseException extends
     return hash;
   }
 
-  public static com.github.jtendermint.jabci.types.ResponseException parseFrom(
+  public static ResponseException parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.github.jtendermint.jabci.types.ResponseException parseFrom(
+  public static ResponseException parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.ResponseException parseFrom(byte[] data)
+  public static ResponseException parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.github.jtendermint.jabci.types.ResponseException parseFrom(
+  public static ResponseException parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.ResponseException parseFrom(java.io.InputStream input)
+  public static ResponseException parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.github.jtendermint.jabci.types.ResponseException parseFrom(
+  public static ResponseException parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.ResponseException parseDelimitedFrom(java.io.InputStream input)
+  public static ResponseException parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.github.jtendermint.jabci.types.ResponseException parseDelimitedFrom(
+  public static ResponseException parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.ResponseException parseFrom(
+  public static ResponseException parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.github.jtendermint.jabci.types.ResponseException parseFrom(
+  public static ResponseException parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -233,7 +233,7 @@ public  final class ResponseException extends
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.github.jtendermint.jabci.types.ResponseException prototype) {
+  public static Builder newBuilder(ResponseException prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   public Builder toBuilder() {
@@ -241,9 +241,9 @@ public  final class ResponseException extends
         ? new Builder() : new Builder().mergeFrom(this);
   }
 
-  @java.lang.Override
+  @Override
   protected Builder newBuilderForType(
-      com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      BuilderParent parent) {
     Builder builder = new Builder(parent);
     return builder;
   }
@@ -263,11 +263,11 @@ public  final class ResponseException extends
       return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseException_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseException_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.github.jtendermint.jabci.types.ResponseException.class, com.github.jtendermint.jabci.types.ResponseException.Builder.class);
+              ResponseException.class, Builder.class);
     }
 
     // Construct using com.github.jtendermint.jabci.types.ResponseException.newBuilder()
@@ -276,7 +276,7 @@ public  final class ResponseException extends
     }
 
     private Builder(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       super(parent);
       maybeForceBuilderInitialization();
     }
@@ -297,20 +297,20 @@ public  final class ResponseException extends
       return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseException_descriptor;
     }
 
-    public com.github.jtendermint.jabci.types.ResponseException getDefaultInstanceForType() {
-      return com.github.jtendermint.jabci.types.ResponseException.getDefaultInstance();
+    public ResponseException getDefaultInstanceForType() {
+      return ResponseException.getDefaultInstance();
     }
 
-    public com.github.jtendermint.jabci.types.ResponseException build() {
-      com.github.jtendermint.jabci.types.ResponseException result = buildPartial();
+    public ResponseException build() {
+      ResponseException result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
       return result;
     }
 
-    public com.github.jtendermint.jabci.types.ResponseException buildPartial() {
-      com.github.jtendermint.jabci.types.ResponseException result = new com.github.jtendermint.jabci.types.ResponseException(this);
+    public ResponseException buildPartial() {
+      ResponseException result = new ResponseException(this);
       result.error_ = error_;
       onBuilt();
       return result;
@@ -343,16 +343,16 @@ public  final class ResponseException extends
       return (Builder) super.addRepeatedField(field, value);
     }
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.github.jtendermint.jabci.types.ResponseException) {
-        return mergeFrom((com.github.jtendermint.jabci.types.ResponseException)other);
+      if (other instanceof ResponseException) {
+        return mergeFrom((ResponseException)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.github.jtendermint.jabci.types.ResponseException other) {
-      if (other == com.github.jtendermint.jabci.types.ResponseException.getDefaultInstance()) return this;
+    public Builder mergeFrom(ResponseException other) {
+      if (other == ResponseException.getDefaultInstance()) return this;
       if (!other.getError().isEmpty()) {
         error_ = other.error_;
         onChanged();
@@ -369,11 +369,11 @@ public  final class ResponseException extends
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.github.jtendermint.jabci.types.ResponseException parsedMessage = null;
+      ResponseException parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.github.jtendermint.jabci.types.ResponseException) e.getUnfinishedMessage();
+        parsedMessage = (ResponseException) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -383,20 +383,20 @@ public  final class ResponseException extends
       return this;
     }
 
-    private java.lang.Object error_ = "";
+    private Object error_ = "";
     /**
      * <code>optional string error = 1;</code>
      */
-    public java.lang.String getError() {
-      java.lang.Object ref = error_;
-      if (!(ref instanceof java.lang.String)) {
+    public String getError() {
+      Object ref = error_;
+      if (!(ref instanceof String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         error_ = s;
         return s;
       } else {
-        return (java.lang.String) ref;
+        return (String) ref;
       }
     }
     /**
@@ -404,11 +404,11 @@ public  final class ResponseException extends
      */
     public com.google.protobuf.ByteString
         getErrorBytes() {
-      java.lang.Object ref = error_;
+      Object ref = error_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         error_ = b;
         return b;
       } else {
@@ -419,7 +419,7 @@ public  final class ResponseException extends
      * <code>optional string error = 1;</code>
      */
     public Builder setError(
-        java.lang.String value) {
+        String value) {
       if (value == null) {
     throw new NullPointerException();
   }
@@ -466,12 +466,12 @@ public  final class ResponseException extends
   }
 
   // @@protoc_insertion_point(class_scope:com.github.jtendermint.jabci.types.ResponseException)
-  private static final com.github.jtendermint.jabci.types.ResponseException DEFAULT_INSTANCE;
+  private static final ResponseException DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.github.jtendermint.jabci.types.ResponseException();
+    DEFAULT_INSTANCE = new ResponseException();
   }
 
-  public static com.github.jtendermint.jabci.types.ResponseException getDefaultInstance() {
+  public static ResponseException getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
@@ -489,12 +489,12 @@ public  final class ResponseException extends
     return PARSER;
   }
 
-  @java.lang.Override
+  @Override
   public com.google.protobuf.Parser<ResponseException> getParserForType() {
     return PARSER;
   }
 
-  public com.github.jtendermint.jabci.types.ResponseException getDefaultInstanceForType() {
+  public ResponseException getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

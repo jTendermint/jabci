@@ -23,7 +23,7 @@ public  final class KVPair extends
     value_ = com.google.protobuf.ByteString.EMPTY;
   }
 
-  @java.lang.Override
+  @Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
@@ -74,11 +74,11 @@ public  final class KVPair extends
     return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_KVPair_descriptor;
   }
 
-  protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+  protected FieldAccessorTable
       internalGetFieldAccessorTable() {
     return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_KVPair_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.github.jtendermint.jabci.types.KVPair.class, com.github.jtendermint.jabci.types.KVPair.Builder.class);
+            KVPair.class, Builder.class);
   }
 
   public static final int KEY_FIELD_NUMBER = 1;
@@ -137,15 +137,15 @@ public  final class KVPair extends
   }
 
   private static final long serialVersionUID = 0L;
-  @java.lang.Override
-  public boolean equals(final java.lang.Object obj) {
+  @Override
+  public boolean equals(final Object obj) {
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.github.jtendermint.jabci.types.KVPair)) {
+    if (!(obj instanceof KVPair)) {
       return super.equals(obj);
     }
-    com.github.jtendermint.jabci.types.KVPair other = (com.github.jtendermint.jabci.types.KVPair) obj;
+    KVPair other = (KVPair) obj;
 
     boolean result = true;
     result = result && getKey()
@@ -155,7 +155,7 @@ public  final class KVPair extends
     return result;
   }
 
-  @java.lang.Override
+  @Override
   public int hashCode() {
     if (memoizedHashCode != 0) {
       return memoizedHashCode;
@@ -171,58 +171,58 @@ public  final class KVPair extends
     return hash;
   }
 
-  public static com.github.jtendermint.jabci.types.KVPair parseFrom(
+  public static KVPair parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.github.jtendermint.jabci.types.KVPair parseFrom(
+  public static KVPair parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.KVPair parseFrom(byte[] data)
+  public static KVPair parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.github.jtendermint.jabci.types.KVPair parseFrom(
+  public static KVPair parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.KVPair parseFrom(java.io.InputStream input)
+  public static KVPair parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.github.jtendermint.jabci.types.KVPair parseFrom(
+  public static KVPair parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.KVPair parseDelimitedFrom(java.io.InputStream input)
+  public static KVPair parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.github.jtendermint.jabci.types.KVPair parseDelimitedFrom(
+  public static KVPair parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.KVPair parseFrom(
+  public static KVPair parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.github.jtendermint.jabci.types.KVPair parseFrom(
+  public static KVPair parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -234,7 +234,7 @@ public  final class KVPair extends
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.github.jtendermint.jabci.types.KVPair prototype) {
+  public static Builder newBuilder(KVPair prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   public Builder toBuilder() {
@@ -242,9 +242,9 @@ public  final class KVPair extends
         ? new Builder() : new Builder().mergeFrom(this);
   }
 
-  @java.lang.Override
+  @Override
   protected Builder newBuilderForType(
-      com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      BuilderParent parent) {
     Builder builder = new Builder(parent);
     return builder;
   }
@@ -264,11 +264,11 @@ public  final class KVPair extends
       return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_KVPair_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_KVPair_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.github.jtendermint.jabci.types.KVPair.class, com.github.jtendermint.jabci.types.KVPair.Builder.class);
+              KVPair.class, Builder.class);
     }
 
     // Construct using com.github.jtendermint.jabci.types.KVPair.newBuilder()
@@ -277,7 +277,7 @@ public  final class KVPair extends
     }
 
     private Builder(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       super(parent);
       maybeForceBuilderInitialization();
     }
@@ -300,20 +300,20 @@ public  final class KVPair extends
       return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_KVPair_descriptor;
     }
 
-    public com.github.jtendermint.jabci.types.KVPair getDefaultInstanceForType() {
-      return com.github.jtendermint.jabci.types.KVPair.getDefaultInstance();
+    public KVPair getDefaultInstanceForType() {
+      return KVPair.getDefaultInstance();
     }
 
-    public com.github.jtendermint.jabci.types.KVPair build() {
-      com.github.jtendermint.jabci.types.KVPair result = buildPartial();
+    public KVPair build() {
+      KVPair result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
       return result;
     }
 
-    public com.github.jtendermint.jabci.types.KVPair buildPartial() {
-      com.github.jtendermint.jabci.types.KVPair result = new com.github.jtendermint.jabci.types.KVPair(this);
+    public KVPair buildPartial() {
+      KVPair result = new KVPair(this);
       result.key_ = key_;
       result.value_ = value_;
       onBuilt();
@@ -347,16 +347,16 @@ public  final class KVPair extends
       return (Builder) super.addRepeatedField(field, value);
     }
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.github.jtendermint.jabci.types.KVPair) {
-        return mergeFrom((com.github.jtendermint.jabci.types.KVPair)other);
+      if (other instanceof KVPair) {
+        return mergeFrom((KVPair)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.github.jtendermint.jabci.types.KVPair other) {
-      if (other == com.github.jtendermint.jabci.types.KVPair.getDefaultInstance()) return this;
+    public Builder mergeFrom(KVPair other) {
+      if (other == KVPair.getDefaultInstance()) return this;
       if (other.getKey() != com.google.protobuf.ByteString.EMPTY) {
         setKey(other.getKey());
       }
@@ -375,11 +375,11 @@ public  final class KVPair extends
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.github.jtendermint.jabci.types.KVPair parsedMessage = null;
+      KVPair parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.github.jtendermint.jabci.types.KVPair) e.getUnfinishedMessage();
+        parsedMessage = (KVPair) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -461,12 +461,12 @@ public  final class KVPair extends
   }
 
   // @@protoc_insertion_point(class_scope:com.github.jtendermint.jabci.types.KVPair)
-  private static final com.github.jtendermint.jabci.types.KVPair DEFAULT_INSTANCE;
+  private static final KVPair DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.github.jtendermint.jabci.types.KVPair();
+    DEFAULT_INSTANCE = new KVPair();
   }
 
-  public static com.github.jtendermint.jabci.types.KVPair getDefaultInstance() {
+  public static KVPair getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
@@ -484,12 +484,12 @@ public  final class KVPair extends
     return PARSER;
   }
 
-  @java.lang.Override
+  @Override
   public com.google.protobuf.Parser<KVPair> getParserForType() {
     return PARSER;
   }
 
-  public com.github.jtendermint.jabci.types.KVPair getDefaultInstanceForType() {
+  public KVPair getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

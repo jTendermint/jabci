@@ -18,7 +18,7 @@ public  final class RequestEndBlock extends
     height_ = 0L;
   }
 
-  @java.lang.Override
+  @Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
@@ -64,11 +64,11 @@ public  final class RequestEndBlock extends
     return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_RequestEndBlock_descriptor;
   }
 
-  protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+  protected FieldAccessorTable
       internalGetFieldAccessorTable() {
     return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_RequestEndBlock_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.github.jtendermint.jabci.types.RequestEndBlock.class, com.github.jtendermint.jabci.types.RequestEndBlock.Builder.class);
+            RequestEndBlock.class, Builder.class);
   }
 
   public static final int HEIGHT_FIELD_NUMBER = 1;
@@ -111,15 +111,15 @@ public  final class RequestEndBlock extends
   }
 
   private static final long serialVersionUID = 0L;
-  @java.lang.Override
-  public boolean equals(final java.lang.Object obj) {
+  @Override
+  public boolean equals(final Object obj) {
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.github.jtendermint.jabci.types.RequestEndBlock)) {
+    if (!(obj instanceof RequestEndBlock)) {
       return super.equals(obj);
     }
-    com.github.jtendermint.jabci.types.RequestEndBlock other = (com.github.jtendermint.jabci.types.RequestEndBlock) obj;
+    RequestEndBlock other = (RequestEndBlock) obj;
 
     boolean result = true;
     result = result && (getHeight()
@@ -127,7 +127,7 @@ public  final class RequestEndBlock extends
     return result;
   }
 
-  @java.lang.Override
+  @Override
   public int hashCode() {
     if (memoizedHashCode != 0) {
       return memoizedHashCode;
@@ -142,58 +142,58 @@ public  final class RequestEndBlock extends
     return hash;
   }
 
-  public static com.github.jtendermint.jabci.types.RequestEndBlock parseFrom(
+  public static RequestEndBlock parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.github.jtendermint.jabci.types.RequestEndBlock parseFrom(
+  public static RequestEndBlock parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.RequestEndBlock parseFrom(byte[] data)
+  public static RequestEndBlock parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.github.jtendermint.jabci.types.RequestEndBlock parseFrom(
+  public static RequestEndBlock parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.RequestEndBlock parseFrom(java.io.InputStream input)
+  public static RequestEndBlock parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.github.jtendermint.jabci.types.RequestEndBlock parseFrom(
+  public static RequestEndBlock parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.RequestEndBlock parseDelimitedFrom(java.io.InputStream input)
+  public static RequestEndBlock parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.github.jtendermint.jabci.types.RequestEndBlock parseDelimitedFrom(
+  public static RequestEndBlock parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.RequestEndBlock parseFrom(
+  public static RequestEndBlock parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.github.jtendermint.jabci.types.RequestEndBlock parseFrom(
+  public static RequestEndBlock parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -205,7 +205,7 @@ public  final class RequestEndBlock extends
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.github.jtendermint.jabci.types.RequestEndBlock prototype) {
+  public static Builder newBuilder(RequestEndBlock prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   public Builder toBuilder() {
@@ -213,9 +213,9 @@ public  final class RequestEndBlock extends
         ? new Builder() : new Builder().mergeFrom(this);
   }
 
-  @java.lang.Override
+  @Override
   protected Builder newBuilderForType(
-      com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      BuilderParent parent) {
     Builder builder = new Builder(parent);
     return builder;
   }
@@ -231,11 +231,11 @@ public  final class RequestEndBlock extends
       return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_RequestEndBlock_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_RequestEndBlock_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.github.jtendermint.jabci.types.RequestEndBlock.class, com.github.jtendermint.jabci.types.RequestEndBlock.Builder.class);
+              RequestEndBlock.class, Builder.class);
     }
 
     // Construct using com.github.jtendermint.jabci.types.RequestEndBlock.newBuilder()
@@ -244,7 +244,7 @@ public  final class RequestEndBlock extends
     }
 
     private Builder(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       super(parent);
       maybeForceBuilderInitialization();
     }
@@ -265,20 +265,20 @@ public  final class RequestEndBlock extends
       return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_RequestEndBlock_descriptor;
     }
 
-    public com.github.jtendermint.jabci.types.RequestEndBlock getDefaultInstanceForType() {
-      return com.github.jtendermint.jabci.types.RequestEndBlock.getDefaultInstance();
+    public RequestEndBlock getDefaultInstanceForType() {
+      return RequestEndBlock.getDefaultInstance();
     }
 
-    public com.github.jtendermint.jabci.types.RequestEndBlock build() {
-      com.github.jtendermint.jabci.types.RequestEndBlock result = buildPartial();
+    public RequestEndBlock build() {
+      RequestEndBlock result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
       return result;
     }
 
-    public com.github.jtendermint.jabci.types.RequestEndBlock buildPartial() {
-      com.github.jtendermint.jabci.types.RequestEndBlock result = new com.github.jtendermint.jabci.types.RequestEndBlock(this);
+    public RequestEndBlock buildPartial() {
+      RequestEndBlock result = new RequestEndBlock(this);
       result.height_ = height_;
       onBuilt();
       return result;
@@ -311,16 +311,16 @@ public  final class RequestEndBlock extends
       return (Builder) super.addRepeatedField(field, value);
     }
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.github.jtendermint.jabci.types.RequestEndBlock) {
-        return mergeFrom((com.github.jtendermint.jabci.types.RequestEndBlock)other);
+      if (other instanceof RequestEndBlock) {
+        return mergeFrom((RequestEndBlock)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.github.jtendermint.jabci.types.RequestEndBlock other) {
-      if (other == com.github.jtendermint.jabci.types.RequestEndBlock.getDefaultInstance()) return this;
+    public Builder mergeFrom(RequestEndBlock other) {
+      if (other == RequestEndBlock.getDefaultInstance()) return this;
       if (other.getHeight() != 0L) {
         setHeight(other.getHeight());
       }
@@ -336,11 +336,11 @@ public  final class RequestEndBlock extends
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.github.jtendermint.jabci.types.RequestEndBlock parsedMessage = null;
+      RequestEndBlock parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.github.jtendermint.jabci.types.RequestEndBlock) e.getUnfinishedMessage();
+        parsedMessage = (RequestEndBlock) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -390,12 +390,12 @@ public  final class RequestEndBlock extends
   }
 
   // @@protoc_insertion_point(class_scope:com.github.jtendermint.jabci.types.RequestEndBlock)
-  private static final com.github.jtendermint.jabci.types.RequestEndBlock DEFAULT_INSTANCE;
+  private static final RequestEndBlock DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.github.jtendermint.jabci.types.RequestEndBlock();
+    DEFAULT_INSTANCE = new RequestEndBlock();
   }
 
-  public static com.github.jtendermint.jabci.types.RequestEndBlock getDefaultInstance() {
+  public static RequestEndBlock getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
@@ -413,12 +413,12 @@ public  final class RequestEndBlock extends
     return PARSER;
   }
 
-  @java.lang.Override
+  @Override
   public com.google.protobuf.Parser<RequestEndBlock> getParserForType() {
     return PARSER;
   }
 
-  public com.github.jtendermint.jabci.types.RequestEndBlock getDefaultInstanceForType() {
+  public RequestEndBlock getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

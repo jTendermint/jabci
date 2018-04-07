@@ -29,7 +29,7 @@ public interface RequestInitChainOrBuilder extends
    * <code>repeated .com.github.jtendermint.jabci.types.Validator validators = 1;</code>
    */
   com.github.jtendermint.jabci.types.ValidatorOrBuilder getValidatorsOrBuilder(
-      int index);
+          int index);
 
   /**
    * <code>optional bytes app_state_bytes = 2;</code>

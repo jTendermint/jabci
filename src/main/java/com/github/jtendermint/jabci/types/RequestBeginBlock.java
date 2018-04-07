@@ -20,7 +20,7 @@ public  final class RequestBeginBlock extends
     byzantineValidators_ = java.util.Collections.emptyList();
   }
 
-  @java.lang.Override
+  @Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
@@ -51,11 +51,11 @@ public  final class RequestBeginBlock extends
             break;
           }
           case 18: {
-            com.github.jtendermint.jabci.types.Header.Builder subBuilder = null;
+            Header.Builder subBuilder = null;
             if (header_ != null) {
               subBuilder = header_.toBuilder();
             }
-            header_ = input.readMessage(com.github.jtendermint.jabci.types.Header.parser(), extensionRegistry);
+            header_ = input.readMessage(Header.parser(), extensionRegistry);
             if (subBuilder != null) {
               subBuilder.mergeFrom(header_);
               header_ = subBuilder.buildPartial();
@@ -65,7 +65,7 @@ public  final class RequestBeginBlock extends
           }
           case 24: {
             if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
-              absentValidators_ = new java.util.ArrayList<java.lang.Integer>();
+              absentValidators_ = new java.util.ArrayList<Integer>();
               mutable_bitField0_ |= 0x00000004;
             }
             absentValidators_.add(input.readInt32());
@@ -75,7 +75,7 @@ public  final class RequestBeginBlock extends
             int length = input.readRawVarint32();
             int limit = input.pushLimit(length);
             if (!((mutable_bitField0_ & 0x00000004) == 0x00000004) && input.getBytesUntilLimit() > 0) {
-              absentValidators_ = new java.util.ArrayList<java.lang.Integer>();
+              absentValidators_ = new java.util.ArrayList<Integer>();
               mutable_bitField0_ |= 0x00000004;
             }
             while (input.getBytesUntilLimit() > 0) {
@@ -86,11 +86,11 @@ public  final class RequestBeginBlock extends
           }
           case 34: {
             if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
-              byzantineValidators_ = new java.util.ArrayList<com.github.jtendermint.jabci.types.Evidence>();
+              byzantineValidators_ = new java.util.ArrayList<Evidence>();
               mutable_bitField0_ |= 0x00000008;
             }
             byzantineValidators_.add(
-                input.readMessage(com.github.jtendermint.jabci.types.Evidence.parser(), extensionRegistry));
+                input.readMessage(Evidence.parser(), extensionRegistry));
             break;
           }
         }
@@ -115,11 +115,11 @@ public  final class RequestBeginBlock extends
     return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_RequestBeginBlock_descriptor;
   }
 
-  protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+  protected FieldAccessorTable
       internalGetFieldAccessorTable() {
     return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_RequestBeginBlock_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.github.jtendermint.jabci.types.RequestBeginBlock.class, com.github.jtendermint.jabci.types.RequestBeginBlock.Builder.class);
+            RequestBeginBlock.class, Builder.class);
   }
 
   private int bitField0_;
@@ -133,7 +133,7 @@ public  final class RequestBeginBlock extends
   }
 
   public static final int HEADER_FIELD_NUMBER = 2;
-  private com.github.jtendermint.jabci.types.Header header_;
+  private Header header_;
   /**
    * <code>optional .com.github.jtendermint.jabci.types.Header header = 2;</code>
    */
@@ -143,22 +143,22 @@ public  final class RequestBeginBlock extends
   /**
    * <code>optional .com.github.jtendermint.jabci.types.Header header = 2;</code>
    */
-  public com.github.jtendermint.jabci.types.Header getHeader() {
-    return header_ == null ? com.github.jtendermint.jabci.types.Header.getDefaultInstance() : header_;
+  public Header getHeader() {
+    return header_ == null ? Header.getDefaultInstance() : header_;
   }
   /**
    * <code>optional .com.github.jtendermint.jabci.types.Header header = 2;</code>
    */
-  public com.github.jtendermint.jabci.types.HeaderOrBuilder getHeaderOrBuilder() {
+  public HeaderOrBuilder getHeaderOrBuilder() {
     return getHeader();
   }
 
   public static final int ABSENT_VALIDATORS_FIELD_NUMBER = 3;
-  private java.util.List<java.lang.Integer> absentValidators_;
+  private java.util.List<Integer> absentValidators_;
   /**
    * <code>repeated int32 absent_validators = 3;</code>
    */
-  public java.util.List<java.lang.Integer>
+  public java.util.List<Integer>
       getAbsentValidatorsList() {
     return absentValidators_;
   }
@@ -177,17 +177,17 @@ public  final class RequestBeginBlock extends
   private int absentValidatorsMemoizedSerializedSize = -1;
 
   public static final int BYZANTINE_VALIDATORS_FIELD_NUMBER = 4;
-  private java.util.List<com.github.jtendermint.jabci.types.Evidence> byzantineValidators_;
+  private java.util.List<Evidence> byzantineValidators_;
   /**
    * <code>repeated .com.github.jtendermint.jabci.types.Evidence byzantine_validators = 4;</code>
    */
-  public java.util.List<com.github.jtendermint.jabci.types.Evidence> getByzantineValidatorsList() {
+  public java.util.List<Evidence> getByzantineValidatorsList() {
     return byzantineValidators_;
   }
   /**
    * <code>repeated .com.github.jtendermint.jabci.types.Evidence byzantine_validators = 4;</code>
    */
-  public java.util.List<? extends com.github.jtendermint.jabci.types.EvidenceOrBuilder> 
+  public java.util.List<? extends EvidenceOrBuilder>
       getByzantineValidatorsOrBuilderList() {
     return byzantineValidators_;
   }
@@ -200,13 +200,13 @@ public  final class RequestBeginBlock extends
   /**
    * <code>repeated .com.github.jtendermint.jabci.types.Evidence byzantine_validators = 4;</code>
    */
-  public com.github.jtendermint.jabci.types.Evidence getByzantineValidators(int index) {
+  public Evidence getByzantineValidators(int index) {
     return byzantineValidators_.get(index);
   }
   /**
    * <code>repeated .com.github.jtendermint.jabci.types.Evidence byzantine_validators = 4;</code>
    */
-  public com.github.jtendermint.jabci.types.EvidenceOrBuilder getByzantineValidatorsOrBuilder(
+  public EvidenceOrBuilder getByzantineValidatorsOrBuilder(
       int index) {
     return byzantineValidators_.get(index);
   }
@@ -278,15 +278,15 @@ public  final class RequestBeginBlock extends
   }
 
   private static final long serialVersionUID = 0L;
-  @java.lang.Override
-  public boolean equals(final java.lang.Object obj) {
+  @Override
+  public boolean equals(final Object obj) {
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.github.jtendermint.jabci.types.RequestBeginBlock)) {
+    if (!(obj instanceof RequestBeginBlock)) {
       return super.equals(obj);
     }
-    com.github.jtendermint.jabci.types.RequestBeginBlock other = (com.github.jtendermint.jabci.types.RequestBeginBlock) obj;
+    RequestBeginBlock other = (RequestBeginBlock) obj;
 
     boolean result = true;
     result = result && getHash()
@@ -303,7 +303,7 @@ public  final class RequestBeginBlock extends
     return result;
   }
 
-  @java.lang.Override
+  @Override
   public int hashCode() {
     if (memoizedHashCode != 0) {
       return memoizedHashCode;
@@ -329,58 +329,58 @@ public  final class RequestBeginBlock extends
     return hash;
   }
 
-  public static com.github.jtendermint.jabci.types.RequestBeginBlock parseFrom(
+  public static RequestBeginBlock parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.github.jtendermint.jabci.types.RequestBeginBlock parseFrom(
+  public static RequestBeginBlock parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.RequestBeginBlock parseFrom(byte[] data)
+  public static RequestBeginBlock parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.github.jtendermint.jabci.types.RequestBeginBlock parseFrom(
+  public static RequestBeginBlock parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.RequestBeginBlock parseFrom(java.io.InputStream input)
+  public static RequestBeginBlock parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.github.jtendermint.jabci.types.RequestBeginBlock parseFrom(
+  public static RequestBeginBlock parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.RequestBeginBlock parseDelimitedFrom(java.io.InputStream input)
+  public static RequestBeginBlock parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.github.jtendermint.jabci.types.RequestBeginBlock parseDelimitedFrom(
+  public static RequestBeginBlock parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.RequestBeginBlock parseFrom(
+  public static RequestBeginBlock parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.github.jtendermint.jabci.types.RequestBeginBlock parseFrom(
+  public static RequestBeginBlock parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -392,7 +392,7 @@ public  final class RequestBeginBlock extends
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.github.jtendermint.jabci.types.RequestBeginBlock prototype) {
+  public static Builder newBuilder(RequestBeginBlock prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   public Builder toBuilder() {
@@ -400,9 +400,9 @@ public  final class RequestBeginBlock extends
         ? new Builder() : new Builder().mergeFrom(this);
   }
 
-  @java.lang.Override
+  @Override
   protected Builder newBuilderForType(
-      com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      BuilderParent parent) {
     Builder builder = new Builder(parent);
     return builder;
   }
@@ -418,11 +418,11 @@ public  final class RequestBeginBlock extends
       return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_RequestBeginBlock_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_RequestBeginBlock_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.github.jtendermint.jabci.types.RequestBeginBlock.class, com.github.jtendermint.jabci.types.RequestBeginBlock.Builder.class);
+              RequestBeginBlock.class, Builder.class);
     }
 
     // Construct using com.github.jtendermint.jabci.types.RequestBeginBlock.newBuilder()
@@ -431,7 +431,7 @@ public  final class RequestBeginBlock extends
     }
 
     private Builder(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       super(parent);
       maybeForceBuilderInitialization();
     }
@@ -467,20 +467,20 @@ public  final class RequestBeginBlock extends
       return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_RequestBeginBlock_descriptor;
     }
 
-    public com.github.jtendermint.jabci.types.RequestBeginBlock getDefaultInstanceForType() {
-      return com.github.jtendermint.jabci.types.RequestBeginBlock.getDefaultInstance();
+    public RequestBeginBlock getDefaultInstanceForType() {
+      return RequestBeginBlock.getDefaultInstance();
     }
 
-    public com.github.jtendermint.jabci.types.RequestBeginBlock build() {
-      com.github.jtendermint.jabci.types.RequestBeginBlock result = buildPartial();
+    public RequestBeginBlock build() {
+      RequestBeginBlock result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
       return result;
     }
 
-    public com.github.jtendermint.jabci.types.RequestBeginBlock buildPartial() {
-      com.github.jtendermint.jabci.types.RequestBeginBlock result = new com.github.jtendermint.jabci.types.RequestBeginBlock(this);
+    public RequestBeginBlock buildPartial() {
+      RequestBeginBlock result = new RequestBeginBlock(this);
       int from_bitField0_ = bitField0_;
       int to_bitField0_ = 0;
       result.hash_ = hash_;
@@ -535,16 +535,16 @@ public  final class RequestBeginBlock extends
       return (Builder) super.addRepeatedField(field, value);
     }
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.github.jtendermint.jabci.types.RequestBeginBlock) {
-        return mergeFrom((com.github.jtendermint.jabci.types.RequestBeginBlock)other);
+      if (other instanceof RequestBeginBlock) {
+        return mergeFrom((RequestBeginBlock)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.github.jtendermint.jabci.types.RequestBeginBlock other) {
-      if (other == com.github.jtendermint.jabci.types.RequestBeginBlock.getDefaultInstance()) return this;
+    public Builder mergeFrom(RequestBeginBlock other) {
+      if (other == RequestBeginBlock.getDefaultInstance()) return this;
       if (other.getHash() != com.google.protobuf.ByteString.EMPTY) {
         setHash(other.getHash());
       }
@@ -599,11 +599,11 @@ public  final class RequestBeginBlock extends
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.github.jtendermint.jabci.types.RequestBeginBlock parsedMessage = null;
+      RequestBeginBlock parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.github.jtendermint.jabci.types.RequestBeginBlock) e.getUnfinishedMessage();
+        parsedMessage = (RequestBeginBlock) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -643,9 +643,9 @@ public  final class RequestBeginBlock extends
       return this;
     }
 
-    private com.github.jtendermint.jabci.types.Header header_ = null;
+    private Header header_ = null;
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.github.jtendermint.jabci.types.Header, com.github.jtendermint.jabci.types.Header.Builder, com.github.jtendermint.jabci.types.HeaderOrBuilder> headerBuilder_;
+        Header, Header.Builder, HeaderOrBuilder> headerBuilder_;
     /**
      * <code>optional .com.github.jtendermint.jabci.types.Header header = 2;</code>
      */
@@ -655,9 +655,9 @@ public  final class RequestBeginBlock extends
     /**
      * <code>optional .com.github.jtendermint.jabci.types.Header header = 2;</code>
      */
-    public com.github.jtendermint.jabci.types.Header getHeader() {
+    public Header getHeader() {
       if (headerBuilder_ == null) {
-        return header_ == null ? com.github.jtendermint.jabci.types.Header.getDefaultInstance() : header_;
+        return header_ == null ? Header.getDefaultInstance() : header_;
       } else {
         return headerBuilder_.getMessage();
       }
@@ -665,7 +665,7 @@ public  final class RequestBeginBlock extends
     /**
      * <code>optional .com.github.jtendermint.jabci.types.Header header = 2;</code>
      */
-    public Builder setHeader(com.github.jtendermint.jabci.types.Header value) {
+    public Builder setHeader(Header value) {
       if (headerBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -682,7 +682,7 @@ public  final class RequestBeginBlock extends
      * <code>optional .com.github.jtendermint.jabci.types.Header header = 2;</code>
      */
     public Builder setHeader(
-        com.github.jtendermint.jabci.types.Header.Builder builderForValue) {
+        Header.Builder builderForValue) {
       if (headerBuilder_ == null) {
         header_ = builderForValue.build();
         onChanged();
@@ -695,11 +695,11 @@ public  final class RequestBeginBlock extends
     /**
      * <code>optional .com.github.jtendermint.jabci.types.Header header = 2;</code>
      */
-    public Builder mergeHeader(com.github.jtendermint.jabci.types.Header value) {
+    public Builder mergeHeader(Header value) {
       if (headerBuilder_ == null) {
         if (header_ != null) {
           header_ =
-            com.github.jtendermint.jabci.types.Header.newBuilder(header_).mergeFrom(value).buildPartial();
+            Header.newBuilder(header_).mergeFrom(value).buildPartial();
         } else {
           header_ = value;
         }
@@ -727,7 +727,7 @@ public  final class RequestBeginBlock extends
     /**
      * <code>optional .com.github.jtendermint.jabci.types.Header header = 2;</code>
      */
-    public com.github.jtendermint.jabci.types.Header.Builder getHeaderBuilder() {
+    public Header.Builder getHeaderBuilder() {
       
       onChanged();
       return getHeaderFieldBuilder().getBuilder();
@@ -735,23 +735,23 @@ public  final class RequestBeginBlock extends
     /**
      * <code>optional .com.github.jtendermint.jabci.types.Header header = 2;</code>
      */
-    public com.github.jtendermint.jabci.types.HeaderOrBuilder getHeaderOrBuilder() {
+    public HeaderOrBuilder getHeaderOrBuilder() {
       if (headerBuilder_ != null) {
         return headerBuilder_.getMessageOrBuilder();
       } else {
         return header_ == null ?
-            com.github.jtendermint.jabci.types.Header.getDefaultInstance() : header_;
+            Header.getDefaultInstance() : header_;
       }
     }
     /**
      * <code>optional .com.github.jtendermint.jabci.types.Header header = 2;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.github.jtendermint.jabci.types.Header, com.github.jtendermint.jabci.types.Header.Builder, com.github.jtendermint.jabci.types.HeaderOrBuilder> 
+        Header, Header.Builder, HeaderOrBuilder>
         getHeaderFieldBuilder() {
       if (headerBuilder_ == null) {
         headerBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.github.jtendermint.jabci.types.Header, com.github.jtendermint.jabci.types.Header.Builder, com.github.jtendermint.jabci.types.HeaderOrBuilder>(
+            Header, Header.Builder, HeaderOrBuilder>(
                 getHeader(),
                 getParentForChildren(),
                 isClean());
@@ -760,17 +760,17 @@ public  final class RequestBeginBlock extends
       return headerBuilder_;
     }
 
-    private java.util.List<java.lang.Integer> absentValidators_ = java.util.Collections.emptyList();
+    private java.util.List<Integer> absentValidators_ = java.util.Collections.emptyList();
     private void ensureAbsentValidatorsIsMutable() {
       if (!((bitField0_ & 0x00000004) == 0x00000004)) {
-        absentValidators_ = new java.util.ArrayList<java.lang.Integer>(absentValidators_);
+        absentValidators_ = new java.util.ArrayList<Integer>(absentValidators_);
         bitField0_ |= 0x00000004;
        }
     }
     /**
      * <code>repeated int32 absent_validators = 3;</code>
      */
-    public java.util.List<java.lang.Integer>
+    public java.util.List<Integer>
         getAbsentValidatorsList() {
       return java.util.Collections.unmodifiableList(absentValidators_);
     }
@@ -809,7 +809,7 @@ public  final class RequestBeginBlock extends
      * <code>repeated int32 absent_validators = 3;</code>
      */
     public Builder addAllAbsentValidators(
-        java.lang.Iterable<? extends java.lang.Integer> values) {
+        Iterable<? extends Integer> values) {
       ensureAbsentValidatorsIsMutable();
       com.google.protobuf.AbstractMessageLite.Builder.addAll(
           values, absentValidators_);
@@ -826,22 +826,22 @@ public  final class RequestBeginBlock extends
       return this;
     }
 
-    private java.util.List<com.github.jtendermint.jabci.types.Evidence> byzantineValidators_ =
+    private java.util.List<Evidence> byzantineValidators_ =
       java.util.Collections.emptyList();
     private void ensureByzantineValidatorsIsMutable() {
       if (!((bitField0_ & 0x00000008) == 0x00000008)) {
-        byzantineValidators_ = new java.util.ArrayList<com.github.jtendermint.jabci.types.Evidence>(byzantineValidators_);
+        byzantineValidators_ = new java.util.ArrayList<Evidence>(byzantineValidators_);
         bitField0_ |= 0x00000008;
        }
     }
 
     private com.google.protobuf.RepeatedFieldBuilderV3<
-        com.github.jtendermint.jabci.types.Evidence, com.github.jtendermint.jabci.types.Evidence.Builder, com.github.jtendermint.jabci.types.EvidenceOrBuilder> byzantineValidatorsBuilder_;
+        Evidence, Evidence.Builder, EvidenceOrBuilder> byzantineValidatorsBuilder_;
 
     /**
      * <code>repeated .com.github.jtendermint.jabci.types.Evidence byzantine_validators = 4;</code>
      */
-    public java.util.List<com.github.jtendermint.jabci.types.Evidence> getByzantineValidatorsList() {
+    public java.util.List<Evidence> getByzantineValidatorsList() {
       if (byzantineValidatorsBuilder_ == null) {
         return java.util.Collections.unmodifiableList(byzantineValidators_);
       } else {
@@ -861,7 +861,7 @@ public  final class RequestBeginBlock extends
     /**
      * <code>repeated .com.github.jtendermint.jabci.types.Evidence byzantine_validators = 4;</code>
      */
-    public com.github.jtendermint.jabci.types.Evidence getByzantineValidators(int index) {
+    public Evidence getByzantineValidators(int index) {
       if (byzantineValidatorsBuilder_ == null) {
         return byzantineValidators_.get(index);
       } else {
@@ -872,7 +872,7 @@ public  final class RequestBeginBlock extends
      * <code>repeated .com.github.jtendermint.jabci.types.Evidence byzantine_validators = 4;</code>
      */
     public Builder setByzantineValidators(
-        int index, com.github.jtendermint.jabci.types.Evidence value) {
+        int index, Evidence value) {
       if (byzantineValidatorsBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -889,7 +889,7 @@ public  final class RequestBeginBlock extends
      * <code>repeated .com.github.jtendermint.jabci.types.Evidence byzantine_validators = 4;</code>
      */
     public Builder setByzantineValidators(
-        int index, com.github.jtendermint.jabci.types.Evidence.Builder builderForValue) {
+        int index, Evidence.Builder builderForValue) {
       if (byzantineValidatorsBuilder_ == null) {
         ensureByzantineValidatorsIsMutable();
         byzantineValidators_.set(index, builderForValue.build());
@@ -902,7 +902,7 @@ public  final class RequestBeginBlock extends
     /**
      * <code>repeated .com.github.jtendermint.jabci.types.Evidence byzantine_validators = 4;</code>
      */
-    public Builder addByzantineValidators(com.github.jtendermint.jabci.types.Evidence value) {
+    public Builder addByzantineValidators(Evidence value) {
       if (byzantineValidatorsBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -919,7 +919,7 @@ public  final class RequestBeginBlock extends
      * <code>repeated .com.github.jtendermint.jabci.types.Evidence byzantine_validators = 4;</code>
      */
     public Builder addByzantineValidators(
-        int index, com.github.jtendermint.jabci.types.Evidence value) {
+        int index, Evidence value) {
       if (byzantineValidatorsBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -936,7 +936,7 @@ public  final class RequestBeginBlock extends
      * <code>repeated .com.github.jtendermint.jabci.types.Evidence byzantine_validators = 4;</code>
      */
     public Builder addByzantineValidators(
-        com.github.jtendermint.jabci.types.Evidence.Builder builderForValue) {
+        Evidence.Builder builderForValue) {
       if (byzantineValidatorsBuilder_ == null) {
         ensureByzantineValidatorsIsMutable();
         byzantineValidators_.add(builderForValue.build());
@@ -950,7 +950,7 @@ public  final class RequestBeginBlock extends
      * <code>repeated .com.github.jtendermint.jabci.types.Evidence byzantine_validators = 4;</code>
      */
     public Builder addByzantineValidators(
-        int index, com.github.jtendermint.jabci.types.Evidence.Builder builderForValue) {
+        int index, Evidence.Builder builderForValue) {
       if (byzantineValidatorsBuilder_ == null) {
         ensureByzantineValidatorsIsMutable();
         byzantineValidators_.add(index, builderForValue.build());
@@ -964,7 +964,7 @@ public  final class RequestBeginBlock extends
      * <code>repeated .com.github.jtendermint.jabci.types.Evidence byzantine_validators = 4;</code>
      */
     public Builder addAllByzantineValidators(
-        java.lang.Iterable<? extends com.github.jtendermint.jabci.types.Evidence> values) {
+        Iterable<? extends Evidence> values) {
       if (byzantineValidatorsBuilder_ == null) {
         ensureByzantineValidatorsIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -1004,14 +1004,14 @@ public  final class RequestBeginBlock extends
     /**
      * <code>repeated .com.github.jtendermint.jabci.types.Evidence byzantine_validators = 4;</code>
      */
-    public com.github.jtendermint.jabci.types.Evidence.Builder getByzantineValidatorsBuilder(
+    public Evidence.Builder getByzantineValidatorsBuilder(
         int index) {
       return getByzantineValidatorsFieldBuilder().getBuilder(index);
     }
     /**
      * <code>repeated .com.github.jtendermint.jabci.types.Evidence byzantine_validators = 4;</code>
      */
-    public com.github.jtendermint.jabci.types.EvidenceOrBuilder getByzantineValidatorsOrBuilder(
+    public EvidenceOrBuilder getByzantineValidatorsOrBuilder(
         int index) {
       if (byzantineValidatorsBuilder_ == null) {
         return byzantineValidators_.get(index);  } else {
@@ -1021,7 +1021,7 @@ public  final class RequestBeginBlock extends
     /**
      * <code>repeated .com.github.jtendermint.jabci.types.Evidence byzantine_validators = 4;</code>
      */
-    public java.util.List<? extends com.github.jtendermint.jabci.types.EvidenceOrBuilder> 
+    public java.util.List<? extends EvidenceOrBuilder>
          getByzantineValidatorsOrBuilderList() {
       if (byzantineValidatorsBuilder_ != null) {
         return byzantineValidatorsBuilder_.getMessageOrBuilderList();
@@ -1032,31 +1032,31 @@ public  final class RequestBeginBlock extends
     /**
      * <code>repeated .com.github.jtendermint.jabci.types.Evidence byzantine_validators = 4;</code>
      */
-    public com.github.jtendermint.jabci.types.Evidence.Builder addByzantineValidatorsBuilder() {
+    public Evidence.Builder addByzantineValidatorsBuilder() {
       return getByzantineValidatorsFieldBuilder().addBuilder(
-          com.github.jtendermint.jabci.types.Evidence.getDefaultInstance());
+          Evidence.getDefaultInstance());
     }
     /**
      * <code>repeated .com.github.jtendermint.jabci.types.Evidence byzantine_validators = 4;</code>
      */
-    public com.github.jtendermint.jabci.types.Evidence.Builder addByzantineValidatorsBuilder(
+    public Evidence.Builder addByzantineValidatorsBuilder(
         int index) {
       return getByzantineValidatorsFieldBuilder().addBuilder(
-          index, com.github.jtendermint.jabci.types.Evidence.getDefaultInstance());
+          index, Evidence.getDefaultInstance());
     }
     /**
      * <code>repeated .com.github.jtendermint.jabci.types.Evidence byzantine_validators = 4;</code>
      */
-    public java.util.List<com.github.jtendermint.jabci.types.Evidence.Builder> 
+    public java.util.List<Evidence.Builder>
          getByzantineValidatorsBuilderList() {
       return getByzantineValidatorsFieldBuilder().getBuilderList();
     }
     private com.google.protobuf.RepeatedFieldBuilderV3<
-        com.github.jtendermint.jabci.types.Evidence, com.github.jtendermint.jabci.types.Evidence.Builder, com.github.jtendermint.jabci.types.EvidenceOrBuilder> 
+        Evidence, Evidence.Builder, EvidenceOrBuilder>
         getByzantineValidatorsFieldBuilder() {
       if (byzantineValidatorsBuilder_ == null) {
         byzantineValidatorsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-            com.github.jtendermint.jabci.types.Evidence, com.github.jtendermint.jabci.types.Evidence.Builder, com.github.jtendermint.jabci.types.EvidenceOrBuilder>(
+            Evidence, Evidence.Builder, EvidenceOrBuilder>(
                 byzantineValidators_,
                 ((bitField0_ & 0x00000008) == 0x00000008),
                 getParentForChildren(),
@@ -1080,12 +1080,12 @@ public  final class RequestBeginBlock extends
   }
 
   // @@protoc_insertion_point(class_scope:com.github.jtendermint.jabci.types.RequestBeginBlock)
-  private static final com.github.jtendermint.jabci.types.RequestBeginBlock DEFAULT_INSTANCE;
+  private static final RequestBeginBlock DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.github.jtendermint.jabci.types.RequestBeginBlock();
+    DEFAULT_INSTANCE = new RequestBeginBlock();
   }
 
-  public static com.github.jtendermint.jabci.types.RequestBeginBlock getDefaultInstance() {
+  public static RequestBeginBlock getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
@@ -1103,12 +1103,12 @@ public  final class RequestBeginBlock extends
     return PARSER;
   }
 
-  @java.lang.Override
+  @Override
   public com.google.protobuf.Parser<RequestBeginBlock> getParserForType() {
     return PARSER;
   }
 
-  public com.github.jtendermint.jabci.types.RequestBeginBlock getDefaultInstanceForType() {
+  public RequestBeginBlock getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

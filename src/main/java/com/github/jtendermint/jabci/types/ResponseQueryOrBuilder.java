@@ -19,7 +19,7 @@ public interface ResponseQueryOrBuilder extends
    *
    * <code>optional string log = 3;</code>
    */
-  java.lang.String getLog();
+  String getLog();
   /**
    * <pre>
    * bytes data = 2; // use "value" instead.
@@ -37,7 +37,7 @@ public interface ResponseQueryOrBuilder extends
    *
    * <code>optional string info = 4;</code>
    */
-  java.lang.String getInfo();
+  String getInfo();
   /**
    * <pre>
    * nondeterministic

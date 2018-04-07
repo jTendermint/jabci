@@ -10,38 +10,38 @@ public interface ResponseOrBuilder extends
   /**
    * <code>optional .com.github.jtendermint.jabci.types.ResponseException exception = 1;</code>
    */
-  com.github.jtendermint.jabci.types.ResponseException getException();
+  ResponseException getException();
   /**
    * <code>optional .com.github.jtendermint.jabci.types.ResponseException exception = 1;</code>
    */
-  com.github.jtendermint.jabci.types.ResponseExceptionOrBuilder getExceptionOrBuilder();
+  ResponseExceptionOrBuilder getExceptionOrBuilder();
 
   /**
    * <code>optional .com.github.jtendermint.jabci.types.ResponseEcho echo = 2;</code>
    */
-  com.github.jtendermint.jabci.types.ResponseEcho getEcho();
+  ResponseEcho getEcho();
   /**
    * <code>optional .com.github.jtendermint.jabci.types.ResponseEcho echo = 2;</code>
    */
-  com.github.jtendermint.jabci.types.ResponseEchoOrBuilder getEchoOrBuilder();
+  ResponseEchoOrBuilder getEchoOrBuilder();
 
   /**
    * <code>optional .com.github.jtendermint.jabci.types.ResponseFlush flush = 3;</code>
    */
-  com.github.jtendermint.jabci.types.ResponseFlush getFlush();
+  ResponseFlush getFlush();
   /**
    * <code>optional .com.github.jtendermint.jabci.types.ResponseFlush flush = 3;</code>
    */
-  com.github.jtendermint.jabci.types.ResponseFlushOrBuilder getFlushOrBuilder();
+  ResponseFlushOrBuilder getFlushOrBuilder();
 
   /**
    * <code>optional .com.github.jtendermint.jabci.types.ResponseInfo info = 4;</code>
    */
-  com.github.jtendermint.jabci.types.ResponseInfo getInfo();
+  ResponseInfo getInfo();
   /**
    * <code>optional .com.github.jtendermint.jabci.types.ResponseInfo info = 4;</code>
    */
-  com.github.jtendermint.jabci.types.ResponseInfoOrBuilder getInfoOrBuilder();
+  ResponseInfoOrBuilder getInfoOrBuilder();
 
   /**
    * <code>optional .com.github.jtendermint.jabci.types.ResponseSetOption set_option = 5;</code>
@@ -55,11 +55,11 @@ public interface ResponseOrBuilder extends
   /**
    * <code>optional .com.github.jtendermint.jabci.types.ResponseInitChain init_chain = 6;</code>
    */
-  com.github.jtendermint.jabci.types.ResponseInitChain getInitChain();
+  ResponseInitChain getInitChain();
   /**
    * <code>optional .com.github.jtendermint.jabci.types.ResponseInitChain init_chain = 6;</code>
    */
-  com.github.jtendermint.jabci.types.ResponseInitChainOrBuilder getInitChainOrBuilder();
+  ResponseInitChainOrBuilder getInitChainOrBuilder();
 
   /**
    * <code>optional .com.github.jtendermint.jabci.types.ResponseQuery query = 7;</code>
@@ -73,47 +73,47 @@ public interface ResponseOrBuilder extends
   /**
    * <code>optional .com.github.jtendermint.jabci.types.ResponseBeginBlock begin_block = 8;</code>
    */
-  com.github.jtendermint.jabci.types.ResponseBeginBlock getBeginBlock();
+  ResponseBeginBlock getBeginBlock();
   /**
    * <code>optional .com.github.jtendermint.jabci.types.ResponseBeginBlock begin_block = 8;</code>
    */
-  com.github.jtendermint.jabci.types.ResponseBeginBlockOrBuilder getBeginBlockOrBuilder();
+  ResponseBeginBlockOrBuilder getBeginBlockOrBuilder();
 
   /**
    * <code>optional .com.github.jtendermint.jabci.types.ResponseCheckTx check_tx = 9;</code>
    */
-  com.github.jtendermint.jabci.types.ResponseCheckTx getCheckTx();
+  ResponseCheckTx getCheckTx();
   /**
    * <code>optional .com.github.jtendermint.jabci.types.ResponseCheckTx check_tx = 9;</code>
    */
-  com.github.jtendermint.jabci.types.ResponseCheckTxOrBuilder getCheckTxOrBuilder();
+  ResponseCheckTxOrBuilder getCheckTxOrBuilder();
 
   /**
    * <code>optional .com.github.jtendermint.jabci.types.ResponseDeliverTx deliver_tx = 10;</code>
    */
-  com.github.jtendermint.jabci.types.ResponseDeliverTx getDeliverTx();
+  ResponseDeliverTx getDeliverTx();
   /**
    * <code>optional .com.github.jtendermint.jabci.types.ResponseDeliverTx deliver_tx = 10;</code>
    */
-  com.github.jtendermint.jabci.types.ResponseDeliverTxOrBuilder getDeliverTxOrBuilder();
+  ResponseDeliverTxOrBuilder getDeliverTxOrBuilder();
 
   /**
    * <code>optional .com.github.jtendermint.jabci.types.ResponseEndBlock end_block = 11;</code>
    */
-  com.github.jtendermint.jabci.types.ResponseEndBlock getEndBlock();
+  ResponseEndBlock getEndBlock();
   /**
    * <code>optional .com.github.jtendermint.jabci.types.ResponseEndBlock end_block = 11;</code>
    */
-  com.github.jtendermint.jabci.types.ResponseEndBlockOrBuilder getEndBlockOrBuilder();
+  ResponseEndBlockOrBuilder getEndBlockOrBuilder();
 
   /**
    * <code>optional .com.github.jtendermint.jabci.types.ResponseCommit commit = 12;</code>
    */
-  com.github.jtendermint.jabci.types.ResponseCommit getCommit();
+  ResponseCommit getCommit();
   /**
    * <code>optional .com.github.jtendermint.jabci.types.ResponseCommit commit = 12;</code>
    */
-  com.github.jtendermint.jabci.types.ResponseCommitOrBuilder getCommitOrBuilder();
+  ResponseCommitOrBuilder getCommitOrBuilder();
 
-  public com.github.jtendermint.jabci.types.Response.ValueCase getValueCase();
+  public Response.ValueCase getValueCase();
 }

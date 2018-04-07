@@ -14,7 +14,7 @@ jABCI v0.15 Release is now available via maven central. Use the following depend
 <dependency>
     <groupId>com.github.jtendermint</groupId>
     <artifactId>jabci</artifactId>
-    <version>0.15</version>
+    <version>0.17</version>
 </dependency>
 ```
 

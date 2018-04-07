@@ -15,7 +15,7 @@ public interface RequestQueryOrBuilder extends
   /**
    * <code>optional string path = 2;</code>
    */
-  java.lang.String getPath();
+  String getPath();
   /**
    * <code>optional string path = 2;</code>
    */

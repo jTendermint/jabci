@@ -17,7 +17,7 @@ public  final class Response extends
   private Response() {
   }
 
-  @java.lang.Override
+  @Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
@@ -226,15 +226,15 @@ public  final class Response extends
     return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_Response_descriptor;
   }
 
-  protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+  protected FieldAccessorTable
       internalGetFieldAccessorTable() {
     return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_Response_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.github.jtendermint.jabci.types.Response.class, com.github.jtendermint.jabci.types.Response.Builder.class);
+            Response.class, Builder.class);
   }
 
   private int valueCase_ = 0;
-  private java.lang.Object value_;
+  private Object value_;
   public enum ValueCase
       implements com.google.protobuf.Internal.EnumLite {
     EXCEPTION(1),
@@ -257,7 +257,7 @@ public  final class Response extends
     /**
      * @deprecated Use {@link #forNumber(int)} instead.
      */
-    @java.lang.Deprecated
+    @Deprecated
     public static ValueCase valueOf(int value) {
       return forNumber(value);
     }
@@ -639,15 +639,15 @@ public  final class Response extends
   }
 
   private static final long serialVersionUID = 0L;
-  @java.lang.Override
-  public boolean equals(final java.lang.Object obj) {
+  @Override
+  public boolean equals(final Object obj) {
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.github.jtendermint.jabci.types.Response)) {
+    if (!(obj instanceof Response)) {
       return super.equals(obj);
     }
-    com.github.jtendermint.jabci.types.Response other = (com.github.jtendermint.jabci.types.Response) obj;
+    Response other = (Response) obj;
 
     boolean result = true;
     result = result && getValueCase().equals(
@@ -708,7 +708,7 @@ public  final class Response extends
     return result;
   }
 
-  @java.lang.Override
+  @Override
   public int hashCode() {
     if (memoizedHashCode != 0) {
       return memoizedHashCode;
@@ -772,58 +772,58 @@ public  final class Response extends
     return hash;
   }
 
-  public static com.github.jtendermint.jabci.types.Response parseFrom(
+  public static Response parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.github.jtendermint.jabci.types.Response parseFrom(
+  public static Response parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.Response parseFrom(byte[] data)
+  public static Response parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.github.jtendermint.jabci.types.Response parseFrom(
+  public static Response parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.Response parseFrom(java.io.InputStream input)
+  public static Response parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.github.jtendermint.jabci.types.Response parseFrom(
+  public static Response parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.Response parseDelimitedFrom(java.io.InputStream input)
+  public static Response parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.github.jtendermint.jabci.types.Response parseDelimitedFrom(
+  public static Response parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.Response parseFrom(
+  public static Response parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.github.jtendermint.jabci.types.Response parseFrom(
+  public static Response parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -835,7 +835,7 @@ public  final class Response extends
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.github.jtendermint.jabci.types.Response prototype) {
+  public static Builder newBuilder(Response prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   public Builder toBuilder() {
@@ -843,9 +843,9 @@ public  final class Response extends
         ? new Builder() : new Builder().mergeFrom(this);
   }
 
-  @java.lang.Override
+  @Override
   protected Builder newBuilderForType(
-      com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      BuilderParent parent) {
     Builder builder = new Builder(parent);
     return builder;
   }
@@ -861,11 +861,11 @@ public  final class Response extends
       return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_Response_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_Response_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.github.jtendermint.jabci.types.Response.class, com.github.jtendermint.jabci.types.Response.Builder.class);
+              Response.class, Builder.class);
     }
 
     // Construct using com.github.jtendermint.jabci.types.Response.newBuilder()
@@ -874,7 +874,7 @@ public  final class Response extends
     }
 
     private Builder(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       super(parent);
       maybeForceBuilderInitialization();
     }
@@ -895,20 +895,20 @@ public  final class Response extends
       return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_Response_descriptor;
     }
 
-    public com.github.jtendermint.jabci.types.Response getDefaultInstanceForType() {
-      return com.github.jtendermint.jabci.types.Response.getDefaultInstance();
+    public Response getDefaultInstanceForType() {
+      return Response.getDefaultInstance();
     }
 
-    public com.github.jtendermint.jabci.types.Response build() {
-      com.github.jtendermint.jabci.types.Response result = buildPartial();
+    public Response build() {
+      Response result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
       return result;
     }
 
-    public com.github.jtendermint.jabci.types.Response buildPartial() {
-      com.github.jtendermint.jabci.types.Response result = new com.github.jtendermint.jabci.types.Response(this);
+    public Response buildPartial() {
+      Response result = new Response(this);
       if (valueCase_ == 1) {
         if (exceptionBuilder_ == null) {
           result.value_ = value_;
@@ -1025,16 +1025,16 @@ public  final class Response extends
       return (Builder) super.addRepeatedField(field, value);
     }
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.github.jtendermint.jabci.types.Response) {
-        return mergeFrom((com.github.jtendermint.jabci.types.Response)other);
+      if (other instanceof Response) {
+        return mergeFrom((Response)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.github.jtendermint.jabci.types.Response other) {
-      if (other == com.github.jtendermint.jabci.types.Response.getDefaultInstance()) return this;
+    public Builder mergeFrom(Response other) {
+      if (other == Response.getDefaultInstance()) return this;
       switch (other.getValueCase()) {
         case EXCEPTION: {
           mergeException(other.getException());
@@ -1100,11 +1100,11 @@ public  final class Response extends
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.github.jtendermint.jabci.types.Response parsedMessage = null;
+      Response parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.github.jtendermint.jabci.types.Response) e.getUnfinishedMessage();
+        parsedMessage = (Response) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -1114,7 +1114,7 @@ public  final class Response extends
       return this;
     }
     private int valueCase_ = 0;
-    private java.lang.Object value_;
+    private Object value_;
     public ValueCase
         getValueCase() {
       return ValueCase.forNumber(
@@ -2703,12 +2703,12 @@ public  final class Response extends
   }
 
   // @@protoc_insertion_point(class_scope:com.github.jtendermint.jabci.types.Response)
-  private static final com.github.jtendermint.jabci.types.Response DEFAULT_INSTANCE;
+  private static final Response DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.github.jtendermint.jabci.types.Response();
+    DEFAULT_INSTANCE = new Response();
   }
 
-  public static com.github.jtendermint.jabci.types.Response getDefaultInstance() {
+  public static Response getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
@@ -2726,12 +2726,12 @@ public  final class Response extends
     return PARSER;
   }
 
-  @java.lang.Override
+  @Override
   public com.google.protobuf.Parser<Response> getParserForType() {
     return PARSER;
   }
 
-  public com.github.jtendermint.jabci.types.Response getDefaultInstanceForType() {
+  public Response getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

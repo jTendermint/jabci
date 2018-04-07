@@ -22,7 +22,7 @@ public  final class ConsensusParams extends
   private ConsensusParams() {
   }
 
-  @java.lang.Override
+  @Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
@@ -48,11 +48,11 @@ public  final class ConsensusParams extends
             break;
           }
           case 10: {
-            com.github.jtendermint.jabci.types.BlockSize.Builder subBuilder = null;
+            BlockSize.Builder subBuilder = null;
             if (blockSize_ != null) {
               subBuilder = blockSize_.toBuilder();
             }
-            blockSize_ = input.readMessage(com.github.jtendermint.jabci.types.BlockSize.parser(), extensionRegistry);
+            blockSize_ = input.readMessage(BlockSize.parser(), extensionRegistry);
             if (subBuilder != null) {
               subBuilder.mergeFrom(blockSize_);
               blockSize_ = subBuilder.buildPartial();
@@ -74,11 +74,11 @@ public  final class ConsensusParams extends
             break;
           }
           case 26: {
-            com.github.jtendermint.jabci.types.BlockGossip.Builder subBuilder = null;
+            BlockGossip.Builder subBuilder = null;
             if (blockGossip_ != null) {
               subBuilder = blockGossip_.toBuilder();
             }
-            blockGossip_ = input.readMessage(com.github.jtendermint.jabci.types.BlockGossip.parser(), extensionRegistry);
+            blockGossip_ = input.readMessage(BlockGossip.parser(), extensionRegistry);
             if (subBuilder != null) {
               subBuilder.mergeFrom(blockGossip_);
               blockGossip_ = subBuilder.buildPartial();
@@ -102,15 +102,15 @@ public  final class ConsensusParams extends
     return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ConsensusParams_descriptor;
   }
 
-  protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+  protected FieldAccessorTable
       internalGetFieldAccessorTable() {
     return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ConsensusParams_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.github.jtendermint.jabci.types.ConsensusParams.class, com.github.jtendermint.jabci.types.ConsensusParams.Builder.class);
+            ConsensusParams.class, Builder.class);
   }
 
   public static final int BLOCK_SIZE_FIELD_NUMBER = 1;
-  private com.github.jtendermint.jabci.types.BlockSize blockSize_;
+  private BlockSize blockSize_;
   /**
    * <code>optional .com.github.jtendermint.jabci.types.BlockSize block_size = 1;</code>
    */
@@ -120,13 +120,13 @@ public  final class ConsensusParams extends
   /**
    * <code>optional .com.github.jtendermint.jabci.types.BlockSize block_size = 1;</code>
    */
-  public com.github.jtendermint.jabci.types.BlockSize getBlockSize() {
-    return blockSize_ == null ? com.github.jtendermint.jabci.types.BlockSize.getDefaultInstance() : blockSize_;
+  public BlockSize getBlockSize() {
+    return blockSize_ == null ? BlockSize.getDefaultInstance() : blockSize_;
   }
   /**
    * <code>optional .com.github.jtendermint.jabci.types.BlockSize block_size = 1;</code>
    */
-  public com.github.jtendermint.jabci.types.BlockSizeOrBuilder getBlockSizeOrBuilder() {
+  public BlockSizeOrBuilder getBlockSizeOrBuilder() {
     return getBlockSize();
   }
 
@@ -152,7 +152,7 @@ public  final class ConsensusParams extends
   }
 
   public static final int BLOCK_GOSSIP_FIELD_NUMBER = 3;
-  private com.github.jtendermint.jabci.types.BlockGossip blockGossip_;
+  private BlockGossip blockGossip_;
   /**
    * <code>optional .com.github.jtendermint.jabci.types.BlockGossip block_gossip = 3;</code>
    */
@@ -162,13 +162,13 @@ public  final class ConsensusParams extends
   /**
    * <code>optional .com.github.jtendermint.jabci.types.BlockGossip block_gossip = 3;</code>
    */
-  public com.github.jtendermint.jabci.types.BlockGossip getBlockGossip() {
-    return blockGossip_ == null ? com.github.jtendermint.jabci.types.BlockGossip.getDefaultInstance() : blockGossip_;
+  public BlockGossip getBlockGossip() {
+    return blockGossip_ == null ? BlockGossip.getDefaultInstance() : blockGossip_;
   }
   /**
    * <code>optional .com.github.jtendermint.jabci.types.BlockGossip block_gossip = 3;</code>
    */
-  public com.github.jtendermint.jabci.types.BlockGossipOrBuilder getBlockGossipOrBuilder() {
+  public BlockGossipOrBuilder getBlockGossipOrBuilder() {
     return getBlockGossip();
   }
 
@@ -217,15 +217,15 @@ public  final class ConsensusParams extends
   }
 
   private static final long serialVersionUID = 0L;
-  @java.lang.Override
-  public boolean equals(final java.lang.Object obj) {
+  @Override
+  public boolean equals(final Object obj) {
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.github.jtendermint.jabci.types.ConsensusParams)) {
+    if (!(obj instanceof ConsensusParams)) {
       return super.equals(obj);
     }
-    com.github.jtendermint.jabci.types.ConsensusParams other = (com.github.jtendermint.jabci.types.ConsensusParams) obj;
+    ConsensusParams other = (ConsensusParams) obj;
 
     boolean result = true;
     result = result && (hasBlockSize() == other.hasBlockSize());
@@ -246,7 +246,7 @@ public  final class ConsensusParams extends
     return result;
   }
 
-  @java.lang.Override
+  @Override
   public int hashCode() {
     if (memoizedHashCode != 0) {
       return memoizedHashCode;
@@ -270,58 +270,58 @@ public  final class ConsensusParams extends
     return hash;
   }
 
-  public static com.github.jtendermint.jabci.types.ConsensusParams parseFrom(
+  public static ConsensusParams parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.github.jtendermint.jabci.types.ConsensusParams parseFrom(
+  public static ConsensusParams parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.ConsensusParams parseFrom(byte[] data)
+  public static ConsensusParams parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.github.jtendermint.jabci.types.ConsensusParams parseFrom(
+  public static ConsensusParams parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.ConsensusParams parseFrom(java.io.InputStream input)
+  public static ConsensusParams parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.github.jtendermint.jabci.types.ConsensusParams parseFrom(
+  public static ConsensusParams parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.ConsensusParams parseDelimitedFrom(java.io.InputStream input)
+  public static ConsensusParams parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.github.jtendermint.jabci.types.ConsensusParams parseDelimitedFrom(
+  public static ConsensusParams parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.ConsensusParams parseFrom(
+  public static ConsensusParams parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.github.jtendermint.jabci.types.ConsensusParams parseFrom(
+  public static ConsensusParams parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -333,7 +333,7 @@ public  final class ConsensusParams extends
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.github.jtendermint.jabci.types.ConsensusParams prototype) {
+  public static Builder newBuilder(ConsensusParams prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   public Builder toBuilder() {
@@ -341,9 +341,9 @@ public  final class ConsensusParams extends
         ? new Builder() : new Builder().mergeFrom(this);
   }
 
-  @java.lang.Override
+  @Override
   protected Builder newBuilderForType(
-      com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      BuilderParent parent) {
     Builder builder = new Builder(parent);
     return builder;
   }
@@ -364,11 +364,11 @@ public  final class ConsensusParams extends
       return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ConsensusParams_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ConsensusParams_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.github.jtendermint.jabci.types.ConsensusParams.class, com.github.jtendermint.jabci.types.ConsensusParams.Builder.class);
+              ConsensusParams.class, Builder.class);
     }
 
     // Construct using com.github.jtendermint.jabci.types.ConsensusParams.newBuilder()
@@ -377,7 +377,7 @@ public  final class ConsensusParams extends
     }
 
     private Builder(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       super(parent);
       maybeForceBuilderInitialization();
     }
@@ -414,20 +414,20 @@ public  final class ConsensusParams extends
       return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ConsensusParams_descriptor;
     }
 
-    public com.github.jtendermint.jabci.types.ConsensusParams getDefaultInstanceForType() {
-      return com.github.jtendermint.jabci.types.ConsensusParams.getDefaultInstance();
+    public ConsensusParams getDefaultInstanceForType() {
+      return ConsensusParams.getDefaultInstance();
     }
 
-    public com.github.jtendermint.jabci.types.ConsensusParams build() {
-      com.github.jtendermint.jabci.types.ConsensusParams result = buildPartial();
+    public ConsensusParams build() {
+      ConsensusParams result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
       return result;
     }
 
-    public com.github.jtendermint.jabci.types.ConsensusParams buildPartial() {
-      com.github.jtendermint.jabci.types.ConsensusParams result = new com.github.jtendermint.jabci.types.ConsensusParams(this);
+    public ConsensusParams buildPartial() {
+      ConsensusParams result = new ConsensusParams(this);
       if (blockSizeBuilder_ == null) {
         result.blockSize_ = blockSize_;
       } else {
@@ -474,16 +474,16 @@ public  final class ConsensusParams extends
       return (Builder) super.addRepeatedField(field, value);
     }
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.github.jtendermint.jabci.types.ConsensusParams) {
-        return mergeFrom((com.github.jtendermint.jabci.types.ConsensusParams)other);
+      if (other instanceof ConsensusParams) {
+        return mergeFrom((ConsensusParams)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.github.jtendermint.jabci.types.ConsensusParams other) {
-      if (other == com.github.jtendermint.jabci.types.ConsensusParams.getDefaultInstance()) return this;
+    public Builder mergeFrom(ConsensusParams other) {
+      if (other == ConsensusParams.getDefaultInstance()) return this;
       if (other.hasBlockSize()) {
         mergeBlockSize(other.getBlockSize());
       }
@@ -505,11 +505,11 @@ public  final class ConsensusParams extends
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.github.jtendermint.jabci.types.ConsensusParams parsedMessage = null;
+      ConsensusParams parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.github.jtendermint.jabci.types.ConsensusParams) e.getUnfinishedMessage();
+        parsedMessage = (ConsensusParams) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -519,9 +519,9 @@ public  final class ConsensusParams extends
       return this;
     }
 
-    private com.github.jtendermint.jabci.types.BlockSize blockSize_ = null;
+    private BlockSize blockSize_ = null;
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.github.jtendermint.jabci.types.BlockSize, com.github.jtendermint.jabci.types.BlockSize.Builder, com.github.jtendermint.jabci.types.BlockSizeOrBuilder> blockSizeBuilder_;
+        BlockSize, BlockSize.Builder, BlockSizeOrBuilder> blockSizeBuilder_;
     /**
      * <code>optional .com.github.jtendermint.jabci.types.BlockSize block_size = 1;</code>
      */
@@ -531,9 +531,9 @@ public  final class ConsensusParams extends
     /**
      * <code>optional .com.github.jtendermint.jabci.types.BlockSize block_size = 1;</code>
      */
-    public com.github.jtendermint.jabci.types.BlockSize getBlockSize() {
+    public BlockSize getBlockSize() {
       if (blockSizeBuilder_ == null) {
-        return blockSize_ == null ? com.github.jtendermint.jabci.types.BlockSize.getDefaultInstance() : blockSize_;
+        return blockSize_ == null ? BlockSize.getDefaultInstance() : blockSize_;
       } else {
         return blockSizeBuilder_.getMessage();
       }
@@ -541,7 +541,7 @@ public  final class ConsensusParams extends
     /**
      * <code>optional .com.github.jtendermint.jabci.types.BlockSize block_size = 1;</code>
      */
-    public Builder setBlockSize(com.github.jtendermint.jabci.types.BlockSize value) {
+    public Builder setBlockSize(BlockSize value) {
       if (blockSizeBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -558,7 +558,7 @@ public  final class ConsensusParams extends
      * <code>optional .com.github.jtendermint.jabci.types.BlockSize block_size = 1;</code>
      */
     public Builder setBlockSize(
-        com.github.jtendermint.jabci.types.BlockSize.Builder builderForValue) {
+        BlockSize.Builder builderForValue) {
       if (blockSizeBuilder_ == null) {
         blockSize_ = builderForValue.build();
         onChanged();
@@ -571,11 +571,11 @@ public  final class ConsensusParams extends
     /**
      * <code>optional .com.github.jtendermint.jabci.types.BlockSize block_size = 1;</code>
      */
-    public Builder mergeBlockSize(com.github.jtendermint.jabci.types.BlockSize value) {
+    public Builder mergeBlockSize(BlockSize value) {
       if (blockSizeBuilder_ == null) {
         if (blockSize_ != null) {
           blockSize_ =
-            com.github.jtendermint.jabci.types.BlockSize.newBuilder(blockSize_).mergeFrom(value).buildPartial();
+            BlockSize.newBuilder(blockSize_).mergeFrom(value).buildPartial();
         } else {
           blockSize_ = value;
         }
@@ -603,7 +603,7 @@ public  final class ConsensusParams extends
     /**
      * <code>optional .com.github.jtendermint.jabci.types.BlockSize block_size = 1;</code>
      */
-    public com.github.jtendermint.jabci.types.BlockSize.Builder getBlockSizeBuilder() {
+    public BlockSize.Builder getBlockSizeBuilder() {
       
       onChanged();
       return getBlockSizeFieldBuilder().getBuilder();
@@ -611,23 +611,23 @@ public  final class ConsensusParams extends
     /**
      * <code>optional .com.github.jtendermint.jabci.types.BlockSize block_size = 1;</code>
      */
-    public com.github.jtendermint.jabci.types.BlockSizeOrBuilder getBlockSizeOrBuilder() {
+    public BlockSizeOrBuilder getBlockSizeOrBuilder() {
       if (blockSizeBuilder_ != null) {
         return blockSizeBuilder_.getMessageOrBuilder();
       } else {
         return blockSize_ == null ?
-            com.github.jtendermint.jabci.types.BlockSize.getDefaultInstance() : blockSize_;
+            BlockSize.getDefaultInstance() : blockSize_;
       }
     }
     /**
      * <code>optional .com.github.jtendermint.jabci.types.BlockSize block_size = 1;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.github.jtendermint.jabci.types.BlockSize, com.github.jtendermint.jabci.types.BlockSize.Builder, com.github.jtendermint.jabci.types.BlockSizeOrBuilder> 
+        BlockSize, BlockSize.Builder, BlockSizeOrBuilder>
         getBlockSizeFieldBuilder() {
       if (blockSizeBuilder_ == null) {
         blockSizeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.github.jtendermint.jabci.types.BlockSize, com.github.jtendermint.jabci.types.BlockSize.Builder, com.github.jtendermint.jabci.types.BlockSizeOrBuilder>(
+            BlockSize, BlockSize.Builder, BlockSizeOrBuilder>(
                 getBlockSize(),
                 getParentForChildren(),
                 isClean());
@@ -753,9 +753,9 @@ public  final class ConsensusParams extends
       return txSizeBuilder_;
     }
 
-    private com.github.jtendermint.jabci.types.BlockGossip blockGossip_ = null;
+    private BlockGossip blockGossip_ = null;
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.github.jtendermint.jabci.types.BlockGossip, com.github.jtendermint.jabci.types.BlockGossip.Builder, com.github.jtendermint.jabci.types.BlockGossipOrBuilder> blockGossipBuilder_;
+        BlockGossip, BlockGossip.Builder, BlockGossipOrBuilder> blockGossipBuilder_;
     /**
      * <code>optional .com.github.jtendermint.jabci.types.BlockGossip block_gossip = 3;</code>
      */
@@ -765,9 +765,9 @@ public  final class ConsensusParams extends
     /**
      * <code>optional .com.github.jtendermint.jabci.types.BlockGossip block_gossip = 3;</code>
      */
-    public com.github.jtendermint.jabci.types.BlockGossip getBlockGossip() {
+    public BlockGossip getBlockGossip() {
       if (blockGossipBuilder_ == null) {
-        return blockGossip_ == null ? com.github.jtendermint.jabci.types.BlockGossip.getDefaultInstance() : blockGossip_;
+        return blockGossip_ == null ? BlockGossip.getDefaultInstance() : blockGossip_;
       } else {
         return blockGossipBuilder_.getMessage();
       }
@@ -775,7 +775,7 @@ public  final class ConsensusParams extends
     /**
      * <code>optional .com.github.jtendermint.jabci.types.BlockGossip block_gossip = 3;</code>
      */
-    public Builder setBlockGossip(com.github.jtendermint.jabci.types.BlockGossip value) {
+    public Builder setBlockGossip(BlockGossip value) {
       if (blockGossipBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -792,7 +792,7 @@ public  final class ConsensusParams extends
      * <code>optional .com.github.jtendermint.jabci.types.BlockGossip block_gossip = 3;</code>
      */
     public Builder setBlockGossip(
-        com.github.jtendermint.jabci.types.BlockGossip.Builder builderForValue) {
+        BlockGossip.Builder builderForValue) {
       if (blockGossipBuilder_ == null) {
         blockGossip_ = builderForValue.build();
         onChanged();
@@ -805,11 +805,11 @@ public  final class ConsensusParams extends
     /**
      * <code>optional .com.github.jtendermint.jabci.types.BlockGossip block_gossip = 3;</code>
      */
-    public Builder mergeBlockGossip(com.github.jtendermint.jabci.types.BlockGossip value) {
+    public Builder mergeBlockGossip(BlockGossip value) {
       if (blockGossipBuilder_ == null) {
         if (blockGossip_ != null) {
           blockGossip_ =
-            com.github.jtendermint.jabci.types.BlockGossip.newBuilder(blockGossip_).mergeFrom(value).buildPartial();
+            BlockGossip.newBuilder(blockGossip_).mergeFrom(value).buildPartial();
         } else {
           blockGossip_ = value;
         }
@@ -837,7 +837,7 @@ public  final class ConsensusParams extends
     /**
      * <code>optional .com.github.jtendermint.jabci.types.BlockGossip block_gossip = 3;</code>
      */
-    public com.github.jtendermint.jabci.types.BlockGossip.Builder getBlockGossipBuilder() {
+    public BlockGossip.Builder getBlockGossipBuilder() {
       
       onChanged();
       return getBlockGossipFieldBuilder().getBuilder();
@@ -845,23 +845,23 @@ public  final class ConsensusParams extends
     /**
      * <code>optional .com.github.jtendermint.jabci.types.BlockGossip block_gossip = 3;</code>
      */
-    public com.github.jtendermint.jabci.types.BlockGossipOrBuilder getBlockGossipOrBuilder() {
+    public BlockGossipOrBuilder getBlockGossipOrBuilder() {
       if (blockGossipBuilder_ != null) {
         return blockGossipBuilder_.getMessageOrBuilder();
       } else {
         return blockGossip_ == null ?
-            com.github.jtendermint.jabci.types.BlockGossip.getDefaultInstance() : blockGossip_;
+            BlockGossip.getDefaultInstance() : blockGossip_;
       }
     }
     /**
      * <code>optional .com.github.jtendermint.jabci.types.BlockGossip block_gossip = 3;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.github.jtendermint.jabci.types.BlockGossip, com.github.jtendermint.jabci.types.BlockGossip.Builder, com.github.jtendermint.jabci.types.BlockGossipOrBuilder> 
+        BlockGossip, BlockGossip.Builder, BlockGossipOrBuilder>
         getBlockGossipFieldBuilder() {
       if (blockGossipBuilder_ == null) {
         blockGossipBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.github.jtendermint.jabci.types.BlockGossip, com.github.jtendermint.jabci.types.BlockGossip.Builder, com.github.jtendermint.jabci.types.BlockGossipOrBuilder>(
+            BlockGossip, BlockGossip.Builder, BlockGossipOrBuilder>(
                 getBlockGossip(),
                 getParentForChildren(),
                 isClean());
@@ -884,12 +884,12 @@ public  final class ConsensusParams extends
   }
 
   // @@protoc_insertion_point(class_scope:com.github.jtendermint.jabci.types.ConsensusParams)
-  private static final com.github.jtendermint.jabci.types.ConsensusParams DEFAULT_INSTANCE;
+  private static final ConsensusParams DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.github.jtendermint.jabci.types.ConsensusParams();
+    DEFAULT_INSTANCE = new ConsensusParams();
   }
 
-  public static com.github.jtendermint.jabci.types.ConsensusParams getDefaultInstance() {
+  public static ConsensusParams getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
@@ -907,12 +907,12 @@ public  final class ConsensusParams extends
     return PARSER;
   }
 
-  @java.lang.Override
+  @Override
   public com.google.protobuf.Parser<ConsensusParams> getParserForType() {
     return PARSER;
   }
 
-  public com.github.jtendermint.jabci.types.ConsensusParams getDefaultInstanceForType() {
+  public ConsensusParams getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

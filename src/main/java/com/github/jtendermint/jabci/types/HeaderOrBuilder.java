@@ -10,7 +10,7 @@ public interface HeaderOrBuilder extends
   /**
    * <code>optional string chain_id = 1;</code>
    */
-  java.lang.String getChainId();
+  String getChainId();
   /**
    * <code>optional string chain_id = 1;</code>
    */
@@ -39,11 +39,11 @@ public interface HeaderOrBuilder extends
   /**
    * <code>optional .com.github.jtendermint.jabci.types.BlockID last_block_id = 5;</code>
    */
-  com.github.jtendermint.jabci.types.BlockID getLastBlockId();
+  BlockID getLastBlockId();
   /**
    * <code>optional .com.github.jtendermint.jabci.types.BlockID last_block_id = 5;</code>
    */
-  com.github.jtendermint.jabci.types.BlockIDOrBuilder getLastBlockIdOrBuilder();
+  BlockIDOrBuilder getLastBlockIdOrBuilder();
 
   /**
    * <code>optional bytes last_commit_hash = 6;</code>

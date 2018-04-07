@@ -20,10 +20,11 @@ public  final class ResponseCheckTx extends
     log_ = "";
     info_ = "";
     gasWanted_ = 0L;
+    gasUsed_ = 0L;
     tags_ = java.util.Collections.emptyList();
   }
 
-  @java.lang.Override
+  @Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
@@ -59,13 +60,13 @@ public  final class ResponseCheckTx extends
             break;
           }
           case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
+            String s = input.readStringRequireUtf8();
 
             log_ = s;
             break;
           }
           case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
+            String s = input.readStringRequireUtf8();
 
             info_ = s;
             break;
@@ -75,21 +76,26 @@ public  final class ResponseCheckTx extends
             gasWanted_ = input.readInt64();
             break;
           }
+          case 48: {
+
+            gasUsed_ = input.readInt64();
+            break;
+          }
           case 58: {
-            if (!((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
-              tags_ = new java.util.ArrayList<com.github.jtendermint.jabci.types.KVPair>();
-              mutable_bitField0_ |= 0x00000020;
+            if (!((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
+              tags_ = new java.util.ArrayList<KVPair>();
+              mutable_bitField0_ |= 0x00000040;
             }
             tags_.add(
-                input.readMessage(com.github.jtendermint.jabci.types.KVPair.parser(), extensionRegistry));
+                input.readMessage(KVPair.parser(), extensionRegistry));
             break;
           }
           case 66: {
-            com.github.jtendermint.jabci.types.KI64Pair.Builder subBuilder = null;
+            KI64Pair.Builder subBuilder = null;
             if (fee_ != null) {
               subBuilder = fee_.toBuilder();
             }
-            fee_ = input.readMessage(com.github.jtendermint.jabci.types.KI64Pair.parser(), extensionRegistry);
+            fee_ = input.readMessage(KI64Pair.parser(), extensionRegistry);
             if (subBuilder != null) {
               subBuilder.mergeFrom(fee_);
               fee_ = subBuilder.buildPartial();
@@ -105,7 +111,7 @@ public  final class ResponseCheckTx extends
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
-      if (((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
+      if (((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
         tags_ = java.util.Collections.unmodifiableList(tags_);
       }
       makeExtensionsImmutable();
@@ -116,11 +122,11 @@ public  final class ResponseCheckTx extends
     return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseCheckTx_descriptor;
   }
 
-  protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+  protected FieldAccessorTable
       internalGetFieldAccessorTable() {
     return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseCheckTx_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.github.jtendermint.jabci.types.ResponseCheckTx.class, com.github.jtendermint.jabci.types.ResponseCheckTx.Builder.class);
+            ResponseCheckTx.class, Builder.class);
   }
 
   private int bitField0_;
@@ -143,7 +149,7 @@ public  final class ResponseCheckTx extends
   }
 
   public static final int LOG_FIELD_NUMBER = 3;
-  private volatile java.lang.Object log_;
+  private volatile Object log_;
   /**
    * <pre>
    * nondeterministic
@@ -151,14 +157,14 @@ public  final class ResponseCheckTx extends
    *
    * <code>optional string log = 3;</code>
    */
-  public java.lang.String getLog() {
-    java.lang.Object ref = log_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
+  public String getLog() {
+    Object ref = log_;
+    if (ref instanceof String) {
+      return (String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
+      String s = bs.toStringUtf8();
       log_ = s;
       return s;
     }
@@ -172,11 +178,11 @@ public  final class ResponseCheckTx extends
    */
   public com.google.protobuf.ByteString
       getLogBytes() {
-    java.lang.Object ref = log_;
-    if (ref instanceof java.lang.String) {
+    Object ref = log_;
+    if (ref instanceof String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
+              (String) ref);
       log_ = b;
       return b;
     } else {
@@ -185,7 +191,7 @@ public  final class ResponseCheckTx extends
   }
 
   public static final int INFO_FIELD_NUMBER = 4;
-  private volatile java.lang.Object info_;
+  private volatile Object info_;
   /**
    * <pre>
    * nondeterministic
@@ -193,14 +199,14 @@ public  final class ResponseCheckTx extends
    *
    * <code>optional string info = 4;</code>
    */
-  public java.lang.String getInfo() {
-    java.lang.Object ref = info_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
+  public String getInfo() {
+    Object ref = info_;
+    if (ref instanceof String) {
+      return (String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
+      String s = bs.toStringUtf8();
       info_ = s;
       return s;
     }
@@ -214,11 +220,11 @@ public  final class ResponseCheckTx extends
    */
   public com.google.protobuf.ByteString
       getInfoBytes() {
-    java.lang.Object ref = info_;
-    if (ref instanceof java.lang.String) {
+    Object ref = info_;
+    if (ref instanceof String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
+              (String) ref);
       info_ = b;
       return b;
     } else {
@@ -235,63 +241,52 @@ public  final class ResponseCheckTx extends
     return gasWanted_;
   }
 
-  public static final int TAGS_FIELD_NUMBER = 7;
-  private java.util.List<com.github.jtendermint.jabci.types.KVPair> tags_;
+  public static final int GAS_USED_FIELD_NUMBER = 6;
+  private long gasUsed_;
   /**
-   * <pre>
-   * int64 gas_used = 6;
-   * </pre>
-   *
+   * <code>optional int64 gas_used = 6;</code>
+   */
+  public long getGasUsed() {
+    return gasUsed_;
+  }
+
+  public static final int TAGS_FIELD_NUMBER = 7;
+  private java.util.List<KVPair> tags_;
+  /**
    * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
    */
-  public java.util.List<com.github.jtendermint.jabci.types.KVPair> getTagsList() {
+  public java.util.List<KVPair> getTagsList() {
     return tags_;
   }
   /**
-   * <pre>
-   * int64 gas_used = 6;
-   * </pre>
-   *
    * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
    */
-  public java.util.List<? extends com.github.jtendermint.jabci.types.KVPairOrBuilder> 
+  public java.util.List<? extends KVPairOrBuilder>
       getTagsOrBuilderList() {
     return tags_;
   }
   /**
-   * <pre>
-   * int64 gas_used = 6;
-   * </pre>
-   *
    * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
    */
   public int getTagsCount() {
     return tags_.size();
   }
   /**
-   * <pre>
-   * int64 gas_used = 6;
-   * </pre>
-   *
    * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
    */
-  public com.github.jtendermint.jabci.types.KVPair getTags(int index) {
+  public KVPair getTags(int index) {
     return tags_.get(index);
   }
   /**
-   * <pre>
-   * int64 gas_used = 6;
-   * </pre>
-   *
    * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
    */
-  public com.github.jtendermint.jabci.types.KVPairOrBuilder getTagsOrBuilder(
+  public KVPairOrBuilder getTagsOrBuilder(
       int index) {
     return tags_.get(index);
   }
 
   public static final int FEE_FIELD_NUMBER = 8;
-  private com.github.jtendermint.jabci.types.KI64Pair fee_;
+  private KI64Pair fee_;
   /**
    * <code>optional .com.github.jtendermint.jabci.types.KI64Pair fee = 8;</code>
    */
@@ -301,13 +296,13 @@ public  final class ResponseCheckTx extends
   /**
    * <code>optional .com.github.jtendermint.jabci.types.KI64Pair fee = 8;</code>
    */
-  public com.github.jtendermint.jabci.types.KI64Pair getFee() {
-    return fee_ == null ? com.github.jtendermint.jabci.types.KI64Pair.getDefaultInstance() : fee_;
+  public KI64Pair getFee() {
+    return fee_ == null ? KI64Pair.getDefaultInstance() : fee_;
   }
   /**
    * <code>optional .com.github.jtendermint.jabci.types.KI64Pair fee = 8;</code>
    */
-  public com.github.jtendermint.jabci.types.KI64PairOrBuilder getFeeOrBuilder() {
+  public KI64PairOrBuilder getFeeOrBuilder() {
     return getFee();
   }
 
@@ -337,6 +332,9 @@ public  final class ResponseCheckTx extends
     }
     if (gasWanted_ != 0L) {
       output.writeInt64(5, gasWanted_);
+    }
+    if (gasUsed_ != 0L) {
+      output.writeInt64(6, gasUsed_);
     }
     for (int i = 0; i < tags_.size(); i++) {
       output.writeMessage(7, tags_.get(i));
@@ -369,6 +367,10 @@ public  final class ResponseCheckTx extends
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(5, gasWanted_);
     }
+    if (gasUsed_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(6, gasUsed_);
+    }
     for (int i = 0; i < tags_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(7, tags_.get(i));
@@ -382,15 +384,15 @@ public  final class ResponseCheckTx extends
   }
 
   private static final long serialVersionUID = 0L;
-  @java.lang.Override
-  public boolean equals(final java.lang.Object obj) {
+  @Override
+  public boolean equals(final Object obj) {
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.github.jtendermint.jabci.types.ResponseCheckTx)) {
+    if (!(obj instanceof ResponseCheckTx)) {
       return super.equals(obj);
     }
-    com.github.jtendermint.jabci.types.ResponseCheckTx other = (com.github.jtendermint.jabci.types.ResponseCheckTx) obj;
+    ResponseCheckTx other = (ResponseCheckTx) obj;
 
     boolean result = true;
     result = result && (getCode()
@@ -403,6 +405,8 @@ public  final class ResponseCheckTx extends
         .equals(other.getInfo());
     result = result && (getGasWanted()
         == other.getGasWanted());
+    result = result && (getGasUsed()
+        == other.getGasUsed());
     result = result && getTagsList()
         .equals(other.getTagsList());
     result = result && (hasFee() == other.hasFee());
@@ -413,7 +417,7 @@ public  final class ResponseCheckTx extends
     return result;
   }
 
-  @java.lang.Override
+  @Override
   public int hashCode() {
     if (memoizedHashCode != 0) {
       return memoizedHashCode;
@@ -431,6 +435,9 @@ public  final class ResponseCheckTx extends
     hash = (37 * hash) + GAS_WANTED_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getGasWanted());
+    hash = (37 * hash) + GAS_USED_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getGasUsed());
     if (getTagsCount() > 0) {
       hash = (37 * hash) + TAGS_FIELD_NUMBER;
       hash = (53 * hash) + getTagsList().hashCode();
@@ -444,58 +451,58 @@ public  final class ResponseCheckTx extends
     return hash;
   }
 
-  public static com.github.jtendermint.jabci.types.ResponseCheckTx parseFrom(
+  public static ResponseCheckTx parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.github.jtendermint.jabci.types.ResponseCheckTx parseFrom(
+  public static ResponseCheckTx parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.ResponseCheckTx parseFrom(byte[] data)
+  public static ResponseCheckTx parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.github.jtendermint.jabci.types.ResponseCheckTx parseFrom(
+  public static ResponseCheckTx parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.ResponseCheckTx parseFrom(java.io.InputStream input)
+  public static ResponseCheckTx parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.github.jtendermint.jabci.types.ResponseCheckTx parseFrom(
+  public static ResponseCheckTx parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.ResponseCheckTx parseDelimitedFrom(java.io.InputStream input)
+  public static ResponseCheckTx parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.github.jtendermint.jabci.types.ResponseCheckTx parseDelimitedFrom(
+  public static ResponseCheckTx parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.ResponseCheckTx parseFrom(
+  public static ResponseCheckTx parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.github.jtendermint.jabci.types.ResponseCheckTx parseFrom(
+  public static ResponseCheckTx parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -507,7 +514,7 @@ public  final class ResponseCheckTx extends
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.github.jtendermint.jabci.types.ResponseCheckTx prototype) {
+  public static Builder newBuilder(ResponseCheckTx prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   public Builder toBuilder() {
@@ -515,9 +522,9 @@ public  final class ResponseCheckTx extends
         ? new Builder() : new Builder().mergeFrom(this);
   }
 
-  @java.lang.Override
+  @Override
   protected Builder newBuilderForType(
-      com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      BuilderParent parent) {
     Builder builder = new Builder(parent);
     return builder;
   }
@@ -533,11 +540,11 @@ public  final class ResponseCheckTx extends
       return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseCheckTx_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseCheckTx_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.github.jtendermint.jabci.types.ResponseCheckTx.class, com.github.jtendermint.jabci.types.ResponseCheckTx.Builder.class);
+              ResponseCheckTx.class, Builder.class);
     }
 
     // Construct using com.github.jtendermint.jabci.types.ResponseCheckTx.newBuilder()
@@ -546,7 +553,7 @@ public  final class ResponseCheckTx extends
     }
 
     private Builder(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       super(parent);
       maybeForceBuilderInitialization();
     }
@@ -568,9 +575,11 @@ public  final class ResponseCheckTx extends
 
       gasWanted_ = 0L;
 
+      gasUsed_ = 0L;
+
       if (tagsBuilder_ == null) {
         tags_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000020);
+        bitField0_ = (bitField0_ & ~0x00000040);
       } else {
         tagsBuilder_.clear();
       }
@@ -588,20 +597,20 @@ public  final class ResponseCheckTx extends
       return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseCheckTx_descriptor;
     }
 
-    public com.github.jtendermint.jabci.types.ResponseCheckTx getDefaultInstanceForType() {
-      return com.github.jtendermint.jabci.types.ResponseCheckTx.getDefaultInstance();
+    public ResponseCheckTx getDefaultInstanceForType() {
+      return ResponseCheckTx.getDefaultInstance();
     }
 
-    public com.github.jtendermint.jabci.types.ResponseCheckTx build() {
-      com.github.jtendermint.jabci.types.ResponseCheckTx result = buildPartial();
+    public ResponseCheckTx build() {
+      ResponseCheckTx result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
       return result;
     }
 
-    public com.github.jtendermint.jabci.types.ResponseCheckTx buildPartial() {
-      com.github.jtendermint.jabci.types.ResponseCheckTx result = new com.github.jtendermint.jabci.types.ResponseCheckTx(this);
+    public ResponseCheckTx buildPartial() {
+      ResponseCheckTx result = new ResponseCheckTx(this);
       int from_bitField0_ = bitField0_;
       int to_bitField0_ = 0;
       result.code_ = code_;
@@ -609,10 +618,11 @@ public  final class ResponseCheckTx extends
       result.log_ = log_;
       result.info_ = info_;
       result.gasWanted_ = gasWanted_;
+      result.gasUsed_ = gasUsed_;
       if (tagsBuilder_ == null) {
-        if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        if (((bitField0_ & 0x00000040) == 0x00000040)) {
           tags_ = java.util.Collections.unmodifiableList(tags_);
-          bitField0_ = (bitField0_ & ~0x00000020);
+          bitField0_ = (bitField0_ & ~0x00000040);
         }
         result.tags_ = tags_;
       } else {
@@ -655,16 +665,16 @@ public  final class ResponseCheckTx extends
       return (Builder) super.addRepeatedField(field, value);
     }
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.github.jtendermint.jabci.types.ResponseCheckTx) {
-        return mergeFrom((com.github.jtendermint.jabci.types.ResponseCheckTx)other);
+      if (other instanceof ResponseCheckTx) {
+        return mergeFrom((ResponseCheckTx)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.github.jtendermint.jabci.types.ResponseCheckTx other) {
-      if (other == com.github.jtendermint.jabci.types.ResponseCheckTx.getDefaultInstance()) return this;
+    public Builder mergeFrom(ResponseCheckTx other) {
+      if (other == ResponseCheckTx.getDefaultInstance()) return this;
       if (other.getCode() != 0) {
         setCode(other.getCode());
       }
@@ -682,11 +692,14 @@ public  final class ResponseCheckTx extends
       if (other.getGasWanted() != 0L) {
         setGasWanted(other.getGasWanted());
       }
+      if (other.getGasUsed() != 0L) {
+        setGasUsed(other.getGasUsed());
+      }
       if (tagsBuilder_ == null) {
         if (!other.tags_.isEmpty()) {
           if (tags_.isEmpty()) {
             tags_ = other.tags_;
-            bitField0_ = (bitField0_ & ~0x00000020);
+            bitField0_ = (bitField0_ & ~0x00000040);
           } else {
             ensureTagsIsMutable();
             tags_.addAll(other.tags_);
@@ -699,7 +712,7 @@ public  final class ResponseCheckTx extends
             tagsBuilder_.dispose();
             tagsBuilder_ = null;
             tags_ = other.tags_;
-            bitField0_ = (bitField0_ & ~0x00000020);
+            bitField0_ = (bitField0_ & ~0x00000040);
             tagsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getTagsFieldBuilder() : null;
@@ -723,11 +736,11 @@ public  final class ResponseCheckTx extends
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.github.jtendermint.jabci.types.ResponseCheckTx parsedMessage = null;
+      ResponseCheckTx parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.github.jtendermint.jabci.types.ResponseCheckTx) e.getUnfinishedMessage();
+        parsedMessage = (ResponseCheckTx) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -793,7 +806,7 @@ public  final class ResponseCheckTx extends
       return this;
     }
 
-    private java.lang.Object log_ = "";
+    private Object log_ = "";
     /**
      * <pre>
      * nondeterministic
@@ -801,16 +814,16 @@ public  final class ResponseCheckTx extends
      *
      * <code>optional string log = 3;</code>
      */
-    public java.lang.String getLog() {
-      java.lang.Object ref = log_;
-      if (!(ref instanceof java.lang.String)) {
+    public String getLog() {
+      Object ref = log_;
+      if (!(ref instanceof String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         log_ = s;
         return s;
       } else {
-        return (java.lang.String) ref;
+        return (String) ref;
       }
     }
     /**
@@ -822,11 +835,11 @@ public  final class ResponseCheckTx extends
      */
     public com.google.protobuf.ByteString
         getLogBytes() {
-      java.lang.Object ref = log_;
+      Object ref = log_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         log_ = b;
         return b;
       } else {
@@ -841,7 +854,7 @@ public  final class ResponseCheckTx extends
      * <code>optional string log = 3;</code>
      */
     public Builder setLog(
-        java.lang.String value) {
+        String value) {
       if (value == null) {
     throw new NullPointerException();
   }
@@ -882,7 +895,7 @@ public  final class ResponseCheckTx extends
       return this;
     }
 
-    private java.lang.Object info_ = "";
+    private Object info_ = "";
     /**
      * <pre>
      * nondeterministic
@@ -890,16 +903,16 @@ public  final class ResponseCheckTx extends
      *
      * <code>optional string info = 4;</code>
      */
-    public java.lang.String getInfo() {
-      java.lang.Object ref = info_;
-      if (!(ref instanceof java.lang.String)) {
+    public String getInfo() {
+      Object ref = info_;
+      if (!(ref instanceof String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         info_ = s;
         return s;
       } else {
-        return (java.lang.String) ref;
+        return (String) ref;
       }
     }
     /**
@@ -911,11 +924,11 @@ public  final class ResponseCheckTx extends
      */
     public com.google.protobuf.ByteString
         getInfoBytes() {
-      java.lang.Object ref = info_;
+      Object ref = info_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         info_ = b;
         return b;
       } else {
@@ -930,7 +943,7 @@ public  final class ResponseCheckTx extends
      * <code>optional string info = 4;</code>
      */
     public Builder setInfo(
-        java.lang.String value) {
+        String value) {
       if (value == null) {
     throw new NullPointerException();
   }
@@ -997,26 +1010,48 @@ public  final class ResponseCheckTx extends
       return this;
     }
 
-    private java.util.List<com.github.jtendermint.jabci.types.KVPair> tags_ =
+    private long gasUsed_ ;
+    /**
+     * <code>optional int64 gas_used = 6;</code>
+     */
+    public long getGasUsed() {
+      return gasUsed_;
+    }
+    /**
+     * <code>optional int64 gas_used = 6;</code>
+     */
+    public Builder setGasUsed(long value) {
+      
+      gasUsed_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional int64 gas_used = 6;</code>
+     */
+    public Builder clearGasUsed() {
+      
+      gasUsed_ = 0L;
+      onChanged();
+      return this;
+    }
+
+    private java.util.List<KVPair> tags_ =
       java.util.Collections.emptyList();
     private void ensureTagsIsMutable() {
-      if (!((bitField0_ & 0x00000020) == 0x00000020)) {
-        tags_ = new java.util.ArrayList<com.github.jtendermint.jabci.types.KVPair>(tags_);
-        bitField0_ |= 0x00000020;
+      if (!((bitField0_ & 0x00000040) == 0x00000040)) {
+        tags_ = new java.util.ArrayList<KVPair>(tags_);
+        bitField0_ |= 0x00000040;
        }
     }
 
     private com.google.protobuf.RepeatedFieldBuilderV3<
-        com.github.jtendermint.jabci.types.KVPair, com.github.jtendermint.jabci.types.KVPair.Builder, com.github.jtendermint.jabci.types.KVPairOrBuilder> tagsBuilder_;
+        KVPair, KVPair.Builder, KVPairOrBuilder> tagsBuilder_;
 
     /**
-     * <pre>
-     * int64 gas_used = 6;
-     * </pre>
-     *
      * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
      */
-    public java.util.List<com.github.jtendermint.jabci.types.KVPair> getTagsList() {
+    public java.util.List<KVPair> getTagsList() {
       if (tagsBuilder_ == null) {
         return java.util.Collections.unmodifiableList(tags_);
       } else {
@@ -1024,10 +1059,6 @@ public  final class ResponseCheckTx extends
       }
     }
     /**
-     * <pre>
-     * int64 gas_used = 6;
-     * </pre>
-     *
      * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
      */
     public int getTagsCount() {
@@ -1038,13 +1069,9 @@ public  final class ResponseCheckTx extends
       }
     }
     /**
-     * <pre>
-     * int64 gas_used = 6;
-     * </pre>
-     *
      * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
      */
-    public com.github.jtendermint.jabci.types.KVPair getTags(int index) {
+    public KVPair getTags(int index) {
       if (tagsBuilder_ == null) {
         return tags_.get(index);
       } else {
@@ -1052,14 +1079,10 @@ public  final class ResponseCheckTx extends
       }
     }
     /**
-     * <pre>
-     * int64 gas_used = 6;
-     * </pre>
-     *
      * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
      */
     public Builder setTags(
-        int index, com.github.jtendermint.jabci.types.KVPair value) {
+        int index, KVPair value) {
       if (tagsBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -1073,14 +1096,10 @@ public  final class ResponseCheckTx extends
       return this;
     }
     /**
-     * <pre>
-     * int64 gas_used = 6;
-     * </pre>
-     *
      * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
      */
     public Builder setTags(
-        int index, com.github.jtendermint.jabci.types.KVPair.Builder builderForValue) {
+        int index, KVPair.Builder builderForValue) {
       if (tagsBuilder_ == null) {
         ensureTagsIsMutable();
         tags_.set(index, builderForValue.build());
@@ -1091,13 +1110,9 @@ public  final class ResponseCheckTx extends
       return this;
     }
     /**
-     * <pre>
-     * int64 gas_used = 6;
-     * </pre>
-     *
      * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
      */
-    public Builder addTags(com.github.jtendermint.jabci.types.KVPair value) {
+    public Builder addTags(KVPair value) {
       if (tagsBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -1111,14 +1126,10 @@ public  final class ResponseCheckTx extends
       return this;
     }
     /**
-     * <pre>
-     * int64 gas_used = 6;
-     * </pre>
-     *
      * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
      */
     public Builder addTags(
-        int index, com.github.jtendermint.jabci.types.KVPair value) {
+        int index, KVPair value) {
       if (tagsBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -1132,14 +1143,10 @@ public  final class ResponseCheckTx extends
       return this;
     }
     /**
-     * <pre>
-     * int64 gas_used = 6;
-     * </pre>
-     *
      * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
      */
     public Builder addTags(
-        com.github.jtendermint.jabci.types.KVPair.Builder builderForValue) {
+        KVPair.Builder builderForValue) {
       if (tagsBuilder_ == null) {
         ensureTagsIsMutable();
         tags_.add(builderForValue.build());
@@ -1150,14 +1157,10 @@ public  final class ResponseCheckTx extends
       return this;
     }
     /**
-     * <pre>
-     * int64 gas_used = 6;
-     * </pre>
-     *
      * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
      */
     public Builder addTags(
-        int index, com.github.jtendermint.jabci.types.KVPair.Builder builderForValue) {
+        int index, KVPair.Builder builderForValue) {
       if (tagsBuilder_ == null) {
         ensureTagsIsMutable();
         tags_.add(index, builderForValue.build());
@@ -1168,14 +1171,10 @@ public  final class ResponseCheckTx extends
       return this;
     }
     /**
-     * <pre>
-     * int64 gas_used = 6;
-     * </pre>
-     *
      * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
      */
     public Builder addAllTags(
-        java.lang.Iterable<? extends com.github.jtendermint.jabci.types.KVPair> values) {
+        Iterable<? extends KVPair> values) {
       if (tagsBuilder_ == null) {
         ensureTagsIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -1187,16 +1186,12 @@ public  final class ResponseCheckTx extends
       return this;
     }
     /**
-     * <pre>
-     * int64 gas_used = 6;
-     * </pre>
-     *
      * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
      */
     public Builder clearTags() {
       if (tagsBuilder_ == null) {
         tags_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000020);
+        bitField0_ = (bitField0_ & ~0x00000040);
         onChanged();
       } else {
         tagsBuilder_.clear();
@@ -1204,10 +1199,6 @@ public  final class ResponseCheckTx extends
       return this;
     }
     /**
-     * <pre>
-     * int64 gas_used = 6;
-     * </pre>
-     *
      * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
      */
     public Builder removeTags(int index) {
@@ -1221,24 +1212,16 @@ public  final class ResponseCheckTx extends
       return this;
     }
     /**
-     * <pre>
-     * int64 gas_used = 6;
-     * </pre>
-     *
      * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
      */
-    public com.github.jtendermint.jabci.types.KVPair.Builder getTagsBuilder(
+    public KVPair.Builder getTagsBuilder(
         int index) {
       return getTagsFieldBuilder().getBuilder(index);
     }
     /**
-     * <pre>
-     * int64 gas_used = 6;
-     * </pre>
-     *
      * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
      */
-    public com.github.jtendermint.jabci.types.KVPairOrBuilder getTagsOrBuilder(
+    public KVPairOrBuilder getTagsOrBuilder(
         int index) {
       if (tagsBuilder_ == null) {
         return tags_.get(index);  } else {
@@ -1246,13 +1229,9 @@ public  final class ResponseCheckTx extends
       }
     }
     /**
-     * <pre>
-     * int64 gas_used = 6;
-     * </pre>
-     *
      * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
      */
-    public java.util.List<? extends com.github.jtendermint.jabci.types.KVPairOrBuilder> 
+    public java.util.List<? extends KVPairOrBuilder>
          getTagsOrBuilderList() {
       if (tagsBuilder_ != null) {
         return tagsBuilder_.getMessageOrBuilderList();
@@ -1261,47 +1240,35 @@ public  final class ResponseCheckTx extends
       }
     }
     /**
-     * <pre>
-     * int64 gas_used = 6;
-     * </pre>
-     *
      * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
      */
-    public com.github.jtendermint.jabci.types.KVPair.Builder addTagsBuilder() {
+    public KVPair.Builder addTagsBuilder() {
       return getTagsFieldBuilder().addBuilder(
-          com.github.jtendermint.jabci.types.KVPair.getDefaultInstance());
+          KVPair.getDefaultInstance());
     }
     /**
-     * <pre>
-     * int64 gas_used = 6;
-     * </pre>
-     *
      * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
      */
-    public com.github.jtendermint.jabci.types.KVPair.Builder addTagsBuilder(
+    public KVPair.Builder addTagsBuilder(
         int index) {
       return getTagsFieldBuilder().addBuilder(
-          index, com.github.jtendermint.jabci.types.KVPair.getDefaultInstance());
+          index, KVPair.getDefaultInstance());
     }
     /**
-     * <pre>
-     * int64 gas_used = 6;
-     * </pre>
-     *
      * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
      */
-    public java.util.List<com.github.jtendermint.jabci.types.KVPair.Builder> 
+    public java.util.List<KVPair.Builder>
          getTagsBuilderList() {
       return getTagsFieldBuilder().getBuilderList();
     }
     private com.google.protobuf.RepeatedFieldBuilderV3<
-        com.github.jtendermint.jabci.types.KVPair, com.github.jtendermint.jabci.types.KVPair.Builder, com.github.jtendermint.jabci.types.KVPairOrBuilder> 
+        KVPair, KVPair.Builder, KVPairOrBuilder>
         getTagsFieldBuilder() {
       if (tagsBuilder_ == null) {
         tagsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-            com.github.jtendermint.jabci.types.KVPair, com.github.jtendermint.jabci.types.KVPair.Builder, com.github.jtendermint.jabci.types.KVPairOrBuilder>(
+            KVPair, KVPair.Builder, KVPairOrBuilder>(
                 tags_,
-                ((bitField0_ & 0x00000020) == 0x00000020),
+                ((bitField0_ & 0x00000040) == 0x00000040),
                 getParentForChildren(),
                 isClean());
         tags_ = null;
@@ -1309,9 +1276,9 @@ public  final class ResponseCheckTx extends
       return tagsBuilder_;
     }
 
-    private com.github.jtendermint.jabci.types.KI64Pair fee_ = null;
+    private KI64Pair fee_ = null;
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.github.jtendermint.jabci.types.KI64Pair, com.github.jtendermint.jabci.types.KI64Pair.Builder, com.github.jtendermint.jabci.types.KI64PairOrBuilder> feeBuilder_;
+        KI64Pair, KI64Pair.Builder, KI64PairOrBuilder> feeBuilder_;
     /**
      * <code>optional .com.github.jtendermint.jabci.types.KI64Pair fee = 8;</code>
      */
@@ -1321,9 +1288,9 @@ public  final class ResponseCheckTx extends
     /**
      * <code>optional .com.github.jtendermint.jabci.types.KI64Pair fee = 8;</code>
      */
-    public com.github.jtendermint.jabci.types.KI64Pair getFee() {
+    public KI64Pair getFee() {
       if (feeBuilder_ == null) {
-        return fee_ == null ? com.github.jtendermint.jabci.types.KI64Pair.getDefaultInstance() : fee_;
+        return fee_ == null ? KI64Pair.getDefaultInstance() : fee_;
       } else {
         return feeBuilder_.getMessage();
       }
@@ -1331,7 +1298,7 @@ public  final class ResponseCheckTx extends
     /**
      * <code>optional .com.github.jtendermint.jabci.types.KI64Pair fee = 8;</code>
      */
-    public Builder setFee(com.github.jtendermint.jabci.types.KI64Pair value) {
+    public Builder setFee(KI64Pair value) {
       if (feeBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -1348,7 +1315,7 @@ public  final class ResponseCheckTx extends
      * <code>optional .com.github.jtendermint.jabci.types.KI64Pair fee = 8;</code>
      */
     public Builder setFee(
-        com.github.jtendermint.jabci.types.KI64Pair.Builder builderForValue) {
+        KI64Pair.Builder builderForValue) {
       if (feeBuilder_ == null) {
         fee_ = builderForValue.build();
         onChanged();
@@ -1361,11 +1328,11 @@ public  final class ResponseCheckTx extends
     /**
      * <code>optional .com.github.jtendermint.jabci.types.KI64Pair fee = 8;</code>
      */
-    public Builder mergeFee(com.github.jtendermint.jabci.types.KI64Pair value) {
+    public Builder mergeFee(KI64Pair value) {
       if (feeBuilder_ == null) {
         if (fee_ != null) {
           fee_ =
-            com.github.jtendermint.jabci.types.KI64Pair.newBuilder(fee_).mergeFrom(value).buildPartial();
+            KI64Pair.newBuilder(fee_).mergeFrom(value).buildPartial();
         } else {
           fee_ = value;
         }
@@ -1393,7 +1360,7 @@ public  final class ResponseCheckTx extends
     /**
      * <code>optional .com.github.jtendermint.jabci.types.KI64Pair fee = 8;</code>
      */
-    public com.github.jtendermint.jabci.types.KI64Pair.Builder getFeeBuilder() {
+    public KI64Pair.Builder getFeeBuilder() {
       
       onChanged();
       return getFeeFieldBuilder().getBuilder();
@@ -1401,23 +1368,23 @@ public  final class ResponseCheckTx extends
     /**
      * <code>optional .com.github.jtendermint.jabci.types.KI64Pair fee = 8;</code>
      */
-    public com.github.jtendermint.jabci.types.KI64PairOrBuilder getFeeOrBuilder() {
+    public KI64PairOrBuilder getFeeOrBuilder() {
       if (feeBuilder_ != null) {
         return feeBuilder_.getMessageOrBuilder();
       } else {
         return fee_ == null ?
-            com.github.jtendermint.jabci.types.KI64Pair.getDefaultInstance() : fee_;
+            KI64Pair.getDefaultInstance() : fee_;
       }
     }
     /**
      * <code>optional .com.github.jtendermint.jabci.types.KI64Pair fee = 8;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.github.jtendermint.jabci.types.KI64Pair, com.github.jtendermint.jabci.types.KI64Pair.Builder, com.github.jtendermint.jabci.types.KI64PairOrBuilder> 
+        KI64Pair, KI64Pair.Builder, KI64PairOrBuilder>
         getFeeFieldBuilder() {
       if (feeBuilder_ == null) {
         feeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.github.jtendermint.jabci.types.KI64Pair, com.github.jtendermint.jabci.types.KI64Pair.Builder, com.github.jtendermint.jabci.types.KI64PairOrBuilder>(
+            KI64Pair, KI64Pair.Builder, KI64PairOrBuilder>(
                 getFee(),
                 getParentForChildren(),
                 isClean());
@@ -1440,12 +1407,12 @@ public  final class ResponseCheckTx extends
   }
 
   // @@protoc_insertion_point(class_scope:com.github.jtendermint.jabci.types.ResponseCheckTx)
-  private static final com.github.jtendermint.jabci.types.ResponseCheckTx DEFAULT_INSTANCE;
+  private static final ResponseCheckTx DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.github.jtendermint.jabci.types.ResponseCheckTx();
+    DEFAULT_INSTANCE = new ResponseCheckTx();
   }
 
-  public static com.github.jtendermint.jabci.types.ResponseCheckTx getDefaultInstance() {
+  public static ResponseCheckTx getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
@@ -1463,12 +1430,12 @@ public  final class ResponseCheckTx extends
     return PARSER;
   }
 
-  @java.lang.Override
+  @Override
   public com.google.protobuf.Parser<ResponseCheckTx> getParserForType() {
     return PARSER;
   }
 
-  public com.github.jtendermint.jabci.types.ResponseCheckTx getDefaultInstanceForType() {
+  public ResponseCheckTx getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

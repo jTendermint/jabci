@@ -24,7 +24,7 @@ public interface ResponseCheckTxOrBuilder extends
    *
    * <code>optional string log = 3;</code>
    */
-  java.lang.String getLog();
+  String getLog();
   /**
    * <pre>
    * nondeterministic
@@ -42,7 +42,7 @@ public interface ResponseCheckTxOrBuilder extends
    *
    * <code>optional string info = 4;</code>
    */
-  java.lang.String getInfo();
+  String getInfo();
   /**
    * <pre>
    * nondeterministic
@@ -59,48 +59,33 @@ public interface ResponseCheckTxOrBuilder extends
   long getGasWanted();
 
   /**
-   * <pre>
-   * int64 gas_used = 6;
-   * </pre>
-   *
+   * <code>optional int64 gas_used = 6;</code>
+   */
+  long getGasUsed();
+
+  /**
    * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
    */
-  java.util.List<com.github.jtendermint.jabci.types.KVPair> 
+  java.util.List<KVPair>
       getTagsList();
   /**
-   * <pre>
-   * int64 gas_used = 6;
-   * </pre>
-   *
    * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
    */
-  com.github.jtendermint.jabci.types.KVPair getTags(int index);
+  KVPair getTags(int index);
   /**
-   * <pre>
-   * int64 gas_used = 6;
-   * </pre>
-   *
    * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
    */
   int getTagsCount();
   /**
-   * <pre>
-   * int64 gas_used = 6;
-   * </pre>
-   *
    * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
    */
-  java.util.List<? extends com.github.jtendermint.jabci.types.KVPairOrBuilder> 
+  java.util.List<? extends KVPairOrBuilder>
       getTagsOrBuilderList();
   /**
-   * <pre>
-   * int64 gas_used = 6;
-   * </pre>
-   *
    * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
    */
-  com.github.jtendermint.jabci.types.KVPairOrBuilder getTagsOrBuilder(
-      int index);
+  KVPairOrBuilder getTagsOrBuilder(
+          int index);
 
   /**
    * <code>optional .com.github.jtendermint.jabci.types.KI64Pair fee = 8;</code>
@@ -109,9 +94,9 @@ public interface ResponseCheckTxOrBuilder extends
   /**
    * <code>optional .com.github.jtendermint.jabci.types.KI64Pair fee = 8;</code>
    */
-  com.github.jtendermint.jabci.types.KI64Pair getFee();
+  KI64Pair getFee();
   /**
    * <code>optional .com.github.jtendermint.jabci.types.KI64Pair fee = 8;</code>
    */
-  com.github.jtendermint.jabci.types.KI64PairOrBuilder getFeeOrBuilder();
+  KI64PairOrBuilder getFeeOrBuilder();
 }

@@ -18,7 +18,7 @@ public  final class ResponseCommit extends
     data_ = com.google.protobuf.ByteString.EMPTY;
   }
 
-  @java.lang.Override
+  @Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
@@ -64,11 +64,11 @@ public  final class ResponseCommit extends
     return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseCommit_descriptor;
   }
 
-  protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+  protected FieldAccessorTable
       internalGetFieldAccessorTable() {
     return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseCommit_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.github.jtendermint.jabci.types.ResponseCommit.class, com.github.jtendermint.jabci.types.ResponseCommit.Builder.class);
+            ResponseCommit.class, Builder.class);
   }
 
   public static final int DATA_FIELD_NUMBER = 2;
@@ -115,15 +115,15 @@ public  final class ResponseCommit extends
   }
 
   private static final long serialVersionUID = 0L;
-  @java.lang.Override
-  public boolean equals(final java.lang.Object obj) {
+  @Override
+  public boolean equals(final Object obj) {
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.github.jtendermint.jabci.types.ResponseCommit)) {
+    if (!(obj instanceof ResponseCommit)) {
       return super.equals(obj);
     }
-    com.github.jtendermint.jabci.types.ResponseCommit other = (com.github.jtendermint.jabci.types.ResponseCommit) obj;
+    ResponseCommit other = (ResponseCommit) obj;
 
     boolean result = true;
     result = result && getData()
@@ -131,7 +131,7 @@ public  final class ResponseCommit extends
     return result;
   }
 
-  @java.lang.Override
+  @Override
   public int hashCode() {
     if (memoizedHashCode != 0) {
       return memoizedHashCode;
@@ -145,58 +145,58 @@ public  final class ResponseCommit extends
     return hash;
   }
 
-  public static com.github.jtendermint.jabci.types.ResponseCommit parseFrom(
+  public static ResponseCommit parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.github.jtendermint.jabci.types.ResponseCommit parseFrom(
+  public static ResponseCommit parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.ResponseCommit parseFrom(byte[] data)
+  public static ResponseCommit parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.github.jtendermint.jabci.types.ResponseCommit parseFrom(
+  public static ResponseCommit parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.ResponseCommit parseFrom(java.io.InputStream input)
+  public static ResponseCommit parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.github.jtendermint.jabci.types.ResponseCommit parseFrom(
+  public static ResponseCommit parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.ResponseCommit parseDelimitedFrom(java.io.InputStream input)
+  public static ResponseCommit parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.github.jtendermint.jabci.types.ResponseCommit parseDelimitedFrom(
+  public static ResponseCommit parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.ResponseCommit parseFrom(
+  public static ResponseCommit parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.github.jtendermint.jabci.types.ResponseCommit parseFrom(
+  public static ResponseCommit parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -208,7 +208,7 @@ public  final class ResponseCommit extends
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.github.jtendermint.jabci.types.ResponseCommit prototype) {
+  public static Builder newBuilder(ResponseCommit prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   public Builder toBuilder() {
@@ -216,9 +216,9 @@ public  final class ResponseCommit extends
         ? new Builder() : new Builder().mergeFrom(this);
   }
 
-  @java.lang.Override
+  @Override
   protected Builder newBuilderForType(
-      com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      BuilderParent parent) {
     Builder builder = new Builder(parent);
     return builder;
   }
@@ -234,11 +234,11 @@ public  final class ResponseCommit extends
       return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseCommit_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseCommit_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.github.jtendermint.jabci.types.ResponseCommit.class, com.github.jtendermint.jabci.types.ResponseCommit.Builder.class);
+              ResponseCommit.class, Builder.class);
     }
 
     // Construct using com.github.jtendermint.jabci.types.ResponseCommit.newBuilder()
@@ -247,7 +247,7 @@ public  final class ResponseCommit extends
     }
 
     private Builder(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       super(parent);
       maybeForceBuilderInitialization();
     }
@@ -268,20 +268,20 @@ public  final class ResponseCommit extends
       return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseCommit_descriptor;
     }
 
-    public com.github.jtendermint.jabci.types.ResponseCommit getDefaultInstanceForType() {
-      return com.github.jtendermint.jabci.types.ResponseCommit.getDefaultInstance();
+    public ResponseCommit getDefaultInstanceForType() {
+      return ResponseCommit.getDefaultInstance();
     }
 
-    public com.github.jtendermint.jabci.types.ResponseCommit build() {
-      com.github.jtendermint.jabci.types.ResponseCommit result = buildPartial();
+    public ResponseCommit build() {
+      ResponseCommit result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
       return result;
     }
 
-    public com.github.jtendermint.jabci.types.ResponseCommit buildPartial() {
-      com.github.jtendermint.jabci.types.ResponseCommit result = new com.github.jtendermint.jabci.types.ResponseCommit(this);
+    public ResponseCommit buildPartial() {
+      ResponseCommit result = new ResponseCommit(this);
       result.data_ = data_;
       onBuilt();
       return result;
@@ -314,16 +314,16 @@ public  final class ResponseCommit extends
       return (Builder) super.addRepeatedField(field, value);
     }
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.github.jtendermint.jabci.types.ResponseCommit) {
-        return mergeFrom((com.github.jtendermint.jabci.types.ResponseCommit)other);
+      if (other instanceof ResponseCommit) {
+        return mergeFrom((ResponseCommit)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.github.jtendermint.jabci.types.ResponseCommit other) {
-      if (other == com.github.jtendermint.jabci.types.ResponseCommit.getDefaultInstance()) return this;
+    public Builder mergeFrom(ResponseCommit other) {
+      if (other == ResponseCommit.getDefaultInstance()) return this;
       if (other.getData() != com.google.protobuf.ByteString.EMPTY) {
         setData(other.getData());
       }
@@ -339,11 +339,11 @@ public  final class ResponseCommit extends
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.github.jtendermint.jabci.types.ResponseCommit parsedMessage = null;
+      ResponseCommit parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.github.jtendermint.jabci.types.ResponseCommit) e.getUnfinishedMessage();
+        parsedMessage = (ResponseCommit) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -408,12 +408,12 @@ public  final class ResponseCommit extends
   }
 
   // @@protoc_insertion_point(class_scope:com.github.jtendermint.jabci.types.ResponseCommit)
-  private static final com.github.jtendermint.jabci.types.ResponseCommit DEFAULT_INSTANCE;
+  private static final ResponseCommit DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.github.jtendermint.jabci.types.ResponseCommit();
+    DEFAULT_INSTANCE = new ResponseCommit();
   }
 
-  public static com.github.jtendermint.jabci.types.ResponseCommit getDefaultInstance() {
+  public static ResponseCommit getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
@@ -431,12 +431,12 @@ public  final class ResponseCommit extends
     return PARSER;
   }
 
-  @java.lang.Override
+  @Override
   public com.google.protobuf.Parser<ResponseCommit> getParserForType() {
     return PARSER;
   }
 
-  public com.github.jtendermint.jabci.types.ResponseCommit getDefaultInstanceForType() {
+  public ResponseCommit getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

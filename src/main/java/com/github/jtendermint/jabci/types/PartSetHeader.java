@@ -19,7 +19,7 @@ public  final class PartSetHeader extends
     hash_ = com.google.protobuf.ByteString.EMPTY;
   }
 
-  @java.lang.Override
+  @Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
@@ -70,11 +70,11 @@ public  final class PartSetHeader extends
     return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_PartSetHeader_descriptor;
   }
 
-  protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+  protected FieldAccessorTable
       internalGetFieldAccessorTable() {
     return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_PartSetHeader_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.github.jtendermint.jabci.types.PartSetHeader.class, com.github.jtendermint.jabci.types.PartSetHeader.Builder.class);
+            PartSetHeader.class, Builder.class);
   }
 
   public static final int TOTAL_FIELD_NUMBER = 1;
@@ -133,15 +133,15 @@ public  final class PartSetHeader extends
   }
 
   private static final long serialVersionUID = 0L;
-  @java.lang.Override
-  public boolean equals(final java.lang.Object obj) {
+  @Override
+  public boolean equals(final Object obj) {
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.github.jtendermint.jabci.types.PartSetHeader)) {
+    if (!(obj instanceof PartSetHeader)) {
       return super.equals(obj);
     }
-    com.github.jtendermint.jabci.types.PartSetHeader other = (com.github.jtendermint.jabci.types.PartSetHeader) obj;
+    PartSetHeader other = (PartSetHeader) obj;
 
     boolean result = true;
     result = result && (getTotal()
@@ -151,7 +151,7 @@ public  final class PartSetHeader extends
     return result;
   }
 
-  @java.lang.Override
+  @Override
   public int hashCode() {
     if (memoizedHashCode != 0) {
       return memoizedHashCode;
@@ -167,58 +167,58 @@ public  final class PartSetHeader extends
     return hash;
   }
 
-  public static com.github.jtendermint.jabci.types.PartSetHeader parseFrom(
+  public static PartSetHeader parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.github.jtendermint.jabci.types.PartSetHeader parseFrom(
+  public static PartSetHeader parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.PartSetHeader parseFrom(byte[] data)
+  public static PartSetHeader parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.github.jtendermint.jabci.types.PartSetHeader parseFrom(
+  public static PartSetHeader parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.PartSetHeader parseFrom(java.io.InputStream input)
+  public static PartSetHeader parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.github.jtendermint.jabci.types.PartSetHeader parseFrom(
+  public static PartSetHeader parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.PartSetHeader parseDelimitedFrom(java.io.InputStream input)
+  public static PartSetHeader parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.github.jtendermint.jabci.types.PartSetHeader parseDelimitedFrom(
+  public static PartSetHeader parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.PartSetHeader parseFrom(
+  public static PartSetHeader parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.github.jtendermint.jabci.types.PartSetHeader parseFrom(
+  public static PartSetHeader parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -230,7 +230,7 @@ public  final class PartSetHeader extends
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.github.jtendermint.jabci.types.PartSetHeader prototype) {
+  public static Builder newBuilder(PartSetHeader prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   public Builder toBuilder() {
@@ -238,9 +238,9 @@ public  final class PartSetHeader extends
         ? new Builder() : new Builder().mergeFrom(this);
   }
 
-  @java.lang.Override
+  @Override
   protected Builder newBuilderForType(
-      com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      BuilderParent parent) {
     Builder builder = new Builder(parent);
     return builder;
   }
@@ -256,11 +256,11 @@ public  final class PartSetHeader extends
       return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_PartSetHeader_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_PartSetHeader_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.github.jtendermint.jabci.types.PartSetHeader.class, com.github.jtendermint.jabci.types.PartSetHeader.Builder.class);
+              PartSetHeader.class, Builder.class);
     }
 
     // Construct using com.github.jtendermint.jabci.types.PartSetHeader.newBuilder()
@@ -269,7 +269,7 @@ public  final class PartSetHeader extends
     }
 
     private Builder(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       super(parent);
       maybeForceBuilderInitialization();
     }
@@ -292,20 +292,20 @@ public  final class PartSetHeader extends
       return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_PartSetHeader_descriptor;
     }
 
-    public com.github.jtendermint.jabci.types.PartSetHeader getDefaultInstanceForType() {
-      return com.github.jtendermint.jabci.types.PartSetHeader.getDefaultInstance();
+    public PartSetHeader getDefaultInstanceForType() {
+      return PartSetHeader.getDefaultInstance();
     }
 
-    public com.github.jtendermint.jabci.types.PartSetHeader build() {
-      com.github.jtendermint.jabci.types.PartSetHeader result = buildPartial();
+    public PartSetHeader build() {
+      PartSetHeader result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
       return result;
     }
 
-    public com.github.jtendermint.jabci.types.PartSetHeader buildPartial() {
-      com.github.jtendermint.jabci.types.PartSetHeader result = new com.github.jtendermint.jabci.types.PartSetHeader(this);
+    public PartSetHeader buildPartial() {
+      PartSetHeader result = new PartSetHeader(this);
       result.total_ = total_;
       result.hash_ = hash_;
       onBuilt();
@@ -339,16 +339,16 @@ public  final class PartSetHeader extends
       return (Builder) super.addRepeatedField(field, value);
     }
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.github.jtendermint.jabci.types.PartSetHeader) {
-        return mergeFrom((com.github.jtendermint.jabci.types.PartSetHeader)other);
+      if (other instanceof PartSetHeader) {
+        return mergeFrom((PartSetHeader)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.github.jtendermint.jabci.types.PartSetHeader other) {
-      if (other == com.github.jtendermint.jabci.types.PartSetHeader.getDefaultInstance()) return this;
+    public Builder mergeFrom(PartSetHeader other) {
+      if (other == PartSetHeader.getDefaultInstance()) return this;
       if (other.getTotal() != 0) {
         setTotal(other.getTotal());
       }
@@ -367,11 +367,11 @@ public  final class PartSetHeader extends
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.github.jtendermint.jabci.types.PartSetHeader parsedMessage = null;
+      PartSetHeader parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.github.jtendermint.jabci.types.PartSetHeader) e.getUnfinishedMessage();
+        parsedMessage = (PartSetHeader) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -450,12 +450,12 @@ public  final class PartSetHeader extends
   }
 
   // @@protoc_insertion_point(class_scope:com.github.jtendermint.jabci.types.PartSetHeader)
-  private static final com.github.jtendermint.jabci.types.PartSetHeader DEFAULT_INSTANCE;
+  private static final PartSetHeader DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.github.jtendermint.jabci.types.PartSetHeader();
+    DEFAULT_INSTANCE = new PartSetHeader();
   }
 
-  public static com.github.jtendermint.jabci.types.PartSetHeader getDefaultInstance() {
+  public static PartSetHeader getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
@@ -473,12 +473,12 @@ public  final class PartSetHeader extends
     return PARSER;
   }
 
-  @java.lang.Override
+  @Override
   public com.google.protobuf.Parser<PartSetHeader> getParserForType() {
     return PARSER;
   }
 
-  public com.github.jtendermint.jabci.types.PartSetHeader getDefaultInstanceForType() {
+  public PartSetHeader getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

@@ -23,7 +23,7 @@ public  final class KI64Pair extends
     value_ = 0L;
   }
 
-  @java.lang.Override
+  @Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
@@ -74,11 +74,11 @@ public  final class KI64Pair extends
     return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_KI64Pair_descriptor;
   }
 
-  protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+  protected FieldAccessorTable
       internalGetFieldAccessorTable() {
     return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_KI64Pair_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.github.jtendermint.jabci.types.KI64Pair.class, com.github.jtendermint.jabci.types.KI64Pair.Builder.class);
+            KI64Pair.class, Builder.class);
   }
 
   public static final int KEY_FIELD_NUMBER = 1;
@@ -137,15 +137,15 @@ public  final class KI64Pair extends
   }
 
   private static final long serialVersionUID = 0L;
-  @java.lang.Override
-  public boolean equals(final java.lang.Object obj) {
+  @Override
+  public boolean equals(final Object obj) {
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.github.jtendermint.jabci.types.KI64Pair)) {
+    if (!(obj instanceof KI64Pair)) {
       return super.equals(obj);
     }
-    com.github.jtendermint.jabci.types.KI64Pair other = (com.github.jtendermint.jabci.types.KI64Pair) obj;
+    KI64Pair other = (KI64Pair) obj;
 
     boolean result = true;
     result = result && getKey()
@@ -155,7 +155,7 @@ public  final class KI64Pair extends
     return result;
   }
 
-  @java.lang.Override
+  @Override
   public int hashCode() {
     if (memoizedHashCode != 0) {
       return memoizedHashCode;
@@ -172,58 +172,58 @@ public  final class KI64Pair extends
     return hash;
   }
 
-  public static com.github.jtendermint.jabci.types.KI64Pair parseFrom(
+  public static KI64Pair parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.github.jtendermint.jabci.types.KI64Pair parseFrom(
+  public static KI64Pair parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.KI64Pair parseFrom(byte[] data)
+  public static KI64Pair parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.github.jtendermint.jabci.types.KI64Pair parseFrom(
+  public static KI64Pair parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.KI64Pair parseFrom(java.io.InputStream input)
+  public static KI64Pair parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.github.jtendermint.jabci.types.KI64Pair parseFrom(
+  public static KI64Pair parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.KI64Pair parseDelimitedFrom(java.io.InputStream input)
+  public static KI64Pair parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.github.jtendermint.jabci.types.KI64Pair parseDelimitedFrom(
+  public static KI64Pair parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.KI64Pair parseFrom(
+  public static KI64Pair parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.github.jtendermint.jabci.types.KI64Pair parseFrom(
+  public static KI64Pair parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -235,7 +235,7 @@ public  final class KI64Pair extends
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.github.jtendermint.jabci.types.KI64Pair prototype) {
+  public static Builder newBuilder(KI64Pair prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   public Builder toBuilder() {
@@ -243,9 +243,9 @@ public  final class KI64Pair extends
         ? new Builder() : new Builder().mergeFrom(this);
   }
 
-  @java.lang.Override
+  @Override
   protected Builder newBuilderForType(
-      com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      BuilderParent parent) {
     Builder builder = new Builder(parent);
     return builder;
   }
@@ -265,11 +265,11 @@ public  final class KI64Pair extends
       return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_KI64Pair_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_KI64Pair_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.github.jtendermint.jabci.types.KI64Pair.class, com.github.jtendermint.jabci.types.KI64Pair.Builder.class);
+              KI64Pair.class, Builder.class);
     }
 
     // Construct using com.github.jtendermint.jabci.types.KI64Pair.newBuilder()
@@ -278,7 +278,7 @@ public  final class KI64Pair extends
     }
 
     private Builder(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       super(parent);
       maybeForceBuilderInitialization();
     }
@@ -301,20 +301,20 @@ public  final class KI64Pair extends
       return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_KI64Pair_descriptor;
     }
 
-    public com.github.jtendermint.jabci.types.KI64Pair getDefaultInstanceForType() {
-      return com.github.jtendermint.jabci.types.KI64Pair.getDefaultInstance();
+    public KI64Pair getDefaultInstanceForType() {
+      return KI64Pair.getDefaultInstance();
     }
 
-    public com.github.jtendermint.jabci.types.KI64Pair build() {
-      com.github.jtendermint.jabci.types.KI64Pair result = buildPartial();
+    public KI64Pair build() {
+      KI64Pair result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
       return result;
     }
 
-    public com.github.jtendermint.jabci.types.KI64Pair buildPartial() {
-      com.github.jtendermint.jabci.types.KI64Pair result = new com.github.jtendermint.jabci.types.KI64Pair(this);
+    public KI64Pair buildPartial() {
+      KI64Pair result = new KI64Pair(this);
       result.key_ = key_;
       result.value_ = value_;
       onBuilt();
@@ -348,16 +348,16 @@ public  final class KI64Pair extends
       return (Builder) super.addRepeatedField(field, value);
     }
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.github.jtendermint.jabci.types.KI64Pair) {
-        return mergeFrom((com.github.jtendermint.jabci.types.KI64Pair)other);
+      if (other instanceof KI64Pair) {
+        return mergeFrom((KI64Pair)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.github.jtendermint.jabci.types.KI64Pair other) {
-      if (other == com.github.jtendermint.jabci.types.KI64Pair.getDefaultInstance()) return this;
+    public Builder mergeFrom(KI64Pair other) {
+      if (other == KI64Pair.getDefaultInstance()) return this;
       if (other.getKey() != com.google.protobuf.ByteString.EMPTY) {
         setKey(other.getKey());
       }
@@ -376,11 +376,11 @@ public  final class KI64Pair extends
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.github.jtendermint.jabci.types.KI64Pair parsedMessage = null;
+      KI64Pair parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.github.jtendermint.jabci.types.KI64Pair) e.getUnfinishedMessage();
+        parsedMessage = (KI64Pair) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -459,12 +459,12 @@ public  final class KI64Pair extends
   }
 
   // @@protoc_insertion_point(class_scope:com.github.jtendermint.jabci.types.KI64Pair)
-  private static final com.github.jtendermint.jabci.types.KI64Pair DEFAULT_INSTANCE;
+  private static final KI64Pair DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.github.jtendermint.jabci.types.KI64Pair();
+    DEFAULT_INSTANCE = new KI64Pair();
   }
 
-  public static com.github.jtendermint.jabci.types.KI64Pair getDefaultInstance() {
+  public static KI64Pair getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
@@ -482,12 +482,12 @@ public  final class KI64Pair extends
     return PARSER;
   }
 
-  @java.lang.Override
+  @Override
   public com.google.protobuf.Parser<KI64Pair> getParserForType() {
     return PARSER;
   }
 
-  public com.github.jtendermint.jabci.types.KI64Pair getDefaultInstanceForType() {
+  public KI64Pair getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

@@ -21,7 +21,7 @@ public  final class RequestQuery extends
     prove_ = false;
   }
 
-  @java.lang.Override
+  @Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
@@ -52,7 +52,7 @@ public  final class RequestQuery extends
             break;
           }
           case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
+            String s = input.readStringRequireUtf8();
 
             path_ = s;
             break;
@@ -83,11 +83,11 @@ public  final class RequestQuery extends
     return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_RequestQuery_descriptor;
   }
 
-  protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+  protected FieldAccessorTable
       internalGetFieldAccessorTable() {
     return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_RequestQuery_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.github.jtendermint.jabci.types.RequestQuery.class, com.github.jtendermint.jabci.types.RequestQuery.Builder.class);
+            RequestQuery.class, Builder.class);
   }
 
   public static final int DATA_FIELD_NUMBER = 1;
@@ -100,18 +100,18 @@ public  final class RequestQuery extends
   }
 
   public static final int PATH_FIELD_NUMBER = 2;
-  private volatile java.lang.Object path_;
+  private volatile Object path_;
   /**
    * <code>optional string path = 2;</code>
    */
-  public java.lang.String getPath() {
-    java.lang.Object ref = path_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
+  public String getPath() {
+    Object ref = path_;
+    if (ref instanceof String) {
+      return (String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
+      String s = bs.toStringUtf8();
       path_ = s;
       return s;
     }
@@ -121,11 +121,11 @@ public  final class RequestQuery extends
    */
   public com.google.protobuf.ByteString
       getPathBytes() {
-    java.lang.Object ref = path_;
-    if (ref instanceof java.lang.String) {
+    Object ref = path_;
+    if (ref instanceof String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
+              (String) ref);
       path_ = b;
       return b;
     } else {
@@ -202,15 +202,15 @@ public  final class RequestQuery extends
   }
 
   private static final long serialVersionUID = 0L;
-  @java.lang.Override
-  public boolean equals(final java.lang.Object obj) {
+  @Override
+  public boolean equals(final Object obj) {
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.github.jtendermint.jabci.types.RequestQuery)) {
+    if (!(obj instanceof RequestQuery)) {
       return super.equals(obj);
     }
-    com.github.jtendermint.jabci.types.RequestQuery other = (com.github.jtendermint.jabci.types.RequestQuery) obj;
+    RequestQuery other = (RequestQuery) obj;
 
     boolean result = true;
     result = result && getData()
@@ -224,7 +224,7 @@ public  final class RequestQuery extends
     return result;
   }
 
-  @java.lang.Override
+  @Override
   public int hashCode() {
     if (memoizedHashCode != 0) {
       return memoizedHashCode;
@@ -246,58 +246,58 @@ public  final class RequestQuery extends
     return hash;
   }
 
-  public static com.github.jtendermint.jabci.types.RequestQuery parseFrom(
+  public static RequestQuery parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.github.jtendermint.jabci.types.RequestQuery parseFrom(
+  public static RequestQuery parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.RequestQuery parseFrom(byte[] data)
+  public static RequestQuery parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.github.jtendermint.jabci.types.RequestQuery parseFrom(
+  public static RequestQuery parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.RequestQuery parseFrom(java.io.InputStream input)
+  public static RequestQuery parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.github.jtendermint.jabci.types.RequestQuery parseFrom(
+  public static RequestQuery parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.RequestQuery parseDelimitedFrom(java.io.InputStream input)
+  public static RequestQuery parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.github.jtendermint.jabci.types.RequestQuery parseDelimitedFrom(
+  public static RequestQuery parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.RequestQuery parseFrom(
+  public static RequestQuery parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.github.jtendermint.jabci.types.RequestQuery parseFrom(
+  public static RequestQuery parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -309,7 +309,7 @@ public  final class RequestQuery extends
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.github.jtendermint.jabci.types.RequestQuery prototype) {
+  public static Builder newBuilder(RequestQuery prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   public Builder toBuilder() {
@@ -317,9 +317,9 @@ public  final class RequestQuery extends
         ? new Builder() : new Builder().mergeFrom(this);
   }
 
-  @java.lang.Override
+  @Override
   protected Builder newBuilderForType(
-      com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      BuilderParent parent) {
     Builder builder = new Builder(parent);
     return builder;
   }
@@ -335,11 +335,11 @@ public  final class RequestQuery extends
       return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_RequestQuery_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_RequestQuery_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.github.jtendermint.jabci.types.RequestQuery.class, com.github.jtendermint.jabci.types.RequestQuery.Builder.class);
+              RequestQuery.class, Builder.class);
     }
 
     // Construct using com.github.jtendermint.jabci.types.RequestQuery.newBuilder()
@@ -348,7 +348,7 @@ public  final class RequestQuery extends
     }
 
     private Builder(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       super(parent);
       maybeForceBuilderInitialization();
     }
@@ -375,20 +375,20 @@ public  final class RequestQuery extends
       return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_RequestQuery_descriptor;
     }
 
-    public com.github.jtendermint.jabci.types.RequestQuery getDefaultInstanceForType() {
-      return com.github.jtendermint.jabci.types.RequestQuery.getDefaultInstance();
+    public RequestQuery getDefaultInstanceForType() {
+      return RequestQuery.getDefaultInstance();
     }
 
-    public com.github.jtendermint.jabci.types.RequestQuery build() {
-      com.github.jtendermint.jabci.types.RequestQuery result = buildPartial();
+    public RequestQuery build() {
+      RequestQuery result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
       return result;
     }
 
-    public com.github.jtendermint.jabci.types.RequestQuery buildPartial() {
-      com.github.jtendermint.jabci.types.RequestQuery result = new com.github.jtendermint.jabci.types.RequestQuery(this);
+    public RequestQuery buildPartial() {
+      RequestQuery result = new RequestQuery(this);
       result.data_ = data_;
       result.path_ = path_;
       result.height_ = height_;
@@ -424,16 +424,16 @@ public  final class RequestQuery extends
       return (Builder) super.addRepeatedField(field, value);
     }
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.github.jtendermint.jabci.types.RequestQuery) {
-        return mergeFrom((com.github.jtendermint.jabci.types.RequestQuery)other);
+      if (other instanceof RequestQuery) {
+        return mergeFrom((RequestQuery)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.github.jtendermint.jabci.types.RequestQuery other) {
-      if (other == com.github.jtendermint.jabci.types.RequestQuery.getDefaultInstance()) return this;
+    public Builder mergeFrom(RequestQuery other) {
+      if (other == RequestQuery.getDefaultInstance()) return this;
       if (other.getData() != com.google.protobuf.ByteString.EMPTY) {
         setData(other.getData());
       }
@@ -459,11 +459,11 @@ public  final class RequestQuery extends
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.github.jtendermint.jabci.types.RequestQuery parsedMessage = null;
+      RequestQuery parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.github.jtendermint.jabci.types.RequestQuery) e.getUnfinishedMessage();
+        parsedMessage = (RequestQuery) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -502,20 +502,20 @@ public  final class RequestQuery extends
       return this;
     }
 
-    private java.lang.Object path_ = "";
+    private Object path_ = "";
     /**
      * <code>optional string path = 2;</code>
      */
-    public java.lang.String getPath() {
-      java.lang.Object ref = path_;
-      if (!(ref instanceof java.lang.String)) {
+    public String getPath() {
+      Object ref = path_;
+      if (!(ref instanceof String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         path_ = s;
         return s;
       } else {
-        return (java.lang.String) ref;
+        return (String) ref;
       }
     }
     /**
@@ -523,11 +523,11 @@ public  final class RequestQuery extends
      */
     public com.google.protobuf.ByteString
         getPathBytes() {
-      java.lang.Object ref = path_;
+      Object ref = path_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         path_ = b;
         return b;
       } else {
@@ -538,7 +538,7 @@ public  final class RequestQuery extends
      * <code>optional string path = 2;</code>
      */
     public Builder setPath(
-        java.lang.String value) {
+        String value) {
       if (value == null) {
     throw new NullPointerException();
   }
@@ -637,12 +637,12 @@ public  final class RequestQuery extends
   }
 
   // @@protoc_insertion_point(class_scope:com.github.jtendermint.jabci.types.RequestQuery)
-  private static final com.github.jtendermint.jabci.types.RequestQuery DEFAULT_INSTANCE;
+  private static final RequestQuery DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.github.jtendermint.jabci.types.RequestQuery();
+    DEFAULT_INSTANCE = new RequestQuery();
   }
 
-  public static com.github.jtendermint.jabci.types.RequestQuery getDefaultInstance() {
+  public static RequestQuery getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
@@ -660,12 +660,12 @@ public  final class RequestQuery extends
     return PARSER;
   }
 
-  @java.lang.Override
+  @Override
   public com.google.protobuf.Parser<RequestQuery> getParserForType() {
     return PARSER;
   }
 
-  public com.github.jtendermint.jabci.types.RequestQuery getDefaultInstanceForType() {
+  public RequestQuery getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 
