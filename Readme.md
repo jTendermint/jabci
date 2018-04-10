@@ -24,7 +24,13 @@ When you make changes to the protobuf file, you can enable the appropriate build
 Just switch the comments on line [pom.xml](https://github.com/jTendermint/jabci/blob/master/pom.xml#L86).
 
 
+#### Compatibility
 
-
-#### Looking for TMSP?
-The Tendermint protocol was changed from TMSP to ABCI. While these where just minor changes, we wanted to completely reflect all the naming changes in this project. If you're still developing with Tendermint v0.8 and prior check out the [0.8 version of jTMSP](https://github.com/jTendermint/jabci/releases/tag/v0.8)
+| jabci    | tendermint |
+|----------|------------|
+| 0.12.x   | 0.12.x |
+| 0.15     | 0.15.0 |
+| 0.16     | 0.16.0 |
+| 0.17.1   | 0.17.0 |
+| 0.17.1   | 0.17.1 |
+| 0.17.1   | 0.18.0 |
