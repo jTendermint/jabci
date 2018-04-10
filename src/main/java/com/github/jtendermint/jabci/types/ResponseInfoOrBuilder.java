@@ -10,7 +10,7 @@ public interface ResponseInfoOrBuilder extends
   /**
    * <code>optional string data = 1;</code>
    */
-  java.lang.String getData();
+  String getData();
   /**
    * <code>optional string data = 1;</code>
    */
@@ -20,7 +20,7 @@ public interface ResponseInfoOrBuilder extends
   /**
    * <code>optional string version = 2;</code>
    */
-  java.lang.String getVersion();
+  String getVersion();
   /**
    * <code>optional string version = 2;</code>
    */

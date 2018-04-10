@@ -19,7 +19,7 @@ public  final class Validator extends
     power_ = 0L;
   }
 
-  @java.lang.Override
+  @Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
@@ -67,14 +67,14 @@ public  final class Validator extends
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_Validator_descriptor;
+    return Types.internal_static_com_github_jtendermint_jabci_types_Validator_descriptor;
   }
 
-  protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+  protected FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_Validator_fieldAccessorTable
+    return Types.internal_static_com_github_jtendermint_jabci_types_Validator_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.github.jtendermint.jabci.types.Validator.class, com.github.jtendermint.jabci.types.Validator.Builder.class);
+            Validator.class, Builder.class);
   }
 
   public static final int PUB_KEY_FIELD_NUMBER = 1;
@@ -133,15 +133,15 @@ public  final class Validator extends
   }
 
   private static final long serialVersionUID = 0L;
-  @java.lang.Override
-  public boolean equals(final java.lang.Object obj) {
+  @Override
+  public boolean equals(final Object obj) {
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.github.jtendermint.jabci.types.Validator)) {
+    if (!(obj instanceof Validator)) {
       return super.equals(obj);
     }
-    com.github.jtendermint.jabci.types.Validator other = (com.github.jtendermint.jabci.types.Validator) obj;
+    Validator other = (Validator) obj;
 
     boolean result = true;
     result = result && getPubKey()
@@ -151,7 +151,7 @@ public  final class Validator extends
     return result;
   }
 
-  @java.lang.Override
+  @Override
   public int hashCode() {
     if (memoizedHashCode != 0) {
       return memoizedHashCode;
@@ -168,58 +168,58 @@ public  final class Validator extends
     return hash;
   }
 
-  public static com.github.jtendermint.jabci.types.Validator parseFrom(
+  public static Validator parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.github.jtendermint.jabci.types.Validator parseFrom(
+  public static Validator parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.Validator parseFrom(byte[] data)
+  public static Validator parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.github.jtendermint.jabci.types.Validator parseFrom(
+  public static Validator parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.Validator parseFrom(java.io.InputStream input)
+  public static Validator parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.github.jtendermint.jabci.types.Validator parseFrom(
+  public static Validator parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.Validator parseDelimitedFrom(java.io.InputStream input)
+  public static Validator parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.github.jtendermint.jabci.types.Validator parseDelimitedFrom(
+  public static Validator parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.Validator parseFrom(
+  public static Validator parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.github.jtendermint.jabci.types.Validator parseFrom(
+  public static Validator parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -231,7 +231,7 @@ public  final class Validator extends
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.github.jtendermint.jabci.types.Validator prototype) {
+  public static Builder newBuilder(Validator prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   public Builder toBuilder() {
@@ -239,9 +239,9 @@ public  final class Validator extends
         ? new Builder() : new Builder().mergeFrom(this);
   }
 
-  @java.lang.Override
+  @Override
   protected Builder newBuilderForType(
-      com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      BuilderParent parent) {
     Builder builder = new Builder(parent);
     return builder;
   }
@@ -254,14 +254,14 @@ public  final class Validator extends
       com.github.jtendermint.jabci.types.ValidatorOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_Validator_descriptor;
+      return Types.internal_static_com_github_jtendermint_jabci_types_Validator_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_Validator_fieldAccessorTable
+      return Types.internal_static_com_github_jtendermint_jabci_types_Validator_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.github.jtendermint.jabci.types.Validator.class, com.github.jtendermint.jabci.types.Validator.Builder.class);
+              Validator.class, Builder.class);
     }
 
     // Construct using com.github.jtendermint.jabci.types.Validator.newBuilder()
@@ -270,7 +270,7 @@ public  final class Validator extends
     }
 
     private Builder(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       super(parent);
       maybeForceBuilderInitialization();
     }
@@ -290,23 +290,23 @@ public  final class Validator extends
 
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_Validator_descriptor;
+      return Types.internal_static_com_github_jtendermint_jabci_types_Validator_descriptor;
     }
 
-    public com.github.jtendermint.jabci.types.Validator getDefaultInstanceForType() {
-      return com.github.jtendermint.jabci.types.Validator.getDefaultInstance();
+    public Validator getDefaultInstanceForType() {
+      return Validator.getDefaultInstance();
     }
 
-    public com.github.jtendermint.jabci.types.Validator build() {
-      com.github.jtendermint.jabci.types.Validator result = buildPartial();
+    public Validator build() {
+      Validator result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
       return result;
     }
 
-    public com.github.jtendermint.jabci.types.Validator buildPartial() {
-      com.github.jtendermint.jabci.types.Validator result = new com.github.jtendermint.jabci.types.Validator(this);
+    public Validator buildPartial() {
+      Validator result = new Validator(this);
       result.pubKey_ = pubKey_;
       result.power_ = power_;
       onBuilt();
@@ -340,16 +340,16 @@ public  final class Validator extends
       return (Builder) super.addRepeatedField(field, value);
     }
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.github.jtendermint.jabci.types.Validator) {
-        return mergeFrom((com.github.jtendermint.jabci.types.Validator)other);
+      if (other instanceof Validator) {
+        return mergeFrom((Validator)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.github.jtendermint.jabci.types.Validator other) {
-      if (other == com.github.jtendermint.jabci.types.Validator.getDefaultInstance()) return this;
+    public Builder mergeFrom(Validator other) {
+      if (other == Validator.getDefaultInstance()) return this;
       if (other.getPubKey() != com.google.protobuf.ByteString.EMPTY) {
         setPubKey(other.getPubKey());
       }
@@ -368,11 +368,11 @@ public  final class Validator extends
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.github.jtendermint.jabci.types.Validator parsedMessage = null;
+      Validator parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.github.jtendermint.jabci.types.Validator) e.getUnfinishedMessage();
+        parsedMessage = (Validator) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -451,12 +451,12 @@ public  final class Validator extends
   }
 
   // @@protoc_insertion_point(class_scope:com.github.jtendermint.jabci.types.Validator)
-  private static final com.github.jtendermint.jabci.types.Validator DEFAULT_INSTANCE;
+  private static final Validator DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.github.jtendermint.jabci.types.Validator();
+    DEFAULT_INSTANCE = new Validator();
   }
 
-  public static com.github.jtendermint.jabci.types.Validator getDefaultInstance() {
+  public static Validator getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
@@ -474,12 +474,12 @@ public  final class Validator extends
     return PARSER;
   }
 
-  @java.lang.Override
+  @Override
   public com.google.protobuf.Parser<Validator> getParserForType() {
     return PARSER;
   }
 
-  public com.github.jtendermint.jabci.types.Validator getDefaultInstanceForType() {
+  public Validator getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

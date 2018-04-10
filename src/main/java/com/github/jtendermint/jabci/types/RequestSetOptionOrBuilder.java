@@ -10,7 +10,7 @@ public interface RequestSetOptionOrBuilder extends
   /**
    * <code>optional string key = 1;</code>
    */
-  java.lang.String getKey();
+  String getKey();
   /**
    * <code>optional string key = 1;</code>
    */
@@ -20,7 +20,7 @@ public interface RequestSetOptionOrBuilder extends
   /**
    * <code>optional string value = 2;</code>
    */
-  java.lang.String getValue();
+  String getValue();
   /**
    * <code>optional string value = 2;</code>
    */

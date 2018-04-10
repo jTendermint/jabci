@@ -19,16 +19,16 @@ public interface RequestBeginBlockOrBuilder extends
   /**
    * <code>optional .com.github.jtendermint.jabci.types.Header header = 2;</code>
    */
-  com.github.jtendermint.jabci.types.Header getHeader();
+  Header getHeader();
   /**
    * <code>optional .com.github.jtendermint.jabci.types.Header header = 2;</code>
    */
-  com.github.jtendermint.jabci.types.HeaderOrBuilder getHeaderOrBuilder();
+  HeaderOrBuilder getHeaderOrBuilder();
 
   /**
    * <code>repeated int32 absent_validators = 3;</code>
    */
-  java.util.List<java.lang.Integer> getAbsentValidatorsList();
+  java.util.List<Integer> getAbsentValidatorsList();
   /**
    * <code>repeated int32 absent_validators = 3;</code>
    */
@@ -41,12 +41,12 @@ public interface RequestBeginBlockOrBuilder extends
   /**
    * <code>repeated .com.github.jtendermint.jabci.types.Evidence byzantine_validators = 4;</code>
    */
-  java.util.List<com.github.jtendermint.jabci.types.Evidence> 
+  java.util.List<Evidence>
       getByzantineValidatorsList();
   /**
    * <code>repeated .com.github.jtendermint.jabci.types.Evidence byzantine_validators = 4;</code>
    */
-  com.github.jtendermint.jabci.types.Evidence getByzantineValidators(int index);
+  Evidence getByzantineValidators(int index);
   /**
    * <code>repeated .com.github.jtendermint.jabci.types.Evidence byzantine_validators = 4;</code>
    */
@@ -54,11 +54,11 @@ public interface RequestBeginBlockOrBuilder extends
   /**
    * <code>repeated .com.github.jtendermint.jabci.types.Evidence byzantine_validators = 4;</code>
    */
-  java.util.List<? extends com.github.jtendermint.jabci.types.EvidenceOrBuilder> 
+  java.util.List<? extends EvidenceOrBuilder>
       getByzantineValidatorsOrBuilderList();
   /**
    * <code>repeated .com.github.jtendermint.jabci.types.Evidence byzantine_validators = 4;</code>
    */
-  com.github.jtendermint.jabci.types.EvidenceOrBuilder getByzantineValidatorsOrBuilder(
-      int index);
+  EvidenceOrBuilder getByzantineValidatorsOrBuilder(
+          int index);
 }

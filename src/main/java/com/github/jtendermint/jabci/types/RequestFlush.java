@@ -17,7 +17,7 @@ public  final class RequestFlush extends
   private RequestFlush() {
   }
 
-  @java.lang.Override
+  @Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
@@ -57,11 +57,11 @@ public  final class RequestFlush extends
     return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_RequestFlush_descriptor;
   }
 
-  protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+  protected FieldAccessorTable
       internalGetFieldAccessorTable() {
     return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_RequestFlush_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.github.jtendermint.jabci.types.RequestFlush.class, com.github.jtendermint.jabci.types.RequestFlush.Builder.class);
+            RequestFlush.class, Builder.class);
   }
 
   private byte memoizedIsInitialized = -1;
@@ -88,21 +88,21 @@ public  final class RequestFlush extends
   }
 
   private static final long serialVersionUID = 0L;
-  @java.lang.Override
-  public boolean equals(final java.lang.Object obj) {
+  @Override
+  public boolean equals(final Object obj) {
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.github.jtendermint.jabci.types.RequestFlush)) {
+    if (!(obj instanceof RequestFlush)) {
       return super.equals(obj);
     }
-    com.github.jtendermint.jabci.types.RequestFlush other = (com.github.jtendermint.jabci.types.RequestFlush) obj;
+    RequestFlush other = (RequestFlush) obj;
 
     boolean result = true;
     return result;
   }
 
-  @java.lang.Override
+  @Override
   public int hashCode() {
     if (memoizedHashCode != 0) {
       return memoizedHashCode;
@@ -114,58 +114,58 @@ public  final class RequestFlush extends
     return hash;
   }
 
-  public static com.github.jtendermint.jabci.types.RequestFlush parseFrom(
+  public static RequestFlush parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.github.jtendermint.jabci.types.RequestFlush parseFrom(
+  public static RequestFlush parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.RequestFlush parseFrom(byte[] data)
+  public static RequestFlush parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.github.jtendermint.jabci.types.RequestFlush parseFrom(
+  public static RequestFlush parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.RequestFlush parseFrom(java.io.InputStream input)
+  public static RequestFlush parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.github.jtendermint.jabci.types.RequestFlush parseFrom(
+  public static RequestFlush parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.RequestFlush parseDelimitedFrom(java.io.InputStream input)
+  public static RequestFlush parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.github.jtendermint.jabci.types.RequestFlush parseDelimitedFrom(
+  public static RequestFlush parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.RequestFlush parseFrom(
+  public static RequestFlush parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.github.jtendermint.jabci.types.RequestFlush parseFrom(
+  public static RequestFlush parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -177,7 +177,7 @@ public  final class RequestFlush extends
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.github.jtendermint.jabci.types.RequestFlush prototype) {
+  public static Builder newBuilder(RequestFlush prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   public Builder toBuilder() {
@@ -185,9 +185,9 @@ public  final class RequestFlush extends
         ? new Builder() : new Builder().mergeFrom(this);
   }
 
-  @java.lang.Override
+  @Override
   protected Builder newBuilderForType(
-      com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      BuilderParent parent) {
     Builder builder = new Builder(parent);
     return builder;
   }
@@ -203,11 +203,11 @@ public  final class RequestFlush extends
       return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_RequestFlush_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_RequestFlush_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.github.jtendermint.jabci.types.RequestFlush.class, com.github.jtendermint.jabci.types.RequestFlush.Builder.class);
+              RequestFlush.class, Builder.class);
     }
 
     // Construct using com.github.jtendermint.jabci.types.RequestFlush.newBuilder()
@@ -216,7 +216,7 @@ public  final class RequestFlush extends
     }
 
     private Builder(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       super(parent);
       maybeForceBuilderInitialization();
     }
@@ -235,20 +235,20 @@ public  final class RequestFlush extends
       return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_RequestFlush_descriptor;
     }
 
-    public com.github.jtendermint.jabci.types.RequestFlush getDefaultInstanceForType() {
-      return com.github.jtendermint.jabci.types.RequestFlush.getDefaultInstance();
+    public RequestFlush getDefaultInstanceForType() {
+      return RequestFlush.getDefaultInstance();
     }
 
-    public com.github.jtendermint.jabci.types.RequestFlush build() {
-      com.github.jtendermint.jabci.types.RequestFlush result = buildPartial();
+    public RequestFlush build() {
+      RequestFlush result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
       return result;
     }
 
-    public com.github.jtendermint.jabci.types.RequestFlush buildPartial() {
-      com.github.jtendermint.jabci.types.RequestFlush result = new com.github.jtendermint.jabci.types.RequestFlush(this);
+    public RequestFlush buildPartial() {
+      RequestFlush result = new RequestFlush(this);
       onBuilt();
       return result;
     }
@@ -280,16 +280,16 @@ public  final class RequestFlush extends
       return (Builder) super.addRepeatedField(field, value);
     }
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.github.jtendermint.jabci.types.RequestFlush) {
-        return mergeFrom((com.github.jtendermint.jabci.types.RequestFlush)other);
+      if (other instanceof RequestFlush) {
+        return mergeFrom((RequestFlush)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.github.jtendermint.jabci.types.RequestFlush other) {
-      if (other == com.github.jtendermint.jabci.types.RequestFlush.getDefaultInstance()) return this;
+    public Builder mergeFrom(RequestFlush other) {
+      if (other == RequestFlush.getDefaultInstance()) return this;
       onChanged();
       return this;
     }
@@ -302,11 +302,11 @@ public  final class RequestFlush extends
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.github.jtendermint.jabci.types.RequestFlush parsedMessage = null;
+      RequestFlush parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.github.jtendermint.jabci.types.RequestFlush) e.getUnfinishedMessage();
+        parsedMessage = (RequestFlush) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -330,12 +330,12 @@ public  final class RequestFlush extends
   }
 
   // @@protoc_insertion_point(class_scope:com.github.jtendermint.jabci.types.RequestFlush)
-  private static final com.github.jtendermint.jabci.types.RequestFlush DEFAULT_INSTANCE;
+  private static final RequestFlush DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.github.jtendermint.jabci.types.RequestFlush();
+    DEFAULT_INSTANCE = new RequestFlush();
   }
 
-  public static com.github.jtendermint.jabci.types.RequestFlush getDefaultInstance() {
+  public static RequestFlush getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
@@ -353,12 +353,12 @@ public  final class RequestFlush extends
     return PARSER;
   }
 
-  @java.lang.Override
+  @Override
   public com.google.protobuf.Parser<RequestFlush> getParserForType() {
     return PARSER;
   }
 
-  public com.github.jtendermint.jabci.types.RequestFlush getDefaultInstanceForType() {
+  public RequestFlush getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

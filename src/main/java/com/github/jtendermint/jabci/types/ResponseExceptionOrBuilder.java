@@ -10,7 +10,7 @@ public interface ResponseExceptionOrBuilder extends
   /**
    * <code>optional string error = 1;</code>
    */
-  java.lang.String getError();
+  String getError();
   /**
    * <code>optional string error = 1;</code>
    */

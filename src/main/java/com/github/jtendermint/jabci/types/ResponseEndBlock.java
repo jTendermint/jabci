@@ -18,7 +18,7 @@ public  final class ResponseEndBlock extends
     validatorUpdates_ = java.util.Collections.emptyList();
   }
 
-  @java.lang.Override
+  @Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
@@ -53,11 +53,11 @@ public  final class ResponseEndBlock extends
             break;
           }
           case 18: {
-            com.github.jtendermint.jabci.types.ConsensusParams.Builder subBuilder = null;
+            ConsensusParams.Builder subBuilder = null;
             if (consensusParamUpdates_ != null) {
               subBuilder = consensusParamUpdates_.toBuilder();
             }
-            consensusParamUpdates_ = input.readMessage(com.github.jtendermint.jabci.types.ConsensusParams.parser(), extensionRegistry);
+            consensusParamUpdates_ = input.readMessage(ConsensusParams.parser(), extensionRegistry);
             if (subBuilder != null) {
               subBuilder.mergeFrom(consensusParamUpdates_);
               consensusParamUpdates_ = subBuilder.buildPartial();
@@ -84,11 +84,11 @@ public  final class ResponseEndBlock extends
     return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseEndBlock_descriptor;
   }
 
-  protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+  protected FieldAccessorTable
       internalGetFieldAccessorTable() {
     return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseEndBlock_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.github.jtendermint.jabci.types.ResponseEndBlock.class, com.github.jtendermint.jabci.types.ResponseEndBlock.Builder.class);
+            ResponseEndBlock.class, Builder.class);
   }
 
   private int bitField0_;
@@ -128,7 +128,7 @@ public  final class ResponseEndBlock extends
   }
 
   public static final int CONSENSUS_PARAM_UPDATES_FIELD_NUMBER = 2;
-  private com.github.jtendermint.jabci.types.ConsensusParams consensusParamUpdates_;
+  private ConsensusParams consensusParamUpdates_;
   /**
    * <code>optional .com.github.jtendermint.jabci.types.ConsensusParams consensus_param_updates = 2;</code>
    */
@@ -138,13 +138,13 @@ public  final class ResponseEndBlock extends
   /**
    * <code>optional .com.github.jtendermint.jabci.types.ConsensusParams consensus_param_updates = 2;</code>
    */
-  public com.github.jtendermint.jabci.types.ConsensusParams getConsensusParamUpdates() {
-    return consensusParamUpdates_ == null ? com.github.jtendermint.jabci.types.ConsensusParams.getDefaultInstance() : consensusParamUpdates_;
+  public ConsensusParams getConsensusParamUpdates() {
+    return consensusParamUpdates_ == null ? ConsensusParams.getDefaultInstance() : consensusParamUpdates_;
   }
   /**
    * <code>optional .com.github.jtendermint.jabci.types.ConsensusParams consensus_param_updates = 2;</code>
    */
-  public com.github.jtendermint.jabci.types.ConsensusParamsOrBuilder getConsensusParamUpdatesOrBuilder() {
+  public ConsensusParamsOrBuilder getConsensusParamUpdatesOrBuilder() {
     return getConsensusParamUpdates();
   }
 
@@ -186,15 +186,15 @@ public  final class ResponseEndBlock extends
   }
 
   private static final long serialVersionUID = 0L;
-  @java.lang.Override
-  public boolean equals(final java.lang.Object obj) {
+  @Override
+  public boolean equals(final Object obj) {
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.github.jtendermint.jabci.types.ResponseEndBlock)) {
+    if (!(obj instanceof ResponseEndBlock)) {
       return super.equals(obj);
     }
-    com.github.jtendermint.jabci.types.ResponseEndBlock other = (com.github.jtendermint.jabci.types.ResponseEndBlock) obj;
+    ResponseEndBlock other = (ResponseEndBlock) obj;
 
     boolean result = true;
     result = result && getValidatorUpdatesList()
@@ -207,7 +207,7 @@ public  final class ResponseEndBlock extends
     return result;
   }
 
-  @java.lang.Override
+  @Override
   public int hashCode() {
     if (memoizedHashCode != 0) {
       return memoizedHashCode;
@@ -227,58 +227,58 @@ public  final class ResponseEndBlock extends
     return hash;
   }
 
-  public static com.github.jtendermint.jabci.types.ResponseEndBlock parseFrom(
+  public static ResponseEndBlock parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.github.jtendermint.jabci.types.ResponseEndBlock parseFrom(
+  public static ResponseEndBlock parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.ResponseEndBlock parseFrom(byte[] data)
+  public static ResponseEndBlock parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.github.jtendermint.jabci.types.ResponseEndBlock parseFrom(
+  public static ResponseEndBlock parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.ResponseEndBlock parseFrom(java.io.InputStream input)
+  public static ResponseEndBlock parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.github.jtendermint.jabci.types.ResponseEndBlock parseFrom(
+  public static ResponseEndBlock parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.ResponseEndBlock parseDelimitedFrom(java.io.InputStream input)
+  public static ResponseEndBlock parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.github.jtendermint.jabci.types.ResponseEndBlock parseDelimitedFrom(
+  public static ResponseEndBlock parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.ResponseEndBlock parseFrom(
+  public static ResponseEndBlock parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.github.jtendermint.jabci.types.ResponseEndBlock parseFrom(
+  public static ResponseEndBlock parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -290,7 +290,7 @@ public  final class ResponseEndBlock extends
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.github.jtendermint.jabci.types.ResponseEndBlock prototype) {
+  public static Builder newBuilder(ResponseEndBlock prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   public Builder toBuilder() {
@@ -298,9 +298,9 @@ public  final class ResponseEndBlock extends
         ? new Builder() : new Builder().mergeFrom(this);
   }
 
-  @java.lang.Override
+  @Override
   protected Builder newBuilderForType(
-      com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      BuilderParent parent) {
     Builder builder = new Builder(parent);
     return builder;
   }
@@ -316,11 +316,11 @@ public  final class ResponseEndBlock extends
       return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseEndBlock_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseEndBlock_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.github.jtendermint.jabci.types.ResponseEndBlock.class, com.github.jtendermint.jabci.types.ResponseEndBlock.Builder.class);
+              ResponseEndBlock.class, Builder.class);
     }
 
     // Construct using com.github.jtendermint.jabci.types.ResponseEndBlock.newBuilder()
@@ -329,7 +329,7 @@ public  final class ResponseEndBlock extends
     }
 
     private Builder(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       super(parent);
       maybeForceBuilderInitialization();
     }
@@ -361,20 +361,20 @@ public  final class ResponseEndBlock extends
       return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseEndBlock_descriptor;
     }
 
-    public com.github.jtendermint.jabci.types.ResponseEndBlock getDefaultInstanceForType() {
-      return com.github.jtendermint.jabci.types.ResponseEndBlock.getDefaultInstance();
+    public ResponseEndBlock getDefaultInstanceForType() {
+      return ResponseEndBlock.getDefaultInstance();
     }
 
-    public com.github.jtendermint.jabci.types.ResponseEndBlock build() {
-      com.github.jtendermint.jabci.types.ResponseEndBlock result = buildPartial();
+    public ResponseEndBlock build() {
+      ResponseEndBlock result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
       return result;
     }
 
-    public com.github.jtendermint.jabci.types.ResponseEndBlock buildPartial() {
-      com.github.jtendermint.jabci.types.ResponseEndBlock result = new com.github.jtendermint.jabci.types.ResponseEndBlock(this);
+    public ResponseEndBlock buildPartial() {
+      ResponseEndBlock result = new ResponseEndBlock(this);
       int from_bitField0_ = bitField0_;
       int to_bitField0_ = 0;
       if (validatorUpdatesBuilder_ == null) {
@@ -423,16 +423,16 @@ public  final class ResponseEndBlock extends
       return (Builder) super.addRepeatedField(field, value);
     }
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.github.jtendermint.jabci.types.ResponseEndBlock) {
-        return mergeFrom((com.github.jtendermint.jabci.types.ResponseEndBlock)other);
+      if (other instanceof ResponseEndBlock) {
+        return mergeFrom((ResponseEndBlock)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.github.jtendermint.jabci.types.ResponseEndBlock other) {
-      if (other == com.github.jtendermint.jabci.types.ResponseEndBlock.getDefaultInstance()) return this;
+    public Builder mergeFrom(ResponseEndBlock other) {
+      if (other == ResponseEndBlock.getDefaultInstance()) return this;
       if (validatorUpdatesBuilder_ == null) {
         if (!other.validatorUpdates_.isEmpty()) {
           if (validatorUpdates_.isEmpty()) {
@@ -474,11 +474,11 @@ public  final class ResponseEndBlock extends
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.github.jtendermint.jabci.types.ResponseEndBlock parsedMessage = null;
+      ResponseEndBlock parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.github.jtendermint.jabci.types.ResponseEndBlock) e.getUnfinishedMessage();
+        parsedMessage = (ResponseEndBlock) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -627,7 +627,7 @@ public  final class ResponseEndBlock extends
      * <code>repeated .com.github.jtendermint.jabci.types.Validator validator_updates = 1;</code>
      */
     public Builder addAllValidatorUpdates(
-        java.lang.Iterable<? extends com.github.jtendermint.jabci.types.Validator> values) {
+        Iterable<? extends com.github.jtendermint.jabci.types.Validator> values) {
       if (validatorUpdatesBuilder_ == null) {
         ensureValidatorUpdatesIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -729,9 +729,9 @@ public  final class ResponseEndBlock extends
       return validatorUpdatesBuilder_;
     }
 
-    private com.github.jtendermint.jabci.types.ConsensusParams consensusParamUpdates_ = null;
+    private ConsensusParams consensusParamUpdates_ = null;
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.github.jtendermint.jabci.types.ConsensusParams, com.github.jtendermint.jabci.types.ConsensusParams.Builder, com.github.jtendermint.jabci.types.ConsensusParamsOrBuilder> consensusParamUpdatesBuilder_;
+        ConsensusParams, ConsensusParams.Builder, ConsensusParamsOrBuilder> consensusParamUpdatesBuilder_;
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ConsensusParams consensus_param_updates = 2;</code>
      */
@@ -741,9 +741,9 @@ public  final class ResponseEndBlock extends
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ConsensusParams consensus_param_updates = 2;</code>
      */
-    public com.github.jtendermint.jabci.types.ConsensusParams getConsensusParamUpdates() {
+    public ConsensusParams getConsensusParamUpdates() {
       if (consensusParamUpdatesBuilder_ == null) {
-        return consensusParamUpdates_ == null ? com.github.jtendermint.jabci.types.ConsensusParams.getDefaultInstance() : consensusParamUpdates_;
+        return consensusParamUpdates_ == null ? ConsensusParams.getDefaultInstance() : consensusParamUpdates_;
       } else {
         return consensusParamUpdatesBuilder_.getMessage();
       }
@@ -751,7 +751,7 @@ public  final class ResponseEndBlock extends
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ConsensusParams consensus_param_updates = 2;</code>
      */
-    public Builder setConsensusParamUpdates(com.github.jtendermint.jabci.types.ConsensusParams value) {
+    public Builder setConsensusParamUpdates(ConsensusParams value) {
       if (consensusParamUpdatesBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -768,7 +768,7 @@ public  final class ResponseEndBlock extends
      * <code>optional .com.github.jtendermint.jabci.types.ConsensusParams consensus_param_updates = 2;</code>
      */
     public Builder setConsensusParamUpdates(
-        com.github.jtendermint.jabci.types.ConsensusParams.Builder builderForValue) {
+        ConsensusParams.Builder builderForValue) {
       if (consensusParamUpdatesBuilder_ == null) {
         consensusParamUpdates_ = builderForValue.build();
         onChanged();
@@ -781,11 +781,11 @@ public  final class ResponseEndBlock extends
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ConsensusParams consensus_param_updates = 2;</code>
      */
-    public Builder mergeConsensusParamUpdates(com.github.jtendermint.jabci.types.ConsensusParams value) {
+    public Builder mergeConsensusParamUpdates(ConsensusParams value) {
       if (consensusParamUpdatesBuilder_ == null) {
         if (consensusParamUpdates_ != null) {
           consensusParamUpdates_ =
-            com.github.jtendermint.jabci.types.ConsensusParams.newBuilder(consensusParamUpdates_).mergeFrom(value).buildPartial();
+            ConsensusParams.newBuilder(consensusParamUpdates_).mergeFrom(value).buildPartial();
         } else {
           consensusParamUpdates_ = value;
         }
@@ -813,7 +813,7 @@ public  final class ResponseEndBlock extends
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ConsensusParams consensus_param_updates = 2;</code>
      */
-    public com.github.jtendermint.jabci.types.ConsensusParams.Builder getConsensusParamUpdatesBuilder() {
+    public ConsensusParams.Builder getConsensusParamUpdatesBuilder() {
       
       onChanged();
       return getConsensusParamUpdatesFieldBuilder().getBuilder();
@@ -821,23 +821,23 @@ public  final class ResponseEndBlock extends
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ConsensusParams consensus_param_updates = 2;</code>
      */
-    public com.github.jtendermint.jabci.types.ConsensusParamsOrBuilder getConsensusParamUpdatesOrBuilder() {
+    public ConsensusParamsOrBuilder getConsensusParamUpdatesOrBuilder() {
       if (consensusParamUpdatesBuilder_ != null) {
         return consensusParamUpdatesBuilder_.getMessageOrBuilder();
       } else {
         return consensusParamUpdates_ == null ?
-            com.github.jtendermint.jabci.types.ConsensusParams.getDefaultInstance() : consensusParamUpdates_;
+            ConsensusParams.getDefaultInstance() : consensusParamUpdates_;
       }
     }
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ConsensusParams consensus_param_updates = 2;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.github.jtendermint.jabci.types.ConsensusParams, com.github.jtendermint.jabci.types.ConsensusParams.Builder, com.github.jtendermint.jabci.types.ConsensusParamsOrBuilder> 
+        ConsensusParams, ConsensusParams.Builder, ConsensusParamsOrBuilder>
         getConsensusParamUpdatesFieldBuilder() {
       if (consensusParamUpdatesBuilder_ == null) {
         consensusParamUpdatesBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.github.jtendermint.jabci.types.ConsensusParams, com.github.jtendermint.jabci.types.ConsensusParams.Builder, com.github.jtendermint.jabci.types.ConsensusParamsOrBuilder>(
+            ConsensusParams, ConsensusParams.Builder, ConsensusParamsOrBuilder>(
                 getConsensusParamUpdates(),
                 getParentForChildren(),
                 isClean());
@@ -860,12 +860,12 @@ public  final class ResponseEndBlock extends
   }
 
   // @@protoc_insertion_point(class_scope:com.github.jtendermint.jabci.types.ResponseEndBlock)
-  private static final com.github.jtendermint.jabci.types.ResponseEndBlock DEFAULT_INSTANCE;
+  private static final ResponseEndBlock DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.github.jtendermint.jabci.types.ResponseEndBlock();
+    DEFAULT_INSTANCE = new ResponseEndBlock();
   }
 
-  public static com.github.jtendermint.jabci.types.ResponseEndBlock getDefaultInstance() {
+  public static ResponseEndBlock getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
@@ -883,12 +883,12 @@ public  final class ResponseEndBlock extends
     return PARSER;
   }
 
-  @java.lang.Override
+  @Override
   public com.google.protobuf.Parser<ResponseEndBlock> getParserForType() {
     return PARSER;
   }
 
-  public com.github.jtendermint.jabci.types.ResponseEndBlock getDefaultInstanceForType() {
+  public ResponseEndBlock getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

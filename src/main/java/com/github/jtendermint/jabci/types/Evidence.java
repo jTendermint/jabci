@@ -19,7 +19,7 @@ public  final class Evidence extends
     height_ = 0L;
   }
 
-  @java.lang.Override
+  @Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
@@ -70,11 +70,11 @@ public  final class Evidence extends
     return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_Evidence_descriptor;
   }
 
-  protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+  protected FieldAccessorTable
       internalGetFieldAccessorTable() {
     return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_Evidence_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.github.jtendermint.jabci.types.Evidence.class, com.github.jtendermint.jabci.types.Evidence.Builder.class);
+            Evidence.class, Builder.class);
   }
 
   public static final int PUB_KEY_FIELD_NUMBER = 1;
@@ -133,15 +133,15 @@ public  final class Evidence extends
   }
 
   private static final long serialVersionUID = 0L;
-  @java.lang.Override
-  public boolean equals(final java.lang.Object obj) {
+  @Override
+  public boolean equals(final Object obj) {
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.github.jtendermint.jabci.types.Evidence)) {
+    if (!(obj instanceof Evidence)) {
       return super.equals(obj);
     }
-    com.github.jtendermint.jabci.types.Evidence other = (com.github.jtendermint.jabci.types.Evidence) obj;
+    Evidence other = (Evidence) obj;
 
     boolean result = true;
     result = result && getPubKey()
@@ -151,7 +151,7 @@ public  final class Evidence extends
     return result;
   }
 
-  @java.lang.Override
+  @Override
   public int hashCode() {
     if (memoizedHashCode != 0) {
       return memoizedHashCode;
@@ -168,58 +168,58 @@ public  final class Evidence extends
     return hash;
   }
 
-  public static com.github.jtendermint.jabci.types.Evidence parseFrom(
+  public static Evidence parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.github.jtendermint.jabci.types.Evidence parseFrom(
+  public static Evidence parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.Evidence parseFrom(byte[] data)
+  public static Evidence parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.github.jtendermint.jabci.types.Evidence parseFrom(
+  public static Evidence parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.Evidence parseFrom(java.io.InputStream input)
+  public static Evidence parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.github.jtendermint.jabci.types.Evidence parseFrom(
+  public static Evidence parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.Evidence parseDelimitedFrom(java.io.InputStream input)
+  public static Evidence parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.github.jtendermint.jabci.types.Evidence parseDelimitedFrom(
+  public static Evidence parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.Evidence parseFrom(
+  public static Evidence parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.github.jtendermint.jabci.types.Evidence parseFrom(
+  public static Evidence parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -231,7 +231,7 @@ public  final class Evidence extends
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.github.jtendermint.jabci.types.Evidence prototype) {
+  public static Builder newBuilder(Evidence prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   public Builder toBuilder() {
@@ -239,9 +239,9 @@ public  final class Evidence extends
         ? new Builder() : new Builder().mergeFrom(this);
   }
 
-  @java.lang.Override
+  @Override
   protected Builder newBuilderForType(
-      com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      BuilderParent parent) {
     Builder builder = new Builder(parent);
     return builder;
   }
@@ -257,11 +257,11 @@ public  final class Evidence extends
       return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_Evidence_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_Evidence_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.github.jtendermint.jabci.types.Evidence.class, com.github.jtendermint.jabci.types.Evidence.Builder.class);
+              Evidence.class, Builder.class);
     }
 
     // Construct using com.github.jtendermint.jabci.types.Evidence.newBuilder()
@@ -270,7 +270,7 @@ public  final class Evidence extends
     }
 
     private Builder(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       super(parent);
       maybeForceBuilderInitialization();
     }
@@ -293,20 +293,20 @@ public  final class Evidence extends
       return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_Evidence_descriptor;
     }
 
-    public com.github.jtendermint.jabci.types.Evidence getDefaultInstanceForType() {
-      return com.github.jtendermint.jabci.types.Evidence.getDefaultInstance();
+    public Evidence getDefaultInstanceForType() {
+      return Evidence.getDefaultInstance();
     }
 
-    public com.github.jtendermint.jabci.types.Evidence build() {
-      com.github.jtendermint.jabci.types.Evidence result = buildPartial();
+    public Evidence build() {
+      Evidence result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
       return result;
     }
 
-    public com.github.jtendermint.jabci.types.Evidence buildPartial() {
-      com.github.jtendermint.jabci.types.Evidence result = new com.github.jtendermint.jabci.types.Evidence(this);
+    public Evidence buildPartial() {
+      Evidence result = new Evidence(this);
       result.pubKey_ = pubKey_;
       result.height_ = height_;
       onBuilt();
@@ -340,16 +340,16 @@ public  final class Evidence extends
       return (Builder) super.addRepeatedField(field, value);
     }
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.github.jtendermint.jabci.types.Evidence) {
-        return mergeFrom((com.github.jtendermint.jabci.types.Evidence)other);
+      if (other instanceof Evidence) {
+        return mergeFrom((Evidence)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.github.jtendermint.jabci.types.Evidence other) {
-      if (other == com.github.jtendermint.jabci.types.Evidence.getDefaultInstance()) return this;
+    public Builder mergeFrom(Evidence other) {
+      if (other == Evidence.getDefaultInstance()) return this;
       if (other.getPubKey() != com.google.protobuf.ByteString.EMPTY) {
         setPubKey(other.getPubKey());
       }
@@ -368,11 +368,11 @@ public  final class Evidence extends
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.github.jtendermint.jabci.types.Evidence parsedMessage = null;
+      Evidence parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.github.jtendermint.jabci.types.Evidence) e.getUnfinishedMessage();
+        parsedMessage = (Evidence) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -451,12 +451,12 @@ public  final class Evidence extends
   }
 
   // @@protoc_insertion_point(class_scope:com.github.jtendermint.jabci.types.Evidence)
-  private static final com.github.jtendermint.jabci.types.Evidence DEFAULT_INSTANCE;
+  private static final Evidence DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.github.jtendermint.jabci.types.Evidence();
+    DEFAULT_INSTANCE = new Evidence();
   }
 
-  public static com.github.jtendermint.jabci.types.Evidence getDefaultInstance() {
+  public static Evidence getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
@@ -474,12 +474,12 @@ public  final class Evidence extends
     return PARSER;
   }
 
-  @java.lang.Override
+  @Override
   public com.google.protobuf.Parser<Evidence> getParserForType() {
     return PARSER;
   }
 
-  public com.github.jtendermint.jabci.types.Evidence getDefaultInstanceForType() {
+  public Evidence getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

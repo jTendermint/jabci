@@ -24,7 +24,7 @@ public  final class ResponseDeliverTx extends
     tags_ = java.util.Collections.emptyList();
   }
 
-  @java.lang.Override
+  @Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
@@ -60,13 +60,13 @@ public  final class ResponseDeliverTx extends
             break;
           }
           case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
+            String s = input.readStringRequireUtf8();
 
             log_ = s;
             break;
           }
           case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
+            String s = input.readStringRequireUtf8();
 
             info_ = s;
             break;
@@ -83,11 +83,24 @@ public  final class ResponseDeliverTx extends
           }
           case 58: {
             if (!((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
-              tags_ = new java.util.ArrayList<com.github.jtendermint.jabci.types.KVPair>();
+              tags_ = new java.util.ArrayList<KVPair>();
               mutable_bitField0_ |= 0x00000040;
             }
             tags_.add(
-                input.readMessage(com.github.jtendermint.jabci.types.KVPair.parser(), extensionRegistry));
+                input.readMessage(KVPair.parser(), extensionRegistry));
+            break;
+          }
+          case 66: {
+            KI64Pair.Builder subBuilder = null;
+            if (fee_ != null) {
+              subBuilder = fee_.toBuilder();
+            }
+            fee_ = input.readMessage(KI64Pair.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(fee_);
+              fee_ = subBuilder.buildPartial();
+            }
+
             break;
           }
         }
@@ -109,11 +122,11 @@ public  final class ResponseDeliverTx extends
     return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseDeliverTx_descriptor;
   }
 
-  protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+  protected FieldAccessorTable
       internalGetFieldAccessorTable() {
     return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseDeliverTx_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.github.jtendermint.jabci.types.ResponseDeliverTx.class, com.github.jtendermint.jabci.types.ResponseDeliverTx.Builder.class);
+            ResponseDeliverTx.class, Builder.class);
   }
 
   private int bitField0_;
@@ -136,7 +149,7 @@ public  final class ResponseDeliverTx extends
   }
 
   public static final int LOG_FIELD_NUMBER = 3;
-  private volatile java.lang.Object log_;
+  private volatile Object log_;
   /**
    * <pre>
    * nondeterministic
@@ -144,14 +157,14 @@ public  final class ResponseDeliverTx extends
    *
    * <code>optional string log = 3;</code>
    */
-  public java.lang.String getLog() {
-    java.lang.Object ref = log_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
+  public String getLog() {
+    Object ref = log_;
+    if (ref instanceof String) {
+      return (String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
+      String s = bs.toStringUtf8();
       log_ = s;
       return s;
     }
@@ -165,11 +178,11 @@ public  final class ResponseDeliverTx extends
    */
   public com.google.protobuf.ByteString
       getLogBytes() {
-    java.lang.Object ref = log_;
-    if (ref instanceof java.lang.String) {
+    Object ref = log_;
+    if (ref instanceof String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
+              (String) ref);
       log_ = b;
       return b;
     } else {
@@ -178,7 +191,7 @@ public  final class ResponseDeliverTx extends
   }
 
   public static final int INFO_FIELD_NUMBER = 4;
-  private volatile java.lang.Object info_;
+  private volatile Object info_;
   /**
    * <pre>
    * nondeterministic
@@ -186,14 +199,14 @@ public  final class ResponseDeliverTx extends
    *
    * <code>optional string info = 4;</code>
    */
-  public java.lang.String getInfo() {
-    java.lang.Object ref = info_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
+  public String getInfo() {
+    Object ref = info_;
+    if (ref instanceof String) {
+      return (String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
+      String s = bs.toStringUtf8();
       info_ = s;
       return s;
     }
@@ -207,11 +220,11 @@ public  final class ResponseDeliverTx extends
    */
   public com.google.protobuf.ByteString
       getInfoBytes() {
-    java.lang.Object ref = info_;
-    if (ref instanceof java.lang.String) {
+    Object ref = info_;
+    if (ref instanceof String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
+              (String) ref);
       info_ = b;
       return b;
     } else {
@@ -238,58 +251,59 @@ public  final class ResponseDeliverTx extends
   }
 
   public static final int TAGS_FIELD_NUMBER = 7;
-  private java.util.List<com.github.jtendermint.jabci.types.KVPair> tags_;
+  private java.util.List<KVPair> tags_;
   /**
-   * <pre>
-   * common.KI64Pair fee = 8;
-   * </pre>
-   *
    * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
    */
-  public java.util.List<com.github.jtendermint.jabci.types.KVPair> getTagsList() {
+  public java.util.List<KVPair> getTagsList() {
     return tags_;
   }
   /**
-   * <pre>
-   * common.KI64Pair fee = 8;
-   * </pre>
-   *
    * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
    */
-  public java.util.List<? extends com.github.jtendermint.jabci.types.KVPairOrBuilder> 
+  public java.util.List<? extends KVPairOrBuilder>
       getTagsOrBuilderList() {
     return tags_;
   }
   /**
-   * <pre>
-   * common.KI64Pair fee = 8;
-   * </pre>
-   *
    * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
    */
   public int getTagsCount() {
     return tags_.size();
   }
   /**
-   * <pre>
-   * common.KI64Pair fee = 8;
-   * </pre>
-   *
    * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
    */
-  public com.github.jtendermint.jabci.types.KVPair getTags(int index) {
+  public KVPair getTags(int index) {
     return tags_.get(index);
   }
   /**
-   * <pre>
-   * common.KI64Pair fee = 8;
-   * </pre>
-   *
    * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
    */
-  public com.github.jtendermint.jabci.types.KVPairOrBuilder getTagsOrBuilder(
+  public KVPairOrBuilder getTagsOrBuilder(
       int index) {
     return tags_.get(index);
+  }
+
+  public static final int FEE_FIELD_NUMBER = 8;
+  private KI64Pair fee_;
+  /**
+   * <code>optional .com.github.jtendermint.jabci.types.KI64Pair fee = 8;</code>
+   */
+  public boolean hasFee() {
+    return fee_ != null;
+  }
+  /**
+   * <code>optional .com.github.jtendermint.jabci.types.KI64Pair fee = 8;</code>
+   */
+  public KI64Pair getFee() {
+    return fee_ == null ? KI64Pair.getDefaultInstance() : fee_;
+  }
+  /**
+   * <code>optional .com.github.jtendermint.jabci.types.KI64Pair fee = 8;</code>
+   */
+  public KI64PairOrBuilder getFeeOrBuilder() {
+    return getFee();
   }
 
   private byte memoizedIsInitialized = -1;
@@ -325,6 +339,9 @@ public  final class ResponseDeliverTx extends
     for (int i = 0; i < tags_.size(); i++) {
       output.writeMessage(7, tags_.get(i));
     }
+    if (fee_ != null) {
+      output.writeMessage(8, getFee());
+    }
   }
 
   public int getSerializedSize() {
@@ -358,20 +375,24 @@ public  final class ResponseDeliverTx extends
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(7, tags_.get(i));
     }
+    if (fee_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(8, getFee());
+    }
     memoizedSize = size;
     return size;
   }
 
   private static final long serialVersionUID = 0L;
-  @java.lang.Override
-  public boolean equals(final java.lang.Object obj) {
+  @Override
+  public boolean equals(final Object obj) {
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.github.jtendermint.jabci.types.ResponseDeliverTx)) {
+    if (!(obj instanceof ResponseDeliverTx)) {
       return super.equals(obj);
     }
-    com.github.jtendermint.jabci.types.ResponseDeliverTx other = (com.github.jtendermint.jabci.types.ResponseDeliverTx) obj;
+    ResponseDeliverTx other = (ResponseDeliverTx) obj;
 
     boolean result = true;
     result = result && (getCode()
@@ -388,10 +409,15 @@ public  final class ResponseDeliverTx extends
         == other.getGasUsed());
     result = result && getTagsList()
         .equals(other.getTagsList());
+    result = result && (hasFee() == other.hasFee());
+    if (hasFee()) {
+      result = result && getFee()
+          .equals(other.getFee());
+    }
     return result;
   }
 
-  @java.lang.Override
+  @Override
   public int hashCode() {
     if (memoizedHashCode != 0) {
       return memoizedHashCode;
@@ -416,63 +442,67 @@ public  final class ResponseDeliverTx extends
       hash = (37 * hash) + TAGS_FIELD_NUMBER;
       hash = (53 * hash) + getTagsList().hashCode();
     }
+    if (hasFee()) {
+      hash = (37 * hash) + FEE_FIELD_NUMBER;
+      hash = (53 * hash) + getFee().hashCode();
+    }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static com.github.jtendermint.jabci.types.ResponseDeliverTx parseFrom(
+  public static ResponseDeliverTx parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.github.jtendermint.jabci.types.ResponseDeliverTx parseFrom(
+  public static ResponseDeliverTx parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.ResponseDeliverTx parseFrom(byte[] data)
+  public static ResponseDeliverTx parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.github.jtendermint.jabci.types.ResponseDeliverTx parseFrom(
+  public static ResponseDeliverTx parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.ResponseDeliverTx parseFrom(java.io.InputStream input)
+  public static ResponseDeliverTx parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.github.jtendermint.jabci.types.ResponseDeliverTx parseFrom(
+  public static ResponseDeliverTx parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.ResponseDeliverTx parseDelimitedFrom(java.io.InputStream input)
+  public static ResponseDeliverTx parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.github.jtendermint.jabci.types.ResponseDeliverTx parseDelimitedFrom(
+  public static ResponseDeliverTx parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.ResponseDeliverTx parseFrom(
+  public static ResponseDeliverTx parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.github.jtendermint.jabci.types.ResponseDeliverTx parseFrom(
+  public static ResponseDeliverTx parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -484,7 +514,7 @@ public  final class ResponseDeliverTx extends
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.github.jtendermint.jabci.types.ResponseDeliverTx prototype) {
+  public static Builder newBuilder(ResponseDeliverTx prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   public Builder toBuilder() {
@@ -492,9 +522,9 @@ public  final class ResponseDeliverTx extends
         ? new Builder() : new Builder().mergeFrom(this);
   }
 
-  @java.lang.Override
+  @Override
   protected Builder newBuilderForType(
-      com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      BuilderParent parent) {
     Builder builder = new Builder(parent);
     return builder;
   }
@@ -510,11 +540,11 @@ public  final class ResponseDeliverTx extends
       return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseDeliverTx_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseDeliverTx_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.github.jtendermint.jabci.types.ResponseDeliverTx.class, com.github.jtendermint.jabci.types.ResponseDeliverTx.Builder.class);
+              ResponseDeliverTx.class, Builder.class);
     }
 
     // Construct using com.github.jtendermint.jabci.types.ResponseDeliverTx.newBuilder()
@@ -523,7 +553,7 @@ public  final class ResponseDeliverTx extends
     }
 
     private Builder(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       super(parent);
       maybeForceBuilderInitialization();
     }
@@ -553,6 +583,12 @@ public  final class ResponseDeliverTx extends
       } else {
         tagsBuilder_.clear();
       }
+      if (feeBuilder_ == null) {
+        fee_ = null;
+      } else {
+        fee_ = null;
+        feeBuilder_ = null;
+      }
       return this;
     }
 
@@ -561,20 +597,20 @@ public  final class ResponseDeliverTx extends
       return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseDeliverTx_descriptor;
     }
 
-    public com.github.jtendermint.jabci.types.ResponseDeliverTx getDefaultInstanceForType() {
-      return com.github.jtendermint.jabci.types.ResponseDeliverTx.getDefaultInstance();
+    public ResponseDeliverTx getDefaultInstanceForType() {
+      return ResponseDeliverTx.getDefaultInstance();
     }
 
-    public com.github.jtendermint.jabci.types.ResponseDeliverTx build() {
-      com.github.jtendermint.jabci.types.ResponseDeliverTx result = buildPartial();
+    public ResponseDeliverTx build() {
+      ResponseDeliverTx result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
       return result;
     }
 
-    public com.github.jtendermint.jabci.types.ResponseDeliverTx buildPartial() {
-      com.github.jtendermint.jabci.types.ResponseDeliverTx result = new com.github.jtendermint.jabci.types.ResponseDeliverTx(this);
+    public ResponseDeliverTx buildPartial() {
+      ResponseDeliverTx result = new ResponseDeliverTx(this);
       int from_bitField0_ = bitField0_;
       int to_bitField0_ = 0;
       result.code_ = code_;
@@ -591,6 +627,11 @@ public  final class ResponseDeliverTx extends
         result.tags_ = tags_;
       } else {
         result.tags_ = tagsBuilder_.build();
+      }
+      if (feeBuilder_ == null) {
+        result.fee_ = fee_;
+      } else {
+        result.fee_ = feeBuilder_.build();
       }
       result.bitField0_ = to_bitField0_;
       onBuilt();
@@ -624,16 +665,16 @@ public  final class ResponseDeliverTx extends
       return (Builder) super.addRepeatedField(field, value);
     }
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.github.jtendermint.jabci.types.ResponseDeliverTx) {
-        return mergeFrom((com.github.jtendermint.jabci.types.ResponseDeliverTx)other);
+      if (other instanceof ResponseDeliverTx) {
+        return mergeFrom((ResponseDeliverTx)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.github.jtendermint.jabci.types.ResponseDeliverTx other) {
-      if (other == com.github.jtendermint.jabci.types.ResponseDeliverTx.getDefaultInstance()) return this;
+    public Builder mergeFrom(ResponseDeliverTx other) {
+      if (other == ResponseDeliverTx.getDefaultInstance()) return this;
       if (other.getCode() != 0) {
         setCode(other.getCode());
       }
@@ -680,6 +721,9 @@ public  final class ResponseDeliverTx extends
           }
         }
       }
+      if (other.hasFee()) {
+        mergeFee(other.getFee());
+      }
       onChanged();
       return this;
     }
@@ -692,11 +736,11 @@ public  final class ResponseDeliverTx extends
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.github.jtendermint.jabci.types.ResponseDeliverTx parsedMessage = null;
+      ResponseDeliverTx parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.github.jtendermint.jabci.types.ResponseDeliverTx) e.getUnfinishedMessage();
+        parsedMessage = (ResponseDeliverTx) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -762,7 +806,7 @@ public  final class ResponseDeliverTx extends
       return this;
     }
 
-    private java.lang.Object log_ = "";
+    private Object log_ = "";
     /**
      * <pre>
      * nondeterministic
@@ -770,16 +814,16 @@ public  final class ResponseDeliverTx extends
      *
      * <code>optional string log = 3;</code>
      */
-    public java.lang.String getLog() {
-      java.lang.Object ref = log_;
-      if (!(ref instanceof java.lang.String)) {
+    public String getLog() {
+      Object ref = log_;
+      if (!(ref instanceof String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         log_ = s;
         return s;
       } else {
-        return (java.lang.String) ref;
+        return (String) ref;
       }
     }
     /**
@@ -791,11 +835,11 @@ public  final class ResponseDeliverTx extends
      */
     public com.google.protobuf.ByteString
         getLogBytes() {
-      java.lang.Object ref = log_;
+      Object ref = log_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         log_ = b;
         return b;
       } else {
@@ -810,7 +854,7 @@ public  final class ResponseDeliverTx extends
      * <code>optional string log = 3;</code>
      */
     public Builder setLog(
-        java.lang.String value) {
+        String value) {
       if (value == null) {
     throw new NullPointerException();
   }
@@ -851,7 +895,7 @@ public  final class ResponseDeliverTx extends
       return this;
     }
 
-    private java.lang.Object info_ = "";
+    private Object info_ = "";
     /**
      * <pre>
      * nondeterministic
@@ -859,16 +903,16 @@ public  final class ResponseDeliverTx extends
      *
      * <code>optional string info = 4;</code>
      */
-    public java.lang.String getInfo() {
-      java.lang.Object ref = info_;
-      if (!(ref instanceof java.lang.String)) {
+    public String getInfo() {
+      Object ref = info_;
+      if (!(ref instanceof String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         info_ = s;
         return s;
       } else {
-        return (java.lang.String) ref;
+        return (String) ref;
       }
     }
     /**
@@ -880,11 +924,11 @@ public  final class ResponseDeliverTx extends
      */
     public com.google.protobuf.ByteString
         getInfoBytes() {
-      java.lang.Object ref = info_;
+      Object ref = info_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         info_ = b;
         return b;
       } else {
@@ -899,7 +943,7 @@ public  final class ResponseDeliverTx extends
      * <code>optional string info = 4;</code>
      */
     public Builder setInfo(
-        java.lang.String value) {
+        String value) {
       if (value == null) {
     throw new NullPointerException();
   }
@@ -992,26 +1036,22 @@ public  final class ResponseDeliverTx extends
       return this;
     }
 
-    private java.util.List<com.github.jtendermint.jabci.types.KVPair> tags_ =
+    private java.util.List<KVPair> tags_ =
       java.util.Collections.emptyList();
     private void ensureTagsIsMutable() {
       if (!((bitField0_ & 0x00000040) == 0x00000040)) {
-        tags_ = new java.util.ArrayList<com.github.jtendermint.jabci.types.KVPair>(tags_);
+        tags_ = new java.util.ArrayList<KVPair>(tags_);
         bitField0_ |= 0x00000040;
        }
     }
 
     private com.google.protobuf.RepeatedFieldBuilderV3<
-        com.github.jtendermint.jabci.types.KVPair, com.github.jtendermint.jabci.types.KVPair.Builder, com.github.jtendermint.jabci.types.KVPairOrBuilder> tagsBuilder_;
+        KVPair, KVPair.Builder, KVPairOrBuilder> tagsBuilder_;
 
     /**
-     * <pre>
-     * common.KI64Pair fee = 8;
-     * </pre>
-     *
      * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
      */
-    public java.util.List<com.github.jtendermint.jabci.types.KVPair> getTagsList() {
+    public java.util.List<KVPair> getTagsList() {
       if (tagsBuilder_ == null) {
         return java.util.Collections.unmodifiableList(tags_);
       } else {
@@ -1019,10 +1059,6 @@ public  final class ResponseDeliverTx extends
       }
     }
     /**
-     * <pre>
-     * common.KI64Pair fee = 8;
-     * </pre>
-     *
      * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
      */
     public int getTagsCount() {
@@ -1033,13 +1069,9 @@ public  final class ResponseDeliverTx extends
       }
     }
     /**
-     * <pre>
-     * common.KI64Pair fee = 8;
-     * </pre>
-     *
      * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
      */
-    public com.github.jtendermint.jabci.types.KVPair getTags(int index) {
+    public KVPair getTags(int index) {
       if (tagsBuilder_ == null) {
         return tags_.get(index);
       } else {
@@ -1047,14 +1079,10 @@ public  final class ResponseDeliverTx extends
       }
     }
     /**
-     * <pre>
-     * common.KI64Pair fee = 8;
-     * </pre>
-     *
      * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
      */
     public Builder setTags(
-        int index, com.github.jtendermint.jabci.types.KVPair value) {
+        int index, KVPair value) {
       if (tagsBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -1068,14 +1096,10 @@ public  final class ResponseDeliverTx extends
       return this;
     }
     /**
-     * <pre>
-     * common.KI64Pair fee = 8;
-     * </pre>
-     *
      * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
      */
     public Builder setTags(
-        int index, com.github.jtendermint.jabci.types.KVPair.Builder builderForValue) {
+        int index, KVPair.Builder builderForValue) {
       if (tagsBuilder_ == null) {
         ensureTagsIsMutable();
         tags_.set(index, builderForValue.build());
@@ -1086,13 +1110,9 @@ public  final class ResponseDeliverTx extends
       return this;
     }
     /**
-     * <pre>
-     * common.KI64Pair fee = 8;
-     * </pre>
-     *
      * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
      */
-    public Builder addTags(com.github.jtendermint.jabci.types.KVPair value) {
+    public Builder addTags(KVPair value) {
       if (tagsBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -1106,14 +1126,10 @@ public  final class ResponseDeliverTx extends
       return this;
     }
     /**
-     * <pre>
-     * common.KI64Pair fee = 8;
-     * </pre>
-     *
      * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
      */
     public Builder addTags(
-        int index, com.github.jtendermint.jabci.types.KVPair value) {
+        int index, KVPair value) {
       if (tagsBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -1127,14 +1143,10 @@ public  final class ResponseDeliverTx extends
       return this;
     }
     /**
-     * <pre>
-     * common.KI64Pair fee = 8;
-     * </pre>
-     *
      * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
      */
     public Builder addTags(
-        com.github.jtendermint.jabci.types.KVPair.Builder builderForValue) {
+        KVPair.Builder builderForValue) {
       if (tagsBuilder_ == null) {
         ensureTagsIsMutable();
         tags_.add(builderForValue.build());
@@ -1145,14 +1157,10 @@ public  final class ResponseDeliverTx extends
       return this;
     }
     /**
-     * <pre>
-     * common.KI64Pair fee = 8;
-     * </pre>
-     *
      * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
      */
     public Builder addTags(
-        int index, com.github.jtendermint.jabci.types.KVPair.Builder builderForValue) {
+        int index, KVPair.Builder builderForValue) {
       if (tagsBuilder_ == null) {
         ensureTagsIsMutable();
         tags_.add(index, builderForValue.build());
@@ -1163,14 +1171,10 @@ public  final class ResponseDeliverTx extends
       return this;
     }
     /**
-     * <pre>
-     * common.KI64Pair fee = 8;
-     * </pre>
-     *
      * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
      */
     public Builder addAllTags(
-        java.lang.Iterable<? extends com.github.jtendermint.jabci.types.KVPair> values) {
+        Iterable<? extends KVPair> values) {
       if (tagsBuilder_ == null) {
         ensureTagsIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -1182,10 +1186,6 @@ public  final class ResponseDeliverTx extends
       return this;
     }
     /**
-     * <pre>
-     * common.KI64Pair fee = 8;
-     * </pre>
-     *
      * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
      */
     public Builder clearTags() {
@@ -1199,10 +1199,6 @@ public  final class ResponseDeliverTx extends
       return this;
     }
     /**
-     * <pre>
-     * common.KI64Pair fee = 8;
-     * </pre>
-     *
      * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
      */
     public Builder removeTags(int index) {
@@ -1216,24 +1212,16 @@ public  final class ResponseDeliverTx extends
       return this;
     }
     /**
-     * <pre>
-     * common.KI64Pair fee = 8;
-     * </pre>
-     *
      * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
      */
-    public com.github.jtendermint.jabci.types.KVPair.Builder getTagsBuilder(
+    public KVPair.Builder getTagsBuilder(
         int index) {
       return getTagsFieldBuilder().getBuilder(index);
     }
     /**
-     * <pre>
-     * common.KI64Pair fee = 8;
-     * </pre>
-     *
      * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
      */
-    public com.github.jtendermint.jabci.types.KVPairOrBuilder getTagsOrBuilder(
+    public KVPairOrBuilder getTagsOrBuilder(
         int index) {
       if (tagsBuilder_ == null) {
         return tags_.get(index);  } else {
@@ -1241,13 +1229,9 @@ public  final class ResponseDeliverTx extends
       }
     }
     /**
-     * <pre>
-     * common.KI64Pair fee = 8;
-     * </pre>
-     *
      * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
      */
-    public java.util.List<? extends com.github.jtendermint.jabci.types.KVPairOrBuilder> 
+    public java.util.List<? extends KVPairOrBuilder>
          getTagsOrBuilderList() {
       if (tagsBuilder_ != null) {
         return tagsBuilder_.getMessageOrBuilderList();
@@ -1256,45 +1240,33 @@ public  final class ResponseDeliverTx extends
       }
     }
     /**
-     * <pre>
-     * common.KI64Pair fee = 8;
-     * </pre>
-     *
      * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
      */
-    public com.github.jtendermint.jabci.types.KVPair.Builder addTagsBuilder() {
+    public KVPair.Builder addTagsBuilder() {
       return getTagsFieldBuilder().addBuilder(
-          com.github.jtendermint.jabci.types.KVPair.getDefaultInstance());
+          KVPair.getDefaultInstance());
     }
     /**
-     * <pre>
-     * common.KI64Pair fee = 8;
-     * </pre>
-     *
      * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
      */
-    public com.github.jtendermint.jabci.types.KVPair.Builder addTagsBuilder(
+    public KVPair.Builder addTagsBuilder(
         int index) {
       return getTagsFieldBuilder().addBuilder(
-          index, com.github.jtendermint.jabci.types.KVPair.getDefaultInstance());
+          index, KVPair.getDefaultInstance());
     }
     /**
-     * <pre>
-     * common.KI64Pair fee = 8;
-     * </pre>
-     *
      * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
      */
-    public java.util.List<com.github.jtendermint.jabci.types.KVPair.Builder> 
+    public java.util.List<KVPair.Builder>
          getTagsBuilderList() {
       return getTagsFieldBuilder().getBuilderList();
     }
     private com.google.protobuf.RepeatedFieldBuilderV3<
-        com.github.jtendermint.jabci.types.KVPair, com.github.jtendermint.jabci.types.KVPair.Builder, com.github.jtendermint.jabci.types.KVPairOrBuilder> 
+        KVPair, KVPair.Builder, KVPairOrBuilder>
         getTagsFieldBuilder() {
       if (tagsBuilder_ == null) {
         tagsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-            com.github.jtendermint.jabci.types.KVPair, com.github.jtendermint.jabci.types.KVPair.Builder, com.github.jtendermint.jabci.types.KVPairOrBuilder>(
+            KVPair, KVPair.Builder, KVPairOrBuilder>(
                 tags_,
                 ((bitField0_ & 0x00000040) == 0x00000040),
                 getParentForChildren(),
@@ -1302,6 +1274,123 @@ public  final class ResponseDeliverTx extends
         tags_ = null;
       }
       return tagsBuilder_;
+    }
+
+    private KI64Pair fee_ = null;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        KI64Pair, KI64Pair.Builder, KI64PairOrBuilder> feeBuilder_;
+    /**
+     * <code>optional .com.github.jtendermint.jabci.types.KI64Pair fee = 8;</code>
+     */
+    public boolean hasFee() {
+      return feeBuilder_ != null || fee_ != null;
+    }
+    /**
+     * <code>optional .com.github.jtendermint.jabci.types.KI64Pair fee = 8;</code>
+     */
+    public KI64Pair getFee() {
+      if (feeBuilder_ == null) {
+        return fee_ == null ? KI64Pair.getDefaultInstance() : fee_;
+      } else {
+        return feeBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>optional .com.github.jtendermint.jabci.types.KI64Pair fee = 8;</code>
+     */
+    public Builder setFee(KI64Pair value) {
+      if (feeBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        fee_ = value;
+        onChanged();
+      } else {
+        feeBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>optional .com.github.jtendermint.jabci.types.KI64Pair fee = 8;</code>
+     */
+    public Builder setFee(
+        KI64Pair.Builder builderForValue) {
+      if (feeBuilder_ == null) {
+        fee_ = builderForValue.build();
+        onChanged();
+      } else {
+        feeBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>optional .com.github.jtendermint.jabci.types.KI64Pair fee = 8;</code>
+     */
+    public Builder mergeFee(KI64Pair value) {
+      if (feeBuilder_ == null) {
+        if (fee_ != null) {
+          fee_ =
+            KI64Pair.newBuilder(fee_).mergeFrom(value).buildPartial();
+        } else {
+          fee_ = value;
+        }
+        onChanged();
+      } else {
+        feeBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>optional .com.github.jtendermint.jabci.types.KI64Pair fee = 8;</code>
+     */
+    public Builder clearFee() {
+      if (feeBuilder_ == null) {
+        fee_ = null;
+        onChanged();
+      } else {
+        fee_ = null;
+        feeBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>optional .com.github.jtendermint.jabci.types.KI64Pair fee = 8;</code>
+     */
+    public KI64Pair.Builder getFeeBuilder() {
+      
+      onChanged();
+      return getFeeFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>optional .com.github.jtendermint.jabci.types.KI64Pair fee = 8;</code>
+     */
+    public KI64PairOrBuilder getFeeOrBuilder() {
+      if (feeBuilder_ != null) {
+        return feeBuilder_.getMessageOrBuilder();
+      } else {
+        return fee_ == null ?
+            KI64Pair.getDefaultInstance() : fee_;
+      }
+    }
+    /**
+     * <code>optional .com.github.jtendermint.jabci.types.KI64Pair fee = 8;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        KI64Pair, KI64Pair.Builder, KI64PairOrBuilder>
+        getFeeFieldBuilder() {
+      if (feeBuilder_ == null) {
+        feeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            KI64Pair, KI64Pair.Builder, KI64PairOrBuilder>(
+                getFee(),
+                getParentForChildren(),
+                isClean());
+        fee_ = null;
+      }
+      return feeBuilder_;
     }
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -1318,12 +1407,12 @@ public  final class ResponseDeliverTx extends
   }
 
   // @@protoc_insertion_point(class_scope:com.github.jtendermint.jabci.types.ResponseDeliverTx)
-  private static final com.github.jtendermint.jabci.types.ResponseDeliverTx DEFAULT_INSTANCE;
+  private static final ResponseDeliverTx DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.github.jtendermint.jabci.types.ResponseDeliverTx();
+    DEFAULT_INSTANCE = new ResponseDeliverTx();
   }
 
-  public static com.github.jtendermint.jabci.types.ResponseDeliverTx getDefaultInstance() {
+  public static ResponseDeliverTx getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
@@ -1341,12 +1430,12 @@ public  final class ResponseDeliverTx extends
     return PARSER;
   }
 
-  @java.lang.Override
+  @Override
   public com.google.protobuf.Parser<ResponseDeliverTx> getParserForType() {
     return PARSER;
   }
 
-  public com.github.jtendermint.jabci.types.ResponseDeliverTx getDefaultInstanceForType() {
+  public ResponseDeliverTx getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

@@ -14,11 +14,11 @@ public interface ConsensusParamsOrBuilder extends
   /**
    * <code>optional .com.github.jtendermint.jabci.types.BlockSize block_size = 1;</code>
    */
-  com.github.jtendermint.jabci.types.BlockSize getBlockSize();
+  BlockSize getBlockSize();
   /**
    * <code>optional .com.github.jtendermint.jabci.types.BlockSize block_size = 1;</code>
    */
-  com.github.jtendermint.jabci.types.BlockSizeOrBuilder getBlockSizeOrBuilder();
+  BlockSizeOrBuilder getBlockSizeOrBuilder();
 
   /**
    * <code>optional .com.github.jtendermint.jabci.types.TxSize tx_size = 2;</code>
@@ -40,9 +40,9 @@ public interface ConsensusParamsOrBuilder extends
   /**
    * <code>optional .com.github.jtendermint.jabci.types.BlockGossip block_gossip = 3;</code>
    */
-  com.github.jtendermint.jabci.types.BlockGossip getBlockGossip();
+  BlockGossip getBlockGossip();
   /**
    * <code>optional .com.github.jtendermint.jabci.types.BlockGossip block_gossip = 3;</code>
    */
-  com.github.jtendermint.jabci.types.BlockGossipOrBuilder getBlockGossipOrBuilder();
+  BlockGossipOrBuilder getBlockGossipOrBuilder();
 }

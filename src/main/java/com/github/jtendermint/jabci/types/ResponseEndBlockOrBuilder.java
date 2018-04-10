@@ -29,7 +29,7 @@ public interface ResponseEndBlockOrBuilder extends
    * <code>repeated .com.github.jtendermint.jabci.types.Validator validator_updates = 1;</code>
    */
   com.github.jtendermint.jabci.types.ValidatorOrBuilder getValidatorUpdatesOrBuilder(
-      int index);
+          int index);
 
   /**
    * <code>optional .com.github.jtendermint.jabci.types.ConsensusParams consensus_param_updates = 2;</code>
@@ -38,9 +38,9 @@ public interface ResponseEndBlockOrBuilder extends
   /**
    * <code>optional .com.github.jtendermint.jabci.types.ConsensusParams consensus_param_updates = 2;</code>
    */
-  com.github.jtendermint.jabci.types.ConsensusParams getConsensusParamUpdates();
+  ConsensusParams getConsensusParamUpdates();
   /**
    * <code>optional .com.github.jtendermint.jabci.types.ConsensusParams consensus_param_updates = 2;</code>
    */
-  com.github.jtendermint.jabci.types.ConsensusParamsOrBuilder getConsensusParamUpdatesOrBuilder();
+  ConsensusParamsOrBuilder getConsensusParamUpdatesOrBuilder();
 }

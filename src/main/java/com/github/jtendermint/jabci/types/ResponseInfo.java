@@ -21,7 +21,7 @@ public  final class ResponseInfo extends
     lastBlockAppHash_ = com.google.protobuf.ByteString.EMPTY;
   }
 
-  @java.lang.Override
+  @Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
@@ -47,13 +47,13 @@ public  final class ResponseInfo extends
             break;
           }
           case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
+            String s = input.readStringRequireUtf8();
 
             data_ = s;
             break;
           }
           case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
+            String s = input.readStringRequireUtf8();
 
             version_ = s;
             break;
@@ -84,26 +84,26 @@ public  final class ResponseInfo extends
     return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseInfo_descriptor;
   }
 
-  protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+  protected FieldAccessorTable
       internalGetFieldAccessorTable() {
     return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseInfo_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.github.jtendermint.jabci.types.ResponseInfo.class, com.github.jtendermint.jabci.types.ResponseInfo.Builder.class);
+            ResponseInfo.class, Builder.class);
   }
 
   public static final int DATA_FIELD_NUMBER = 1;
-  private volatile java.lang.Object data_;
+  private volatile Object data_;
   /**
    * <code>optional string data = 1;</code>
    */
-  public java.lang.String getData() {
-    java.lang.Object ref = data_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
+  public String getData() {
+    Object ref = data_;
+    if (ref instanceof String) {
+      return (String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
+      String s = bs.toStringUtf8();
       data_ = s;
       return s;
     }
@@ -113,11 +113,11 @@ public  final class ResponseInfo extends
    */
   public com.google.protobuf.ByteString
       getDataBytes() {
-    java.lang.Object ref = data_;
-    if (ref instanceof java.lang.String) {
+    Object ref = data_;
+    if (ref instanceof String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
+              (String) ref);
       data_ = b;
       return b;
     } else {
@@ -126,18 +126,18 @@ public  final class ResponseInfo extends
   }
 
   public static final int VERSION_FIELD_NUMBER = 2;
-  private volatile java.lang.Object version_;
+  private volatile Object version_;
   /**
    * <code>optional string version = 2;</code>
    */
-  public java.lang.String getVersion() {
-    java.lang.Object ref = version_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
+  public String getVersion() {
+    Object ref = version_;
+    if (ref instanceof String) {
+      return (String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
+      String s = bs.toStringUtf8();
       version_ = s;
       return s;
     }
@@ -147,11 +147,11 @@ public  final class ResponseInfo extends
    */
   public com.google.protobuf.ByteString
       getVersionBytes() {
-    java.lang.Object ref = version_;
-    if (ref instanceof java.lang.String) {
+    Object ref = version_;
+    if (ref instanceof String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
+              (String) ref);
       version_ = b;
       return b;
     } else {
@@ -227,15 +227,15 @@ public  final class ResponseInfo extends
   }
 
   private static final long serialVersionUID = 0L;
-  @java.lang.Override
-  public boolean equals(final java.lang.Object obj) {
+  @Override
+  public boolean equals(final Object obj) {
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.github.jtendermint.jabci.types.ResponseInfo)) {
+    if (!(obj instanceof ResponseInfo)) {
       return super.equals(obj);
     }
-    com.github.jtendermint.jabci.types.ResponseInfo other = (com.github.jtendermint.jabci.types.ResponseInfo) obj;
+    ResponseInfo other = (ResponseInfo) obj;
 
     boolean result = true;
     result = result && getData()
@@ -249,7 +249,7 @@ public  final class ResponseInfo extends
     return result;
   }
 
-  @java.lang.Override
+  @Override
   public int hashCode() {
     if (memoizedHashCode != 0) {
       return memoizedHashCode;
@@ -270,58 +270,58 @@ public  final class ResponseInfo extends
     return hash;
   }
 
-  public static com.github.jtendermint.jabci.types.ResponseInfo parseFrom(
+  public static ResponseInfo parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.github.jtendermint.jabci.types.ResponseInfo parseFrom(
+  public static ResponseInfo parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.ResponseInfo parseFrom(byte[] data)
+  public static ResponseInfo parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.github.jtendermint.jabci.types.ResponseInfo parseFrom(
+  public static ResponseInfo parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.ResponseInfo parseFrom(java.io.InputStream input)
+  public static ResponseInfo parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.github.jtendermint.jabci.types.ResponseInfo parseFrom(
+  public static ResponseInfo parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.ResponseInfo parseDelimitedFrom(java.io.InputStream input)
+  public static ResponseInfo parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.github.jtendermint.jabci.types.ResponseInfo parseDelimitedFrom(
+  public static ResponseInfo parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.ResponseInfo parseFrom(
+  public static ResponseInfo parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.github.jtendermint.jabci.types.ResponseInfo parseFrom(
+  public static ResponseInfo parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -333,7 +333,7 @@ public  final class ResponseInfo extends
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.github.jtendermint.jabci.types.ResponseInfo prototype) {
+  public static Builder newBuilder(ResponseInfo prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   public Builder toBuilder() {
@@ -341,9 +341,9 @@ public  final class ResponseInfo extends
         ? new Builder() : new Builder().mergeFrom(this);
   }
 
-  @java.lang.Override
+  @Override
   protected Builder newBuilderForType(
-      com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      BuilderParent parent) {
     Builder builder = new Builder(parent);
     return builder;
   }
@@ -359,11 +359,11 @@ public  final class ResponseInfo extends
       return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseInfo_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseInfo_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.github.jtendermint.jabci.types.ResponseInfo.class, com.github.jtendermint.jabci.types.ResponseInfo.Builder.class);
+              ResponseInfo.class, Builder.class);
     }
 
     // Construct using com.github.jtendermint.jabci.types.ResponseInfo.newBuilder()
@@ -372,7 +372,7 @@ public  final class ResponseInfo extends
     }
 
     private Builder(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       super(parent);
       maybeForceBuilderInitialization();
     }
@@ -399,20 +399,20 @@ public  final class ResponseInfo extends
       return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseInfo_descriptor;
     }
 
-    public com.github.jtendermint.jabci.types.ResponseInfo getDefaultInstanceForType() {
-      return com.github.jtendermint.jabci.types.ResponseInfo.getDefaultInstance();
+    public ResponseInfo getDefaultInstanceForType() {
+      return ResponseInfo.getDefaultInstance();
     }
 
-    public com.github.jtendermint.jabci.types.ResponseInfo build() {
-      com.github.jtendermint.jabci.types.ResponseInfo result = buildPartial();
+    public ResponseInfo build() {
+      ResponseInfo result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
       return result;
     }
 
-    public com.github.jtendermint.jabci.types.ResponseInfo buildPartial() {
-      com.github.jtendermint.jabci.types.ResponseInfo result = new com.github.jtendermint.jabci.types.ResponseInfo(this);
+    public ResponseInfo buildPartial() {
+      ResponseInfo result = new ResponseInfo(this);
       result.data_ = data_;
       result.version_ = version_;
       result.lastBlockHeight_ = lastBlockHeight_;
@@ -448,16 +448,16 @@ public  final class ResponseInfo extends
       return (Builder) super.addRepeatedField(field, value);
     }
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.github.jtendermint.jabci.types.ResponseInfo) {
-        return mergeFrom((com.github.jtendermint.jabci.types.ResponseInfo)other);
+      if (other instanceof ResponseInfo) {
+        return mergeFrom((ResponseInfo)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.github.jtendermint.jabci.types.ResponseInfo other) {
-      if (other == com.github.jtendermint.jabci.types.ResponseInfo.getDefaultInstance()) return this;
+    public Builder mergeFrom(ResponseInfo other) {
+      if (other == ResponseInfo.getDefaultInstance()) return this;
       if (!other.getData().isEmpty()) {
         data_ = other.data_;
         onChanged();
@@ -484,11 +484,11 @@ public  final class ResponseInfo extends
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.github.jtendermint.jabci.types.ResponseInfo parsedMessage = null;
+      ResponseInfo parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.github.jtendermint.jabci.types.ResponseInfo) e.getUnfinishedMessage();
+        parsedMessage = (ResponseInfo) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -498,20 +498,20 @@ public  final class ResponseInfo extends
       return this;
     }
 
-    private java.lang.Object data_ = "";
+    private Object data_ = "";
     /**
      * <code>optional string data = 1;</code>
      */
-    public java.lang.String getData() {
-      java.lang.Object ref = data_;
-      if (!(ref instanceof java.lang.String)) {
+    public String getData() {
+      Object ref = data_;
+      if (!(ref instanceof String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         data_ = s;
         return s;
       } else {
-        return (java.lang.String) ref;
+        return (String) ref;
       }
     }
     /**
@@ -519,11 +519,11 @@ public  final class ResponseInfo extends
      */
     public com.google.protobuf.ByteString
         getDataBytes() {
-      java.lang.Object ref = data_;
+      Object ref = data_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         data_ = b;
         return b;
       } else {
@@ -534,7 +534,7 @@ public  final class ResponseInfo extends
      * <code>optional string data = 1;</code>
      */
     public Builder setData(
-        java.lang.String value) {
+        String value) {
       if (value == null) {
     throw new NullPointerException();
   }
@@ -567,20 +567,20 @@ public  final class ResponseInfo extends
       return this;
     }
 
-    private java.lang.Object version_ = "";
+    private Object version_ = "";
     /**
      * <code>optional string version = 2;</code>
      */
-    public java.lang.String getVersion() {
-      java.lang.Object ref = version_;
-      if (!(ref instanceof java.lang.String)) {
+    public String getVersion() {
+      Object ref = version_;
+      if (!(ref instanceof String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         version_ = s;
         return s;
       } else {
-        return (java.lang.String) ref;
+        return (String) ref;
       }
     }
     /**
@@ -588,11 +588,11 @@ public  final class ResponseInfo extends
      */
     public com.google.protobuf.ByteString
         getVersionBytes() {
-      java.lang.Object ref = version_;
+      Object ref = version_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         version_ = b;
         return b;
       } else {
@@ -603,7 +603,7 @@ public  final class ResponseInfo extends
      * <code>optional string version = 2;</code>
      */
     public Builder setVersion(
-        java.lang.String value) {
+        String value) {
       if (value == null) {
     throw new NullPointerException();
   }
@@ -705,12 +705,12 @@ public  final class ResponseInfo extends
   }
 
   // @@protoc_insertion_point(class_scope:com.github.jtendermint.jabci.types.ResponseInfo)
-  private static final com.github.jtendermint.jabci.types.ResponseInfo DEFAULT_INSTANCE;
+  private static final ResponseInfo DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.github.jtendermint.jabci.types.ResponseInfo();
+    DEFAULT_INSTANCE = new ResponseInfo();
   }
 
-  public static com.github.jtendermint.jabci.types.ResponseInfo getDefaultInstance() {
+  public static ResponseInfo getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
@@ -728,12 +728,12 @@ public  final class ResponseInfo extends
     return PARSER;
   }
 
-  @java.lang.Override
+  @Override
   public com.google.protobuf.Parser<ResponseInfo> getParserForType() {
     return PARSER;
   }
 
-  public com.github.jtendermint.jabci.types.ResponseInfo getDefaultInstanceForType() {
+  public ResponseInfo getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

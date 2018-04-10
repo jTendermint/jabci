@@ -10,7 +10,7 @@ public interface RequestInfoOrBuilder extends
   /**
    * <code>optional string version = 1;</code>
    */
-  java.lang.String getVersion();
+  String getVersion();
   /**
    * <code>optional string version = 1;</code>
    */

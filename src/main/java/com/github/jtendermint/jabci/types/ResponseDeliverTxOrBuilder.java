@@ -24,7 +24,7 @@ public interface ResponseDeliverTxOrBuilder extends
    *
    * <code>optional string log = 3;</code>
    */
-  java.lang.String getLog();
+  String getLog();
   /**
    * <pre>
    * nondeterministic
@@ -42,7 +42,7 @@ public interface ResponseDeliverTxOrBuilder extends
    *
    * <code>optional string info = 4;</code>
    */
-  java.lang.String getInfo();
+  String getInfo();
   /**
    * <pre>
    * nondeterministic
@@ -64,46 +64,39 @@ public interface ResponseDeliverTxOrBuilder extends
   long getGasUsed();
 
   /**
-   * <pre>
-   * common.KI64Pair fee = 8;
-   * </pre>
-   *
    * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
    */
-  java.util.List<com.github.jtendermint.jabci.types.KVPair> 
+  java.util.List<KVPair>
       getTagsList();
   /**
-   * <pre>
-   * common.KI64Pair fee = 8;
-   * </pre>
-   *
    * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
    */
-  com.github.jtendermint.jabci.types.KVPair getTags(int index);
+  KVPair getTags(int index);
   /**
-   * <pre>
-   * common.KI64Pair fee = 8;
-   * </pre>
-   *
    * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
    */
   int getTagsCount();
   /**
-   * <pre>
-   * common.KI64Pair fee = 8;
-   * </pre>
-   *
    * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
    */
-  java.util.List<? extends com.github.jtendermint.jabci.types.KVPairOrBuilder> 
+  java.util.List<? extends KVPairOrBuilder>
       getTagsOrBuilderList();
   /**
-   * <pre>
-   * common.KI64Pair fee = 8;
-   * </pre>
-   *
    * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
    */
-  com.github.jtendermint.jabci.types.KVPairOrBuilder getTagsOrBuilder(
-      int index);
+  KVPairOrBuilder getTagsOrBuilder(
+          int index);
+
+  /**
+   * <code>optional .com.github.jtendermint.jabci.types.KI64Pair fee = 8;</code>
+   */
+  boolean hasFee();
+  /**
+   * <code>optional .com.github.jtendermint.jabci.types.KI64Pair fee = 8;</code>
+   */
+  KI64Pair getFee();
+  /**
+   * <code>optional .com.github.jtendermint.jabci.types.KI64Pair fee = 8;</code>
+   */
+  KI64PairOrBuilder getFeeOrBuilder();
 }

@@ -18,7 +18,7 @@ public  final class RequestDeliverTx extends
     tx_ = com.google.protobuf.ByteString.EMPTY;
   }
 
-  @java.lang.Override
+  @Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
@@ -64,11 +64,11 @@ public  final class RequestDeliverTx extends
     return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_RequestDeliverTx_descriptor;
   }
 
-  protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+  protected FieldAccessorTable
       internalGetFieldAccessorTable() {
     return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_RequestDeliverTx_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.github.jtendermint.jabci.types.RequestDeliverTx.class, com.github.jtendermint.jabci.types.RequestDeliverTx.Builder.class);
+            RequestDeliverTx.class, Builder.class);
   }
 
   public static final int TX_FIELD_NUMBER = 1;
@@ -111,15 +111,15 @@ public  final class RequestDeliverTx extends
   }
 
   private static final long serialVersionUID = 0L;
-  @java.lang.Override
-  public boolean equals(final java.lang.Object obj) {
+  @Override
+  public boolean equals(final Object obj) {
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.github.jtendermint.jabci.types.RequestDeliverTx)) {
+    if (!(obj instanceof RequestDeliverTx)) {
       return super.equals(obj);
     }
-    com.github.jtendermint.jabci.types.RequestDeliverTx other = (com.github.jtendermint.jabci.types.RequestDeliverTx) obj;
+    RequestDeliverTx other = (RequestDeliverTx) obj;
 
     boolean result = true;
     result = result && getTx()
@@ -127,7 +127,7 @@ public  final class RequestDeliverTx extends
     return result;
   }
 
-  @java.lang.Override
+  @Override
   public int hashCode() {
     if (memoizedHashCode != 0) {
       return memoizedHashCode;
@@ -141,58 +141,58 @@ public  final class RequestDeliverTx extends
     return hash;
   }
 
-  public static com.github.jtendermint.jabci.types.RequestDeliverTx parseFrom(
+  public static RequestDeliverTx parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.github.jtendermint.jabci.types.RequestDeliverTx parseFrom(
+  public static RequestDeliverTx parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.RequestDeliverTx parseFrom(byte[] data)
+  public static RequestDeliverTx parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.github.jtendermint.jabci.types.RequestDeliverTx parseFrom(
+  public static RequestDeliverTx parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.RequestDeliverTx parseFrom(java.io.InputStream input)
+  public static RequestDeliverTx parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.github.jtendermint.jabci.types.RequestDeliverTx parseFrom(
+  public static RequestDeliverTx parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.RequestDeliverTx parseDelimitedFrom(java.io.InputStream input)
+  public static RequestDeliverTx parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.github.jtendermint.jabci.types.RequestDeliverTx parseDelimitedFrom(
+  public static RequestDeliverTx parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.RequestDeliverTx parseFrom(
+  public static RequestDeliverTx parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.github.jtendermint.jabci.types.RequestDeliverTx parseFrom(
+  public static RequestDeliverTx parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -204,7 +204,7 @@ public  final class RequestDeliverTx extends
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.github.jtendermint.jabci.types.RequestDeliverTx prototype) {
+  public static Builder newBuilder(RequestDeliverTx prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   public Builder toBuilder() {
@@ -212,9 +212,9 @@ public  final class RequestDeliverTx extends
         ? new Builder() : new Builder().mergeFrom(this);
   }
 
-  @java.lang.Override
+  @Override
   protected Builder newBuilderForType(
-      com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      BuilderParent parent) {
     Builder builder = new Builder(parent);
     return builder;
   }
@@ -230,11 +230,11 @@ public  final class RequestDeliverTx extends
       return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_RequestDeliverTx_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_RequestDeliverTx_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.github.jtendermint.jabci.types.RequestDeliverTx.class, com.github.jtendermint.jabci.types.RequestDeliverTx.Builder.class);
+              RequestDeliverTx.class, Builder.class);
     }
 
     // Construct using com.github.jtendermint.jabci.types.RequestDeliverTx.newBuilder()
@@ -243,7 +243,7 @@ public  final class RequestDeliverTx extends
     }
 
     private Builder(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       super(parent);
       maybeForceBuilderInitialization();
     }
@@ -264,20 +264,20 @@ public  final class RequestDeliverTx extends
       return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_RequestDeliverTx_descriptor;
     }
 
-    public com.github.jtendermint.jabci.types.RequestDeliverTx getDefaultInstanceForType() {
-      return com.github.jtendermint.jabci.types.RequestDeliverTx.getDefaultInstance();
+    public RequestDeliverTx getDefaultInstanceForType() {
+      return RequestDeliverTx.getDefaultInstance();
     }
 
-    public com.github.jtendermint.jabci.types.RequestDeliverTx build() {
-      com.github.jtendermint.jabci.types.RequestDeliverTx result = buildPartial();
+    public RequestDeliverTx build() {
+      RequestDeliverTx result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
       return result;
     }
 
-    public com.github.jtendermint.jabci.types.RequestDeliverTx buildPartial() {
-      com.github.jtendermint.jabci.types.RequestDeliverTx result = new com.github.jtendermint.jabci.types.RequestDeliverTx(this);
+    public RequestDeliverTx buildPartial() {
+      RequestDeliverTx result = new RequestDeliverTx(this);
       result.tx_ = tx_;
       onBuilt();
       return result;
@@ -310,16 +310,16 @@ public  final class RequestDeliverTx extends
       return (Builder) super.addRepeatedField(field, value);
     }
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.github.jtendermint.jabci.types.RequestDeliverTx) {
-        return mergeFrom((com.github.jtendermint.jabci.types.RequestDeliverTx)other);
+      if (other instanceof RequestDeliverTx) {
+        return mergeFrom((RequestDeliverTx)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.github.jtendermint.jabci.types.RequestDeliverTx other) {
-      if (other == com.github.jtendermint.jabci.types.RequestDeliverTx.getDefaultInstance()) return this;
+    public Builder mergeFrom(RequestDeliverTx other) {
+      if (other == RequestDeliverTx.getDefaultInstance()) return this;
       if (other.getTx() != com.google.protobuf.ByteString.EMPTY) {
         setTx(other.getTx());
       }
@@ -335,11 +335,11 @@ public  final class RequestDeliverTx extends
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.github.jtendermint.jabci.types.RequestDeliverTx parsedMessage = null;
+      RequestDeliverTx parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.github.jtendermint.jabci.types.RequestDeliverTx) e.getUnfinishedMessage();
+        parsedMessage = (RequestDeliverTx) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -392,12 +392,12 @@ public  final class RequestDeliverTx extends
   }
 
   // @@protoc_insertion_point(class_scope:com.github.jtendermint.jabci.types.RequestDeliverTx)
-  private static final com.github.jtendermint.jabci.types.RequestDeliverTx DEFAULT_INSTANCE;
+  private static final RequestDeliverTx DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.github.jtendermint.jabci.types.RequestDeliverTx();
+    DEFAULT_INSTANCE = new RequestDeliverTx();
   }
 
-  public static com.github.jtendermint.jabci.types.RequestDeliverTx getDefaultInstance() {
+  public static RequestDeliverTx getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
@@ -415,12 +415,12 @@ public  final class RequestDeliverTx extends
     return PARSER;
   }
 
-  @java.lang.Override
+  @Override
   public com.google.protobuf.Parser<RequestDeliverTx> getParserForType() {
     return PARSER;
   }
 
-  public com.github.jtendermint.jabci.types.RequestDeliverTx getDefaultInstanceForType() {
+  public RequestDeliverTx getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 
