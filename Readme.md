@@ -34,3 +34,4 @@ Just switch the comments on line [pom.xml](https://github.com/jTendermint/jabci/
 | 0.17.1   | 0.17.0 |
 | 0.17.1   | 0.17.1 |
 | 0.17.1   | 0.18.0 |
+| 0.17.1   | 0.19.0 |
