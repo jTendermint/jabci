@@ -79,14 +79,14 @@ public  final class ResponseSetOption extends
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseSetOption_descriptor;
+    return Types.internal_static_com_github_jtendermint_jabci_types_ResponseSetOption_descriptor;
   }
 
   protected FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseSetOption_fieldAccessorTable
+    return Types.internal_static_com_github_jtendermint_jabci_types_ResponseSetOption_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            ResponseSetOption.class, Builder.class);
+            ResponseSetOption.class, ResponseSetOption.Builder.class);
   }
 
   public static final int CODE_FIELD_NUMBER = 1;
@@ -112,7 +112,7 @@ public  final class ResponseSetOption extends
     if (ref instanceof String) {
       return (String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       String s = bs.toStringUtf8();
       log_ = s;
@@ -130,7 +130,7 @@ public  final class ResponseSetOption extends
       getLogBytes() {
     Object ref = log_;
     if (ref instanceof String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (String) ref);
       log_ = b;
@@ -150,7 +150,7 @@ public  final class ResponseSetOption extends
     if (ref instanceof String) {
       return (String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       String s = bs.toStringUtf8();
       info_ = s;
@@ -164,7 +164,7 @@ public  final class ResponseSetOption extends
       getInfoBytes() {
     Object ref = info_;
     if (ref instanceof String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (String) ref);
       info_ = b;
@@ -342,17 +342,17 @@ public  final class ResponseSetOption extends
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
       // @@protoc_insertion_point(builder_implements:com.github.jtendermint.jabci.types.ResponseSetOption)
-      com.github.jtendermint.jabci.types.ResponseSetOptionOrBuilder {
+      ResponseSetOptionOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseSetOption_descriptor;
+      return Types.internal_static_com_github_jtendermint_jabci_types_ResponseSetOption_descriptor;
     }
 
     protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseSetOption_fieldAccessorTable
+      return Types.internal_static_com_github_jtendermint_jabci_types_ResponseSetOption_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              ResponseSetOption.class, Builder.class);
+              ResponseSetOption.class, ResponseSetOption.Builder.class);
     }
 
     // Construct using com.github.jtendermint.jabci.types.ResponseSetOption.newBuilder()
@@ -383,7 +383,7 @@ public  final class ResponseSetOption extends
 
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseSetOption_descriptor;
+      return Types.internal_static_com_github_jtendermint_jabci_types_ResponseSetOption_descriptor;
     }
 
     public ResponseSetOption getDefaultInstanceForType() {
@@ -492,7 +492,7 @@ public  final class ResponseSetOption extends
      * <code>optional uint32 code = 1;</code>
      */
     public Builder setCode(int value) {
-      
+
       code_ = value;
       onChanged();
       return this;
@@ -501,7 +501,7 @@ public  final class ResponseSetOption extends
      * <code>optional uint32 code = 1;</code>
      */
     public Builder clearCode() {
-      
+
       code_ = 0;
       onChanged();
       return this;
@@ -538,7 +538,7 @@ public  final class ResponseSetOption extends
         getLogBytes() {
       Object ref = log_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (String) ref);
         log_ = b;
@@ -559,7 +559,7 @@ public  final class ResponseSetOption extends
       if (value == null) {
     throw new NullPointerException();
   }
-  
+
       log_ = value;
       onChanged();
       return this;
@@ -572,7 +572,7 @@ public  final class ResponseSetOption extends
      * <code>optional string log = 3;</code>
      */
     public Builder clearLog() {
-      
+
       log_ = getDefaultInstance().getLog();
       onChanged();
       return this;
@@ -590,7 +590,7 @@ public  final class ResponseSetOption extends
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-      
+
       log_ = value;
       onChanged();
       return this;
@@ -619,7 +619,7 @@ public  final class ResponseSetOption extends
         getInfoBytes() {
       Object ref = info_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (String) ref);
         info_ = b;
@@ -636,7 +636,7 @@ public  final class ResponseSetOption extends
       if (value == null) {
     throw new NullPointerException();
   }
-  
+
       info_ = value;
       onChanged();
       return this;
@@ -645,7 +645,7 @@ public  final class ResponseSetOption extends
      * <code>optional string info = 4;</code>
      */
     public Builder clearInfo() {
-      
+
       info_ = getDefaultInstance().getInfo();
       onChanged();
       return this;
@@ -659,7 +659,7 @@ public  final class ResponseSetOption extends
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-      
+
       info_ = value;
       onChanged();
       return this;

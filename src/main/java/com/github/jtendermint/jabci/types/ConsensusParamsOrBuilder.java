@@ -27,11 +27,11 @@ public interface ConsensusParamsOrBuilder extends
   /**
    * <code>optional .com.github.jtendermint.jabci.types.TxSize tx_size = 2;</code>
    */
-  com.github.jtendermint.jabci.types.TxSize getTxSize();
+  TxSize getTxSize();
   /**
    * <code>optional .com.github.jtendermint.jabci.types.TxSize tx_size = 2;</code>
    */
-  com.github.jtendermint.jabci.types.TxSizeOrBuilder getTxSizeOrBuilder();
+  TxSizeOrBuilder getTxSizeOrBuilder();
 
   /**
    * <code>optional .com.github.jtendermint.jabci.types.BlockGossip block_gossip = 3;</code>

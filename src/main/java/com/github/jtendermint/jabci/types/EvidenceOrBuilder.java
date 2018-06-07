@@ -8,12 +8,40 @@ public interface EvidenceOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>optional bytes pub_key = 1;</code>
+   * <code>optional string type = 1;</code>
    */
-  com.google.protobuf.ByteString getPubKey();
+  String getType();
+  /**
+   * <code>optional string type = 1;</code>
+   */
+  com.google.protobuf.ByteString
+      getTypeBytes();
 
   /**
-   * <code>optional int64 height = 2;</code>
+   * <code>optional .com.github.jtendermint.jabci.types.Validator validator = 2;</code>
+   */
+  boolean hasValidator();
+  /**
+   * <code>optional .com.github.jtendermint.jabci.types.Validator validator = 2;</code>
+   */
+  Validator getValidator();
+  /**
+   * <code>optional .com.github.jtendermint.jabci.types.Validator validator = 2;</code>
+   */
+  ValidatorOrBuilder getValidatorOrBuilder();
+
+  /**
+   * <code>optional int64 height = 3;</code>
    */
   long getHeight();
+
+  /**
+   * <code>optional int64 time = 4;</code>
+   */
+  long getTime();
+
+  /**
+   * <code>optional int64 total_voting_power = 5;</code>
+   */
+  long getTotalVotingPower();
 }

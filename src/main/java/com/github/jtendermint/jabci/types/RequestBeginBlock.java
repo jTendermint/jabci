@@ -16,7 +16,7 @@ public  final class RequestBeginBlock extends
   }
   private RequestBeginBlock() {
     hash_ = com.google.protobuf.ByteString.EMPTY;
-    absentValidators_ = java.util.Collections.emptyList();
+    validators_ = java.util.Collections.emptyList();
     byzantineValidators_ = java.util.Collections.emptyList();
   }
 
@@ -63,25 +63,13 @@ public  final class RequestBeginBlock extends
 
             break;
           }
-          case 24: {
-            if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
-              absentValidators_ = new java.util.ArrayList<Integer>();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            absentValidators_.add(input.readInt32());
-            break;
-          }
           case 26: {
-            int length = input.readRawVarint32();
-            int limit = input.pushLimit(length);
-            if (!((mutable_bitField0_ & 0x00000004) == 0x00000004) && input.getBytesUntilLimit() > 0) {
-              absentValidators_ = new java.util.ArrayList<Integer>();
+            if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+              validators_ = new java.util.ArrayList<SigningValidator>();
               mutable_bitField0_ |= 0x00000004;
             }
-            while (input.getBytesUntilLimit() > 0) {
-              absentValidators_.add(input.readInt32());
-            }
-            input.popLimit(limit);
+            validators_.add(
+                input.readMessage(SigningValidator.parser(), extensionRegistry));
             break;
           }
           case 34: {
@@ -102,7 +90,7 @@ public  final class RequestBeginBlock extends
           e).setUnfinishedMessage(this);
     } finally {
       if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
-        absentValidators_ = java.util.Collections.unmodifiableList(absentValidators_);
+        validators_ = java.util.Collections.unmodifiableList(validators_);
       }
       if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
         byzantineValidators_ = java.util.Collections.unmodifiableList(byzantineValidators_);
@@ -112,14 +100,14 @@ public  final class RequestBeginBlock extends
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_RequestBeginBlock_descriptor;
+    return Types.internal_static_com_github_jtendermint_jabci_types_RequestBeginBlock_descriptor;
   }
 
   protected FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_RequestBeginBlock_fieldAccessorTable
+    return Types.internal_static_com_github_jtendermint_jabci_types_RequestBeginBlock_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            RequestBeginBlock.class, Builder.class);
+            RequestBeginBlock.class, RequestBeginBlock.Builder.class);
   }
 
   private int bitField0_;
@@ -153,28 +141,40 @@ public  final class RequestBeginBlock extends
     return getHeader();
   }
 
-  public static final int ABSENT_VALIDATORS_FIELD_NUMBER = 3;
-  private java.util.List<Integer> absentValidators_;
+  public static final int VALIDATORS_FIELD_NUMBER = 3;
+  private java.util.List<SigningValidator> validators_;
   /**
-   * <code>repeated int32 absent_validators = 3;</code>
+   * <code>repeated .com.github.jtendermint.jabci.types.SigningValidator validators = 3;</code>
    */
-  public java.util.List<Integer>
-      getAbsentValidatorsList() {
-    return absentValidators_;
+  public java.util.List<SigningValidator> getValidatorsList() {
+    return validators_;
   }
   /**
-   * <code>repeated int32 absent_validators = 3;</code>
+   * <code>repeated .com.github.jtendermint.jabci.types.SigningValidator validators = 3;</code>
    */
-  public int getAbsentValidatorsCount() {
-    return absentValidators_.size();
+  public java.util.List<? extends SigningValidatorOrBuilder>
+      getValidatorsOrBuilderList() {
+    return validators_;
   }
   /**
-   * <code>repeated int32 absent_validators = 3;</code>
+   * <code>repeated .com.github.jtendermint.jabci.types.SigningValidator validators = 3;</code>
    */
-  public int getAbsentValidators(int index) {
-    return absentValidators_.get(index);
+  public int getValidatorsCount() {
+    return validators_.size();
   }
-  private int absentValidatorsMemoizedSerializedSize = -1;
+  /**
+   * <code>repeated .com.github.jtendermint.jabci.types.SigningValidator validators = 3;</code>
+   */
+  public SigningValidator getValidators(int index) {
+    return validators_.get(index);
+  }
+  /**
+   * <code>repeated .com.github.jtendermint.jabci.types.SigningValidator validators = 3;</code>
+   */
+  public SigningValidatorOrBuilder getValidatorsOrBuilder(
+      int index) {
+    return validators_.get(index);
+  }
 
   public static final int BYZANTINE_VALIDATORS_FIELD_NUMBER = 4;
   private java.util.List<Evidence> byzantineValidators_;
@@ -223,19 +223,14 @@ public  final class RequestBeginBlock extends
 
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    getSerializedSize();
     if (!hash_.isEmpty()) {
       output.writeBytes(1, hash_);
     }
     if (header_ != null) {
       output.writeMessage(2, getHeader());
     }
-    if (getAbsentValidatorsList().size() > 0) {
-      output.writeUInt32NoTag(26);
-      output.writeUInt32NoTag(absentValidatorsMemoizedSerializedSize);
-    }
-    for (int i = 0; i < absentValidators_.size(); i++) {
-      output.writeInt32NoTag(absentValidators_.get(i));
+    for (int i = 0; i < validators_.size(); i++) {
+      output.writeMessage(3, validators_.get(i));
     }
     for (int i = 0; i < byzantineValidators_.size(); i++) {
       output.writeMessage(4, byzantineValidators_.get(i));
@@ -255,19 +250,9 @@ public  final class RequestBeginBlock extends
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getHeader());
     }
-    {
-      int dataSize = 0;
-      for (int i = 0; i < absentValidators_.size(); i++) {
-        dataSize += com.google.protobuf.CodedOutputStream
-          .computeInt32SizeNoTag(absentValidators_.get(i));
-      }
-      size += dataSize;
-      if (!getAbsentValidatorsList().isEmpty()) {
-        size += 1;
-        size += com.google.protobuf.CodedOutputStream
-            .computeInt32SizeNoTag(dataSize);
-      }
-      absentValidatorsMemoizedSerializedSize = dataSize;
+    for (int i = 0; i < validators_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(3, validators_.get(i));
     }
     for (int i = 0; i < byzantineValidators_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
@@ -296,8 +281,8 @@ public  final class RequestBeginBlock extends
       result = result && getHeader()
           .equals(other.getHeader());
     }
-    result = result && getAbsentValidatorsList()
-        .equals(other.getAbsentValidatorsList());
+    result = result && getValidatorsList()
+        .equals(other.getValidatorsList());
     result = result && getByzantineValidatorsList()
         .equals(other.getByzantineValidatorsList());
     return result;
@@ -316,9 +301,9 @@ public  final class RequestBeginBlock extends
       hash = (37 * hash) + HEADER_FIELD_NUMBER;
       hash = (53 * hash) + getHeader().hashCode();
     }
-    if (getAbsentValidatorsCount() > 0) {
-      hash = (37 * hash) + ABSENT_VALIDATORS_FIELD_NUMBER;
-      hash = (53 * hash) + getAbsentValidatorsList().hashCode();
+    if (getValidatorsCount() > 0) {
+      hash = (37 * hash) + VALIDATORS_FIELD_NUMBER;
+      hash = (53 * hash) + getValidatorsList().hashCode();
     }
     if (getByzantineValidatorsCount() > 0) {
       hash = (37 * hash) + BYZANTINE_VALIDATORS_FIELD_NUMBER;
@@ -412,17 +397,17 @@ public  final class RequestBeginBlock extends
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
       // @@protoc_insertion_point(builder_implements:com.github.jtendermint.jabci.types.RequestBeginBlock)
-      com.github.jtendermint.jabci.types.RequestBeginBlockOrBuilder {
+      RequestBeginBlockOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_RequestBeginBlock_descriptor;
+      return Types.internal_static_com_github_jtendermint_jabci_types_RequestBeginBlock_descriptor;
     }
 
     protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_RequestBeginBlock_fieldAccessorTable
+      return Types.internal_static_com_github_jtendermint_jabci_types_RequestBeginBlock_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              RequestBeginBlock.class, Builder.class);
+              RequestBeginBlock.class, RequestBeginBlock.Builder.class);
     }
 
     // Construct using com.github.jtendermint.jabci.types.RequestBeginBlock.newBuilder()
@@ -438,6 +423,7 @@ public  final class RequestBeginBlock extends
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessageV3
               .alwaysUseFieldBuilders) {
+        getValidatorsFieldBuilder();
         getByzantineValidatorsFieldBuilder();
       }
     }
@@ -451,8 +437,12 @@ public  final class RequestBeginBlock extends
         header_ = null;
         headerBuilder_ = null;
       }
-      absentValidators_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000004);
+      if (validatorsBuilder_ == null) {
+        validators_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000004);
+      } else {
+        validatorsBuilder_.clear();
+      }
       if (byzantineValidatorsBuilder_ == null) {
         byzantineValidators_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000008);
@@ -464,7 +454,7 @@ public  final class RequestBeginBlock extends
 
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_RequestBeginBlock_descriptor;
+      return Types.internal_static_com_github_jtendermint_jabci_types_RequestBeginBlock_descriptor;
     }
 
     public RequestBeginBlock getDefaultInstanceForType() {
@@ -489,11 +479,15 @@ public  final class RequestBeginBlock extends
       } else {
         result.header_ = headerBuilder_.build();
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        absentValidators_ = java.util.Collections.unmodifiableList(absentValidators_);
-        bitField0_ = (bitField0_ & ~0x00000004);
+      if (validatorsBuilder_ == null) {
+        if (((bitField0_ & 0x00000004) == 0x00000004)) {
+          validators_ = java.util.Collections.unmodifiableList(validators_);
+          bitField0_ = (bitField0_ & ~0x00000004);
+        }
+        result.validators_ = validators_;
+      } else {
+        result.validators_ = validatorsBuilder_.build();
       }
-      result.absentValidators_ = absentValidators_;
       if (byzantineValidatorsBuilder_ == null) {
         if (((bitField0_ & 0x00000008) == 0x00000008)) {
           byzantineValidators_ = java.util.Collections.unmodifiableList(byzantineValidators_);
@@ -551,15 +545,31 @@ public  final class RequestBeginBlock extends
       if (other.hasHeader()) {
         mergeHeader(other.getHeader());
       }
-      if (!other.absentValidators_.isEmpty()) {
-        if (absentValidators_.isEmpty()) {
-          absentValidators_ = other.absentValidators_;
-          bitField0_ = (bitField0_ & ~0x00000004);
-        } else {
-          ensureAbsentValidatorsIsMutable();
-          absentValidators_.addAll(other.absentValidators_);
+      if (validatorsBuilder_ == null) {
+        if (!other.validators_.isEmpty()) {
+          if (validators_.isEmpty()) {
+            validators_ = other.validators_;
+            bitField0_ = (bitField0_ & ~0x00000004);
+          } else {
+            ensureValidatorsIsMutable();
+            validators_.addAll(other.validators_);
+          }
+          onChanged();
         }
-        onChanged();
+      } else {
+        if (!other.validators_.isEmpty()) {
+          if (validatorsBuilder_.isEmpty()) {
+            validatorsBuilder_.dispose();
+            validatorsBuilder_ = null;
+            validators_ = other.validators_;
+            bitField0_ = (bitField0_ & ~0x00000004);
+            validatorsBuilder_ =
+              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                 getValidatorsFieldBuilder() : null;
+          } else {
+            validatorsBuilder_.addAllMessages(other.validators_);
+          }
+        }
       }
       if (byzantineValidatorsBuilder_ == null) {
         if (!other.byzantineValidators_.isEmpty()) {
@@ -579,7 +589,7 @@ public  final class RequestBeginBlock extends
             byzantineValidatorsBuilder_ = null;
             byzantineValidators_ = other.byzantineValidators_;
             bitField0_ = (bitField0_ & ~0x00000008);
-            byzantineValidatorsBuilder_ = 
+            byzantineValidatorsBuilder_ =
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getByzantineValidatorsFieldBuilder() : null;
           } else {
@@ -628,7 +638,7 @@ public  final class RequestBeginBlock extends
       if (value == null) {
     throw new NullPointerException();
   }
-  
+
       hash_ = value;
       onChanged();
       return this;
@@ -637,7 +647,7 @@ public  final class RequestBeginBlock extends
      * <code>optional bytes hash = 1;</code>
      */
     public Builder clearHash() {
-      
+
       hash_ = getDefaultInstance().getHash();
       onChanged();
       return this;
@@ -728,7 +738,7 @@ public  final class RequestBeginBlock extends
      * <code>optional .com.github.jtendermint.jabci.types.Header header = 2;</code>
      */
     public Header.Builder getHeaderBuilder() {
-      
+
       onChanged();
       return getHeaderFieldBuilder().getBuilder();
     }
@@ -760,70 +770,244 @@ public  final class RequestBeginBlock extends
       return headerBuilder_;
     }
 
-    private java.util.List<Integer> absentValidators_ = java.util.Collections.emptyList();
-    private void ensureAbsentValidatorsIsMutable() {
+    private java.util.List<SigningValidator> validators_ =
+      java.util.Collections.emptyList();
+    private void ensureValidatorsIsMutable() {
       if (!((bitField0_ & 0x00000004) == 0x00000004)) {
-        absentValidators_ = new java.util.ArrayList<Integer>(absentValidators_);
+        validators_ = new java.util.ArrayList<SigningValidator>(validators_);
         bitField0_ |= 0x00000004;
        }
     }
+
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        SigningValidator, SigningValidator.Builder, SigningValidatorOrBuilder> validatorsBuilder_;
+
     /**
-     * <code>repeated int32 absent_validators = 3;</code>
+     * <code>repeated .com.github.jtendermint.jabci.types.SigningValidator validators = 3;</code>
      */
-    public java.util.List<Integer>
-        getAbsentValidatorsList() {
-      return java.util.Collections.unmodifiableList(absentValidators_);
+    public java.util.List<SigningValidator> getValidatorsList() {
+      if (validatorsBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(validators_);
+      } else {
+        return validatorsBuilder_.getMessageList();
+      }
     }
     /**
-     * <code>repeated int32 absent_validators = 3;</code>
+     * <code>repeated .com.github.jtendermint.jabci.types.SigningValidator validators = 3;</code>
      */
-    public int getAbsentValidatorsCount() {
-      return absentValidators_.size();
+    public int getValidatorsCount() {
+      if (validatorsBuilder_ == null) {
+        return validators_.size();
+      } else {
+        return validatorsBuilder_.getCount();
+      }
     }
     /**
-     * <code>repeated int32 absent_validators = 3;</code>
+     * <code>repeated .com.github.jtendermint.jabci.types.SigningValidator validators = 3;</code>
      */
-    public int getAbsentValidators(int index) {
-      return absentValidators_.get(index);
+    public SigningValidator getValidators(int index) {
+      if (validatorsBuilder_ == null) {
+        return validators_.get(index);
+      } else {
+        return validatorsBuilder_.getMessage(index);
+      }
     }
     /**
-     * <code>repeated int32 absent_validators = 3;</code>
+     * <code>repeated .com.github.jtendermint.jabci.types.SigningValidator validators = 3;</code>
      */
-    public Builder setAbsentValidators(
-        int index, int value) {
-      ensureAbsentValidatorsIsMutable();
-      absentValidators_.set(index, value);
-      onChanged();
+    public Builder setValidators(
+        int index, SigningValidator value) {
+      if (validatorsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureValidatorsIsMutable();
+        validators_.set(index, value);
+        onChanged();
+      } else {
+        validatorsBuilder_.setMessage(index, value);
+      }
       return this;
     }
     /**
-     * <code>repeated int32 absent_validators = 3;</code>
+     * <code>repeated .com.github.jtendermint.jabci.types.SigningValidator validators = 3;</code>
      */
-    public Builder addAbsentValidators(int value) {
-      ensureAbsentValidatorsIsMutable();
-      absentValidators_.add(value);
-      onChanged();
+    public Builder setValidators(
+        int index, SigningValidator.Builder builderForValue) {
+      if (validatorsBuilder_ == null) {
+        ensureValidatorsIsMutable();
+        validators_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        validatorsBuilder_.setMessage(index, builderForValue.build());
+      }
       return this;
     }
     /**
-     * <code>repeated int32 absent_validators = 3;</code>
+     * <code>repeated .com.github.jtendermint.jabci.types.SigningValidator validators = 3;</code>
      */
-    public Builder addAllAbsentValidators(
-        Iterable<? extends Integer> values) {
-      ensureAbsentValidatorsIsMutable();
-      com.google.protobuf.AbstractMessageLite.Builder.addAll(
-          values, absentValidators_);
-      onChanged();
+    public Builder addValidators(SigningValidator value) {
+      if (validatorsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureValidatorsIsMutable();
+        validators_.add(value);
+        onChanged();
+      } else {
+        validatorsBuilder_.addMessage(value);
+      }
       return this;
     }
     /**
-     * <code>repeated int32 absent_validators = 3;</code>
+     * <code>repeated .com.github.jtendermint.jabci.types.SigningValidator validators = 3;</code>
      */
-    public Builder clearAbsentValidators() {
-      absentValidators_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000004);
-      onChanged();
+    public Builder addValidators(
+        int index, SigningValidator value) {
+      if (validatorsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureValidatorsIsMutable();
+        validators_.add(index, value);
+        onChanged();
+      } else {
+        validatorsBuilder_.addMessage(index, value);
+      }
       return this;
+    }
+    /**
+     * <code>repeated .com.github.jtendermint.jabci.types.SigningValidator validators = 3;</code>
+     */
+    public Builder addValidators(
+        SigningValidator.Builder builderForValue) {
+      if (validatorsBuilder_ == null) {
+        ensureValidatorsIsMutable();
+        validators_.add(builderForValue.build());
+        onChanged();
+      } else {
+        validatorsBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .com.github.jtendermint.jabci.types.SigningValidator validators = 3;</code>
+     */
+    public Builder addValidators(
+        int index, SigningValidator.Builder builderForValue) {
+      if (validatorsBuilder_ == null) {
+        ensureValidatorsIsMutable();
+        validators_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        validatorsBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .com.github.jtendermint.jabci.types.SigningValidator validators = 3;</code>
+     */
+    public Builder addAllValidators(
+        Iterable<? extends SigningValidator> values) {
+      if (validatorsBuilder_ == null) {
+        ensureValidatorsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, validators_);
+        onChanged();
+      } else {
+        validatorsBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .com.github.jtendermint.jabci.types.SigningValidator validators = 3;</code>
+     */
+    public Builder clearValidators() {
+      if (validatorsBuilder_ == null) {
+        validators_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000004);
+        onChanged();
+      } else {
+        validatorsBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .com.github.jtendermint.jabci.types.SigningValidator validators = 3;</code>
+     */
+    public Builder removeValidators(int index) {
+      if (validatorsBuilder_ == null) {
+        ensureValidatorsIsMutable();
+        validators_.remove(index);
+        onChanged();
+      } else {
+        validatorsBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .com.github.jtendermint.jabci.types.SigningValidator validators = 3;</code>
+     */
+    public SigningValidator.Builder getValidatorsBuilder(
+        int index) {
+      return getValidatorsFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <code>repeated .com.github.jtendermint.jabci.types.SigningValidator validators = 3;</code>
+     */
+    public SigningValidatorOrBuilder getValidatorsOrBuilder(
+        int index) {
+      if (validatorsBuilder_ == null) {
+        return validators_.get(index);  } else {
+        return validatorsBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <code>repeated .com.github.jtendermint.jabci.types.SigningValidator validators = 3;</code>
+     */
+    public java.util.List<? extends SigningValidatorOrBuilder>
+         getValidatorsOrBuilderList() {
+      if (validatorsBuilder_ != null) {
+        return validatorsBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(validators_);
+      }
+    }
+    /**
+     * <code>repeated .com.github.jtendermint.jabci.types.SigningValidator validators = 3;</code>
+     */
+    public SigningValidator.Builder addValidatorsBuilder() {
+      return getValidatorsFieldBuilder().addBuilder(
+          SigningValidator.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .com.github.jtendermint.jabci.types.SigningValidator validators = 3;</code>
+     */
+    public SigningValidator.Builder addValidatorsBuilder(
+        int index) {
+      return getValidatorsFieldBuilder().addBuilder(
+          index, SigningValidator.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .com.github.jtendermint.jabci.types.SigningValidator validators = 3;</code>
+     */
+    public java.util.List<SigningValidator.Builder>
+         getValidatorsBuilderList() {
+      return getValidatorsFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        SigningValidator, SigningValidator.Builder, SigningValidatorOrBuilder>
+        getValidatorsFieldBuilder() {
+      if (validatorsBuilder_ == null) {
+        validatorsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+            SigningValidator, SigningValidator.Builder, SigningValidatorOrBuilder>(
+                validators_,
+                ((bitField0_ & 0x00000004) == 0x00000004),
+                getParentForChildren(),
+                isClean());
+        validators_ = null;
+      }
+      return validatorsBuilder_;
     }
 
     private java.util.List<Evidence> byzantineValidators_ =

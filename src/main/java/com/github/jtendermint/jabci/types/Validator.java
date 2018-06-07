@@ -4,6 +4,10 @@
 package com.github.jtendermint.jabci.types;
 
 /**
+ * <pre>
+ * Validator
+ * </pre>
+ *
  * Protobuf type {@code com.github.jtendermint.jabci.types.Validator}
  */
 public  final class Validator extends
@@ -15,7 +19,7 @@ public  final class Validator extends
     super(builder);
   }
   private Validator() {
-    pubKey_ = com.google.protobuf.ByteString.EMPTY;
+    address_ = com.google.protobuf.ByteString.EMPTY;
     power_ = 0L;
   }
 
@@ -46,10 +50,23 @@ public  final class Validator extends
           }
           case 10: {
 
-            pubKey_ = input.readBytes();
+            address_ = input.readBytes();
             break;
           }
-          case 16: {
+          case 18: {
+            PubKey.Builder subBuilder = null;
+            if (pubKey_ != null) {
+              subBuilder = pubKey_.toBuilder();
+            }
+            pubKey_ = input.readMessage(PubKey.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(pubKey_);
+              pubKey_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 24: {
 
             power_ = input.readInt64();
             break;
@@ -74,22 +91,43 @@ public  final class Validator extends
       internalGetFieldAccessorTable() {
     return Types.internal_static_com_github_jtendermint_jabci_types_Validator_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            Validator.class, Builder.class);
+            Validator.class, Validator.Builder.class);
   }
 
-  public static final int PUB_KEY_FIELD_NUMBER = 1;
-  private com.google.protobuf.ByteString pubKey_;
+  public static final int ADDRESS_FIELD_NUMBER = 1;
+  private com.google.protobuf.ByteString address_;
   /**
-   * <code>optional bytes pub_key = 1;</code>
+   * <code>optional bytes address = 1;</code>
    */
-  public com.google.protobuf.ByteString getPubKey() {
-    return pubKey_;
+  public com.google.protobuf.ByteString getAddress() {
+    return address_;
   }
 
-  public static final int POWER_FIELD_NUMBER = 2;
+  public static final int PUB_KEY_FIELD_NUMBER = 2;
+  private PubKey pubKey_;
+  /**
+   * <code>optional .com.github.jtendermint.jabci.types.PubKey pub_key = 2;</code>
+   */
+  public boolean hasPubKey() {
+    return pubKey_ != null;
+  }
+  /**
+   * <code>optional .com.github.jtendermint.jabci.types.PubKey pub_key = 2;</code>
+   */
+  public PubKey getPubKey() {
+    return pubKey_ == null ? PubKey.getDefaultInstance() : pubKey_;
+  }
+  /**
+   * <code>optional .com.github.jtendermint.jabci.types.PubKey pub_key = 2;</code>
+   */
+  public PubKeyOrBuilder getPubKeyOrBuilder() {
+    return getPubKey();
+  }
+
+  public static final int POWER_FIELD_NUMBER = 3;
   private long power_;
   /**
-   * <code>optional int64 power = 2;</code>
+   * <code>optional int64 power = 3;</code>
    */
   public long getPower() {
     return power_;
@@ -107,11 +145,14 @@ public  final class Validator extends
 
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!pubKey_.isEmpty()) {
-      output.writeBytes(1, pubKey_);
+    if (!address_.isEmpty()) {
+      output.writeBytes(1, address_);
+    }
+    if (pubKey_ != null) {
+      output.writeMessage(2, getPubKey());
     }
     if (power_ != 0L) {
-      output.writeInt64(2, power_);
+      output.writeInt64(3, power_);
     }
   }
 
@@ -120,13 +161,17 @@ public  final class Validator extends
     if (size != -1) return size;
 
     size = 0;
-    if (!pubKey_.isEmpty()) {
+    if (!address_.isEmpty()) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBytesSize(1, pubKey_);
+        .computeBytesSize(1, address_);
+    }
+    if (pubKey_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(2, getPubKey());
     }
     if (power_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(2, power_);
+        .computeInt64Size(3, power_);
     }
     memoizedSize = size;
     return size;
@@ -144,8 +189,13 @@ public  final class Validator extends
     Validator other = (Validator) obj;
 
     boolean result = true;
-    result = result && getPubKey()
-        .equals(other.getPubKey());
+    result = result && getAddress()
+        .equals(other.getAddress());
+    result = result && (hasPubKey() == other.hasPubKey());
+    if (hasPubKey()) {
+      result = result && getPubKey()
+          .equals(other.getPubKey());
+    }
     result = result && (getPower()
         == other.getPower());
     return result;
@@ -158,8 +208,12 @@ public  final class Validator extends
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptorForType().hashCode();
-    hash = (37 * hash) + PUB_KEY_FIELD_NUMBER;
-    hash = (53 * hash) + getPubKey().hashCode();
+    hash = (37 * hash) + ADDRESS_FIELD_NUMBER;
+    hash = (53 * hash) + getAddress().hashCode();
+    if (hasPubKey()) {
+      hash = (37 * hash) + PUB_KEY_FIELD_NUMBER;
+      hash = (53 * hash) + getPubKey().hashCode();
+    }
     hash = (37 * hash) + POWER_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getPower());
@@ -246,12 +300,16 @@ public  final class Validator extends
     return builder;
   }
   /**
+   * <pre>
+   * Validator
+   * </pre>
+   *
    * Protobuf type {@code com.github.jtendermint.jabci.types.Validator}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
       // @@protoc_insertion_point(builder_implements:com.github.jtendermint.jabci.types.Validator)
-      com.github.jtendermint.jabci.types.ValidatorOrBuilder {
+      ValidatorOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return Types.internal_static_com_github_jtendermint_jabci_types_Validator_descriptor;
@@ -261,7 +319,7 @@ public  final class Validator extends
         internalGetFieldAccessorTable() {
       return Types.internal_static_com_github_jtendermint_jabci_types_Validator_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              Validator.class, Builder.class);
+              Validator.class, Validator.Builder.class);
     }
 
     // Construct using com.github.jtendermint.jabci.types.Validator.newBuilder()
@@ -281,8 +339,14 @@ public  final class Validator extends
     }
     public Builder clear() {
       super.clear();
-      pubKey_ = com.google.protobuf.ByteString.EMPTY;
+      address_ = com.google.protobuf.ByteString.EMPTY;
 
+      if (pubKeyBuilder_ == null) {
+        pubKey_ = null;
+      } else {
+        pubKey_ = null;
+        pubKeyBuilder_ = null;
+      }
       power_ = 0L;
 
       return this;
@@ -307,7 +371,12 @@ public  final class Validator extends
 
     public Validator buildPartial() {
       Validator result = new Validator(this);
-      result.pubKey_ = pubKey_;
+      result.address_ = address_;
+      if (pubKeyBuilder_ == null) {
+        result.pubKey_ = pubKey_;
+      } else {
+        result.pubKey_ = pubKeyBuilder_.build();
+      }
       result.power_ = power_;
       onBuilt();
       return result;
@@ -350,8 +419,11 @@ public  final class Validator extends
 
     public Builder mergeFrom(Validator other) {
       if (other == Validator.getDefaultInstance()) return this;
-      if (other.getPubKey() != com.google.protobuf.ByteString.EMPTY) {
-        setPubKey(other.getPubKey());
+      if (other.getAddress() != com.google.protobuf.ByteString.EMPTY) {
+        setAddress(other.getAddress());
+      }
+      if (other.hasPubKey()) {
+        mergePubKey(other.getPubKey());
       }
       if (other.getPower() != 0L) {
         setPower(other.getPower());
@@ -382,56 +454,173 @@ public  final class Validator extends
       return this;
     }
 
-    private com.google.protobuf.ByteString pubKey_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString address_ = com.google.protobuf.ByteString.EMPTY;
     /**
-     * <code>optional bytes pub_key = 1;</code>
+     * <code>optional bytes address = 1;</code>
      */
-    public com.google.protobuf.ByteString getPubKey() {
-      return pubKey_;
+    public com.google.protobuf.ByteString getAddress() {
+      return address_;
     }
     /**
-     * <code>optional bytes pub_key = 1;</code>
+     * <code>optional bytes address = 1;</code>
      */
-    public Builder setPubKey(com.google.protobuf.ByteString value) {
+    public Builder setAddress(com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
-  
-      pubKey_ = value;
+
+      address_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>optional bytes pub_key = 1;</code>
+     * <code>optional bytes address = 1;</code>
      */
-    public Builder clearPubKey() {
-      
-      pubKey_ = getDefaultInstance().getPubKey();
+    public Builder clearAddress() {
+
+      address_ = getDefaultInstance().getAddress();
       onChanged();
       return this;
     }
 
+    private PubKey pubKey_ = null;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        PubKey, PubKey.Builder, PubKeyOrBuilder> pubKeyBuilder_;
+    /**
+     * <code>optional .com.github.jtendermint.jabci.types.PubKey pub_key = 2;</code>
+     */
+    public boolean hasPubKey() {
+      return pubKeyBuilder_ != null || pubKey_ != null;
+    }
+    /**
+     * <code>optional .com.github.jtendermint.jabci.types.PubKey pub_key = 2;</code>
+     */
+    public PubKey getPubKey() {
+      if (pubKeyBuilder_ == null) {
+        return pubKey_ == null ? PubKey.getDefaultInstance() : pubKey_;
+      } else {
+        return pubKeyBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>optional .com.github.jtendermint.jabci.types.PubKey pub_key = 2;</code>
+     */
+    public Builder setPubKey(PubKey value) {
+      if (pubKeyBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        pubKey_ = value;
+        onChanged();
+      } else {
+        pubKeyBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>optional .com.github.jtendermint.jabci.types.PubKey pub_key = 2;</code>
+     */
+    public Builder setPubKey(
+        PubKey.Builder builderForValue) {
+      if (pubKeyBuilder_ == null) {
+        pubKey_ = builderForValue.build();
+        onChanged();
+      } else {
+        pubKeyBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>optional .com.github.jtendermint.jabci.types.PubKey pub_key = 2;</code>
+     */
+    public Builder mergePubKey(PubKey value) {
+      if (pubKeyBuilder_ == null) {
+        if (pubKey_ != null) {
+          pubKey_ =
+            PubKey.newBuilder(pubKey_).mergeFrom(value).buildPartial();
+        } else {
+          pubKey_ = value;
+        }
+        onChanged();
+      } else {
+        pubKeyBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>optional .com.github.jtendermint.jabci.types.PubKey pub_key = 2;</code>
+     */
+    public Builder clearPubKey() {
+      if (pubKeyBuilder_ == null) {
+        pubKey_ = null;
+        onChanged();
+      } else {
+        pubKey_ = null;
+        pubKeyBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>optional .com.github.jtendermint.jabci.types.PubKey pub_key = 2;</code>
+     */
+    public PubKey.Builder getPubKeyBuilder() {
+
+      onChanged();
+      return getPubKeyFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>optional .com.github.jtendermint.jabci.types.PubKey pub_key = 2;</code>
+     */
+    public PubKeyOrBuilder getPubKeyOrBuilder() {
+      if (pubKeyBuilder_ != null) {
+        return pubKeyBuilder_.getMessageOrBuilder();
+      } else {
+        return pubKey_ == null ?
+            PubKey.getDefaultInstance() : pubKey_;
+      }
+    }
+    /**
+     * <code>optional .com.github.jtendermint.jabci.types.PubKey pub_key = 2;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        PubKey, PubKey.Builder, PubKeyOrBuilder>
+        getPubKeyFieldBuilder() {
+      if (pubKeyBuilder_ == null) {
+        pubKeyBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            PubKey, PubKey.Builder, PubKeyOrBuilder>(
+                getPubKey(),
+                getParentForChildren(),
+                isClean());
+        pubKey_ = null;
+      }
+      return pubKeyBuilder_;
+    }
+
     private long power_ ;
     /**
-     * <code>optional int64 power = 2;</code>
+     * <code>optional int64 power = 3;</code>
      */
     public long getPower() {
       return power_;
     }
     /**
-     * <code>optional int64 power = 2;</code>
+     * <code>optional int64 power = 3;</code>
      */
     public Builder setPower(long value) {
-      
+
       power_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>optional int64 power = 2;</code>
+     * <code>optional int64 power = 3;</code>
      */
     public Builder clearPower() {
-      
+
       power_ = 0L;
       onChanged();
       return this;

@@ -71,14 +71,14 @@ public  final class KI64Pair extends
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_KI64Pair_descriptor;
+    return Types.internal_static_com_github_jtendermint_jabci_types_KI64Pair_descriptor;
   }
 
   protected FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_KI64Pair_fieldAccessorTable
+    return Types.internal_static_com_github_jtendermint_jabci_types_KI64Pair_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            KI64Pair.class, Builder.class);
+            KI64Pair.class, KI64Pair.Builder.class);
   }
 
   public static final int KEY_FIELD_NUMBER = 1;
@@ -259,17 +259,17 @@ public  final class KI64Pair extends
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
       // @@protoc_insertion_point(builder_implements:com.github.jtendermint.jabci.types.KI64Pair)
-      com.github.jtendermint.jabci.types.KI64PairOrBuilder {
+      KI64PairOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_KI64Pair_descriptor;
+      return Types.internal_static_com_github_jtendermint_jabci_types_KI64Pair_descriptor;
     }
 
     protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_KI64Pair_fieldAccessorTable
+      return Types.internal_static_com_github_jtendermint_jabci_types_KI64Pair_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              KI64Pair.class, Builder.class);
+              KI64Pair.class, KI64Pair.Builder.class);
     }
 
     // Construct using com.github.jtendermint.jabci.types.KI64Pair.newBuilder()
@@ -298,7 +298,7 @@ public  final class KI64Pair extends
 
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_KI64Pair_descriptor;
+      return Types.internal_static_com_github_jtendermint_jabci_types_KI64Pair_descriptor;
     }
 
     public KI64Pair getDefaultInstanceForType() {
@@ -404,7 +404,7 @@ public  final class KI64Pair extends
       if (value == null) {
     throw new NullPointerException();
   }
-  
+
       key_ = value;
       onChanged();
       return this;
@@ -413,7 +413,7 @@ public  final class KI64Pair extends
      * <code>optional bytes key = 1;</code>
      */
     public Builder clearKey() {
-      
+
       key_ = getDefaultInstance().getKey();
       onChanged();
       return this;
@@ -430,7 +430,7 @@ public  final class KI64Pair extends
      * <code>optional int64 value = 2;</code>
      */
     public Builder setValue(long value) {
-      
+
       value_ = value;
       onChanged();
       return this;
@@ -439,7 +439,7 @@ public  final class KI64Pair extends
      * <code>optional int64 value = 2;</code>
      */
     public Builder clearValue() {
-      
+
       value_ = 0L;
       onChanged();
       return this;

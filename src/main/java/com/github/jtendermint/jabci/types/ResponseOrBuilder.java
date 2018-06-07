@@ -46,11 +46,11 @@ public interface ResponseOrBuilder extends
   /**
    * <code>optional .com.github.jtendermint.jabci.types.ResponseSetOption set_option = 5;</code>
    */
-  com.github.jtendermint.jabci.types.ResponseSetOption getSetOption();
+  ResponseSetOption getSetOption();
   /**
    * <code>optional .com.github.jtendermint.jabci.types.ResponseSetOption set_option = 5;</code>
    */
-  com.github.jtendermint.jabci.types.ResponseSetOptionOrBuilder getSetOptionOrBuilder();
+  ResponseSetOptionOrBuilder getSetOptionOrBuilder();
 
   /**
    * <code>optional .com.github.jtendermint.jabci.types.ResponseInitChain init_chain = 6;</code>
@@ -64,11 +64,11 @@ public interface ResponseOrBuilder extends
   /**
    * <code>optional .com.github.jtendermint.jabci.types.ResponseQuery query = 7;</code>
    */
-  com.github.jtendermint.jabci.types.ResponseQuery getQuery();
+  ResponseQuery getQuery();
   /**
    * <code>optional .com.github.jtendermint.jabci.types.ResponseQuery query = 7;</code>
    */
-  com.github.jtendermint.jabci.types.ResponseQueryOrBuilder getQueryOrBuilder();
+  ResponseQueryOrBuilder getQueryOrBuilder();
 
   /**
    * <code>optional .com.github.jtendermint.jabci.types.ResponseBeginBlock begin_block = 8;</code>

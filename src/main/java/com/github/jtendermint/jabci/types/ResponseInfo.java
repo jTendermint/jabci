@@ -81,14 +81,14 @@ public  final class ResponseInfo extends
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseInfo_descriptor;
+    return Types.internal_static_com_github_jtendermint_jabci_types_ResponseInfo_descriptor;
   }
 
   protected FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseInfo_fieldAccessorTable
+    return Types.internal_static_com_github_jtendermint_jabci_types_ResponseInfo_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            ResponseInfo.class, Builder.class);
+            ResponseInfo.class, ResponseInfo.Builder.class);
   }
 
   public static final int DATA_FIELD_NUMBER = 1;
@@ -101,7 +101,7 @@ public  final class ResponseInfo extends
     if (ref instanceof String) {
       return (String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       String s = bs.toStringUtf8();
       data_ = s;
@@ -115,7 +115,7 @@ public  final class ResponseInfo extends
       getDataBytes() {
     Object ref = data_;
     if (ref instanceof String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (String) ref);
       data_ = b;
@@ -135,7 +135,7 @@ public  final class ResponseInfo extends
     if (ref instanceof String) {
       return (String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       String s = bs.toStringUtf8();
       version_ = s;
@@ -149,7 +149,7 @@ public  final class ResponseInfo extends
       getVersionBytes() {
     Object ref = version_;
     if (ref instanceof String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (String) ref);
       version_ = b;
@@ -353,17 +353,17 @@ public  final class ResponseInfo extends
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
       // @@protoc_insertion_point(builder_implements:com.github.jtendermint.jabci.types.ResponseInfo)
-      com.github.jtendermint.jabci.types.ResponseInfoOrBuilder {
+      ResponseInfoOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseInfo_descriptor;
+      return Types.internal_static_com_github_jtendermint_jabci_types_ResponseInfo_descriptor;
     }
 
     protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseInfo_fieldAccessorTable
+      return Types.internal_static_com_github_jtendermint_jabci_types_ResponseInfo_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              ResponseInfo.class, Builder.class);
+              ResponseInfo.class, ResponseInfo.Builder.class);
     }
 
     // Construct using com.github.jtendermint.jabci.types.ResponseInfo.newBuilder()
@@ -396,7 +396,7 @@ public  final class ResponseInfo extends
 
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseInfo_descriptor;
+      return Types.internal_static_com_github_jtendermint_jabci_types_ResponseInfo_descriptor;
     }
 
     public ResponseInfo getDefaultInstanceForType() {
@@ -521,7 +521,7 @@ public  final class ResponseInfo extends
         getDataBytes() {
       Object ref = data_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (String) ref);
         data_ = b;
@@ -538,7 +538,7 @@ public  final class ResponseInfo extends
       if (value == null) {
     throw new NullPointerException();
   }
-  
+
       data_ = value;
       onChanged();
       return this;
@@ -547,7 +547,7 @@ public  final class ResponseInfo extends
      * <code>optional string data = 1;</code>
      */
     public Builder clearData() {
-      
+
       data_ = getDefaultInstance().getData();
       onChanged();
       return this;
@@ -561,7 +561,7 @@ public  final class ResponseInfo extends
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-      
+
       data_ = value;
       onChanged();
       return this;
@@ -590,7 +590,7 @@ public  final class ResponseInfo extends
         getVersionBytes() {
       Object ref = version_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (String) ref);
         version_ = b;
@@ -607,7 +607,7 @@ public  final class ResponseInfo extends
       if (value == null) {
     throw new NullPointerException();
   }
-  
+
       version_ = value;
       onChanged();
       return this;
@@ -616,7 +616,7 @@ public  final class ResponseInfo extends
      * <code>optional string version = 2;</code>
      */
     public Builder clearVersion() {
-      
+
       version_ = getDefaultInstance().getVersion();
       onChanged();
       return this;
@@ -630,7 +630,7 @@ public  final class ResponseInfo extends
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-      
+
       version_ = value;
       onChanged();
       return this;
@@ -647,7 +647,7 @@ public  final class ResponseInfo extends
      * <code>optional int64 last_block_height = 3;</code>
      */
     public Builder setLastBlockHeight(long value) {
-      
+
       lastBlockHeight_ = value;
       onChanged();
       return this;
@@ -656,7 +656,7 @@ public  final class ResponseInfo extends
      * <code>optional int64 last_block_height = 3;</code>
      */
     public Builder clearLastBlockHeight() {
-      
+
       lastBlockHeight_ = 0L;
       onChanged();
       return this;
@@ -676,7 +676,7 @@ public  final class ResponseInfo extends
       if (value == null) {
     throw new NullPointerException();
   }
-  
+
       lastBlockAppHash_ = value;
       onChanged();
       return this;
@@ -685,7 +685,7 @@ public  final class ResponseInfo extends
      * <code>optional bytes last_block_app_hash = 4;</code>
      */
     public Builder clearLastBlockAppHash() {
-      
+
       lastBlockAppHash_ = getDefaultInstance().getLastBlockAppHash();
       onChanged();
       return this;

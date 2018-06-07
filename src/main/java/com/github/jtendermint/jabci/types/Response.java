@@ -43,168 +43,168 @@ public  final class Response extends
             break;
           }
           case 10: {
-            com.github.jtendermint.jabci.types.ResponseException.Builder subBuilder = null;
+            ResponseException.Builder subBuilder = null;
             if (valueCase_ == 1) {
-              subBuilder = ((com.github.jtendermint.jabci.types.ResponseException) value_).toBuilder();
+              subBuilder = ((ResponseException) value_).toBuilder();
             }
             value_ =
-                input.readMessage(com.github.jtendermint.jabci.types.ResponseException.parser(), extensionRegistry);
+                input.readMessage(ResponseException.parser(), extensionRegistry);
             if (subBuilder != null) {
-              subBuilder.mergeFrom((com.github.jtendermint.jabci.types.ResponseException) value_);
+              subBuilder.mergeFrom((ResponseException) value_);
               value_ = subBuilder.buildPartial();
             }
             valueCase_ = 1;
             break;
           }
           case 18: {
-            com.github.jtendermint.jabci.types.ResponseEcho.Builder subBuilder = null;
+            ResponseEcho.Builder subBuilder = null;
             if (valueCase_ == 2) {
-              subBuilder = ((com.github.jtendermint.jabci.types.ResponseEcho) value_).toBuilder();
+              subBuilder = ((ResponseEcho) value_).toBuilder();
             }
             value_ =
-                input.readMessage(com.github.jtendermint.jabci.types.ResponseEcho.parser(), extensionRegistry);
+                input.readMessage(ResponseEcho.parser(), extensionRegistry);
             if (subBuilder != null) {
-              subBuilder.mergeFrom((com.github.jtendermint.jabci.types.ResponseEcho) value_);
+              subBuilder.mergeFrom((ResponseEcho) value_);
               value_ = subBuilder.buildPartial();
             }
             valueCase_ = 2;
             break;
           }
           case 26: {
-            com.github.jtendermint.jabci.types.ResponseFlush.Builder subBuilder = null;
+            ResponseFlush.Builder subBuilder = null;
             if (valueCase_ == 3) {
-              subBuilder = ((com.github.jtendermint.jabci.types.ResponseFlush) value_).toBuilder();
+              subBuilder = ((ResponseFlush) value_).toBuilder();
             }
             value_ =
-                input.readMessage(com.github.jtendermint.jabci.types.ResponseFlush.parser(), extensionRegistry);
+                input.readMessage(ResponseFlush.parser(), extensionRegistry);
             if (subBuilder != null) {
-              subBuilder.mergeFrom((com.github.jtendermint.jabci.types.ResponseFlush) value_);
+              subBuilder.mergeFrom((ResponseFlush) value_);
               value_ = subBuilder.buildPartial();
             }
             valueCase_ = 3;
             break;
           }
           case 34: {
-            com.github.jtendermint.jabci.types.ResponseInfo.Builder subBuilder = null;
+            ResponseInfo.Builder subBuilder = null;
             if (valueCase_ == 4) {
-              subBuilder = ((com.github.jtendermint.jabci.types.ResponseInfo) value_).toBuilder();
+              subBuilder = ((ResponseInfo) value_).toBuilder();
             }
             value_ =
-                input.readMessage(com.github.jtendermint.jabci.types.ResponseInfo.parser(), extensionRegistry);
+                input.readMessage(ResponseInfo.parser(), extensionRegistry);
             if (subBuilder != null) {
-              subBuilder.mergeFrom((com.github.jtendermint.jabci.types.ResponseInfo) value_);
+              subBuilder.mergeFrom((ResponseInfo) value_);
               value_ = subBuilder.buildPartial();
             }
             valueCase_ = 4;
             break;
           }
           case 42: {
-            com.github.jtendermint.jabci.types.ResponseSetOption.Builder subBuilder = null;
+            ResponseSetOption.Builder subBuilder = null;
             if (valueCase_ == 5) {
-              subBuilder = ((com.github.jtendermint.jabci.types.ResponseSetOption) value_).toBuilder();
+              subBuilder = ((ResponseSetOption) value_).toBuilder();
             }
             value_ =
-                input.readMessage(com.github.jtendermint.jabci.types.ResponseSetOption.parser(), extensionRegistry);
+                input.readMessage(ResponseSetOption.parser(), extensionRegistry);
             if (subBuilder != null) {
-              subBuilder.mergeFrom((com.github.jtendermint.jabci.types.ResponseSetOption) value_);
+              subBuilder.mergeFrom((ResponseSetOption) value_);
               value_ = subBuilder.buildPartial();
             }
             valueCase_ = 5;
             break;
           }
           case 50: {
-            com.github.jtendermint.jabci.types.ResponseInitChain.Builder subBuilder = null;
+            ResponseInitChain.Builder subBuilder = null;
             if (valueCase_ == 6) {
-              subBuilder = ((com.github.jtendermint.jabci.types.ResponseInitChain) value_).toBuilder();
+              subBuilder = ((ResponseInitChain) value_).toBuilder();
             }
             value_ =
-                input.readMessage(com.github.jtendermint.jabci.types.ResponseInitChain.parser(), extensionRegistry);
+                input.readMessage(ResponseInitChain.parser(), extensionRegistry);
             if (subBuilder != null) {
-              subBuilder.mergeFrom((com.github.jtendermint.jabci.types.ResponseInitChain) value_);
+              subBuilder.mergeFrom((ResponseInitChain) value_);
               value_ = subBuilder.buildPartial();
             }
             valueCase_ = 6;
             break;
           }
           case 58: {
-            com.github.jtendermint.jabci.types.ResponseQuery.Builder subBuilder = null;
+            ResponseQuery.Builder subBuilder = null;
             if (valueCase_ == 7) {
-              subBuilder = ((com.github.jtendermint.jabci.types.ResponseQuery) value_).toBuilder();
+              subBuilder = ((ResponseQuery) value_).toBuilder();
             }
             value_ =
-                input.readMessage(com.github.jtendermint.jabci.types.ResponseQuery.parser(), extensionRegistry);
+                input.readMessage(ResponseQuery.parser(), extensionRegistry);
             if (subBuilder != null) {
-              subBuilder.mergeFrom((com.github.jtendermint.jabci.types.ResponseQuery) value_);
+              subBuilder.mergeFrom((ResponseQuery) value_);
               value_ = subBuilder.buildPartial();
             }
             valueCase_ = 7;
             break;
           }
           case 66: {
-            com.github.jtendermint.jabci.types.ResponseBeginBlock.Builder subBuilder = null;
+            ResponseBeginBlock.Builder subBuilder = null;
             if (valueCase_ == 8) {
-              subBuilder = ((com.github.jtendermint.jabci.types.ResponseBeginBlock) value_).toBuilder();
+              subBuilder = ((ResponseBeginBlock) value_).toBuilder();
             }
             value_ =
-                input.readMessage(com.github.jtendermint.jabci.types.ResponseBeginBlock.parser(), extensionRegistry);
+                input.readMessage(ResponseBeginBlock.parser(), extensionRegistry);
             if (subBuilder != null) {
-              subBuilder.mergeFrom((com.github.jtendermint.jabci.types.ResponseBeginBlock) value_);
+              subBuilder.mergeFrom((ResponseBeginBlock) value_);
               value_ = subBuilder.buildPartial();
             }
             valueCase_ = 8;
             break;
           }
           case 74: {
-            com.github.jtendermint.jabci.types.ResponseCheckTx.Builder subBuilder = null;
+            ResponseCheckTx.Builder subBuilder = null;
             if (valueCase_ == 9) {
-              subBuilder = ((com.github.jtendermint.jabci.types.ResponseCheckTx) value_).toBuilder();
+              subBuilder = ((ResponseCheckTx) value_).toBuilder();
             }
             value_ =
-                input.readMessage(com.github.jtendermint.jabci.types.ResponseCheckTx.parser(), extensionRegistry);
+                input.readMessage(ResponseCheckTx.parser(), extensionRegistry);
             if (subBuilder != null) {
-              subBuilder.mergeFrom((com.github.jtendermint.jabci.types.ResponseCheckTx) value_);
+              subBuilder.mergeFrom((ResponseCheckTx) value_);
               value_ = subBuilder.buildPartial();
             }
             valueCase_ = 9;
             break;
           }
           case 82: {
-            com.github.jtendermint.jabci.types.ResponseDeliverTx.Builder subBuilder = null;
+            ResponseDeliverTx.Builder subBuilder = null;
             if (valueCase_ == 10) {
-              subBuilder = ((com.github.jtendermint.jabci.types.ResponseDeliverTx) value_).toBuilder();
+              subBuilder = ((ResponseDeliverTx) value_).toBuilder();
             }
             value_ =
-                input.readMessage(com.github.jtendermint.jabci.types.ResponseDeliverTx.parser(), extensionRegistry);
+                input.readMessage(ResponseDeliverTx.parser(), extensionRegistry);
             if (subBuilder != null) {
-              subBuilder.mergeFrom((com.github.jtendermint.jabci.types.ResponseDeliverTx) value_);
+              subBuilder.mergeFrom((ResponseDeliverTx) value_);
               value_ = subBuilder.buildPartial();
             }
             valueCase_ = 10;
             break;
           }
           case 90: {
-            com.github.jtendermint.jabci.types.ResponseEndBlock.Builder subBuilder = null;
+            ResponseEndBlock.Builder subBuilder = null;
             if (valueCase_ == 11) {
-              subBuilder = ((com.github.jtendermint.jabci.types.ResponseEndBlock) value_).toBuilder();
+              subBuilder = ((ResponseEndBlock) value_).toBuilder();
             }
             value_ =
-                input.readMessage(com.github.jtendermint.jabci.types.ResponseEndBlock.parser(), extensionRegistry);
+                input.readMessage(ResponseEndBlock.parser(), extensionRegistry);
             if (subBuilder != null) {
-              subBuilder.mergeFrom((com.github.jtendermint.jabci.types.ResponseEndBlock) value_);
+              subBuilder.mergeFrom((ResponseEndBlock) value_);
               value_ = subBuilder.buildPartial();
             }
             valueCase_ = 11;
             break;
           }
           case 98: {
-            com.github.jtendermint.jabci.types.ResponseCommit.Builder subBuilder = null;
+            ResponseCommit.Builder subBuilder = null;
             if (valueCase_ == 12) {
-              subBuilder = ((com.github.jtendermint.jabci.types.ResponseCommit) value_).toBuilder();
+              subBuilder = ((ResponseCommit) value_).toBuilder();
             }
             value_ =
-                input.readMessage(com.github.jtendermint.jabci.types.ResponseCommit.parser(), extensionRegistry);
+                input.readMessage(ResponseCommit.parser(), extensionRegistry);
             if (subBuilder != null) {
-              subBuilder.mergeFrom((com.github.jtendermint.jabci.types.ResponseCommit) value_);
+              subBuilder.mergeFrom((ResponseCommit) value_);
               value_ = subBuilder.buildPartial();
             }
             valueCase_ = 12;
@@ -223,14 +223,14 @@ public  final class Response extends
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_Response_descriptor;
+    return Types.internal_static_com_github_jtendermint_jabci_types_Response_descriptor;
   }
 
   protected FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_Response_fieldAccessorTable
+    return Types.internal_static_com_github_jtendermint_jabci_types_Response_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            Response.class, Builder.class);
+            Response.class, Response.Builder.class);
   }
 
   private int valueCase_ = 0;
@@ -295,240 +295,240 @@ public  final class Response extends
   /**
    * <code>optional .com.github.jtendermint.jabci.types.ResponseException exception = 1;</code>
    */
-  public com.github.jtendermint.jabci.types.ResponseException getException() {
+  public ResponseException getException() {
     if (valueCase_ == 1) {
-       return (com.github.jtendermint.jabci.types.ResponseException) value_;
+       return (ResponseException) value_;
     }
-    return com.github.jtendermint.jabci.types.ResponseException.getDefaultInstance();
+    return ResponseException.getDefaultInstance();
   }
   /**
    * <code>optional .com.github.jtendermint.jabci.types.ResponseException exception = 1;</code>
    */
-  public com.github.jtendermint.jabci.types.ResponseExceptionOrBuilder getExceptionOrBuilder() {
+  public ResponseExceptionOrBuilder getExceptionOrBuilder() {
     if (valueCase_ == 1) {
-       return (com.github.jtendermint.jabci.types.ResponseException) value_;
+       return (ResponseException) value_;
     }
-    return com.github.jtendermint.jabci.types.ResponseException.getDefaultInstance();
+    return ResponseException.getDefaultInstance();
   }
 
   public static final int ECHO_FIELD_NUMBER = 2;
   /**
    * <code>optional .com.github.jtendermint.jabci.types.ResponseEcho echo = 2;</code>
    */
-  public com.github.jtendermint.jabci.types.ResponseEcho getEcho() {
+  public ResponseEcho getEcho() {
     if (valueCase_ == 2) {
-       return (com.github.jtendermint.jabci.types.ResponseEcho) value_;
+       return (ResponseEcho) value_;
     }
-    return com.github.jtendermint.jabci.types.ResponseEcho.getDefaultInstance();
+    return ResponseEcho.getDefaultInstance();
   }
   /**
    * <code>optional .com.github.jtendermint.jabci.types.ResponseEcho echo = 2;</code>
    */
-  public com.github.jtendermint.jabci.types.ResponseEchoOrBuilder getEchoOrBuilder() {
+  public ResponseEchoOrBuilder getEchoOrBuilder() {
     if (valueCase_ == 2) {
-       return (com.github.jtendermint.jabci.types.ResponseEcho) value_;
+       return (ResponseEcho) value_;
     }
-    return com.github.jtendermint.jabci.types.ResponseEcho.getDefaultInstance();
+    return ResponseEcho.getDefaultInstance();
   }
 
   public static final int FLUSH_FIELD_NUMBER = 3;
   /**
    * <code>optional .com.github.jtendermint.jabci.types.ResponseFlush flush = 3;</code>
    */
-  public com.github.jtendermint.jabci.types.ResponseFlush getFlush() {
+  public ResponseFlush getFlush() {
     if (valueCase_ == 3) {
-       return (com.github.jtendermint.jabci.types.ResponseFlush) value_;
+       return (ResponseFlush) value_;
     }
-    return com.github.jtendermint.jabci.types.ResponseFlush.getDefaultInstance();
+    return ResponseFlush.getDefaultInstance();
   }
   /**
    * <code>optional .com.github.jtendermint.jabci.types.ResponseFlush flush = 3;</code>
    */
-  public com.github.jtendermint.jabci.types.ResponseFlushOrBuilder getFlushOrBuilder() {
+  public ResponseFlushOrBuilder getFlushOrBuilder() {
     if (valueCase_ == 3) {
-       return (com.github.jtendermint.jabci.types.ResponseFlush) value_;
+       return (ResponseFlush) value_;
     }
-    return com.github.jtendermint.jabci.types.ResponseFlush.getDefaultInstance();
+    return ResponseFlush.getDefaultInstance();
   }
 
   public static final int INFO_FIELD_NUMBER = 4;
   /**
    * <code>optional .com.github.jtendermint.jabci.types.ResponseInfo info = 4;</code>
    */
-  public com.github.jtendermint.jabci.types.ResponseInfo getInfo() {
+  public ResponseInfo getInfo() {
     if (valueCase_ == 4) {
-       return (com.github.jtendermint.jabci.types.ResponseInfo) value_;
+       return (ResponseInfo) value_;
     }
-    return com.github.jtendermint.jabci.types.ResponseInfo.getDefaultInstance();
+    return ResponseInfo.getDefaultInstance();
   }
   /**
    * <code>optional .com.github.jtendermint.jabci.types.ResponseInfo info = 4;</code>
    */
-  public com.github.jtendermint.jabci.types.ResponseInfoOrBuilder getInfoOrBuilder() {
+  public ResponseInfoOrBuilder getInfoOrBuilder() {
     if (valueCase_ == 4) {
-       return (com.github.jtendermint.jabci.types.ResponseInfo) value_;
+       return (ResponseInfo) value_;
     }
-    return com.github.jtendermint.jabci.types.ResponseInfo.getDefaultInstance();
+    return ResponseInfo.getDefaultInstance();
   }
 
   public static final int SET_OPTION_FIELD_NUMBER = 5;
   /**
    * <code>optional .com.github.jtendermint.jabci.types.ResponseSetOption set_option = 5;</code>
    */
-  public com.github.jtendermint.jabci.types.ResponseSetOption getSetOption() {
+  public ResponseSetOption getSetOption() {
     if (valueCase_ == 5) {
-       return (com.github.jtendermint.jabci.types.ResponseSetOption) value_;
+       return (ResponseSetOption) value_;
     }
-    return com.github.jtendermint.jabci.types.ResponseSetOption.getDefaultInstance();
+    return ResponseSetOption.getDefaultInstance();
   }
   /**
    * <code>optional .com.github.jtendermint.jabci.types.ResponseSetOption set_option = 5;</code>
    */
-  public com.github.jtendermint.jabci.types.ResponseSetOptionOrBuilder getSetOptionOrBuilder() {
+  public ResponseSetOptionOrBuilder getSetOptionOrBuilder() {
     if (valueCase_ == 5) {
-       return (com.github.jtendermint.jabci.types.ResponseSetOption) value_;
+       return (ResponseSetOption) value_;
     }
-    return com.github.jtendermint.jabci.types.ResponseSetOption.getDefaultInstance();
+    return ResponseSetOption.getDefaultInstance();
   }
 
   public static final int INIT_CHAIN_FIELD_NUMBER = 6;
   /**
    * <code>optional .com.github.jtendermint.jabci.types.ResponseInitChain init_chain = 6;</code>
    */
-  public com.github.jtendermint.jabci.types.ResponseInitChain getInitChain() {
+  public ResponseInitChain getInitChain() {
     if (valueCase_ == 6) {
-       return (com.github.jtendermint.jabci.types.ResponseInitChain) value_;
+       return (ResponseInitChain) value_;
     }
-    return com.github.jtendermint.jabci.types.ResponseInitChain.getDefaultInstance();
+    return ResponseInitChain.getDefaultInstance();
   }
   /**
    * <code>optional .com.github.jtendermint.jabci.types.ResponseInitChain init_chain = 6;</code>
    */
-  public com.github.jtendermint.jabci.types.ResponseInitChainOrBuilder getInitChainOrBuilder() {
+  public ResponseInitChainOrBuilder getInitChainOrBuilder() {
     if (valueCase_ == 6) {
-       return (com.github.jtendermint.jabci.types.ResponseInitChain) value_;
+       return (ResponseInitChain) value_;
     }
-    return com.github.jtendermint.jabci.types.ResponseInitChain.getDefaultInstance();
+    return ResponseInitChain.getDefaultInstance();
   }
 
   public static final int QUERY_FIELD_NUMBER = 7;
   /**
    * <code>optional .com.github.jtendermint.jabci.types.ResponseQuery query = 7;</code>
    */
-  public com.github.jtendermint.jabci.types.ResponseQuery getQuery() {
+  public ResponseQuery getQuery() {
     if (valueCase_ == 7) {
-       return (com.github.jtendermint.jabci.types.ResponseQuery) value_;
+       return (ResponseQuery) value_;
     }
-    return com.github.jtendermint.jabci.types.ResponseQuery.getDefaultInstance();
+    return ResponseQuery.getDefaultInstance();
   }
   /**
    * <code>optional .com.github.jtendermint.jabci.types.ResponseQuery query = 7;</code>
    */
-  public com.github.jtendermint.jabci.types.ResponseQueryOrBuilder getQueryOrBuilder() {
+  public ResponseQueryOrBuilder getQueryOrBuilder() {
     if (valueCase_ == 7) {
-       return (com.github.jtendermint.jabci.types.ResponseQuery) value_;
+       return (ResponseQuery) value_;
     }
-    return com.github.jtendermint.jabci.types.ResponseQuery.getDefaultInstance();
+    return ResponseQuery.getDefaultInstance();
   }
 
   public static final int BEGIN_BLOCK_FIELD_NUMBER = 8;
   /**
    * <code>optional .com.github.jtendermint.jabci.types.ResponseBeginBlock begin_block = 8;</code>
    */
-  public com.github.jtendermint.jabci.types.ResponseBeginBlock getBeginBlock() {
+  public ResponseBeginBlock getBeginBlock() {
     if (valueCase_ == 8) {
-       return (com.github.jtendermint.jabci.types.ResponseBeginBlock) value_;
+       return (ResponseBeginBlock) value_;
     }
-    return com.github.jtendermint.jabci.types.ResponseBeginBlock.getDefaultInstance();
+    return ResponseBeginBlock.getDefaultInstance();
   }
   /**
    * <code>optional .com.github.jtendermint.jabci.types.ResponseBeginBlock begin_block = 8;</code>
    */
-  public com.github.jtendermint.jabci.types.ResponseBeginBlockOrBuilder getBeginBlockOrBuilder() {
+  public ResponseBeginBlockOrBuilder getBeginBlockOrBuilder() {
     if (valueCase_ == 8) {
-       return (com.github.jtendermint.jabci.types.ResponseBeginBlock) value_;
+       return (ResponseBeginBlock) value_;
     }
-    return com.github.jtendermint.jabci.types.ResponseBeginBlock.getDefaultInstance();
+    return ResponseBeginBlock.getDefaultInstance();
   }
 
   public static final int CHECK_TX_FIELD_NUMBER = 9;
   /**
    * <code>optional .com.github.jtendermint.jabci.types.ResponseCheckTx check_tx = 9;</code>
    */
-  public com.github.jtendermint.jabci.types.ResponseCheckTx getCheckTx() {
+  public ResponseCheckTx getCheckTx() {
     if (valueCase_ == 9) {
-       return (com.github.jtendermint.jabci.types.ResponseCheckTx) value_;
+       return (ResponseCheckTx) value_;
     }
-    return com.github.jtendermint.jabci.types.ResponseCheckTx.getDefaultInstance();
+    return ResponseCheckTx.getDefaultInstance();
   }
   /**
    * <code>optional .com.github.jtendermint.jabci.types.ResponseCheckTx check_tx = 9;</code>
    */
-  public com.github.jtendermint.jabci.types.ResponseCheckTxOrBuilder getCheckTxOrBuilder() {
+  public ResponseCheckTxOrBuilder getCheckTxOrBuilder() {
     if (valueCase_ == 9) {
-       return (com.github.jtendermint.jabci.types.ResponseCheckTx) value_;
+       return (ResponseCheckTx) value_;
     }
-    return com.github.jtendermint.jabci.types.ResponseCheckTx.getDefaultInstance();
+    return ResponseCheckTx.getDefaultInstance();
   }
 
   public static final int DELIVER_TX_FIELD_NUMBER = 10;
   /**
    * <code>optional .com.github.jtendermint.jabci.types.ResponseDeliverTx deliver_tx = 10;</code>
    */
-  public com.github.jtendermint.jabci.types.ResponseDeliverTx getDeliverTx() {
+  public ResponseDeliverTx getDeliverTx() {
     if (valueCase_ == 10) {
-       return (com.github.jtendermint.jabci.types.ResponseDeliverTx) value_;
+       return (ResponseDeliverTx) value_;
     }
-    return com.github.jtendermint.jabci.types.ResponseDeliverTx.getDefaultInstance();
+    return ResponseDeliverTx.getDefaultInstance();
   }
   /**
    * <code>optional .com.github.jtendermint.jabci.types.ResponseDeliverTx deliver_tx = 10;</code>
    */
-  public com.github.jtendermint.jabci.types.ResponseDeliverTxOrBuilder getDeliverTxOrBuilder() {
+  public ResponseDeliverTxOrBuilder getDeliverTxOrBuilder() {
     if (valueCase_ == 10) {
-       return (com.github.jtendermint.jabci.types.ResponseDeliverTx) value_;
+       return (ResponseDeliverTx) value_;
     }
-    return com.github.jtendermint.jabci.types.ResponseDeliverTx.getDefaultInstance();
+    return ResponseDeliverTx.getDefaultInstance();
   }
 
   public static final int END_BLOCK_FIELD_NUMBER = 11;
   /**
    * <code>optional .com.github.jtendermint.jabci.types.ResponseEndBlock end_block = 11;</code>
    */
-  public com.github.jtendermint.jabci.types.ResponseEndBlock getEndBlock() {
+  public ResponseEndBlock getEndBlock() {
     if (valueCase_ == 11) {
-       return (com.github.jtendermint.jabci.types.ResponseEndBlock) value_;
+       return (ResponseEndBlock) value_;
     }
-    return com.github.jtendermint.jabci.types.ResponseEndBlock.getDefaultInstance();
+    return ResponseEndBlock.getDefaultInstance();
   }
   /**
    * <code>optional .com.github.jtendermint.jabci.types.ResponseEndBlock end_block = 11;</code>
    */
-  public com.github.jtendermint.jabci.types.ResponseEndBlockOrBuilder getEndBlockOrBuilder() {
+  public ResponseEndBlockOrBuilder getEndBlockOrBuilder() {
     if (valueCase_ == 11) {
-       return (com.github.jtendermint.jabci.types.ResponseEndBlock) value_;
+       return (ResponseEndBlock) value_;
     }
-    return com.github.jtendermint.jabci.types.ResponseEndBlock.getDefaultInstance();
+    return ResponseEndBlock.getDefaultInstance();
   }
 
   public static final int COMMIT_FIELD_NUMBER = 12;
   /**
    * <code>optional .com.github.jtendermint.jabci.types.ResponseCommit commit = 12;</code>
    */
-  public com.github.jtendermint.jabci.types.ResponseCommit getCommit() {
+  public ResponseCommit getCommit() {
     if (valueCase_ == 12) {
-       return (com.github.jtendermint.jabci.types.ResponseCommit) value_;
+       return (ResponseCommit) value_;
     }
-    return com.github.jtendermint.jabci.types.ResponseCommit.getDefaultInstance();
+    return ResponseCommit.getDefaultInstance();
   }
   /**
    * <code>optional .com.github.jtendermint.jabci.types.ResponseCommit commit = 12;</code>
    */
-  public com.github.jtendermint.jabci.types.ResponseCommitOrBuilder getCommitOrBuilder() {
+  public ResponseCommitOrBuilder getCommitOrBuilder() {
     if (valueCase_ == 12) {
-       return (com.github.jtendermint.jabci.types.ResponseCommit) value_;
+       return (ResponseCommit) value_;
     }
-    return com.github.jtendermint.jabci.types.ResponseCommit.getDefaultInstance();
+    return ResponseCommit.getDefaultInstance();
   }
 
   private byte memoizedIsInitialized = -1;
@@ -544,40 +544,40 @@ public  final class Response extends
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
     if (valueCase_ == 1) {
-      output.writeMessage(1, (com.github.jtendermint.jabci.types.ResponseException) value_);
+      output.writeMessage(1, (ResponseException) value_);
     }
     if (valueCase_ == 2) {
-      output.writeMessage(2, (com.github.jtendermint.jabci.types.ResponseEcho) value_);
+      output.writeMessage(2, (ResponseEcho) value_);
     }
     if (valueCase_ == 3) {
-      output.writeMessage(3, (com.github.jtendermint.jabci.types.ResponseFlush) value_);
+      output.writeMessage(3, (ResponseFlush) value_);
     }
     if (valueCase_ == 4) {
-      output.writeMessage(4, (com.github.jtendermint.jabci.types.ResponseInfo) value_);
+      output.writeMessage(4, (ResponseInfo) value_);
     }
     if (valueCase_ == 5) {
-      output.writeMessage(5, (com.github.jtendermint.jabci.types.ResponseSetOption) value_);
+      output.writeMessage(5, (ResponseSetOption) value_);
     }
     if (valueCase_ == 6) {
-      output.writeMessage(6, (com.github.jtendermint.jabci.types.ResponseInitChain) value_);
+      output.writeMessage(6, (ResponseInitChain) value_);
     }
     if (valueCase_ == 7) {
-      output.writeMessage(7, (com.github.jtendermint.jabci.types.ResponseQuery) value_);
+      output.writeMessage(7, (ResponseQuery) value_);
     }
     if (valueCase_ == 8) {
-      output.writeMessage(8, (com.github.jtendermint.jabci.types.ResponseBeginBlock) value_);
+      output.writeMessage(8, (ResponseBeginBlock) value_);
     }
     if (valueCase_ == 9) {
-      output.writeMessage(9, (com.github.jtendermint.jabci.types.ResponseCheckTx) value_);
+      output.writeMessage(9, (ResponseCheckTx) value_);
     }
     if (valueCase_ == 10) {
-      output.writeMessage(10, (com.github.jtendermint.jabci.types.ResponseDeliverTx) value_);
+      output.writeMessage(10, (ResponseDeliverTx) value_);
     }
     if (valueCase_ == 11) {
-      output.writeMessage(11, (com.github.jtendermint.jabci.types.ResponseEndBlock) value_);
+      output.writeMessage(11, (ResponseEndBlock) value_);
     }
     if (valueCase_ == 12) {
-      output.writeMessage(12, (com.github.jtendermint.jabci.types.ResponseCommit) value_);
+      output.writeMessage(12, (ResponseCommit) value_);
     }
   }
 
@@ -588,51 +588,51 @@ public  final class Response extends
     size = 0;
     if (valueCase_ == 1) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(1, (com.github.jtendermint.jabci.types.ResponseException) value_);
+        .computeMessageSize(1, (ResponseException) value_);
     }
     if (valueCase_ == 2) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(2, (com.github.jtendermint.jabci.types.ResponseEcho) value_);
+        .computeMessageSize(2, (ResponseEcho) value_);
     }
     if (valueCase_ == 3) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(3, (com.github.jtendermint.jabci.types.ResponseFlush) value_);
+        .computeMessageSize(3, (ResponseFlush) value_);
     }
     if (valueCase_ == 4) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(4, (com.github.jtendermint.jabci.types.ResponseInfo) value_);
+        .computeMessageSize(4, (ResponseInfo) value_);
     }
     if (valueCase_ == 5) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(5, (com.github.jtendermint.jabci.types.ResponseSetOption) value_);
+        .computeMessageSize(5, (ResponseSetOption) value_);
     }
     if (valueCase_ == 6) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(6, (com.github.jtendermint.jabci.types.ResponseInitChain) value_);
+        .computeMessageSize(6, (ResponseInitChain) value_);
     }
     if (valueCase_ == 7) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(7, (com.github.jtendermint.jabci.types.ResponseQuery) value_);
+        .computeMessageSize(7, (ResponseQuery) value_);
     }
     if (valueCase_ == 8) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(8, (com.github.jtendermint.jabci.types.ResponseBeginBlock) value_);
+        .computeMessageSize(8, (ResponseBeginBlock) value_);
     }
     if (valueCase_ == 9) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(9, (com.github.jtendermint.jabci.types.ResponseCheckTx) value_);
+        .computeMessageSize(9, (ResponseCheckTx) value_);
     }
     if (valueCase_ == 10) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(10, (com.github.jtendermint.jabci.types.ResponseDeliverTx) value_);
+        .computeMessageSize(10, (ResponseDeliverTx) value_);
     }
     if (valueCase_ == 11) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(11, (com.github.jtendermint.jabci.types.ResponseEndBlock) value_);
+        .computeMessageSize(11, (ResponseEndBlock) value_);
     }
     if (valueCase_ == 12) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(12, (com.github.jtendermint.jabci.types.ResponseCommit) value_);
+        .computeMessageSize(12, (ResponseCommit) value_);
     }
     memoizedSize = size;
     return size;
@@ -855,17 +855,17 @@ public  final class Response extends
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
       // @@protoc_insertion_point(builder_implements:com.github.jtendermint.jabci.types.Response)
-      com.github.jtendermint.jabci.types.ResponseOrBuilder {
+      ResponseOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_Response_descriptor;
+      return Types.internal_static_com_github_jtendermint_jabci_types_Response_descriptor;
     }
 
     protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_Response_fieldAccessorTable
+      return Types.internal_static_com_github_jtendermint_jabci_types_Response_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              Response.class, Builder.class);
+              Response.class, Response.Builder.class);
     }
 
     // Construct using com.github.jtendermint.jabci.types.Response.newBuilder()
@@ -892,7 +892,7 @@ public  final class Response extends
 
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_Response_descriptor;
+      return Types.internal_static_com_github_jtendermint_jabci_types_Response_descriptor;
     }
 
     public Response getDefaultInstanceForType() {
@@ -1130,27 +1130,27 @@ public  final class Response extends
 
 
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.github.jtendermint.jabci.types.ResponseException, com.github.jtendermint.jabci.types.ResponseException.Builder, com.github.jtendermint.jabci.types.ResponseExceptionOrBuilder> exceptionBuilder_;
+        ResponseException, ResponseException.Builder, ResponseExceptionOrBuilder> exceptionBuilder_;
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ResponseException exception = 1;</code>
      */
-    public com.github.jtendermint.jabci.types.ResponseException getException() {
+    public ResponseException getException() {
       if (exceptionBuilder_ == null) {
         if (valueCase_ == 1) {
-          return (com.github.jtendermint.jabci.types.ResponseException) value_;
+          return (ResponseException) value_;
         }
-        return com.github.jtendermint.jabci.types.ResponseException.getDefaultInstance();
+        return ResponseException.getDefaultInstance();
       } else {
         if (valueCase_ == 1) {
           return exceptionBuilder_.getMessage();
         }
-        return com.github.jtendermint.jabci.types.ResponseException.getDefaultInstance();
+        return ResponseException.getDefaultInstance();
       }
     }
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ResponseException exception = 1;</code>
      */
-    public Builder setException(com.github.jtendermint.jabci.types.ResponseException value) {
+    public Builder setException(ResponseException value) {
       if (exceptionBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -1167,7 +1167,7 @@ public  final class Response extends
      * <code>optional .com.github.jtendermint.jabci.types.ResponseException exception = 1;</code>
      */
     public Builder setException(
-        com.github.jtendermint.jabci.types.ResponseException.Builder builderForValue) {
+        ResponseException.Builder builderForValue) {
       if (exceptionBuilder_ == null) {
         value_ = builderForValue.build();
         onChanged();
@@ -1180,11 +1180,11 @@ public  final class Response extends
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ResponseException exception = 1;</code>
      */
-    public Builder mergeException(com.github.jtendermint.jabci.types.ResponseException value) {
+    public Builder mergeException(ResponseException value) {
       if (exceptionBuilder_ == null) {
         if (valueCase_ == 1 &&
-            value_ != com.github.jtendermint.jabci.types.ResponseException.getDefaultInstance()) {
-          value_ = com.github.jtendermint.jabci.types.ResponseException.newBuilder((com.github.jtendermint.jabci.types.ResponseException) value_)
+            value_ != ResponseException.getDefaultInstance()) {
+          value_ = ResponseException.newBuilder((ResponseException) value_)
               .mergeFrom(value).buildPartial();
         } else {
           value_ = value;
@@ -1221,35 +1221,35 @@ public  final class Response extends
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ResponseException exception = 1;</code>
      */
-    public com.github.jtendermint.jabci.types.ResponseException.Builder getExceptionBuilder() {
+    public ResponseException.Builder getExceptionBuilder() {
       return getExceptionFieldBuilder().getBuilder();
     }
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ResponseException exception = 1;</code>
      */
-    public com.github.jtendermint.jabci.types.ResponseExceptionOrBuilder getExceptionOrBuilder() {
+    public ResponseExceptionOrBuilder getExceptionOrBuilder() {
       if ((valueCase_ == 1) && (exceptionBuilder_ != null)) {
         return exceptionBuilder_.getMessageOrBuilder();
       } else {
         if (valueCase_ == 1) {
-          return (com.github.jtendermint.jabci.types.ResponseException) value_;
+          return (ResponseException) value_;
         }
-        return com.github.jtendermint.jabci.types.ResponseException.getDefaultInstance();
+        return ResponseException.getDefaultInstance();
       }
     }
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ResponseException exception = 1;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.github.jtendermint.jabci.types.ResponseException, com.github.jtendermint.jabci.types.ResponseException.Builder, com.github.jtendermint.jabci.types.ResponseExceptionOrBuilder> 
+        ResponseException, ResponseException.Builder, ResponseExceptionOrBuilder>
         getExceptionFieldBuilder() {
       if (exceptionBuilder_ == null) {
         if (!(valueCase_ == 1)) {
-          value_ = com.github.jtendermint.jabci.types.ResponseException.getDefaultInstance();
+          value_ = ResponseException.getDefaultInstance();
         }
         exceptionBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.github.jtendermint.jabci.types.ResponseException, com.github.jtendermint.jabci.types.ResponseException.Builder, com.github.jtendermint.jabci.types.ResponseExceptionOrBuilder>(
-                (com.github.jtendermint.jabci.types.ResponseException) value_,
+            ResponseException, ResponseException.Builder, ResponseExceptionOrBuilder>(
+                (ResponseException) value_,
                 getParentForChildren(),
                 isClean());
         value_ = null;
@@ -1260,27 +1260,27 @@ public  final class Response extends
     }
 
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.github.jtendermint.jabci.types.ResponseEcho, com.github.jtendermint.jabci.types.ResponseEcho.Builder, com.github.jtendermint.jabci.types.ResponseEchoOrBuilder> echoBuilder_;
+        ResponseEcho, ResponseEcho.Builder, ResponseEchoOrBuilder> echoBuilder_;
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ResponseEcho echo = 2;</code>
      */
-    public com.github.jtendermint.jabci.types.ResponseEcho getEcho() {
+    public ResponseEcho getEcho() {
       if (echoBuilder_ == null) {
         if (valueCase_ == 2) {
-          return (com.github.jtendermint.jabci.types.ResponseEcho) value_;
+          return (ResponseEcho) value_;
         }
-        return com.github.jtendermint.jabci.types.ResponseEcho.getDefaultInstance();
+        return ResponseEcho.getDefaultInstance();
       } else {
         if (valueCase_ == 2) {
           return echoBuilder_.getMessage();
         }
-        return com.github.jtendermint.jabci.types.ResponseEcho.getDefaultInstance();
+        return ResponseEcho.getDefaultInstance();
       }
     }
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ResponseEcho echo = 2;</code>
      */
-    public Builder setEcho(com.github.jtendermint.jabci.types.ResponseEcho value) {
+    public Builder setEcho(ResponseEcho value) {
       if (echoBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -1297,7 +1297,7 @@ public  final class Response extends
      * <code>optional .com.github.jtendermint.jabci.types.ResponseEcho echo = 2;</code>
      */
     public Builder setEcho(
-        com.github.jtendermint.jabci.types.ResponseEcho.Builder builderForValue) {
+        ResponseEcho.Builder builderForValue) {
       if (echoBuilder_ == null) {
         value_ = builderForValue.build();
         onChanged();
@@ -1310,11 +1310,11 @@ public  final class Response extends
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ResponseEcho echo = 2;</code>
      */
-    public Builder mergeEcho(com.github.jtendermint.jabci.types.ResponseEcho value) {
+    public Builder mergeEcho(ResponseEcho value) {
       if (echoBuilder_ == null) {
         if (valueCase_ == 2 &&
-            value_ != com.github.jtendermint.jabci.types.ResponseEcho.getDefaultInstance()) {
-          value_ = com.github.jtendermint.jabci.types.ResponseEcho.newBuilder((com.github.jtendermint.jabci.types.ResponseEcho) value_)
+            value_ != ResponseEcho.getDefaultInstance()) {
+          value_ = ResponseEcho.newBuilder((ResponseEcho) value_)
               .mergeFrom(value).buildPartial();
         } else {
           value_ = value;
@@ -1351,35 +1351,35 @@ public  final class Response extends
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ResponseEcho echo = 2;</code>
      */
-    public com.github.jtendermint.jabci.types.ResponseEcho.Builder getEchoBuilder() {
+    public ResponseEcho.Builder getEchoBuilder() {
       return getEchoFieldBuilder().getBuilder();
     }
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ResponseEcho echo = 2;</code>
      */
-    public com.github.jtendermint.jabci.types.ResponseEchoOrBuilder getEchoOrBuilder() {
+    public ResponseEchoOrBuilder getEchoOrBuilder() {
       if ((valueCase_ == 2) && (echoBuilder_ != null)) {
         return echoBuilder_.getMessageOrBuilder();
       } else {
         if (valueCase_ == 2) {
-          return (com.github.jtendermint.jabci.types.ResponseEcho) value_;
+          return (ResponseEcho) value_;
         }
-        return com.github.jtendermint.jabci.types.ResponseEcho.getDefaultInstance();
+        return ResponseEcho.getDefaultInstance();
       }
     }
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ResponseEcho echo = 2;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.github.jtendermint.jabci.types.ResponseEcho, com.github.jtendermint.jabci.types.ResponseEcho.Builder, com.github.jtendermint.jabci.types.ResponseEchoOrBuilder> 
+        ResponseEcho, ResponseEcho.Builder, ResponseEchoOrBuilder>
         getEchoFieldBuilder() {
       if (echoBuilder_ == null) {
         if (!(valueCase_ == 2)) {
-          value_ = com.github.jtendermint.jabci.types.ResponseEcho.getDefaultInstance();
+          value_ = ResponseEcho.getDefaultInstance();
         }
         echoBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.github.jtendermint.jabci.types.ResponseEcho, com.github.jtendermint.jabci.types.ResponseEcho.Builder, com.github.jtendermint.jabci.types.ResponseEchoOrBuilder>(
-                (com.github.jtendermint.jabci.types.ResponseEcho) value_,
+            ResponseEcho, ResponseEcho.Builder, ResponseEchoOrBuilder>(
+                (ResponseEcho) value_,
                 getParentForChildren(),
                 isClean());
         value_ = null;
@@ -1390,27 +1390,27 @@ public  final class Response extends
     }
 
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.github.jtendermint.jabci.types.ResponseFlush, com.github.jtendermint.jabci.types.ResponseFlush.Builder, com.github.jtendermint.jabci.types.ResponseFlushOrBuilder> flushBuilder_;
+        ResponseFlush, ResponseFlush.Builder, ResponseFlushOrBuilder> flushBuilder_;
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ResponseFlush flush = 3;</code>
      */
-    public com.github.jtendermint.jabci.types.ResponseFlush getFlush() {
+    public ResponseFlush getFlush() {
       if (flushBuilder_ == null) {
         if (valueCase_ == 3) {
-          return (com.github.jtendermint.jabci.types.ResponseFlush) value_;
+          return (ResponseFlush) value_;
         }
-        return com.github.jtendermint.jabci.types.ResponseFlush.getDefaultInstance();
+        return ResponseFlush.getDefaultInstance();
       } else {
         if (valueCase_ == 3) {
           return flushBuilder_.getMessage();
         }
-        return com.github.jtendermint.jabci.types.ResponseFlush.getDefaultInstance();
+        return ResponseFlush.getDefaultInstance();
       }
     }
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ResponseFlush flush = 3;</code>
      */
-    public Builder setFlush(com.github.jtendermint.jabci.types.ResponseFlush value) {
+    public Builder setFlush(ResponseFlush value) {
       if (flushBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -1427,7 +1427,7 @@ public  final class Response extends
      * <code>optional .com.github.jtendermint.jabci.types.ResponseFlush flush = 3;</code>
      */
     public Builder setFlush(
-        com.github.jtendermint.jabci.types.ResponseFlush.Builder builderForValue) {
+        ResponseFlush.Builder builderForValue) {
       if (flushBuilder_ == null) {
         value_ = builderForValue.build();
         onChanged();
@@ -1440,11 +1440,11 @@ public  final class Response extends
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ResponseFlush flush = 3;</code>
      */
-    public Builder mergeFlush(com.github.jtendermint.jabci.types.ResponseFlush value) {
+    public Builder mergeFlush(ResponseFlush value) {
       if (flushBuilder_ == null) {
         if (valueCase_ == 3 &&
-            value_ != com.github.jtendermint.jabci.types.ResponseFlush.getDefaultInstance()) {
-          value_ = com.github.jtendermint.jabci.types.ResponseFlush.newBuilder((com.github.jtendermint.jabci.types.ResponseFlush) value_)
+            value_ != ResponseFlush.getDefaultInstance()) {
+          value_ = ResponseFlush.newBuilder((ResponseFlush) value_)
               .mergeFrom(value).buildPartial();
         } else {
           value_ = value;
@@ -1481,35 +1481,35 @@ public  final class Response extends
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ResponseFlush flush = 3;</code>
      */
-    public com.github.jtendermint.jabci.types.ResponseFlush.Builder getFlushBuilder() {
+    public ResponseFlush.Builder getFlushBuilder() {
       return getFlushFieldBuilder().getBuilder();
     }
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ResponseFlush flush = 3;</code>
      */
-    public com.github.jtendermint.jabci.types.ResponseFlushOrBuilder getFlushOrBuilder() {
+    public ResponseFlushOrBuilder getFlushOrBuilder() {
       if ((valueCase_ == 3) && (flushBuilder_ != null)) {
         return flushBuilder_.getMessageOrBuilder();
       } else {
         if (valueCase_ == 3) {
-          return (com.github.jtendermint.jabci.types.ResponseFlush) value_;
+          return (ResponseFlush) value_;
         }
-        return com.github.jtendermint.jabci.types.ResponseFlush.getDefaultInstance();
+        return ResponseFlush.getDefaultInstance();
       }
     }
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ResponseFlush flush = 3;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.github.jtendermint.jabci.types.ResponseFlush, com.github.jtendermint.jabci.types.ResponseFlush.Builder, com.github.jtendermint.jabci.types.ResponseFlushOrBuilder> 
+        ResponseFlush, ResponseFlush.Builder, ResponseFlushOrBuilder>
         getFlushFieldBuilder() {
       if (flushBuilder_ == null) {
         if (!(valueCase_ == 3)) {
-          value_ = com.github.jtendermint.jabci.types.ResponseFlush.getDefaultInstance();
+          value_ = ResponseFlush.getDefaultInstance();
         }
         flushBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.github.jtendermint.jabci.types.ResponseFlush, com.github.jtendermint.jabci.types.ResponseFlush.Builder, com.github.jtendermint.jabci.types.ResponseFlushOrBuilder>(
-                (com.github.jtendermint.jabci.types.ResponseFlush) value_,
+            ResponseFlush, ResponseFlush.Builder, ResponseFlushOrBuilder>(
+                (ResponseFlush) value_,
                 getParentForChildren(),
                 isClean());
         value_ = null;
@@ -1520,27 +1520,27 @@ public  final class Response extends
     }
 
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.github.jtendermint.jabci.types.ResponseInfo, com.github.jtendermint.jabci.types.ResponseInfo.Builder, com.github.jtendermint.jabci.types.ResponseInfoOrBuilder> infoBuilder_;
+        ResponseInfo, ResponseInfo.Builder, ResponseInfoOrBuilder> infoBuilder_;
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ResponseInfo info = 4;</code>
      */
-    public com.github.jtendermint.jabci.types.ResponseInfo getInfo() {
+    public ResponseInfo getInfo() {
       if (infoBuilder_ == null) {
         if (valueCase_ == 4) {
-          return (com.github.jtendermint.jabci.types.ResponseInfo) value_;
+          return (ResponseInfo) value_;
         }
-        return com.github.jtendermint.jabci.types.ResponseInfo.getDefaultInstance();
+        return ResponseInfo.getDefaultInstance();
       } else {
         if (valueCase_ == 4) {
           return infoBuilder_.getMessage();
         }
-        return com.github.jtendermint.jabci.types.ResponseInfo.getDefaultInstance();
+        return ResponseInfo.getDefaultInstance();
       }
     }
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ResponseInfo info = 4;</code>
      */
-    public Builder setInfo(com.github.jtendermint.jabci.types.ResponseInfo value) {
+    public Builder setInfo(ResponseInfo value) {
       if (infoBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -1557,7 +1557,7 @@ public  final class Response extends
      * <code>optional .com.github.jtendermint.jabci.types.ResponseInfo info = 4;</code>
      */
     public Builder setInfo(
-        com.github.jtendermint.jabci.types.ResponseInfo.Builder builderForValue) {
+        ResponseInfo.Builder builderForValue) {
       if (infoBuilder_ == null) {
         value_ = builderForValue.build();
         onChanged();
@@ -1570,11 +1570,11 @@ public  final class Response extends
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ResponseInfo info = 4;</code>
      */
-    public Builder mergeInfo(com.github.jtendermint.jabci.types.ResponseInfo value) {
+    public Builder mergeInfo(ResponseInfo value) {
       if (infoBuilder_ == null) {
         if (valueCase_ == 4 &&
-            value_ != com.github.jtendermint.jabci.types.ResponseInfo.getDefaultInstance()) {
-          value_ = com.github.jtendermint.jabci.types.ResponseInfo.newBuilder((com.github.jtendermint.jabci.types.ResponseInfo) value_)
+            value_ != ResponseInfo.getDefaultInstance()) {
+          value_ = ResponseInfo.newBuilder((ResponseInfo) value_)
               .mergeFrom(value).buildPartial();
         } else {
           value_ = value;
@@ -1611,35 +1611,35 @@ public  final class Response extends
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ResponseInfo info = 4;</code>
      */
-    public com.github.jtendermint.jabci.types.ResponseInfo.Builder getInfoBuilder() {
+    public ResponseInfo.Builder getInfoBuilder() {
       return getInfoFieldBuilder().getBuilder();
     }
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ResponseInfo info = 4;</code>
      */
-    public com.github.jtendermint.jabci.types.ResponseInfoOrBuilder getInfoOrBuilder() {
+    public ResponseInfoOrBuilder getInfoOrBuilder() {
       if ((valueCase_ == 4) && (infoBuilder_ != null)) {
         return infoBuilder_.getMessageOrBuilder();
       } else {
         if (valueCase_ == 4) {
-          return (com.github.jtendermint.jabci.types.ResponseInfo) value_;
+          return (ResponseInfo) value_;
         }
-        return com.github.jtendermint.jabci.types.ResponseInfo.getDefaultInstance();
+        return ResponseInfo.getDefaultInstance();
       }
     }
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ResponseInfo info = 4;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.github.jtendermint.jabci.types.ResponseInfo, com.github.jtendermint.jabci.types.ResponseInfo.Builder, com.github.jtendermint.jabci.types.ResponseInfoOrBuilder> 
+        ResponseInfo, ResponseInfo.Builder, ResponseInfoOrBuilder>
         getInfoFieldBuilder() {
       if (infoBuilder_ == null) {
         if (!(valueCase_ == 4)) {
-          value_ = com.github.jtendermint.jabci.types.ResponseInfo.getDefaultInstance();
+          value_ = ResponseInfo.getDefaultInstance();
         }
         infoBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.github.jtendermint.jabci.types.ResponseInfo, com.github.jtendermint.jabci.types.ResponseInfo.Builder, com.github.jtendermint.jabci.types.ResponseInfoOrBuilder>(
-                (com.github.jtendermint.jabci.types.ResponseInfo) value_,
+            ResponseInfo, ResponseInfo.Builder, ResponseInfoOrBuilder>(
+                (ResponseInfo) value_,
                 getParentForChildren(),
                 isClean());
         value_ = null;
@@ -1650,27 +1650,27 @@ public  final class Response extends
     }
 
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.github.jtendermint.jabci.types.ResponseSetOption, com.github.jtendermint.jabci.types.ResponseSetOption.Builder, com.github.jtendermint.jabci.types.ResponseSetOptionOrBuilder> setOptionBuilder_;
+        ResponseSetOption, ResponseSetOption.Builder, ResponseSetOptionOrBuilder> setOptionBuilder_;
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ResponseSetOption set_option = 5;</code>
      */
-    public com.github.jtendermint.jabci.types.ResponseSetOption getSetOption() {
+    public ResponseSetOption getSetOption() {
       if (setOptionBuilder_ == null) {
         if (valueCase_ == 5) {
-          return (com.github.jtendermint.jabci.types.ResponseSetOption) value_;
+          return (ResponseSetOption) value_;
         }
-        return com.github.jtendermint.jabci.types.ResponseSetOption.getDefaultInstance();
+        return ResponseSetOption.getDefaultInstance();
       } else {
         if (valueCase_ == 5) {
           return setOptionBuilder_.getMessage();
         }
-        return com.github.jtendermint.jabci.types.ResponseSetOption.getDefaultInstance();
+        return ResponseSetOption.getDefaultInstance();
       }
     }
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ResponseSetOption set_option = 5;</code>
      */
-    public Builder setSetOption(com.github.jtendermint.jabci.types.ResponseSetOption value) {
+    public Builder setSetOption(ResponseSetOption value) {
       if (setOptionBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -1687,7 +1687,7 @@ public  final class Response extends
      * <code>optional .com.github.jtendermint.jabci.types.ResponseSetOption set_option = 5;</code>
      */
     public Builder setSetOption(
-        com.github.jtendermint.jabci.types.ResponseSetOption.Builder builderForValue) {
+        ResponseSetOption.Builder builderForValue) {
       if (setOptionBuilder_ == null) {
         value_ = builderForValue.build();
         onChanged();
@@ -1700,11 +1700,11 @@ public  final class Response extends
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ResponseSetOption set_option = 5;</code>
      */
-    public Builder mergeSetOption(com.github.jtendermint.jabci.types.ResponseSetOption value) {
+    public Builder mergeSetOption(ResponseSetOption value) {
       if (setOptionBuilder_ == null) {
         if (valueCase_ == 5 &&
-            value_ != com.github.jtendermint.jabci.types.ResponseSetOption.getDefaultInstance()) {
-          value_ = com.github.jtendermint.jabci.types.ResponseSetOption.newBuilder((com.github.jtendermint.jabci.types.ResponseSetOption) value_)
+            value_ != ResponseSetOption.getDefaultInstance()) {
+          value_ = ResponseSetOption.newBuilder((ResponseSetOption) value_)
               .mergeFrom(value).buildPartial();
         } else {
           value_ = value;
@@ -1741,35 +1741,35 @@ public  final class Response extends
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ResponseSetOption set_option = 5;</code>
      */
-    public com.github.jtendermint.jabci.types.ResponseSetOption.Builder getSetOptionBuilder() {
+    public ResponseSetOption.Builder getSetOptionBuilder() {
       return getSetOptionFieldBuilder().getBuilder();
     }
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ResponseSetOption set_option = 5;</code>
      */
-    public com.github.jtendermint.jabci.types.ResponseSetOptionOrBuilder getSetOptionOrBuilder() {
+    public ResponseSetOptionOrBuilder getSetOptionOrBuilder() {
       if ((valueCase_ == 5) && (setOptionBuilder_ != null)) {
         return setOptionBuilder_.getMessageOrBuilder();
       } else {
         if (valueCase_ == 5) {
-          return (com.github.jtendermint.jabci.types.ResponseSetOption) value_;
+          return (ResponseSetOption) value_;
         }
-        return com.github.jtendermint.jabci.types.ResponseSetOption.getDefaultInstance();
+        return ResponseSetOption.getDefaultInstance();
       }
     }
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ResponseSetOption set_option = 5;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.github.jtendermint.jabci.types.ResponseSetOption, com.github.jtendermint.jabci.types.ResponseSetOption.Builder, com.github.jtendermint.jabci.types.ResponseSetOptionOrBuilder> 
+        ResponseSetOption, ResponseSetOption.Builder, ResponseSetOptionOrBuilder>
         getSetOptionFieldBuilder() {
       if (setOptionBuilder_ == null) {
         if (!(valueCase_ == 5)) {
-          value_ = com.github.jtendermint.jabci.types.ResponseSetOption.getDefaultInstance();
+          value_ = ResponseSetOption.getDefaultInstance();
         }
         setOptionBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.github.jtendermint.jabci.types.ResponseSetOption, com.github.jtendermint.jabci.types.ResponseSetOption.Builder, com.github.jtendermint.jabci.types.ResponseSetOptionOrBuilder>(
-                (com.github.jtendermint.jabci.types.ResponseSetOption) value_,
+            ResponseSetOption, ResponseSetOption.Builder, ResponseSetOptionOrBuilder>(
+                (ResponseSetOption) value_,
                 getParentForChildren(),
                 isClean());
         value_ = null;
@@ -1780,27 +1780,27 @@ public  final class Response extends
     }
 
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.github.jtendermint.jabci.types.ResponseInitChain, com.github.jtendermint.jabci.types.ResponseInitChain.Builder, com.github.jtendermint.jabci.types.ResponseInitChainOrBuilder> initChainBuilder_;
+        ResponseInitChain, ResponseInitChain.Builder, ResponseInitChainOrBuilder> initChainBuilder_;
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ResponseInitChain init_chain = 6;</code>
      */
-    public com.github.jtendermint.jabci.types.ResponseInitChain getInitChain() {
+    public ResponseInitChain getInitChain() {
       if (initChainBuilder_ == null) {
         if (valueCase_ == 6) {
-          return (com.github.jtendermint.jabci.types.ResponseInitChain) value_;
+          return (ResponseInitChain) value_;
         }
-        return com.github.jtendermint.jabci.types.ResponseInitChain.getDefaultInstance();
+        return ResponseInitChain.getDefaultInstance();
       } else {
         if (valueCase_ == 6) {
           return initChainBuilder_.getMessage();
         }
-        return com.github.jtendermint.jabci.types.ResponseInitChain.getDefaultInstance();
+        return ResponseInitChain.getDefaultInstance();
       }
     }
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ResponseInitChain init_chain = 6;</code>
      */
-    public Builder setInitChain(com.github.jtendermint.jabci.types.ResponseInitChain value) {
+    public Builder setInitChain(ResponseInitChain value) {
       if (initChainBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -1817,7 +1817,7 @@ public  final class Response extends
      * <code>optional .com.github.jtendermint.jabci.types.ResponseInitChain init_chain = 6;</code>
      */
     public Builder setInitChain(
-        com.github.jtendermint.jabci.types.ResponseInitChain.Builder builderForValue) {
+        ResponseInitChain.Builder builderForValue) {
       if (initChainBuilder_ == null) {
         value_ = builderForValue.build();
         onChanged();
@@ -1830,11 +1830,11 @@ public  final class Response extends
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ResponseInitChain init_chain = 6;</code>
      */
-    public Builder mergeInitChain(com.github.jtendermint.jabci.types.ResponseInitChain value) {
+    public Builder mergeInitChain(ResponseInitChain value) {
       if (initChainBuilder_ == null) {
         if (valueCase_ == 6 &&
-            value_ != com.github.jtendermint.jabci.types.ResponseInitChain.getDefaultInstance()) {
-          value_ = com.github.jtendermint.jabci.types.ResponseInitChain.newBuilder((com.github.jtendermint.jabci.types.ResponseInitChain) value_)
+            value_ != ResponseInitChain.getDefaultInstance()) {
+          value_ = ResponseInitChain.newBuilder((ResponseInitChain) value_)
               .mergeFrom(value).buildPartial();
         } else {
           value_ = value;
@@ -1871,35 +1871,35 @@ public  final class Response extends
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ResponseInitChain init_chain = 6;</code>
      */
-    public com.github.jtendermint.jabci.types.ResponseInitChain.Builder getInitChainBuilder() {
+    public ResponseInitChain.Builder getInitChainBuilder() {
       return getInitChainFieldBuilder().getBuilder();
     }
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ResponseInitChain init_chain = 6;</code>
      */
-    public com.github.jtendermint.jabci.types.ResponseInitChainOrBuilder getInitChainOrBuilder() {
+    public ResponseInitChainOrBuilder getInitChainOrBuilder() {
       if ((valueCase_ == 6) && (initChainBuilder_ != null)) {
         return initChainBuilder_.getMessageOrBuilder();
       } else {
         if (valueCase_ == 6) {
-          return (com.github.jtendermint.jabci.types.ResponseInitChain) value_;
+          return (ResponseInitChain) value_;
         }
-        return com.github.jtendermint.jabci.types.ResponseInitChain.getDefaultInstance();
+        return ResponseInitChain.getDefaultInstance();
       }
     }
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ResponseInitChain init_chain = 6;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.github.jtendermint.jabci.types.ResponseInitChain, com.github.jtendermint.jabci.types.ResponseInitChain.Builder, com.github.jtendermint.jabci.types.ResponseInitChainOrBuilder> 
+        ResponseInitChain, ResponseInitChain.Builder, ResponseInitChainOrBuilder>
         getInitChainFieldBuilder() {
       if (initChainBuilder_ == null) {
         if (!(valueCase_ == 6)) {
-          value_ = com.github.jtendermint.jabci.types.ResponseInitChain.getDefaultInstance();
+          value_ = ResponseInitChain.getDefaultInstance();
         }
         initChainBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.github.jtendermint.jabci.types.ResponseInitChain, com.github.jtendermint.jabci.types.ResponseInitChain.Builder, com.github.jtendermint.jabci.types.ResponseInitChainOrBuilder>(
-                (com.github.jtendermint.jabci.types.ResponseInitChain) value_,
+            ResponseInitChain, ResponseInitChain.Builder, ResponseInitChainOrBuilder>(
+                (ResponseInitChain) value_,
                 getParentForChildren(),
                 isClean());
         value_ = null;
@@ -1910,27 +1910,27 @@ public  final class Response extends
     }
 
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.github.jtendermint.jabci.types.ResponseQuery, com.github.jtendermint.jabci.types.ResponseQuery.Builder, com.github.jtendermint.jabci.types.ResponseQueryOrBuilder> queryBuilder_;
+        ResponseQuery, ResponseQuery.Builder, ResponseQueryOrBuilder> queryBuilder_;
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ResponseQuery query = 7;</code>
      */
-    public com.github.jtendermint.jabci.types.ResponseQuery getQuery() {
+    public ResponseQuery getQuery() {
       if (queryBuilder_ == null) {
         if (valueCase_ == 7) {
-          return (com.github.jtendermint.jabci.types.ResponseQuery) value_;
+          return (ResponseQuery) value_;
         }
-        return com.github.jtendermint.jabci.types.ResponseQuery.getDefaultInstance();
+        return ResponseQuery.getDefaultInstance();
       } else {
         if (valueCase_ == 7) {
           return queryBuilder_.getMessage();
         }
-        return com.github.jtendermint.jabci.types.ResponseQuery.getDefaultInstance();
+        return ResponseQuery.getDefaultInstance();
       }
     }
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ResponseQuery query = 7;</code>
      */
-    public Builder setQuery(com.github.jtendermint.jabci.types.ResponseQuery value) {
+    public Builder setQuery(ResponseQuery value) {
       if (queryBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -1947,7 +1947,7 @@ public  final class Response extends
      * <code>optional .com.github.jtendermint.jabci.types.ResponseQuery query = 7;</code>
      */
     public Builder setQuery(
-        com.github.jtendermint.jabci.types.ResponseQuery.Builder builderForValue) {
+        ResponseQuery.Builder builderForValue) {
       if (queryBuilder_ == null) {
         value_ = builderForValue.build();
         onChanged();
@@ -1960,11 +1960,11 @@ public  final class Response extends
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ResponseQuery query = 7;</code>
      */
-    public Builder mergeQuery(com.github.jtendermint.jabci.types.ResponseQuery value) {
+    public Builder mergeQuery(ResponseQuery value) {
       if (queryBuilder_ == null) {
         if (valueCase_ == 7 &&
-            value_ != com.github.jtendermint.jabci.types.ResponseQuery.getDefaultInstance()) {
-          value_ = com.github.jtendermint.jabci.types.ResponseQuery.newBuilder((com.github.jtendermint.jabci.types.ResponseQuery) value_)
+            value_ != ResponseQuery.getDefaultInstance()) {
+          value_ = ResponseQuery.newBuilder((ResponseQuery) value_)
               .mergeFrom(value).buildPartial();
         } else {
           value_ = value;
@@ -2001,35 +2001,35 @@ public  final class Response extends
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ResponseQuery query = 7;</code>
      */
-    public com.github.jtendermint.jabci.types.ResponseQuery.Builder getQueryBuilder() {
+    public ResponseQuery.Builder getQueryBuilder() {
       return getQueryFieldBuilder().getBuilder();
     }
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ResponseQuery query = 7;</code>
      */
-    public com.github.jtendermint.jabci.types.ResponseQueryOrBuilder getQueryOrBuilder() {
+    public ResponseQueryOrBuilder getQueryOrBuilder() {
       if ((valueCase_ == 7) && (queryBuilder_ != null)) {
         return queryBuilder_.getMessageOrBuilder();
       } else {
         if (valueCase_ == 7) {
-          return (com.github.jtendermint.jabci.types.ResponseQuery) value_;
+          return (ResponseQuery) value_;
         }
-        return com.github.jtendermint.jabci.types.ResponseQuery.getDefaultInstance();
+        return ResponseQuery.getDefaultInstance();
       }
     }
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ResponseQuery query = 7;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.github.jtendermint.jabci.types.ResponseQuery, com.github.jtendermint.jabci.types.ResponseQuery.Builder, com.github.jtendermint.jabci.types.ResponseQueryOrBuilder> 
+        ResponseQuery, ResponseQuery.Builder, ResponseQueryOrBuilder>
         getQueryFieldBuilder() {
       if (queryBuilder_ == null) {
         if (!(valueCase_ == 7)) {
-          value_ = com.github.jtendermint.jabci.types.ResponseQuery.getDefaultInstance();
+          value_ = ResponseQuery.getDefaultInstance();
         }
         queryBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.github.jtendermint.jabci.types.ResponseQuery, com.github.jtendermint.jabci.types.ResponseQuery.Builder, com.github.jtendermint.jabci.types.ResponseQueryOrBuilder>(
-                (com.github.jtendermint.jabci.types.ResponseQuery) value_,
+            ResponseQuery, ResponseQuery.Builder, ResponseQueryOrBuilder>(
+                (ResponseQuery) value_,
                 getParentForChildren(),
                 isClean());
         value_ = null;
@@ -2040,27 +2040,27 @@ public  final class Response extends
     }
 
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.github.jtendermint.jabci.types.ResponseBeginBlock, com.github.jtendermint.jabci.types.ResponseBeginBlock.Builder, com.github.jtendermint.jabci.types.ResponseBeginBlockOrBuilder> beginBlockBuilder_;
+        ResponseBeginBlock, ResponseBeginBlock.Builder, ResponseBeginBlockOrBuilder> beginBlockBuilder_;
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ResponseBeginBlock begin_block = 8;</code>
      */
-    public com.github.jtendermint.jabci.types.ResponseBeginBlock getBeginBlock() {
+    public ResponseBeginBlock getBeginBlock() {
       if (beginBlockBuilder_ == null) {
         if (valueCase_ == 8) {
-          return (com.github.jtendermint.jabci.types.ResponseBeginBlock) value_;
+          return (ResponseBeginBlock) value_;
         }
-        return com.github.jtendermint.jabci.types.ResponseBeginBlock.getDefaultInstance();
+        return ResponseBeginBlock.getDefaultInstance();
       } else {
         if (valueCase_ == 8) {
           return beginBlockBuilder_.getMessage();
         }
-        return com.github.jtendermint.jabci.types.ResponseBeginBlock.getDefaultInstance();
+        return ResponseBeginBlock.getDefaultInstance();
       }
     }
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ResponseBeginBlock begin_block = 8;</code>
      */
-    public Builder setBeginBlock(com.github.jtendermint.jabci.types.ResponseBeginBlock value) {
+    public Builder setBeginBlock(ResponseBeginBlock value) {
       if (beginBlockBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -2077,7 +2077,7 @@ public  final class Response extends
      * <code>optional .com.github.jtendermint.jabci.types.ResponseBeginBlock begin_block = 8;</code>
      */
     public Builder setBeginBlock(
-        com.github.jtendermint.jabci.types.ResponseBeginBlock.Builder builderForValue) {
+        ResponseBeginBlock.Builder builderForValue) {
       if (beginBlockBuilder_ == null) {
         value_ = builderForValue.build();
         onChanged();
@@ -2090,11 +2090,11 @@ public  final class Response extends
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ResponseBeginBlock begin_block = 8;</code>
      */
-    public Builder mergeBeginBlock(com.github.jtendermint.jabci.types.ResponseBeginBlock value) {
+    public Builder mergeBeginBlock(ResponseBeginBlock value) {
       if (beginBlockBuilder_ == null) {
         if (valueCase_ == 8 &&
-            value_ != com.github.jtendermint.jabci.types.ResponseBeginBlock.getDefaultInstance()) {
-          value_ = com.github.jtendermint.jabci.types.ResponseBeginBlock.newBuilder((com.github.jtendermint.jabci.types.ResponseBeginBlock) value_)
+            value_ != ResponseBeginBlock.getDefaultInstance()) {
+          value_ = ResponseBeginBlock.newBuilder((ResponseBeginBlock) value_)
               .mergeFrom(value).buildPartial();
         } else {
           value_ = value;
@@ -2131,35 +2131,35 @@ public  final class Response extends
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ResponseBeginBlock begin_block = 8;</code>
      */
-    public com.github.jtendermint.jabci.types.ResponseBeginBlock.Builder getBeginBlockBuilder() {
+    public ResponseBeginBlock.Builder getBeginBlockBuilder() {
       return getBeginBlockFieldBuilder().getBuilder();
     }
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ResponseBeginBlock begin_block = 8;</code>
      */
-    public com.github.jtendermint.jabci.types.ResponseBeginBlockOrBuilder getBeginBlockOrBuilder() {
+    public ResponseBeginBlockOrBuilder getBeginBlockOrBuilder() {
       if ((valueCase_ == 8) && (beginBlockBuilder_ != null)) {
         return beginBlockBuilder_.getMessageOrBuilder();
       } else {
         if (valueCase_ == 8) {
-          return (com.github.jtendermint.jabci.types.ResponseBeginBlock) value_;
+          return (ResponseBeginBlock) value_;
         }
-        return com.github.jtendermint.jabci.types.ResponseBeginBlock.getDefaultInstance();
+        return ResponseBeginBlock.getDefaultInstance();
       }
     }
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ResponseBeginBlock begin_block = 8;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.github.jtendermint.jabci.types.ResponseBeginBlock, com.github.jtendermint.jabci.types.ResponseBeginBlock.Builder, com.github.jtendermint.jabci.types.ResponseBeginBlockOrBuilder> 
+        ResponseBeginBlock, ResponseBeginBlock.Builder, ResponseBeginBlockOrBuilder>
         getBeginBlockFieldBuilder() {
       if (beginBlockBuilder_ == null) {
         if (!(valueCase_ == 8)) {
-          value_ = com.github.jtendermint.jabci.types.ResponseBeginBlock.getDefaultInstance();
+          value_ = ResponseBeginBlock.getDefaultInstance();
         }
         beginBlockBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.github.jtendermint.jabci.types.ResponseBeginBlock, com.github.jtendermint.jabci.types.ResponseBeginBlock.Builder, com.github.jtendermint.jabci.types.ResponseBeginBlockOrBuilder>(
-                (com.github.jtendermint.jabci.types.ResponseBeginBlock) value_,
+            ResponseBeginBlock, ResponseBeginBlock.Builder, ResponseBeginBlockOrBuilder>(
+                (ResponseBeginBlock) value_,
                 getParentForChildren(),
                 isClean());
         value_ = null;
@@ -2170,27 +2170,27 @@ public  final class Response extends
     }
 
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.github.jtendermint.jabci.types.ResponseCheckTx, com.github.jtendermint.jabci.types.ResponseCheckTx.Builder, com.github.jtendermint.jabci.types.ResponseCheckTxOrBuilder> checkTxBuilder_;
+        ResponseCheckTx, ResponseCheckTx.Builder, ResponseCheckTxOrBuilder> checkTxBuilder_;
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ResponseCheckTx check_tx = 9;</code>
      */
-    public com.github.jtendermint.jabci.types.ResponseCheckTx getCheckTx() {
+    public ResponseCheckTx getCheckTx() {
       if (checkTxBuilder_ == null) {
         if (valueCase_ == 9) {
-          return (com.github.jtendermint.jabci.types.ResponseCheckTx) value_;
+          return (ResponseCheckTx) value_;
         }
-        return com.github.jtendermint.jabci.types.ResponseCheckTx.getDefaultInstance();
+        return ResponseCheckTx.getDefaultInstance();
       } else {
         if (valueCase_ == 9) {
           return checkTxBuilder_.getMessage();
         }
-        return com.github.jtendermint.jabci.types.ResponseCheckTx.getDefaultInstance();
+        return ResponseCheckTx.getDefaultInstance();
       }
     }
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ResponseCheckTx check_tx = 9;</code>
      */
-    public Builder setCheckTx(com.github.jtendermint.jabci.types.ResponseCheckTx value) {
+    public Builder setCheckTx(ResponseCheckTx value) {
       if (checkTxBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -2207,7 +2207,7 @@ public  final class Response extends
      * <code>optional .com.github.jtendermint.jabci.types.ResponseCheckTx check_tx = 9;</code>
      */
     public Builder setCheckTx(
-        com.github.jtendermint.jabci.types.ResponseCheckTx.Builder builderForValue) {
+        ResponseCheckTx.Builder builderForValue) {
       if (checkTxBuilder_ == null) {
         value_ = builderForValue.build();
         onChanged();
@@ -2220,11 +2220,11 @@ public  final class Response extends
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ResponseCheckTx check_tx = 9;</code>
      */
-    public Builder mergeCheckTx(com.github.jtendermint.jabci.types.ResponseCheckTx value) {
+    public Builder mergeCheckTx(ResponseCheckTx value) {
       if (checkTxBuilder_ == null) {
         if (valueCase_ == 9 &&
-            value_ != com.github.jtendermint.jabci.types.ResponseCheckTx.getDefaultInstance()) {
-          value_ = com.github.jtendermint.jabci.types.ResponseCheckTx.newBuilder((com.github.jtendermint.jabci.types.ResponseCheckTx) value_)
+            value_ != ResponseCheckTx.getDefaultInstance()) {
+          value_ = ResponseCheckTx.newBuilder((ResponseCheckTx) value_)
               .mergeFrom(value).buildPartial();
         } else {
           value_ = value;
@@ -2261,35 +2261,35 @@ public  final class Response extends
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ResponseCheckTx check_tx = 9;</code>
      */
-    public com.github.jtendermint.jabci.types.ResponseCheckTx.Builder getCheckTxBuilder() {
+    public ResponseCheckTx.Builder getCheckTxBuilder() {
       return getCheckTxFieldBuilder().getBuilder();
     }
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ResponseCheckTx check_tx = 9;</code>
      */
-    public com.github.jtendermint.jabci.types.ResponseCheckTxOrBuilder getCheckTxOrBuilder() {
+    public ResponseCheckTxOrBuilder getCheckTxOrBuilder() {
       if ((valueCase_ == 9) && (checkTxBuilder_ != null)) {
         return checkTxBuilder_.getMessageOrBuilder();
       } else {
         if (valueCase_ == 9) {
-          return (com.github.jtendermint.jabci.types.ResponseCheckTx) value_;
+          return (ResponseCheckTx) value_;
         }
-        return com.github.jtendermint.jabci.types.ResponseCheckTx.getDefaultInstance();
+        return ResponseCheckTx.getDefaultInstance();
       }
     }
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ResponseCheckTx check_tx = 9;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.github.jtendermint.jabci.types.ResponseCheckTx, com.github.jtendermint.jabci.types.ResponseCheckTx.Builder, com.github.jtendermint.jabci.types.ResponseCheckTxOrBuilder> 
+        ResponseCheckTx, ResponseCheckTx.Builder, ResponseCheckTxOrBuilder>
         getCheckTxFieldBuilder() {
       if (checkTxBuilder_ == null) {
         if (!(valueCase_ == 9)) {
-          value_ = com.github.jtendermint.jabci.types.ResponseCheckTx.getDefaultInstance();
+          value_ = ResponseCheckTx.getDefaultInstance();
         }
         checkTxBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.github.jtendermint.jabci.types.ResponseCheckTx, com.github.jtendermint.jabci.types.ResponseCheckTx.Builder, com.github.jtendermint.jabci.types.ResponseCheckTxOrBuilder>(
-                (com.github.jtendermint.jabci.types.ResponseCheckTx) value_,
+            ResponseCheckTx, ResponseCheckTx.Builder, ResponseCheckTxOrBuilder>(
+                (ResponseCheckTx) value_,
                 getParentForChildren(),
                 isClean());
         value_ = null;
@@ -2300,27 +2300,27 @@ public  final class Response extends
     }
 
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.github.jtendermint.jabci.types.ResponseDeliverTx, com.github.jtendermint.jabci.types.ResponseDeliverTx.Builder, com.github.jtendermint.jabci.types.ResponseDeliverTxOrBuilder> deliverTxBuilder_;
+        ResponseDeliverTx, ResponseDeliverTx.Builder, ResponseDeliverTxOrBuilder> deliverTxBuilder_;
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ResponseDeliverTx deliver_tx = 10;</code>
      */
-    public com.github.jtendermint.jabci.types.ResponseDeliverTx getDeliverTx() {
+    public ResponseDeliverTx getDeliverTx() {
       if (deliverTxBuilder_ == null) {
         if (valueCase_ == 10) {
-          return (com.github.jtendermint.jabci.types.ResponseDeliverTx) value_;
+          return (ResponseDeliverTx) value_;
         }
-        return com.github.jtendermint.jabci.types.ResponseDeliverTx.getDefaultInstance();
+        return ResponseDeliverTx.getDefaultInstance();
       } else {
         if (valueCase_ == 10) {
           return deliverTxBuilder_.getMessage();
         }
-        return com.github.jtendermint.jabci.types.ResponseDeliverTx.getDefaultInstance();
+        return ResponseDeliverTx.getDefaultInstance();
       }
     }
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ResponseDeliverTx deliver_tx = 10;</code>
      */
-    public Builder setDeliverTx(com.github.jtendermint.jabci.types.ResponseDeliverTx value) {
+    public Builder setDeliverTx(ResponseDeliverTx value) {
       if (deliverTxBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -2337,7 +2337,7 @@ public  final class Response extends
      * <code>optional .com.github.jtendermint.jabci.types.ResponseDeliverTx deliver_tx = 10;</code>
      */
     public Builder setDeliverTx(
-        com.github.jtendermint.jabci.types.ResponseDeliverTx.Builder builderForValue) {
+        ResponseDeliverTx.Builder builderForValue) {
       if (deliverTxBuilder_ == null) {
         value_ = builderForValue.build();
         onChanged();
@@ -2350,11 +2350,11 @@ public  final class Response extends
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ResponseDeliverTx deliver_tx = 10;</code>
      */
-    public Builder mergeDeliverTx(com.github.jtendermint.jabci.types.ResponseDeliverTx value) {
+    public Builder mergeDeliverTx(ResponseDeliverTx value) {
       if (deliverTxBuilder_ == null) {
         if (valueCase_ == 10 &&
-            value_ != com.github.jtendermint.jabci.types.ResponseDeliverTx.getDefaultInstance()) {
-          value_ = com.github.jtendermint.jabci.types.ResponseDeliverTx.newBuilder((com.github.jtendermint.jabci.types.ResponseDeliverTx) value_)
+            value_ != ResponseDeliverTx.getDefaultInstance()) {
+          value_ = ResponseDeliverTx.newBuilder((ResponseDeliverTx) value_)
               .mergeFrom(value).buildPartial();
         } else {
           value_ = value;
@@ -2391,35 +2391,35 @@ public  final class Response extends
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ResponseDeliverTx deliver_tx = 10;</code>
      */
-    public com.github.jtendermint.jabci.types.ResponseDeliverTx.Builder getDeliverTxBuilder() {
+    public ResponseDeliverTx.Builder getDeliverTxBuilder() {
       return getDeliverTxFieldBuilder().getBuilder();
     }
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ResponseDeliverTx deliver_tx = 10;</code>
      */
-    public com.github.jtendermint.jabci.types.ResponseDeliverTxOrBuilder getDeliverTxOrBuilder() {
+    public ResponseDeliverTxOrBuilder getDeliverTxOrBuilder() {
       if ((valueCase_ == 10) && (deliverTxBuilder_ != null)) {
         return deliverTxBuilder_.getMessageOrBuilder();
       } else {
         if (valueCase_ == 10) {
-          return (com.github.jtendermint.jabci.types.ResponseDeliverTx) value_;
+          return (ResponseDeliverTx) value_;
         }
-        return com.github.jtendermint.jabci.types.ResponseDeliverTx.getDefaultInstance();
+        return ResponseDeliverTx.getDefaultInstance();
       }
     }
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ResponseDeliverTx deliver_tx = 10;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.github.jtendermint.jabci.types.ResponseDeliverTx, com.github.jtendermint.jabci.types.ResponseDeliverTx.Builder, com.github.jtendermint.jabci.types.ResponseDeliverTxOrBuilder> 
+        ResponseDeliverTx, ResponseDeliverTx.Builder, ResponseDeliverTxOrBuilder>
         getDeliverTxFieldBuilder() {
       if (deliverTxBuilder_ == null) {
         if (!(valueCase_ == 10)) {
-          value_ = com.github.jtendermint.jabci.types.ResponseDeliverTx.getDefaultInstance();
+          value_ = ResponseDeliverTx.getDefaultInstance();
         }
         deliverTxBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.github.jtendermint.jabci.types.ResponseDeliverTx, com.github.jtendermint.jabci.types.ResponseDeliverTx.Builder, com.github.jtendermint.jabci.types.ResponseDeliverTxOrBuilder>(
-                (com.github.jtendermint.jabci.types.ResponseDeliverTx) value_,
+            ResponseDeliverTx, ResponseDeliverTx.Builder, ResponseDeliverTxOrBuilder>(
+                (ResponseDeliverTx) value_,
                 getParentForChildren(),
                 isClean());
         value_ = null;
@@ -2430,27 +2430,27 @@ public  final class Response extends
     }
 
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.github.jtendermint.jabci.types.ResponseEndBlock, com.github.jtendermint.jabci.types.ResponseEndBlock.Builder, com.github.jtendermint.jabci.types.ResponseEndBlockOrBuilder> endBlockBuilder_;
+        ResponseEndBlock, ResponseEndBlock.Builder, ResponseEndBlockOrBuilder> endBlockBuilder_;
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ResponseEndBlock end_block = 11;</code>
      */
-    public com.github.jtendermint.jabci.types.ResponseEndBlock getEndBlock() {
+    public ResponseEndBlock getEndBlock() {
       if (endBlockBuilder_ == null) {
         if (valueCase_ == 11) {
-          return (com.github.jtendermint.jabci.types.ResponseEndBlock) value_;
+          return (ResponseEndBlock) value_;
         }
-        return com.github.jtendermint.jabci.types.ResponseEndBlock.getDefaultInstance();
+        return ResponseEndBlock.getDefaultInstance();
       } else {
         if (valueCase_ == 11) {
           return endBlockBuilder_.getMessage();
         }
-        return com.github.jtendermint.jabci.types.ResponseEndBlock.getDefaultInstance();
+        return ResponseEndBlock.getDefaultInstance();
       }
     }
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ResponseEndBlock end_block = 11;</code>
      */
-    public Builder setEndBlock(com.github.jtendermint.jabci.types.ResponseEndBlock value) {
+    public Builder setEndBlock(ResponseEndBlock value) {
       if (endBlockBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -2467,7 +2467,7 @@ public  final class Response extends
      * <code>optional .com.github.jtendermint.jabci.types.ResponseEndBlock end_block = 11;</code>
      */
     public Builder setEndBlock(
-        com.github.jtendermint.jabci.types.ResponseEndBlock.Builder builderForValue) {
+        ResponseEndBlock.Builder builderForValue) {
       if (endBlockBuilder_ == null) {
         value_ = builderForValue.build();
         onChanged();
@@ -2480,11 +2480,11 @@ public  final class Response extends
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ResponseEndBlock end_block = 11;</code>
      */
-    public Builder mergeEndBlock(com.github.jtendermint.jabci.types.ResponseEndBlock value) {
+    public Builder mergeEndBlock(ResponseEndBlock value) {
       if (endBlockBuilder_ == null) {
         if (valueCase_ == 11 &&
-            value_ != com.github.jtendermint.jabci.types.ResponseEndBlock.getDefaultInstance()) {
-          value_ = com.github.jtendermint.jabci.types.ResponseEndBlock.newBuilder((com.github.jtendermint.jabci.types.ResponseEndBlock) value_)
+            value_ != ResponseEndBlock.getDefaultInstance()) {
+          value_ = ResponseEndBlock.newBuilder((ResponseEndBlock) value_)
               .mergeFrom(value).buildPartial();
         } else {
           value_ = value;
@@ -2521,35 +2521,35 @@ public  final class Response extends
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ResponseEndBlock end_block = 11;</code>
      */
-    public com.github.jtendermint.jabci.types.ResponseEndBlock.Builder getEndBlockBuilder() {
+    public ResponseEndBlock.Builder getEndBlockBuilder() {
       return getEndBlockFieldBuilder().getBuilder();
     }
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ResponseEndBlock end_block = 11;</code>
      */
-    public com.github.jtendermint.jabci.types.ResponseEndBlockOrBuilder getEndBlockOrBuilder() {
+    public ResponseEndBlockOrBuilder getEndBlockOrBuilder() {
       if ((valueCase_ == 11) && (endBlockBuilder_ != null)) {
         return endBlockBuilder_.getMessageOrBuilder();
       } else {
         if (valueCase_ == 11) {
-          return (com.github.jtendermint.jabci.types.ResponseEndBlock) value_;
+          return (ResponseEndBlock) value_;
         }
-        return com.github.jtendermint.jabci.types.ResponseEndBlock.getDefaultInstance();
+        return ResponseEndBlock.getDefaultInstance();
       }
     }
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ResponseEndBlock end_block = 11;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.github.jtendermint.jabci.types.ResponseEndBlock, com.github.jtendermint.jabci.types.ResponseEndBlock.Builder, com.github.jtendermint.jabci.types.ResponseEndBlockOrBuilder> 
+        ResponseEndBlock, ResponseEndBlock.Builder, ResponseEndBlockOrBuilder>
         getEndBlockFieldBuilder() {
       if (endBlockBuilder_ == null) {
         if (!(valueCase_ == 11)) {
-          value_ = com.github.jtendermint.jabci.types.ResponseEndBlock.getDefaultInstance();
+          value_ = ResponseEndBlock.getDefaultInstance();
         }
         endBlockBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.github.jtendermint.jabci.types.ResponseEndBlock, com.github.jtendermint.jabci.types.ResponseEndBlock.Builder, com.github.jtendermint.jabci.types.ResponseEndBlockOrBuilder>(
-                (com.github.jtendermint.jabci.types.ResponseEndBlock) value_,
+            ResponseEndBlock, ResponseEndBlock.Builder, ResponseEndBlockOrBuilder>(
+                (ResponseEndBlock) value_,
                 getParentForChildren(),
                 isClean());
         value_ = null;
@@ -2560,27 +2560,27 @@ public  final class Response extends
     }
 
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.github.jtendermint.jabci.types.ResponseCommit, com.github.jtendermint.jabci.types.ResponseCommit.Builder, com.github.jtendermint.jabci.types.ResponseCommitOrBuilder> commitBuilder_;
+        ResponseCommit, ResponseCommit.Builder, ResponseCommitOrBuilder> commitBuilder_;
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ResponseCommit commit = 12;</code>
      */
-    public com.github.jtendermint.jabci.types.ResponseCommit getCommit() {
+    public ResponseCommit getCommit() {
       if (commitBuilder_ == null) {
         if (valueCase_ == 12) {
-          return (com.github.jtendermint.jabci.types.ResponseCommit) value_;
+          return (ResponseCommit) value_;
         }
-        return com.github.jtendermint.jabci.types.ResponseCommit.getDefaultInstance();
+        return ResponseCommit.getDefaultInstance();
       } else {
         if (valueCase_ == 12) {
           return commitBuilder_.getMessage();
         }
-        return com.github.jtendermint.jabci.types.ResponseCommit.getDefaultInstance();
+        return ResponseCommit.getDefaultInstance();
       }
     }
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ResponseCommit commit = 12;</code>
      */
-    public Builder setCommit(com.github.jtendermint.jabci.types.ResponseCommit value) {
+    public Builder setCommit(ResponseCommit value) {
       if (commitBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -2597,7 +2597,7 @@ public  final class Response extends
      * <code>optional .com.github.jtendermint.jabci.types.ResponseCommit commit = 12;</code>
      */
     public Builder setCommit(
-        com.github.jtendermint.jabci.types.ResponseCommit.Builder builderForValue) {
+        ResponseCommit.Builder builderForValue) {
       if (commitBuilder_ == null) {
         value_ = builderForValue.build();
         onChanged();
@@ -2610,11 +2610,11 @@ public  final class Response extends
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ResponseCommit commit = 12;</code>
      */
-    public Builder mergeCommit(com.github.jtendermint.jabci.types.ResponseCommit value) {
+    public Builder mergeCommit(ResponseCommit value) {
       if (commitBuilder_ == null) {
         if (valueCase_ == 12 &&
-            value_ != com.github.jtendermint.jabci.types.ResponseCommit.getDefaultInstance()) {
-          value_ = com.github.jtendermint.jabci.types.ResponseCommit.newBuilder((com.github.jtendermint.jabci.types.ResponseCommit) value_)
+            value_ != ResponseCommit.getDefaultInstance()) {
+          value_ = ResponseCommit.newBuilder((ResponseCommit) value_)
               .mergeFrom(value).buildPartial();
         } else {
           value_ = value;
@@ -2651,35 +2651,35 @@ public  final class Response extends
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ResponseCommit commit = 12;</code>
      */
-    public com.github.jtendermint.jabci.types.ResponseCommit.Builder getCommitBuilder() {
+    public ResponseCommit.Builder getCommitBuilder() {
       return getCommitFieldBuilder().getBuilder();
     }
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ResponseCommit commit = 12;</code>
      */
-    public com.github.jtendermint.jabci.types.ResponseCommitOrBuilder getCommitOrBuilder() {
+    public ResponseCommitOrBuilder getCommitOrBuilder() {
       if ((valueCase_ == 12) && (commitBuilder_ != null)) {
         return commitBuilder_.getMessageOrBuilder();
       } else {
         if (valueCase_ == 12) {
-          return (com.github.jtendermint.jabci.types.ResponseCommit) value_;
+          return (ResponseCommit) value_;
         }
-        return com.github.jtendermint.jabci.types.ResponseCommit.getDefaultInstance();
+        return ResponseCommit.getDefaultInstance();
       }
     }
     /**
      * <code>optional .com.github.jtendermint.jabci.types.ResponseCommit commit = 12;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.github.jtendermint.jabci.types.ResponseCommit, com.github.jtendermint.jabci.types.ResponseCommit.Builder, com.github.jtendermint.jabci.types.ResponseCommitOrBuilder> 
+        ResponseCommit, ResponseCommit.Builder, ResponseCommitOrBuilder>
         getCommitFieldBuilder() {
       if (commitBuilder_ == null) {
         if (!(valueCase_ == 12)) {
-          value_ = com.github.jtendermint.jabci.types.ResponseCommit.getDefaultInstance();
+          value_ = ResponseCommit.getDefaultInstance();
         }
         commitBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.github.jtendermint.jabci.types.ResponseCommit, com.github.jtendermint.jabci.types.ResponseCommit.Builder, com.github.jtendermint.jabci.types.ResponseCommitOrBuilder>(
-                (com.github.jtendermint.jabci.types.ResponseCommit) value_,
+            ResponseCommit, ResponseCommit.Builder, ResponseCommitOrBuilder>(
+                (ResponseCommit) value_,
                 getParentForChildren(),
                 isClean());
         value_ = null;

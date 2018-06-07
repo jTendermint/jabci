@@ -61,14 +61,14 @@ public  final class RequestEndBlock extends
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_RequestEndBlock_descriptor;
+    return Types.internal_static_com_github_jtendermint_jabci_types_RequestEndBlock_descriptor;
   }
 
   protected FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_RequestEndBlock_fieldAccessorTable
+    return Types.internal_static_com_github_jtendermint_jabci_types_RequestEndBlock_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            RequestEndBlock.class, Builder.class);
+            RequestEndBlock.class, RequestEndBlock.Builder.class);
   }
 
   public static final int HEIGHT_FIELD_NUMBER = 1;
@@ -225,17 +225,17 @@ public  final class RequestEndBlock extends
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
       // @@protoc_insertion_point(builder_implements:com.github.jtendermint.jabci.types.RequestEndBlock)
-      com.github.jtendermint.jabci.types.RequestEndBlockOrBuilder {
+      RequestEndBlockOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_RequestEndBlock_descriptor;
+      return Types.internal_static_com_github_jtendermint_jabci_types_RequestEndBlock_descriptor;
     }
 
     protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_RequestEndBlock_fieldAccessorTable
+      return Types.internal_static_com_github_jtendermint_jabci_types_RequestEndBlock_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              RequestEndBlock.class, Builder.class);
+              RequestEndBlock.class, RequestEndBlock.Builder.class);
     }
 
     // Construct using com.github.jtendermint.jabci.types.RequestEndBlock.newBuilder()
@@ -262,7 +262,7 @@ public  final class RequestEndBlock extends
 
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_RequestEndBlock_descriptor;
+      return Types.internal_static_com_github_jtendermint_jabci_types_RequestEndBlock_descriptor;
     }
 
     public RequestEndBlock getDefaultInstanceForType() {
@@ -361,7 +361,7 @@ public  final class RequestEndBlock extends
      * <code>optional int64 height = 1;</code>
      */
     public Builder setHeight(long value) {
-      
+
       height_ = value;
       onChanged();
       return this;
@@ -370,7 +370,7 @@ public  final class RequestEndBlock extends
      * <code>optional int64 height = 1;</code>
      */
     public Builder clearHeight() {
-      
+
       height_ = 0L;
       onChanged();
       return this;

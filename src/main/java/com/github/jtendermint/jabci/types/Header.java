@@ -4,6 +4,10 @@
 package com.github.jtendermint.jabci.types;
 
 /**
+ * <pre>
+ * just the minimum the app might need
+ * </pre>
+ *
  * Protobuf type {@code com.github.jtendermint.jabci.types.Header}
  */
 public  final class Header extends
@@ -19,8 +23,8 @@ public  final class Header extends
     height_ = 0L;
     time_ = 0L;
     numTxs_ = 0;
-    lastCommitHash_ = com.google.protobuf.ByteString.EMPTY;
-    dataHash_ = com.google.protobuf.ByteString.EMPTY;
+    totalTxs_ = 0L;
+    lastBlockHash_ = com.google.protobuf.ByteString.EMPTY;
     validatorsHash_ = com.google.protobuf.ByteString.EMPTY;
     appHash_ = com.google.protobuf.ByteString.EMPTY;
   }
@@ -71,37 +75,37 @@ public  final class Header extends
             numTxs_ = input.readInt32();
             break;
           }
-          case 42: {
-            BlockID.Builder subBuilder = null;
-            if (lastBlockId_ != null) {
-              subBuilder = lastBlockId_.toBuilder();
-            }
-            lastBlockId_ = input.readMessage(BlockID.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(lastBlockId_);
-              lastBlockId_ = subBuilder.buildPartial();
-            }
+          case 40: {
 
+            totalTxs_ = input.readInt64();
             break;
           }
           case 50: {
 
-            lastCommitHash_ = input.readBytes();
+            lastBlockHash_ = input.readBytes();
             break;
           }
           case 58: {
 
-            dataHash_ = input.readBytes();
+            validatorsHash_ = input.readBytes();
             break;
           }
           case 66: {
 
-            validatorsHash_ = input.readBytes();
+            appHash_ = input.readBytes();
             break;
           }
           case 74: {
+            Validator.Builder subBuilder = null;
+            if (proposer_ != null) {
+              subBuilder = proposer_.toBuilder();
+            }
+            proposer_ = input.readMessage(Validator.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(proposer_);
+              proposer_ = subBuilder.buildPartial();
+            }
 
-            appHash_ = input.readBytes();
             break;
           }
         }
@@ -117,19 +121,23 @@ public  final class Header extends
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_Header_descriptor;
+    return Types.internal_static_com_github_jtendermint_jabci_types_Header_descriptor;
   }
 
   protected FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_Header_fieldAccessorTable
+    return Types.internal_static_com_github_jtendermint_jabci_types_Header_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            Header.class, Builder.class);
+            Header.class, Header.Builder.class);
   }
 
   public static final int CHAIN_ID_FIELD_NUMBER = 1;
   private volatile Object chainId_;
   /**
+   * <pre>
+   * basics
+   * </pre>
+   *
    * <code>optional string chain_id = 1;</code>
    */
   public String getChainId() {
@@ -137,7 +145,7 @@ public  final class Header extends
     if (ref instanceof String) {
       return (String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       String s = bs.toStringUtf8();
       chainId_ = s;
@@ -145,13 +153,17 @@ public  final class Header extends
     }
   }
   /**
+   * <pre>
+   * basics
+   * </pre>
+   *
    * <code>optional string chain_id = 1;</code>
    */
   public com.google.protobuf.ByteString
       getChainIdBytes() {
     Object ref = chainId_;
     if (ref instanceof String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (String) ref);
       chainId_ = b;
@@ -182,67 +194,87 @@ public  final class Header extends
   public static final int NUM_TXS_FIELD_NUMBER = 4;
   private int numTxs_;
   /**
+   * <pre>
+   * txs
+   * </pre>
+   *
    * <code>optional int32 num_txs = 4;</code>
    */
   public int getNumTxs() {
     return numTxs_;
   }
 
-  public static final int LAST_BLOCK_ID_FIELD_NUMBER = 5;
-  private BlockID lastBlockId_;
+  public static final int TOTAL_TXS_FIELD_NUMBER = 5;
+  private long totalTxs_;
   /**
-   * <code>optional .com.github.jtendermint.jabci.types.BlockID last_block_id = 5;</code>
+   * <code>optional int64 total_txs = 5;</code>
    */
-  public boolean hasLastBlockId() {
-    return lastBlockId_ != null;
-  }
-  /**
-   * <code>optional .com.github.jtendermint.jabci.types.BlockID last_block_id = 5;</code>
-   */
-  public BlockID getLastBlockId() {
-    return lastBlockId_ == null ? BlockID.getDefaultInstance() : lastBlockId_;
-  }
-  /**
-   * <code>optional .com.github.jtendermint.jabci.types.BlockID last_block_id = 5;</code>
-   */
-  public BlockIDOrBuilder getLastBlockIdOrBuilder() {
-    return getLastBlockId();
+  public long getTotalTxs() {
+    return totalTxs_;
   }
 
-  public static final int LAST_COMMIT_HASH_FIELD_NUMBER = 6;
-  private com.google.protobuf.ByteString lastCommitHash_;
+  public static final int LAST_BLOCK_HASH_FIELD_NUMBER = 6;
+  private com.google.protobuf.ByteString lastBlockHash_;
   /**
-   * <code>optional bytes last_commit_hash = 6;</code>
+   * <pre>
+   * hashes
+   * </pre>
+   *
+   * <code>optional bytes last_block_hash = 6;</code>
    */
-  public com.google.protobuf.ByteString getLastCommitHash() {
-    return lastCommitHash_;
+  public com.google.protobuf.ByteString getLastBlockHash() {
+    return lastBlockHash_;
   }
 
-  public static final int DATA_HASH_FIELD_NUMBER = 7;
-  private com.google.protobuf.ByteString dataHash_;
-  /**
-   * <code>optional bytes data_hash = 7;</code>
-   */
-  public com.google.protobuf.ByteString getDataHash() {
-    return dataHash_;
-  }
-
-  public static final int VALIDATORS_HASH_FIELD_NUMBER = 8;
+  public static final int VALIDATORS_HASH_FIELD_NUMBER = 7;
   private com.google.protobuf.ByteString validatorsHash_;
   /**
-   * <code>optional bytes validators_hash = 8;</code>
+   * <code>optional bytes validators_hash = 7;</code>
    */
   public com.google.protobuf.ByteString getValidatorsHash() {
     return validatorsHash_;
   }
 
-  public static final int APP_HASH_FIELD_NUMBER = 9;
+  public static final int APP_HASH_FIELD_NUMBER = 8;
   private com.google.protobuf.ByteString appHash_;
   /**
-   * <code>optional bytes app_hash = 9;</code>
+   * <code>optional bytes app_hash = 8;</code>
    */
   public com.google.protobuf.ByteString getAppHash() {
     return appHash_;
+  }
+
+  public static final int PROPOSER_FIELD_NUMBER = 9;
+  private Validator proposer_;
+  /**
+   * <pre>
+   * consensus
+   * </pre>
+   *
+   * <code>optional .com.github.jtendermint.jabci.types.Validator proposer = 9;</code>
+   */
+  public boolean hasProposer() {
+    return proposer_ != null;
+  }
+  /**
+   * <pre>
+   * consensus
+   * </pre>
+   *
+   * <code>optional .com.github.jtendermint.jabci.types.Validator proposer = 9;</code>
+   */
+  public Validator getProposer() {
+    return proposer_ == null ? Validator.getDefaultInstance() : proposer_;
+  }
+  /**
+   * <pre>
+   * consensus
+   * </pre>
+   *
+   * <code>optional .com.github.jtendermint.jabci.types.Validator proposer = 9;</code>
+   */
+  public ValidatorOrBuilder getProposerOrBuilder() {
+    return getProposer();
   }
 
   private byte memoizedIsInitialized = -1;
@@ -269,20 +301,20 @@ public  final class Header extends
     if (numTxs_ != 0) {
       output.writeInt32(4, numTxs_);
     }
-    if (lastBlockId_ != null) {
-      output.writeMessage(5, getLastBlockId());
+    if (totalTxs_ != 0L) {
+      output.writeInt64(5, totalTxs_);
     }
-    if (!lastCommitHash_.isEmpty()) {
-      output.writeBytes(6, lastCommitHash_);
-    }
-    if (!dataHash_.isEmpty()) {
-      output.writeBytes(7, dataHash_);
+    if (!lastBlockHash_.isEmpty()) {
+      output.writeBytes(6, lastBlockHash_);
     }
     if (!validatorsHash_.isEmpty()) {
-      output.writeBytes(8, validatorsHash_);
+      output.writeBytes(7, validatorsHash_);
     }
     if (!appHash_.isEmpty()) {
-      output.writeBytes(9, appHash_);
+      output.writeBytes(8, appHash_);
+    }
+    if (proposer_ != null) {
+      output.writeMessage(9, getProposer());
     }
   }
 
@@ -306,25 +338,25 @@ public  final class Header extends
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(4, numTxs_);
     }
-    if (lastBlockId_ != null) {
+    if (totalTxs_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(5, getLastBlockId());
+        .computeInt64Size(5, totalTxs_);
     }
-    if (!lastCommitHash_.isEmpty()) {
+    if (!lastBlockHash_.isEmpty()) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBytesSize(6, lastCommitHash_);
-    }
-    if (!dataHash_.isEmpty()) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeBytesSize(7, dataHash_);
+        .computeBytesSize(6, lastBlockHash_);
     }
     if (!validatorsHash_.isEmpty()) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBytesSize(8, validatorsHash_);
+        .computeBytesSize(7, validatorsHash_);
     }
     if (!appHash_.isEmpty()) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBytesSize(9, appHash_);
+        .computeBytesSize(8, appHash_);
+    }
+    if (proposer_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(9, getProposer());
     }
     memoizedSize = size;
     return size;
@@ -350,19 +382,19 @@ public  final class Header extends
         == other.getTime());
     result = result && (getNumTxs()
         == other.getNumTxs());
-    result = result && (hasLastBlockId() == other.hasLastBlockId());
-    if (hasLastBlockId()) {
-      result = result && getLastBlockId()
-          .equals(other.getLastBlockId());
-    }
-    result = result && getLastCommitHash()
-        .equals(other.getLastCommitHash());
-    result = result && getDataHash()
-        .equals(other.getDataHash());
+    result = result && (getTotalTxs()
+        == other.getTotalTxs());
+    result = result && getLastBlockHash()
+        .equals(other.getLastBlockHash());
     result = result && getValidatorsHash()
         .equals(other.getValidatorsHash());
     result = result && getAppHash()
         .equals(other.getAppHash());
+    result = result && (hasProposer() == other.hasProposer());
+    if (hasProposer()) {
+      result = result && getProposer()
+          .equals(other.getProposer());
+    }
     return result;
   }
 
@@ -383,18 +415,19 @@ public  final class Header extends
         getTime());
     hash = (37 * hash) + NUM_TXS_FIELD_NUMBER;
     hash = (53 * hash) + getNumTxs();
-    if (hasLastBlockId()) {
-      hash = (37 * hash) + LAST_BLOCK_ID_FIELD_NUMBER;
-      hash = (53 * hash) + getLastBlockId().hashCode();
-    }
-    hash = (37 * hash) + LAST_COMMIT_HASH_FIELD_NUMBER;
-    hash = (53 * hash) + getLastCommitHash().hashCode();
-    hash = (37 * hash) + DATA_HASH_FIELD_NUMBER;
-    hash = (53 * hash) + getDataHash().hashCode();
+    hash = (37 * hash) + TOTAL_TXS_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getTotalTxs());
+    hash = (37 * hash) + LAST_BLOCK_HASH_FIELD_NUMBER;
+    hash = (53 * hash) + getLastBlockHash().hashCode();
     hash = (37 * hash) + VALIDATORS_HASH_FIELD_NUMBER;
     hash = (53 * hash) + getValidatorsHash().hashCode();
     hash = (37 * hash) + APP_HASH_FIELD_NUMBER;
     hash = (53 * hash) + getAppHash().hashCode();
+    if (hasProposer()) {
+      hash = (37 * hash) + PROPOSER_FIELD_NUMBER;
+      hash = (53 * hash) + getProposer().hashCode();
+    }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -478,22 +511,26 @@ public  final class Header extends
     return builder;
   }
   /**
+   * <pre>
+   * just the minimum the app might need
+   * </pre>
+   *
    * Protobuf type {@code com.github.jtendermint.jabci.types.Header}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
       // @@protoc_insertion_point(builder_implements:com.github.jtendermint.jabci.types.Header)
-      com.github.jtendermint.jabci.types.HeaderOrBuilder {
+      HeaderOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_Header_descriptor;
+      return Types.internal_static_com_github_jtendermint_jabci_types_Header_descriptor;
     }
 
     protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_Header_fieldAccessorTable
+      return Types.internal_static_com_github_jtendermint_jabci_types_Header_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              Header.class, Builder.class);
+              Header.class, Header.Builder.class);
     }
 
     // Construct using com.github.jtendermint.jabci.types.Header.newBuilder()
@@ -521,26 +558,26 @@ public  final class Header extends
 
       numTxs_ = 0;
 
-      if (lastBlockIdBuilder_ == null) {
-        lastBlockId_ = null;
-      } else {
-        lastBlockId_ = null;
-        lastBlockIdBuilder_ = null;
-      }
-      lastCommitHash_ = com.google.protobuf.ByteString.EMPTY;
+      totalTxs_ = 0L;
 
-      dataHash_ = com.google.protobuf.ByteString.EMPTY;
+      lastBlockHash_ = com.google.protobuf.ByteString.EMPTY;
 
       validatorsHash_ = com.google.protobuf.ByteString.EMPTY;
 
       appHash_ = com.google.protobuf.ByteString.EMPTY;
 
+      if (proposerBuilder_ == null) {
+        proposer_ = null;
+      } else {
+        proposer_ = null;
+        proposerBuilder_ = null;
+      }
       return this;
     }
 
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_Header_descriptor;
+      return Types.internal_static_com_github_jtendermint_jabci_types_Header_descriptor;
     }
 
     public Header getDefaultInstanceForType() {
@@ -561,15 +598,15 @@ public  final class Header extends
       result.height_ = height_;
       result.time_ = time_;
       result.numTxs_ = numTxs_;
-      if (lastBlockIdBuilder_ == null) {
-        result.lastBlockId_ = lastBlockId_;
-      } else {
-        result.lastBlockId_ = lastBlockIdBuilder_.build();
-      }
-      result.lastCommitHash_ = lastCommitHash_;
-      result.dataHash_ = dataHash_;
+      result.totalTxs_ = totalTxs_;
+      result.lastBlockHash_ = lastBlockHash_;
       result.validatorsHash_ = validatorsHash_;
       result.appHash_ = appHash_;
+      if (proposerBuilder_ == null) {
+        result.proposer_ = proposer_;
+      } else {
+        result.proposer_ = proposerBuilder_.build();
+      }
       onBuilt();
       return result;
     }
@@ -624,20 +661,20 @@ public  final class Header extends
       if (other.getNumTxs() != 0) {
         setNumTxs(other.getNumTxs());
       }
-      if (other.hasLastBlockId()) {
-        mergeLastBlockId(other.getLastBlockId());
+      if (other.getTotalTxs() != 0L) {
+        setTotalTxs(other.getTotalTxs());
       }
-      if (other.getLastCommitHash() != com.google.protobuf.ByteString.EMPTY) {
-        setLastCommitHash(other.getLastCommitHash());
-      }
-      if (other.getDataHash() != com.google.protobuf.ByteString.EMPTY) {
-        setDataHash(other.getDataHash());
+      if (other.getLastBlockHash() != com.google.protobuf.ByteString.EMPTY) {
+        setLastBlockHash(other.getLastBlockHash());
       }
       if (other.getValidatorsHash() != com.google.protobuf.ByteString.EMPTY) {
         setValidatorsHash(other.getValidatorsHash());
       }
       if (other.getAppHash() != com.google.protobuf.ByteString.EMPTY) {
         setAppHash(other.getAppHash());
+      }
+      if (other.hasProposer()) {
+        mergeProposer(other.getProposer());
       }
       onChanged();
       return this;
@@ -667,6 +704,10 @@ public  final class Header extends
 
     private Object chainId_ = "";
     /**
+     * <pre>
+     * basics
+     * </pre>
+     *
      * <code>optional string chain_id = 1;</code>
      */
     public String getChainId() {
@@ -682,13 +723,17 @@ public  final class Header extends
       }
     }
     /**
+     * <pre>
+     * basics
+     * </pre>
+     *
      * <code>optional string chain_id = 1;</code>
      */
     public com.google.protobuf.ByteString
         getChainIdBytes() {
       Object ref = chainId_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (String) ref);
         chainId_ = b;
@@ -698,6 +743,10 @@ public  final class Header extends
       }
     }
     /**
+     * <pre>
+     * basics
+     * </pre>
+     *
      * <code>optional string chain_id = 1;</code>
      */
     public Builder setChainId(
@@ -705,21 +754,29 @@ public  final class Header extends
       if (value == null) {
     throw new NullPointerException();
   }
-  
+
       chainId_ = value;
       onChanged();
       return this;
     }
     /**
+     * <pre>
+     * basics
+     * </pre>
+     *
      * <code>optional string chain_id = 1;</code>
      */
     public Builder clearChainId() {
-      
+
       chainId_ = getDefaultInstance().getChainId();
       onChanged();
       return this;
     }
     /**
+     * <pre>
+     * basics
+     * </pre>
+     *
      * <code>optional string chain_id = 1;</code>
      */
     public Builder setChainIdBytes(
@@ -728,7 +785,7 @@ public  final class Header extends
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-      
+
       chainId_ = value;
       onChanged();
       return this;
@@ -745,7 +802,7 @@ public  final class Header extends
      * <code>optional int64 height = 2;</code>
      */
     public Builder setHeight(long value) {
-      
+
       height_ = value;
       onChanged();
       return this;
@@ -754,7 +811,7 @@ public  final class Header extends
      * <code>optional int64 height = 2;</code>
      */
     public Builder clearHeight() {
-      
+
       height_ = 0L;
       onChanged();
       return this;
@@ -771,7 +828,7 @@ public  final class Header extends
      * <code>optional int64 time = 3;</code>
      */
     public Builder setTime(long value) {
-      
+
       time_ = value;
       onChanged();
       return this;
@@ -780,7 +837,7 @@ public  final class Header extends
      * <code>optional int64 time = 3;</code>
      */
     public Builder clearTime() {
-      
+
       time_ = 0L;
       onChanged();
       return this;
@@ -788,229 +845,133 @@ public  final class Header extends
 
     private int numTxs_ ;
     /**
+     * <pre>
+     * txs
+     * </pre>
+     *
      * <code>optional int32 num_txs = 4;</code>
      */
     public int getNumTxs() {
       return numTxs_;
     }
     /**
+     * <pre>
+     * txs
+     * </pre>
+     *
      * <code>optional int32 num_txs = 4;</code>
      */
     public Builder setNumTxs(int value) {
-      
+
       numTxs_ = value;
       onChanged();
       return this;
     }
     /**
+     * <pre>
+     * txs
+     * </pre>
+     *
      * <code>optional int32 num_txs = 4;</code>
      */
     public Builder clearNumTxs() {
-      
+
       numTxs_ = 0;
       onChanged();
       return this;
     }
 
-    private BlockID lastBlockId_ = null;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        BlockID, BlockID.Builder, BlockIDOrBuilder> lastBlockIdBuilder_;
+    private long totalTxs_ ;
     /**
-     * <code>optional .com.github.jtendermint.jabci.types.BlockID last_block_id = 5;</code>
+     * <code>optional int64 total_txs = 5;</code>
      */
-    public boolean hasLastBlockId() {
-      return lastBlockIdBuilder_ != null || lastBlockId_ != null;
+    public long getTotalTxs() {
+      return totalTxs_;
     }
     /**
-     * <code>optional .com.github.jtendermint.jabci.types.BlockID last_block_id = 5;</code>
+     * <code>optional int64 total_txs = 5;</code>
      */
-    public BlockID getLastBlockId() {
-      if (lastBlockIdBuilder_ == null) {
-        return lastBlockId_ == null ? BlockID.getDefaultInstance() : lastBlockId_;
-      } else {
-        return lastBlockIdBuilder_.getMessage();
-      }
-    }
-    /**
-     * <code>optional .com.github.jtendermint.jabci.types.BlockID last_block_id = 5;</code>
-     */
-    public Builder setLastBlockId(BlockID value) {
-      if (lastBlockIdBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        lastBlockId_ = value;
-        onChanged();
-      } else {
-        lastBlockIdBuilder_.setMessage(value);
-      }
+    public Builder setTotalTxs(long value) {
 
-      return this;
-    }
-    /**
-     * <code>optional .com.github.jtendermint.jabci.types.BlockID last_block_id = 5;</code>
-     */
-    public Builder setLastBlockId(
-        BlockID.Builder builderForValue) {
-      if (lastBlockIdBuilder_ == null) {
-        lastBlockId_ = builderForValue.build();
-        onChanged();
-      } else {
-        lastBlockIdBuilder_.setMessage(builderForValue.build());
-      }
-
-      return this;
-    }
-    /**
-     * <code>optional .com.github.jtendermint.jabci.types.BlockID last_block_id = 5;</code>
-     */
-    public Builder mergeLastBlockId(BlockID value) {
-      if (lastBlockIdBuilder_ == null) {
-        if (lastBlockId_ != null) {
-          lastBlockId_ =
-            BlockID.newBuilder(lastBlockId_).mergeFrom(value).buildPartial();
-        } else {
-          lastBlockId_ = value;
-        }
-        onChanged();
-      } else {
-        lastBlockIdBuilder_.mergeFrom(value);
-      }
-
-      return this;
-    }
-    /**
-     * <code>optional .com.github.jtendermint.jabci.types.BlockID last_block_id = 5;</code>
-     */
-    public Builder clearLastBlockId() {
-      if (lastBlockIdBuilder_ == null) {
-        lastBlockId_ = null;
-        onChanged();
-      } else {
-        lastBlockId_ = null;
-        lastBlockIdBuilder_ = null;
-      }
-
-      return this;
-    }
-    /**
-     * <code>optional .com.github.jtendermint.jabci.types.BlockID last_block_id = 5;</code>
-     */
-    public BlockID.Builder getLastBlockIdBuilder() {
-      
+      totalTxs_ = value;
       onChanged();
-      return getLastBlockIdFieldBuilder().getBuilder();
+      return this;
     }
     /**
-     * <code>optional .com.github.jtendermint.jabci.types.BlockID last_block_id = 5;</code>
+     * <code>optional int64 total_txs = 5;</code>
      */
-    public BlockIDOrBuilder getLastBlockIdOrBuilder() {
-      if (lastBlockIdBuilder_ != null) {
-        return lastBlockIdBuilder_.getMessageOrBuilder();
-      } else {
-        return lastBlockId_ == null ?
-            BlockID.getDefaultInstance() : lastBlockId_;
-      }
-    }
-    /**
-     * <code>optional .com.github.jtendermint.jabci.types.BlockID last_block_id = 5;</code>
-     */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        BlockID, BlockID.Builder, BlockIDOrBuilder>
-        getLastBlockIdFieldBuilder() {
-      if (lastBlockIdBuilder_ == null) {
-        lastBlockIdBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            BlockID, BlockID.Builder, BlockIDOrBuilder>(
-                getLastBlockId(),
-                getParentForChildren(),
-                isClean());
-        lastBlockId_ = null;
-      }
-      return lastBlockIdBuilder_;
+    public Builder clearTotalTxs() {
+
+      totalTxs_ = 0L;
+      onChanged();
+      return this;
     }
 
-    private com.google.protobuf.ByteString lastCommitHash_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString lastBlockHash_ = com.google.protobuf.ByteString.EMPTY;
     /**
-     * <code>optional bytes last_commit_hash = 6;</code>
+     * <pre>
+     * hashes
+     * </pre>
+     *
+     * <code>optional bytes last_block_hash = 6;</code>
      */
-    public com.google.protobuf.ByteString getLastCommitHash() {
-      return lastCommitHash_;
+    public com.google.protobuf.ByteString getLastBlockHash() {
+      return lastBlockHash_;
     }
     /**
-     * <code>optional bytes last_commit_hash = 6;</code>
+     * <pre>
+     * hashes
+     * </pre>
+     *
+     * <code>optional bytes last_block_hash = 6;</code>
      */
-    public Builder setLastCommitHash(com.google.protobuf.ByteString value) {
+    public Builder setLastBlockHash(com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
-  
-      lastCommitHash_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>optional bytes last_commit_hash = 6;</code>
-     */
-    public Builder clearLastCommitHash() {
-      
-      lastCommitHash_ = getDefaultInstance().getLastCommitHash();
-      onChanged();
-      return this;
-    }
 
-    private com.google.protobuf.ByteString dataHash_ = com.google.protobuf.ByteString.EMPTY;
-    /**
-     * <code>optional bytes data_hash = 7;</code>
-     */
-    public com.google.protobuf.ByteString getDataHash() {
-      return dataHash_;
-    }
-    /**
-     * <code>optional bytes data_hash = 7;</code>
-     */
-    public Builder setDataHash(com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      dataHash_ = value;
+      lastBlockHash_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>optional bytes data_hash = 7;</code>
+     * <pre>
+     * hashes
+     * </pre>
+     *
+     * <code>optional bytes last_block_hash = 6;</code>
      */
-    public Builder clearDataHash() {
-      
-      dataHash_ = getDefaultInstance().getDataHash();
+    public Builder clearLastBlockHash() {
+
+      lastBlockHash_ = getDefaultInstance().getLastBlockHash();
       onChanged();
       return this;
     }
 
     private com.google.protobuf.ByteString validatorsHash_ = com.google.protobuf.ByteString.EMPTY;
     /**
-     * <code>optional bytes validators_hash = 8;</code>
+     * <code>optional bytes validators_hash = 7;</code>
      */
     public com.google.protobuf.ByteString getValidatorsHash() {
       return validatorsHash_;
     }
     /**
-     * <code>optional bytes validators_hash = 8;</code>
+     * <code>optional bytes validators_hash = 7;</code>
      */
     public Builder setValidatorsHash(com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
-  
+
       validatorsHash_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>optional bytes validators_hash = 8;</code>
+     * <code>optional bytes validators_hash = 7;</code>
      */
     public Builder clearValidatorsHash() {
-      
+
       validatorsHash_ = getDefaultInstance().getValidatorsHash();
       onChanged();
       return this;
@@ -1018,31 +979,184 @@ public  final class Header extends
 
     private com.google.protobuf.ByteString appHash_ = com.google.protobuf.ByteString.EMPTY;
     /**
-     * <code>optional bytes app_hash = 9;</code>
+     * <code>optional bytes app_hash = 8;</code>
      */
     public com.google.protobuf.ByteString getAppHash() {
       return appHash_;
     }
     /**
-     * <code>optional bytes app_hash = 9;</code>
+     * <code>optional bytes app_hash = 8;</code>
      */
     public Builder setAppHash(com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
-  
+
       appHash_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>optional bytes app_hash = 9;</code>
+     * <code>optional bytes app_hash = 8;</code>
      */
     public Builder clearAppHash() {
-      
+
       appHash_ = getDefaultInstance().getAppHash();
       onChanged();
       return this;
+    }
+
+    private Validator proposer_ = null;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        Validator, Validator.Builder, ValidatorOrBuilder> proposerBuilder_;
+    /**
+     * <pre>
+     * consensus
+     * </pre>
+     *
+     * <code>optional .com.github.jtendermint.jabci.types.Validator proposer = 9;</code>
+     */
+    public boolean hasProposer() {
+      return proposerBuilder_ != null || proposer_ != null;
+    }
+    /**
+     * <pre>
+     * consensus
+     * </pre>
+     *
+     * <code>optional .com.github.jtendermint.jabci.types.Validator proposer = 9;</code>
+     */
+    public Validator getProposer() {
+      if (proposerBuilder_ == null) {
+        return proposer_ == null ? Validator.getDefaultInstance() : proposer_;
+      } else {
+        return proposerBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * consensus
+     * </pre>
+     *
+     * <code>optional .com.github.jtendermint.jabci.types.Validator proposer = 9;</code>
+     */
+    public Builder setProposer(Validator value) {
+      if (proposerBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        proposer_ = value;
+        onChanged();
+      } else {
+        proposerBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * consensus
+     * </pre>
+     *
+     * <code>optional .com.github.jtendermint.jabci.types.Validator proposer = 9;</code>
+     */
+    public Builder setProposer(
+        Validator.Builder builderForValue) {
+      if (proposerBuilder_ == null) {
+        proposer_ = builderForValue.build();
+        onChanged();
+      } else {
+        proposerBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * consensus
+     * </pre>
+     *
+     * <code>optional .com.github.jtendermint.jabci.types.Validator proposer = 9;</code>
+     */
+    public Builder mergeProposer(Validator value) {
+      if (proposerBuilder_ == null) {
+        if (proposer_ != null) {
+          proposer_ =
+            Validator.newBuilder(proposer_).mergeFrom(value).buildPartial();
+        } else {
+          proposer_ = value;
+        }
+        onChanged();
+      } else {
+        proposerBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * consensus
+     * </pre>
+     *
+     * <code>optional .com.github.jtendermint.jabci.types.Validator proposer = 9;</code>
+     */
+    public Builder clearProposer() {
+      if (proposerBuilder_ == null) {
+        proposer_ = null;
+        onChanged();
+      } else {
+        proposer_ = null;
+        proposerBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * consensus
+     * </pre>
+     *
+     * <code>optional .com.github.jtendermint.jabci.types.Validator proposer = 9;</code>
+     */
+    public Validator.Builder getProposerBuilder() {
+
+      onChanged();
+      return getProposerFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * consensus
+     * </pre>
+     *
+     * <code>optional .com.github.jtendermint.jabci.types.Validator proposer = 9;</code>
+     */
+    public ValidatorOrBuilder getProposerOrBuilder() {
+      if (proposerBuilder_ != null) {
+        return proposerBuilder_.getMessageOrBuilder();
+      } else {
+        return proposer_ == null ?
+            Validator.getDefaultInstance() : proposer_;
+      }
+    }
+    /**
+     * <pre>
+     * consensus
+     * </pre>
+     *
+     * <code>optional .com.github.jtendermint.jabci.types.Validator proposer = 9;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        Validator, Validator.Builder, ValidatorOrBuilder>
+        getProposerFieldBuilder() {
+      if (proposerBuilder_ == null) {
+        proposerBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            Validator, Validator.Builder, ValidatorOrBuilder>(
+                getProposer(),
+                getParentForChildren(),
+                isClean());
+        proposer_ = null;
+      }
+      return proposerBuilder_;
     }
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {

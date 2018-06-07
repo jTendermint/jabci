@@ -62,14 +62,14 @@ public  final class ResponseEcho extends
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseEcho_descriptor;
+    return Types.internal_static_com_github_jtendermint_jabci_types_ResponseEcho_descriptor;
   }
 
   protected FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseEcho_fieldAccessorTable
+    return Types.internal_static_com_github_jtendermint_jabci_types_ResponseEcho_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            ResponseEcho.class, Builder.class);
+            ResponseEcho.class, ResponseEcho.Builder.class);
   }
 
   public static final int MESSAGE_FIELD_NUMBER = 1;
@@ -82,7 +82,7 @@ public  final class ResponseEcho extends
     if (ref instanceof String) {
       return (String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       String s = bs.toStringUtf8();
       message_ = s;
@@ -96,7 +96,7 @@ public  final class ResponseEcho extends
       getMessageBytes() {
     Object ref = message_;
     if (ref instanceof String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (String) ref);
       message_ = b;
@@ -249,17 +249,17 @@ public  final class ResponseEcho extends
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
       // @@protoc_insertion_point(builder_implements:com.github.jtendermint.jabci.types.ResponseEcho)
-      com.github.jtendermint.jabci.types.ResponseEchoOrBuilder {
+      ResponseEchoOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseEcho_descriptor;
+      return Types.internal_static_com_github_jtendermint_jabci_types_ResponseEcho_descriptor;
     }
 
     protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseEcho_fieldAccessorTable
+      return Types.internal_static_com_github_jtendermint_jabci_types_ResponseEcho_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              ResponseEcho.class, Builder.class);
+              ResponseEcho.class, ResponseEcho.Builder.class);
     }
 
     // Construct using com.github.jtendermint.jabci.types.ResponseEcho.newBuilder()
@@ -286,7 +286,7 @@ public  final class ResponseEcho extends
 
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseEcho_descriptor;
+      return Types.internal_static_com_github_jtendermint_jabci_types_ResponseEcho_descriptor;
     }
 
     public ResponseEcho getDefaultInstanceForType() {
@@ -398,7 +398,7 @@ public  final class ResponseEcho extends
         getMessageBytes() {
       Object ref = message_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (String) ref);
         message_ = b;
@@ -415,7 +415,7 @@ public  final class ResponseEcho extends
       if (value == null) {
     throw new NullPointerException();
   }
-  
+
       message_ = value;
       onChanged();
       return this;
@@ -424,7 +424,7 @@ public  final class ResponseEcho extends
      * <code>optional string message = 1;</code>
      */
     public Builder clearMessage() {
-      
+
       message_ = getDefaultInstance().getMessage();
       onChanged();
       return this;
@@ -438,7 +438,7 @@ public  final class ResponseEcho extends
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-      
+
       message_ = value;
       onChanged();
       return this;

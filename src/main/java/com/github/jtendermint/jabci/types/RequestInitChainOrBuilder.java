@@ -8,31 +8,59 @@ public interface RequestInitChainOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>repeated .com.github.jtendermint.jabci.types.Validator validators = 1;</code>
+   * <code>optional int64 time = 1;</code>
    */
-  java.util.List<com.github.jtendermint.jabci.types.Validator> 
+  long getTime();
+
+  /**
+   * <code>optional string chain_id = 2;</code>
+   */
+  String getChainId();
+  /**
+   * <code>optional string chain_id = 2;</code>
+   */
+  com.google.protobuf.ByteString
+      getChainIdBytes();
+
+  /**
+   * <code>optional .com.github.jtendermint.jabci.types.ConsensusParams consensus_params = 3;</code>
+   */
+  boolean hasConsensusParams();
+  /**
+   * <code>optional .com.github.jtendermint.jabci.types.ConsensusParams consensus_params = 3;</code>
+   */
+  ConsensusParams getConsensusParams();
+  /**
+   * <code>optional .com.github.jtendermint.jabci.types.ConsensusParams consensus_params = 3;</code>
+   */
+  ConsensusParamsOrBuilder getConsensusParamsOrBuilder();
+
+  /**
+   * <code>repeated .com.github.jtendermint.jabci.types.Validator validators = 4;</code>
+   */
+  java.util.List<Validator>
       getValidatorsList();
   /**
-   * <code>repeated .com.github.jtendermint.jabci.types.Validator validators = 1;</code>
+   * <code>repeated .com.github.jtendermint.jabci.types.Validator validators = 4;</code>
    */
-  com.github.jtendermint.jabci.types.Validator getValidators(int index);
+  Validator getValidators(int index);
   /**
-   * <code>repeated .com.github.jtendermint.jabci.types.Validator validators = 1;</code>
+   * <code>repeated .com.github.jtendermint.jabci.types.Validator validators = 4;</code>
    */
   int getValidatorsCount();
   /**
-   * <code>repeated .com.github.jtendermint.jabci.types.Validator validators = 1;</code>
+   * <code>repeated .com.github.jtendermint.jabci.types.Validator validators = 4;</code>
    */
-  java.util.List<? extends com.github.jtendermint.jabci.types.ValidatorOrBuilder> 
+  java.util.List<? extends ValidatorOrBuilder>
       getValidatorsOrBuilderList();
   /**
-   * <code>repeated .com.github.jtendermint.jabci.types.Validator validators = 1;</code>
+   * <code>repeated .com.github.jtendermint.jabci.types.Validator validators = 4;</code>
    */
-  com.github.jtendermint.jabci.types.ValidatorOrBuilder getValidatorsOrBuilder(
+  ValidatorOrBuilder getValidatorsOrBuilder(
           int index);
 
   /**
-   * <code>optional bytes app_state_bytes = 2;</code>
+   * <code>optional bytes app_state_bytes = 5;</code>
    */
   com.google.protobuf.ByteString getAppStateBytes();
 }

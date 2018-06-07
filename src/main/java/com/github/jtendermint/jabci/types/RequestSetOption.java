@@ -73,14 +73,14 @@ public  final class RequestSetOption extends
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_RequestSetOption_descriptor;
+    return Types.internal_static_com_github_jtendermint_jabci_types_RequestSetOption_descriptor;
   }
 
   protected FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_RequestSetOption_fieldAccessorTable
+    return Types.internal_static_com_github_jtendermint_jabci_types_RequestSetOption_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            RequestSetOption.class, Builder.class);
+            RequestSetOption.class, RequestSetOption.Builder.class);
   }
 
   public static final int KEY_FIELD_NUMBER = 1;
@@ -93,7 +93,7 @@ public  final class RequestSetOption extends
     if (ref instanceof String) {
       return (String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       String s = bs.toStringUtf8();
       key_ = s;
@@ -107,7 +107,7 @@ public  final class RequestSetOption extends
       getKeyBytes() {
     Object ref = key_;
     if (ref instanceof String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (String) ref);
       key_ = b;
@@ -127,7 +127,7 @@ public  final class RequestSetOption extends
     if (ref instanceof String) {
       return (String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       String s = bs.toStringUtf8();
       value_ = s;
@@ -141,7 +141,7 @@ public  final class RequestSetOption extends
       getValueBytes() {
     Object ref = value_;
     if (ref instanceof String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (String) ref);
       value_ = b;
@@ -308,17 +308,17 @@ public  final class RequestSetOption extends
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
       // @@protoc_insertion_point(builder_implements:com.github.jtendermint.jabci.types.RequestSetOption)
-      com.github.jtendermint.jabci.types.RequestSetOptionOrBuilder {
+      RequestSetOptionOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_RequestSetOption_descriptor;
+      return Types.internal_static_com_github_jtendermint_jabci_types_RequestSetOption_descriptor;
     }
 
     protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_RequestSetOption_fieldAccessorTable
+      return Types.internal_static_com_github_jtendermint_jabci_types_RequestSetOption_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              RequestSetOption.class, Builder.class);
+              RequestSetOption.class, RequestSetOption.Builder.class);
     }
 
     // Construct using com.github.jtendermint.jabci.types.RequestSetOption.newBuilder()
@@ -347,7 +347,7 @@ public  final class RequestSetOption extends
 
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_RequestSetOption_descriptor;
+      return Types.internal_static_com_github_jtendermint_jabci_types_RequestSetOption_descriptor;
     }
 
     public RequestSetOption getDefaultInstanceForType() {
@@ -464,7 +464,7 @@ public  final class RequestSetOption extends
         getKeyBytes() {
       Object ref = key_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (String) ref);
         key_ = b;
@@ -481,7 +481,7 @@ public  final class RequestSetOption extends
       if (value == null) {
     throw new NullPointerException();
   }
-  
+
       key_ = value;
       onChanged();
       return this;
@@ -490,7 +490,7 @@ public  final class RequestSetOption extends
      * <code>optional string key = 1;</code>
      */
     public Builder clearKey() {
-      
+
       key_ = getDefaultInstance().getKey();
       onChanged();
       return this;
@@ -504,7 +504,7 @@ public  final class RequestSetOption extends
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-      
+
       key_ = value;
       onChanged();
       return this;
@@ -533,7 +533,7 @@ public  final class RequestSetOption extends
         getValueBytes() {
       Object ref = value_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (String) ref);
         value_ = b;
@@ -550,7 +550,7 @@ public  final class RequestSetOption extends
       if (value == null) {
     throw new NullPointerException();
   }
-  
+
       value_ = value;
       onChanged();
       return this;
@@ -559,7 +559,7 @@ public  final class RequestSetOption extends
      * <code>optional string value = 2;</code>
      */
     public Builder clearValue() {
-      
+
       value_ = getDefaultInstance().getValue();
       onChanged();
       return this;
@@ -573,7 +573,7 @@ public  final class RequestSetOption extends
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-      
+
       value_ = value;
       onChanged();
       return this;

@@ -4,19 +4,19 @@
 package com.github.jtendermint.jabci.types;
 
 /**
- * Protobuf type {@code com.github.jtendermint.jabci.types.PartSetHeader}
+ * Protobuf type {@code com.github.jtendermint.jabci.types.PubKey}
  */
-public  final class PartSetHeader extends
+public  final class PubKey extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:com.github.jtendermint.jabci.types.PartSetHeader)
-    PartSetHeaderOrBuilder {
-  // Use PartSetHeader.newBuilder() to construct.
-  private PartSetHeader(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // @@protoc_insertion_point(message_implements:com.github.jtendermint.jabci.types.PubKey)
+    PubKeyOrBuilder {
+  // Use PubKey.newBuilder() to construct.
+  private PubKey(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private PartSetHeader() {
-    total_ = 0;
-    hash_ = com.google.protobuf.ByteString.EMPTY;
+  private PubKey() {
+    type_ = "";
+    data_ = com.google.protobuf.ByteString.EMPTY;
   }
 
   @Override
@@ -24,7 +24,7 @@ public  final class PartSetHeader extends
   getUnknownFields() {
     return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
   }
-  private PartSetHeader(
+  private PubKey(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -44,14 +44,15 @@ public  final class PartSetHeader extends
             }
             break;
           }
-          case 8: {
+          case 10: {
+            String s = input.readStringRequireUtf8();
 
-            total_ = input.readInt32();
+            type_ = s;
             break;
           }
           case 18: {
 
-            hash_ = input.readBytes();
+            data_ = input.readBytes();
             break;
           }
         }
@@ -67,32 +68,57 @@ public  final class PartSetHeader extends
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_PartSetHeader_descriptor;
+    return Types.internal_static_com_github_jtendermint_jabci_types_PubKey_descriptor;
   }
 
   protected FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_PartSetHeader_fieldAccessorTable
+    return Types.internal_static_com_github_jtendermint_jabci_types_PubKey_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            PartSetHeader.class, Builder.class);
+            PubKey.class, PubKey.Builder.class);
   }
 
-  public static final int TOTAL_FIELD_NUMBER = 1;
-  private int total_;
+  public static final int TYPE_FIELD_NUMBER = 1;
+  private volatile Object type_;
   /**
-   * <code>optional int32 total = 1;</code>
+   * <code>optional string type = 1;</code>
    */
-  public int getTotal() {
-    return total_;
+  public String getType() {
+    Object ref = type_;
+    if (ref instanceof String) {
+      return (String) ref;
+    } else {
+      com.google.protobuf.ByteString bs =
+          (com.google.protobuf.ByteString) ref;
+      String s = bs.toStringUtf8();
+      type_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>optional string type = 1;</code>
+   */
+  public com.google.protobuf.ByteString
+      getTypeBytes() {
+    Object ref = type_;
+    if (ref instanceof String) {
+      com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (String) ref);
+      type_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
   }
 
-  public static final int HASH_FIELD_NUMBER = 2;
-  private com.google.protobuf.ByteString hash_;
+  public static final int DATA_FIELD_NUMBER = 2;
+  private com.google.protobuf.ByteString data_;
   /**
-   * <code>optional bytes hash = 2;</code>
+   * <code>optional bytes data = 2;</code>
    */
-  public com.google.protobuf.ByteString getHash() {
-    return hash_;
+  public com.google.protobuf.ByteString getData() {
+    return data_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -107,11 +133,11 @@ public  final class PartSetHeader extends
 
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (total_ != 0) {
-      output.writeInt32(1, total_);
+    if (!getTypeBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, type_);
     }
-    if (!hash_.isEmpty()) {
-      output.writeBytes(2, hash_);
+    if (!data_.isEmpty()) {
+      output.writeBytes(2, data_);
     }
   }
 
@@ -120,13 +146,12 @@ public  final class PartSetHeader extends
     if (size != -1) return size;
 
     size = 0;
-    if (total_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(1, total_);
+    if (!getTypeBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, type_);
     }
-    if (!hash_.isEmpty()) {
+    if (!data_.isEmpty()) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBytesSize(2, hash_);
+        .computeBytesSize(2, data_);
     }
     memoizedSize = size;
     return size;
@@ -138,16 +163,16 @@ public  final class PartSetHeader extends
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof PartSetHeader)) {
+    if (!(obj instanceof PubKey)) {
       return super.equals(obj);
     }
-    PartSetHeader other = (PartSetHeader) obj;
+    PubKey other = (PubKey) obj;
 
     boolean result = true;
-    result = result && (getTotal()
-        == other.getTotal());
-    result = result && getHash()
-        .equals(other.getHash());
+    result = result && getType()
+        .equals(other.getType());
+    result = result && getData()
+        .equals(other.getData());
     return result;
   }
 
@@ -158,67 +183,67 @@ public  final class PartSetHeader extends
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptorForType().hashCode();
-    hash = (37 * hash) + TOTAL_FIELD_NUMBER;
-    hash = (53 * hash) + getTotal();
-    hash = (37 * hash) + HASH_FIELD_NUMBER;
-    hash = (53 * hash) + getHash().hashCode();
+    hash = (37 * hash) + TYPE_FIELD_NUMBER;
+    hash = (53 * hash) + getType().hashCode();
+    hash = (37 * hash) + DATA_FIELD_NUMBER;
+    hash = (53 * hash) + getData().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static PartSetHeader parseFrom(
+  public static PubKey parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static PartSetHeader parseFrom(
+  public static PubKey parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static PartSetHeader parseFrom(byte[] data)
+  public static PubKey parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static PartSetHeader parseFrom(
+  public static PubKey parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static PartSetHeader parseFrom(java.io.InputStream input)
+  public static PubKey parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static PartSetHeader parseFrom(
+  public static PubKey parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static PartSetHeader parseDelimitedFrom(java.io.InputStream input)
+  public static PubKey parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static PartSetHeader parseDelimitedFrom(
+  public static PubKey parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static PartSetHeader parseFrom(
+  public static PubKey parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static PartSetHeader parseFrom(
+  public static PubKey parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -230,7 +255,7 @@ public  final class PartSetHeader extends
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(PartSetHeader prototype) {
+  public static Builder newBuilder(PubKey prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   public Builder toBuilder() {
@@ -245,25 +270,25 @@ public  final class PartSetHeader extends
     return builder;
   }
   /**
-   * Protobuf type {@code com.github.jtendermint.jabci.types.PartSetHeader}
+   * Protobuf type {@code com.github.jtendermint.jabci.types.PubKey}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:com.github.jtendermint.jabci.types.PartSetHeader)
-      com.github.jtendermint.jabci.types.PartSetHeaderOrBuilder {
+      // @@protoc_insertion_point(builder_implements:com.github.jtendermint.jabci.types.PubKey)
+      PubKeyOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_PartSetHeader_descriptor;
+      return Types.internal_static_com_github_jtendermint_jabci_types_PubKey_descriptor;
     }
 
     protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_PartSetHeader_fieldAccessorTable
+      return Types.internal_static_com_github_jtendermint_jabci_types_PubKey_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              PartSetHeader.class, Builder.class);
+              PubKey.class, PubKey.Builder.class);
     }
 
-    // Construct using com.github.jtendermint.jabci.types.PartSetHeader.newBuilder()
+    // Construct using com.github.jtendermint.jabci.types.PubKey.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -280,34 +305,34 @@ public  final class PartSetHeader extends
     }
     public Builder clear() {
       super.clear();
-      total_ = 0;
+      type_ = "";
 
-      hash_ = com.google.protobuf.ByteString.EMPTY;
+      data_ = com.google.protobuf.ByteString.EMPTY;
 
       return this;
     }
 
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_PartSetHeader_descriptor;
+      return Types.internal_static_com_github_jtendermint_jabci_types_PubKey_descriptor;
     }
 
-    public PartSetHeader getDefaultInstanceForType() {
-      return PartSetHeader.getDefaultInstance();
+    public PubKey getDefaultInstanceForType() {
+      return PubKey.getDefaultInstance();
     }
 
-    public PartSetHeader build() {
-      PartSetHeader result = buildPartial();
+    public PubKey build() {
+      PubKey result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
       return result;
     }
 
-    public PartSetHeader buildPartial() {
-      PartSetHeader result = new PartSetHeader(this);
-      result.total_ = total_;
-      result.hash_ = hash_;
+    public PubKey buildPartial() {
+      PubKey result = new PubKey(this);
+      result.type_ = type_;
+      result.data_ = data_;
       onBuilt();
       return result;
     }
@@ -339,21 +364,22 @@ public  final class PartSetHeader extends
       return (Builder) super.addRepeatedField(field, value);
     }
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof PartSetHeader) {
-        return mergeFrom((PartSetHeader)other);
+      if (other instanceof PubKey) {
+        return mergeFrom((PubKey)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(PartSetHeader other) {
-      if (other == PartSetHeader.getDefaultInstance()) return this;
-      if (other.getTotal() != 0) {
-        setTotal(other.getTotal());
+    public Builder mergeFrom(PubKey other) {
+      if (other == PubKey.getDefaultInstance()) return this;
+      if (!other.getType().isEmpty()) {
+        type_ = other.type_;
+        onChanged();
       }
-      if (other.getHash() != com.google.protobuf.ByteString.EMPTY) {
-        setHash(other.getHash());
+      if (other.getData() != com.google.protobuf.ByteString.EMPTY) {
+        setData(other.getData());
       }
       onChanged();
       return this;
@@ -367,11 +393,11 @@ public  final class PartSetHeader extends
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      PartSetHeader parsedMessage = null;
+      PubKey parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (PartSetHeader) e.getUnfinishedMessage();
+        parsedMessage = (PubKey) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -381,57 +407,100 @@ public  final class PartSetHeader extends
       return this;
     }
 
-    private int total_ ;
+    private Object type_ = "";
     /**
-     * <code>optional int32 total = 1;</code>
+     * <code>optional string type = 1;</code>
      */
-    public int getTotal() {
-      return total_;
+    public String getType() {
+      Object ref = type_;
+      if (!(ref instanceof String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        type_ = s;
+        return s;
+      } else {
+        return (String) ref;
+      }
     }
     /**
-     * <code>optional int32 total = 1;</code>
+     * <code>optional string type = 1;</code>
      */
-    public Builder setTotal(int value) {
-      
-      total_ = value;
+    public com.google.protobuf.ByteString
+        getTypeBytes() {
+      Object ref = type_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (String) ref);
+        type_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>optional string type = 1;</code>
+     */
+    public Builder setType(
+        String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+
+      type_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>optional int32 total = 1;</code>
+     * <code>optional string type = 1;</code>
      */
-    public Builder clearTotal() {
-      
-      total_ = 0;
+    public Builder clearType() {
+
+      type_ = getDefaultInstance().getType();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional string type = 1;</code>
+     */
+    public Builder setTypeBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+
+      type_ = value;
       onChanged();
       return this;
     }
 
-    private com.google.protobuf.ByteString hash_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString data_ = com.google.protobuf.ByteString.EMPTY;
     /**
-     * <code>optional bytes hash = 2;</code>
+     * <code>optional bytes data = 2;</code>
      */
-    public com.google.protobuf.ByteString getHash() {
-      return hash_;
+    public com.google.protobuf.ByteString getData() {
+      return data_;
     }
     /**
-     * <code>optional bytes hash = 2;</code>
+     * <code>optional bytes data = 2;</code>
      */
-    public Builder setHash(com.google.protobuf.ByteString value) {
+    public Builder setData(com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
-  
-      hash_ = value;
+
+      data_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>optional bytes hash = 2;</code>
+     * <code>optional bytes data = 2;</code>
      */
-    public Builder clearHash() {
-      
-      hash_ = getDefaultInstance().getHash();
+    public Builder clearData() {
+
+      data_ = getDefaultInstance().getData();
       onChanged();
       return this;
     }
@@ -446,39 +515,39 @@ public  final class PartSetHeader extends
     }
 
 
-    // @@protoc_insertion_point(builder_scope:com.github.jtendermint.jabci.types.PartSetHeader)
+    // @@protoc_insertion_point(builder_scope:com.github.jtendermint.jabci.types.PubKey)
   }
 
-  // @@protoc_insertion_point(class_scope:com.github.jtendermint.jabci.types.PartSetHeader)
-  private static final PartSetHeader DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:com.github.jtendermint.jabci.types.PubKey)
+  private static final PubKey DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new PartSetHeader();
+    DEFAULT_INSTANCE = new PubKey();
   }
 
-  public static PartSetHeader getDefaultInstance() {
+  public static PubKey getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<PartSetHeader>
-      PARSER = new com.google.protobuf.AbstractParser<PartSetHeader>() {
-    public PartSetHeader parsePartialFrom(
+  private static final com.google.protobuf.Parser<PubKey>
+      PARSER = new com.google.protobuf.AbstractParser<PubKey>() {
+    public PubKey parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-        return new PartSetHeader(input, extensionRegistry);
+        return new PubKey(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<PartSetHeader> parser() {
+  public static com.google.protobuf.Parser<PubKey> parser() {
     return PARSER;
   }
 
   @Override
-  public com.google.protobuf.Parser<PartSetHeader> getParserForType() {
+  public com.google.protobuf.Parser<PubKey> getParserForType() {
     return PARSER;
   }
 
-  public PartSetHeader getDefaultInstanceForType() {
+  public PubKey getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

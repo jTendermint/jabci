@@ -10,12 +10,12 @@ public interface ResponseEndBlockOrBuilder extends
   /**
    * <code>repeated .com.github.jtendermint.jabci.types.Validator validator_updates = 1;</code>
    */
-  java.util.List<com.github.jtendermint.jabci.types.Validator> 
+  java.util.List<Validator>
       getValidatorUpdatesList();
   /**
    * <code>repeated .com.github.jtendermint.jabci.types.Validator validator_updates = 1;</code>
    */
-  com.github.jtendermint.jabci.types.Validator getValidatorUpdates(int index);
+  Validator getValidatorUpdates(int index);
   /**
    * <code>repeated .com.github.jtendermint.jabci.types.Validator validator_updates = 1;</code>
    */
@@ -23,12 +23,12 @@ public interface ResponseEndBlockOrBuilder extends
   /**
    * <code>repeated .com.github.jtendermint.jabci.types.Validator validator_updates = 1;</code>
    */
-  java.util.List<? extends com.github.jtendermint.jabci.types.ValidatorOrBuilder> 
+  java.util.List<? extends ValidatorOrBuilder>
       getValidatorUpdatesOrBuilderList();
   /**
    * <code>repeated .com.github.jtendermint.jabci.types.Validator validator_updates = 1;</code>
    */
-  com.github.jtendermint.jabci.types.ValidatorOrBuilder getValidatorUpdatesOrBuilder(
+  ValidatorOrBuilder getValidatorUpdatesOrBuilder(
           int index);
 
   /**
@@ -43,4 +43,28 @@ public interface ResponseEndBlockOrBuilder extends
    * <code>optional .com.github.jtendermint.jabci.types.ConsensusParams consensus_param_updates = 2;</code>
    */
   ConsensusParamsOrBuilder getConsensusParamUpdatesOrBuilder();
+
+  /**
+   * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 3;</code>
+   */
+  java.util.List<KVPair>
+      getTagsList();
+  /**
+   * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 3;</code>
+   */
+  KVPair getTags(int index);
+  /**
+   * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 3;</code>
+   */
+  int getTagsCount();
+  /**
+   * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 3;</code>
+   */
+  java.util.List<? extends KVPairOrBuilder>
+      getTagsOrBuilderList();
+  /**
+   * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 3;</code>
+   */
+  KVPairOrBuilder getTagsOrBuilder(
+          int index);
 }

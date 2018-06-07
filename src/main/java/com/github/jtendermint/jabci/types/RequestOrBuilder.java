@@ -37,11 +37,11 @@ public interface RequestOrBuilder extends
   /**
    * <code>optional .com.github.jtendermint.jabci.types.RequestSetOption set_option = 5;</code>
    */
-  com.github.jtendermint.jabci.types.RequestSetOption getSetOption();
+  RequestSetOption getSetOption();
   /**
    * <code>optional .com.github.jtendermint.jabci.types.RequestSetOption set_option = 5;</code>
    */
-  com.github.jtendermint.jabci.types.RequestSetOptionOrBuilder getSetOptionOrBuilder();
+  RequestSetOptionOrBuilder getSetOptionOrBuilder();
 
   /**
    * <code>optional .com.github.jtendermint.jabci.types.RequestInitChain init_chain = 6;</code>
@@ -55,11 +55,11 @@ public interface RequestOrBuilder extends
   /**
    * <code>optional .com.github.jtendermint.jabci.types.RequestQuery query = 7;</code>
    */
-  com.github.jtendermint.jabci.types.RequestQuery getQuery();
+  RequestQuery getQuery();
   /**
    * <code>optional .com.github.jtendermint.jabci.types.RequestQuery query = 7;</code>
    */
-  com.github.jtendermint.jabci.types.RequestQueryOrBuilder getQueryOrBuilder();
+  RequestQueryOrBuilder getQueryOrBuilder();
 
   /**
    * <code>optional .com.github.jtendermint.jabci.types.RequestBeginBlock begin_block = 8;</code>

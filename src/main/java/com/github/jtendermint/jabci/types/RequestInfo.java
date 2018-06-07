@@ -62,14 +62,14 @@ public  final class RequestInfo extends
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_RequestInfo_descriptor;
+    return Types.internal_static_com_github_jtendermint_jabci_types_RequestInfo_descriptor;
   }
 
   protected FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_RequestInfo_fieldAccessorTable
+    return Types.internal_static_com_github_jtendermint_jabci_types_RequestInfo_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            RequestInfo.class, Builder.class);
+            RequestInfo.class, RequestInfo.Builder.class);
   }
 
   public static final int VERSION_FIELD_NUMBER = 1;
@@ -82,7 +82,7 @@ public  final class RequestInfo extends
     if (ref instanceof String) {
       return (String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       String s = bs.toStringUtf8();
       version_ = s;
@@ -96,7 +96,7 @@ public  final class RequestInfo extends
       getVersionBytes() {
     Object ref = version_;
     if (ref instanceof String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (String) ref);
       version_ = b;
@@ -249,17 +249,17 @@ public  final class RequestInfo extends
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
       // @@protoc_insertion_point(builder_implements:com.github.jtendermint.jabci.types.RequestInfo)
-      com.github.jtendermint.jabci.types.RequestInfoOrBuilder {
+      RequestInfoOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_RequestInfo_descriptor;
+      return Types.internal_static_com_github_jtendermint_jabci_types_RequestInfo_descriptor;
     }
 
     protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_RequestInfo_fieldAccessorTable
+      return Types.internal_static_com_github_jtendermint_jabci_types_RequestInfo_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              RequestInfo.class, Builder.class);
+              RequestInfo.class, RequestInfo.Builder.class);
     }
 
     // Construct using com.github.jtendermint.jabci.types.RequestInfo.newBuilder()
@@ -286,7 +286,7 @@ public  final class RequestInfo extends
 
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_RequestInfo_descriptor;
+      return Types.internal_static_com_github_jtendermint_jabci_types_RequestInfo_descriptor;
     }
 
     public RequestInfo getDefaultInstanceForType() {
@@ -398,7 +398,7 @@ public  final class RequestInfo extends
         getVersionBytes() {
       Object ref = version_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (String) ref);
         version_ = b;
@@ -415,7 +415,7 @@ public  final class RequestInfo extends
       if (value == null) {
     throw new NullPointerException();
   }
-  
+
       version_ = value;
       onChanged();
       return this;
@@ -424,7 +424,7 @@ public  final class RequestInfo extends
      * <code>optional string version = 1;</code>
      */
     public Builder clearVersion() {
-      
+
       version_ = getDefaultInstance().getVersion();
       onChanged();
       return this;
@@ -438,7 +438,7 @@ public  final class RequestInfo extends
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-      
+
       version_ = value;
       onChanged();
       return this;
