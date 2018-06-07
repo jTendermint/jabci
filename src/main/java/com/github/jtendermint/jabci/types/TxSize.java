@@ -71,14 +71,14 @@ public  final class TxSize extends
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_TxSize_descriptor;
+    return Types.internal_static_com_github_jtendermint_jabci_types_TxSize_descriptor;
   }
 
   protected FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_TxSize_fieldAccessorTable
+    return Types.internal_static_com_github_jtendermint_jabci_types_TxSize_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            TxSize.class, Builder.class);
+            TxSize.class, TxSize.Builder.class);
   }
 
   public static final int MAX_BYTES_FIELD_NUMBER = 1;
@@ -259,17 +259,17 @@ public  final class TxSize extends
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
       // @@protoc_insertion_point(builder_implements:com.github.jtendermint.jabci.types.TxSize)
-      com.github.jtendermint.jabci.types.TxSizeOrBuilder {
+      TxSizeOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_TxSize_descriptor;
+      return Types.internal_static_com_github_jtendermint_jabci_types_TxSize_descriptor;
     }
 
     protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_TxSize_fieldAccessorTable
+      return Types.internal_static_com_github_jtendermint_jabci_types_TxSize_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              TxSize.class, Builder.class);
+              TxSize.class, TxSize.Builder.class);
     }
 
     // Construct using com.github.jtendermint.jabci.types.TxSize.newBuilder()
@@ -298,7 +298,7 @@ public  final class TxSize extends
 
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_TxSize_descriptor;
+      return Types.internal_static_com_github_jtendermint_jabci_types_TxSize_descriptor;
     }
 
     public TxSize getDefaultInstanceForType() {
@@ -401,7 +401,7 @@ public  final class TxSize extends
      * <code>optional int32 max_bytes = 1;</code>
      */
     public Builder setMaxBytes(int value) {
-      
+
       maxBytes_ = value;
       onChanged();
       return this;
@@ -410,7 +410,7 @@ public  final class TxSize extends
      * <code>optional int32 max_bytes = 1;</code>
      */
     public Builder clearMaxBytes() {
-      
+
       maxBytes_ = 0;
       onChanged();
       return this;
@@ -427,7 +427,7 @@ public  final class TxSize extends
      * <code>optional int64 max_gas = 2;</code>
      */
     public Builder setMaxGas(long value) {
-      
+
       maxGas_ = value;
       onChanged();
       return this;
@@ -436,7 +436,7 @@ public  final class TxSize extends
      * <code>optional int64 max_gas = 2;</code>
      */
     public Builder clearMaxGas() {
-      
+
       maxGas_ = 0L;
       onChanged();
       return this;

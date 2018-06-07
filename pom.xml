@@ -83,7 +83,7 @@
                 <version>3.0.0.1</version>
                 <executions>
                     <execution>
-                        <!--<phase>generate-sources</phase> -->
+                        <!--<phase>generate-sources</phase>-->
                         <phase>none</phase>
                         <goals>
                             <goal>run</goal>

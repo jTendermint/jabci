@@ -119,14 +119,14 @@ public  final class ResponseDeliverTx extends
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseDeliverTx_descriptor;
+    return Types.internal_static_com_github_jtendermint_jabci_types_ResponseDeliverTx_descriptor;
   }
 
   protected FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseDeliverTx_fieldAccessorTable
+    return Types.internal_static_com_github_jtendermint_jabci_types_ResponseDeliverTx_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            ResponseDeliverTx.class, Builder.class);
+            ResponseDeliverTx.class, ResponseDeliverTx.Builder.class);
   }
 
   private int bitField0_;
@@ -162,7 +162,7 @@ public  final class ResponseDeliverTx extends
     if (ref instanceof String) {
       return (String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       String s = bs.toStringUtf8();
       log_ = s;
@@ -180,7 +180,7 @@ public  final class ResponseDeliverTx extends
       getLogBytes() {
     Object ref = log_;
     if (ref instanceof String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (String) ref);
       log_ = b;
@@ -204,7 +204,7 @@ public  final class ResponseDeliverTx extends
     if (ref instanceof String) {
       return (String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       String s = bs.toStringUtf8();
       info_ = s;
@@ -222,7 +222,7 @@ public  final class ResponseDeliverTx extends
       getInfoBytes() {
     Object ref = info_;
     if (ref instanceof String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (String) ref);
       info_ = b;
@@ -534,17 +534,17 @@ public  final class ResponseDeliverTx extends
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
       // @@protoc_insertion_point(builder_implements:com.github.jtendermint.jabci.types.ResponseDeliverTx)
-      com.github.jtendermint.jabci.types.ResponseDeliverTxOrBuilder {
+      ResponseDeliverTxOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseDeliverTx_descriptor;
+      return Types.internal_static_com_github_jtendermint_jabci_types_ResponseDeliverTx_descriptor;
     }
 
     protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseDeliverTx_fieldAccessorTable
+      return Types.internal_static_com_github_jtendermint_jabci_types_ResponseDeliverTx_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              ResponseDeliverTx.class, Builder.class);
+              ResponseDeliverTx.class, ResponseDeliverTx.Builder.class);
     }
 
     // Construct using com.github.jtendermint.jabci.types.ResponseDeliverTx.newBuilder()
@@ -594,7 +594,7 @@ public  final class ResponseDeliverTx extends
 
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseDeliverTx_descriptor;
+      return Types.internal_static_com_github_jtendermint_jabci_types_ResponseDeliverTx_descriptor;
     }
 
     public ResponseDeliverTx getDefaultInstanceForType() {
@@ -713,7 +713,7 @@ public  final class ResponseDeliverTx extends
             tagsBuilder_ = null;
             tags_ = other.tags_;
             bitField0_ = (bitField0_ & ~0x00000040);
-            tagsBuilder_ = 
+            tagsBuilder_ =
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getTagsFieldBuilder() : null;
           } else {
@@ -762,7 +762,7 @@ public  final class ResponseDeliverTx extends
      * <code>optional uint32 code = 1;</code>
      */
     public Builder setCode(int value) {
-      
+
       code_ = value;
       onChanged();
       return this;
@@ -771,7 +771,7 @@ public  final class ResponseDeliverTx extends
      * <code>optional uint32 code = 1;</code>
      */
     public Builder clearCode() {
-      
+
       code_ = 0;
       onChanged();
       return this;
@@ -791,7 +791,7 @@ public  final class ResponseDeliverTx extends
       if (value == null) {
     throw new NullPointerException();
   }
-  
+
       data_ = value;
       onChanged();
       return this;
@@ -800,7 +800,7 @@ public  final class ResponseDeliverTx extends
      * <code>optional bytes data = 2;</code>
      */
     public Builder clearData() {
-      
+
       data_ = getDefaultInstance().getData();
       onChanged();
       return this;
@@ -837,7 +837,7 @@ public  final class ResponseDeliverTx extends
         getLogBytes() {
       Object ref = log_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (String) ref);
         log_ = b;
@@ -858,7 +858,7 @@ public  final class ResponseDeliverTx extends
       if (value == null) {
     throw new NullPointerException();
   }
-  
+
       log_ = value;
       onChanged();
       return this;
@@ -871,7 +871,7 @@ public  final class ResponseDeliverTx extends
      * <code>optional string log = 3;</code>
      */
     public Builder clearLog() {
-      
+
       log_ = getDefaultInstance().getLog();
       onChanged();
       return this;
@@ -889,7 +889,7 @@ public  final class ResponseDeliverTx extends
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-      
+
       log_ = value;
       onChanged();
       return this;
@@ -926,7 +926,7 @@ public  final class ResponseDeliverTx extends
         getInfoBytes() {
       Object ref = info_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (String) ref);
         info_ = b;
@@ -947,7 +947,7 @@ public  final class ResponseDeliverTx extends
       if (value == null) {
     throw new NullPointerException();
   }
-  
+
       info_ = value;
       onChanged();
       return this;
@@ -960,7 +960,7 @@ public  final class ResponseDeliverTx extends
      * <code>optional string info = 4;</code>
      */
     public Builder clearInfo() {
-      
+
       info_ = getDefaultInstance().getInfo();
       onChanged();
       return this;
@@ -978,7 +978,7 @@ public  final class ResponseDeliverTx extends
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-      
+
       info_ = value;
       onChanged();
       return this;
@@ -995,7 +995,7 @@ public  final class ResponseDeliverTx extends
      * <code>optional int64 gas_wanted = 5;</code>
      */
     public Builder setGasWanted(long value) {
-      
+
       gasWanted_ = value;
       onChanged();
       return this;
@@ -1004,7 +1004,7 @@ public  final class ResponseDeliverTx extends
      * <code>optional int64 gas_wanted = 5;</code>
      */
     public Builder clearGasWanted() {
-      
+
       gasWanted_ = 0L;
       onChanged();
       return this;
@@ -1021,7 +1021,7 @@ public  final class ResponseDeliverTx extends
      * <code>optional int64 gas_used = 6;</code>
      */
     public Builder setGasUsed(long value) {
-      
+
       gasUsed_ = value;
       onChanged();
       return this;
@@ -1030,7 +1030,7 @@ public  final class ResponseDeliverTx extends
      * <code>optional int64 gas_used = 6;</code>
      */
     public Builder clearGasUsed() {
-      
+
       gasUsed_ = 0L;
       onChanged();
       return this;
@@ -1361,7 +1361,7 @@ public  final class ResponseDeliverTx extends
      * <code>optional .com.github.jtendermint.jabci.types.KI64Pair fee = 8;</code>
      */
     public KI64Pair.Builder getFeeBuilder() {
-      
+
       onChanged();
       return getFeeFieldBuilder().getBuilder();
     }

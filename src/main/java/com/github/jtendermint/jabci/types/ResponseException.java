@@ -66,14 +66,14 @@ public  final class ResponseException extends
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseException_descriptor;
+    return Types.internal_static_com_github_jtendermint_jabci_types_ResponseException_descriptor;
   }
 
   protected FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseException_fieldAccessorTable
+    return Types.internal_static_com_github_jtendermint_jabci_types_ResponseException_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            ResponseException.class, Builder.class);
+            ResponseException.class, ResponseException.Builder.class);
   }
 
   public static final int ERROR_FIELD_NUMBER = 1;
@@ -86,7 +86,7 @@ public  final class ResponseException extends
     if (ref instanceof String) {
       return (String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       String s = bs.toStringUtf8();
       error_ = s;
@@ -100,7 +100,7 @@ public  final class ResponseException extends
       getErrorBytes() {
     Object ref = error_;
     if (ref instanceof String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (String) ref);
       error_ = b;
@@ -257,17 +257,17 @@ public  final class ResponseException extends
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
       // @@protoc_insertion_point(builder_implements:com.github.jtendermint.jabci.types.ResponseException)
-      com.github.jtendermint.jabci.types.ResponseExceptionOrBuilder {
+      ResponseExceptionOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseException_descriptor;
+      return Types.internal_static_com_github_jtendermint_jabci_types_ResponseException_descriptor;
     }
 
     protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseException_fieldAccessorTable
+      return Types.internal_static_com_github_jtendermint_jabci_types_ResponseException_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              ResponseException.class, Builder.class);
+              ResponseException.class, ResponseException.Builder.class);
     }
 
     // Construct using com.github.jtendermint.jabci.types.ResponseException.newBuilder()
@@ -294,7 +294,7 @@ public  final class ResponseException extends
 
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseException_descriptor;
+      return Types.internal_static_com_github_jtendermint_jabci_types_ResponseException_descriptor;
     }
 
     public ResponseException getDefaultInstanceForType() {
@@ -406,7 +406,7 @@ public  final class ResponseException extends
         getErrorBytes() {
       Object ref = error_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (String) ref);
         error_ = b;
@@ -423,7 +423,7 @@ public  final class ResponseException extends
       if (value == null) {
     throw new NullPointerException();
   }
-  
+
       error_ = value;
       onChanged();
       return this;
@@ -432,7 +432,7 @@ public  final class ResponseException extends
      * <code>optional string error = 1;</code>
      */
     public Builder clearError() {
-      
+
       error_ = getDefaultInstance().getError();
       onChanged();
       return this;
@@ -446,7 +446,7 @@ public  final class ResponseException extends
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-      
+
       error_ = value;
       onChanged();
       return this;

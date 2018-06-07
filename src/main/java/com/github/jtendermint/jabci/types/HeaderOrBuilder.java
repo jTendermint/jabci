@@ -8,10 +8,18 @@ public interface HeaderOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
+   * <pre>
+   * basics
+   * </pre>
+   *
    * <code>optional string chain_id = 1;</code>
    */
   String getChainId();
   /**
+   * <pre>
+   * basics
+   * </pre>
+   *
    * <code>optional string chain_id = 1;</code>
    */
   com.google.protobuf.ByteString
@@ -28,40 +36,60 @@ public interface HeaderOrBuilder extends
   long getTime();
 
   /**
+   * <pre>
+   * txs
+   * </pre>
+   *
    * <code>optional int32 num_txs = 4;</code>
    */
   int getNumTxs();
 
   /**
-   * <code>optional .com.github.jtendermint.jabci.types.BlockID last_block_id = 5;</code>
+   * <code>optional int64 total_txs = 5;</code>
    */
-  boolean hasLastBlockId();
-  /**
-   * <code>optional .com.github.jtendermint.jabci.types.BlockID last_block_id = 5;</code>
-   */
-  BlockID getLastBlockId();
-  /**
-   * <code>optional .com.github.jtendermint.jabci.types.BlockID last_block_id = 5;</code>
-   */
-  BlockIDOrBuilder getLastBlockIdOrBuilder();
+  long getTotalTxs();
 
   /**
-   * <code>optional bytes last_commit_hash = 6;</code>
+   * <pre>
+   * hashes
+   * </pre>
+   *
+   * <code>optional bytes last_block_hash = 6;</code>
    */
-  com.google.protobuf.ByteString getLastCommitHash();
+  com.google.protobuf.ByteString getLastBlockHash();
 
   /**
-   * <code>optional bytes data_hash = 7;</code>
-   */
-  com.google.protobuf.ByteString getDataHash();
-
-  /**
-   * <code>optional bytes validators_hash = 8;</code>
+   * <code>optional bytes validators_hash = 7;</code>
    */
   com.google.protobuf.ByteString getValidatorsHash();
 
   /**
-   * <code>optional bytes app_hash = 9;</code>
+   * <code>optional bytes app_hash = 8;</code>
    */
   com.google.protobuf.ByteString getAppHash();
+
+  /**
+   * <pre>
+   * consensus
+   * </pre>
+   *
+   * <code>optional .com.github.jtendermint.jabci.types.Validator proposer = 9;</code>
+   */
+  boolean hasProposer();
+  /**
+   * <pre>
+   * consensus
+   * </pre>
+   *
+   * <code>optional .com.github.jtendermint.jabci.types.Validator proposer = 9;</code>
+   */
+  Validator getProposer();
+  /**
+   * <pre>
+   * consensus
+   * </pre>
+   *
+   * <code>optional .com.github.jtendermint.jabci.types.Validator proposer = 9;</code>
+   */
+  ValidatorOrBuilder getProposerOrBuilder();
 }

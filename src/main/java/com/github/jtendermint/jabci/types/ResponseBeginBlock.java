@@ -15,6 +15,7 @@ public  final class ResponseBeginBlock extends
     super(builder);
   }
   private ResponseBeginBlock() {
+    tags_ = java.util.Collections.emptyList();
   }
 
   @Override
@@ -27,6 +28,7 @@ public  final class ResponseBeginBlock extends
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     this();
+    int mutable_bitField0_ = 0;
     try {
       boolean done = false;
       while (!done) {
@@ -41,6 +43,15 @@ public  final class ResponseBeginBlock extends
             }
             break;
           }
+          case 10: {
+            if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+              tags_ = new java.util.ArrayList<KVPair>();
+              mutable_bitField0_ |= 0x00000001;
+            }
+            tags_.add(
+                input.readMessage(KVPair.parser(), extensionRegistry));
+            break;
+          }
         }
       }
     } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -49,19 +60,57 @@ public  final class ResponseBeginBlock extends
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
+      if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+        tags_ = java.util.Collections.unmodifiableList(tags_);
+      }
       makeExtensionsImmutable();
     }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseBeginBlock_descriptor;
+    return Types.internal_static_com_github_jtendermint_jabci_types_ResponseBeginBlock_descriptor;
   }
 
   protected FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseBeginBlock_fieldAccessorTable
+    return Types.internal_static_com_github_jtendermint_jabci_types_ResponseBeginBlock_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            ResponseBeginBlock.class, Builder.class);
+            ResponseBeginBlock.class, ResponseBeginBlock.Builder.class);
+  }
+
+  public static final int TAGS_FIELD_NUMBER = 1;
+  private java.util.List<KVPair> tags_;
+  /**
+   * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 1;</code>
+   */
+  public java.util.List<KVPair> getTagsList() {
+    return tags_;
+  }
+  /**
+   * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 1;</code>
+   */
+  public java.util.List<? extends KVPairOrBuilder>
+      getTagsOrBuilderList() {
+    return tags_;
+  }
+  /**
+   * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 1;</code>
+   */
+  public int getTagsCount() {
+    return tags_.size();
+  }
+  /**
+   * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 1;</code>
+   */
+  public KVPair getTags(int index) {
+    return tags_.get(index);
+  }
+  /**
+   * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 1;</code>
+   */
+  public KVPairOrBuilder getTagsOrBuilder(
+      int index) {
+    return tags_.get(index);
   }
 
   private byte memoizedIsInitialized = -1;
@@ -76,6 +125,9 @@ public  final class ResponseBeginBlock extends
 
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
+    for (int i = 0; i < tags_.size(); i++) {
+      output.writeMessage(1, tags_.get(i));
+    }
   }
 
   public int getSerializedSize() {
@@ -83,6 +135,10 @@ public  final class ResponseBeginBlock extends
     if (size != -1) return size;
 
     size = 0;
+    for (int i = 0; i < tags_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(1, tags_.get(i));
+    }
     memoizedSize = size;
     return size;
   }
@@ -99,6 +155,8 @@ public  final class ResponseBeginBlock extends
     ResponseBeginBlock other = (ResponseBeginBlock) obj;
 
     boolean result = true;
+    result = result && getTagsList()
+        .equals(other.getTagsList());
     return result;
   }
 
@@ -109,6 +167,10 @@ public  final class ResponseBeginBlock extends
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptorForType().hashCode();
+    if (getTagsCount() > 0) {
+      hash = (37 * hash) + TAGS_FIELD_NUMBER;
+      hash = (53 * hash) + getTagsList().hashCode();
+    }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -197,17 +259,17 @@ public  final class ResponseBeginBlock extends
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
       // @@protoc_insertion_point(builder_implements:com.github.jtendermint.jabci.types.ResponseBeginBlock)
-      com.github.jtendermint.jabci.types.ResponseBeginBlockOrBuilder {
+      ResponseBeginBlockOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseBeginBlock_descriptor;
+      return Types.internal_static_com_github_jtendermint_jabci_types_ResponseBeginBlock_descriptor;
     }
 
     protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseBeginBlock_fieldAccessorTable
+      return Types.internal_static_com_github_jtendermint_jabci_types_ResponseBeginBlock_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              ResponseBeginBlock.class, Builder.class);
+              ResponseBeginBlock.class, ResponseBeginBlock.Builder.class);
     }
 
     // Construct using com.github.jtendermint.jabci.types.ResponseBeginBlock.newBuilder()
@@ -223,16 +285,23 @@ public  final class ResponseBeginBlock extends
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessageV3
               .alwaysUseFieldBuilders) {
+        getTagsFieldBuilder();
       }
     }
     public Builder clear() {
       super.clear();
+      if (tagsBuilder_ == null) {
+        tags_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000001);
+      } else {
+        tagsBuilder_.clear();
+      }
       return this;
     }
 
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseBeginBlock_descriptor;
+      return Types.internal_static_com_github_jtendermint_jabci_types_ResponseBeginBlock_descriptor;
     }
 
     public ResponseBeginBlock getDefaultInstanceForType() {
@@ -249,6 +318,16 @@ public  final class ResponseBeginBlock extends
 
     public ResponseBeginBlock buildPartial() {
       ResponseBeginBlock result = new ResponseBeginBlock(this);
+      int from_bitField0_ = bitField0_;
+      if (tagsBuilder_ == null) {
+        if (((bitField0_ & 0x00000001) == 0x00000001)) {
+          tags_ = java.util.Collections.unmodifiableList(tags_);
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.tags_ = tags_;
+      } else {
+        result.tags_ = tagsBuilder_.build();
+      }
       onBuilt();
       return result;
     }
@@ -290,6 +369,32 @@ public  final class ResponseBeginBlock extends
 
     public Builder mergeFrom(ResponseBeginBlock other) {
       if (other == ResponseBeginBlock.getDefaultInstance()) return this;
+      if (tagsBuilder_ == null) {
+        if (!other.tags_.isEmpty()) {
+          if (tags_.isEmpty()) {
+            tags_ = other.tags_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureTagsIsMutable();
+            tags_.addAll(other.tags_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.tags_.isEmpty()) {
+          if (tagsBuilder_.isEmpty()) {
+            tagsBuilder_.dispose();
+            tagsBuilder_ = null;
+            tags_ = other.tags_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+            tagsBuilder_ =
+              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                 getTagsFieldBuilder() : null;
+          } else {
+            tagsBuilder_.addAllMessages(other.tags_);
+          }
+        }
+      }
       onChanged();
       return this;
     }
@@ -314,6 +419,247 @@ public  final class ResponseBeginBlock extends
         }
       }
       return this;
+    }
+    private int bitField0_;
+
+    private java.util.List<KVPair> tags_ =
+      java.util.Collections.emptyList();
+    private void ensureTagsIsMutable() {
+      if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+        tags_ = new java.util.ArrayList<KVPair>(tags_);
+        bitField0_ |= 0x00000001;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        KVPair, KVPair.Builder, KVPairOrBuilder> tagsBuilder_;
+
+    /**
+     * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 1;</code>
+     */
+    public java.util.List<KVPair> getTagsList() {
+      if (tagsBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(tags_);
+      } else {
+        return tagsBuilder_.getMessageList();
+      }
+    }
+    /**
+     * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 1;</code>
+     */
+    public int getTagsCount() {
+      if (tagsBuilder_ == null) {
+        return tags_.size();
+      } else {
+        return tagsBuilder_.getCount();
+      }
+    }
+    /**
+     * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 1;</code>
+     */
+    public KVPair getTags(int index) {
+      if (tagsBuilder_ == null) {
+        return tags_.get(index);
+      } else {
+        return tagsBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 1;</code>
+     */
+    public Builder setTags(
+        int index, KVPair value) {
+      if (tagsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureTagsIsMutable();
+        tags_.set(index, value);
+        onChanged();
+      } else {
+        tagsBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 1;</code>
+     */
+    public Builder setTags(
+        int index, KVPair.Builder builderForValue) {
+      if (tagsBuilder_ == null) {
+        ensureTagsIsMutable();
+        tags_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        tagsBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 1;</code>
+     */
+    public Builder addTags(KVPair value) {
+      if (tagsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureTagsIsMutable();
+        tags_.add(value);
+        onChanged();
+      } else {
+        tagsBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 1;</code>
+     */
+    public Builder addTags(
+        int index, KVPair value) {
+      if (tagsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureTagsIsMutable();
+        tags_.add(index, value);
+        onChanged();
+      } else {
+        tagsBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 1;</code>
+     */
+    public Builder addTags(
+        KVPair.Builder builderForValue) {
+      if (tagsBuilder_ == null) {
+        ensureTagsIsMutable();
+        tags_.add(builderForValue.build());
+        onChanged();
+      } else {
+        tagsBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 1;</code>
+     */
+    public Builder addTags(
+        int index, KVPair.Builder builderForValue) {
+      if (tagsBuilder_ == null) {
+        ensureTagsIsMutable();
+        tags_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        tagsBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 1;</code>
+     */
+    public Builder addAllTags(
+        Iterable<? extends KVPair> values) {
+      if (tagsBuilder_ == null) {
+        ensureTagsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, tags_);
+        onChanged();
+      } else {
+        tagsBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 1;</code>
+     */
+    public Builder clearTags() {
+      if (tagsBuilder_ == null) {
+        tags_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+      } else {
+        tagsBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 1;</code>
+     */
+    public Builder removeTags(int index) {
+      if (tagsBuilder_ == null) {
+        ensureTagsIsMutable();
+        tags_.remove(index);
+        onChanged();
+      } else {
+        tagsBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 1;</code>
+     */
+    public KVPair.Builder getTagsBuilder(
+        int index) {
+      return getTagsFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 1;</code>
+     */
+    public KVPairOrBuilder getTagsOrBuilder(
+        int index) {
+      if (tagsBuilder_ == null) {
+        return tags_.get(index);  } else {
+        return tagsBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 1;</code>
+     */
+    public java.util.List<? extends KVPairOrBuilder>
+         getTagsOrBuilderList() {
+      if (tagsBuilder_ != null) {
+        return tagsBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(tags_);
+      }
+    }
+    /**
+     * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 1;</code>
+     */
+    public KVPair.Builder addTagsBuilder() {
+      return getTagsFieldBuilder().addBuilder(
+          KVPair.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 1;</code>
+     */
+    public KVPair.Builder addTagsBuilder(
+        int index) {
+      return getTagsFieldBuilder().addBuilder(
+          index, KVPair.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 1;</code>
+     */
+    public java.util.List<KVPair.Builder>
+         getTagsBuilderList() {
+      return getTagsFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        KVPair, KVPair.Builder, KVPairOrBuilder>
+        getTagsFieldBuilder() {
+      if (tagsBuilder_ == null) {
+        tagsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+            KVPair, KVPair.Builder, KVPairOrBuilder>(
+                tags_,
+                ((bitField0_ & 0x00000001) == 0x00000001),
+                getParentForChildren(),
+                isClean());
+        tags_ = null;
+      }
+      return tagsBuilder_;
     }
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {

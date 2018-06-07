@@ -61,14 +61,14 @@ public  final class RequestCheckTx extends
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_RequestCheckTx_descriptor;
+    return Types.internal_static_com_github_jtendermint_jabci_types_RequestCheckTx_descriptor;
   }
 
   protected FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_RequestCheckTx_fieldAccessorTable
+    return Types.internal_static_com_github_jtendermint_jabci_types_RequestCheckTx_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            RequestCheckTx.class, Builder.class);
+            RequestCheckTx.class, RequestCheckTx.Builder.class);
   }
 
   public static final int TX_FIELD_NUMBER = 1;
@@ -224,17 +224,17 @@ public  final class RequestCheckTx extends
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
       // @@protoc_insertion_point(builder_implements:com.github.jtendermint.jabci.types.RequestCheckTx)
-      com.github.jtendermint.jabci.types.RequestCheckTxOrBuilder {
+      RequestCheckTxOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_RequestCheckTx_descriptor;
+      return Types.internal_static_com_github_jtendermint_jabci_types_RequestCheckTx_descriptor;
     }
 
     protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_RequestCheckTx_fieldAccessorTable
+      return Types.internal_static_com_github_jtendermint_jabci_types_RequestCheckTx_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              RequestCheckTx.class, Builder.class);
+              RequestCheckTx.class, RequestCheckTx.Builder.class);
     }
 
     // Construct using com.github.jtendermint.jabci.types.RequestCheckTx.newBuilder()
@@ -261,7 +261,7 @@ public  final class RequestCheckTx extends
 
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_RequestCheckTx_descriptor;
+      return Types.internal_static_com_github_jtendermint_jabci_types_RequestCheckTx_descriptor;
     }
 
     public RequestCheckTx getDefaultInstanceForType() {
@@ -363,7 +363,7 @@ public  final class RequestCheckTx extends
       if (value == null) {
     throw new NullPointerException();
   }
-  
+
       tx_ = value;
       onChanged();
       return this;
@@ -372,7 +372,7 @@ public  final class RequestCheckTx extends
      * <code>optional bytes tx = 1;</code>
      */
     public Builder clearTx() {
-      
+
       tx_ = getDefaultInstance().getTx();
       onChanged();
       return this;

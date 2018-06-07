@@ -66,14 +66,14 @@ public  final class BlockGossip extends
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_BlockGossip_descriptor;
+    return Types.internal_static_com_github_jtendermint_jabci_types_BlockGossip_descriptor;
   }
 
   protected FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_BlockGossip_fieldAccessorTable
+    return Types.internal_static_com_github_jtendermint_jabci_types_BlockGossip_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            BlockGossip.class, Builder.class);
+            BlockGossip.class, BlockGossip.Builder.class);
   }
 
   public static final int BLOCK_PART_SIZE_BYTES_FIELD_NUMBER = 1;
@@ -238,17 +238,17 @@ public  final class BlockGossip extends
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
       // @@protoc_insertion_point(builder_implements:com.github.jtendermint.jabci.types.BlockGossip)
-      com.github.jtendermint.jabci.types.BlockGossipOrBuilder {
+      BlockGossipOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_BlockGossip_descriptor;
+      return Types.internal_static_com_github_jtendermint_jabci_types_BlockGossip_descriptor;
     }
 
     protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_BlockGossip_fieldAccessorTable
+      return Types.internal_static_com_github_jtendermint_jabci_types_BlockGossip_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              BlockGossip.class, Builder.class);
+              BlockGossip.class, BlockGossip.Builder.class);
     }
 
     // Construct using com.github.jtendermint.jabci.types.BlockGossip.newBuilder()
@@ -275,7 +275,7 @@ public  final class BlockGossip extends
 
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_BlockGossip_descriptor;
+      return Types.internal_static_com_github_jtendermint_jabci_types_BlockGossip_descriptor;
     }
 
     public BlockGossip getDefaultInstanceForType() {
@@ -382,7 +382,7 @@ public  final class BlockGossip extends
      * <code>optional int32 block_part_size_bytes = 1;</code>
      */
     public Builder setBlockPartSizeBytes(int value) {
-      
+
       blockPartSizeBytes_ = value;
       onChanged();
       return this;
@@ -395,7 +395,7 @@ public  final class BlockGossip extends
      * <code>optional int32 block_part_size_bytes = 1;</code>
      */
     public Builder clearBlockPartSizeBytes() {
-      
+
       blockPartSizeBytes_ = 0;
       onChanged();
       return this;

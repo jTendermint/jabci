@@ -80,14 +80,14 @@ public  final class RequestQuery extends
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_RequestQuery_descriptor;
+    return Types.internal_static_com_github_jtendermint_jabci_types_RequestQuery_descriptor;
   }
 
   protected FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_RequestQuery_fieldAccessorTable
+    return Types.internal_static_com_github_jtendermint_jabci_types_RequestQuery_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            RequestQuery.class, Builder.class);
+            RequestQuery.class, RequestQuery.Builder.class);
   }
 
   public static final int DATA_FIELD_NUMBER = 1;
@@ -109,7 +109,7 @@ public  final class RequestQuery extends
     if (ref instanceof String) {
       return (String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       String s = bs.toStringUtf8();
       path_ = s;
@@ -123,7 +123,7 @@ public  final class RequestQuery extends
       getPathBytes() {
     Object ref = path_;
     if (ref instanceof String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (String) ref);
       path_ = b;
@@ -329,17 +329,17 @@ public  final class RequestQuery extends
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
       // @@protoc_insertion_point(builder_implements:com.github.jtendermint.jabci.types.RequestQuery)
-      com.github.jtendermint.jabci.types.RequestQueryOrBuilder {
+      RequestQueryOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_RequestQuery_descriptor;
+      return Types.internal_static_com_github_jtendermint_jabci_types_RequestQuery_descriptor;
     }
 
     protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_RequestQuery_fieldAccessorTable
+      return Types.internal_static_com_github_jtendermint_jabci_types_RequestQuery_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              RequestQuery.class, Builder.class);
+              RequestQuery.class, RequestQuery.Builder.class);
     }
 
     // Construct using com.github.jtendermint.jabci.types.RequestQuery.newBuilder()
@@ -372,7 +372,7 @@ public  final class RequestQuery extends
 
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_RequestQuery_descriptor;
+      return Types.internal_static_com_github_jtendermint_jabci_types_RequestQuery_descriptor;
     }
 
     public RequestQuery getDefaultInstanceForType() {
@@ -487,7 +487,7 @@ public  final class RequestQuery extends
       if (value == null) {
     throw new NullPointerException();
   }
-  
+
       data_ = value;
       onChanged();
       return this;
@@ -496,7 +496,7 @@ public  final class RequestQuery extends
      * <code>optional bytes data = 1;</code>
      */
     public Builder clearData() {
-      
+
       data_ = getDefaultInstance().getData();
       onChanged();
       return this;
@@ -525,7 +525,7 @@ public  final class RequestQuery extends
         getPathBytes() {
       Object ref = path_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (String) ref);
         path_ = b;
@@ -542,7 +542,7 @@ public  final class RequestQuery extends
       if (value == null) {
     throw new NullPointerException();
   }
-  
+
       path_ = value;
       onChanged();
       return this;
@@ -551,7 +551,7 @@ public  final class RequestQuery extends
      * <code>optional string path = 2;</code>
      */
     public Builder clearPath() {
-      
+
       path_ = getDefaultInstance().getPath();
       onChanged();
       return this;
@@ -565,7 +565,7 @@ public  final class RequestQuery extends
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-      
+
       path_ = value;
       onChanged();
       return this;
@@ -582,7 +582,7 @@ public  final class RequestQuery extends
      * <code>optional int64 height = 3;</code>
      */
     public Builder setHeight(long value) {
-      
+
       height_ = value;
       onChanged();
       return this;
@@ -591,7 +591,7 @@ public  final class RequestQuery extends
      * <code>optional int64 height = 3;</code>
      */
     public Builder clearHeight() {
-      
+
       height_ = 0L;
       onChanged();
       return this;
@@ -608,7 +608,7 @@ public  final class RequestQuery extends
      * <code>optional bool prove = 4;</code>
      */
     public Builder setProve(boolean value) {
-      
+
       prove_ = value;
       onChanged();
       return this;
@@ -617,7 +617,7 @@ public  final class RequestQuery extends
      * <code>optional bool prove = 4;</code>
      */
     public Builder clearProve() {
-      
+
       prove_ = false;
       onChanged();
       return this;

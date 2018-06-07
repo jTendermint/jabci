@@ -113,7 +113,9 @@ public final class JavaCounter implements IDeliverTx, ICheckTx, ICommit, IQuery 
             System.out.println("tx value is: " + txCheck);
 
             if (txCheck < txCount) {
-                String err = "Invalid nonce. Expected >= " + txCount + ", got " + txCheck;
+                String err = "Invalid nonce. Ex"
+                        + ""
+                        + "pected >= " + txCount + ", got " + txCheck;
                 System.out.println(err);
                 return ResponseCheckTx.newBuilder().setCode(CodeType.BadNonce).setLog(err).build();
             }

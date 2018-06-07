@@ -26,17 +26,28 @@ public interface RequestBeginBlockOrBuilder extends
   HeaderOrBuilder getHeaderOrBuilder();
 
   /**
-   * <code>repeated int32 absent_validators = 3;</code>
+   * <code>repeated .com.github.jtendermint.jabci.types.SigningValidator validators = 3;</code>
    */
-  java.util.List<Integer> getAbsentValidatorsList();
+  java.util.List<SigningValidator>
+      getValidatorsList();
   /**
-   * <code>repeated int32 absent_validators = 3;</code>
+   * <code>repeated .com.github.jtendermint.jabci.types.SigningValidator validators = 3;</code>
    */
-  int getAbsentValidatorsCount();
+  SigningValidator getValidators(int index);
   /**
-   * <code>repeated int32 absent_validators = 3;</code>
+   * <code>repeated .com.github.jtendermint.jabci.types.SigningValidator validators = 3;</code>
    */
-  int getAbsentValidators(int index);
+  int getValidatorsCount();
+  /**
+   * <code>repeated .com.github.jtendermint.jabci.types.SigningValidator validators = 3;</code>
+   */
+  java.util.List<? extends SigningValidatorOrBuilder>
+      getValidatorsOrBuilderList();
+  /**
+   * <code>repeated .com.github.jtendermint.jabci.types.SigningValidator validators = 3;</code>
+   */
+  SigningValidatorOrBuilder getValidatorsOrBuilder(
+          int index);
 
   /**
    * <code>repeated .com.github.jtendermint.jabci.types.Evidence byzantine_validators = 4;</code>

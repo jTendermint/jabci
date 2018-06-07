@@ -61,11 +61,11 @@ public  final class ConsensusParams extends
             break;
           }
           case 18: {
-            com.github.jtendermint.jabci.types.TxSize.Builder subBuilder = null;
+            TxSize.Builder subBuilder = null;
             if (txSize_ != null) {
               subBuilder = txSize_.toBuilder();
             }
-            txSize_ = input.readMessage(com.github.jtendermint.jabci.types.TxSize.parser(), extensionRegistry);
+            txSize_ = input.readMessage(TxSize.parser(), extensionRegistry);
             if (subBuilder != null) {
               subBuilder.mergeFrom(txSize_);
               txSize_ = subBuilder.buildPartial();
@@ -99,14 +99,14 @@ public  final class ConsensusParams extends
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ConsensusParams_descriptor;
+    return Types.internal_static_com_github_jtendermint_jabci_types_ConsensusParams_descriptor;
   }
 
   protected FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ConsensusParams_fieldAccessorTable
+    return Types.internal_static_com_github_jtendermint_jabci_types_ConsensusParams_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            ConsensusParams.class, Builder.class);
+            ConsensusParams.class, ConsensusParams.Builder.class);
   }
 
   public static final int BLOCK_SIZE_FIELD_NUMBER = 1;
@@ -131,7 +131,7 @@ public  final class ConsensusParams extends
   }
 
   public static final int TX_SIZE_FIELD_NUMBER = 2;
-  private com.github.jtendermint.jabci.types.TxSize txSize_;
+  private TxSize txSize_;
   /**
    * <code>optional .com.github.jtendermint.jabci.types.TxSize tx_size = 2;</code>
    */
@@ -141,13 +141,13 @@ public  final class ConsensusParams extends
   /**
    * <code>optional .com.github.jtendermint.jabci.types.TxSize tx_size = 2;</code>
    */
-  public com.github.jtendermint.jabci.types.TxSize getTxSize() {
-    return txSize_ == null ? com.github.jtendermint.jabci.types.TxSize.getDefaultInstance() : txSize_;
+  public TxSize getTxSize() {
+    return txSize_ == null ? TxSize.getDefaultInstance() : txSize_;
   }
   /**
    * <code>optional .com.github.jtendermint.jabci.types.TxSize tx_size = 2;</code>
    */
-  public com.github.jtendermint.jabci.types.TxSizeOrBuilder getTxSizeOrBuilder() {
+  public TxSizeOrBuilder getTxSizeOrBuilder() {
     return getTxSize();
   }
 
@@ -358,17 +358,17 @@ public  final class ConsensusParams extends
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
       // @@protoc_insertion_point(builder_implements:com.github.jtendermint.jabci.types.ConsensusParams)
-      com.github.jtendermint.jabci.types.ConsensusParamsOrBuilder {
+      ConsensusParamsOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ConsensusParams_descriptor;
+      return Types.internal_static_com_github_jtendermint_jabci_types_ConsensusParams_descriptor;
     }
 
     protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ConsensusParams_fieldAccessorTable
+      return Types.internal_static_com_github_jtendermint_jabci_types_ConsensusParams_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              ConsensusParams.class, Builder.class);
+              ConsensusParams.class, ConsensusParams.Builder.class);
     }
 
     // Construct using com.github.jtendermint.jabci.types.ConsensusParams.newBuilder()
@@ -411,7 +411,7 @@ public  final class ConsensusParams extends
 
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ConsensusParams_descriptor;
+      return Types.internal_static_com_github_jtendermint_jabci_types_ConsensusParams_descriptor;
     }
 
     public ConsensusParams getDefaultInstanceForType() {
@@ -604,7 +604,7 @@ public  final class ConsensusParams extends
      * <code>optional .com.github.jtendermint.jabci.types.BlockSize block_size = 1;</code>
      */
     public BlockSize.Builder getBlockSizeBuilder() {
-      
+
       onChanged();
       return getBlockSizeFieldBuilder().getBuilder();
     }
@@ -636,9 +636,9 @@ public  final class ConsensusParams extends
       return blockSizeBuilder_;
     }
 
-    private com.github.jtendermint.jabci.types.TxSize txSize_ = null;
+    private TxSize txSize_ = null;
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.github.jtendermint.jabci.types.TxSize, com.github.jtendermint.jabci.types.TxSize.Builder, com.github.jtendermint.jabci.types.TxSizeOrBuilder> txSizeBuilder_;
+        TxSize, TxSize.Builder, TxSizeOrBuilder> txSizeBuilder_;
     /**
      * <code>optional .com.github.jtendermint.jabci.types.TxSize tx_size = 2;</code>
      */
@@ -648,9 +648,9 @@ public  final class ConsensusParams extends
     /**
      * <code>optional .com.github.jtendermint.jabci.types.TxSize tx_size = 2;</code>
      */
-    public com.github.jtendermint.jabci.types.TxSize getTxSize() {
+    public TxSize getTxSize() {
       if (txSizeBuilder_ == null) {
-        return txSize_ == null ? com.github.jtendermint.jabci.types.TxSize.getDefaultInstance() : txSize_;
+        return txSize_ == null ? TxSize.getDefaultInstance() : txSize_;
       } else {
         return txSizeBuilder_.getMessage();
       }
@@ -658,7 +658,7 @@ public  final class ConsensusParams extends
     /**
      * <code>optional .com.github.jtendermint.jabci.types.TxSize tx_size = 2;</code>
      */
-    public Builder setTxSize(com.github.jtendermint.jabci.types.TxSize value) {
+    public Builder setTxSize(TxSize value) {
       if (txSizeBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -675,7 +675,7 @@ public  final class ConsensusParams extends
      * <code>optional .com.github.jtendermint.jabci.types.TxSize tx_size = 2;</code>
      */
     public Builder setTxSize(
-        com.github.jtendermint.jabci.types.TxSize.Builder builderForValue) {
+        TxSize.Builder builderForValue) {
       if (txSizeBuilder_ == null) {
         txSize_ = builderForValue.build();
         onChanged();
@@ -688,11 +688,11 @@ public  final class ConsensusParams extends
     /**
      * <code>optional .com.github.jtendermint.jabci.types.TxSize tx_size = 2;</code>
      */
-    public Builder mergeTxSize(com.github.jtendermint.jabci.types.TxSize value) {
+    public Builder mergeTxSize(TxSize value) {
       if (txSizeBuilder_ == null) {
         if (txSize_ != null) {
           txSize_ =
-            com.github.jtendermint.jabci.types.TxSize.newBuilder(txSize_).mergeFrom(value).buildPartial();
+            TxSize.newBuilder(txSize_).mergeFrom(value).buildPartial();
         } else {
           txSize_ = value;
         }
@@ -720,31 +720,31 @@ public  final class ConsensusParams extends
     /**
      * <code>optional .com.github.jtendermint.jabci.types.TxSize tx_size = 2;</code>
      */
-    public com.github.jtendermint.jabci.types.TxSize.Builder getTxSizeBuilder() {
-      
+    public TxSize.Builder getTxSizeBuilder() {
+
       onChanged();
       return getTxSizeFieldBuilder().getBuilder();
     }
     /**
      * <code>optional .com.github.jtendermint.jabci.types.TxSize tx_size = 2;</code>
      */
-    public com.github.jtendermint.jabci.types.TxSizeOrBuilder getTxSizeOrBuilder() {
+    public TxSizeOrBuilder getTxSizeOrBuilder() {
       if (txSizeBuilder_ != null) {
         return txSizeBuilder_.getMessageOrBuilder();
       } else {
         return txSize_ == null ?
-            com.github.jtendermint.jabci.types.TxSize.getDefaultInstance() : txSize_;
+            TxSize.getDefaultInstance() : txSize_;
       }
     }
     /**
      * <code>optional .com.github.jtendermint.jabci.types.TxSize tx_size = 2;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.github.jtendermint.jabci.types.TxSize, com.github.jtendermint.jabci.types.TxSize.Builder, com.github.jtendermint.jabci.types.TxSizeOrBuilder> 
+        TxSize, TxSize.Builder, TxSizeOrBuilder>
         getTxSizeFieldBuilder() {
       if (txSizeBuilder_ == null) {
         txSizeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.github.jtendermint.jabci.types.TxSize, com.github.jtendermint.jabci.types.TxSize.Builder, com.github.jtendermint.jabci.types.TxSizeOrBuilder>(
+            TxSize, TxSize.Builder, TxSizeOrBuilder>(
                 getTxSize(),
                 getParentForChildren(),
                 isClean());
@@ -838,7 +838,7 @@ public  final class ConsensusParams extends
      * <code>optional .com.github.jtendermint.jabci.types.BlockGossip block_gossip = 3;</code>
      */
     public BlockGossip.Builder getBlockGossipBuilder() {
-      
+
       onChanged();
       return getBlockGossipFieldBuilder().getBuilder();
     }

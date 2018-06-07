@@ -77,14 +77,14 @@ public  final class BlockSize extends
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_BlockSize_descriptor;
+    return Types.internal_static_com_github_jtendermint_jabci_types_BlockSize_descriptor;
   }
 
   protected FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_BlockSize_fieldAccessorTable
+    return Types.internal_static_com_github_jtendermint_jabci_types_BlockSize_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            BlockSize.class, Builder.class);
+            BlockSize.class, BlockSize.Builder.class);
   }
 
   public static final int MAX_BYTES_FIELD_NUMBER = 1;
@@ -285,17 +285,17 @@ public  final class BlockSize extends
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
       // @@protoc_insertion_point(builder_implements:com.github.jtendermint.jabci.types.BlockSize)
-      com.github.jtendermint.jabci.types.BlockSizeOrBuilder {
+      BlockSizeOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_BlockSize_descriptor;
+      return Types.internal_static_com_github_jtendermint_jabci_types_BlockSize_descriptor;
     }
 
     protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_BlockSize_fieldAccessorTable
+      return Types.internal_static_com_github_jtendermint_jabci_types_BlockSize_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              BlockSize.class, Builder.class);
+              BlockSize.class, BlockSize.Builder.class);
     }
 
     // Construct using com.github.jtendermint.jabci.types.BlockSize.newBuilder()
@@ -326,7 +326,7 @@ public  final class BlockSize extends
 
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_BlockSize_descriptor;
+      return Types.internal_static_com_github_jtendermint_jabci_types_BlockSize_descriptor;
     }
 
     public BlockSize getDefaultInstanceForType() {
@@ -433,7 +433,7 @@ public  final class BlockSize extends
      * <code>optional int32 max_bytes = 1;</code>
      */
     public Builder setMaxBytes(int value) {
-      
+
       maxBytes_ = value;
       onChanged();
       return this;
@@ -442,7 +442,7 @@ public  final class BlockSize extends
      * <code>optional int32 max_bytes = 1;</code>
      */
     public Builder clearMaxBytes() {
-      
+
       maxBytes_ = 0;
       onChanged();
       return this;
@@ -459,7 +459,7 @@ public  final class BlockSize extends
      * <code>optional int32 max_txs = 2;</code>
      */
     public Builder setMaxTxs(int value) {
-      
+
       maxTxs_ = value;
       onChanged();
       return this;
@@ -468,7 +468,7 @@ public  final class BlockSize extends
      * <code>optional int32 max_txs = 2;</code>
      */
     public Builder clearMaxTxs() {
-      
+
       maxTxs_ = 0;
       onChanged();
       return this;
@@ -485,7 +485,7 @@ public  final class BlockSize extends
      * <code>optional int64 max_gas = 3;</code>
      */
     public Builder setMaxGas(long value) {
-      
+
       maxGas_ = value;
       onChanged();
       return this;
@@ -494,7 +494,7 @@ public  final class BlockSize extends
      * <code>optional int64 max_gas = 3;</code>
      */
     public Builder clearMaxGas() {
-      
+
       maxGas_ = 0L;
       onChanged();
       return this;

@@ -71,14 +71,14 @@ public  final class KVPair extends
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_KVPair_descriptor;
+    return Types.internal_static_com_github_jtendermint_jabci_types_KVPair_descriptor;
   }
 
   protected FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_KVPair_fieldAccessorTable
+    return Types.internal_static_com_github_jtendermint_jabci_types_KVPair_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            KVPair.class, Builder.class);
+            KVPair.class, KVPair.Builder.class);
   }
 
   public static final int KEY_FIELD_NUMBER = 1;
@@ -258,17 +258,17 @@ public  final class KVPair extends
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
       // @@protoc_insertion_point(builder_implements:com.github.jtendermint.jabci.types.KVPair)
-      com.github.jtendermint.jabci.types.KVPairOrBuilder {
+      KVPairOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_KVPair_descriptor;
+      return Types.internal_static_com_github_jtendermint_jabci_types_KVPair_descriptor;
     }
 
     protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_KVPair_fieldAccessorTable
+      return Types.internal_static_com_github_jtendermint_jabci_types_KVPair_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              KVPair.class, Builder.class);
+              KVPair.class, KVPair.Builder.class);
     }
 
     // Construct using com.github.jtendermint.jabci.types.KVPair.newBuilder()
@@ -297,7 +297,7 @@ public  final class KVPair extends
 
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_KVPair_descriptor;
+      return Types.internal_static_com_github_jtendermint_jabci_types_KVPair_descriptor;
     }
 
     public KVPair getDefaultInstanceForType() {
@@ -403,7 +403,7 @@ public  final class KVPair extends
       if (value == null) {
     throw new NullPointerException();
   }
-  
+
       key_ = value;
       onChanged();
       return this;
@@ -412,7 +412,7 @@ public  final class KVPair extends
      * <code>optional bytes key = 1;</code>
      */
     public Builder clearKey() {
-      
+
       key_ = getDefaultInstance().getKey();
       onChanged();
       return this;
@@ -432,7 +432,7 @@ public  final class KVPair extends
       if (value == null) {
     throw new NullPointerException();
   }
-  
+
       value_ = value;
       onChanged();
       return this;
@@ -441,7 +441,7 @@ public  final class KVPair extends
      * <code>optional bytes value = 2;</code>
      */
     public Builder clearValue() {
-      
+
       value_ = getDefaultInstance().getValue();
       onChanged();
       return this;

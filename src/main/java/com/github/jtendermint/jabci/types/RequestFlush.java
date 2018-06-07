@@ -54,14 +54,14 @@ public  final class RequestFlush extends
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_RequestFlush_descriptor;
+    return Types.internal_static_com_github_jtendermint_jabci_types_RequestFlush_descriptor;
   }
 
   protected FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_RequestFlush_fieldAccessorTable
+    return Types.internal_static_com_github_jtendermint_jabci_types_RequestFlush_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            RequestFlush.class, Builder.class);
+            RequestFlush.class, RequestFlush.Builder.class);
   }
 
   private byte memoizedIsInitialized = -1;
@@ -197,17 +197,17 @@ public  final class RequestFlush extends
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
       // @@protoc_insertion_point(builder_implements:com.github.jtendermint.jabci.types.RequestFlush)
-      com.github.jtendermint.jabci.types.RequestFlushOrBuilder {
+      RequestFlushOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_RequestFlush_descriptor;
+      return Types.internal_static_com_github_jtendermint_jabci_types_RequestFlush_descriptor;
     }
 
     protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_RequestFlush_fieldAccessorTable
+      return Types.internal_static_com_github_jtendermint_jabci_types_RequestFlush_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              RequestFlush.class, Builder.class);
+              RequestFlush.class, RequestFlush.Builder.class);
     }
 
     // Construct using com.github.jtendermint.jabci.types.RequestFlush.newBuilder()
@@ -232,7 +232,7 @@ public  final class RequestFlush extends
 
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_RequestFlush_descriptor;
+      return Types.internal_static_com_github_jtendermint_jabci_types_RequestFlush_descriptor;
     }
 
     public RequestFlush getDefaultInstanceForType() {

@@ -8,12 +8,25 @@ public interface ValidatorOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>optional bytes pub_key = 1;</code>
+   * <code>optional bytes address = 1;</code>
    */
-  com.google.protobuf.ByteString getPubKey();
+  com.google.protobuf.ByteString getAddress();
 
   /**
-   * <code>optional int64 power = 2;</code>
+   * <code>optional .com.github.jtendermint.jabci.types.PubKey pub_key = 2;</code>
+   */
+  boolean hasPubKey();
+  /**
+   * <code>optional .com.github.jtendermint.jabci.types.PubKey pub_key = 2;</code>
+   */
+  PubKey getPubKey();
+  /**
+   * <code>optional .com.github.jtendermint.jabci.types.PubKey pub_key = 2;</code>
+   */
+  PubKeyOrBuilder getPubKeyOrBuilder();
+
+  /**
+   * <code>optional int64 power = 3;</code>
    */
   long getPower();
 }

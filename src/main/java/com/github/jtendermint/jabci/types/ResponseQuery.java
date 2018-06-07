@@ -105,14 +105,14 @@ public  final class ResponseQuery extends
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseQuery_descriptor;
+    return Types.internal_static_com_github_jtendermint_jabci_types_ResponseQuery_descriptor;
   }
 
   protected FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseQuery_fieldAccessorTable
+    return Types.internal_static_com_github_jtendermint_jabci_types_ResponseQuery_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            ResponseQuery.class, Builder.class);
+            ResponseQuery.class, ResponseQuery.Builder.class);
   }
 
   public static final int CODE_FIELD_NUMBER = 1;
@@ -138,7 +138,7 @@ public  final class ResponseQuery extends
     if (ref instanceof String) {
       return (String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       String s = bs.toStringUtf8();
       log_ = s;
@@ -156,7 +156,7 @@ public  final class ResponseQuery extends
       getLogBytes() {
     Object ref = log_;
     if (ref instanceof String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (String) ref);
       log_ = b;
@@ -180,7 +180,7 @@ public  final class ResponseQuery extends
     if (ref instanceof String) {
       return (String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       String s = bs.toStringUtf8();
       info_ = s;
@@ -198,7 +198,7 @@ public  final class ResponseQuery extends
       getInfoBytes() {
     Object ref = info_;
     if (ref instanceof String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (String) ref);
       info_ = b;
@@ -474,17 +474,17 @@ public  final class ResponseQuery extends
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
       // @@protoc_insertion_point(builder_implements:com.github.jtendermint.jabci.types.ResponseQuery)
-      com.github.jtendermint.jabci.types.ResponseQueryOrBuilder {
+      ResponseQueryOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseQuery_descriptor;
+      return Types.internal_static_com_github_jtendermint_jabci_types_ResponseQuery_descriptor;
     }
 
     protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseQuery_fieldAccessorTable
+      return Types.internal_static_com_github_jtendermint_jabci_types_ResponseQuery_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              ResponseQuery.class, Builder.class);
+              ResponseQuery.class, ResponseQuery.Builder.class);
     }
 
     // Construct using com.github.jtendermint.jabci.types.ResponseQuery.newBuilder()
@@ -525,7 +525,7 @@ public  final class ResponseQuery extends
 
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseQuery_descriptor;
+      return Types.internal_static_com_github_jtendermint_jabci_types_ResponseQuery_descriptor;
     }
 
     public ResponseQuery getDefaultInstanceForType() {
@@ -654,7 +654,7 @@ public  final class ResponseQuery extends
      * <code>optional uint32 code = 1;</code>
      */
     public Builder setCode(int value) {
-      
+
       code_ = value;
       onChanged();
       return this;
@@ -663,7 +663,7 @@ public  final class ResponseQuery extends
      * <code>optional uint32 code = 1;</code>
      */
     public Builder clearCode() {
-      
+
       code_ = 0;
       onChanged();
       return this;
@@ -700,7 +700,7 @@ public  final class ResponseQuery extends
         getLogBytes() {
       Object ref = log_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (String) ref);
         log_ = b;
@@ -721,7 +721,7 @@ public  final class ResponseQuery extends
       if (value == null) {
     throw new NullPointerException();
   }
-  
+
       log_ = value;
       onChanged();
       return this;
@@ -734,7 +734,7 @@ public  final class ResponseQuery extends
      * <code>optional string log = 3;</code>
      */
     public Builder clearLog() {
-      
+
       log_ = getDefaultInstance().getLog();
       onChanged();
       return this;
@@ -752,7 +752,7 @@ public  final class ResponseQuery extends
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-      
+
       log_ = value;
       onChanged();
       return this;
@@ -789,7 +789,7 @@ public  final class ResponseQuery extends
         getInfoBytes() {
       Object ref = info_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (String) ref);
         info_ = b;
@@ -810,7 +810,7 @@ public  final class ResponseQuery extends
       if (value == null) {
     throw new NullPointerException();
   }
-  
+
       info_ = value;
       onChanged();
       return this;
@@ -823,7 +823,7 @@ public  final class ResponseQuery extends
      * <code>optional string info = 4;</code>
      */
     public Builder clearInfo() {
-      
+
       info_ = getDefaultInstance().getInfo();
       onChanged();
       return this;
@@ -841,7 +841,7 @@ public  final class ResponseQuery extends
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-      
+
       info_ = value;
       onChanged();
       return this;
@@ -858,7 +858,7 @@ public  final class ResponseQuery extends
      * <code>optional int64 index = 5;</code>
      */
     public Builder setIndex(long value) {
-      
+
       index_ = value;
       onChanged();
       return this;
@@ -867,7 +867,7 @@ public  final class ResponseQuery extends
      * <code>optional int64 index = 5;</code>
      */
     public Builder clearIndex() {
-      
+
       index_ = 0L;
       onChanged();
       return this;
@@ -887,7 +887,7 @@ public  final class ResponseQuery extends
       if (value == null) {
     throw new NullPointerException();
   }
-  
+
       key_ = value;
       onChanged();
       return this;
@@ -896,7 +896,7 @@ public  final class ResponseQuery extends
      * <code>optional bytes key = 6;</code>
      */
     public Builder clearKey() {
-      
+
       key_ = getDefaultInstance().getKey();
       onChanged();
       return this;
@@ -916,7 +916,7 @@ public  final class ResponseQuery extends
       if (value == null) {
     throw new NullPointerException();
   }
-  
+
       value_ = value;
       onChanged();
       return this;
@@ -925,7 +925,7 @@ public  final class ResponseQuery extends
      * <code>optional bytes value = 7;</code>
      */
     public Builder clearValue() {
-      
+
       value_ = getDefaultInstance().getValue();
       onChanged();
       return this;
@@ -945,7 +945,7 @@ public  final class ResponseQuery extends
       if (value == null) {
     throw new NullPointerException();
   }
-  
+
       proof_ = value;
       onChanged();
       return this;
@@ -954,7 +954,7 @@ public  final class ResponseQuery extends
      * <code>optional bytes proof = 8;</code>
      */
     public Builder clearProof() {
-      
+
       proof_ = getDefaultInstance().getProof();
       onChanged();
       return this;
@@ -971,7 +971,7 @@ public  final class ResponseQuery extends
      * <code>optional int64 height = 9;</code>
      */
     public Builder setHeight(long value) {
-      
+
       height_ = value;
       onChanged();
       return this;
@@ -980,7 +980,7 @@ public  final class ResponseQuery extends
      * <code>optional int64 height = 9;</code>
      */
     public Builder clearHeight() {
-      
+
       height_ = 0L;
       onChanged();
       return this;

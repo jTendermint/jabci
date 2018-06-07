@@ -61,14 +61,14 @@ public  final class ResponseCommit extends
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseCommit_descriptor;
+    return Types.internal_static_com_github_jtendermint_jabci_types_ResponseCommit_descriptor;
   }
 
   protected FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseCommit_fieldAccessorTable
+    return Types.internal_static_com_github_jtendermint_jabci_types_ResponseCommit_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            ResponseCommit.class, Builder.class);
+            ResponseCommit.class, ResponseCommit.Builder.class);
   }
 
   public static final int DATA_FIELD_NUMBER = 2;
@@ -228,17 +228,17 @@ public  final class ResponseCommit extends
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
       // @@protoc_insertion_point(builder_implements:com.github.jtendermint.jabci.types.ResponseCommit)
-      com.github.jtendermint.jabci.types.ResponseCommitOrBuilder {
+      ResponseCommitOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseCommit_descriptor;
+      return Types.internal_static_com_github_jtendermint_jabci_types_ResponseCommit_descriptor;
     }
 
     protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseCommit_fieldAccessorTable
+      return Types.internal_static_com_github_jtendermint_jabci_types_ResponseCommit_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              ResponseCommit.class, Builder.class);
+              ResponseCommit.class, ResponseCommit.Builder.class);
     }
 
     // Construct using com.github.jtendermint.jabci.types.ResponseCommit.newBuilder()
@@ -265,7 +265,7 @@ public  final class ResponseCommit extends
 
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseCommit_descriptor;
+      return Types.internal_static_com_github_jtendermint_jabci_types_ResponseCommit_descriptor;
     }
 
     public ResponseCommit getDefaultInstanceForType() {
@@ -375,7 +375,7 @@ public  final class ResponseCommit extends
       if (value == null) {
     throw new NullPointerException();
   }
-  
+
       data_ = value;
       onChanged();
       return this;
@@ -388,7 +388,7 @@ public  final class ResponseCommit extends
      * <code>optional bytes data = 2;</code>
      */
     public Builder clearData() {
-      
+
       data_ = getDefaultInstance().getData();
       onChanged();
       return this;

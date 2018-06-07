@@ -54,14 +54,14 @@ public  final class RequestCommit extends
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_RequestCommit_descriptor;
+    return Types.internal_static_com_github_jtendermint_jabci_types_RequestCommit_descriptor;
   }
 
   protected FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_RequestCommit_fieldAccessorTable
+    return Types.internal_static_com_github_jtendermint_jabci_types_RequestCommit_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            RequestCommit.class, Builder.class);
+            RequestCommit.class, RequestCommit.Builder.class);
   }
 
   private byte memoizedIsInitialized = -1;
@@ -197,17 +197,17 @@ public  final class RequestCommit extends
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
       // @@protoc_insertion_point(builder_implements:com.github.jtendermint.jabci.types.RequestCommit)
-      com.github.jtendermint.jabci.types.RequestCommitOrBuilder {
+      RequestCommitOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_RequestCommit_descriptor;
+      return Types.internal_static_com_github_jtendermint_jabci_types_RequestCommit_descriptor;
     }
 
     protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_RequestCommit_fieldAccessorTable
+      return Types.internal_static_com_github_jtendermint_jabci_types_RequestCommit_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              RequestCommit.class, Builder.class);
+              RequestCommit.class, RequestCommit.Builder.class);
     }
 
     // Construct using com.github.jtendermint.jabci.types.RequestCommit.newBuilder()
@@ -232,7 +232,7 @@ public  final class RequestCommit extends
 
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_RequestCommit_descriptor;
+      return Types.internal_static_com_github_jtendermint_jabci_types_RequestCommit_descriptor;
     }
 
     public RequestCommit getDefaultInstanceForType() {

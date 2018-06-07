@@ -4,21 +4,22 @@
 package com.github.jtendermint.jabci.types;
 
 /**
- * Protobuf type {@code com.github.jtendermint.jabci.types.Evidence}
+ * <pre>
+ * Validator with an extra bool
+ * </pre>
+ *
+ * Protobuf type {@code com.github.jtendermint.jabci.types.SigningValidator}
  */
-public  final class Evidence extends
+public  final class SigningValidator extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:com.github.jtendermint.jabci.types.Evidence)
-    EvidenceOrBuilder {
-  // Use Evidence.newBuilder() to construct.
-  private Evidence(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // @@protoc_insertion_point(message_implements:com.github.jtendermint.jabci.types.SigningValidator)
+    SigningValidatorOrBuilder {
+  // Use SigningValidator.newBuilder() to construct.
+  private SigningValidator(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private Evidence() {
-    type_ = "";
-    height_ = 0L;
-    time_ = 0L;
-    totalVotingPower_ = 0L;
+  private SigningValidator() {
+    signedLastBlock_ = false;
   }
 
   @Override
@@ -26,7 +27,7 @@ public  final class Evidence extends
   getUnknownFields() {
     return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
   }
-  private Evidence(
+  private SigningValidator(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -47,12 +48,6 @@ public  final class Evidence extends
             break;
           }
           case 10: {
-            String s = input.readStringRequireUtf8();
-
-            type_ = s;
-            break;
-          }
-          case 18: {
             Validator.Builder subBuilder = null;
             if (validator_ != null) {
               subBuilder = validator_.toBuilder();
@@ -65,19 +60,9 @@ public  final class Evidence extends
 
             break;
           }
-          case 24: {
+          case 16: {
 
-            height_ = input.readInt64();
-            break;
-          }
-          case 32: {
-
-            time_ = input.readInt64();
-            break;
-          }
-          case 40: {
-
-            totalVotingPower_ = input.readInt64();
+            signedLastBlock_ = input.readBool();
             break;
           }
         }
@@ -93,96 +78,44 @@ public  final class Evidence extends
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return Types.internal_static_com_github_jtendermint_jabci_types_Evidence_descriptor;
+    return Types.internal_static_com_github_jtendermint_jabci_types_SigningValidator_descriptor;
   }
 
   protected FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return Types.internal_static_com_github_jtendermint_jabci_types_Evidence_fieldAccessorTable
+    return Types.internal_static_com_github_jtendermint_jabci_types_SigningValidator_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            Evidence.class, Evidence.Builder.class);
+            SigningValidator.class, SigningValidator.Builder.class);
   }
 
-  public static final int TYPE_FIELD_NUMBER = 1;
-  private volatile Object type_;
-  /**
-   * <code>optional string type = 1;</code>
-   */
-  public String getType() {
-    Object ref = type_;
-    if (ref instanceof String) {
-      return (String) ref;
-    } else {
-      com.google.protobuf.ByteString bs =
-          (com.google.protobuf.ByteString) ref;
-      String s = bs.toStringUtf8();
-      type_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>optional string type = 1;</code>
-   */
-  public com.google.protobuf.ByteString
-      getTypeBytes() {
-    Object ref = type_;
-    if (ref instanceof String) {
-      com.google.protobuf.ByteString b =
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (String) ref);
-      type_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int VALIDATOR_FIELD_NUMBER = 2;
+  public static final int VALIDATOR_FIELD_NUMBER = 1;
   private Validator validator_;
   /**
-   * <code>optional .com.github.jtendermint.jabci.types.Validator validator = 2;</code>
+   * <code>optional .com.github.jtendermint.jabci.types.Validator validator = 1;</code>
    */
   public boolean hasValidator() {
     return validator_ != null;
   }
   /**
-   * <code>optional .com.github.jtendermint.jabci.types.Validator validator = 2;</code>
+   * <code>optional .com.github.jtendermint.jabci.types.Validator validator = 1;</code>
    */
   public Validator getValidator() {
     return validator_ == null ? Validator.getDefaultInstance() : validator_;
   }
   /**
-   * <code>optional .com.github.jtendermint.jabci.types.Validator validator = 2;</code>
+   * <code>optional .com.github.jtendermint.jabci.types.Validator validator = 1;</code>
    */
   public ValidatorOrBuilder getValidatorOrBuilder() {
     return getValidator();
   }
 
-  public static final int HEIGHT_FIELD_NUMBER = 3;
-  private long height_;
+  public static final int SIGNED_LAST_BLOCK_FIELD_NUMBER = 2;
+  private boolean signedLastBlock_;
   /**
-   * <code>optional int64 height = 3;</code>
+   * <code>optional bool signed_last_block = 2;</code>
    */
-  public long getHeight() {
-    return height_;
-  }
-
-  public static final int TIME_FIELD_NUMBER = 4;
-  private long time_;
-  /**
-   * <code>optional int64 time = 4;</code>
-   */
-  public long getTime() {
-    return time_;
-  }
-
-  public static final int TOTAL_VOTING_POWER_FIELD_NUMBER = 5;
-  private long totalVotingPower_;
-  /**
-   * <code>optional int64 total_voting_power = 5;</code>
-   */
-  public long getTotalVotingPower() {
-    return totalVotingPower_;
+  public boolean getSignedLastBlock() {
+    return signedLastBlock_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -197,20 +130,11 @@ public  final class Evidence extends
 
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getTypeBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, type_);
-    }
     if (validator_ != null) {
-      output.writeMessage(2, getValidator());
+      output.writeMessage(1, getValidator());
     }
-    if (height_ != 0L) {
-      output.writeInt64(3, height_);
-    }
-    if (time_ != 0L) {
-      output.writeInt64(4, time_);
-    }
-    if (totalVotingPower_ != 0L) {
-      output.writeInt64(5, totalVotingPower_);
+    if (signedLastBlock_ != false) {
+      output.writeBool(2, signedLastBlock_);
     }
   }
 
@@ -219,24 +143,13 @@ public  final class Evidence extends
     if (size != -1) return size;
 
     size = 0;
-    if (!getTypeBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, type_);
-    }
     if (validator_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(2, getValidator());
+        .computeMessageSize(1, getValidator());
     }
-    if (height_ != 0L) {
+    if (signedLastBlock_ != false) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(3, height_);
-    }
-    if (time_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(4, time_);
-    }
-    if (totalVotingPower_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(5, totalVotingPower_);
+        .computeBoolSize(2, signedLastBlock_);
     }
     memoizedSize = size;
     return size;
@@ -248,25 +161,19 @@ public  final class Evidence extends
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof Evidence)) {
+    if (!(obj instanceof SigningValidator)) {
       return super.equals(obj);
     }
-    Evidence other = (Evidence) obj;
+    SigningValidator other = (SigningValidator) obj;
 
     boolean result = true;
-    result = result && getType()
-        .equals(other.getType());
     result = result && (hasValidator() == other.hasValidator());
     if (hasValidator()) {
       result = result && getValidator()
           .equals(other.getValidator());
     }
-    result = result && (getHeight()
-        == other.getHeight());
-    result = result && (getTime()
-        == other.getTime());
-    result = result && (getTotalVotingPower()
-        == other.getTotalVotingPower());
+    result = result && (getSignedLastBlock()
+        == other.getSignedLastBlock());
     return result;
   }
 
@@ -277,78 +184,70 @@ public  final class Evidence extends
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptorForType().hashCode();
-    hash = (37 * hash) + TYPE_FIELD_NUMBER;
-    hash = (53 * hash) + getType().hashCode();
     if (hasValidator()) {
       hash = (37 * hash) + VALIDATOR_FIELD_NUMBER;
       hash = (53 * hash) + getValidator().hashCode();
     }
-    hash = (37 * hash) + HEIGHT_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getHeight());
-    hash = (37 * hash) + TIME_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getTime());
-    hash = (37 * hash) + TOTAL_VOTING_POWER_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getTotalVotingPower());
+    hash = (37 * hash) + SIGNED_LAST_BLOCK_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getSignedLastBlock());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static Evidence parseFrom(
+  public static SigningValidator parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static Evidence parseFrom(
+  public static SigningValidator parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static Evidence parseFrom(byte[] data)
+  public static SigningValidator parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static Evidence parseFrom(
+  public static SigningValidator parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static Evidence parseFrom(java.io.InputStream input)
+  public static SigningValidator parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static Evidence parseFrom(
+  public static SigningValidator parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static Evidence parseDelimitedFrom(java.io.InputStream input)
+  public static SigningValidator parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static Evidence parseDelimitedFrom(
+  public static SigningValidator parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static Evidence parseFrom(
+  public static SigningValidator parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static Evidence parseFrom(
+  public static SigningValidator parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -360,7 +259,7 @@ public  final class Evidence extends
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(Evidence prototype) {
+  public static Builder newBuilder(SigningValidator prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   public Builder toBuilder() {
@@ -375,25 +274,29 @@ public  final class Evidence extends
     return builder;
   }
   /**
-   * Protobuf type {@code com.github.jtendermint.jabci.types.Evidence}
+   * <pre>
+   * Validator with an extra bool
+   * </pre>
+   *
+   * Protobuf type {@code com.github.jtendermint.jabci.types.SigningValidator}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:com.github.jtendermint.jabci.types.Evidence)
-      EvidenceOrBuilder {
+      // @@protoc_insertion_point(builder_implements:com.github.jtendermint.jabci.types.SigningValidator)
+      SigningValidatorOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return Types.internal_static_com_github_jtendermint_jabci_types_Evidence_descriptor;
+      return Types.internal_static_com_github_jtendermint_jabci_types_SigningValidator_descriptor;
     }
 
     protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return Types.internal_static_com_github_jtendermint_jabci_types_Evidence_fieldAccessorTable
+      return Types.internal_static_com_github_jtendermint_jabci_types_SigningValidator_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              Evidence.class, Evidence.Builder.class);
+              SigningValidator.class, SigningValidator.Builder.class);
     }
 
-    // Construct using com.github.jtendermint.jabci.types.Evidence.newBuilder()
+    // Construct using com.github.jtendermint.jabci.types.SigningValidator.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -410,51 +313,42 @@ public  final class Evidence extends
     }
     public Builder clear() {
       super.clear();
-      type_ = "";
-
       if (validatorBuilder_ == null) {
         validator_ = null;
       } else {
         validator_ = null;
         validatorBuilder_ = null;
       }
-      height_ = 0L;
-
-      time_ = 0L;
-
-      totalVotingPower_ = 0L;
+      signedLastBlock_ = false;
 
       return this;
     }
 
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return Types.internal_static_com_github_jtendermint_jabci_types_Evidence_descriptor;
+      return Types.internal_static_com_github_jtendermint_jabci_types_SigningValidator_descriptor;
     }
 
-    public Evidence getDefaultInstanceForType() {
-      return Evidence.getDefaultInstance();
+    public SigningValidator getDefaultInstanceForType() {
+      return SigningValidator.getDefaultInstance();
     }
 
-    public Evidence build() {
-      Evidence result = buildPartial();
+    public SigningValidator build() {
+      SigningValidator result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
       return result;
     }
 
-    public Evidence buildPartial() {
-      Evidence result = new Evidence(this);
-      result.type_ = type_;
+    public SigningValidator buildPartial() {
+      SigningValidator result = new SigningValidator(this);
       if (validatorBuilder_ == null) {
         result.validator_ = validator_;
       } else {
         result.validator_ = validatorBuilder_.build();
       }
-      result.height_ = height_;
-      result.time_ = time_;
-      result.totalVotingPower_ = totalVotingPower_;
+      result.signedLastBlock_ = signedLastBlock_;
       onBuilt();
       return result;
     }
@@ -486,31 +380,21 @@ public  final class Evidence extends
       return (Builder) super.addRepeatedField(field, value);
     }
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof Evidence) {
-        return mergeFrom((Evidence)other);
+      if (other instanceof SigningValidator) {
+        return mergeFrom((SigningValidator)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(Evidence other) {
-      if (other == Evidence.getDefaultInstance()) return this;
-      if (!other.getType().isEmpty()) {
-        type_ = other.type_;
-        onChanged();
-      }
+    public Builder mergeFrom(SigningValidator other) {
+      if (other == SigningValidator.getDefaultInstance()) return this;
       if (other.hasValidator()) {
         mergeValidator(other.getValidator());
       }
-      if (other.getHeight() != 0L) {
-        setHeight(other.getHeight());
-      }
-      if (other.getTime() != 0L) {
-        setTime(other.getTime());
-      }
-      if (other.getTotalVotingPower() != 0L) {
-        setTotalVotingPower(other.getTotalVotingPower());
+      if (other.getSignedLastBlock() != false) {
+        setSignedLastBlock(other.getSignedLastBlock());
       }
       onChanged();
       return this;
@@ -524,11 +408,11 @@ public  final class Evidence extends
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      Evidence parsedMessage = null;
+      SigningValidator parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (Evidence) e.getUnfinishedMessage();
+        parsedMessage = (SigningValidator) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -538,86 +422,17 @@ public  final class Evidence extends
       return this;
     }
 
-    private Object type_ = "";
-    /**
-     * <code>optional string type = 1;</code>
-     */
-    public String getType() {
-      Object ref = type_;
-      if (!(ref instanceof String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        type_ = s;
-        return s;
-      } else {
-        return (String) ref;
-      }
-    }
-    /**
-     * <code>optional string type = 1;</code>
-     */
-    public com.google.protobuf.ByteString
-        getTypeBytes() {
-      Object ref = type_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
-        type_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>optional string type = 1;</code>
-     */
-    public Builder setType(
-        String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-
-      type_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>optional string type = 1;</code>
-     */
-    public Builder clearType() {
-
-      type_ = getDefaultInstance().getType();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>optional string type = 1;</code>
-     */
-    public Builder setTypeBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-
-      type_ = value;
-      onChanged();
-      return this;
-    }
-
     private Validator validator_ = null;
     private com.google.protobuf.SingleFieldBuilderV3<
         Validator, Validator.Builder, ValidatorOrBuilder> validatorBuilder_;
     /**
-     * <code>optional .com.github.jtendermint.jabci.types.Validator validator = 2;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.Validator validator = 1;</code>
      */
     public boolean hasValidator() {
       return validatorBuilder_ != null || validator_ != null;
     }
     /**
-     * <code>optional .com.github.jtendermint.jabci.types.Validator validator = 2;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.Validator validator = 1;</code>
      */
     public Validator getValidator() {
       if (validatorBuilder_ == null) {
@@ -627,7 +442,7 @@ public  final class Evidence extends
       }
     }
     /**
-     * <code>optional .com.github.jtendermint.jabci.types.Validator validator = 2;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.Validator validator = 1;</code>
      */
     public Builder setValidator(Validator value) {
       if (validatorBuilder_ == null) {
@@ -643,7 +458,7 @@ public  final class Evidence extends
       return this;
     }
     /**
-     * <code>optional .com.github.jtendermint.jabci.types.Validator validator = 2;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.Validator validator = 1;</code>
      */
     public Builder setValidator(
         Validator.Builder builderForValue) {
@@ -657,7 +472,7 @@ public  final class Evidence extends
       return this;
     }
     /**
-     * <code>optional .com.github.jtendermint.jabci.types.Validator validator = 2;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.Validator validator = 1;</code>
      */
     public Builder mergeValidator(Validator value) {
       if (validatorBuilder_ == null) {
@@ -675,7 +490,7 @@ public  final class Evidence extends
       return this;
     }
     /**
-     * <code>optional .com.github.jtendermint.jabci.types.Validator validator = 2;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.Validator validator = 1;</code>
      */
     public Builder clearValidator() {
       if (validatorBuilder_ == null) {
@@ -689,7 +504,7 @@ public  final class Evidence extends
       return this;
     }
     /**
-     * <code>optional .com.github.jtendermint.jabci.types.Validator validator = 2;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.Validator validator = 1;</code>
      */
     public Validator.Builder getValidatorBuilder() {
 
@@ -697,7 +512,7 @@ public  final class Evidence extends
       return getValidatorFieldBuilder().getBuilder();
     }
     /**
-     * <code>optional .com.github.jtendermint.jabci.types.Validator validator = 2;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.Validator validator = 1;</code>
      */
     public ValidatorOrBuilder getValidatorOrBuilder() {
       if (validatorBuilder_ != null) {
@@ -708,7 +523,7 @@ public  final class Evidence extends
       }
     }
     /**
-     * <code>optional .com.github.jtendermint.jabci.types.Validator validator = 2;</code>
+     * <code>optional .com.github.jtendermint.jabci.types.Validator validator = 1;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         Validator, Validator.Builder, ValidatorOrBuilder>
@@ -724,80 +539,28 @@ public  final class Evidence extends
       return validatorBuilder_;
     }
 
-    private long height_ ;
+    private boolean signedLastBlock_ ;
     /**
-     * <code>optional int64 height = 3;</code>
+     * <code>optional bool signed_last_block = 2;</code>
      */
-    public long getHeight() {
-      return height_;
+    public boolean getSignedLastBlock() {
+      return signedLastBlock_;
     }
     /**
-     * <code>optional int64 height = 3;</code>
+     * <code>optional bool signed_last_block = 2;</code>
      */
-    public Builder setHeight(long value) {
+    public Builder setSignedLastBlock(boolean value) {
 
-      height_ = value;
+      signedLastBlock_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>optional int64 height = 3;</code>
+     * <code>optional bool signed_last_block = 2;</code>
      */
-    public Builder clearHeight() {
+    public Builder clearSignedLastBlock() {
 
-      height_ = 0L;
-      onChanged();
-      return this;
-    }
-
-    private long time_ ;
-    /**
-     * <code>optional int64 time = 4;</code>
-     */
-    public long getTime() {
-      return time_;
-    }
-    /**
-     * <code>optional int64 time = 4;</code>
-     */
-    public Builder setTime(long value) {
-
-      time_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>optional int64 time = 4;</code>
-     */
-    public Builder clearTime() {
-
-      time_ = 0L;
-      onChanged();
-      return this;
-    }
-
-    private long totalVotingPower_ ;
-    /**
-     * <code>optional int64 total_voting_power = 5;</code>
-     */
-    public long getTotalVotingPower() {
-      return totalVotingPower_;
-    }
-    /**
-     * <code>optional int64 total_voting_power = 5;</code>
-     */
-    public Builder setTotalVotingPower(long value) {
-
-      totalVotingPower_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>optional int64 total_voting_power = 5;</code>
-     */
-    public Builder clearTotalVotingPower() {
-
-      totalVotingPower_ = 0L;
+      signedLastBlock_ = false;
       onChanged();
       return this;
     }
@@ -812,39 +575,39 @@ public  final class Evidence extends
     }
 
 
-    // @@protoc_insertion_point(builder_scope:com.github.jtendermint.jabci.types.Evidence)
+    // @@protoc_insertion_point(builder_scope:com.github.jtendermint.jabci.types.SigningValidator)
   }
 
-  // @@protoc_insertion_point(class_scope:com.github.jtendermint.jabci.types.Evidence)
-  private static final Evidence DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:com.github.jtendermint.jabci.types.SigningValidator)
+  private static final SigningValidator DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new Evidence();
+    DEFAULT_INSTANCE = new SigningValidator();
   }
 
-  public static Evidence getDefaultInstance() {
+  public static SigningValidator getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<Evidence>
-      PARSER = new com.google.protobuf.AbstractParser<Evidence>() {
-    public Evidence parsePartialFrom(
+  private static final com.google.protobuf.Parser<SigningValidator>
+      PARSER = new com.google.protobuf.AbstractParser<SigningValidator>() {
+    public SigningValidator parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Evidence(input, extensionRegistry);
+        return new SigningValidator(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<Evidence> parser() {
+  public static com.google.protobuf.Parser<SigningValidator> parser() {
     return PARSER;
   }
 
   @Override
-  public com.google.protobuf.Parser<Evidence> getParserForType() {
+  public com.google.protobuf.Parser<SigningValidator> getParserForType() {
     return PARSER;
   }
 
-  public Evidence getDefaultInstanceForType() {
+  public SigningValidator getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 
