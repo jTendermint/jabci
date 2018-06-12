@@ -28,11 +28,14 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.SocketTimeoutException;
 import java.util.HashSet;
+import java.util.Objects;
+import java.util.Optional;
 
 import com.google.protobuf.CodedOutputStream;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.github.jtendermint.jabci.socket.ExceptionListener.Event;
 import com.github.jtendermint.jabci.types.Request;
 import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.GeneratedMessageV3;
@@ -48,14 +51,41 @@ public class TSocket extends ASocket {
     public static final String INFO_SOCKET = "-Info";
     public static final String MEMPOOL_SOCKET = "-MemPool";
     public static final String CONSENSUS_SOCKET = "-Consensus";
-    private static final int DEFAULT_LISTEN_SOCKET_TIMEOUT = 1000;
+    public static final int DEFAULT_LISTEN_SOCKET_TIMEOUT = 1000;
+    
     private static final Logger TSOCKET_LOG = LoggerFactory.getLogger(TSocket.class);
     private static final Logger HANDLER_LOG = LoggerFactory.getLogger(SocketHandler.class);
+    
     private final HashSet<SocketHandler> runningThreads = new HashSet<>();
-
     private long lastConnectedSocketTime = -1;
-
     private boolean continueRunning = true;
+    private ExceptionListener exceptionListener;
+    private ConnectionListener connectionListener;
+    private DisconnectListener disconnectListener;
+    
+    public TSocket() {
+        this((exception, cause) -> {
+        }, (name, count) -> {
+        }, (name, count) -> {
+        });
+    }
+
+    /**
+     * Creates this TSocket with the ability to register for exceptions that occur
+     * and listen to new socket connections
+     * 
+     * @param exceptionListener
+     *            listens to exceptions
+     * @param connectionListener
+     *            listens to new connections
+     * @param disconnectListener
+     *            listens to disconnects
+     */
+    public TSocket(ExceptionListener exceptionListener, ConnectionListener connectionListener, DisconnectListener disconnectListener) {
+        this.connectionListener = Objects.requireNonNull(connectionListener, "requires a connectionListener");
+        this.exceptionListener = Objects.requireNonNull(exceptionListener, "requires an exceptionListener");
+        this.disconnectListener = Objects.requireNonNull(disconnectListener, "requires a disconnectListener");
+    }
 
     /**
      * Start listening on the default ABCI port 46658
@@ -95,12 +125,15 @@ public class TSocket extends ASocket {
                     t.start();
                     runningThreads.add(t);
                     TSOCKET_LOG.debug("Started thread for sockethandling...");
+                    connectionListener.connected(Optional.ofNullable(socketName), runningThreads.size());
                 } catch (SocketTimeoutException ste) {
                     // this is triggered by accept()
+                    exceptionListener.notifyExceptionOccured(ste, Event.Socket_accept);
                 }
             }
             TSOCKET_LOG.debug("TSocket Stopped Running");
         } catch (IOException e) {
+            exceptionListener.notifyExceptionOccured(e, Event.ServerSocket);
             TSOCKET_LOG.error("Exception caught when trying to listen on port " + portNumber + " or listening for a connection", e);
         }
         TSOCKET_LOG.debug("Exited main-run-while loop");
@@ -127,6 +160,7 @@ public class TSocket extends ASocket {
             // wait two seconds to finalize last messages on streams
             Thread.sleep(2000);
         } catch (InterruptedException e) {
+            exceptionListener.notifyExceptionOccured(e, Event.Thread_sleep);
         }
 
         // close socket connections
@@ -195,6 +229,7 @@ public class TSocket extends ASocket {
                     socket.close();
                 }
             } catch (Exception e) {
+                exceptionListener.notifyExceptionOccured(e, Event.SocketHandler_closeConnections);
             }
             runningThreads.remove(this);
         }
@@ -231,6 +266,7 @@ public class TSocket extends ASocket {
                     writeMessage(response);
                 }
             } catch (IOException e) {
+                exceptionListener.notifyExceptionOccured(e, Event.SocketHandler_run);
                 if (!isInterrupted()) {
                     HANDLER_LOG.error("Error with " + this.getName(), e);
                     HANDLER_LOG.info("Note: If \"the input ended unexpectedly\" it could mean: \n - tendermint was shut down\n - the protobuf file is not up to date.");
@@ -239,6 +275,7 @@ public class TSocket extends ASocket {
             HANDLER_LOG.debug("Stopping Thread " + this.getName());
             Thread.currentThread().interrupt();
             runningThreads.remove(this);
+            disconnectListener.disconnected(Optional.ofNullable(this.getName()), runningThreads.size());
         }
 
         private void determineSocketNameAndUpdate(Request.ValueCase valuecase) {

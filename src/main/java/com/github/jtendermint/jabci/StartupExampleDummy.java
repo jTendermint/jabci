@@ -38,7 +38,18 @@ public class StartupExampleDummy {
     public void startExampleDummy() throws InterruptedException {
         LOG.info("Starting Example Dummy");
 
-        final TSocket sock = new TSocket();
+        final TSocket sock = new TSocket((e, component) -> {
+            switch (component) {
+            case Socket_accept:
+                break;
+            default:
+                System.err.println(component + " " + e.getMessage());
+            }
+        }, (name, count) -> {
+            System.out.println("Connect#Socket:" + name.orElse("NONAME") + " count:" + count);
+        }, (name, count) -> {
+            System.out.println("Disconnect#Socket:" + name.orElse("NONAME") + " count:" + count);
+        });
 
         //// register ABCI-API listeners here:
         //// listeners can be ACBIAPI for accepting all messages or
