@@ -23,6 +23,10 @@
  */
 package com.github.jtendermint.jabci;
 
+import java.lang.ref.Reference;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicReference;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -38,6 +42,8 @@ public class StartupExampleDummy {
     public void startExampleDummy() throws InterruptedException {
         LOG.info("Starting Example Dummy");
 
+        AtomicBoolean killedRef = new AtomicBoolean(false);
+
         final TSocket sock = new TSocket((e, component) -> {
             switch (component) {
             case Socket_accept:
@@ -49,6 +55,10 @@ public class StartupExampleDummy {
             System.out.println("Connect#Socket:" + name.orElse("NONAME") + " count:" + count);
         }, (name, count) -> {
             System.out.println("Disconnect#Socket:" + name.orElse("NONAME") + " count:" + count);
+
+            if (count == 0) {
+                killedRef.set(true);
+            }
         });
 
         //// register ABCI-API listeners here:
@@ -60,16 +70,14 @@ public class StartupExampleDummy {
         mainThread.setDaemon(true);
         mainThread.start();
 
-        boolean killed = false;
-
         int i = 0;
-        while (!killed) {
+        while (!killedRef.get()) {
             Thread.sleep(1000L);
             i++;
 
             if (i > 200) {
                 sock.stop();
-                killed = true;
+                killedRef.set(true);
             }
         }
 

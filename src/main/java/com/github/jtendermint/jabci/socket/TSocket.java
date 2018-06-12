@@ -27,9 +27,12 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.SocketTimeoutException;
-import java.util.HashSet;
+import java.util.Collections;
+import java.util.ConcurrentModificationException;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 
 import com.google.protobuf.CodedOutputStream;
 import org.slf4j.Logger;
@@ -56,7 +59,7 @@ public class TSocket extends ASocket {
     private static final Logger TSOCKET_LOG = LoggerFactory.getLogger(TSocket.class);
     private static final Logger HANDLER_LOG = LoggerFactory.getLogger(SocketHandler.class);
     
-    private final HashSet<SocketHandler> runningThreads = new HashSet<>();
+    private final Set<SocketHandler> runningThreads = Collections.newSetFromMap(new ConcurrentHashMap<SocketHandler, Boolean>());
     private long lastConnectedSocketTime = -1;
     private boolean continueRunning = true;
     private ExceptionListener exceptionListener;
