@@ -23,9 +23,7 @@
  */
 package com.github.jtendermint.jabci;
 
-import java.lang.ref.Reference;
 import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.concurrent.atomic.AtomicReference;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
