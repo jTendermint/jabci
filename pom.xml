@@ -5,7 +5,7 @@
 
     <groupId>com.github.jtendermint</groupId>
     <artifactId>jabci</artifactId>
-    <version>0.20.1</version>
+    <version>0.20.0.1</version>
 
     <name>com.github.jtendermint:jabci</name>
     <description>Java implementation for ABCI consensus protocol from tendermint.com and related tools</description>
