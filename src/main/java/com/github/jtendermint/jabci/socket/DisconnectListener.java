@@ -15,9 +15,9 @@ public interface DisconnectListener {
      * 
      * @param socketName
      *            the name of the Socket, if known
-     * @param count
+     * @param remaining
      *            the remaining amount of connected sockets
      */
-    public void disconnected(Optional<String> socketName, int count);
+    public void disconnected(Optional<String> socketName, int remaining);
 
 }

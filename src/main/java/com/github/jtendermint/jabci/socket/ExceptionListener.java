@@ -1,5 +1,7 @@
 package com.github.jtendermint.jabci.socket;
 
+import java.util.Optional;
+
 /**
  * Simple Listener interface for TSocket failures that could occur
  * 
@@ -10,13 +12,12 @@ public interface ExceptionListener {
 
     /**
      * called when am exception occured somewhere in the TSocket
-     * 
-     * @param exception
-     *            the original exception
      * @param event
      *            the Event that was happening in the TSocket
+     * @param exception
+     *            the original exception
      */
-    public void notifyExceptionOccured(Exception exception, Event event);
+    public void notifyExceptionOccured(Optional<String> socketName, Event event, Exception exception);
 
     public enum Event {
 
@@ -25,6 +26,8 @@ public interface ExceptionListener {
 
         SocketHandler_closeConnections, //
         SocketHandler_run, //
+        SocketHandler_readFromStream, //
+        SocketHandler_handleRequest, //
 
         Thread_sleep
     }
