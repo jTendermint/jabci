@@ -116,9 +116,6 @@ public final class JavaCounter implements IDeliverTx, ICheckTx, ICommit, IQuery 
     public ResponseCheckTx requestCheckTx(RequestCheckTx req) {
         System.out.println("got check tx");
         
-        if (req != null)
-            throw new RuntimeException("FUUFUFUUFUFUCK");
-
         ByteString tx = req.getTx();
         if (tx.size() <= 4) {
             // hopefully parsable integer
