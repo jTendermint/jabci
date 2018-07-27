@@ -115,7 +115,7 @@ public final class JavaCounter implements IDeliverTx, ICheckTx, ICommit, IQuery 
     @Override
     public ResponseCheckTx requestCheckTx(RequestCheckTx req) {
         System.out.println("got check tx");
-        
+
         ByteString tx = req.getTx();
         if (tx.size() <= 4) {
             // hopefully parsable integer
