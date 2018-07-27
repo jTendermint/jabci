@@ -209,7 +209,7 @@ public class TSocket extends ASocket {
         }
 
         public void updateName(String name) {
-            this.setName("SocketThread " + name);
+            this.setName("SocketThread" + name);
         }
 
         @Override
