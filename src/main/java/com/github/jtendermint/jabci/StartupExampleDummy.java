@@ -42,12 +42,12 @@ public class StartupExampleDummy {
 
         AtomicBoolean killedRef = new AtomicBoolean(false);
 
-        final TSocket sock = new TSocket((e, component) -> {
-            switch (component) {
+        final TSocket sock = new TSocket((socket, event, exception) -> {
+            switch (event) {
             case Socket_accept:
                 break;
             default:
-                System.err.println(component + " " + e.getMessage());
+                System.err.println(socket.orElse("null") + " " + exception.getMessage());
             }
         }, (name, count) -> {
             System.out.println("Connect#Socket:" + name.orElse("NONAME") + " count:" + count);

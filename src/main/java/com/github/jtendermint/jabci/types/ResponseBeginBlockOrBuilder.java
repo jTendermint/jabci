@@ -10,12 +10,12 @@ public interface ResponseBeginBlockOrBuilder extends
   /**
    * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 1;</code>
    */
-  java.util.List<KVPair>
+  java.util.List<com.github.jtendermint.jabci.types.KVPair> 
       getTagsList();
   /**
    * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 1;</code>
    */
-  KVPair getTags(int index);
+  com.github.jtendermint.jabci.types.KVPair getTags(int index);
   /**
    * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 1;</code>
    */
@@ -23,11 +23,11 @@ public interface ResponseBeginBlockOrBuilder extends
   /**
    * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 1;</code>
    */
-  java.util.List<? extends KVPairOrBuilder>
+  java.util.List<? extends com.github.jtendermint.jabci.types.KVPairOrBuilder> 
       getTagsOrBuilderList();
   /**
    * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 1;</code>
    */
-  KVPairOrBuilder getTagsOrBuilder(
-          int index);
+  com.github.jtendermint.jabci.types.KVPairOrBuilder getTagsOrBuilder(
+      int index);
 }

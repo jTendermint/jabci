@@ -8,7 +8,7 @@ public interface ResponseQueryOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>optional uint32 code = 1;</code>
+   * <code>uint32 code = 1;</code>
    */
   int getCode();
 
@@ -17,15 +17,15 @@ public interface ResponseQueryOrBuilder extends
    * bytes data = 2; // use "value" instead.
    * </pre>
    *
-   * <code>optional string log = 3;</code>
+   * <code>string log = 3;</code>
    */
-  String getLog();
+  java.lang.String getLog();
   /**
    * <pre>
    * bytes data = 2; // use "value" instead.
    * </pre>
    *
-   * <code>optional string log = 3;</code>
+   * <code>string log = 3;</code>
    */
   com.google.protobuf.ByteString
       getLogBytes();
@@ -35,41 +35,41 @@ public interface ResponseQueryOrBuilder extends
    * nondeterministic
    * </pre>
    *
-   * <code>optional string info = 4;</code>
+   * <code>string info = 4;</code>
    */
-  String getInfo();
+  java.lang.String getInfo();
   /**
    * <pre>
    * nondeterministic
    * </pre>
    *
-   * <code>optional string info = 4;</code>
+   * <code>string info = 4;</code>
    */
   com.google.protobuf.ByteString
       getInfoBytes();
 
   /**
-   * <code>optional int64 index = 5;</code>
+   * <code>int64 index = 5;</code>
    */
   long getIndex();
 
   /**
-   * <code>optional bytes key = 6;</code>
+   * <code>bytes key = 6;</code>
    */
   com.google.protobuf.ByteString getKey();
 
   /**
-   * <code>optional bytes value = 7;</code>
+   * <code>bytes value = 7;</code>
    */
   com.google.protobuf.ByteString getValue();
 
   /**
-   * <code>optional bytes proof = 8;</code>
+   * <code>bytes proof = 8;</code>
    */
   com.google.protobuf.ByteString getProof();
 
   /**
-   * <code>optional int64 height = 9;</code>
+   * <code>int64 height = 9;</code>
    */
   long getHeight();
 }

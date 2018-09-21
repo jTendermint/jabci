@@ -12,7 +12,7 @@ public interface ResponseCommitOrBuilder extends
    * reserve 1
    * </pre>
    *
-   * <code>optional bytes data = 2;</code>
+   * <code>bytes data = 2;</code>
    */
   com.google.protobuf.ByteString getData();
 }

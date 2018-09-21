@@ -8,56 +8,45 @@ public interface RequestBeginBlockOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>optional bytes hash = 1;</code>
+   * <code>bytes hash = 1;</code>
    */
   com.google.protobuf.ByteString getHash();
 
   /**
-   * <code>optional .com.github.jtendermint.jabci.types.Header header = 2;</code>
+   * <code>.com.github.jtendermint.jabci.types.Header header = 2;</code>
    */
   boolean hasHeader();
   /**
-   * <code>optional .com.github.jtendermint.jabci.types.Header header = 2;</code>
+   * <code>.com.github.jtendermint.jabci.types.Header header = 2;</code>
    */
-  Header getHeader();
+  com.github.jtendermint.jabci.types.Header getHeader();
   /**
-   * <code>optional .com.github.jtendermint.jabci.types.Header header = 2;</code>
+   * <code>.com.github.jtendermint.jabci.types.Header header = 2;</code>
    */
-  HeaderOrBuilder getHeaderOrBuilder();
+  com.github.jtendermint.jabci.types.HeaderOrBuilder getHeaderOrBuilder();
 
   /**
-   * <code>repeated .com.github.jtendermint.jabci.types.SigningValidator validators = 3;</code>
+   * <code>.com.github.jtendermint.jabci.types.LastCommitInfo last_commit_info = 3;</code>
    */
-  java.util.List<SigningValidator>
-      getValidatorsList();
+  boolean hasLastCommitInfo();
   /**
-   * <code>repeated .com.github.jtendermint.jabci.types.SigningValidator validators = 3;</code>
+   * <code>.com.github.jtendermint.jabci.types.LastCommitInfo last_commit_info = 3;</code>
    */
-  SigningValidator getValidators(int index);
+  com.github.jtendermint.jabci.types.LastCommitInfo getLastCommitInfo();
   /**
-   * <code>repeated .com.github.jtendermint.jabci.types.SigningValidator validators = 3;</code>
+   * <code>.com.github.jtendermint.jabci.types.LastCommitInfo last_commit_info = 3;</code>
    */
-  int getValidatorsCount();
-  /**
-   * <code>repeated .com.github.jtendermint.jabci.types.SigningValidator validators = 3;</code>
-   */
-  java.util.List<? extends SigningValidatorOrBuilder>
-      getValidatorsOrBuilderList();
-  /**
-   * <code>repeated .com.github.jtendermint.jabci.types.SigningValidator validators = 3;</code>
-   */
-  SigningValidatorOrBuilder getValidatorsOrBuilder(
-          int index);
+  com.github.jtendermint.jabci.types.LastCommitInfoOrBuilder getLastCommitInfoOrBuilder();
 
   /**
    * <code>repeated .com.github.jtendermint.jabci.types.Evidence byzantine_validators = 4;</code>
    */
-  java.util.List<Evidence>
+  java.util.List<com.github.jtendermint.jabci.types.Evidence> 
       getByzantineValidatorsList();
   /**
    * <code>repeated .com.github.jtendermint.jabci.types.Evidence byzantine_validators = 4;</code>
    */
-  Evidence getByzantineValidators(int index);
+  com.github.jtendermint.jabci.types.Evidence getByzantineValidators(int index);
   /**
    * <code>repeated .com.github.jtendermint.jabci.types.Evidence byzantine_validators = 4;</code>
    */
@@ -65,11 +54,11 @@ public interface RequestBeginBlockOrBuilder extends
   /**
    * <code>repeated .com.github.jtendermint.jabci.types.Evidence byzantine_validators = 4;</code>
    */
-  java.util.List<? extends EvidenceOrBuilder>
+  java.util.List<? extends com.github.jtendermint.jabci.types.EvidenceOrBuilder> 
       getByzantineValidatorsOrBuilderList();
   /**
    * <code>repeated .com.github.jtendermint.jabci.types.Evidence byzantine_validators = 4;</code>
    */
-  EvidenceOrBuilder getByzantineValidatorsOrBuilder(
-          int index);
+  com.github.jtendermint.jabci.types.EvidenceOrBuilder getByzantineValidatorsOrBuilder(
+      int index);
 }

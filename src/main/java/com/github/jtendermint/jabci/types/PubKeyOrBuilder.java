@@ -8,17 +8,17 @@ public interface PubKeyOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>optional string type = 1;</code>
+   * <code>string type = 1;</code>
    */
-  String getType();
+  java.lang.String getType();
   /**
-   * <code>optional string type = 1;</code>
+   * <code>string type = 1;</code>
    */
   com.google.protobuf.ByteString
       getTypeBytes();
 
   /**
-   * <code>optional bytes data = 2;</code>
+   * <code>bytes data = 2;</code>
    */
   com.google.protobuf.ByteString getData();
 }

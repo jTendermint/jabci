@@ -5,7 +5,7 @@ package com.github.jtendermint.jabci.types;
 
 /**
  * <pre>
- * TxSize contain limits on the tx size.
+ * TxSize contains limits on the tx size.
  * </pre>
  *
  * Protobuf type {@code com.github.jtendermint.jabci.types.TxSize}
@@ -14,6 +14,7 @@ public  final class TxSize extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:com.github.jtendermint.jabci.types.TxSize)
     TxSizeOrBuilder {
+private static final long serialVersionUID = 0L;
   // Use TxSize.newBuilder() to construct.
   private TxSize(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
@@ -23,17 +24,22 @@ public  final class TxSize extends
     maxGas_ = 0L;
   }
 
-  @Override
+  @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
-    return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+    return this.unknownFields;
   }
   private TxSize(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     this();
+    if (extensionRegistry == null) {
+      throw new java.lang.NullPointerException();
+    }
     int mutable_bitField0_ = 0;
+    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+        com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
       boolean done = false;
       while (!done) {
@@ -42,12 +48,6 @@ public  final class TxSize extends
           case 0:
             done = true;
             break;
-          default: {
-            if (!input.skipField(tag)) {
-              done = true;
-            }
-            break;
-          }
           case 8: {
 
             maxBytes_ = input.readInt32();
@@ -58,6 +58,13 @@ public  final class TxSize extends
             maxGas_ = input.readInt64();
             break;
           }
+          default: {
+            if (!parseUnknownFieldProto3(
+                input, unknownFields, extensionRegistry, tag)) {
+              done = true;
+            }
+            break;
+          }
         }
       }
     } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -66,25 +73,27 @@ public  final class TxSize extends
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
+      this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
     }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return Types.internal_static_com_github_jtendermint_jabci_types_TxSize_descriptor;
+    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_TxSize_descriptor;
   }
 
-  protected FieldAccessorTable
+  @java.lang.Override
+  protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return Types.internal_static_com_github_jtendermint_jabci_types_TxSize_fieldAccessorTable
+    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_TxSize_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            TxSize.class, TxSize.Builder.class);
+            com.github.jtendermint.jabci.types.TxSize.class, com.github.jtendermint.jabci.types.TxSize.Builder.class);
   }
 
   public static final int MAX_BYTES_FIELD_NUMBER = 1;
   private int maxBytes_;
   /**
-   * <code>optional int32 max_bytes = 1;</code>
+   * <code>int32 max_bytes = 1;</code>
    */
   public int getMaxBytes() {
     return maxBytes_;
@@ -93,13 +102,14 @@ public  final class TxSize extends
   public static final int MAX_GAS_FIELD_NUMBER = 2;
   private long maxGas_;
   /**
-   * <code>optional int64 max_gas = 2;</code>
+   * <code>int64 max_gas = 2;</code>
    */
   public long getMaxGas() {
     return maxGas_;
   }
 
   private byte memoizedIsInitialized = -1;
+  @java.lang.Override
   public final boolean isInitialized() {
     byte isInitialized = memoizedIsInitialized;
     if (isInitialized == 1) return true;
@@ -109,6 +119,7 @@ public  final class TxSize extends
     return true;
   }
 
+  @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
     if (maxBytes_ != 0) {
@@ -117,8 +128,10 @@ public  final class TxSize extends
     if (maxGas_ != 0L) {
       output.writeInt64(2, maxGas_);
     }
+    unknownFields.writeTo(output);
   }
 
+  @java.lang.Override
   public int getSerializedSize() {
     int size = memoizedSize;
     if (size != -1) return size;
@@ -132,36 +145,37 @@ public  final class TxSize extends
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(2, maxGas_);
     }
+    size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
   }
 
-  private static final long serialVersionUID = 0L;
-  @Override
-  public boolean equals(final Object obj) {
+  @java.lang.Override
+  public boolean equals(final java.lang.Object obj) {
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof TxSize)) {
+    if (!(obj instanceof com.github.jtendermint.jabci.types.TxSize)) {
       return super.equals(obj);
     }
-    TxSize other = (TxSize) obj;
+    com.github.jtendermint.jabci.types.TxSize other = (com.github.jtendermint.jabci.types.TxSize) obj;
 
     boolean result = true;
     result = result && (getMaxBytes()
         == other.getMaxBytes());
     result = result && (getMaxGas()
         == other.getMaxGas());
+    result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
 
-  @Override
+  @java.lang.Override
   public int hashCode() {
     if (memoizedHashCode != 0) {
       return memoizedHashCode;
     }
     int hash = 41;
-    hash = (19 * hash) + getDescriptorForType().hashCode();
+    hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + MAX_BYTES_FIELD_NUMBER;
     hash = (53 * hash) + getMaxBytes();
     hash = (37 * hash) + MAX_GAS_FIELD_NUMBER;
@@ -172,58 +186,69 @@ public  final class TxSize extends
     return hash;
   }
 
-  public static TxSize parseFrom(
+  public static com.github.jtendermint.jabci.types.TxSize parseFrom(
+      java.nio.ByteBuffer data)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    return PARSER.parseFrom(data);
+  }
+  public static com.github.jtendermint.jabci.types.TxSize parseFrom(
+      java.nio.ByteBuffer data,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    return PARSER.parseFrom(data, extensionRegistry);
+  }
+  public static com.github.jtendermint.jabci.types.TxSize parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static TxSize parseFrom(
+  public static com.github.jtendermint.jabci.types.TxSize parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static TxSize parseFrom(byte[] data)
+  public static com.github.jtendermint.jabci.types.TxSize parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static TxSize parseFrom(
+  public static com.github.jtendermint.jabci.types.TxSize parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static TxSize parseFrom(java.io.InputStream input)
+  public static com.github.jtendermint.jabci.types.TxSize parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static TxSize parseFrom(
+  public static com.github.jtendermint.jabci.types.TxSize parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static TxSize parseDelimitedFrom(java.io.InputStream input)
+  public static com.github.jtendermint.jabci.types.TxSize parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static TxSize parseDelimitedFrom(
+  public static com.github.jtendermint.jabci.types.TxSize parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static TxSize parseFrom(
+  public static com.github.jtendermint.jabci.types.TxSize parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static TxSize parseFrom(
+  public static com.github.jtendermint.jabci.types.TxSize parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -231,27 +256,29 @@ public  final class TxSize extends
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
 
+  @java.lang.Override
   public Builder newBuilderForType() { return newBuilder(); }
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(TxSize prototype) {
+  public static Builder newBuilder(com.github.jtendermint.jabci.types.TxSize prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
+  @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
         ? new Builder() : new Builder().mergeFrom(this);
   }
 
-  @Override
+  @java.lang.Override
   protected Builder newBuilderForType(
-      BuilderParent parent) {
+      com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
     Builder builder = new Builder(parent);
     return builder;
   }
   /**
    * <pre>
-   * TxSize contain limits on the tx size.
+   * TxSize contains limits on the tx size.
    * </pre>
    *
    * Protobuf type {@code com.github.jtendermint.jabci.types.TxSize}
@@ -259,17 +286,18 @@ public  final class TxSize extends
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
       // @@protoc_insertion_point(builder_implements:com.github.jtendermint.jabci.types.TxSize)
-      TxSizeOrBuilder {
+      com.github.jtendermint.jabci.types.TxSizeOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return Types.internal_static_com_github_jtendermint_jabci_types_TxSize_descriptor;
+      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_TxSize_descriptor;
     }
 
-    protected FieldAccessorTable
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return Types.internal_static_com_github_jtendermint_jabci_types_TxSize_fieldAccessorTable
+      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_TxSize_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              TxSize.class, TxSize.Builder.class);
+              com.github.jtendermint.jabci.types.TxSize.class, com.github.jtendermint.jabci.types.TxSize.Builder.class);
     }
 
     // Construct using com.github.jtendermint.jabci.types.TxSize.newBuilder()
@@ -278,7 +306,7 @@ public  final class TxSize extends
     }
 
     private Builder(
-        BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
       maybeForceBuilderInitialization();
     }
@@ -287,6 +315,7 @@ public  final class TxSize extends
               .alwaysUseFieldBuilders) {
       }
     }
+    @java.lang.Override
     public Builder clear() {
       super.clear();
       maxBytes_ = 0;
@@ -296,91 +325,105 @@ public  final class TxSize extends
       return this;
     }
 
+    @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return Types.internal_static_com_github_jtendermint_jabci_types_TxSize_descriptor;
+      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_TxSize_descriptor;
     }
 
-    public TxSize getDefaultInstanceForType() {
-      return TxSize.getDefaultInstance();
+    @java.lang.Override
+    public com.github.jtendermint.jabci.types.TxSize getDefaultInstanceForType() {
+      return com.github.jtendermint.jabci.types.TxSize.getDefaultInstance();
     }
 
-    public TxSize build() {
-      TxSize result = buildPartial();
+    @java.lang.Override
+    public com.github.jtendermint.jabci.types.TxSize build() {
+      com.github.jtendermint.jabci.types.TxSize result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
       return result;
     }
 
-    public TxSize buildPartial() {
-      TxSize result = new TxSize(this);
+    @java.lang.Override
+    public com.github.jtendermint.jabci.types.TxSize buildPartial() {
+      com.github.jtendermint.jabci.types.TxSize result = new com.github.jtendermint.jabci.types.TxSize(this);
       result.maxBytes_ = maxBytes_;
       result.maxGas_ = maxGas_;
       onBuilt();
       return result;
     }
 
+    @java.lang.Override
     public Builder clone() {
       return (Builder) super.clone();
     }
+    @java.lang.Override
     public Builder setField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        Object value) {
+        java.lang.Object value) {
       return (Builder) super.setField(field, value);
     }
+    @java.lang.Override
     public Builder clearField(
         com.google.protobuf.Descriptors.FieldDescriptor field) {
       return (Builder) super.clearField(field);
     }
+    @java.lang.Override
     public Builder clearOneof(
         com.google.protobuf.Descriptors.OneofDescriptor oneof) {
       return (Builder) super.clearOneof(oneof);
     }
+    @java.lang.Override
     public Builder setRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        int index, Object value) {
+        int index, java.lang.Object value) {
       return (Builder) super.setRepeatedField(field, index, value);
     }
+    @java.lang.Override
     public Builder addRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        Object value) {
+        java.lang.Object value) {
       return (Builder) super.addRepeatedField(field, value);
     }
+    @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof TxSize) {
-        return mergeFrom((TxSize)other);
+      if (other instanceof com.github.jtendermint.jabci.types.TxSize) {
+        return mergeFrom((com.github.jtendermint.jabci.types.TxSize)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(TxSize other) {
-      if (other == TxSize.getDefaultInstance()) return this;
+    public Builder mergeFrom(com.github.jtendermint.jabci.types.TxSize other) {
+      if (other == com.github.jtendermint.jabci.types.TxSize.getDefaultInstance()) return this;
       if (other.getMaxBytes() != 0) {
         setMaxBytes(other.getMaxBytes());
       }
       if (other.getMaxGas() != 0L) {
         setMaxGas(other.getMaxGas());
       }
+      this.mergeUnknownFields(other.unknownFields);
       onChanged();
       return this;
     }
 
+    @java.lang.Override
     public final boolean isInitialized() {
       return true;
     }
 
+    @java.lang.Override
     public Builder mergeFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      TxSize parsedMessage = null;
+      com.github.jtendermint.jabci.types.TxSize parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (TxSize) e.getUnfinishedMessage();
+        parsedMessage = (com.github.jtendermint.jabci.types.TxSize) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -392,25 +435,25 @@ public  final class TxSize extends
 
     private int maxBytes_ ;
     /**
-     * <code>optional int32 max_bytes = 1;</code>
+     * <code>int32 max_bytes = 1;</code>
      */
     public int getMaxBytes() {
       return maxBytes_;
     }
     /**
-     * <code>optional int32 max_bytes = 1;</code>
+     * <code>int32 max_bytes = 1;</code>
      */
     public Builder setMaxBytes(int value) {
-
+      
       maxBytes_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>optional int32 max_bytes = 1;</code>
+     * <code>int32 max_bytes = 1;</code>
      */
     public Builder clearMaxBytes() {
-
+      
       maxBytes_ = 0;
       onChanged();
       return this;
@@ -418,37 +461,39 @@ public  final class TxSize extends
 
     private long maxGas_ ;
     /**
-     * <code>optional int64 max_gas = 2;</code>
+     * <code>int64 max_gas = 2;</code>
      */
     public long getMaxGas() {
       return maxGas_;
     }
     /**
-     * <code>optional int64 max_gas = 2;</code>
+     * <code>int64 max_gas = 2;</code>
      */
     public Builder setMaxGas(long value) {
-
+      
       maxGas_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>optional int64 max_gas = 2;</code>
+     * <code>int64 max_gas = 2;</code>
      */
     public Builder clearMaxGas() {
-
+      
       maxGas_ = 0L;
       onChanged();
       return this;
     }
+    @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
-      return this;
+      return super.setUnknownFieldsProto3(unknownFields);
     }
 
+    @java.lang.Override
     public final Builder mergeUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
-      return this;
+      return super.mergeUnknownFields(unknownFields);
     }
 
 
@@ -456,22 +501,23 @@ public  final class TxSize extends
   }
 
   // @@protoc_insertion_point(class_scope:com.github.jtendermint.jabci.types.TxSize)
-  private static final TxSize DEFAULT_INSTANCE;
+  private static final com.github.jtendermint.jabci.types.TxSize DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new TxSize();
+    DEFAULT_INSTANCE = new com.github.jtendermint.jabci.types.TxSize();
   }
 
-  public static TxSize getDefaultInstance() {
+  public static com.github.jtendermint.jabci.types.TxSize getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
   private static final com.google.protobuf.Parser<TxSize>
       PARSER = new com.google.protobuf.AbstractParser<TxSize>() {
+    @java.lang.Override
     public TxSize parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-        return new TxSize(input, extensionRegistry);
+      return new TxSize(input, extensionRegistry);
     }
   };
 
@@ -479,12 +525,13 @@ public  final class TxSize extends
     return PARSER;
   }
 
-  @Override
+  @java.lang.Override
   public com.google.protobuf.Parser<TxSize> getParserForType() {
     return PARSER;
   }
 
-  public TxSize getDefaultInstanceForType() {
+  @java.lang.Override
+  public com.github.jtendermint.jabci.types.TxSize getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

@@ -1,6 +1,7 @@
 syntax = "proto3";
 package com.github.jtendermint.jabci.types;
 option java_multiple_files = true;
+import "google/protobuf/timestamp.proto";
 
 // For more information on gogo.proto, see:
 // https://github.com/gogo/protobuf/blob/master/extensions.md
@@ -28,7 +29,6 @@ message KI64Pair {
 }
 //----------------------------------------
 // Request types
-
 message Request {
   oneof value {
     RequestEcho echo = 2;
@@ -63,11 +63,11 @@ message RequestSetOption {
 }
 
 message RequestInitChain {
-    int64 time = 1;
-    string chain_id = 2;
-    ConsensusParams consensus_params = 3;
-    repeated Validator validators = 4;
-    bytes app_state_bytes = 5;
+  google.protobuf.Timestamp time = 1;
+  string chain_id = 2;
+  ConsensusParams consensus_params = 3;
+  repeated ValidatorUpdate validators = 4;
+  bytes app_state_bytes = 5;
 }
 
 message RequestQuery {
@@ -77,10 +77,11 @@ message RequestQuery {
   bool prove = 4;
 }
 
+// NOTE: validators here have empty pubkeys.
 message RequestBeginBlock {
   bytes hash = 1;
   Header header = 2;
-  repeated SigningValidator validators = 3;
+  LastCommitInfo last_commit_info = 3;
   repeated Evidence byzantine_validators = 4;
 }
 
@@ -147,8 +148,8 @@ message ResponseSetOption {
 }
 
 message ResponseInitChain {
-    ConsensusParams consensus_params = 1;
-    repeated Validator validators = 2;
+  ConsensusParams consensus_params = 1;
+  repeated ValidatorUpdate validators = 2;
 }
 
 message ResponseQuery {
@@ -164,7 +165,7 @@ message ResponseQuery {
 }
 
 message ResponseBeginBlock {
-    repeated KVPair tags = 1;
+  repeated KVPair tags = 1 ;
 }
 
 message ResponseCheckTx {
@@ -175,7 +176,6 @@ message ResponseCheckTx {
   int64 gas_wanted  = 5;
   int64 gas_used = 6;
   repeated KVPair tags = 7;
-  KI64Pair fee = 8;
 }
 
 message ResponseDeliverTx {
@@ -186,11 +186,10 @@ message ResponseDeliverTx {
   int64 gas_wanted = 5;
   int64 gas_used = 6;
   repeated KVPair tags = 7;
-  KI64Pair fee = 8;
 }
 
 message ResponseEndBlock {
-  repeated Validator validator_updates = 1;
+  repeated ValidatorUpdate validator_updates = 1;
   ConsensusParams consensus_param_updates = 2;
   repeated KVPair tags = 3;
 }
@@ -211,14 +210,13 @@ message ConsensusParams {
   BlockGossip block_gossip = 3;
 }
 
-// BlockSize contain limits on the block size.
+// BlockSize contains limits on the block size.
 message BlockSize {
   int32 max_bytes = 1;
-  int32 max_txs = 2;
-  int64 max_gas = 3;
+  int64 max_gas = 2;
 }
 
-// TxSize contain limits on the tx size.
+// TxSize contains limits on the tx size.
 message TxSize {
   int32 max_bytes = 1;
   int64 max_gas = 2;
@@ -231,53 +229,81 @@ message BlockGossip {
   int32 block_part_size_bytes = 1;
 }
 
+message LastCommitInfo {
+  int32 round = 1;
+  repeated VoteInfo votes = 2;
+}
+
 //----------------------------------------
 // Blockchain Types
 
-// just the minimum the app might need
 message Header {
-    // basics
+  // basic block info
   string chain_id = 1;
   int64 height = 2;
-  int64 time = 3;
+  google.protobuf.Timestamp time = 3;
+  int64 num_txs = 4;
+  int64 total_txs = 5;
 
-    // txs
-  int32 num_txs = 4;
-    int64 total_txs = 5;
+  // prev block info
+  BlockID last_block_id = 6;
 
-    // hashes
-    bytes last_block_hash = 6;
-    bytes validators_hash = 7;
-    bytes app_hash = 8;
+  // hashes of block data
+  bytes last_commit_hash = 7; // commit from validators from the last block
+  bytes data_hash = 8;        // transactions
 
-    // consensus
-    Validator proposer = 9;
+  // hashes from the app output from the prev block
+  bytes validators_hash = 9;   // validators for the current block
+  bytes next_validators_hash = 10;   // validators for the next block
+  bytes consensus_hash = 11;   // consensus params for current block
+  bytes app_hash = 12;         // state after txs from the previous block
+  bytes last_results_hash = 13;// root hash of all results from the txs from the previous block
+
+  // consensus info
+  bytes evidence_hash = 14;    // evidence included in the block
+  bytes proposer_address = 15; // original proposer of the block
+}
+
+message BlockID {
+  bytes hash = 1;
+  PartSetHeader parts_header = 2;
+}
+
+message PartSetHeader {
+  int32 total = 1;
+  bytes hash = 2;
 }
 
 // Validator
 message Validator {
-    bytes address = 1;
-    PubKey pub_key = 2;
-    int64 power = 3;
+  bytes address = 1;
+  //PubKey pub_key = 2;
+  int64 power = 3;
 }
 
-// Validator with an extra bool
-message SigningValidator {
-    Validator validator = 1;
-    bool signed_last_block = 2;
+// ValidatorUpdate
+message ValidatorUpdate {
+  PubKey pub_key = 1;
+  int64 power = 2;
+}
+
+// VoteInfo
+message VoteInfo {
+  Validator validator = 1;
+  bool signed_last_block = 2;
 }
 
 message PubKey {
-    string type = 1;
-    bytes data = 2;
+  string type = 1;
+  bytes  data = 2;
 }
 
 message Evidence {
-    string type = 1;
-    Validator validator = 2;
-    int64 height = 3;
-    int64 time = 4;
-    int64 total_voting_power = 5;
+  string type = 1;
+  Validator validator = 2;
+  int64 height = 3;
+  google.protobuf.Timestamp time = 4;
+  int64 total_voting_power = 5;
 }
 
 //----------------------------------------

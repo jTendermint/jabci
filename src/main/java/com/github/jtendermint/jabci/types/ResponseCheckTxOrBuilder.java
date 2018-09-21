@@ -8,12 +8,12 @@ public interface ResponseCheckTxOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>optional uint32 code = 1;</code>
+   * <code>uint32 code = 1;</code>
    */
   int getCode();
 
   /**
-   * <code>optional bytes data = 2;</code>
+   * <code>bytes data = 2;</code>
    */
   com.google.protobuf.ByteString getData();
 
@@ -22,15 +22,15 @@ public interface ResponseCheckTxOrBuilder extends
    * nondeterministic
    * </pre>
    *
-   * <code>optional string log = 3;</code>
+   * <code>string log = 3;</code>
    */
-  String getLog();
+  java.lang.String getLog();
   /**
    * <pre>
    * nondeterministic
    * </pre>
    *
-   * <code>optional string log = 3;</code>
+   * <code>string log = 3;</code>
    */
   com.google.protobuf.ByteString
       getLogBytes();
@@ -40,38 +40,38 @@ public interface ResponseCheckTxOrBuilder extends
    * nondeterministic
    * </pre>
    *
-   * <code>optional string info = 4;</code>
+   * <code>string info = 4;</code>
    */
-  String getInfo();
+  java.lang.String getInfo();
   /**
    * <pre>
    * nondeterministic
    * </pre>
    *
-   * <code>optional string info = 4;</code>
+   * <code>string info = 4;</code>
    */
   com.google.protobuf.ByteString
       getInfoBytes();
 
   /**
-   * <code>optional int64 gas_wanted = 5;</code>
+   * <code>int64 gas_wanted = 5;</code>
    */
   long getGasWanted();
 
   /**
-   * <code>optional int64 gas_used = 6;</code>
+   * <code>int64 gas_used = 6;</code>
    */
   long getGasUsed();
 
   /**
    * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
    */
-  java.util.List<KVPair>
+  java.util.List<com.github.jtendermint.jabci.types.KVPair> 
       getTagsList();
   /**
    * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
    */
-  KVPair getTags(int index);
+  com.github.jtendermint.jabci.types.KVPair getTags(int index);
   /**
    * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
    */
@@ -79,24 +79,11 @@ public interface ResponseCheckTxOrBuilder extends
   /**
    * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
    */
-  java.util.List<? extends KVPairOrBuilder>
+  java.util.List<? extends com.github.jtendermint.jabci.types.KVPairOrBuilder> 
       getTagsOrBuilderList();
   /**
    * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
    */
-  KVPairOrBuilder getTagsOrBuilder(
-          int index);
-
-  /**
-   * <code>optional .com.github.jtendermint.jabci.types.KI64Pair fee = 8;</code>
-   */
-  boolean hasFee();
-  /**
-   * <code>optional .com.github.jtendermint.jabci.types.KI64Pair fee = 8;</code>
-   */
-  KI64Pair getFee();
-  /**
-   * <code>optional .com.github.jtendermint.jabci.types.KI64Pair fee = 8;</code>
-   */
-  KI64PairOrBuilder getFeeOrBuilder();
+  com.github.jtendermint.jabci.types.KVPairOrBuilder getTagsOrBuilder(
+      int index);
 }

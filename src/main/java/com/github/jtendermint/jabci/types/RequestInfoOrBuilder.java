@@ -8,11 +8,11 @@ public interface RequestInfoOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>optional string version = 1;</code>
+   * <code>string version = 1;</code>
    */
-  String getVersion();
+  java.lang.String getVersion();
   /**
-   * <code>optional string version = 1;</code>
+   * <code>string version = 1;</code>
    */
   com.google.protobuf.ByteString
       getVersionBytes();

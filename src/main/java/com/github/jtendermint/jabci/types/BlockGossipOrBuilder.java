@@ -12,7 +12,7 @@ public interface BlockGossipOrBuilder extends
    * Note: must not be 0
    * </pre>
    *
-   * <code>optional int32 block_part_size_bytes = 1;</code>
+   * <code>int32 block_part_size_bytes = 1;</code>
    */
   int getBlockPartSizeBytes();
 }

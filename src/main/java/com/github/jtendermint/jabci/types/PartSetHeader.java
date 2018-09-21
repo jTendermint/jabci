@@ -4,19 +4,20 @@
 package com.github.jtendermint.jabci.types;
 
 /**
- * Protobuf type {@code com.github.jtendermint.jabci.types.ResponseCommit}
+ * Protobuf type {@code com.github.jtendermint.jabci.types.PartSetHeader}
  */
-public  final class ResponseCommit extends
+public  final class PartSetHeader extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:com.github.jtendermint.jabci.types.ResponseCommit)
-    ResponseCommitOrBuilder {
+    // @@protoc_insertion_point(message_implements:com.github.jtendermint.jabci.types.PartSetHeader)
+    PartSetHeaderOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use ResponseCommit.newBuilder() to construct.
-  private ResponseCommit(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use PartSetHeader.newBuilder() to construct.
+  private PartSetHeader(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private ResponseCommit() {
-    data_ = com.google.protobuf.ByteString.EMPTY;
+  private PartSetHeader() {
+    total_ = 0;
+    hash_ = com.google.protobuf.ByteString.EMPTY;
   }
 
   @java.lang.Override
@@ -24,7 +25,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ResponseCommit(
+  private PartSetHeader(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -43,9 +44,14 @@ private static final long serialVersionUID = 0L;
           case 0:
             done = true;
             break;
+          case 8: {
+
+            total_ = input.readInt32();
+            break;
+          }
           case 18: {
 
-            data_ = input.readBytes();
+            hash_ = input.readBytes();
             break;
           }
           default: {
@@ -69,28 +75,33 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseCommit_descriptor;
+    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_PartSetHeader_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseCommit_fieldAccessorTable
+    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_PartSetHeader_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.github.jtendermint.jabci.types.ResponseCommit.class, com.github.jtendermint.jabci.types.ResponseCommit.Builder.class);
+            com.github.jtendermint.jabci.types.PartSetHeader.class, com.github.jtendermint.jabci.types.PartSetHeader.Builder.class);
   }
 
-  public static final int DATA_FIELD_NUMBER = 2;
-  private com.google.protobuf.ByteString data_;
+  public static final int TOTAL_FIELD_NUMBER = 1;
+  private int total_;
   /**
-   * <pre>
-   * reserve 1
-   * </pre>
-   *
-   * <code>bytes data = 2;</code>
+   * <code>int32 total = 1;</code>
    */
-  public com.google.protobuf.ByteString getData() {
-    return data_;
+  public int getTotal() {
+    return total_;
+  }
+
+  public static final int HASH_FIELD_NUMBER = 2;
+  private com.google.protobuf.ByteString hash_;
+  /**
+   * <code>bytes hash = 2;</code>
+   */
+  public com.google.protobuf.ByteString getHash() {
+    return hash_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -107,8 +118,11 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!data_.isEmpty()) {
-      output.writeBytes(2, data_);
+    if (total_ != 0) {
+      output.writeInt32(1, total_);
+    }
+    if (!hash_.isEmpty()) {
+      output.writeBytes(2, hash_);
     }
     unknownFields.writeTo(output);
   }
@@ -119,9 +133,13 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!data_.isEmpty()) {
+    if (total_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBytesSize(2, data_);
+        .computeInt32Size(1, total_);
+    }
+    if (!hash_.isEmpty()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBytesSize(2, hash_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -133,14 +151,16 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.github.jtendermint.jabci.types.ResponseCommit)) {
+    if (!(obj instanceof com.github.jtendermint.jabci.types.PartSetHeader)) {
       return super.equals(obj);
     }
-    com.github.jtendermint.jabci.types.ResponseCommit other = (com.github.jtendermint.jabci.types.ResponseCommit) obj;
+    com.github.jtendermint.jabci.types.PartSetHeader other = (com.github.jtendermint.jabci.types.PartSetHeader) obj;
 
     boolean result = true;
-    result = result && getData()
-        .equals(other.getData());
+    result = result && (getTotal()
+        == other.getTotal());
+    result = result && getHash()
+        .equals(other.getHash());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -152,76 +172,78 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + DATA_FIELD_NUMBER;
-    hash = (53 * hash) + getData().hashCode();
+    hash = (37 * hash) + TOTAL_FIELD_NUMBER;
+    hash = (53 * hash) + getTotal();
+    hash = (37 * hash) + HASH_FIELD_NUMBER;
+    hash = (53 * hash) + getHash().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static com.github.jtendermint.jabci.types.ResponseCommit parseFrom(
+  public static com.github.jtendermint.jabci.types.PartSetHeader parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.github.jtendermint.jabci.types.ResponseCommit parseFrom(
+  public static com.github.jtendermint.jabci.types.PartSetHeader parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.ResponseCommit parseFrom(
+  public static com.github.jtendermint.jabci.types.PartSetHeader parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.github.jtendermint.jabci.types.ResponseCommit parseFrom(
+  public static com.github.jtendermint.jabci.types.PartSetHeader parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.ResponseCommit parseFrom(byte[] data)
+  public static com.github.jtendermint.jabci.types.PartSetHeader parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.github.jtendermint.jabci.types.ResponseCommit parseFrom(
+  public static com.github.jtendermint.jabci.types.PartSetHeader parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.ResponseCommit parseFrom(java.io.InputStream input)
+  public static com.github.jtendermint.jabci.types.PartSetHeader parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.github.jtendermint.jabci.types.ResponseCommit parseFrom(
+  public static com.github.jtendermint.jabci.types.PartSetHeader parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.ResponseCommit parseDelimitedFrom(java.io.InputStream input)
+  public static com.github.jtendermint.jabci.types.PartSetHeader parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.github.jtendermint.jabci.types.ResponseCommit parseDelimitedFrom(
+  public static com.github.jtendermint.jabci.types.PartSetHeader parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.ResponseCommit parseFrom(
+  public static com.github.jtendermint.jabci.types.PartSetHeader parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.github.jtendermint.jabci.types.ResponseCommit parseFrom(
+  public static com.github.jtendermint.jabci.types.PartSetHeader parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -234,7 +256,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.github.jtendermint.jabci.types.ResponseCommit prototype) {
+  public static Builder newBuilder(com.github.jtendermint.jabci.types.PartSetHeader prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -250,26 +272,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code com.github.jtendermint.jabci.types.ResponseCommit}
+   * Protobuf type {@code com.github.jtendermint.jabci.types.PartSetHeader}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:com.github.jtendermint.jabci.types.ResponseCommit)
-      com.github.jtendermint.jabci.types.ResponseCommitOrBuilder {
+      // @@protoc_insertion_point(builder_implements:com.github.jtendermint.jabci.types.PartSetHeader)
+      com.github.jtendermint.jabci.types.PartSetHeaderOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseCommit_descriptor;
+      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_PartSetHeader_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseCommit_fieldAccessorTable
+      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_PartSetHeader_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.github.jtendermint.jabci.types.ResponseCommit.class, com.github.jtendermint.jabci.types.ResponseCommit.Builder.class);
+              com.github.jtendermint.jabci.types.PartSetHeader.class, com.github.jtendermint.jabci.types.PartSetHeader.Builder.class);
     }
 
-    // Construct using com.github.jtendermint.jabci.types.ResponseCommit.newBuilder()
+    // Construct using com.github.jtendermint.jabci.types.PartSetHeader.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -287,7 +309,9 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      data_ = com.google.protobuf.ByteString.EMPTY;
+      total_ = 0;
+
+      hash_ = com.google.protobuf.ByteString.EMPTY;
 
       return this;
     }
@@ -295,17 +319,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseCommit_descriptor;
+      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_PartSetHeader_descriptor;
     }
 
     @java.lang.Override
-    public com.github.jtendermint.jabci.types.ResponseCommit getDefaultInstanceForType() {
-      return com.github.jtendermint.jabci.types.ResponseCommit.getDefaultInstance();
+    public com.github.jtendermint.jabci.types.PartSetHeader getDefaultInstanceForType() {
+      return com.github.jtendermint.jabci.types.PartSetHeader.getDefaultInstance();
     }
 
     @java.lang.Override
-    public com.github.jtendermint.jabci.types.ResponseCommit build() {
-      com.github.jtendermint.jabci.types.ResponseCommit result = buildPartial();
+    public com.github.jtendermint.jabci.types.PartSetHeader build() {
+      com.github.jtendermint.jabci.types.PartSetHeader result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -313,9 +337,10 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public com.github.jtendermint.jabci.types.ResponseCommit buildPartial() {
-      com.github.jtendermint.jabci.types.ResponseCommit result = new com.github.jtendermint.jabci.types.ResponseCommit(this);
-      result.data_ = data_;
+    public com.github.jtendermint.jabci.types.PartSetHeader buildPartial() {
+      com.github.jtendermint.jabci.types.PartSetHeader result = new com.github.jtendermint.jabci.types.PartSetHeader(this);
+      result.total_ = total_;
+      result.hash_ = hash_;
       onBuilt();
       return result;
     }
@@ -354,18 +379,21 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.github.jtendermint.jabci.types.ResponseCommit) {
-        return mergeFrom((com.github.jtendermint.jabci.types.ResponseCommit)other);
+      if (other instanceof com.github.jtendermint.jabci.types.PartSetHeader) {
+        return mergeFrom((com.github.jtendermint.jabci.types.PartSetHeader)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.github.jtendermint.jabci.types.ResponseCommit other) {
-      if (other == com.github.jtendermint.jabci.types.ResponseCommit.getDefaultInstance()) return this;
-      if (other.getData() != com.google.protobuf.ByteString.EMPTY) {
-        setData(other.getData());
+    public Builder mergeFrom(com.github.jtendermint.jabci.types.PartSetHeader other) {
+      if (other == com.github.jtendermint.jabci.types.PartSetHeader.getDefaultInstance()) return this;
+      if (other.getTotal() != 0) {
+        setTotal(other.getTotal());
+      }
+      if (other.getHash() != com.google.protobuf.ByteString.EMPTY) {
+        setHash(other.getHash());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -382,11 +410,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.github.jtendermint.jabci.types.ResponseCommit parsedMessage = null;
+      com.github.jtendermint.jabci.types.PartSetHeader parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.github.jtendermint.jabci.types.ResponseCommit) e.getUnfinishedMessage();
+        parsedMessage = (com.github.jtendermint.jabci.types.PartSetHeader) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -396,43 +424,57 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.ByteString data_ = com.google.protobuf.ByteString.EMPTY;
+    private int total_ ;
     /**
-     * <pre>
-     * reserve 1
-     * </pre>
-     *
-     * <code>bytes data = 2;</code>
+     * <code>int32 total = 1;</code>
      */
-    public com.google.protobuf.ByteString getData() {
-      return data_;
+    public int getTotal() {
+      return total_;
     }
     /**
-     * <pre>
-     * reserve 1
-     * </pre>
-     *
-     * <code>bytes data = 2;</code>
+     * <code>int32 total = 1;</code>
      */
-    public Builder setData(com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      data_ = value;
+    public Builder setTotal(int value) {
+      
+      total_ = value;
       onChanged();
       return this;
     }
     /**
-     * <pre>
-     * reserve 1
-     * </pre>
-     *
-     * <code>bytes data = 2;</code>
+     * <code>int32 total = 1;</code>
      */
-    public Builder clearData() {
+    public Builder clearTotal() {
       
-      data_ = getDefaultInstance().getData();
+      total_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private com.google.protobuf.ByteString hash_ = com.google.protobuf.ByteString.EMPTY;
+    /**
+     * <code>bytes hash = 2;</code>
+     */
+    public com.google.protobuf.ByteString getHash() {
+      return hash_;
+    }
+    /**
+     * <code>bytes hash = 2;</code>
+     */
+    public Builder setHash(com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      hash_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>bytes hash = 2;</code>
+     */
+    public Builder clearHash() {
+      
+      hash_ = getDefaultInstance().getHash();
       onChanged();
       return this;
     }
@@ -449,41 +491,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:com.github.jtendermint.jabci.types.ResponseCommit)
+    // @@protoc_insertion_point(builder_scope:com.github.jtendermint.jabci.types.PartSetHeader)
   }
 
-  // @@protoc_insertion_point(class_scope:com.github.jtendermint.jabci.types.ResponseCommit)
-  private static final com.github.jtendermint.jabci.types.ResponseCommit DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:com.github.jtendermint.jabci.types.PartSetHeader)
+  private static final com.github.jtendermint.jabci.types.PartSetHeader DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.github.jtendermint.jabci.types.ResponseCommit();
+    DEFAULT_INSTANCE = new com.github.jtendermint.jabci.types.PartSetHeader();
   }
 
-  public static com.github.jtendermint.jabci.types.ResponseCommit getDefaultInstance() {
+  public static com.github.jtendermint.jabci.types.PartSetHeader getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<ResponseCommit>
-      PARSER = new com.google.protobuf.AbstractParser<ResponseCommit>() {
+  private static final com.google.protobuf.Parser<PartSetHeader>
+      PARSER = new com.google.protobuf.AbstractParser<PartSetHeader>() {
     @java.lang.Override
-    public ResponseCommit parsePartialFrom(
+    public PartSetHeader parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ResponseCommit(input, extensionRegistry);
+      return new PartSetHeader(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<ResponseCommit> parser() {
+  public static com.google.protobuf.Parser<PartSetHeader> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<ResponseCommit> getParserForType() {
+  public com.google.protobuf.Parser<PartSetHeader> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.github.jtendermint.jabci.types.ResponseCommit getDefaultInstanceForType() {
+  public com.github.jtendermint.jabci.types.PartSetHeader getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

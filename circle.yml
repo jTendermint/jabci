@@ -1,13 +1,45 @@
-dependencies:
-  pre:
-    - mkdir -p ~/.gnupg
-    - cp gpg/pubring.gpg ~/.gnupg/pubring.gpg
-    - openssl aes-256-cbc -d -in gpg/secret -k $SIGN_SECRET >> ~/.gnupg/secring.gpg
-  override:
-    - mvn clean install dependency:resolve-plugins dependency:go-offline
+version: 2
+jobs:
+  build:
+    working_directory: ~/jTendermint/jabci
+    parallelism: 1
+    shell: /bin/bash --login
+    #environment:
+    #  CIRCLE_ARTIFACTS: /tmp/circleci-artifacts
+    #  CIRCLE_TEST_REPORTS: /tmp/circleci-test-results
+    docker:
+    - image: maven:3.5.3-jdk-8
+    steps:
+    - checkout
+    #- run: mkdir -p $CIRCLE_ARTIFACTS $CIRCLE_TEST_REPORTS
+    - run: mvn -B clean
+    - run: mvn -B compile
+    - run: mvn -B test
+    - save_cache:
+        key: v1-dep-{{ .Branch }}-{{ epoch }}
+        paths:
+        - vendor/bundle
+        - ~/virtualenvs
+        - ~/.m2
+    - store_test_results:
+        path: ~/jTendermint/jabci/target/surefire-reports/
+  deploy:
+    branches:
+      only:
+        - master
+    working_directory: ~/jTendermint/jabci
+    parallelism: 1
+    shell: /bin/bash --login
+    #environment:
+    #  CIRCLE_ARTIFACTS: /tmp/circleci-artifacts
+    #  CIRCLE_TEST_REPORTS: /tmp/circleci-test-results
+    docker:
+    - image: maven:3.5.3-jdk-8
+    steps:
+    - checkout
+    - run: mkdir -p ~/.gnupg
+    - run: cp gpg/pubring.gpg ~/.gnupg/pubring.gpg
+    - run: openssl aes-256-cbc -d -in gpg/secret -k $SIGN_SECRET >> ~/.gnupg/secring.gpg
+    - run: mvn -B clean install dependency:resolve-plugins dependency:go-offline
+    - run: mvn -B -P release -s circleci.settings.xml -DskipTests deploy -Dgpg.passphrase=$GPG_PASSPHRASE
 
-deployment:
-  main:
-    branch: master
-    commands:
-      - mvn -P release -s circleci.settings.xml -DskipTests deploy -Dgpg.passphrase=$GPG_PASSPHRASE
