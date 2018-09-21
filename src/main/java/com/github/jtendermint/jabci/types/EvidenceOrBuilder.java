@@ -8,40 +8,48 @@ public interface EvidenceOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>optional string type = 1;</code>
+   * <code>string type = 1;</code>
    */
-  String getType();
+  java.lang.String getType();
   /**
-   * <code>optional string type = 1;</code>
+   * <code>string type = 1;</code>
    */
   com.google.protobuf.ByteString
       getTypeBytes();
 
   /**
-   * <code>optional .com.github.jtendermint.jabci.types.Validator validator = 2;</code>
+   * <code>.com.github.jtendermint.jabci.types.Validator validator = 2;</code>
    */
   boolean hasValidator();
   /**
-   * <code>optional .com.github.jtendermint.jabci.types.Validator validator = 2;</code>
+   * <code>.com.github.jtendermint.jabci.types.Validator validator = 2;</code>
    */
-  Validator getValidator();
+  com.github.jtendermint.jabci.types.Validator getValidator();
   /**
-   * <code>optional .com.github.jtendermint.jabci.types.Validator validator = 2;</code>
+   * <code>.com.github.jtendermint.jabci.types.Validator validator = 2;</code>
    */
-  ValidatorOrBuilder getValidatorOrBuilder();
+  com.github.jtendermint.jabci.types.ValidatorOrBuilder getValidatorOrBuilder();
 
   /**
-   * <code>optional int64 height = 3;</code>
+   * <code>int64 height = 3;</code>
    */
   long getHeight();
 
   /**
-   * <code>optional int64 time = 4;</code>
+   * <code>.google.protobuf.Timestamp time = 4;</code>
    */
-  long getTime();
+  boolean hasTime();
+  /**
+   * <code>.google.protobuf.Timestamp time = 4;</code>
+   */
+  com.google.protobuf.Timestamp getTime();
+  /**
+   * <code>.google.protobuf.Timestamp time = 4;</code>
+   */
+  com.google.protobuf.TimestampOrBuilder getTimeOrBuilder();
 
   /**
-   * <code>optional int64 total_voting_power = 5;</code>
+   * <code>int64 total_voting_power = 5;</code>
    */
   long getTotalVotingPower();
 }

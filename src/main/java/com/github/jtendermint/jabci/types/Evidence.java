@@ -10,6 +10,7 @@ public  final class Evidence extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:com.github.jtendermint.jabci.types.Evidence)
     EvidenceOrBuilder {
+private static final long serialVersionUID = 0L;
   // Use Evidence.newBuilder() to construct.
   private Evidence(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
@@ -17,21 +18,25 @@ public  final class Evidence extends
   private Evidence() {
     type_ = "";
     height_ = 0L;
-    time_ = 0L;
     totalVotingPower_ = 0L;
   }
 
-  @Override
+  @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
-    return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+    return this.unknownFields;
   }
   private Evidence(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     this();
+    if (extensionRegistry == null) {
+      throw new java.lang.NullPointerException();
+    }
     int mutable_bitField0_ = 0;
+    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+        com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
       boolean done = false;
       while (!done) {
@@ -40,24 +45,18 @@ public  final class Evidence extends
           case 0:
             done = true;
             break;
-          default: {
-            if (!input.skipField(tag)) {
-              done = true;
-            }
-            break;
-          }
           case 10: {
-            String s = input.readStringRequireUtf8();
+            java.lang.String s = input.readStringRequireUtf8();
 
             type_ = s;
             break;
           }
           case 18: {
-            Validator.Builder subBuilder = null;
+            com.github.jtendermint.jabci.types.Validator.Builder subBuilder = null;
             if (validator_ != null) {
               subBuilder = validator_.toBuilder();
             }
-            validator_ = input.readMessage(Validator.parser(), extensionRegistry);
+            validator_ = input.readMessage(com.github.jtendermint.jabci.types.Validator.parser(), extensionRegistry);
             if (subBuilder != null) {
               subBuilder.mergeFrom(validator_);
               validator_ = subBuilder.buildPartial();
@@ -70,14 +69,29 @@ public  final class Evidence extends
             height_ = input.readInt64();
             break;
           }
-          case 32: {
+          case 34: {
+            com.google.protobuf.Timestamp.Builder subBuilder = null;
+            if (time_ != null) {
+              subBuilder = time_.toBuilder();
+            }
+            time_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(time_);
+              time_ = subBuilder.buildPartial();
+            }
 
-            time_ = input.readInt64();
             break;
           }
           case 40: {
 
             totalVotingPower_ = input.readInt64();
+            break;
+          }
+          default: {
+            if (!parseUnknownFieldProto3(
+                input, unknownFields, extensionRegistry, tag)) {
+              done = true;
+            }
             break;
           }
         }
@@ -88,48 +102,50 @@ public  final class Evidence extends
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
+      this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
     }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return Types.internal_static_com_github_jtendermint_jabci_types_Evidence_descriptor;
+    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_Evidence_descriptor;
   }
 
-  protected FieldAccessorTable
+  @java.lang.Override
+  protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return Types.internal_static_com_github_jtendermint_jabci_types_Evidence_fieldAccessorTable
+    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_Evidence_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            Evidence.class, Evidence.Builder.class);
+            com.github.jtendermint.jabci.types.Evidence.class, com.github.jtendermint.jabci.types.Evidence.Builder.class);
   }
 
   public static final int TYPE_FIELD_NUMBER = 1;
-  private volatile Object type_;
+  private volatile java.lang.Object type_;
   /**
-   * <code>optional string type = 1;</code>
+   * <code>string type = 1;</code>
    */
-  public String getType() {
-    Object ref = type_;
-    if (ref instanceof String) {
-      return (String) ref;
+  public java.lang.String getType() {
+    java.lang.Object ref = type_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs =
+      com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
-      String s = bs.toStringUtf8();
+      java.lang.String s = bs.toStringUtf8();
       type_ = s;
       return s;
     }
   }
   /**
-   * <code>optional string type = 1;</code>
+   * <code>string type = 1;</code>
    */
   public com.google.protobuf.ByteString
       getTypeBytes() {
-    Object ref = type_;
-    if (ref instanceof String) {
-      com.google.protobuf.ByteString b =
+    java.lang.Object ref = type_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
-              (String) ref);
+              (java.lang.String) ref);
       type_ = b;
       return b;
     } else {
@@ -138,54 +154,67 @@ public  final class Evidence extends
   }
 
   public static final int VALIDATOR_FIELD_NUMBER = 2;
-  private Validator validator_;
+  private com.github.jtendermint.jabci.types.Validator validator_;
   /**
-   * <code>optional .com.github.jtendermint.jabci.types.Validator validator = 2;</code>
+   * <code>.com.github.jtendermint.jabci.types.Validator validator = 2;</code>
    */
   public boolean hasValidator() {
     return validator_ != null;
   }
   /**
-   * <code>optional .com.github.jtendermint.jabci.types.Validator validator = 2;</code>
+   * <code>.com.github.jtendermint.jabci.types.Validator validator = 2;</code>
    */
-  public Validator getValidator() {
-    return validator_ == null ? Validator.getDefaultInstance() : validator_;
+  public com.github.jtendermint.jabci.types.Validator getValidator() {
+    return validator_ == null ? com.github.jtendermint.jabci.types.Validator.getDefaultInstance() : validator_;
   }
   /**
-   * <code>optional .com.github.jtendermint.jabci.types.Validator validator = 2;</code>
+   * <code>.com.github.jtendermint.jabci.types.Validator validator = 2;</code>
    */
-  public ValidatorOrBuilder getValidatorOrBuilder() {
+  public com.github.jtendermint.jabci.types.ValidatorOrBuilder getValidatorOrBuilder() {
     return getValidator();
   }
 
   public static final int HEIGHT_FIELD_NUMBER = 3;
   private long height_;
   /**
-   * <code>optional int64 height = 3;</code>
+   * <code>int64 height = 3;</code>
    */
   public long getHeight() {
     return height_;
   }
 
   public static final int TIME_FIELD_NUMBER = 4;
-  private long time_;
+  private com.google.protobuf.Timestamp time_;
   /**
-   * <code>optional int64 time = 4;</code>
+   * <code>.google.protobuf.Timestamp time = 4;</code>
    */
-  public long getTime() {
-    return time_;
+  public boolean hasTime() {
+    return time_ != null;
+  }
+  /**
+   * <code>.google.protobuf.Timestamp time = 4;</code>
+   */
+  public com.google.protobuf.Timestamp getTime() {
+    return time_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : time_;
+  }
+  /**
+   * <code>.google.protobuf.Timestamp time = 4;</code>
+   */
+  public com.google.protobuf.TimestampOrBuilder getTimeOrBuilder() {
+    return getTime();
   }
 
   public static final int TOTAL_VOTING_POWER_FIELD_NUMBER = 5;
   private long totalVotingPower_;
   /**
-   * <code>optional int64 total_voting_power = 5;</code>
+   * <code>int64 total_voting_power = 5;</code>
    */
   public long getTotalVotingPower() {
     return totalVotingPower_;
   }
 
   private byte memoizedIsInitialized = -1;
+  @java.lang.Override
   public final boolean isInitialized() {
     byte isInitialized = memoizedIsInitialized;
     if (isInitialized == 1) return true;
@@ -195,6 +224,7 @@ public  final class Evidence extends
     return true;
   }
 
+  @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
     if (!getTypeBytes().isEmpty()) {
@@ -206,14 +236,16 @@ public  final class Evidence extends
     if (height_ != 0L) {
       output.writeInt64(3, height_);
     }
-    if (time_ != 0L) {
-      output.writeInt64(4, time_);
+    if (time_ != null) {
+      output.writeMessage(4, getTime());
     }
     if (totalVotingPower_ != 0L) {
       output.writeInt64(5, totalVotingPower_);
     }
+    unknownFields.writeTo(output);
   }
 
+  @java.lang.Override
   public int getSerializedSize() {
     int size = memoizedSize;
     if (size != -1) return size;
@@ -230,28 +262,28 @@ public  final class Evidence extends
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(3, height_);
     }
-    if (time_ != 0L) {
+    if (time_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(4, time_);
+        .computeMessageSize(4, getTime());
     }
     if (totalVotingPower_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(5, totalVotingPower_);
     }
+    size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
   }
 
-  private static final long serialVersionUID = 0L;
-  @Override
-  public boolean equals(final Object obj) {
+  @java.lang.Override
+  public boolean equals(final java.lang.Object obj) {
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof Evidence)) {
+    if (!(obj instanceof com.github.jtendermint.jabci.types.Evidence)) {
       return super.equals(obj);
     }
-    Evidence other = (Evidence) obj;
+    com.github.jtendermint.jabci.types.Evidence other = (com.github.jtendermint.jabci.types.Evidence) obj;
 
     boolean result = true;
     result = result && getType()
@@ -263,20 +295,24 @@ public  final class Evidence extends
     }
     result = result && (getHeight()
         == other.getHeight());
-    result = result && (getTime()
-        == other.getTime());
+    result = result && (hasTime() == other.hasTime());
+    if (hasTime()) {
+      result = result && getTime()
+          .equals(other.getTime());
+    }
     result = result && (getTotalVotingPower()
         == other.getTotalVotingPower());
+    result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
 
-  @Override
+  @java.lang.Override
   public int hashCode() {
     if (memoizedHashCode != 0) {
       return memoizedHashCode;
     }
     int hash = 41;
-    hash = (19 * hash) + getDescriptorForType().hashCode();
+    hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + TYPE_FIELD_NUMBER;
     hash = (53 * hash) + getType().hashCode();
     if (hasValidator()) {
@@ -286,9 +322,10 @@ public  final class Evidence extends
     hash = (37 * hash) + HEIGHT_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getHeight());
-    hash = (37 * hash) + TIME_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getTime());
+    if (hasTime()) {
+      hash = (37 * hash) + TIME_FIELD_NUMBER;
+      hash = (53 * hash) + getTime().hashCode();
+    }
     hash = (37 * hash) + TOTAL_VOTING_POWER_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getTotalVotingPower());
@@ -297,58 +334,69 @@ public  final class Evidence extends
     return hash;
   }
 
-  public static Evidence parseFrom(
+  public static com.github.jtendermint.jabci.types.Evidence parseFrom(
+      java.nio.ByteBuffer data)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    return PARSER.parseFrom(data);
+  }
+  public static com.github.jtendermint.jabci.types.Evidence parseFrom(
+      java.nio.ByteBuffer data,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    return PARSER.parseFrom(data, extensionRegistry);
+  }
+  public static com.github.jtendermint.jabci.types.Evidence parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static Evidence parseFrom(
+  public static com.github.jtendermint.jabci.types.Evidence parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static Evidence parseFrom(byte[] data)
+  public static com.github.jtendermint.jabci.types.Evidence parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static Evidence parseFrom(
+  public static com.github.jtendermint.jabci.types.Evidence parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static Evidence parseFrom(java.io.InputStream input)
+  public static com.github.jtendermint.jabci.types.Evidence parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static Evidence parseFrom(
+  public static com.github.jtendermint.jabci.types.Evidence parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static Evidence parseDelimitedFrom(java.io.InputStream input)
+  public static com.github.jtendermint.jabci.types.Evidence parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static Evidence parseDelimitedFrom(
+  public static com.github.jtendermint.jabci.types.Evidence parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static Evidence parseFrom(
+  public static com.github.jtendermint.jabci.types.Evidence parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static Evidence parseFrom(
+  public static com.github.jtendermint.jabci.types.Evidence parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -356,21 +404,23 @@ public  final class Evidence extends
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
 
+  @java.lang.Override
   public Builder newBuilderForType() { return newBuilder(); }
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(Evidence prototype) {
+  public static Builder newBuilder(com.github.jtendermint.jabci.types.Evidence prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
+  @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
         ? new Builder() : new Builder().mergeFrom(this);
   }
 
-  @Override
+  @java.lang.Override
   protected Builder newBuilderForType(
-      BuilderParent parent) {
+      com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
     Builder builder = new Builder(parent);
     return builder;
   }
@@ -380,17 +430,18 @@ public  final class Evidence extends
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
       // @@protoc_insertion_point(builder_implements:com.github.jtendermint.jabci.types.Evidence)
-      EvidenceOrBuilder {
+      com.github.jtendermint.jabci.types.EvidenceOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return Types.internal_static_com_github_jtendermint_jabci_types_Evidence_descriptor;
+      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_Evidence_descriptor;
     }
 
-    protected FieldAccessorTable
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return Types.internal_static_com_github_jtendermint_jabci_types_Evidence_fieldAccessorTable
+      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_Evidence_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              Evidence.class, Evidence.Builder.class);
+              com.github.jtendermint.jabci.types.Evidence.class, com.github.jtendermint.jabci.types.Evidence.Builder.class);
     }
 
     // Construct using com.github.jtendermint.jabci.types.Evidence.newBuilder()
@@ -399,7 +450,7 @@ public  final class Evidence extends
     }
 
     private Builder(
-        BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
       maybeForceBuilderInitialization();
     }
@@ -408,6 +459,7 @@ public  final class Evidence extends
               .alwaysUseFieldBuilders) {
       }
     }
+    @java.lang.Override
     public Builder clear() {
       super.clear();
       type_ = "";
@@ -420,32 +472,40 @@ public  final class Evidence extends
       }
       height_ = 0L;
 
-      time_ = 0L;
-
+      if (timeBuilder_ == null) {
+        time_ = null;
+      } else {
+        time_ = null;
+        timeBuilder_ = null;
+      }
       totalVotingPower_ = 0L;
 
       return this;
     }
 
+    @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return Types.internal_static_com_github_jtendermint_jabci_types_Evidence_descriptor;
+      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_Evidence_descriptor;
     }
 
-    public Evidence getDefaultInstanceForType() {
-      return Evidence.getDefaultInstance();
+    @java.lang.Override
+    public com.github.jtendermint.jabci.types.Evidence getDefaultInstanceForType() {
+      return com.github.jtendermint.jabci.types.Evidence.getDefaultInstance();
     }
 
-    public Evidence build() {
-      Evidence result = buildPartial();
+    @java.lang.Override
+    public com.github.jtendermint.jabci.types.Evidence build() {
+      com.github.jtendermint.jabci.types.Evidence result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
       return result;
     }
 
-    public Evidence buildPartial() {
-      Evidence result = new Evidence(this);
+    @java.lang.Override
+    public com.github.jtendermint.jabci.types.Evidence buildPartial() {
+      com.github.jtendermint.jabci.types.Evidence result = new com.github.jtendermint.jabci.types.Evidence(this);
       result.type_ = type_;
       if (validatorBuilder_ == null) {
         result.validator_ = validator_;
@@ -453,49 +513,60 @@ public  final class Evidence extends
         result.validator_ = validatorBuilder_.build();
       }
       result.height_ = height_;
-      result.time_ = time_;
+      if (timeBuilder_ == null) {
+        result.time_ = time_;
+      } else {
+        result.time_ = timeBuilder_.build();
+      }
       result.totalVotingPower_ = totalVotingPower_;
       onBuilt();
       return result;
     }
 
+    @java.lang.Override
     public Builder clone() {
       return (Builder) super.clone();
     }
+    @java.lang.Override
     public Builder setField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        Object value) {
+        java.lang.Object value) {
       return (Builder) super.setField(field, value);
     }
+    @java.lang.Override
     public Builder clearField(
         com.google.protobuf.Descriptors.FieldDescriptor field) {
       return (Builder) super.clearField(field);
     }
+    @java.lang.Override
     public Builder clearOneof(
         com.google.protobuf.Descriptors.OneofDescriptor oneof) {
       return (Builder) super.clearOneof(oneof);
     }
+    @java.lang.Override
     public Builder setRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        int index, Object value) {
+        int index, java.lang.Object value) {
       return (Builder) super.setRepeatedField(field, index, value);
     }
+    @java.lang.Override
     public Builder addRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        Object value) {
+        java.lang.Object value) {
       return (Builder) super.addRepeatedField(field, value);
     }
+    @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof Evidence) {
-        return mergeFrom((Evidence)other);
+      if (other instanceof com.github.jtendermint.jabci.types.Evidence) {
+        return mergeFrom((com.github.jtendermint.jabci.types.Evidence)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(Evidence other) {
-      if (other == Evidence.getDefaultInstance()) return this;
+    public Builder mergeFrom(com.github.jtendermint.jabci.types.Evidence other) {
+      if (other == com.github.jtendermint.jabci.types.Evidence.getDefaultInstance()) return this;
       if (!other.getType().isEmpty()) {
         type_ = other.type_;
         onChanged();
@@ -506,29 +577,32 @@ public  final class Evidence extends
       if (other.getHeight() != 0L) {
         setHeight(other.getHeight());
       }
-      if (other.getTime() != 0L) {
-        setTime(other.getTime());
+      if (other.hasTime()) {
+        mergeTime(other.getTime());
       }
       if (other.getTotalVotingPower() != 0L) {
         setTotalVotingPower(other.getTotalVotingPower());
       }
+      this.mergeUnknownFields(other.unknownFields);
       onChanged();
       return this;
     }
 
+    @java.lang.Override
     public final boolean isInitialized() {
       return true;
     }
 
+    @java.lang.Override
     public Builder mergeFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      Evidence parsedMessage = null;
+      com.github.jtendermint.jabci.types.Evidence parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (Evidence) e.getUnfinishedMessage();
+        parsedMessage = (com.github.jtendermint.jabci.types.Evidence) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -538,32 +612,32 @@ public  final class Evidence extends
       return this;
     }
 
-    private Object type_ = "";
+    private java.lang.Object type_ = "";
     /**
-     * <code>optional string type = 1;</code>
+     * <code>string type = 1;</code>
      */
-    public String getType() {
-      Object ref = type_;
-      if (!(ref instanceof String)) {
+    public java.lang.String getType() {
+      java.lang.Object ref = type_;
+      if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         type_ = s;
         return s;
       } else {
-        return (String) ref;
+        return (java.lang.String) ref;
       }
     }
     /**
-     * <code>optional string type = 1;</code>
+     * <code>string type = 1;</code>
      */
     public com.google.protobuf.ByteString
         getTypeBytes() {
-      Object ref = type_;
+      java.lang.Object ref = type_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         type_ = b;
         return b;
       } else {
@@ -571,29 +645,29 @@ public  final class Evidence extends
       }
     }
     /**
-     * <code>optional string type = 1;</code>
+     * <code>string type = 1;</code>
      */
     public Builder setType(
-        String value) {
+        java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
-
+  
       type_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>optional string type = 1;</code>
+     * <code>string type = 1;</code>
      */
     public Builder clearType() {
-
+      
       type_ = getDefaultInstance().getType();
       onChanged();
       return this;
     }
     /**
-     * <code>optional string type = 1;</code>
+     * <code>string type = 1;</code>
      */
     public Builder setTypeBytes(
         com.google.protobuf.ByteString value) {
@@ -601,35 +675,35 @@ public  final class Evidence extends
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+      
       type_ = value;
       onChanged();
       return this;
     }
 
-    private Validator validator_ = null;
+    private com.github.jtendermint.jabci.types.Validator validator_ = null;
     private com.google.protobuf.SingleFieldBuilderV3<
-        Validator, Validator.Builder, ValidatorOrBuilder> validatorBuilder_;
+        com.github.jtendermint.jabci.types.Validator, com.github.jtendermint.jabci.types.Validator.Builder, com.github.jtendermint.jabci.types.ValidatorOrBuilder> validatorBuilder_;
     /**
-     * <code>optional .com.github.jtendermint.jabci.types.Validator validator = 2;</code>
+     * <code>.com.github.jtendermint.jabci.types.Validator validator = 2;</code>
      */
     public boolean hasValidator() {
       return validatorBuilder_ != null || validator_ != null;
     }
     /**
-     * <code>optional .com.github.jtendermint.jabci.types.Validator validator = 2;</code>
+     * <code>.com.github.jtendermint.jabci.types.Validator validator = 2;</code>
      */
-    public Validator getValidator() {
+    public com.github.jtendermint.jabci.types.Validator getValidator() {
       if (validatorBuilder_ == null) {
-        return validator_ == null ? Validator.getDefaultInstance() : validator_;
+        return validator_ == null ? com.github.jtendermint.jabci.types.Validator.getDefaultInstance() : validator_;
       } else {
         return validatorBuilder_.getMessage();
       }
     }
     /**
-     * <code>optional .com.github.jtendermint.jabci.types.Validator validator = 2;</code>
+     * <code>.com.github.jtendermint.jabci.types.Validator validator = 2;</code>
      */
-    public Builder setValidator(Validator value) {
+    public Builder setValidator(com.github.jtendermint.jabci.types.Validator value) {
       if (validatorBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -643,10 +717,10 @@ public  final class Evidence extends
       return this;
     }
     /**
-     * <code>optional .com.github.jtendermint.jabci.types.Validator validator = 2;</code>
+     * <code>.com.github.jtendermint.jabci.types.Validator validator = 2;</code>
      */
     public Builder setValidator(
-        Validator.Builder builderForValue) {
+        com.github.jtendermint.jabci.types.Validator.Builder builderForValue) {
       if (validatorBuilder_ == null) {
         validator_ = builderForValue.build();
         onChanged();
@@ -657,13 +731,13 @@ public  final class Evidence extends
       return this;
     }
     /**
-     * <code>optional .com.github.jtendermint.jabci.types.Validator validator = 2;</code>
+     * <code>.com.github.jtendermint.jabci.types.Validator validator = 2;</code>
      */
-    public Builder mergeValidator(Validator value) {
+    public Builder mergeValidator(com.github.jtendermint.jabci.types.Validator value) {
       if (validatorBuilder_ == null) {
         if (validator_ != null) {
           validator_ =
-            Validator.newBuilder(validator_).mergeFrom(value).buildPartial();
+            com.github.jtendermint.jabci.types.Validator.newBuilder(validator_).mergeFrom(value).buildPartial();
         } else {
           validator_ = value;
         }
@@ -675,7 +749,7 @@ public  final class Evidence extends
       return this;
     }
     /**
-     * <code>optional .com.github.jtendermint.jabci.types.Validator validator = 2;</code>
+     * <code>.com.github.jtendermint.jabci.types.Validator validator = 2;</code>
      */
     public Builder clearValidator() {
       if (validatorBuilder_ == null) {
@@ -689,33 +763,33 @@ public  final class Evidence extends
       return this;
     }
     /**
-     * <code>optional .com.github.jtendermint.jabci.types.Validator validator = 2;</code>
+     * <code>.com.github.jtendermint.jabci.types.Validator validator = 2;</code>
      */
-    public Validator.Builder getValidatorBuilder() {
-
+    public com.github.jtendermint.jabci.types.Validator.Builder getValidatorBuilder() {
+      
       onChanged();
       return getValidatorFieldBuilder().getBuilder();
     }
     /**
-     * <code>optional .com.github.jtendermint.jabci.types.Validator validator = 2;</code>
+     * <code>.com.github.jtendermint.jabci.types.Validator validator = 2;</code>
      */
-    public ValidatorOrBuilder getValidatorOrBuilder() {
+    public com.github.jtendermint.jabci.types.ValidatorOrBuilder getValidatorOrBuilder() {
       if (validatorBuilder_ != null) {
         return validatorBuilder_.getMessageOrBuilder();
       } else {
         return validator_ == null ?
-            Validator.getDefaultInstance() : validator_;
+            com.github.jtendermint.jabci.types.Validator.getDefaultInstance() : validator_;
       }
     }
     /**
-     * <code>optional .com.github.jtendermint.jabci.types.Validator validator = 2;</code>
+     * <code>.com.github.jtendermint.jabci.types.Validator validator = 2;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        Validator, Validator.Builder, ValidatorOrBuilder>
+        com.github.jtendermint.jabci.types.Validator, com.github.jtendermint.jabci.types.Validator.Builder, com.github.jtendermint.jabci.types.ValidatorOrBuilder> 
         getValidatorFieldBuilder() {
       if (validatorBuilder_ == null) {
         validatorBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            Validator, Validator.Builder, ValidatorOrBuilder>(
+            com.github.jtendermint.jabci.types.Validator, com.github.jtendermint.jabci.types.Validator.Builder, com.github.jtendermint.jabci.types.ValidatorOrBuilder>(
                 getValidator(),
                 getParentForChildren(),
                 isClean());
@@ -726,89 +800,182 @@ public  final class Evidence extends
 
     private long height_ ;
     /**
-     * <code>optional int64 height = 3;</code>
+     * <code>int64 height = 3;</code>
      */
     public long getHeight() {
       return height_;
     }
     /**
-     * <code>optional int64 height = 3;</code>
+     * <code>int64 height = 3;</code>
      */
     public Builder setHeight(long value) {
-
+      
       height_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>optional int64 height = 3;</code>
+     * <code>int64 height = 3;</code>
      */
     public Builder clearHeight() {
-
+      
       height_ = 0L;
       onChanged();
       return this;
     }
 
-    private long time_ ;
+    private com.google.protobuf.Timestamp time_ = null;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> timeBuilder_;
     /**
-     * <code>optional int64 time = 4;</code>
+     * <code>.google.protobuf.Timestamp time = 4;</code>
      */
-    public long getTime() {
-      return time_;
+    public boolean hasTime() {
+      return timeBuilder_ != null || time_ != null;
     }
     /**
-     * <code>optional int64 time = 4;</code>
+     * <code>.google.protobuf.Timestamp time = 4;</code>
      */
-    public Builder setTime(long value) {
+    public com.google.protobuf.Timestamp getTime() {
+      if (timeBuilder_ == null) {
+        return time_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : time_;
+      } else {
+        return timeBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.google.protobuf.Timestamp time = 4;</code>
+     */
+    public Builder setTime(com.google.protobuf.Timestamp value) {
+      if (timeBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        time_ = value;
+        onChanged();
+      } else {
+        timeBuilder_.setMessage(value);
+      }
 
-      time_ = value;
-      onChanged();
       return this;
     }
     /**
-     * <code>optional int64 time = 4;</code>
+     * <code>.google.protobuf.Timestamp time = 4;</code>
+     */
+    public Builder setTime(
+        com.google.protobuf.Timestamp.Builder builderForValue) {
+      if (timeBuilder_ == null) {
+        time_ = builderForValue.build();
+        onChanged();
+      } else {
+        timeBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp time = 4;</code>
+     */
+    public Builder mergeTime(com.google.protobuf.Timestamp value) {
+      if (timeBuilder_ == null) {
+        if (time_ != null) {
+          time_ =
+            com.google.protobuf.Timestamp.newBuilder(time_).mergeFrom(value).buildPartial();
+        } else {
+          time_ = value;
+        }
+        onChanged();
+      } else {
+        timeBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp time = 4;</code>
      */
     public Builder clearTime() {
+      if (timeBuilder_ == null) {
+        time_ = null;
+        onChanged();
+      } else {
+        time_ = null;
+        timeBuilder_ = null;
+      }
 
-      time_ = 0L;
-      onChanged();
       return this;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp time = 4;</code>
+     */
+    public com.google.protobuf.Timestamp.Builder getTimeBuilder() {
+      
+      onChanged();
+      return getTimeFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.google.protobuf.Timestamp time = 4;</code>
+     */
+    public com.google.protobuf.TimestampOrBuilder getTimeOrBuilder() {
+      if (timeBuilder_ != null) {
+        return timeBuilder_.getMessageOrBuilder();
+      } else {
+        return time_ == null ?
+            com.google.protobuf.Timestamp.getDefaultInstance() : time_;
+      }
+    }
+    /**
+     * <code>.google.protobuf.Timestamp time = 4;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+        getTimeFieldBuilder() {
+      if (timeBuilder_ == null) {
+        timeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                getTime(),
+                getParentForChildren(),
+                isClean());
+        time_ = null;
+      }
+      return timeBuilder_;
     }
 
     private long totalVotingPower_ ;
     /**
-     * <code>optional int64 total_voting_power = 5;</code>
+     * <code>int64 total_voting_power = 5;</code>
      */
     public long getTotalVotingPower() {
       return totalVotingPower_;
     }
     /**
-     * <code>optional int64 total_voting_power = 5;</code>
+     * <code>int64 total_voting_power = 5;</code>
      */
     public Builder setTotalVotingPower(long value) {
-
+      
       totalVotingPower_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>optional int64 total_voting_power = 5;</code>
+     * <code>int64 total_voting_power = 5;</code>
      */
     public Builder clearTotalVotingPower() {
-
+      
       totalVotingPower_ = 0L;
       onChanged();
       return this;
     }
+    @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
-      return this;
+      return super.setUnknownFieldsProto3(unknownFields);
     }
 
+    @java.lang.Override
     public final Builder mergeUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
-      return this;
+      return super.mergeUnknownFields(unknownFields);
     }
 
 
@@ -816,22 +983,23 @@ public  final class Evidence extends
   }
 
   // @@protoc_insertion_point(class_scope:com.github.jtendermint.jabci.types.Evidence)
-  private static final Evidence DEFAULT_INSTANCE;
+  private static final com.github.jtendermint.jabci.types.Evidence DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new Evidence();
+    DEFAULT_INSTANCE = new com.github.jtendermint.jabci.types.Evidence();
   }
 
-  public static Evidence getDefaultInstance() {
+  public static com.github.jtendermint.jabci.types.Evidence getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
   private static final com.google.protobuf.Parser<Evidence>
       PARSER = new com.google.protobuf.AbstractParser<Evidence>() {
+    @java.lang.Override
     public Evidence parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Evidence(input, extensionRegistry);
+      return new Evidence(input, extensionRegistry);
     }
   };
 
@@ -839,12 +1007,13 @@ public  final class Evidence extends
     return PARSER;
   }
 
-  @Override
+  @java.lang.Override
   public com.google.protobuf.Parser<Evidence> getParserForType() {
     return PARSER;
   }
 
-  public Evidence getDefaultInstanceForType() {
+  @java.lang.Override
+  public com.github.jtendermint.jabci.types.Evidence getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

@@ -10,6 +10,7 @@ public  final class RequestEcho extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:com.github.jtendermint.jabci.types.RequestEcho)
     RequestEchoOrBuilder {
+private static final long serialVersionUID = 0L;
   // Use RequestEcho.newBuilder() to construct.
   private RequestEcho(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
@@ -18,17 +19,22 @@ public  final class RequestEcho extends
     message_ = "";
   }
 
-  @Override
+  @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
-    return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+    return this.unknownFields;
   }
   private RequestEcho(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     this();
+    if (extensionRegistry == null) {
+      throw new java.lang.NullPointerException();
+    }
     int mutable_bitField0_ = 0;
+    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+        com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
       boolean done = false;
       while (!done) {
@@ -37,16 +43,17 @@ public  final class RequestEcho extends
           case 0:
             done = true;
             break;
-          default: {
-            if (!input.skipField(tag)) {
-              done = true;
-            }
-            break;
-          }
           case 10: {
-            String s = input.readStringRequireUtf8();
+            java.lang.String s = input.readStringRequireUtf8();
 
             message_ = s;
+            break;
+          }
+          default: {
+            if (!parseUnknownFieldProto3(
+                input, unknownFields, extensionRegistry, tag)) {
+              done = true;
+            }
             break;
           }
         }
@@ -57,48 +64,50 @@ public  final class RequestEcho extends
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
+      this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
     }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return Types.internal_static_com_github_jtendermint_jabci_types_RequestEcho_descriptor;
+    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_RequestEcho_descriptor;
   }
 
-  protected FieldAccessorTable
+  @java.lang.Override
+  protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return Types.internal_static_com_github_jtendermint_jabci_types_RequestEcho_fieldAccessorTable
+    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_RequestEcho_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            RequestEcho.class, RequestEcho.Builder.class);
+            com.github.jtendermint.jabci.types.RequestEcho.class, com.github.jtendermint.jabci.types.RequestEcho.Builder.class);
   }
 
   public static final int MESSAGE_FIELD_NUMBER = 1;
-  private volatile Object message_;
+  private volatile java.lang.Object message_;
   /**
-   * <code>optional string message = 1;</code>
+   * <code>string message = 1;</code>
    */
-  public String getMessage() {
-    Object ref = message_;
-    if (ref instanceof String) {
-      return (String) ref;
+  public java.lang.String getMessage() {
+    java.lang.Object ref = message_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs =
+      com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
-      String s = bs.toStringUtf8();
+      java.lang.String s = bs.toStringUtf8();
       message_ = s;
       return s;
     }
   }
   /**
-   * <code>optional string message = 1;</code>
+   * <code>string message = 1;</code>
    */
   public com.google.protobuf.ByteString
       getMessageBytes() {
-    Object ref = message_;
-    if (ref instanceof String) {
-      com.google.protobuf.ByteString b =
+    java.lang.Object ref = message_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
-              (String) ref);
+              (java.lang.String) ref);
       message_ = b;
       return b;
     } else {
@@ -107,6 +116,7 @@ public  final class RequestEcho extends
   }
 
   private byte memoizedIsInitialized = -1;
+  @java.lang.Override
   public final boolean isInitialized() {
     byte isInitialized = memoizedIsInitialized;
     if (isInitialized == 1) return true;
@@ -116,13 +126,16 @@ public  final class RequestEcho extends
     return true;
   }
 
+  @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
     if (!getMessageBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, message_);
     }
+    unknownFields.writeTo(output);
   }
 
+  @java.lang.Override
   public int getSerializedSize() {
     int size = memoizedSize;
     if (size != -1) return size;
@@ -131,34 +144,35 @@ public  final class RequestEcho extends
     if (!getMessageBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, message_);
     }
+    size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
   }
 
-  private static final long serialVersionUID = 0L;
-  @Override
-  public boolean equals(final Object obj) {
+  @java.lang.Override
+  public boolean equals(final java.lang.Object obj) {
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof RequestEcho)) {
+    if (!(obj instanceof com.github.jtendermint.jabci.types.RequestEcho)) {
       return super.equals(obj);
     }
-    RequestEcho other = (RequestEcho) obj;
+    com.github.jtendermint.jabci.types.RequestEcho other = (com.github.jtendermint.jabci.types.RequestEcho) obj;
 
     boolean result = true;
     result = result && getMessage()
         .equals(other.getMessage());
+    result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
 
-  @Override
+  @java.lang.Override
   public int hashCode() {
     if (memoizedHashCode != 0) {
       return memoizedHashCode;
     }
     int hash = 41;
-    hash = (19 * hash) + getDescriptorForType().hashCode();
+    hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
     hash = (53 * hash) + getMessage().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
@@ -166,58 +180,69 @@ public  final class RequestEcho extends
     return hash;
   }
 
-  public static RequestEcho parseFrom(
+  public static com.github.jtendermint.jabci.types.RequestEcho parseFrom(
+      java.nio.ByteBuffer data)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    return PARSER.parseFrom(data);
+  }
+  public static com.github.jtendermint.jabci.types.RequestEcho parseFrom(
+      java.nio.ByteBuffer data,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    return PARSER.parseFrom(data, extensionRegistry);
+  }
+  public static com.github.jtendermint.jabci.types.RequestEcho parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static RequestEcho parseFrom(
+  public static com.github.jtendermint.jabci.types.RequestEcho parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static RequestEcho parseFrom(byte[] data)
+  public static com.github.jtendermint.jabci.types.RequestEcho parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static RequestEcho parseFrom(
+  public static com.github.jtendermint.jabci.types.RequestEcho parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static RequestEcho parseFrom(java.io.InputStream input)
+  public static com.github.jtendermint.jabci.types.RequestEcho parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static RequestEcho parseFrom(
+  public static com.github.jtendermint.jabci.types.RequestEcho parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static RequestEcho parseDelimitedFrom(java.io.InputStream input)
+  public static com.github.jtendermint.jabci.types.RequestEcho parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static RequestEcho parseDelimitedFrom(
+  public static com.github.jtendermint.jabci.types.RequestEcho parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static RequestEcho parseFrom(
+  public static com.github.jtendermint.jabci.types.RequestEcho parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static RequestEcho parseFrom(
+  public static com.github.jtendermint.jabci.types.RequestEcho parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -225,21 +250,23 @@ public  final class RequestEcho extends
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
 
+  @java.lang.Override
   public Builder newBuilderForType() { return newBuilder(); }
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(RequestEcho prototype) {
+  public static Builder newBuilder(com.github.jtendermint.jabci.types.RequestEcho prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
+  @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
         ? new Builder() : new Builder().mergeFrom(this);
   }
 
-  @Override
+  @java.lang.Override
   protected Builder newBuilderForType(
-      BuilderParent parent) {
+      com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
     Builder builder = new Builder(parent);
     return builder;
   }
@@ -249,17 +276,18 @@ public  final class RequestEcho extends
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
       // @@protoc_insertion_point(builder_implements:com.github.jtendermint.jabci.types.RequestEcho)
-      RequestEchoOrBuilder {
+      com.github.jtendermint.jabci.types.RequestEchoOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return Types.internal_static_com_github_jtendermint_jabci_types_RequestEcho_descriptor;
+      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_RequestEcho_descriptor;
     }
 
-    protected FieldAccessorTable
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return Types.internal_static_com_github_jtendermint_jabci_types_RequestEcho_fieldAccessorTable
+      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_RequestEcho_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              RequestEcho.class, RequestEcho.Builder.class);
+              com.github.jtendermint.jabci.types.RequestEcho.class, com.github.jtendermint.jabci.types.RequestEcho.Builder.class);
     }
 
     // Construct using com.github.jtendermint.jabci.types.RequestEcho.newBuilder()
@@ -268,7 +296,7 @@ public  final class RequestEcho extends
     }
 
     private Builder(
-        BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
       maybeForceBuilderInitialization();
     }
@@ -277,6 +305,7 @@ public  final class RequestEcho extends
               .alwaysUseFieldBuilders) {
       }
     }
+    @java.lang.Override
     public Builder clear() {
       super.clear();
       message_ = "";
@@ -284,88 +313,102 @@ public  final class RequestEcho extends
       return this;
     }
 
+    @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return Types.internal_static_com_github_jtendermint_jabci_types_RequestEcho_descriptor;
+      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_RequestEcho_descriptor;
     }
 
-    public RequestEcho getDefaultInstanceForType() {
-      return RequestEcho.getDefaultInstance();
+    @java.lang.Override
+    public com.github.jtendermint.jabci.types.RequestEcho getDefaultInstanceForType() {
+      return com.github.jtendermint.jabci.types.RequestEcho.getDefaultInstance();
     }
 
-    public RequestEcho build() {
-      RequestEcho result = buildPartial();
+    @java.lang.Override
+    public com.github.jtendermint.jabci.types.RequestEcho build() {
+      com.github.jtendermint.jabci.types.RequestEcho result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
       return result;
     }
 
-    public RequestEcho buildPartial() {
-      RequestEcho result = new RequestEcho(this);
+    @java.lang.Override
+    public com.github.jtendermint.jabci.types.RequestEcho buildPartial() {
+      com.github.jtendermint.jabci.types.RequestEcho result = new com.github.jtendermint.jabci.types.RequestEcho(this);
       result.message_ = message_;
       onBuilt();
       return result;
     }
 
+    @java.lang.Override
     public Builder clone() {
       return (Builder) super.clone();
     }
+    @java.lang.Override
     public Builder setField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        Object value) {
+        java.lang.Object value) {
       return (Builder) super.setField(field, value);
     }
+    @java.lang.Override
     public Builder clearField(
         com.google.protobuf.Descriptors.FieldDescriptor field) {
       return (Builder) super.clearField(field);
     }
+    @java.lang.Override
     public Builder clearOneof(
         com.google.protobuf.Descriptors.OneofDescriptor oneof) {
       return (Builder) super.clearOneof(oneof);
     }
+    @java.lang.Override
     public Builder setRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        int index, Object value) {
+        int index, java.lang.Object value) {
       return (Builder) super.setRepeatedField(field, index, value);
     }
+    @java.lang.Override
     public Builder addRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        Object value) {
+        java.lang.Object value) {
       return (Builder) super.addRepeatedField(field, value);
     }
+    @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof RequestEcho) {
-        return mergeFrom((RequestEcho)other);
+      if (other instanceof com.github.jtendermint.jabci.types.RequestEcho) {
+        return mergeFrom((com.github.jtendermint.jabci.types.RequestEcho)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(RequestEcho other) {
-      if (other == RequestEcho.getDefaultInstance()) return this;
+    public Builder mergeFrom(com.github.jtendermint.jabci.types.RequestEcho other) {
+      if (other == com.github.jtendermint.jabci.types.RequestEcho.getDefaultInstance()) return this;
       if (!other.getMessage().isEmpty()) {
         message_ = other.message_;
         onChanged();
       }
+      this.mergeUnknownFields(other.unknownFields);
       onChanged();
       return this;
     }
 
+    @java.lang.Override
     public final boolean isInitialized() {
       return true;
     }
 
+    @java.lang.Override
     public Builder mergeFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      RequestEcho parsedMessage = null;
+      com.github.jtendermint.jabci.types.RequestEcho parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (RequestEcho) e.getUnfinishedMessage();
+        parsedMessage = (com.github.jtendermint.jabci.types.RequestEcho) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -375,32 +418,32 @@ public  final class RequestEcho extends
       return this;
     }
 
-    private Object message_ = "";
+    private java.lang.Object message_ = "";
     /**
-     * <code>optional string message = 1;</code>
+     * <code>string message = 1;</code>
      */
-    public String getMessage() {
-      Object ref = message_;
-      if (!(ref instanceof String)) {
+    public java.lang.String getMessage() {
+      java.lang.Object ref = message_;
+      if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         message_ = s;
         return s;
       } else {
-        return (String) ref;
+        return (java.lang.String) ref;
       }
     }
     /**
-     * <code>optional string message = 1;</code>
+     * <code>string message = 1;</code>
      */
     public com.google.protobuf.ByteString
         getMessageBytes() {
-      Object ref = message_;
+      java.lang.Object ref = message_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         message_ = b;
         return b;
       } else {
@@ -408,29 +451,29 @@ public  final class RequestEcho extends
       }
     }
     /**
-     * <code>optional string message = 1;</code>
+     * <code>string message = 1;</code>
      */
     public Builder setMessage(
-        String value) {
+        java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
-
+  
       message_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>optional string message = 1;</code>
+     * <code>string message = 1;</code>
      */
     public Builder clearMessage() {
-
+      
       message_ = getDefaultInstance().getMessage();
       onChanged();
       return this;
     }
     /**
-     * <code>optional string message = 1;</code>
+     * <code>string message = 1;</code>
      */
     public Builder setMessageBytes(
         com.google.protobuf.ByteString value) {
@@ -438,19 +481,21 @@ public  final class RequestEcho extends
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+      
       message_ = value;
       onChanged();
       return this;
     }
+    @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
-      return this;
+      return super.setUnknownFieldsProto3(unknownFields);
     }
 
+    @java.lang.Override
     public final Builder mergeUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
-      return this;
+      return super.mergeUnknownFields(unknownFields);
     }
 
 
@@ -458,22 +503,23 @@ public  final class RequestEcho extends
   }
 
   // @@protoc_insertion_point(class_scope:com.github.jtendermint.jabci.types.RequestEcho)
-  private static final RequestEcho DEFAULT_INSTANCE;
+  private static final com.github.jtendermint.jabci.types.RequestEcho DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new RequestEcho();
+    DEFAULT_INSTANCE = new com.github.jtendermint.jabci.types.RequestEcho();
   }
 
-  public static RequestEcho getDefaultInstance() {
+  public static com.github.jtendermint.jabci.types.RequestEcho getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
   private static final com.google.protobuf.Parser<RequestEcho>
       PARSER = new com.google.protobuf.AbstractParser<RequestEcho>() {
+    @java.lang.Override
     public RequestEcho parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-        return new RequestEcho(input, extensionRegistry);
+      return new RequestEcho(input, extensionRegistry);
     }
   };
 
@@ -481,12 +527,13 @@ public  final class RequestEcho extends
     return PARSER;
   }
 
-  @Override
+  @java.lang.Override
   public com.google.protobuf.Parser<RequestEcho> getParserForType() {
     return PARSER;
   }
 
-  public RequestEcho getDefaultInstanceForType() {
+  @java.lang.Override
+  public com.github.jtendermint.jabci.types.RequestEcho getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

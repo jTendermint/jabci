@@ -8,7 +8,7 @@ public interface RequestCheckTxOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>optional bytes tx = 1;</code>
+   * <code>bytes tx = 1;</code>
    */
   com.google.protobuf.ByteString getTx();
 }

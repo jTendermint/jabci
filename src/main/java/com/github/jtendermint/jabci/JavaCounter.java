@@ -60,7 +60,7 @@ public final class JavaCounter implements IDeliverTx, ICheckTx, ICommit, IQuery 
 
         socket.registerListener(this);
 
-        Thread t = new Thread(() -> socket.start(46658));
+        Thread t = new Thread(() -> socket.start(26658));
         t.setName("Java Counter Main Thread");
         t.start();
         while (true) {

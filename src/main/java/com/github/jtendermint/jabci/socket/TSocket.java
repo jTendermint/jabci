@@ -49,7 +49,7 @@ import com.google.protobuf.GeneratedMessageV3;
  */
 public class TSocket extends ASocket {
 
-    public static final int DEFAULT_LISTEN_SOCKET_PORT = 46658;
+    public static final int DEFAULT_LISTEN_SOCKET_PORT = 26658;
     public static final String INFO_SOCKET = "-Info";
     public static final String MEMPOOL_SOCKET = "-MemPool";
     public static final String CONSENSUS_SOCKET = "-Consensus";

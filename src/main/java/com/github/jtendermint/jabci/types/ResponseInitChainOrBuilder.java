@@ -8,39 +8,39 @@ public interface ResponseInitChainOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>optional .com.github.jtendermint.jabci.types.ConsensusParams consensus_params = 1;</code>
+   * <code>.com.github.jtendermint.jabci.types.ConsensusParams consensus_params = 1;</code>
    */
   boolean hasConsensusParams();
   /**
-   * <code>optional .com.github.jtendermint.jabci.types.ConsensusParams consensus_params = 1;</code>
+   * <code>.com.github.jtendermint.jabci.types.ConsensusParams consensus_params = 1;</code>
    */
-  ConsensusParams getConsensusParams();
+  com.github.jtendermint.jabci.types.ConsensusParams getConsensusParams();
   /**
-   * <code>optional .com.github.jtendermint.jabci.types.ConsensusParams consensus_params = 1;</code>
+   * <code>.com.github.jtendermint.jabci.types.ConsensusParams consensus_params = 1;</code>
    */
-  ConsensusParamsOrBuilder getConsensusParamsOrBuilder();
+  com.github.jtendermint.jabci.types.ConsensusParamsOrBuilder getConsensusParamsOrBuilder();
 
   /**
-   * <code>repeated .com.github.jtendermint.jabci.types.Validator validators = 2;</code>
+   * <code>repeated .com.github.jtendermint.jabci.types.ValidatorUpdate validators = 2;</code>
    */
-  java.util.List<Validator>
+  java.util.List<com.github.jtendermint.jabci.types.ValidatorUpdate> 
       getValidatorsList();
   /**
-   * <code>repeated .com.github.jtendermint.jabci.types.Validator validators = 2;</code>
+   * <code>repeated .com.github.jtendermint.jabci.types.ValidatorUpdate validators = 2;</code>
    */
-  Validator getValidators(int index);
+  com.github.jtendermint.jabci.types.ValidatorUpdate getValidators(int index);
   /**
-   * <code>repeated .com.github.jtendermint.jabci.types.Validator validators = 2;</code>
+   * <code>repeated .com.github.jtendermint.jabci.types.ValidatorUpdate validators = 2;</code>
    */
   int getValidatorsCount();
   /**
-   * <code>repeated .com.github.jtendermint.jabci.types.Validator validators = 2;</code>
+   * <code>repeated .com.github.jtendermint.jabci.types.ValidatorUpdate validators = 2;</code>
    */
-  java.util.List<? extends ValidatorOrBuilder>
+  java.util.List<? extends com.github.jtendermint.jabci.types.ValidatorUpdateOrBuilder> 
       getValidatorsOrBuilderList();
   /**
-   * <code>repeated .com.github.jtendermint.jabci.types.Validator validators = 2;</code>
+   * <code>repeated .com.github.jtendermint.jabci.types.ValidatorUpdate validators = 2;</code>
    */
-  ValidatorOrBuilder getValidatorsOrBuilder(
-          int index);
+  com.github.jtendermint.jabci.types.ValidatorUpdateOrBuilder getValidatorsOrBuilder(
+      int index);
 }

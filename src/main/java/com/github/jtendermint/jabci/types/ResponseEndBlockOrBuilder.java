@@ -8,51 +8,51 @@ public interface ResponseEndBlockOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>repeated .com.github.jtendermint.jabci.types.Validator validator_updates = 1;</code>
+   * <code>repeated .com.github.jtendermint.jabci.types.ValidatorUpdate validator_updates = 1;</code>
    */
-  java.util.List<Validator>
+  java.util.List<com.github.jtendermint.jabci.types.ValidatorUpdate> 
       getValidatorUpdatesList();
   /**
-   * <code>repeated .com.github.jtendermint.jabci.types.Validator validator_updates = 1;</code>
+   * <code>repeated .com.github.jtendermint.jabci.types.ValidatorUpdate validator_updates = 1;</code>
    */
-  Validator getValidatorUpdates(int index);
+  com.github.jtendermint.jabci.types.ValidatorUpdate getValidatorUpdates(int index);
   /**
-   * <code>repeated .com.github.jtendermint.jabci.types.Validator validator_updates = 1;</code>
+   * <code>repeated .com.github.jtendermint.jabci.types.ValidatorUpdate validator_updates = 1;</code>
    */
   int getValidatorUpdatesCount();
   /**
-   * <code>repeated .com.github.jtendermint.jabci.types.Validator validator_updates = 1;</code>
+   * <code>repeated .com.github.jtendermint.jabci.types.ValidatorUpdate validator_updates = 1;</code>
    */
-  java.util.List<? extends ValidatorOrBuilder>
+  java.util.List<? extends com.github.jtendermint.jabci.types.ValidatorUpdateOrBuilder> 
       getValidatorUpdatesOrBuilderList();
   /**
-   * <code>repeated .com.github.jtendermint.jabci.types.Validator validator_updates = 1;</code>
+   * <code>repeated .com.github.jtendermint.jabci.types.ValidatorUpdate validator_updates = 1;</code>
    */
-  ValidatorOrBuilder getValidatorUpdatesOrBuilder(
-          int index);
+  com.github.jtendermint.jabci.types.ValidatorUpdateOrBuilder getValidatorUpdatesOrBuilder(
+      int index);
 
   /**
-   * <code>optional .com.github.jtendermint.jabci.types.ConsensusParams consensus_param_updates = 2;</code>
+   * <code>.com.github.jtendermint.jabci.types.ConsensusParams consensus_param_updates = 2;</code>
    */
   boolean hasConsensusParamUpdates();
   /**
-   * <code>optional .com.github.jtendermint.jabci.types.ConsensusParams consensus_param_updates = 2;</code>
+   * <code>.com.github.jtendermint.jabci.types.ConsensusParams consensus_param_updates = 2;</code>
    */
-  ConsensusParams getConsensusParamUpdates();
+  com.github.jtendermint.jabci.types.ConsensusParams getConsensusParamUpdates();
   /**
-   * <code>optional .com.github.jtendermint.jabci.types.ConsensusParams consensus_param_updates = 2;</code>
+   * <code>.com.github.jtendermint.jabci.types.ConsensusParams consensus_param_updates = 2;</code>
    */
-  ConsensusParamsOrBuilder getConsensusParamUpdatesOrBuilder();
+  com.github.jtendermint.jabci.types.ConsensusParamsOrBuilder getConsensusParamUpdatesOrBuilder();
 
   /**
    * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 3;</code>
    */
-  java.util.List<KVPair>
+  java.util.List<com.github.jtendermint.jabci.types.KVPair> 
       getTagsList();
   /**
    * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 3;</code>
    */
-  KVPair getTags(int index);
+  com.github.jtendermint.jabci.types.KVPair getTags(int index);
   /**
    * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 3;</code>
    */
@@ -60,11 +60,11 @@ public interface ResponseEndBlockOrBuilder extends
   /**
    * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 3;</code>
    */
-  java.util.List<? extends KVPairOrBuilder>
+  java.util.List<? extends com.github.jtendermint.jabci.types.KVPairOrBuilder> 
       getTagsOrBuilderList();
   /**
    * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 3;</code>
    */
-  KVPairOrBuilder getTagsOrBuilder(
-          int index);
+  com.github.jtendermint.jabci.types.KVPairOrBuilder getTagsOrBuilder(
+      int index);
 }

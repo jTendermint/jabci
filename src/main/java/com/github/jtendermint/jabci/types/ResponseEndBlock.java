@@ -10,6 +10,7 @@ public  final class ResponseEndBlock extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:com.github.jtendermint.jabci.types.ResponseEndBlock)
     ResponseEndBlockOrBuilder {
+private static final long serialVersionUID = 0L;
   // Use ResponseEndBlock.newBuilder() to construct.
   private ResponseEndBlock(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
@@ -19,17 +20,22 @@ public  final class ResponseEndBlock extends
     tags_ = java.util.Collections.emptyList();
   }
 
-  @Override
+  @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
-    return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+    return this.unknownFields;
   }
   private ResponseEndBlock(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     this();
+    if (extensionRegistry == null) {
+      throw new java.lang.NullPointerException();
+    }
     int mutable_bitField0_ = 0;
+    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+        com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
       boolean done = false;
       while (!done) {
@@ -38,27 +44,21 @@ public  final class ResponseEndBlock extends
           case 0:
             done = true;
             break;
-          default: {
-            if (!input.skipField(tag)) {
-              done = true;
-            }
-            break;
-          }
           case 10: {
             if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-              validatorUpdates_ = new java.util.ArrayList<Validator>();
+              validatorUpdates_ = new java.util.ArrayList<com.github.jtendermint.jabci.types.ValidatorUpdate>();
               mutable_bitField0_ |= 0x00000001;
             }
             validatorUpdates_.add(
-                input.readMessage(Validator.parser(), extensionRegistry));
+                input.readMessage(com.github.jtendermint.jabci.types.ValidatorUpdate.parser(), extensionRegistry));
             break;
           }
           case 18: {
-            ConsensusParams.Builder subBuilder = null;
+            com.github.jtendermint.jabci.types.ConsensusParams.Builder subBuilder = null;
             if (consensusParamUpdates_ != null) {
               subBuilder = consensusParamUpdates_.toBuilder();
             }
-            consensusParamUpdates_ = input.readMessage(ConsensusParams.parser(), extensionRegistry);
+            consensusParamUpdates_ = input.readMessage(com.github.jtendermint.jabci.types.ConsensusParams.parser(), extensionRegistry);
             if (subBuilder != null) {
               subBuilder.mergeFrom(consensusParamUpdates_);
               consensusParamUpdates_ = subBuilder.buildPartial();
@@ -68,11 +68,18 @@ public  final class ResponseEndBlock extends
           }
           case 26: {
             if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
-              tags_ = new java.util.ArrayList<KVPair>();
+              tags_ = new java.util.ArrayList<com.github.jtendermint.jabci.types.KVPair>();
               mutable_bitField0_ |= 0x00000004;
             }
             tags_.add(
-                input.readMessage(KVPair.parser(), extensionRegistry));
+                input.readMessage(com.github.jtendermint.jabci.types.KVPair.parser(), extensionRegistry));
+            break;
+          }
+          default: {
+            if (!parseUnknownFieldProto3(
+                input, unknownFields, extensionRegistry, tag)) {
+              done = true;
+            }
             break;
           }
         }
@@ -89,90 +96,92 @@ public  final class ResponseEndBlock extends
       if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
         tags_ = java.util.Collections.unmodifiableList(tags_);
       }
+      this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
     }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return Types.internal_static_com_github_jtendermint_jabci_types_ResponseEndBlock_descriptor;
+    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseEndBlock_descriptor;
   }
 
-  protected FieldAccessorTable
+  @java.lang.Override
+  protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return Types.internal_static_com_github_jtendermint_jabci_types_ResponseEndBlock_fieldAccessorTable
+    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseEndBlock_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            ResponseEndBlock.class, ResponseEndBlock.Builder.class);
+            com.github.jtendermint.jabci.types.ResponseEndBlock.class, com.github.jtendermint.jabci.types.ResponseEndBlock.Builder.class);
   }
 
   private int bitField0_;
   public static final int VALIDATOR_UPDATES_FIELD_NUMBER = 1;
-  private java.util.List<Validator> validatorUpdates_;
+  private java.util.List<com.github.jtendermint.jabci.types.ValidatorUpdate> validatorUpdates_;
   /**
-   * <code>repeated .com.github.jtendermint.jabci.types.Validator validator_updates = 1;</code>
+   * <code>repeated .com.github.jtendermint.jabci.types.ValidatorUpdate validator_updates = 1;</code>
    */
-  public java.util.List<Validator> getValidatorUpdatesList() {
+  public java.util.List<com.github.jtendermint.jabci.types.ValidatorUpdate> getValidatorUpdatesList() {
     return validatorUpdates_;
   }
   /**
-   * <code>repeated .com.github.jtendermint.jabci.types.Validator validator_updates = 1;</code>
+   * <code>repeated .com.github.jtendermint.jabci.types.ValidatorUpdate validator_updates = 1;</code>
    */
-  public java.util.List<? extends ValidatorOrBuilder>
+  public java.util.List<? extends com.github.jtendermint.jabci.types.ValidatorUpdateOrBuilder> 
       getValidatorUpdatesOrBuilderList() {
     return validatorUpdates_;
   }
   /**
-   * <code>repeated .com.github.jtendermint.jabci.types.Validator validator_updates = 1;</code>
+   * <code>repeated .com.github.jtendermint.jabci.types.ValidatorUpdate validator_updates = 1;</code>
    */
   public int getValidatorUpdatesCount() {
     return validatorUpdates_.size();
   }
   /**
-   * <code>repeated .com.github.jtendermint.jabci.types.Validator validator_updates = 1;</code>
+   * <code>repeated .com.github.jtendermint.jabci.types.ValidatorUpdate validator_updates = 1;</code>
    */
-  public Validator getValidatorUpdates(int index) {
+  public com.github.jtendermint.jabci.types.ValidatorUpdate getValidatorUpdates(int index) {
     return validatorUpdates_.get(index);
   }
   /**
-   * <code>repeated .com.github.jtendermint.jabci.types.Validator validator_updates = 1;</code>
+   * <code>repeated .com.github.jtendermint.jabci.types.ValidatorUpdate validator_updates = 1;</code>
    */
-  public ValidatorOrBuilder getValidatorUpdatesOrBuilder(
+  public com.github.jtendermint.jabci.types.ValidatorUpdateOrBuilder getValidatorUpdatesOrBuilder(
       int index) {
     return validatorUpdates_.get(index);
   }
 
   public static final int CONSENSUS_PARAM_UPDATES_FIELD_NUMBER = 2;
-  private ConsensusParams consensusParamUpdates_;
+  private com.github.jtendermint.jabci.types.ConsensusParams consensusParamUpdates_;
   /**
-   * <code>optional .com.github.jtendermint.jabci.types.ConsensusParams consensus_param_updates = 2;</code>
+   * <code>.com.github.jtendermint.jabci.types.ConsensusParams consensus_param_updates = 2;</code>
    */
   public boolean hasConsensusParamUpdates() {
     return consensusParamUpdates_ != null;
   }
   /**
-   * <code>optional .com.github.jtendermint.jabci.types.ConsensusParams consensus_param_updates = 2;</code>
+   * <code>.com.github.jtendermint.jabci.types.ConsensusParams consensus_param_updates = 2;</code>
    */
-  public ConsensusParams getConsensusParamUpdates() {
-    return consensusParamUpdates_ == null ? ConsensusParams.getDefaultInstance() : consensusParamUpdates_;
+  public com.github.jtendermint.jabci.types.ConsensusParams getConsensusParamUpdates() {
+    return consensusParamUpdates_ == null ? com.github.jtendermint.jabci.types.ConsensusParams.getDefaultInstance() : consensusParamUpdates_;
   }
   /**
-   * <code>optional .com.github.jtendermint.jabci.types.ConsensusParams consensus_param_updates = 2;</code>
+   * <code>.com.github.jtendermint.jabci.types.ConsensusParams consensus_param_updates = 2;</code>
    */
-  public ConsensusParamsOrBuilder getConsensusParamUpdatesOrBuilder() {
+  public com.github.jtendermint.jabci.types.ConsensusParamsOrBuilder getConsensusParamUpdatesOrBuilder() {
     return getConsensusParamUpdates();
   }
 
   public static final int TAGS_FIELD_NUMBER = 3;
-  private java.util.List<KVPair> tags_;
+  private java.util.List<com.github.jtendermint.jabci.types.KVPair> tags_;
   /**
    * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 3;</code>
    */
-  public java.util.List<KVPair> getTagsList() {
+  public java.util.List<com.github.jtendermint.jabci.types.KVPair> getTagsList() {
     return tags_;
   }
   /**
    * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 3;</code>
    */
-  public java.util.List<? extends KVPairOrBuilder>
+  public java.util.List<? extends com.github.jtendermint.jabci.types.KVPairOrBuilder> 
       getTagsOrBuilderList() {
     return tags_;
   }
@@ -185,18 +194,19 @@ public  final class ResponseEndBlock extends
   /**
    * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 3;</code>
    */
-  public KVPair getTags(int index) {
+  public com.github.jtendermint.jabci.types.KVPair getTags(int index) {
     return tags_.get(index);
   }
   /**
    * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 3;</code>
    */
-  public KVPairOrBuilder getTagsOrBuilder(
+  public com.github.jtendermint.jabci.types.KVPairOrBuilder getTagsOrBuilder(
       int index) {
     return tags_.get(index);
   }
 
   private byte memoizedIsInitialized = -1;
+  @java.lang.Override
   public final boolean isInitialized() {
     byte isInitialized = memoizedIsInitialized;
     if (isInitialized == 1) return true;
@@ -206,6 +216,7 @@ public  final class ResponseEndBlock extends
     return true;
   }
 
+  @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
     for (int i = 0; i < validatorUpdates_.size(); i++) {
@@ -217,8 +228,10 @@ public  final class ResponseEndBlock extends
     for (int i = 0; i < tags_.size(); i++) {
       output.writeMessage(3, tags_.get(i));
     }
+    unknownFields.writeTo(output);
   }
 
+  @java.lang.Override
   public int getSerializedSize() {
     int size = memoizedSize;
     if (size != -1) return size;
@@ -236,20 +249,20 @@ public  final class ResponseEndBlock extends
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, tags_.get(i));
     }
+    size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
   }
 
-  private static final long serialVersionUID = 0L;
-  @Override
-  public boolean equals(final Object obj) {
+  @java.lang.Override
+  public boolean equals(final java.lang.Object obj) {
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof ResponseEndBlock)) {
+    if (!(obj instanceof com.github.jtendermint.jabci.types.ResponseEndBlock)) {
       return super.equals(obj);
     }
-    ResponseEndBlock other = (ResponseEndBlock) obj;
+    com.github.jtendermint.jabci.types.ResponseEndBlock other = (com.github.jtendermint.jabci.types.ResponseEndBlock) obj;
 
     boolean result = true;
     result = result && getValidatorUpdatesList()
@@ -261,16 +274,17 @@ public  final class ResponseEndBlock extends
     }
     result = result && getTagsList()
         .equals(other.getTagsList());
+    result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
 
-  @Override
+  @java.lang.Override
   public int hashCode() {
     if (memoizedHashCode != 0) {
       return memoizedHashCode;
     }
     int hash = 41;
-    hash = (19 * hash) + getDescriptorForType().hashCode();
+    hash = (19 * hash) + getDescriptor().hashCode();
     if (getValidatorUpdatesCount() > 0) {
       hash = (37 * hash) + VALIDATOR_UPDATES_FIELD_NUMBER;
       hash = (53 * hash) + getValidatorUpdatesList().hashCode();
@@ -288,58 +302,69 @@ public  final class ResponseEndBlock extends
     return hash;
   }
 
-  public static ResponseEndBlock parseFrom(
+  public static com.github.jtendermint.jabci.types.ResponseEndBlock parseFrom(
+      java.nio.ByteBuffer data)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    return PARSER.parseFrom(data);
+  }
+  public static com.github.jtendermint.jabci.types.ResponseEndBlock parseFrom(
+      java.nio.ByteBuffer data,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    return PARSER.parseFrom(data, extensionRegistry);
+  }
+  public static com.github.jtendermint.jabci.types.ResponseEndBlock parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static ResponseEndBlock parseFrom(
+  public static com.github.jtendermint.jabci.types.ResponseEndBlock parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static ResponseEndBlock parseFrom(byte[] data)
+  public static com.github.jtendermint.jabci.types.ResponseEndBlock parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static ResponseEndBlock parseFrom(
+  public static com.github.jtendermint.jabci.types.ResponseEndBlock parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static ResponseEndBlock parseFrom(java.io.InputStream input)
+  public static com.github.jtendermint.jabci.types.ResponseEndBlock parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static ResponseEndBlock parseFrom(
+  public static com.github.jtendermint.jabci.types.ResponseEndBlock parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static ResponseEndBlock parseDelimitedFrom(java.io.InputStream input)
+  public static com.github.jtendermint.jabci.types.ResponseEndBlock parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static ResponseEndBlock parseDelimitedFrom(
+  public static com.github.jtendermint.jabci.types.ResponseEndBlock parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static ResponseEndBlock parseFrom(
+  public static com.github.jtendermint.jabci.types.ResponseEndBlock parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static ResponseEndBlock parseFrom(
+  public static com.github.jtendermint.jabci.types.ResponseEndBlock parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -347,21 +372,23 @@ public  final class ResponseEndBlock extends
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
 
+  @java.lang.Override
   public Builder newBuilderForType() { return newBuilder(); }
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(ResponseEndBlock prototype) {
+  public static Builder newBuilder(com.github.jtendermint.jabci.types.ResponseEndBlock prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
+  @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
         ? new Builder() : new Builder().mergeFrom(this);
   }
 
-  @Override
+  @java.lang.Override
   protected Builder newBuilderForType(
-      BuilderParent parent) {
+      com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
     Builder builder = new Builder(parent);
     return builder;
   }
@@ -371,17 +398,18 @@ public  final class ResponseEndBlock extends
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
       // @@protoc_insertion_point(builder_implements:com.github.jtendermint.jabci.types.ResponseEndBlock)
-      ResponseEndBlockOrBuilder {
+      com.github.jtendermint.jabci.types.ResponseEndBlockOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return Types.internal_static_com_github_jtendermint_jabci_types_ResponseEndBlock_descriptor;
+      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseEndBlock_descriptor;
     }
 
-    protected FieldAccessorTable
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return Types.internal_static_com_github_jtendermint_jabci_types_ResponseEndBlock_fieldAccessorTable
+      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseEndBlock_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              ResponseEndBlock.class, ResponseEndBlock.Builder.class);
+              com.github.jtendermint.jabci.types.ResponseEndBlock.class, com.github.jtendermint.jabci.types.ResponseEndBlock.Builder.class);
     }
 
     // Construct using com.github.jtendermint.jabci.types.ResponseEndBlock.newBuilder()
@@ -390,7 +418,7 @@ public  final class ResponseEndBlock extends
     }
 
     private Builder(
-        BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
       maybeForceBuilderInitialization();
     }
@@ -401,6 +429,7 @@ public  final class ResponseEndBlock extends
         getTagsFieldBuilder();
       }
     }
+    @java.lang.Override
     public Builder clear() {
       super.clear();
       if (validatorUpdatesBuilder_ == null) {
@@ -424,25 +453,29 @@ public  final class ResponseEndBlock extends
       return this;
     }
 
+    @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return Types.internal_static_com_github_jtendermint_jabci_types_ResponseEndBlock_descriptor;
+      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseEndBlock_descriptor;
     }
 
-    public ResponseEndBlock getDefaultInstanceForType() {
-      return ResponseEndBlock.getDefaultInstance();
+    @java.lang.Override
+    public com.github.jtendermint.jabci.types.ResponseEndBlock getDefaultInstanceForType() {
+      return com.github.jtendermint.jabci.types.ResponseEndBlock.getDefaultInstance();
     }
 
-    public ResponseEndBlock build() {
-      ResponseEndBlock result = buildPartial();
+    @java.lang.Override
+    public com.github.jtendermint.jabci.types.ResponseEndBlock build() {
+      com.github.jtendermint.jabci.types.ResponseEndBlock result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
       return result;
     }
 
-    public ResponseEndBlock buildPartial() {
-      ResponseEndBlock result = new ResponseEndBlock(this);
+    @java.lang.Override
+    public com.github.jtendermint.jabci.types.ResponseEndBlock buildPartial() {
+      com.github.jtendermint.jabci.types.ResponseEndBlock result = new com.github.jtendermint.jabci.types.ResponseEndBlock(this);
       int from_bitField0_ = bitField0_;
       int to_bitField0_ = 0;
       if (validatorUpdatesBuilder_ == null) {
@@ -473,43 +506,50 @@ public  final class ResponseEndBlock extends
       return result;
     }
 
+    @java.lang.Override
     public Builder clone() {
       return (Builder) super.clone();
     }
+    @java.lang.Override
     public Builder setField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        Object value) {
+        java.lang.Object value) {
       return (Builder) super.setField(field, value);
     }
+    @java.lang.Override
     public Builder clearField(
         com.google.protobuf.Descriptors.FieldDescriptor field) {
       return (Builder) super.clearField(field);
     }
+    @java.lang.Override
     public Builder clearOneof(
         com.google.protobuf.Descriptors.OneofDescriptor oneof) {
       return (Builder) super.clearOneof(oneof);
     }
+    @java.lang.Override
     public Builder setRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        int index, Object value) {
+        int index, java.lang.Object value) {
       return (Builder) super.setRepeatedField(field, index, value);
     }
+    @java.lang.Override
     public Builder addRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        Object value) {
+        java.lang.Object value) {
       return (Builder) super.addRepeatedField(field, value);
     }
+    @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof ResponseEndBlock) {
-        return mergeFrom((ResponseEndBlock)other);
+      if (other instanceof com.github.jtendermint.jabci.types.ResponseEndBlock) {
+        return mergeFrom((com.github.jtendermint.jabci.types.ResponseEndBlock)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(ResponseEndBlock other) {
-      if (other == ResponseEndBlock.getDefaultInstance()) return this;
+    public Builder mergeFrom(com.github.jtendermint.jabci.types.ResponseEndBlock other) {
+      if (other == com.github.jtendermint.jabci.types.ResponseEndBlock.getDefaultInstance()) return this;
       if (validatorUpdatesBuilder_ == null) {
         if (!other.validatorUpdates_.isEmpty()) {
           if (validatorUpdates_.isEmpty()) {
@@ -528,7 +568,7 @@ public  final class ResponseEndBlock extends
             validatorUpdatesBuilder_ = null;
             validatorUpdates_ = other.validatorUpdates_;
             bitField0_ = (bitField0_ & ~0x00000001);
-            validatorUpdatesBuilder_ =
+            validatorUpdatesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getValidatorUpdatesFieldBuilder() : null;
           } else {
@@ -557,7 +597,7 @@ public  final class ResponseEndBlock extends
             tagsBuilder_ = null;
             tags_ = other.tags_;
             bitField0_ = (bitField0_ & ~0x00000004);
-            tagsBuilder_ =
+            tagsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getTagsFieldBuilder() : null;
           } else {
@@ -565,23 +605,26 @@ public  final class ResponseEndBlock extends
           }
         }
       }
+      this.mergeUnknownFields(other.unknownFields);
       onChanged();
       return this;
     }
 
+    @java.lang.Override
     public final boolean isInitialized() {
       return true;
     }
 
+    @java.lang.Override
     public Builder mergeFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      ResponseEndBlock parsedMessage = null;
+      com.github.jtendermint.jabci.types.ResponseEndBlock parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (ResponseEndBlock) e.getUnfinishedMessage();
+        parsedMessage = (com.github.jtendermint.jabci.types.ResponseEndBlock) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -592,22 +635,22 @@ public  final class ResponseEndBlock extends
     }
     private int bitField0_;
 
-    private java.util.List<Validator> validatorUpdates_ =
+    private java.util.List<com.github.jtendermint.jabci.types.ValidatorUpdate> validatorUpdates_ =
       java.util.Collections.emptyList();
     private void ensureValidatorUpdatesIsMutable() {
       if (!((bitField0_ & 0x00000001) == 0x00000001)) {
-        validatorUpdates_ = new java.util.ArrayList<Validator>(validatorUpdates_);
+        validatorUpdates_ = new java.util.ArrayList<com.github.jtendermint.jabci.types.ValidatorUpdate>(validatorUpdates_);
         bitField0_ |= 0x00000001;
        }
     }
 
     private com.google.protobuf.RepeatedFieldBuilderV3<
-        Validator, Validator.Builder, ValidatorOrBuilder> validatorUpdatesBuilder_;
+        com.github.jtendermint.jabci.types.ValidatorUpdate, com.github.jtendermint.jabci.types.ValidatorUpdate.Builder, com.github.jtendermint.jabci.types.ValidatorUpdateOrBuilder> validatorUpdatesBuilder_;
 
     /**
-     * <code>repeated .com.github.jtendermint.jabci.types.Validator validator_updates = 1;</code>
+     * <code>repeated .com.github.jtendermint.jabci.types.ValidatorUpdate validator_updates = 1;</code>
      */
-    public java.util.List<Validator> getValidatorUpdatesList() {
+    public java.util.List<com.github.jtendermint.jabci.types.ValidatorUpdate> getValidatorUpdatesList() {
       if (validatorUpdatesBuilder_ == null) {
         return java.util.Collections.unmodifiableList(validatorUpdates_);
       } else {
@@ -615,7 +658,7 @@ public  final class ResponseEndBlock extends
       }
     }
     /**
-     * <code>repeated .com.github.jtendermint.jabci.types.Validator validator_updates = 1;</code>
+     * <code>repeated .com.github.jtendermint.jabci.types.ValidatorUpdate validator_updates = 1;</code>
      */
     public int getValidatorUpdatesCount() {
       if (validatorUpdatesBuilder_ == null) {
@@ -625,9 +668,9 @@ public  final class ResponseEndBlock extends
       }
     }
     /**
-     * <code>repeated .com.github.jtendermint.jabci.types.Validator validator_updates = 1;</code>
+     * <code>repeated .com.github.jtendermint.jabci.types.ValidatorUpdate validator_updates = 1;</code>
      */
-    public Validator getValidatorUpdates(int index) {
+    public com.github.jtendermint.jabci.types.ValidatorUpdate getValidatorUpdates(int index) {
       if (validatorUpdatesBuilder_ == null) {
         return validatorUpdates_.get(index);
       } else {
@@ -635,10 +678,10 @@ public  final class ResponseEndBlock extends
       }
     }
     /**
-     * <code>repeated .com.github.jtendermint.jabci.types.Validator validator_updates = 1;</code>
+     * <code>repeated .com.github.jtendermint.jabci.types.ValidatorUpdate validator_updates = 1;</code>
      */
     public Builder setValidatorUpdates(
-        int index, Validator value) {
+        int index, com.github.jtendermint.jabci.types.ValidatorUpdate value) {
       if (validatorUpdatesBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -652,10 +695,10 @@ public  final class ResponseEndBlock extends
       return this;
     }
     /**
-     * <code>repeated .com.github.jtendermint.jabci.types.Validator validator_updates = 1;</code>
+     * <code>repeated .com.github.jtendermint.jabci.types.ValidatorUpdate validator_updates = 1;</code>
      */
     public Builder setValidatorUpdates(
-        int index, Validator.Builder builderForValue) {
+        int index, com.github.jtendermint.jabci.types.ValidatorUpdate.Builder builderForValue) {
       if (validatorUpdatesBuilder_ == null) {
         ensureValidatorUpdatesIsMutable();
         validatorUpdates_.set(index, builderForValue.build());
@@ -666,9 +709,9 @@ public  final class ResponseEndBlock extends
       return this;
     }
     /**
-     * <code>repeated .com.github.jtendermint.jabci.types.Validator validator_updates = 1;</code>
+     * <code>repeated .com.github.jtendermint.jabci.types.ValidatorUpdate validator_updates = 1;</code>
      */
-    public Builder addValidatorUpdates(Validator value) {
+    public Builder addValidatorUpdates(com.github.jtendermint.jabci.types.ValidatorUpdate value) {
       if (validatorUpdatesBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -682,10 +725,10 @@ public  final class ResponseEndBlock extends
       return this;
     }
     /**
-     * <code>repeated .com.github.jtendermint.jabci.types.Validator validator_updates = 1;</code>
+     * <code>repeated .com.github.jtendermint.jabci.types.ValidatorUpdate validator_updates = 1;</code>
      */
     public Builder addValidatorUpdates(
-        int index, Validator value) {
+        int index, com.github.jtendermint.jabci.types.ValidatorUpdate value) {
       if (validatorUpdatesBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -699,10 +742,10 @@ public  final class ResponseEndBlock extends
       return this;
     }
     /**
-     * <code>repeated .com.github.jtendermint.jabci.types.Validator validator_updates = 1;</code>
+     * <code>repeated .com.github.jtendermint.jabci.types.ValidatorUpdate validator_updates = 1;</code>
      */
     public Builder addValidatorUpdates(
-        Validator.Builder builderForValue) {
+        com.github.jtendermint.jabci.types.ValidatorUpdate.Builder builderForValue) {
       if (validatorUpdatesBuilder_ == null) {
         ensureValidatorUpdatesIsMutable();
         validatorUpdates_.add(builderForValue.build());
@@ -713,10 +756,10 @@ public  final class ResponseEndBlock extends
       return this;
     }
     /**
-     * <code>repeated .com.github.jtendermint.jabci.types.Validator validator_updates = 1;</code>
+     * <code>repeated .com.github.jtendermint.jabci.types.ValidatorUpdate validator_updates = 1;</code>
      */
     public Builder addValidatorUpdates(
-        int index, Validator.Builder builderForValue) {
+        int index, com.github.jtendermint.jabci.types.ValidatorUpdate.Builder builderForValue) {
       if (validatorUpdatesBuilder_ == null) {
         ensureValidatorUpdatesIsMutable();
         validatorUpdates_.add(index, builderForValue.build());
@@ -727,10 +770,10 @@ public  final class ResponseEndBlock extends
       return this;
     }
     /**
-     * <code>repeated .com.github.jtendermint.jabci.types.Validator validator_updates = 1;</code>
+     * <code>repeated .com.github.jtendermint.jabci.types.ValidatorUpdate validator_updates = 1;</code>
      */
     public Builder addAllValidatorUpdates(
-        Iterable<? extends Validator> values) {
+        java.lang.Iterable<? extends com.github.jtendermint.jabci.types.ValidatorUpdate> values) {
       if (validatorUpdatesBuilder_ == null) {
         ensureValidatorUpdatesIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -742,7 +785,7 @@ public  final class ResponseEndBlock extends
       return this;
     }
     /**
-     * <code>repeated .com.github.jtendermint.jabci.types.Validator validator_updates = 1;</code>
+     * <code>repeated .com.github.jtendermint.jabci.types.ValidatorUpdate validator_updates = 1;</code>
      */
     public Builder clearValidatorUpdates() {
       if (validatorUpdatesBuilder_ == null) {
@@ -755,7 +798,7 @@ public  final class ResponseEndBlock extends
       return this;
     }
     /**
-     * <code>repeated .com.github.jtendermint.jabci.types.Validator validator_updates = 1;</code>
+     * <code>repeated .com.github.jtendermint.jabci.types.ValidatorUpdate validator_updates = 1;</code>
      */
     public Builder removeValidatorUpdates(int index) {
       if (validatorUpdatesBuilder_ == null) {
@@ -768,16 +811,16 @@ public  final class ResponseEndBlock extends
       return this;
     }
     /**
-     * <code>repeated .com.github.jtendermint.jabci.types.Validator validator_updates = 1;</code>
+     * <code>repeated .com.github.jtendermint.jabci.types.ValidatorUpdate validator_updates = 1;</code>
      */
-    public Validator.Builder getValidatorUpdatesBuilder(
+    public com.github.jtendermint.jabci.types.ValidatorUpdate.Builder getValidatorUpdatesBuilder(
         int index) {
       return getValidatorUpdatesFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .com.github.jtendermint.jabci.types.Validator validator_updates = 1;</code>
+     * <code>repeated .com.github.jtendermint.jabci.types.ValidatorUpdate validator_updates = 1;</code>
      */
-    public ValidatorOrBuilder getValidatorUpdatesOrBuilder(
+    public com.github.jtendermint.jabci.types.ValidatorUpdateOrBuilder getValidatorUpdatesOrBuilder(
         int index) {
       if (validatorUpdatesBuilder_ == null) {
         return validatorUpdates_.get(index);  } else {
@@ -785,9 +828,9 @@ public  final class ResponseEndBlock extends
       }
     }
     /**
-     * <code>repeated .com.github.jtendermint.jabci.types.Validator validator_updates = 1;</code>
+     * <code>repeated .com.github.jtendermint.jabci.types.ValidatorUpdate validator_updates = 1;</code>
      */
-    public java.util.List<? extends ValidatorOrBuilder>
+    public java.util.List<? extends com.github.jtendermint.jabci.types.ValidatorUpdateOrBuilder> 
          getValidatorUpdatesOrBuilderList() {
       if (validatorUpdatesBuilder_ != null) {
         return validatorUpdatesBuilder_.getMessageOrBuilderList();
@@ -796,33 +839,33 @@ public  final class ResponseEndBlock extends
       }
     }
     /**
-     * <code>repeated .com.github.jtendermint.jabci.types.Validator validator_updates = 1;</code>
+     * <code>repeated .com.github.jtendermint.jabci.types.ValidatorUpdate validator_updates = 1;</code>
      */
-    public Validator.Builder addValidatorUpdatesBuilder() {
+    public com.github.jtendermint.jabci.types.ValidatorUpdate.Builder addValidatorUpdatesBuilder() {
       return getValidatorUpdatesFieldBuilder().addBuilder(
-          Validator.getDefaultInstance());
+          com.github.jtendermint.jabci.types.ValidatorUpdate.getDefaultInstance());
     }
     /**
-     * <code>repeated .com.github.jtendermint.jabci.types.Validator validator_updates = 1;</code>
+     * <code>repeated .com.github.jtendermint.jabci.types.ValidatorUpdate validator_updates = 1;</code>
      */
-    public Validator.Builder addValidatorUpdatesBuilder(
+    public com.github.jtendermint.jabci.types.ValidatorUpdate.Builder addValidatorUpdatesBuilder(
         int index) {
       return getValidatorUpdatesFieldBuilder().addBuilder(
-          index, Validator.getDefaultInstance());
+          index, com.github.jtendermint.jabci.types.ValidatorUpdate.getDefaultInstance());
     }
     /**
-     * <code>repeated .com.github.jtendermint.jabci.types.Validator validator_updates = 1;</code>
+     * <code>repeated .com.github.jtendermint.jabci.types.ValidatorUpdate validator_updates = 1;</code>
      */
-    public java.util.List<Validator.Builder>
+    public java.util.List<com.github.jtendermint.jabci.types.ValidatorUpdate.Builder> 
          getValidatorUpdatesBuilderList() {
       return getValidatorUpdatesFieldBuilder().getBuilderList();
     }
     private com.google.protobuf.RepeatedFieldBuilderV3<
-        Validator, Validator.Builder, ValidatorOrBuilder>
+        com.github.jtendermint.jabci.types.ValidatorUpdate, com.github.jtendermint.jabci.types.ValidatorUpdate.Builder, com.github.jtendermint.jabci.types.ValidatorUpdateOrBuilder> 
         getValidatorUpdatesFieldBuilder() {
       if (validatorUpdatesBuilder_ == null) {
         validatorUpdatesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-            Validator, Validator.Builder, ValidatorOrBuilder>(
+            com.github.jtendermint.jabci.types.ValidatorUpdate, com.github.jtendermint.jabci.types.ValidatorUpdate.Builder, com.github.jtendermint.jabci.types.ValidatorUpdateOrBuilder>(
                 validatorUpdates_,
                 ((bitField0_ & 0x00000001) == 0x00000001),
                 getParentForChildren(),
@@ -832,29 +875,29 @@ public  final class ResponseEndBlock extends
       return validatorUpdatesBuilder_;
     }
 
-    private ConsensusParams consensusParamUpdates_ = null;
+    private com.github.jtendermint.jabci.types.ConsensusParams consensusParamUpdates_ = null;
     private com.google.protobuf.SingleFieldBuilderV3<
-        ConsensusParams, ConsensusParams.Builder, ConsensusParamsOrBuilder> consensusParamUpdatesBuilder_;
+        com.github.jtendermint.jabci.types.ConsensusParams, com.github.jtendermint.jabci.types.ConsensusParams.Builder, com.github.jtendermint.jabci.types.ConsensusParamsOrBuilder> consensusParamUpdatesBuilder_;
     /**
-     * <code>optional .com.github.jtendermint.jabci.types.ConsensusParams consensus_param_updates = 2;</code>
+     * <code>.com.github.jtendermint.jabci.types.ConsensusParams consensus_param_updates = 2;</code>
      */
     public boolean hasConsensusParamUpdates() {
       return consensusParamUpdatesBuilder_ != null || consensusParamUpdates_ != null;
     }
     /**
-     * <code>optional .com.github.jtendermint.jabci.types.ConsensusParams consensus_param_updates = 2;</code>
+     * <code>.com.github.jtendermint.jabci.types.ConsensusParams consensus_param_updates = 2;</code>
      */
-    public ConsensusParams getConsensusParamUpdates() {
+    public com.github.jtendermint.jabci.types.ConsensusParams getConsensusParamUpdates() {
       if (consensusParamUpdatesBuilder_ == null) {
-        return consensusParamUpdates_ == null ? ConsensusParams.getDefaultInstance() : consensusParamUpdates_;
+        return consensusParamUpdates_ == null ? com.github.jtendermint.jabci.types.ConsensusParams.getDefaultInstance() : consensusParamUpdates_;
       } else {
         return consensusParamUpdatesBuilder_.getMessage();
       }
     }
     /**
-     * <code>optional .com.github.jtendermint.jabci.types.ConsensusParams consensus_param_updates = 2;</code>
+     * <code>.com.github.jtendermint.jabci.types.ConsensusParams consensus_param_updates = 2;</code>
      */
-    public Builder setConsensusParamUpdates(ConsensusParams value) {
+    public Builder setConsensusParamUpdates(com.github.jtendermint.jabci.types.ConsensusParams value) {
       if (consensusParamUpdatesBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -868,10 +911,10 @@ public  final class ResponseEndBlock extends
       return this;
     }
     /**
-     * <code>optional .com.github.jtendermint.jabci.types.ConsensusParams consensus_param_updates = 2;</code>
+     * <code>.com.github.jtendermint.jabci.types.ConsensusParams consensus_param_updates = 2;</code>
      */
     public Builder setConsensusParamUpdates(
-        ConsensusParams.Builder builderForValue) {
+        com.github.jtendermint.jabci.types.ConsensusParams.Builder builderForValue) {
       if (consensusParamUpdatesBuilder_ == null) {
         consensusParamUpdates_ = builderForValue.build();
         onChanged();
@@ -882,13 +925,13 @@ public  final class ResponseEndBlock extends
       return this;
     }
     /**
-     * <code>optional .com.github.jtendermint.jabci.types.ConsensusParams consensus_param_updates = 2;</code>
+     * <code>.com.github.jtendermint.jabci.types.ConsensusParams consensus_param_updates = 2;</code>
      */
-    public Builder mergeConsensusParamUpdates(ConsensusParams value) {
+    public Builder mergeConsensusParamUpdates(com.github.jtendermint.jabci.types.ConsensusParams value) {
       if (consensusParamUpdatesBuilder_ == null) {
         if (consensusParamUpdates_ != null) {
           consensusParamUpdates_ =
-            ConsensusParams.newBuilder(consensusParamUpdates_).mergeFrom(value).buildPartial();
+            com.github.jtendermint.jabci.types.ConsensusParams.newBuilder(consensusParamUpdates_).mergeFrom(value).buildPartial();
         } else {
           consensusParamUpdates_ = value;
         }
@@ -900,7 +943,7 @@ public  final class ResponseEndBlock extends
       return this;
     }
     /**
-     * <code>optional .com.github.jtendermint.jabci.types.ConsensusParams consensus_param_updates = 2;</code>
+     * <code>.com.github.jtendermint.jabci.types.ConsensusParams consensus_param_updates = 2;</code>
      */
     public Builder clearConsensusParamUpdates() {
       if (consensusParamUpdatesBuilder_ == null) {
@@ -914,33 +957,33 @@ public  final class ResponseEndBlock extends
       return this;
     }
     /**
-     * <code>optional .com.github.jtendermint.jabci.types.ConsensusParams consensus_param_updates = 2;</code>
+     * <code>.com.github.jtendermint.jabci.types.ConsensusParams consensus_param_updates = 2;</code>
      */
-    public ConsensusParams.Builder getConsensusParamUpdatesBuilder() {
-
+    public com.github.jtendermint.jabci.types.ConsensusParams.Builder getConsensusParamUpdatesBuilder() {
+      
       onChanged();
       return getConsensusParamUpdatesFieldBuilder().getBuilder();
     }
     /**
-     * <code>optional .com.github.jtendermint.jabci.types.ConsensusParams consensus_param_updates = 2;</code>
+     * <code>.com.github.jtendermint.jabci.types.ConsensusParams consensus_param_updates = 2;</code>
      */
-    public ConsensusParamsOrBuilder getConsensusParamUpdatesOrBuilder() {
+    public com.github.jtendermint.jabci.types.ConsensusParamsOrBuilder getConsensusParamUpdatesOrBuilder() {
       if (consensusParamUpdatesBuilder_ != null) {
         return consensusParamUpdatesBuilder_.getMessageOrBuilder();
       } else {
         return consensusParamUpdates_ == null ?
-            ConsensusParams.getDefaultInstance() : consensusParamUpdates_;
+            com.github.jtendermint.jabci.types.ConsensusParams.getDefaultInstance() : consensusParamUpdates_;
       }
     }
     /**
-     * <code>optional .com.github.jtendermint.jabci.types.ConsensusParams consensus_param_updates = 2;</code>
+     * <code>.com.github.jtendermint.jabci.types.ConsensusParams consensus_param_updates = 2;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        ConsensusParams, ConsensusParams.Builder, ConsensusParamsOrBuilder>
+        com.github.jtendermint.jabci.types.ConsensusParams, com.github.jtendermint.jabci.types.ConsensusParams.Builder, com.github.jtendermint.jabci.types.ConsensusParamsOrBuilder> 
         getConsensusParamUpdatesFieldBuilder() {
       if (consensusParamUpdatesBuilder_ == null) {
         consensusParamUpdatesBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            ConsensusParams, ConsensusParams.Builder, ConsensusParamsOrBuilder>(
+            com.github.jtendermint.jabci.types.ConsensusParams, com.github.jtendermint.jabci.types.ConsensusParams.Builder, com.github.jtendermint.jabci.types.ConsensusParamsOrBuilder>(
                 getConsensusParamUpdates(),
                 getParentForChildren(),
                 isClean());
@@ -949,22 +992,22 @@ public  final class ResponseEndBlock extends
       return consensusParamUpdatesBuilder_;
     }
 
-    private java.util.List<KVPair> tags_ =
+    private java.util.List<com.github.jtendermint.jabci.types.KVPair> tags_ =
       java.util.Collections.emptyList();
     private void ensureTagsIsMutable() {
       if (!((bitField0_ & 0x00000004) == 0x00000004)) {
-        tags_ = new java.util.ArrayList<KVPair>(tags_);
+        tags_ = new java.util.ArrayList<com.github.jtendermint.jabci.types.KVPair>(tags_);
         bitField0_ |= 0x00000004;
        }
     }
 
     private com.google.protobuf.RepeatedFieldBuilderV3<
-        KVPair, KVPair.Builder, KVPairOrBuilder> tagsBuilder_;
+        com.github.jtendermint.jabci.types.KVPair, com.github.jtendermint.jabci.types.KVPair.Builder, com.github.jtendermint.jabci.types.KVPairOrBuilder> tagsBuilder_;
 
     /**
      * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 3;</code>
      */
-    public java.util.List<KVPair> getTagsList() {
+    public java.util.List<com.github.jtendermint.jabci.types.KVPair> getTagsList() {
       if (tagsBuilder_ == null) {
         return java.util.Collections.unmodifiableList(tags_);
       } else {
@@ -984,7 +1027,7 @@ public  final class ResponseEndBlock extends
     /**
      * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 3;</code>
      */
-    public KVPair getTags(int index) {
+    public com.github.jtendermint.jabci.types.KVPair getTags(int index) {
       if (tagsBuilder_ == null) {
         return tags_.get(index);
       } else {
@@ -995,7 +1038,7 @@ public  final class ResponseEndBlock extends
      * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 3;</code>
      */
     public Builder setTags(
-        int index, KVPair value) {
+        int index, com.github.jtendermint.jabci.types.KVPair value) {
       if (tagsBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -1012,7 +1055,7 @@ public  final class ResponseEndBlock extends
      * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 3;</code>
      */
     public Builder setTags(
-        int index, KVPair.Builder builderForValue) {
+        int index, com.github.jtendermint.jabci.types.KVPair.Builder builderForValue) {
       if (tagsBuilder_ == null) {
         ensureTagsIsMutable();
         tags_.set(index, builderForValue.build());
@@ -1025,7 +1068,7 @@ public  final class ResponseEndBlock extends
     /**
      * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 3;</code>
      */
-    public Builder addTags(KVPair value) {
+    public Builder addTags(com.github.jtendermint.jabci.types.KVPair value) {
       if (tagsBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -1042,7 +1085,7 @@ public  final class ResponseEndBlock extends
      * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 3;</code>
      */
     public Builder addTags(
-        int index, KVPair value) {
+        int index, com.github.jtendermint.jabci.types.KVPair value) {
       if (tagsBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -1059,7 +1102,7 @@ public  final class ResponseEndBlock extends
      * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 3;</code>
      */
     public Builder addTags(
-        KVPair.Builder builderForValue) {
+        com.github.jtendermint.jabci.types.KVPair.Builder builderForValue) {
       if (tagsBuilder_ == null) {
         ensureTagsIsMutable();
         tags_.add(builderForValue.build());
@@ -1073,7 +1116,7 @@ public  final class ResponseEndBlock extends
      * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 3;</code>
      */
     public Builder addTags(
-        int index, KVPair.Builder builderForValue) {
+        int index, com.github.jtendermint.jabci.types.KVPair.Builder builderForValue) {
       if (tagsBuilder_ == null) {
         ensureTagsIsMutable();
         tags_.add(index, builderForValue.build());
@@ -1087,7 +1130,7 @@ public  final class ResponseEndBlock extends
      * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 3;</code>
      */
     public Builder addAllTags(
-        Iterable<? extends KVPair> values) {
+        java.lang.Iterable<? extends com.github.jtendermint.jabci.types.KVPair> values) {
       if (tagsBuilder_ == null) {
         ensureTagsIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -1127,14 +1170,14 @@ public  final class ResponseEndBlock extends
     /**
      * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 3;</code>
      */
-    public KVPair.Builder getTagsBuilder(
+    public com.github.jtendermint.jabci.types.KVPair.Builder getTagsBuilder(
         int index) {
       return getTagsFieldBuilder().getBuilder(index);
     }
     /**
      * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 3;</code>
      */
-    public KVPairOrBuilder getTagsOrBuilder(
+    public com.github.jtendermint.jabci.types.KVPairOrBuilder getTagsOrBuilder(
         int index) {
       if (tagsBuilder_ == null) {
         return tags_.get(index);  } else {
@@ -1144,7 +1187,7 @@ public  final class ResponseEndBlock extends
     /**
      * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 3;</code>
      */
-    public java.util.List<? extends KVPairOrBuilder>
+    public java.util.List<? extends com.github.jtendermint.jabci.types.KVPairOrBuilder> 
          getTagsOrBuilderList() {
       if (tagsBuilder_ != null) {
         return tagsBuilder_.getMessageOrBuilderList();
@@ -1155,31 +1198,31 @@ public  final class ResponseEndBlock extends
     /**
      * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 3;</code>
      */
-    public KVPair.Builder addTagsBuilder() {
+    public com.github.jtendermint.jabci.types.KVPair.Builder addTagsBuilder() {
       return getTagsFieldBuilder().addBuilder(
-          KVPair.getDefaultInstance());
+          com.github.jtendermint.jabci.types.KVPair.getDefaultInstance());
     }
     /**
      * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 3;</code>
      */
-    public KVPair.Builder addTagsBuilder(
+    public com.github.jtendermint.jabci.types.KVPair.Builder addTagsBuilder(
         int index) {
       return getTagsFieldBuilder().addBuilder(
-          index, KVPair.getDefaultInstance());
+          index, com.github.jtendermint.jabci.types.KVPair.getDefaultInstance());
     }
     /**
      * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 3;</code>
      */
-    public java.util.List<KVPair.Builder>
+    public java.util.List<com.github.jtendermint.jabci.types.KVPair.Builder> 
          getTagsBuilderList() {
       return getTagsFieldBuilder().getBuilderList();
     }
     private com.google.protobuf.RepeatedFieldBuilderV3<
-        KVPair, KVPair.Builder, KVPairOrBuilder>
+        com.github.jtendermint.jabci.types.KVPair, com.github.jtendermint.jabci.types.KVPair.Builder, com.github.jtendermint.jabci.types.KVPairOrBuilder> 
         getTagsFieldBuilder() {
       if (tagsBuilder_ == null) {
         tagsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-            KVPair, KVPair.Builder, KVPairOrBuilder>(
+            com.github.jtendermint.jabci.types.KVPair, com.github.jtendermint.jabci.types.KVPair.Builder, com.github.jtendermint.jabci.types.KVPairOrBuilder>(
                 tags_,
                 ((bitField0_ & 0x00000004) == 0x00000004),
                 getParentForChildren(),
@@ -1188,14 +1231,16 @@ public  final class ResponseEndBlock extends
       }
       return tagsBuilder_;
     }
+    @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
-      return this;
+      return super.setUnknownFieldsProto3(unknownFields);
     }
 
+    @java.lang.Override
     public final Builder mergeUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
-      return this;
+      return super.mergeUnknownFields(unknownFields);
     }
 
 
@@ -1203,22 +1248,23 @@ public  final class ResponseEndBlock extends
   }
 
   // @@protoc_insertion_point(class_scope:com.github.jtendermint.jabci.types.ResponseEndBlock)
-  private static final ResponseEndBlock DEFAULT_INSTANCE;
+  private static final com.github.jtendermint.jabci.types.ResponseEndBlock DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new ResponseEndBlock();
+    DEFAULT_INSTANCE = new com.github.jtendermint.jabci.types.ResponseEndBlock();
   }
 
-  public static ResponseEndBlock getDefaultInstance() {
+  public static com.github.jtendermint.jabci.types.ResponseEndBlock getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
   private static final com.google.protobuf.Parser<ResponseEndBlock>
       PARSER = new com.google.protobuf.AbstractParser<ResponseEndBlock>() {
+    @java.lang.Override
     public ResponseEndBlock parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ResponseEndBlock(input, extensionRegistry);
+      return new ResponseEndBlock(input, extensionRegistry);
     }
   };
 
@@ -1226,12 +1272,13 @@ public  final class ResponseEndBlock extends
     return PARSER;
   }
 
-  @Override
+  @java.lang.Override
   public com.google.protobuf.Parser<ResponseEndBlock> getParserForType() {
     return PARSER;
   }
 
-  public ResponseEndBlock getDefaultInstanceForType() {
+  @java.lang.Override
+  public com.github.jtendermint.jabci.types.ResponseEndBlock getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

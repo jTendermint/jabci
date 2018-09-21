@@ -10,6 +10,7 @@ public  final class ResponseBeginBlock extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:com.github.jtendermint.jabci.types.ResponseBeginBlock)
     ResponseBeginBlockOrBuilder {
+private static final long serialVersionUID = 0L;
   // Use ResponseBeginBlock.newBuilder() to construct.
   private ResponseBeginBlock(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
@@ -18,17 +19,22 @@ public  final class ResponseBeginBlock extends
     tags_ = java.util.Collections.emptyList();
   }
 
-  @Override
+  @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
-    return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+    return this.unknownFields;
   }
   private ResponseBeginBlock(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     this();
+    if (extensionRegistry == null) {
+      throw new java.lang.NullPointerException();
+    }
     int mutable_bitField0_ = 0;
+    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+        com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
       boolean done = false;
       while (!done) {
@@ -37,19 +43,20 @@ public  final class ResponseBeginBlock extends
           case 0:
             done = true;
             break;
-          default: {
-            if (!input.skipField(tag)) {
-              done = true;
-            }
-            break;
-          }
           case 10: {
             if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-              tags_ = new java.util.ArrayList<KVPair>();
+              tags_ = new java.util.ArrayList<com.github.jtendermint.jabci.types.KVPair>();
               mutable_bitField0_ |= 0x00000001;
             }
             tags_.add(
-                input.readMessage(KVPair.parser(), extensionRegistry));
+                input.readMessage(com.github.jtendermint.jabci.types.KVPair.parser(), extensionRegistry));
+            break;
+          }
+          default: {
+            if (!parseUnknownFieldProto3(
+                input, unknownFields, extensionRegistry, tag)) {
+              done = true;
+            }
             break;
           }
         }
@@ -63,33 +70,35 @@ public  final class ResponseBeginBlock extends
       if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
         tags_ = java.util.Collections.unmodifiableList(tags_);
       }
+      this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
     }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return Types.internal_static_com_github_jtendermint_jabci_types_ResponseBeginBlock_descriptor;
+    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseBeginBlock_descriptor;
   }
 
-  protected FieldAccessorTable
+  @java.lang.Override
+  protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return Types.internal_static_com_github_jtendermint_jabci_types_ResponseBeginBlock_fieldAccessorTable
+    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseBeginBlock_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            ResponseBeginBlock.class, ResponseBeginBlock.Builder.class);
+            com.github.jtendermint.jabci.types.ResponseBeginBlock.class, com.github.jtendermint.jabci.types.ResponseBeginBlock.Builder.class);
   }
 
   public static final int TAGS_FIELD_NUMBER = 1;
-  private java.util.List<KVPair> tags_;
+  private java.util.List<com.github.jtendermint.jabci.types.KVPair> tags_;
   /**
    * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 1;</code>
    */
-  public java.util.List<KVPair> getTagsList() {
+  public java.util.List<com.github.jtendermint.jabci.types.KVPair> getTagsList() {
     return tags_;
   }
   /**
    * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 1;</code>
    */
-  public java.util.List<? extends KVPairOrBuilder>
+  public java.util.List<? extends com.github.jtendermint.jabci.types.KVPairOrBuilder> 
       getTagsOrBuilderList() {
     return tags_;
   }
@@ -102,18 +111,19 @@ public  final class ResponseBeginBlock extends
   /**
    * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 1;</code>
    */
-  public KVPair getTags(int index) {
+  public com.github.jtendermint.jabci.types.KVPair getTags(int index) {
     return tags_.get(index);
   }
   /**
    * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 1;</code>
    */
-  public KVPairOrBuilder getTagsOrBuilder(
+  public com.github.jtendermint.jabci.types.KVPairOrBuilder getTagsOrBuilder(
       int index) {
     return tags_.get(index);
   }
 
   private byte memoizedIsInitialized = -1;
+  @java.lang.Override
   public final boolean isInitialized() {
     byte isInitialized = memoizedIsInitialized;
     if (isInitialized == 1) return true;
@@ -123,13 +133,16 @@ public  final class ResponseBeginBlock extends
     return true;
   }
 
+  @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
     for (int i = 0; i < tags_.size(); i++) {
       output.writeMessage(1, tags_.get(i));
     }
+    unknownFields.writeTo(output);
   }
 
+  @java.lang.Override
   public int getSerializedSize() {
     int size = memoizedSize;
     if (size != -1) return size;
@@ -139,34 +152,35 @@ public  final class ResponseBeginBlock extends
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, tags_.get(i));
     }
+    size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
   }
 
-  private static final long serialVersionUID = 0L;
-  @Override
-  public boolean equals(final Object obj) {
+  @java.lang.Override
+  public boolean equals(final java.lang.Object obj) {
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof ResponseBeginBlock)) {
+    if (!(obj instanceof com.github.jtendermint.jabci.types.ResponseBeginBlock)) {
       return super.equals(obj);
     }
-    ResponseBeginBlock other = (ResponseBeginBlock) obj;
+    com.github.jtendermint.jabci.types.ResponseBeginBlock other = (com.github.jtendermint.jabci.types.ResponseBeginBlock) obj;
 
     boolean result = true;
     result = result && getTagsList()
         .equals(other.getTagsList());
+    result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
 
-  @Override
+  @java.lang.Override
   public int hashCode() {
     if (memoizedHashCode != 0) {
       return memoizedHashCode;
     }
     int hash = 41;
-    hash = (19 * hash) + getDescriptorForType().hashCode();
+    hash = (19 * hash) + getDescriptor().hashCode();
     if (getTagsCount() > 0) {
       hash = (37 * hash) + TAGS_FIELD_NUMBER;
       hash = (53 * hash) + getTagsList().hashCode();
@@ -176,58 +190,69 @@ public  final class ResponseBeginBlock extends
     return hash;
   }
 
-  public static ResponseBeginBlock parseFrom(
+  public static com.github.jtendermint.jabci.types.ResponseBeginBlock parseFrom(
+      java.nio.ByteBuffer data)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    return PARSER.parseFrom(data);
+  }
+  public static com.github.jtendermint.jabci.types.ResponseBeginBlock parseFrom(
+      java.nio.ByteBuffer data,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    return PARSER.parseFrom(data, extensionRegistry);
+  }
+  public static com.github.jtendermint.jabci.types.ResponseBeginBlock parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static ResponseBeginBlock parseFrom(
+  public static com.github.jtendermint.jabci.types.ResponseBeginBlock parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static ResponseBeginBlock parseFrom(byte[] data)
+  public static com.github.jtendermint.jabci.types.ResponseBeginBlock parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static ResponseBeginBlock parseFrom(
+  public static com.github.jtendermint.jabci.types.ResponseBeginBlock parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static ResponseBeginBlock parseFrom(java.io.InputStream input)
+  public static com.github.jtendermint.jabci.types.ResponseBeginBlock parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static ResponseBeginBlock parseFrom(
+  public static com.github.jtendermint.jabci.types.ResponseBeginBlock parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static ResponseBeginBlock parseDelimitedFrom(java.io.InputStream input)
+  public static com.github.jtendermint.jabci.types.ResponseBeginBlock parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static ResponseBeginBlock parseDelimitedFrom(
+  public static com.github.jtendermint.jabci.types.ResponseBeginBlock parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static ResponseBeginBlock parseFrom(
+  public static com.github.jtendermint.jabci.types.ResponseBeginBlock parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static ResponseBeginBlock parseFrom(
+  public static com.github.jtendermint.jabci.types.ResponseBeginBlock parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -235,21 +260,23 @@ public  final class ResponseBeginBlock extends
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
 
+  @java.lang.Override
   public Builder newBuilderForType() { return newBuilder(); }
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(ResponseBeginBlock prototype) {
+  public static Builder newBuilder(com.github.jtendermint.jabci.types.ResponseBeginBlock prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
+  @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
         ? new Builder() : new Builder().mergeFrom(this);
   }
 
-  @Override
+  @java.lang.Override
   protected Builder newBuilderForType(
-      BuilderParent parent) {
+      com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
     Builder builder = new Builder(parent);
     return builder;
   }
@@ -259,17 +286,18 @@ public  final class ResponseBeginBlock extends
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
       // @@protoc_insertion_point(builder_implements:com.github.jtendermint.jabci.types.ResponseBeginBlock)
-      ResponseBeginBlockOrBuilder {
+      com.github.jtendermint.jabci.types.ResponseBeginBlockOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return Types.internal_static_com_github_jtendermint_jabci_types_ResponseBeginBlock_descriptor;
+      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseBeginBlock_descriptor;
     }
 
-    protected FieldAccessorTable
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return Types.internal_static_com_github_jtendermint_jabci_types_ResponseBeginBlock_fieldAccessorTable
+      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseBeginBlock_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              ResponseBeginBlock.class, ResponseBeginBlock.Builder.class);
+              com.github.jtendermint.jabci.types.ResponseBeginBlock.class, com.github.jtendermint.jabci.types.ResponseBeginBlock.Builder.class);
     }
 
     // Construct using com.github.jtendermint.jabci.types.ResponseBeginBlock.newBuilder()
@@ -278,7 +306,7 @@ public  final class ResponseBeginBlock extends
     }
 
     private Builder(
-        BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
       maybeForceBuilderInitialization();
     }
@@ -288,6 +316,7 @@ public  final class ResponseBeginBlock extends
         getTagsFieldBuilder();
       }
     }
+    @java.lang.Override
     public Builder clear() {
       super.clear();
       if (tagsBuilder_ == null) {
@@ -299,25 +328,29 @@ public  final class ResponseBeginBlock extends
       return this;
     }
 
+    @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return Types.internal_static_com_github_jtendermint_jabci_types_ResponseBeginBlock_descriptor;
+      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ResponseBeginBlock_descriptor;
     }
 
-    public ResponseBeginBlock getDefaultInstanceForType() {
-      return ResponseBeginBlock.getDefaultInstance();
+    @java.lang.Override
+    public com.github.jtendermint.jabci.types.ResponseBeginBlock getDefaultInstanceForType() {
+      return com.github.jtendermint.jabci.types.ResponseBeginBlock.getDefaultInstance();
     }
 
-    public ResponseBeginBlock build() {
-      ResponseBeginBlock result = buildPartial();
+    @java.lang.Override
+    public com.github.jtendermint.jabci.types.ResponseBeginBlock build() {
+      com.github.jtendermint.jabci.types.ResponseBeginBlock result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
       return result;
     }
 
-    public ResponseBeginBlock buildPartial() {
-      ResponseBeginBlock result = new ResponseBeginBlock(this);
+    @java.lang.Override
+    public com.github.jtendermint.jabci.types.ResponseBeginBlock buildPartial() {
+      com.github.jtendermint.jabci.types.ResponseBeginBlock result = new com.github.jtendermint.jabci.types.ResponseBeginBlock(this);
       int from_bitField0_ = bitField0_;
       if (tagsBuilder_ == null) {
         if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -332,43 +365,50 @@ public  final class ResponseBeginBlock extends
       return result;
     }
 
+    @java.lang.Override
     public Builder clone() {
       return (Builder) super.clone();
     }
+    @java.lang.Override
     public Builder setField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        Object value) {
+        java.lang.Object value) {
       return (Builder) super.setField(field, value);
     }
+    @java.lang.Override
     public Builder clearField(
         com.google.protobuf.Descriptors.FieldDescriptor field) {
       return (Builder) super.clearField(field);
     }
+    @java.lang.Override
     public Builder clearOneof(
         com.google.protobuf.Descriptors.OneofDescriptor oneof) {
       return (Builder) super.clearOneof(oneof);
     }
+    @java.lang.Override
     public Builder setRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        int index, Object value) {
+        int index, java.lang.Object value) {
       return (Builder) super.setRepeatedField(field, index, value);
     }
+    @java.lang.Override
     public Builder addRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        Object value) {
+        java.lang.Object value) {
       return (Builder) super.addRepeatedField(field, value);
     }
+    @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof ResponseBeginBlock) {
-        return mergeFrom((ResponseBeginBlock)other);
+      if (other instanceof com.github.jtendermint.jabci.types.ResponseBeginBlock) {
+        return mergeFrom((com.github.jtendermint.jabci.types.ResponseBeginBlock)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(ResponseBeginBlock other) {
-      if (other == ResponseBeginBlock.getDefaultInstance()) return this;
+    public Builder mergeFrom(com.github.jtendermint.jabci.types.ResponseBeginBlock other) {
+      if (other == com.github.jtendermint.jabci.types.ResponseBeginBlock.getDefaultInstance()) return this;
       if (tagsBuilder_ == null) {
         if (!other.tags_.isEmpty()) {
           if (tags_.isEmpty()) {
@@ -387,7 +427,7 @@ public  final class ResponseBeginBlock extends
             tagsBuilder_ = null;
             tags_ = other.tags_;
             bitField0_ = (bitField0_ & ~0x00000001);
-            tagsBuilder_ =
+            tagsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getTagsFieldBuilder() : null;
           } else {
@@ -395,23 +435,26 @@ public  final class ResponseBeginBlock extends
           }
         }
       }
+      this.mergeUnknownFields(other.unknownFields);
       onChanged();
       return this;
     }
 
+    @java.lang.Override
     public final boolean isInitialized() {
       return true;
     }
 
+    @java.lang.Override
     public Builder mergeFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      ResponseBeginBlock parsedMessage = null;
+      com.github.jtendermint.jabci.types.ResponseBeginBlock parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (ResponseBeginBlock) e.getUnfinishedMessage();
+        parsedMessage = (com.github.jtendermint.jabci.types.ResponseBeginBlock) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -422,22 +465,22 @@ public  final class ResponseBeginBlock extends
     }
     private int bitField0_;
 
-    private java.util.List<KVPair> tags_ =
+    private java.util.List<com.github.jtendermint.jabci.types.KVPair> tags_ =
       java.util.Collections.emptyList();
     private void ensureTagsIsMutable() {
       if (!((bitField0_ & 0x00000001) == 0x00000001)) {
-        tags_ = new java.util.ArrayList<KVPair>(tags_);
+        tags_ = new java.util.ArrayList<com.github.jtendermint.jabci.types.KVPair>(tags_);
         bitField0_ |= 0x00000001;
        }
     }
 
     private com.google.protobuf.RepeatedFieldBuilderV3<
-        KVPair, KVPair.Builder, KVPairOrBuilder> tagsBuilder_;
+        com.github.jtendermint.jabci.types.KVPair, com.github.jtendermint.jabci.types.KVPair.Builder, com.github.jtendermint.jabci.types.KVPairOrBuilder> tagsBuilder_;
 
     /**
      * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 1;</code>
      */
-    public java.util.List<KVPair> getTagsList() {
+    public java.util.List<com.github.jtendermint.jabci.types.KVPair> getTagsList() {
       if (tagsBuilder_ == null) {
         return java.util.Collections.unmodifiableList(tags_);
       } else {
@@ -457,7 +500,7 @@ public  final class ResponseBeginBlock extends
     /**
      * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 1;</code>
      */
-    public KVPair getTags(int index) {
+    public com.github.jtendermint.jabci.types.KVPair getTags(int index) {
       if (tagsBuilder_ == null) {
         return tags_.get(index);
       } else {
@@ -468,7 +511,7 @@ public  final class ResponseBeginBlock extends
      * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 1;</code>
      */
     public Builder setTags(
-        int index, KVPair value) {
+        int index, com.github.jtendermint.jabci.types.KVPair value) {
       if (tagsBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -485,7 +528,7 @@ public  final class ResponseBeginBlock extends
      * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 1;</code>
      */
     public Builder setTags(
-        int index, KVPair.Builder builderForValue) {
+        int index, com.github.jtendermint.jabci.types.KVPair.Builder builderForValue) {
       if (tagsBuilder_ == null) {
         ensureTagsIsMutable();
         tags_.set(index, builderForValue.build());
@@ -498,7 +541,7 @@ public  final class ResponseBeginBlock extends
     /**
      * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 1;</code>
      */
-    public Builder addTags(KVPair value) {
+    public Builder addTags(com.github.jtendermint.jabci.types.KVPair value) {
       if (tagsBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -515,7 +558,7 @@ public  final class ResponseBeginBlock extends
      * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 1;</code>
      */
     public Builder addTags(
-        int index, KVPair value) {
+        int index, com.github.jtendermint.jabci.types.KVPair value) {
       if (tagsBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -532,7 +575,7 @@ public  final class ResponseBeginBlock extends
      * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 1;</code>
      */
     public Builder addTags(
-        KVPair.Builder builderForValue) {
+        com.github.jtendermint.jabci.types.KVPair.Builder builderForValue) {
       if (tagsBuilder_ == null) {
         ensureTagsIsMutable();
         tags_.add(builderForValue.build());
@@ -546,7 +589,7 @@ public  final class ResponseBeginBlock extends
      * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 1;</code>
      */
     public Builder addTags(
-        int index, KVPair.Builder builderForValue) {
+        int index, com.github.jtendermint.jabci.types.KVPair.Builder builderForValue) {
       if (tagsBuilder_ == null) {
         ensureTagsIsMutable();
         tags_.add(index, builderForValue.build());
@@ -560,7 +603,7 @@ public  final class ResponseBeginBlock extends
      * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 1;</code>
      */
     public Builder addAllTags(
-        Iterable<? extends KVPair> values) {
+        java.lang.Iterable<? extends com.github.jtendermint.jabci.types.KVPair> values) {
       if (tagsBuilder_ == null) {
         ensureTagsIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -600,14 +643,14 @@ public  final class ResponseBeginBlock extends
     /**
      * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 1;</code>
      */
-    public KVPair.Builder getTagsBuilder(
+    public com.github.jtendermint.jabci.types.KVPair.Builder getTagsBuilder(
         int index) {
       return getTagsFieldBuilder().getBuilder(index);
     }
     /**
      * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 1;</code>
      */
-    public KVPairOrBuilder getTagsOrBuilder(
+    public com.github.jtendermint.jabci.types.KVPairOrBuilder getTagsOrBuilder(
         int index) {
       if (tagsBuilder_ == null) {
         return tags_.get(index);  } else {
@@ -617,7 +660,7 @@ public  final class ResponseBeginBlock extends
     /**
      * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 1;</code>
      */
-    public java.util.List<? extends KVPairOrBuilder>
+    public java.util.List<? extends com.github.jtendermint.jabci.types.KVPairOrBuilder> 
          getTagsOrBuilderList() {
       if (tagsBuilder_ != null) {
         return tagsBuilder_.getMessageOrBuilderList();
@@ -628,31 +671,31 @@ public  final class ResponseBeginBlock extends
     /**
      * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 1;</code>
      */
-    public KVPair.Builder addTagsBuilder() {
+    public com.github.jtendermint.jabci.types.KVPair.Builder addTagsBuilder() {
       return getTagsFieldBuilder().addBuilder(
-          KVPair.getDefaultInstance());
+          com.github.jtendermint.jabci.types.KVPair.getDefaultInstance());
     }
     /**
      * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 1;</code>
      */
-    public KVPair.Builder addTagsBuilder(
+    public com.github.jtendermint.jabci.types.KVPair.Builder addTagsBuilder(
         int index) {
       return getTagsFieldBuilder().addBuilder(
-          index, KVPair.getDefaultInstance());
+          index, com.github.jtendermint.jabci.types.KVPair.getDefaultInstance());
     }
     /**
      * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 1;</code>
      */
-    public java.util.List<KVPair.Builder>
+    public java.util.List<com.github.jtendermint.jabci.types.KVPair.Builder> 
          getTagsBuilderList() {
       return getTagsFieldBuilder().getBuilderList();
     }
     private com.google.protobuf.RepeatedFieldBuilderV3<
-        KVPair, KVPair.Builder, KVPairOrBuilder>
+        com.github.jtendermint.jabci.types.KVPair, com.github.jtendermint.jabci.types.KVPair.Builder, com.github.jtendermint.jabci.types.KVPairOrBuilder> 
         getTagsFieldBuilder() {
       if (tagsBuilder_ == null) {
         tagsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-            KVPair, KVPair.Builder, KVPairOrBuilder>(
+            com.github.jtendermint.jabci.types.KVPair, com.github.jtendermint.jabci.types.KVPair.Builder, com.github.jtendermint.jabci.types.KVPairOrBuilder>(
                 tags_,
                 ((bitField0_ & 0x00000001) == 0x00000001),
                 getParentForChildren(),
@@ -661,14 +704,16 @@ public  final class ResponseBeginBlock extends
       }
       return tagsBuilder_;
     }
+    @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
-      return this;
+      return super.setUnknownFieldsProto3(unknownFields);
     }
 
+    @java.lang.Override
     public final Builder mergeUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
-      return this;
+      return super.mergeUnknownFields(unknownFields);
     }
 
 
@@ -676,22 +721,23 @@ public  final class ResponseBeginBlock extends
   }
 
   // @@protoc_insertion_point(class_scope:com.github.jtendermint.jabci.types.ResponseBeginBlock)
-  private static final ResponseBeginBlock DEFAULT_INSTANCE;
+  private static final com.github.jtendermint.jabci.types.ResponseBeginBlock DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new ResponseBeginBlock();
+    DEFAULT_INSTANCE = new com.github.jtendermint.jabci.types.ResponseBeginBlock();
   }
 
-  public static ResponseBeginBlock getDefaultInstance() {
+  public static com.github.jtendermint.jabci.types.ResponseBeginBlock getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
   private static final com.google.protobuf.Parser<ResponseBeginBlock>
       PARSER = new com.google.protobuf.AbstractParser<ResponseBeginBlock>() {
+    @java.lang.Override
     public ResponseBeginBlock parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ResponseBeginBlock(input, extensionRegistry);
+      return new ResponseBeginBlock(input, extensionRegistry);
     }
   };
 
@@ -699,12 +745,13 @@ public  final class ResponseBeginBlock extends
     return PARSER;
   }
 
-  @Override
+  @java.lang.Override
   public com.google.protobuf.Parser<ResponseBeginBlock> getParserForType() {
     return PARSER;
   }
 
-  public ResponseBeginBlock getDefaultInstanceForType() {
+  @java.lang.Override
+  public com.github.jtendermint.jabci.types.ResponseBeginBlock getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

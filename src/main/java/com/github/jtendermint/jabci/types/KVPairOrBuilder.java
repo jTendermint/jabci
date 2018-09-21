@@ -8,12 +8,12 @@ public interface KVPairOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>optional bytes key = 1;</code>
+   * <code>bytes key = 1;</code>
    */
   com.google.protobuf.ByteString getKey();
 
   /**
-   * <code>optional bytes value = 2;</code>
+   * <code>bytes value = 2;</code>
    */
   com.google.protobuf.ByteString getValue();
 }
