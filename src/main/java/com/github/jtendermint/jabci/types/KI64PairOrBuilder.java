@@ -8,12 +8,12 @@ public interface KI64PairOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>optional bytes key = 1;</code>
+   * <code>bytes key = 1;</code>
    */
   com.google.protobuf.ByteString getKey();
 
   /**
-   * <code>optional int64 value = 2;</code>
+   * <code>int64 value = 2;</code>
    */
   long getValue();
 }

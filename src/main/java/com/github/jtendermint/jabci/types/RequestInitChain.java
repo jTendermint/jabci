@@ -10,28 +10,33 @@ public  final class RequestInitChain extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:com.github.jtendermint.jabci.types.RequestInitChain)
     RequestInitChainOrBuilder {
+private static final long serialVersionUID = 0L;
   // Use RequestInitChain.newBuilder() to construct.
   private RequestInitChain(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
   private RequestInitChain() {
-    time_ = 0L;
     chainId_ = "";
     validators_ = java.util.Collections.emptyList();
     appStateBytes_ = com.google.protobuf.ByteString.EMPTY;
   }
 
-  @Override
+  @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
-    return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+    return this.unknownFields;
   }
   private RequestInitChain(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     this();
+    if (extensionRegistry == null) {
+      throw new java.lang.NullPointerException();
+    }
     int mutable_bitField0_ = 0;
+    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+        com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
       boolean done = false;
       while (!done) {
@@ -40,29 +45,31 @@ public  final class RequestInitChain extends
           case 0:
             done = true;
             break;
-          default: {
-            if (!input.skipField(tag)) {
-              done = true;
+          case 10: {
+            com.google.protobuf.Timestamp.Builder subBuilder = null;
+            if (time_ != null) {
+              subBuilder = time_.toBuilder();
             }
-            break;
-          }
-          case 8: {
+            time_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(time_);
+              time_ = subBuilder.buildPartial();
+            }
 
-            time_ = input.readInt64();
             break;
           }
           case 18: {
-            String s = input.readStringRequireUtf8();
+            java.lang.String s = input.readStringRequireUtf8();
 
             chainId_ = s;
             break;
           }
           case 26: {
-            ConsensusParams.Builder subBuilder = null;
+            com.github.jtendermint.jabci.types.ConsensusParams.Builder subBuilder = null;
             if (consensusParams_ != null) {
               subBuilder = consensusParams_.toBuilder();
             }
-            consensusParams_ = input.readMessage(ConsensusParams.parser(), extensionRegistry);
+            consensusParams_ = input.readMessage(com.github.jtendermint.jabci.types.ConsensusParams.parser(), extensionRegistry);
             if (subBuilder != null) {
               subBuilder.mergeFrom(consensusParams_);
               consensusParams_ = subBuilder.buildPartial();
@@ -72,16 +79,23 @@ public  final class RequestInitChain extends
           }
           case 34: {
             if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
-              validators_ = new java.util.ArrayList<Validator>();
+              validators_ = new java.util.ArrayList<com.github.jtendermint.jabci.types.ValidatorUpdate>();
               mutable_bitField0_ |= 0x00000008;
             }
             validators_.add(
-                input.readMessage(Validator.parser(), extensionRegistry));
+                input.readMessage(com.github.jtendermint.jabci.types.ValidatorUpdate.parser(), extensionRegistry));
             break;
           }
           case 42: {
 
             appStateBytes_ = input.readBytes();
+            break;
+          }
+          default: {
+            if (!parseUnknownFieldProto3(
+                input, unknownFields, extensionRegistry, tag)) {
+              done = true;
+            }
             break;
           }
         }
@@ -95,58 +109,72 @@ public  final class RequestInitChain extends
       if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
         validators_ = java.util.Collections.unmodifiableList(validators_);
       }
+      this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
     }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return Types.internal_static_com_github_jtendermint_jabci_types_RequestInitChain_descriptor;
+    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_RequestInitChain_descriptor;
   }
 
-  protected FieldAccessorTable
+  @java.lang.Override
+  protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return Types.internal_static_com_github_jtendermint_jabci_types_RequestInitChain_fieldAccessorTable
+    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_RequestInitChain_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            RequestInitChain.class, RequestInitChain.Builder.class);
+            com.github.jtendermint.jabci.types.RequestInitChain.class, com.github.jtendermint.jabci.types.RequestInitChain.Builder.class);
   }
 
   private int bitField0_;
   public static final int TIME_FIELD_NUMBER = 1;
-  private long time_;
+  private com.google.protobuf.Timestamp time_;
   /**
-   * <code>optional int64 time = 1;</code>
+   * <code>.google.protobuf.Timestamp time = 1;</code>
    */
-  public long getTime() {
-    return time_;
+  public boolean hasTime() {
+    return time_ != null;
+  }
+  /**
+   * <code>.google.protobuf.Timestamp time = 1;</code>
+   */
+  public com.google.protobuf.Timestamp getTime() {
+    return time_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : time_;
+  }
+  /**
+   * <code>.google.protobuf.Timestamp time = 1;</code>
+   */
+  public com.google.protobuf.TimestampOrBuilder getTimeOrBuilder() {
+    return getTime();
   }
 
   public static final int CHAIN_ID_FIELD_NUMBER = 2;
-  private volatile Object chainId_;
+  private volatile java.lang.Object chainId_;
   /**
-   * <code>optional string chain_id = 2;</code>
+   * <code>string chain_id = 2;</code>
    */
-  public String getChainId() {
-    Object ref = chainId_;
-    if (ref instanceof String) {
-      return (String) ref;
+  public java.lang.String getChainId() {
+    java.lang.Object ref = chainId_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs =
+      com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
-      String s = bs.toStringUtf8();
+      java.lang.String s = bs.toStringUtf8();
       chainId_ = s;
       return s;
     }
   }
   /**
-   * <code>optional string chain_id = 2;</code>
+   * <code>string chain_id = 2;</code>
    */
   public com.google.protobuf.ByteString
       getChainIdBytes() {
-    Object ref = chainId_;
-    if (ref instanceof String) {
-      com.google.protobuf.ByteString b =
+    java.lang.Object ref = chainId_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
-              (String) ref);
+              (java.lang.String) ref);
       chainId_ = b;
       return b;
     } else {
@@ -155,57 +183,57 @@ public  final class RequestInitChain extends
   }
 
   public static final int CONSENSUS_PARAMS_FIELD_NUMBER = 3;
-  private ConsensusParams consensusParams_;
+  private com.github.jtendermint.jabci.types.ConsensusParams consensusParams_;
   /**
-   * <code>optional .com.github.jtendermint.jabci.types.ConsensusParams consensus_params = 3;</code>
+   * <code>.com.github.jtendermint.jabci.types.ConsensusParams consensus_params = 3;</code>
    */
   public boolean hasConsensusParams() {
     return consensusParams_ != null;
   }
   /**
-   * <code>optional .com.github.jtendermint.jabci.types.ConsensusParams consensus_params = 3;</code>
+   * <code>.com.github.jtendermint.jabci.types.ConsensusParams consensus_params = 3;</code>
    */
-  public ConsensusParams getConsensusParams() {
-    return consensusParams_ == null ? ConsensusParams.getDefaultInstance() : consensusParams_;
+  public com.github.jtendermint.jabci.types.ConsensusParams getConsensusParams() {
+    return consensusParams_ == null ? com.github.jtendermint.jabci.types.ConsensusParams.getDefaultInstance() : consensusParams_;
   }
   /**
-   * <code>optional .com.github.jtendermint.jabci.types.ConsensusParams consensus_params = 3;</code>
+   * <code>.com.github.jtendermint.jabci.types.ConsensusParams consensus_params = 3;</code>
    */
-  public ConsensusParamsOrBuilder getConsensusParamsOrBuilder() {
+  public com.github.jtendermint.jabci.types.ConsensusParamsOrBuilder getConsensusParamsOrBuilder() {
     return getConsensusParams();
   }
 
   public static final int VALIDATORS_FIELD_NUMBER = 4;
-  private java.util.List<Validator> validators_;
+  private java.util.List<com.github.jtendermint.jabci.types.ValidatorUpdate> validators_;
   /**
-   * <code>repeated .com.github.jtendermint.jabci.types.Validator validators = 4;</code>
+   * <code>repeated .com.github.jtendermint.jabci.types.ValidatorUpdate validators = 4;</code>
    */
-  public java.util.List<Validator> getValidatorsList() {
+  public java.util.List<com.github.jtendermint.jabci.types.ValidatorUpdate> getValidatorsList() {
     return validators_;
   }
   /**
-   * <code>repeated .com.github.jtendermint.jabci.types.Validator validators = 4;</code>
+   * <code>repeated .com.github.jtendermint.jabci.types.ValidatorUpdate validators = 4;</code>
    */
-  public java.util.List<? extends ValidatorOrBuilder>
+  public java.util.List<? extends com.github.jtendermint.jabci.types.ValidatorUpdateOrBuilder> 
       getValidatorsOrBuilderList() {
     return validators_;
   }
   /**
-   * <code>repeated .com.github.jtendermint.jabci.types.Validator validators = 4;</code>
+   * <code>repeated .com.github.jtendermint.jabci.types.ValidatorUpdate validators = 4;</code>
    */
   public int getValidatorsCount() {
     return validators_.size();
   }
   /**
-   * <code>repeated .com.github.jtendermint.jabci.types.Validator validators = 4;</code>
+   * <code>repeated .com.github.jtendermint.jabci.types.ValidatorUpdate validators = 4;</code>
    */
-  public Validator getValidators(int index) {
+  public com.github.jtendermint.jabci.types.ValidatorUpdate getValidators(int index) {
     return validators_.get(index);
   }
   /**
-   * <code>repeated .com.github.jtendermint.jabci.types.Validator validators = 4;</code>
+   * <code>repeated .com.github.jtendermint.jabci.types.ValidatorUpdate validators = 4;</code>
    */
-  public ValidatorOrBuilder getValidatorsOrBuilder(
+  public com.github.jtendermint.jabci.types.ValidatorUpdateOrBuilder getValidatorsOrBuilder(
       int index) {
     return validators_.get(index);
   }
@@ -213,13 +241,14 @@ public  final class RequestInitChain extends
   public static final int APP_STATE_BYTES_FIELD_NUMBER = 5;
   private com.google.protobuf.ByteString appStateBytes_;
   /**
-   * <code>optional bytes app_state_bytes = 5;</code>
+   * <code>bytes app_state_bytes = 5;</code>
    */
   public com.google.protobuf.ByteString getAppStateBytes() {
     return appStateBytes_;
   }
 
   private byte memoizedIsInitialized = -1;
+  @java.lang.Override
   public final boolean isInitialized() {
     byte isInitialized = memoizedIsInitialized;
     if (isInitialized == 1) return true;
@@ -229,10 +258,11 @@ public  final class RequestInitChain extends
     return true;
   }
 
+  @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (time_ != 0L) {
-      output.writeInt64(1, time_);
+    if (time_ != null) {
+      output.writeMessage(1, getTime());
     }
     if (!getChainIdBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, chainId_);
@@ -246,16 +276,18 @@ public  final class RequestInitChain extends
     if (!appStateBytes_.isEmpty()) {
       output.writeBytes(5, appStateBytes_);
     }
+    unknownFields.writeTo(output);
   }
 
+  @java.lang.Override
   public int getSerializedSize() {
     int size = memoizedSize;
     if (size != -1) return size;
 
     size = 0;
-    if (time_ != 0L) {
+    if (time_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(1, time_);
+        .computeMessageSize(1, getTime());
     }
     if (!getChainIdBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, chainId_);
@@ -272,24 +304,27 @@ public  final class RequestInitChain extends
       size += com.google.protobuf.CodedOutputStream
         .computeBytesSize(5, appStateBytes_);
     }
+    size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
   }
 
-  private static final long serialVersionUID = 0L;
-  @Override
-  public boolean equals(final Object obj) {
+  @java.lang.Override
+  public boolean equals(final java.lang.Object obj) {
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof RequestInitChain)) {
+    if (!(obj instanceof com.github.jtendermint.jabci.types.RequestInitChain)) {
       return super.equals(obj);
     }
-    RequestInitChain other = (RequestInitChain) obj;
+    com.github.jtendermint.jabci.types.RequestInitChain other = (com.github.jtendermint.jabci.types.RequestInitChain) obj;
 
     boolean result = true;
-    result = result && (getTime()
-        == other.getTime());
+    result = result && (hasTime() == other.hasTime());
+    if (hasTime()) {
+      result = result && getTime()
+          .equals(other.getTime());
+    }
     result = result && getChainId()
         .equals(other.getChainId());
     result = result && (hasConsensusParams() == other.hasConsensusParams());
@@ -301,19 +336,21 @@ public  final class RequestInitChain extends
         .equals(other.getValidatorsList());
     result = result && getAppStateBytes()
         .equals(other.getAppStateBytes());
+    result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
 
-  @Override
+  @java.lang.Override
   public int hashCode() {
     if (memoizedHashCode != 0) {
       return memoizedHashCode;
     }
     int hash = 41;
-    hash = (19 * hash) + getDescriptorForType().hashCode();
-    hash = (37 * hash) + TIME_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getTime());
+    hash = (19 * hash) + getDescriptor().hashCode();
+    if (hasTime()) {
+      hash = (37 * hash) + TIME_FIELD_NUMBER;
+      hash = (53 * hash) + getTime().hashCode();
+    }
     hash = (37 * hash) + CHAIN_ID_FIELD_NUMBER;
     hash = (53 * hash) + getChainId().hashCode();
     if (hasConsensusParams()) {
@@ -331,58 +368,69 @@ public  final class RequestInitChain extends
     return hash;
   }
 
-  public static RequestInitChain parseFrom(
+  public static com.github.jtendermint.jabci.types.RequestInitChain parseFrom(
+      java.nio.ByteBuffer data)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    return PARSER.parseFrom(data);
+  }
+  public static com.github.jtendermint.jabci.types.RequestInitChain parseFrom(
+      java.nio.ByteBuffer data,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    return PARSER.parseFrom(data, extensionRegistry);
+  }
+  public static com.github.jtendermint.jabci.types.RequestInitChain parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static RequestInitChain parseFrom(
+  public static com.github.jtendermint.jabci.types.RequestInitChain parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static RequestInitChain parseFrom(byte[] data)
+  public static com.github.jtendermint.jabci.types.RequestInitChain parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static RequestInitChain parseFrom(
+  public static com.github.jtendermint.jabci.types.RequestInitChain parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static RequestInitChain parseFrom(java.io.InputStream input)
+  public static com.github.jtendermint.jabci.types.RequestInitChain parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static RequestInitChain parseFrom(
+  public static com.github.jtendermint.jabci.types.RequestInitChain parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static RequestInitChain parseDelimitedFrom(java.io.InputStream input)
+  public static com.github.jtendermint.jabci.types.RequestInitChain parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static RequestInitChain parseDelimitedFrom(
+  public static com.github.jtendermint.jabci.types.RequestInitChain parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static RequestInitChain parseFrom(
+  public static com.github.jtendermint.jabci.types.RequestInitChain parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static RequestInitChain parseFrom(
+  public static com.github.jtendermint.jabci.types.RequestInitChain parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -390,21 +438,23 @@ public  final class RequestInitChain extends
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
 
+  @java.lang.Override
   public Builder newBuilderForType() { return newBuilder(); }
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(RequestInitChain prototype) {
+  public static Builder newBuilder(com.github.jtendermint.jabci.types.RequestInitChain prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
+  @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
         ? new Builder() : new Builder().mergeFrom(this);
   }
 
-  @Override
+  @java.lang.Override
   protected Builder newBuilderForType(
-      BuilderParent parent) {
+      com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
     Builder builder = new Builder(parent);
     return builder;
   }
@@ -414,17 +464,18 @@ public  final class RequestInitChain extends
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
       // @@protoc_insertion_point(builder_implements:com.github.jtendermint.jabci.types.RequestInitChain)
-      RequestInitChainOrBuilder {
+      com.github.jtendermint.jabci.types.RequestInitChainOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return Types.internal_static_com_github_jtendermint_jabci_types_RequestInitChain_descriptor;
+      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_RequestInitChain_descriptor;
     }
 
-    protected FieldAccessorTable
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return Types.internal_static_com_github_jtendermint_jabci_types_RequestInitChain_fieldAccessorTable
+      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_RequestInitChain_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              RequestInitChain.class, RequestInitChain.Builder.class);
+              com.github.jtendermint.jabci.types.RequestInitChain.class, com.github.jtendermint.jabci.types.RequestInitChain.Builder.class);
     }
 
     // Construct using com.github.jtendermint.jabci.types.RequestInitChain.newBuilder()
@@ -433,7 +484,7 @@ public  final class RequestInitChain extends
     }
 
     private Builder(
-        BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
       maybeForceBuilderInitialization();
     }
@@ -443,10 +494,15 @@ public  final class RequestInitChain extends
         getValidatorsFieldBuilder();
       }
     }
+    @java.lang.Override
     public Builder clear() {
       super.clear();
-      time_ = 0L;
-
+      if (timeBuilder_ == null) {
+        time_ = null;
+      } else {
+        time_ = null;
+        timeBuilder_ = null;
+      }
       chainId_ = "";
 
       if (consensusParamsBuilder_ == null) {
@@ -466,28 +522,36 @@ public  final class RequestInitChain extends
       return this;
     }
 
+    @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return Types.internal_static_com_github_jtendermint_jabci_types_RequestInitChain_descriptor;
+      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_RequestInitChain_descriptor;
     }
 
-    public RequestInitChain getDefaultInstanceForType() {
-      return RequestInitChain.getDefaultInstance();
+    @java.lang.Override
+    public com.github.jtendermint.jabci.types.RequestInitChain getDefaultInstanceForType() {
+      return com.github.jtendermint.jabci.types.RequestInitChain.getDefaultInstance();
     }
 
-    public RequestInitChain build() {
-      RequestInitChain result = buildPartial();
+    @java.lang.Override
+    public com.github.jtendermint.jabci.types.RequestInitChain build() {
+      com.github.jtendermint.jabci.types.RequestInitChain result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
       return result;
     }
 
-    public RequestInitChain buildPartial() {
-      RequestInitChain result = new RequestInitChain(this);
+    @java.lang.Override
+    public com.github.jtendermint.jabci.types.RequestInitChain buildPartial() {
+      com.github.jtendermint.jabci.types.RequestInitChain result = new com.github.jtendermint.jabci.types.RequestInitChain(this);
       int from_bitField0_ = bitField0_;
       int to_bitField0_ = 0;
-      result.time_ = time_;
+      if (timeBuilder_ == null) {
+        result.time_ = time_;
+      } else {
+        result.time_ = timeBuilder_.build();
+      }
       result.chainId_ = chainId_;
       if (consensusParamsBuilder_ == null) {
         result.consensusParams_ = consensusParams_;
@@ -509,45 +573,52 @@ public  final class RequestInitChain extends
       return result;
     }
 
+    @java.lang.Override
     public Builder clone() {
       return (Builder) super.clone();
     }
+    @java.lang.Override
     public Builder setField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        Object value) {
+        java.lang.Object value) {
       return (Builder) super.setField(field, value);
     }
+    @java.lang.Override
     public Builder clearField(
         com.google.protobuf.Descriptors.FieldDescriptor field) {
       return (Builder) super.clearField(field);
     }
+    @java.lang.Override
     public Builder clearOneof(
         com.google.protobuf.Descriptors.OneofDescriptor oneof) {
       return (Builder) super.clearOneof(oneof);
     }
+    @java.lang.Override
     public Builder setRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        int index, Object value) {
+        int index, java.lang.Object value) {
       return (Builder) super.setRepeatedField(field, index, value);
     }
+    @java.lang.Override
     public Builder addRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        Object value) {
+        java.lang.Object value) {
       return (Builder) super.addRepeatedField(field, value);
     }
+    @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof RequestInitChain) {
-        return mergeFrom((RequestInitChain)other);
+      if (other instanceof com.github.jtendermint.jabci.types.RequestInitChain) {
+        return mergeFrom((com.github.jtendermint.jabci.types.RequestInitChain)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(RequestInitChain other) {
-      if (other == RequestInitChain.getDefaultInstance()) return this;
-      if (other.getTime() != 0L) {
-        setTime(other.getTime());
+    public Builder mergeFrom(com.github.jtendermint.jabci.types.RequestInitChain other) {
+      if (other == com.github.jtendermint.jabci.types.RequestInitChain.getDefaultInstance()) return this;
+      if (other.hasTime()) {
+        mergeTime(other.getTime());
       }
       if (!other.getChainId().isEmpty()) {
         chainId_ = other.chainId_;
@@ -574,7 +645,7 @@ public  final class RequestInitChain extends
             validatorsBuilder_ = null;
             validators_ = other.validators_;
             bitField0_ = (bitField0_ & ~0x00000008);
-            validatorsBuilder_ =
+            validatorsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getValidatorsFieldBuilder() : null;
           } else {
@@ -585,23 +656,26 @@ public  final class RequestInitChain extends
       if (other.getAppStateBytes() != com.google.protobuf.ByteString.EMPTY) {
         setAppStateBytes(other.getAppStateBytes());
       }
+      this.mergeUnknownFields(other.unknownFields);
       onChanged();
       return this;
     }
 
+    @java.lang.Override
     public final boolean isInitialized() {
       return true;
     }
 
+    @java.lang.Override
     public Builder mergeFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      RequestInitChain parsedMessage = null;
+      com.github.jtendermint.jabci.types.RequestInitChain parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (RequestInitChain) e.getUnfinishedMessage();
+        parsedMessage = (com.github.jtendermint.jabci.types.RequestInitChain) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -612,58 +686,149 @@ public  final class RequestInitChain extends
     }
     private int bitField0_;
 
-    private long time_ ;
+    private com.google.protobuf.Timestamp time_ = null;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> timeBuilder_;
     /**
-     * <code>optional int64 time = 1;</code>
+     * <code>.google.protobuf.Timestamp time = 1;</code>
      */
-    public long getTime() {
-      return time_;
+    public boolean hasTime() {
+      return timeBuilder_ != null || time_ != null;
     }
     /**
-     * <code>optional int64 time = 1;</code>
+     * <code>.google.protobuf.Timestamp time = 1;</code>
      */
-    public Builder setTime(long value) {
-
-      time_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>optional int64 time = 1;</code>
-     */
-    public Builder clearTime() {
-
-      time_ = 0L;
-      onChanged();
-      return this;
-    }
-
-    private Object chainId_ = "";
-    /**
-     * <code>optional string chain_id = 2;</code>
-     */
-    public String getChainId() {
-      Object ref = chainId_;
-      if (!(ref instanceof String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        chainId_ = s;
-        return s;
+    public com.google.protobuf.Timestamp getTime() {
+      if (timeBuilder_ == null) {
+        return time_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : time_;
       } else {
-        return (String) ref;
+        return timeBuilder_.getMessage();
       }
     }
     /**
-     * <code>optional string chain_id = 2;</code>
+     * <code>.google.protobuf.Timestamp time = 1;</code>
+     */
+    public Builder setTime(com.google.protobuf.Timestamp value) {
+      if (timeBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        time_ = value;
+        onChanged();
+      } else {
+        timeBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp time = 1;</code>
+     */
+    public Builder setTime(
+        com.google.protobuf.Timestamp.Builder builderForValue) {
+      if (timeBuilder_ == null) {
+        time_ = builderForValue.build();
+        onChanged();
+      } else {
+        timeBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp time = 1;</code>
+     */
+    public Builder mergeTime(com.google.protobuf.Timestamp value) {
+      if (timeBuilder_ == null) {
+        if (time_ != null) {
+          time_ =
+            com.google.protobuf.Timestamp.newBuilder(time_).mergeFrom(value).buildPartial();
+        } else {
+          time_ = value;
+        }
+        onChanged();
+      } else {
+        timeBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp time = 1;</code>
+     */
+    public Builder clearTime() {
+      if (timeBuilder_ == null) {
+        time_ = null;
+        onChanged();
+      } else {
+        time_ = null;
+        timeBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp time = 1;</code>
+     */
+    public com.google.protobuf.Timestamp.Builder getTimeBuilder() {
+      
+      onChanged();
+      return getTimeFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.google.protobuf.Timestamp time = 1;</code>
+     */
+    public com.google.protobuf.TimestampOrBuilder getTimeOrBuilder() {
+      if (timeBuilder_ != null) {
+        return timeBuilder_.getMessageOrBuilder();
+      } else {
+        return time_ == null ?
+            com.google.protobuf.Timestamp.getDefaultInstance() : time_;
+      }
+    }
+    /**
+     * <code>.google.protobuf.Timestamp time = 1;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+        getTimeFieldBuilder() {
+      if (timeBuilder_ == null) {
+        timeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                getTime(),
+                getParentForChildren(),
+                isClean());
+        time_ = null;
+      }
+      return timeBuilder_;
+    }
+
+    private java.lang.Object chainId_ = "";
+    /**
+     * <code>string chain_id = 2;</code>
+     */
+    public java.lang.String getChainId() {
+      java.lang.Object ref = chainId_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        chainId_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string chain_id = 2;</code>
      */
     public com.google.protobuf.ByteString
         getChainIdBytes() {
-      Object ref = chainId_;
+      java.lang.Object ref = chainId_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         chainId_ = b;
         return b;
       } else {
@@ -671,29 +836,29 @@ public  final class RequestInitChain extends
       }
     }
     /**
-     * <code>optional string chain_id = 2;</code>
+     * <code>string chain_id = 2;</code>
      */
     public Builder setChainId(
-        String value) {
+        java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
-
+  
       chainId_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>optional string chain_id = 2;</code>
+     * <code>string chain_id = 2;</code>
      */
     public Builder clearChainId() {
-
+      
       chainId_ = getDefaultInstance().getChainId();
       onChanged();
       return this;
     }
     /**
-     * <code>optional string chain_id = 2;</code>
+     * <code>string chain_id = 2;</code>
      */
     public Builder setChainIdBytes(
         com.google.protobuf.ByteString value) {
@@ -701,35 +866,35 @@ public  final class RequestInitChain extends
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+      
       chainId_ = value;
       onChanged();
       return this;
     }
 
-    private ConsensusParams consensusParams_ = null;
+    private com.github.jtendermint.jabci.types.ConsensusParams consensusParams_ = null;
     private com.google.protobuf.SingleFieldBuilderV3<
-        ConsensusParams, ConsensusParams.Builder, ConsensusParamsOrBuilder> consensusParamsBuilder_;
+        com.github.jtendermint.jabci.types.ConsensusParams, com.github.jtendermint.jabci.types.ConsensusParams.Builder, com.github.jtendermint.jabci.types.ConsensusParamsOrBuilder> consensusParamsBuilder_;
     /**
-     * <code>optional .com.github.jtendermint.jabci.types.ConsensusParams consensus_params = 3;</code>
+     * <code>.com.github.jtendermint.jabci.types.ConsensusParams consensus_params = 3;</code>
      */
     public boolean hasConsensusParams() {
       return consensusParamsBuilder_ != null || consensusParams_ != null;
     }
     /**
-     * <code>optional .com.github.jtendermint.jabci.types.ConsensusParams consensus_params = 3;</code>
+     * <code>.com.github.jtendermint.jabci.types.ConsensusParams consensus_params = 3;</code>
      */
-    public ConsensusParams getConsensusParams() {
+    public com.github.jtendermint.jabci.types.ConsensusParams getConsensusParams() {
       if (consensusParamsBuilder_ == null) {
-        return consensusParams_ == null ? ConsensusParams.getDefaultInstance() : consensusParams_;
+        return consensusParams_ == null ? com.github.jtendermint.jabci.types.ConsensusParams.getDefaultInstance() : consensusParams_;
       } else {
         return consensusParamsBuilder_.getMessage();
       }
     }
     /**
-     * <code>optional .com.github.jtendermint.jabci.types.ConsensusParams consensus_params = 3;</code>
+     * <code>.com.github.jtendermint.jabci.types.ConsensusParams consensus_params = 3;</code>
      */
-    public Builder setConsensusParams(ConsensusParams value) {
+    public Builder setConsensusParams(com.github.jtendermint.jabci.types.ConsensusParams value) {
       if (consensusParamsBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -743,10 +908,10 @@ public  final class RequestInitChain extends
       return this;
     }
     /**
-     * <code>optional .com.github.jtendermint.jabci.types.ConsensusParams consensus_params = 3;</code>
+     * <code>.com.github.jtendermint.jabci.types.ConsensusParams consensus_params = 3;</code>
      */
     public Builder setConsensusParams(
-        ConsensusParams.Builder builderForValue) {
+        com.github.jtendermint.jabci.types.ConsensusParams.Builder builderForValue) {
       if (consensusParamsBuilder_ == null) {
         consensusParams_ = builderForValue.build();
         onChanged();
@@ -757,13 +922,13 @@ public  final class RequestInitChain extends
       return this;
     }
     /**
-     * <code>optional .com.github.jtendermint.jabci.types.ConsensusParams consensus_params = 3;</code>
+     * <code>.com.github.jtendermint.jabci.types.ConsensusParams consensus_params = 3;</code>
      */
-    public Builder mergeConsensusParams(ConsensusParams value) {
+    public Builder mergeConsensusParams(com.github.jtendermint.jabci.types.ConsensusParams value) {
       if (consensusParamsBuilder_ == null) {
         if (consensusParams_ != null) {
           consensusParams_ =
-            ConsensusParams.newBuilder(consensusParams_).mergeFrom(value).buildPartial();
+            com.github.jtendermint.jabci.types.ConsensusParams.newBuilder(consensusParams_).mergeFrom(value).buildPartial();
         } else {
           consensusParams_ = value;
         }
@@ -775,7 +940,7 @@ public  final class RequestInitChain extends
       return this;
     }
     /**
-     * <code>optional .com.github.jtendermint.jabci.types.ConsensusParams consensus_params = 3;</code>
+     * <code>.com.github.jtendermint.jabci.types.ConsensusParams consensus_params = 3;</code>
      */
     public Builder clearConsensusParams() {
       if (consensusParamsBuilder_ == null) {
@@ -789,33 +954,33 @@ public  final class RequestInitChain extends
       return this;
     }
     /**
-     * <code>optional .com.github.jtendermint.jabci.types.ConsensusParams consensus_params = 3;</code>
+     * <code>.com.github.jtendermint.jabci.types.ConsensusParams consensus_params = 3;</code>
      */
-    public ConsensusParams.Builder getConsensusParamsBuilder() {
-
+    public com.github.jtendermint.jabci.types.ConsensusParams.Builder getConsensusParamsBuilder() {
+      
       onChanged();
       return getConsensusParamsFieldBuilder().getBuilder();
     }
     /**
-     * <code>optional .com.github.jtendermint.jabci.types.ConsensusParams consensus_params = 3;</code>
+     * <code>.com.github.jtendermint.jabci.types.ConsensusParams consensus_params = 3;</code>
      */
-    public ConsensusParamsOrBuilder getConsensusParamsOrBuilder() {
+    public com.github.jtendermint.jabci.types.ConsensusParamsOrBuilder getConsensusParamsOrBuilder() {
       if (consensusParamsBuilder_ != null) {
         return consensusParamsBuilder_.getMessageOrBuilder();
       } else {
         return consensusParams_ == null ?
-            ConsensusParams.getDefaultInstance() : consensusParams_;
+            com.github.jtendermint.jabci.types.ConsensusParams.getDefaultInstance() : consensusParams_;
       }
     }
     /**
-     * <code>optional .com.github.jtendermint.jabci.types.ConsensusParams consensus_params = 3;</code>
+     * <code>.com.github.jtendermint.jabci.types.ConsensusParams consensus_params = 3;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        ConsensusParams, ConsensusParams.Builder, ConsensusParamsOrBuilder>
+        com.github.jtendermint.jabci.types.ConsensusParams, com.github.jtendermint.jabci.types.ConsensusParams.Builder, com.github.jtendermint.jabci.types.ConsensusParamsOrBuilder> 
         getConsensusParamsFieldBuilder() {
       if (consensusParamsBuilder_ == null) {
         consensusParamsBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            ConsensusParams, ConsensusParams.Builder, ConsensusParamsOrBuilder>(
+            com.github.jtendermint.jabci.types.ConsensusParams, com.github.jtendermint.jabci.types.ConsensusParams.Builder, com.github.jtendermint.jabci.types.ConsensusParamsOrBuilder>(
                 getConsensusParams(),
                 getParentForChildren(),
                 isClean());
@@ -824,22 +989,22 @@ public  final class RequestInitChain extends
       return consensusParamsBuilder_;
     }
 
-    private java.util.List<Validator> validators_ =
+    private java.util.List<com.github.jtendermint.jabci.types.ValidatorUpdate> validators_ =
       java.util.Collections.emptyList();
     private void ensureValidatorsIsMutable() {
       if (!((bitField0_ & 0x00000008) == 0x00000008)) {
-        validators_ = new java.util.ArrayList<Validator>(validators_);
+        validators_ = new java.util.ArrayList<com.github.jtendermint.jabci.types.ValidatorUpdate>(validators_);
         bitField0_ |= 0x00000008;
        }
     }
 
     private com.google.protobuf.RepeatedFieldBuilderV3<
-        Validator, Validator.Builder, ValidatorOrBuilder> validatorsBuilder_;
+        com.github.jtendermint.jabci.types.ValidatorUpdate, com.github.jtendermint.jabci.types.ValidatorUpdate.Builder, com.github.jtendermint.jabci.types.ValidatorUpdateOrBuilder> validatorsBuilder_;
 
     /**
-     * <code>repeated .com.github.jtendermint.jabci.types.Validator validators = 4;</code>
+     * <code>repeated .com.github.jtendermint.jabci.types.ValidatorUpdate validators = 4;</code>
      */
-    public java.util.List<Validator> getValidatorsList() {
+    public java.util.List<com.github.jtendermint.jabci.types.ValidatorUpdate> getValidatorsList() {
       if (validatorsBuilder_ == null) {
         return java.util.Collections.unmodifiableList(validators_);
       } else {
@@ -847,7 +1012,7 @@ public  final class RequestInitChain extends
       }
     }
     /**
-     * <code>repeated .com.github.jtendermint.jabci.types.Validator validators = 4;</code>
+     * <code>repeated .com.github.jtendermint.jabci.types.ValidatorUpdate validators = 4;</code>
      */
     public int getValidatorsCount() {
       if (validatorsBuilder_ == null) {
@@ -857,9 +1022,9 @@ public  final class RequestInitChain extends
       }
     }
     /**
-     * <code>repeated .com.github.jtendermint.jabci.types.Validator validators = 4;</code>
+     * <code>repeated .com.github.jtendermint.jabci.types.ValidatorUpdate validators = 4;</code>
      */
-    public Validator getValidators(int index) {
+    public com.github.jtendermint.jabci.types.ValidatorUpdate getValidators(int index) {
       if (validatorsBuilder_ == null) {
         return validators_.get(index);
       } else {
@@ -867,10 +1032,10 @@ public  final class RequestInitChain extends
       }
     }
     /**
-     * <code>repeated .com.github.jtendermint.jabci.types.Validator validators = 4;</code>
+     * <code>repeated .com.github.jtendermint.jabci.types.ValidatorUpdate validators = 4;</code>
      */
     public Builder setValidators(
-        int index, Validator value) {
+        int index, com.github.jtendermint.jabci.types.ValidatorUpdate value) {
       if (validatorsBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -884,10 +1049,10 @@ public  final class RequestInitChain extends
       return this;
     }
     /**
-     * <code>repeated .com.github.jtendermint.jabci.types.Validator validators = 4;</code>
+     * <code>repeated .com.github.jtendermint.jabci.types.ValidatorUpdate validators = 4;</code>
      */
     public Builder setValidators(
-        int index, Validator.Builder builderForValue) {
+        int index, com.github.jtendermint.jabci.types.ValidatorUpdate.Builder builderForValue) {
       if (validatorsBuilder_ == null) {
         ensureValidatorsIsMutable();
         validators_.set(index, builderForValue.build());
@@ -898,9 +1063,9 @@ public  final class RequestInitChain extends
       return this;
     }
     /**
-     * <code>repeated .com.github.jtendermint.jabci.types.Validator validators = 4;</code>
+     * <code>repeated .com.github.jtendermint.jabci.types.ValidatorUpdate validators = 4;</code>
      */
-    public Builder addValidators(Validator value) {
+    public Builder addValidators(com.github.jtendermint.jabci.types.ValidatorUpdate value) {
       if (validatorsBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -914,10 +1079,10 @@ public  final class RequestInitChain extends
       return this;
     }
     /**
-     * <code>repeated .com.github.jtendermint.jabci.types.Validator validators = 4;</code>
+     * <code>repeated .com.github.jtendermint.jabci.types.ValidatorUpdate validators = 4;</code>
      */
     public Builder addValidators(
-        int index, Validator value) {
+        int index, com.github.jtendermint.jabci.types.ValidatorUpdate value) {
       if (validatorsBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -931,10 +1096,10 @@ public  final class RequestInitChain extends
       return this;
     }
     /**
-     * <code>repeated .com.github.jtendermint.jabci.types.Validator validators = 4;</code>
+     * <code>repeated .com.github.jtendermint.jabci.types.ValidatorUpdate validators = 4;</code>
      */
     public Builder addValidators(
-        Validator.Builder builderForValue) {
+        com.github.jtendermint.jabci.types.ValidatorUpdate.Builder builderForValue) {
       if (validatorsBuilder_ == null) {
         ensureValidatorsIsMutable();
         validators_.add(builderForValue.build());
@@ -945,10 +1110,10 @@ public  final class RequestInitChain extends
       return this;
     }
     /**
-     * <code>repeated .com.github.jtendermint.jabci.types.Validator validators = 4;</code>
+     * <code>repeated .com.github.jtendermint.jabci.types.ValidatorUpdate validators = 4;</code>
      */
     public Builder addValidators(
-        int index, Validator.Builder builderForValue) {
+        int index, com.github.jtendermint.jabci.types.ValidatorUpdate.Builder builderForValue) {
       if (validatorsBuilder_ == null) {
         ensureValidatorsIsMutable();
         validators_.add(index, builderForValue.build());
@@ -959,10 +1124,10 @@ public  final class RequestInitChain extends
       return this;
     }
     /**
-     * <code>repeated .com.github.jtendermint.jabci.types.Validator validators = 4;</code>
+     * <code>repeated .com.github.jtendermint.jabci.types.ValidatorUpdate validators = 4;</code>
      */
     public Builder addAllValidators(
-        Iterable<? extends Validator> values) {
+        java.lang.Iterable<? extends com.github.jtendermint.jabci.types.ValidatorUpdate> values) {
       if (validatorsBuilder_ == null) {
         ensureValidatorsIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -974,7 +1139,7 @@ public  final class RequestInitChain extends
       return this;
     }
     /**
-     * <code>repeated .com.github.jtendermint.jabci.types.Validator validators = 4;</code>
+     * <code>repeated .com.github.jtendermint.jabci.types.ValidatorUpdate validators = 4;</code>
      */
     public Builder clearValidators() {
       if (validatorsBuilder_ == null) {
@@ -987,7 +1152,7 @@ public  final class RequestInitChain extends
       return this;
     }
     /**
-     * <code>repeated .com.github.jtendermint.jabci.types.Validator validators = 4;</code>
+     * <code>repeated .com.github.jtendermint.jabci.types.ValidatorUpdate validators = 4;</code>
      */
     public Builder removeValidators(int index) {
       if (validatorsBuilder_ == null) {
@@ -1000,16 +1165,16 @@ public  final class RequestInitChain extends
       return this;
     }
     /**
-     * <code>repeated .com.github.jtendermint.jabci.types.Validator validators = 4;</code>
+     * <code>repeated .com.github.jtendermint.jabci.types.ValidatorUpdate validators = 4;</code>
      */
-    public Validator.Builder getValidatorsBuilder(
+    public com.github.jtendermint.jabci.types.ValidatorUpdate.Builder getValidatorsBuilder(
         int index) {
       return getValidatorsFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .com.github.jtendermint.jabci.types.Validator validators = 4;</code>
+     * <code>repeated .com.github.jtendermint.jabci.types.ValidatorUpdate validators = 4;</code>
      */
-    public ValidatorOrBuilder getValidatorsOrBuilder(
+    public com.github.jtendermint.jabci.types.ValidatorUpdateOrBuilder getValidatorsOrBuilder(
         int index) {
       if (validatorsBuilder_ == null) {
         return validators_.get(index);  } else {
@@ -1017,9 +1182,9 @@ public  final class RequestInitChain extends
       }
     }
     /**
-     * <code>repeated .com.github.jtendermint.jabci.types.Validator validators = 4;</code>
+     * <code>repeated .com.github.jtendermint.jabci.types.ValidatorUpdate validators = 4;</code>
      */
-    public java.util.List<? extends ValidatorOrBuilder>
+    public java.util.List<? extends com.github.jtendermint.jabci.types.ValidatorUpdateOrBuilder> 
          getValidatorsOrBuilderList() {
       if (validatorsBuilder_ != null) {
         return validatorsBuilder_.getMessageOrBuilderList();
@@ -1028,33 +1193,33 @@ public  final class RequestInitChain extends
       }
     }
     /**
-     * <code>repeated .com.github.jtendermint.jabci.types.Validator validators = 4;</code>
+     * <code>repeated .com.github.jtendermint.jabci.types.ValidatorUpdate validators = 4;</code>
      */
-    public Validator.Builder addValidatorsBuilder() {
+    public com.github.jtendermint.jabci.types.ValidatorUpdate.Builder addValidatorsBuilder() {
       return getValidatorsFieldBuilder().addBuilder(
-          Validator.getDefaultInstance());
+          com.github.jtendermint.jabci.types.ValidatorUpdate.getDefaultInstance());
     }
     /**
-     * <code>repeated .com.github.jtendermint.jabci.types.Validator validators = 4;</code>
+     * <code>repeated .com.github.jtendermint.jabci.types.ValidatorUpdate validators = 4;</code>
      */
-    public Validator.Builder addValidatorsBuilder(
+    public com.github.jtendermint.jabci.types.ValidatorUpdate.Builder addValidatorsBuilder(
         int index) {
       return getValidatorsFieldBuilder().addBuilder(
-          index, Validator.getDefaultInstance());
+          index, com.github.jtendermint.jabci.types.ValidatorUpdate.getDefaultInstance());
     }
     /**
-     * <code>repeated .com.github.jtendermint.jabci.types.Validator validators = 4;</code>
+     * <code>repeated .com.github.jtendermint.jabci.types.ValidatorUpdate validators = 4;</code>
      */
-    public java.util.List<Validator.Builder>
+    public java.util.List<com.github.jtendermint.jabci.types.ValidatorUpdate.Builder> 
          getValidatorsBuilderList() {
       return getValidatorsFieldBuilder().getBuilderList();
     }
     private com.google.protobuf.RepeatedFieldBuilderV3<
-        Validator, Validator.Builder, ValidatorOrBuilder>
+        com.github.jtendermint.jabci.types.ValidatorUpdate, com.github.jtendermint.jabci.types.ValidatorUpdate.Builder, com.github.jtendermint.jabci.types.ValidatorUpdateOrBuilder> 
         getValidatorsFieldBuilder() {
       if (validatorsBuilder_ == null) {
         validatorsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-            Validator, Validator.Builder, ValidatorOrBuilder>(
+            com.github.jtendermint.jabci.types.ValidatorUpdate, com.github.jtendermint.jabci.types.ValidatorUpdate.Builder, com.github.jtendermint.jabci.types.ValidatorUpdateOrBuilder>(
                 validators_,
                 ((bitField0_ & 0x00000008) == 0x00000008),
                 getParentForChildren(),
@@ -1066,40 +1231,42 @@ public  final class RequestInitChain extends
 
     private com.google.protobuf.ByteString appStateBytes_ = com.google.protobuf.ByteString.EMPTY;
     /**
-     * <code>optional bytes app_state_bytes = 5;</code>
+     * <code>bytes app_state_bytes = 5;</code>
      */
     public com.google.protobuf.ByteString getAppStateBytes() {
       return appStateBytes_;
     }
     /**
-     * <code>optional bytes app_state_bytes = 5;</code>
+     * <code>bytes app_state_bytes = 5;</code>
      */
     public Builder setAppStateBytes(com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
-
+  
       appStateBytes_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>optional bytes app_state_bytes = 5;</code>
+     * <code>bytes app_state_bytes = 5;</code>
      */
     public Builder clearAppStateBytes() {
-
+      
       appStateBytes_ = getDefaultInstance().getAppStateBytes();
       onChanged();
       return this;
     }
+    @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
-      return this;
+      return super.setUnknownFieldsProto3(unknownFields);
     }
 
+    @java.lang.Override
     public final Builder mergeUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
-      return this;
+      return super.mergeUnknownFields(unknownFields);
     }
 
 
@@ -1107,22 +1274,23 @@ public  final class RequestInitChain extends
   }
 
   // @@protoc_insertion_point(class_scope:com.github.jtendermint.jabci.types.RequestInitChain)
-  private static final RequestInitChain DEFAULT_INSTANCE;
+  private static final com.github.jtendermint.jabci.types.RequestInitChain DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new RequestInitChain();
+    DEFAULT_INSTANCE = new com.github.jtendermint.jabci.types.RequestInitChain();
   }
 
-  public static RequestInitChain getDefaultInstance() {
+  public static com.github.jtendermint.jabci.types.RequestInitChain getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
   private static final com.google.protobuf.Parser<RequestInitChain>
       PARSER = new com.google.protobuf.AbstractParser<RequestInitChain>() {
+    @java.lang.Override
     public RequestInitChain parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-        return new RequestInitChain(input, extensionRegistry);
+      return new RequestInitChain(input, extensionRegistry);
     }
   };
 
@@ -1130,12 +1298,13 @@ public  final class RequestInitChain extends
     return PARSER;
   }
 
-  @Override
+  @java.lang.Override
   public com.google.protobuf.Parser<RequestInitChain> getParserForType() {
     return PARSER;
   }
 
-  public RequestInitChain getDefaultInstanceForType() {
+  @java.lang.Override
+  public com.github.jtendermint.jabci.types.RequestInitChain getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

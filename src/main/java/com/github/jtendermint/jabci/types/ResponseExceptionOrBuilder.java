@@ -8,11 +8,11 @@ public interface ResponseExceptionOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>optional string error = 1;</code>
+   * <code>string error = 1;</code>
    */
-  String getError();
+  java.lang.String getError();
   /**
-   * <code>optional string error = 1;</code>
+   * <code>string error = 1;</code>
    */
   com.google.protobuf.ByteString
       getErrorBytes();

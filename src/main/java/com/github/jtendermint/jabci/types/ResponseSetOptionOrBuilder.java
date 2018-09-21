@@ -8,7 +8,7 @@ public interface ResponseSetOptionOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>optional uint32 code = 1;</code>
+   * <code>uint32 code = 1;</code>
    */
   int getCode();
 
@@ -17,25 +17,25 @@ public interface ResponseSetOptionOrBuilder extends
    * bytes data = 2;
    * </pre>
    *
-   * <code>optional string log = 3;</code>
+   * <code>string log = 3;</code>
    */
-  String getLog();
+  java.lang.String getLog();
   /**
    * <pre>
    * bytes data = 2;
    * </pre>
    *
-   * <code>optional string log = 3;</code>
+   * <code>string log = 3;</code>
    */
   com.google.protobuf.ByteString
       getLogBytes();
 
   /**
-   * <code>optional string info = 4;</code>
+   * <code>string info = 4;</code>
    */
-  String getInfo();
+  java.lang.String getInfo();
   /**
-   * <code>optional string info = 4;</code>
+   * <code>string info = 4;</code>
    */
   com.google.protobuf.ByteString
       getInfoBytes();

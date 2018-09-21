@@ -15,6 +15,7 @@ public  final class BlockGossip extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:com.github.jtendermint.jabci.types.BlockGossip)
     BlockGossipOrBuilder {
+private static final long serialVersionUID = 0L;
   // Use BlockGossip.newBuilder() to construct.
   private BlockGossip(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
@@ -23,17 +24,22 @@ public  final class BlockGossip extends
     blockPartSizeBytes_ = 0;
   }
 
-  @Override
+  @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
-    return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+    return this.unknownFields;
   }
   private BlockGossip(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     this();
+    if (extensionRegistry == null) {
+      throw new java.lang.NullPointerException();
+    }
     int mutable_bitField0_ = 0;
+    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+        com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
       boolean done = false;
       while (!done) {
@@ -42,15 +48,16 @@ public  final class BlockGossip extends
           case 0:
             done = true;
             break;
-          default: {
-            if (!input.skipField(tag)) {
-              done = true;
-            }
-            break;
-          }
           case 8: {
 
             blockPartSizeBytes_ = input.readInt32();
+            break;
+          }
+          default: {
+            if (!parseUnknownFieldProto3(
+                input, unknownFields, extensionRegistry, tag)) {
+              done = true;
+            }
             break;
           }
         }
@@ -61,19 +68,21 @@ public  final class BlockGossip extends
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
+      this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
     }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return Types.internal_static_com_github_jtendermint_jabci_types_BlockGossip_descriptor;
+    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_BlockGossip_descriptor;
   }
 
-  protected FieldAccessorTable
+  @java.lang.Override
+  protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return Types.internal_static_com_github_jtendermint_jabci_types_BlockGossip_fieldAccessorTable
+    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_BlockGossip_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            BlockGossip.class, BlockGossip.Builder.class);
+            com.github.jtendermint.jabci.types.BlockGossip.class, com.github.jtendermint.jabci.types.BlockGossip.Builder.class);
   }
 
   public static final int BLOCK_PART_SIZE_BYTES_FIELD_NUMBER = 1;
@@ -83,13 +92,14 @@ public  final class BlockGossip extends
    * Note: must not be 0
    * </pre>
    *
-   * <code>optional int32 block_part_size_bytes = 1;</code>
+   * <code>int32 block_part_size_bytes = 1;</code>
    */
   public int getBlockPartSizeBytes() {
     return blockPartSizeBytes_;
   }
 
   private byte memoizedIsInitialized = -1;
+  @java.lang.Override
   public final boolean isInitialized() {
     byte isInitialized = memoizedIsInitialized;
     if (isInitialized == 1) return true;
@@ -99,13 +109,16 @@ public  final class BlockGossip extends
     return true;
   }
 
+  @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
     if (blockPartSizeBytes_ != 0) {
       output.writeInt32(1, blockPartSizeBytes_);
     }
+    unknownFields.writeTo(output);
   }
 
+  @java.lang.Override
   public int getSerializedSize() {
     int size = memoizedSize;
     if (size != -1) return size;
@@ -115,34 +128,35 @@ public  final class BlockGossip extends
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(1, blockPartSizeBytes_);
     }
+    size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
   }
 
-  private static final long serialVersionUID = 0L;
-  @Override
-  public boolean equals(final Object obj) {
+  @java.lang.Override
+  public boolean equals(final java.lang.Object obj) {
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof BlockGossip)) {
+    if (!(obj instanceof com.github.jtendermint.jabci.types.BlockGossip)) {
       return super.equals(obj);
     }
-    BlockGossip other = (BlockGossip) obj;
+    com.github.jtendermint.jabci.types.BlockGossip other = (com.github.jtendermint.jabci.types.BlockGossip) obj;
 
     boolean result = true;
     result = result && (getBlockPartSizeBytes()
         == other.getBlockPartSizeBytes());
+    result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
 
-  @Override
+  @java.lang.Override
   public int hashCode() {
     if (memoizedHashCode != 0) {
       return memoizedHashCode;
     }
     int hash = 41;
-    hash = (19 * hash) + getDescriptorForType().hashCode();
+    hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + BLOCK_PART_SIZE_BYTES_FIELD_NUMBER;
     hash = (53 * hash) + getBlockPartSizeBytes();
     hash = (29 * hash) + unknownFields.hashCode();
@@ -150,58 +164,69 @@ public  final class BlockGossip extends
     return hash;
   }
 
-  public static BlockGossip parseFrom(
+  public static com.github.jtendermint.jabci.types.BlockGossip parseFrom(
+      java.nio.ByteBuffer data)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    return PARSER.parseFrom(data);
+  }
+  public static com.github.jtendermint.jabci.types.BlockGossip parseFrom(
+      java.nio.ByteBuffer data,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    return PARSER.parseFrom(data, extensionRegistry);
+  }
+  public static com.github.jtendermint.jabci.types.BlockGossip parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static BlockGossip parseFrom(
+  public static com.github.jtendermint.jabci.types.BlockGossip parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static BlockGossip parseFrom(byte[] data)
+  public static com.github.jtendermint.jabci.types.BlockGossip parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static BlockGossip parseFrom(
+  public static com.github.jtendermint.jabci.types.BlockGossip parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static BlockGossip parseFrom(java.io.InputStream input)
+  public static com.github.jtendermint.jabci.types.BlockGossip parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static BlockGossip parseFrom(
+  public static com.github.jtendermint.jabci.types.BlockGossip parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static BlockGossip parseDelimitedFrom(java.io.InputStream input)
+  public static com.github.jtendermint.jabci.types.BlockGossip parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static BlockGossip parseDelimitedFrom(
+  public static com.github.jtendermint.jabci.types.BlockGossip parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static BlockGossip parseFrom(
+  public static com.github.jtendermint.jabci.types.BlockGossip parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static BlockGossip parseFrom(
+  public static com.github.jtendermint.jabci.types.BlockGossip parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -209,21 +234,23 @@ public  final class BlockGossip extends
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
 
+  @java.lang.Override
   public Builder newBuilderForType() { return newBuilder(); }
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(BlockGossip prototype) {
+  public static Builder newBuilder(com.github.jtendermint.jabci.types.BlockGossip prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
+  @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
         ? new Builder() : new Builder().mergeFrom(this);
   }
 
-  @Override
+  @java.lang.Override
   protected Builder newBuilderForType(
-      BuilderParent parent) {
+      com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
     Builder builder = new Builder(parent);
     return builder;
   }
@@ -238,17 +265,18 @@ public  final class BlockGossip extends
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
       // @@protoc_insertion_point(builder_implements:com.github.jtendermint.jabci.types.BlockGossip)
-      BlockGossipOrBuilder {
+      com.github.jtendermint.jabci.types.BlockGossipOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return Types.internal_static_com_github_jtendermint_jabci_types_BlockGossip_descriptor;
+      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_BlockGossip_descriptor;
     }
 
-    protected FieldAccessorTable
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return Types.internal_static_com_github_jtendermint_jabci_types_BlockGossip_fieldAccessorTable
+      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_BlockGossip_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              BlockGossip.class, BlockGossip.Builder.class);
+              com.github.jtendermint.jabci.types.BlockGossip.class, com.github.jtendermint.jabci.types.BlockGossip.Builder.class);
     }
 
     // Construct using com.github.jtendermint.jabci.types.BlockGossip.newBuilder()
@@ -257,7 +285,7 @@ public  final class BlockGossip extends
     }
 
     private Builder(
-        BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
       maybeForceBuilderInitialization();
     }
@@ -266,6 +294,7 @@ public  final class BlockGossip extends
               .alwaysUseFieldBuilders) {
       }
     }
+    @java.lang.Override
     public Builder clear() {
       super.clear();
       blockPartSizeBytes_ = 0;
@@ -273,87 +302,101 @@ public  final class BlockGossip extends
       return this;
     }
 
+    @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return Types.internal_static_com_github_jtendermint_jabci_types_BlockGossip_descriptor;
+      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_BlockGossip_descriptor;
     }
 
-    public BlockGossip getDefaultInstanceForType() {
-      return BlockGossip.getDefaultInstance();
+    @java.lang.Override
+    public com.github.jtendermint.jabci.types.BlockGossip getDefaultInstanceForType() {
+      return com.github.jtendermint.jabci.types.BlockGossip.getDefaultInstance();
     }
 
-    public BlockGossip build() {
-      BlockGossip result = buildPartial();
+    @java.lang.Override
+    public com.github.jtendermint.jabci.types.BlockGossip build() {
+      com.github.jtendermint.jabci.types.BlockGossip result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
       return result;
     }
 
-    public BlockGossip buildPartial() {
-      BlockGossip result = new BlockGossip(this);
+    @java.lang.Override
+    public com.github.jtendermint.jabci.types.BlockGossip buildPartial() {
+      com.github.jtendermint.jabci.types.BlockGossip result = new com.github.jtendermint.jabci.types.BlockGossip(this);
       result.blockPartSizeBytes_ = blockPartSizeBytes_;
       onBuilt();
       return result;
     }
 
+    @java.lang.Override
     public Builder clone() {
       return (Builder) super.clone();
     }
+    @java.lang.Override
     public Builder setField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        Object value) {
+        java.lang.Object value) {
       return (Builder) super.setField(field, value);
     }
+    @java.lang.Override
     public Builder clearField(
         com.google.protobuf.Descriptors.FieldDescriptor field) {
       return (Builder) super.clearField(field);
     }
+    @java.lang.Override
     public Builder clearOneof(
         com.google.protobuf.Descriptors.OneofDescriptor oneof) {
       return (Builder) super.clearOneof(oneof);
     }
+    @java.lang.Override
     public Builder setRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        int index, Object value) {
+        int index, java.lang.Object value) {
       return (Builder) super.setRepeatedField(field, index, value);
     }
+    @java.lang.Override
     public Builder addRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        Object value) {
+        java.lang.Object value) {
       return (Builder) super.addRepeatedField(field, value);
     }
+    @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof BlockGossip) {
-        return mergeFrom((BlockGossip)other);
+      if (other instanceof com.github.jtendermint.jabci.types.BlockGossip) {
+        return mergeFrom((com.github.jtendermint.jabci.types.BlockGossip)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(BlockGossip other) {
-      if (other == BlockGossip.getDefaultInstance()) return this;
+    public Builder mergeFrom(com.github.jtendermint.jabci.types.BlockGossip other) {
+      if (other == com.github.jtendermint.jabci.types.BlockGossip.getDefaultInstance()) return this;
       if (other.getBlockPartSizeBytes() != 0) {
         setBlockPartSizeBytes(other.getBlockPartSizeBytes());
       }
+      this.mergeUnknownFields(other.unknownFields);
       onChanged();
       return this;
     }
 
+    @java.lang.Override
     public final boolean isInitialized() {
       return true;
     }
 
+    @java.lang.Override
     public Builder mergeFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      BlockGossip parsedMessage = null;
+      com.github.jtendermint.jabci.types.BlockGossip parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (BlockGossip) e.getUnfinishedMessage();
+        parsedMessage = (com.github.jtendermint.jabci.types.BlockGossip) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -369,7 +412,7 @@ public  final class BlockGossip extends
      * Note: must not be 0
      * </pre>
      *
-     * <code>optional int32 block_part_size_bytes = 1;</code>
+     * <code>int32 block_part_size_bytes = 1;</code>
      */
     public int getBlockPartSizeBytes() {
       return blockPartSizeBytes_;
@@ -379,10 +422,10 @@ public  final class BlockGossip extends
      * Note: must not be 0
      * </pre>
      *
-     * <code>optional int32 block_part_size_bytes = 1;</code>
+     * <code>int32 block_part_size_bytes = 1;</code>
      */
     public Builder setBlockPartSizeBytes(int value) {
-
+      
       blockPartSizeBytes_ = value;
       onChanged();
       return this;
@@ -392,22 +435,24 @@ public  final class BlockGossip extends
      * Note: must not be 0
      * </pre>
      *
-     * <code>optional int32 block_part_size_bytes = 1;</code>
+     * <code>int32 block_part_size_bytes = 1;</code>
      */
     public Builder clearBlockPartSizeBytes() {
-
+      
       blockPartSizeBytes_ = 0;
       onChanged();
       return this;
     }
+    @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
-      return this;
+      return super.setUnknownFieldsProto3(unknownFields);
     }
 
+    @java.lang.Override
     public final Builder mergeUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
-      return this;
+      return super.mergeUnknownFields(unknownFields);
     }
 
 
@@ -415,22 +460,23 @@ public  final class BlockGossip extends
   }
 
   // @@protoc_insertion_point(class_scope:com.github.jtendermint.jabci.types.BlockGossip)
-  private static final BlockGossip DEFAULT_INSTANCE;
+  private static final com.github.jtendermint.jabci.types.BlockGossip DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new BlockGossip();
+    DEFAULT_INSTANCE = new com.github.jtendermint.jabci.types.BlockGossip();
   }
 
-  public static BlockGossip getDefaultInstance() {
+  public static com.github.jtendermint.jabci.types.BlockGossip getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
   private static final com.google.protobuf.Parser<BlockGossip>
       PARSER = new com.google.protobuf.AbstractParser<BlockGossip>() {
+    @java.lang.Override
     public BlockGossip parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-        return new BlockGossip(input, extensionRegistry);
+      return new BlockGossip(input, extensionRegistry);
     }
   };
 
@@ -438,12 +484,13 @@ public  final class BlockGossip extends
     return PARSER;
   }
 
-  @Override
+  @java.lang.Override
   public com.google.protobuf.Parser<BlockGossip> getParserForType() {
     return PARSER;
   }
 
-  public BlockGossip getDefaultInstanceForType() {
+  @java.lang.Override
+  public com.github.jtendermint.jabci.types.BlockGossip getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

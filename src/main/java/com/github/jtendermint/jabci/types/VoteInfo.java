@@ -5,34 +5,40 @@ package com.github.jtendermint.jabci.types;
 
 /**
  * <pre>
- * Validator with an extra bool
+ * VoteInfo
  * </pre>
  *
- * Protobuf type {@code com.github.jtendermint.jabci.types.SigningValidator}
+ * Protobuf type {@code com.github.jtendermint.jabci.types.VoteInfo}
  */
-public  final class SigningValidator extends
+public  final class VoteInfo extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:com.github.jtendermint.jabci.types.SigningValidator)
-    SigningValidatorOrBuilder {
-  // Use SigningValidator.newBuilder() to construct.
-  private SigningValidator(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // @@protoc_insertion_point(message_implements:com.github.jtendermint.jabci.types.VoteInfo)
+    VoteInfoOrBuilder {
+private static final long serialVersionUID = 0L;
+  // Use VoteInfo.newBuilder() to construct.
+  private VoteInfo(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private SigningValidator() {
+  private VoteInfo() {
     signedLastBlock_ = false;
   }
 
-  @Override
+  @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
-    return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+    return this.unknownFields;
   }
-  private SigningValidator(
+  private VoteInfo(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     this();
+    if (extensionRegistry == null) {
+      throw new java.lang.NullPointerException();
+    }
     int mutable_bitField0_ = 0;
+    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+        com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
       boolean done = false;
       while (!done) {
@@ -41,18 +47,12 @@ public  final class SigningValidator extends
           case 0:
             done = true;
             break;
-          default: {
-            if (!input.skipField(tag)) {
-              done = true;
-            }
-            break;
-          }
           case 10: {
-            Validator.Builder subBuilder = null;
+            com.github.jtendermint.jabci.types.Validator.Builder subBuilder = null;
             if (validator_ != null) {
               subBuilder = validator_.toBuilder();
             }
-            validator_ = input.readMessage(Validator.parser(), extensionRegistry);
+            validator_ = input.readMessage(com.github.jtendermint.jabci.types.Validator.parser(), extensionRegistry);
             if (subBuilder != null) {
               subBuilder.mergeFrom(validator_);
               validator_ = subBuilder.buildPartial();
@@ -65,6 +65,13 @@ public  final class SigningValidator extends
             signedLastBlock_ = input.readBool();
             break;
           }
+          default: {
+            if (!parseUnknownFieldProto3(
+                input, unknownFields, extensionRegistry, tag)) {
+              done = true;
+            }
+            break;
+          }
         }
       }
     } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -73,52 +80,55 @@ public  final class SigningValidator extends
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
+      this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
     }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return Types.internal_static_com_github_jtendermint_jabci_types_SigningValidator_descriptor;
+    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_VoteInfo_descriptor;
   }
 
-  protected FieldAccessorTable
+  @java.lang.Override
+  protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return Types.internal_static_com_github_jtendermint_jabci_types_SigningValidator_fieldAccessorTable
+    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_VoteInfo_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            SigningValidator.class, SigningValidator.Builder.class);
+            com.github.jtendermint.jabci.types.VoteInfo.class, com.github.jtendermint.jabci.types.VoteInfo.Builder.class);
   }
 
   public static final int VALIDATOR_FIELD_NUMBER = 1;
-  private Validator validator_;
+  private com.github.jtendermint.jabci.types.Validator validator_;
   /**
-   * <code>optional .com.github.jtendermint.jabci.types.Validator validator = 1;</code>
+   * <code>.com.github.jtendermint.jabci.types.Validator validator = 1;</code>
    */
   public boolean hasValidator() {
     return validator_ != null;
   }
   /**
-   * <code>optional .com.github.jtendermint.jabci.types.Validator validator = 1;</code>
+   * <code>.com.github.jtendermint.jabci.types.Validator validator = 1;</code>
    */
-  public Validator getValidator() {
-    return validator_ == null ? Validator.getDefaultInstance() : validator_;
+  public com.github.jtendermint.jabci.types.Validator getValidator() {
+    return validator_ == null ? com.github.jtendermint.jabci.types.Validator.getDefaultInstance() : validator_;
   }
   /**
-   * <code>optional .com.github.jtendermint.jabci.types.Validator validator = 1;</code>
+   * <code>.com.github.jtendermint.jabci.types.Validator validator = 1;</code>
    */
-  public ValidatorOrBuilder getValidatorOrBuilder() {
+  public com.github.jtendermint.jabci.types.ValidatorOrBuilder getValidatorOrBuilder() {
     return getValidator();
   }
 
   public static final int SIGNED_LAST_BLOCK_FIELD_NUMBER = 2;
   private boolean signedLastBlock_;
   /**
-   * <code>optional bool signed_last_block = 2;</code>
+   * <code>bool signed_last_block = 2;</code>
    */
   public boolean getSignedLastBlock() {
     return signedLastBlock_;
   }
 
   private byte memoizedIsInitialized = -1;
+  @java.lang.Override
   public final boolean isInitialized() {
     byte isInitialized = memoizedIsInitialized;
     if (isInitialized == 1) return true;
@@ -128,6 +138,7 @@ public  final class SigningValidator extends
     return true;
   }
 
+  @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
     if (validator_ != null) {
@@ -136,8 +147,10 @@ public  final class SigningValidator extends
     if (signedLastBlock_ != false) {
       output.writeBool(2, signedLastBlock_);
     }
+    unknownFields.writeTo(output);
   }
 
+  @java.lang.Override
   public int getSerializedSize() {
     int size = memoizedSize;
     if (size != -1) return size;
@@ -151,20 +164,20 @@ public  final class SigningValidator extends
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(2, signedLastBlock_);
     }
+    size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
   }
 
-  private static final long serialVersionUID = 0L;
-  @Override
-  public boolean equals(final Object obj) {
+  @java.lang.Override
+  public boolean equals(final java.lang.Object obj) {
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof SigningValidator)) {
+    if (!(obj instanceof com.github.jtendermint.jabci.types.VoteInfo)) {
       return super.equals(obj);
     }
-    SigningValidator other = (SigningValidator) obj;
+    com.github.jtendermint.jabci.types.VoteInfo other = (com.github.jtendermint.jabci.types.VoteInfo) obj;
 
     boolean result = true;
     result = result && (hasValidator() == other.hasValidator());
@@ -174,16 +187,17 @@ public  final class SigningValidator extends
     }
     result = result && (getSignedLastBlock()
         == other.getSignedLastBlock());
+    result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
 
-  @Override
+  @java.lang.Override
   public int hashCode() {
     if (memoizedHashCode != 0) {
       return memoizedHashCode;
     }
     int hash = 41;
-    hash = (19 * hash) + getDescriptorForType().hashCode();
+    hash = (19 * hash) + getDescriptor().hashCode();
     if (hasValidator()) {
       hash = (37 * hash) + VALIDATOR_FIELD_NUMBER;
       hash = (53 * hash) + getValidator().hashCode();
@@ -196,58 +210,69 @@ public  final class SigningValidator extends
     return hash;
   }
 
-  public static SigningValidator parseFrom(
+  public static com.github.jtendermint.jabci.types.VoteInfo parseFrom(
+      java.nio.ByteBuffer data)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    return PARSER.parseFrom(data);
+  }
+  public static com.github.jtendermint.jabci.types.VoteInfo parseFrom(
+      java.nio.ByteBuffer data,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    return PARSER.parseFrom(data, extensionRegistry);
+  }
+  public static com.github.jtendermint.jabci.types.VoteInfo parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static SigningValidator parseFrom(
+  public static com.github.jtendermint.jabci.types.VoteInfo parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static SigningValidator parseFrom(byte[] data)
+  public static com.github.jtendermint.jabci.types.VoteInfo parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static SigningValidator parseFrom(
+  public static com.github.jtendermint.jabci.types.VoteInfo parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static SigningValidator parseFrom(java.io.InputStream input)
+  public static com.github.jtendermint.jabci.types.VoteInfo parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static SigningValidator parseFrom(
+  public static com.github.jtendermint.jabci.types.VoteInfo parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static SigningValidator parseDelimitedFrom(java.io.InputStream input)
+  public static com.github.jtendermint.jabci.types.VoteInfo parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static SigningValidator parseDelimitedFrom(
+  public static com.github.jtendermint.jabci.types.VoteInfo parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static SigningValidator parseFrom(
+  public static com.github.jtendermint.jabci.types.VoteInfo parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static SigningValidator parseFrom(
+  public static com.github.jtendermint.jabci.types.VoteInfo parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -255,54 +280,57 @@ public  final class SigningValidator extends
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
 
+  @java.lang.Override
   public Builder newBuilderForType() { return newBuilder(); }
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(SigningValidator prototype) {
+  public static Builder newBuilder(com.github.jtendermint.jabci.types.VoteInfo prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
+  @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
         ? new Builder() : new Builder().mergeFrom(this);
   }
 
-  @Override
+  @java.lang.Override
   protected Builder newBuilderForType(
-      BuilderParent parent) {
+      com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
     Builder builder = new Builder(parent);
     return builder;
   }
   /**
    * <pre>
-   * Validator with an extra bool
+   * VoteInfo
    * </pre>
    *
-   * Protobuf type {@code com.github.jtendermint.jabci.types.SigningValidator}
+   * Protobuf type {@code com.github.jtendermint.jabci.types.VoteInfo}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:com.github.jtendermint.jabci.types.SigningValidator)
-      SigningValidatorOrBuilder {
+      // @@protoc_insertion_point(builder_implements:com.github.jtendermint.jabci.types.VoteInfo)
+      com.github.jtendermint.jabci.types.VoteInfoOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return Types.internal_static_com_github_jtendermint_jabci_types_SigningValidator_descriptor;
+      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_VoteInfo_descriptor;
     }
 
-    protected FieldAccessorTable
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return Types.internal_static_com_github_jtendermint_jabci_types_SigningValidator_fieldAccessorTable
+      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_VoteInfo_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              SigningValidator.class, SigningValidator.Builder.class);
+              com.github.jtendermint.jabci.types.VoteInfo.class, com.github.jtendermint.jabci.types.VoteInfo.Builder.class);
     }
 
-    // Construct using com.github.jtendermint.jabci.types.SigningValidator.newBuilder()
+    // Construct using com.github.jtendermint.jabci.types.VoteInfo.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
 
     private Builder(
-        BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
       maybeForceBuilderInitialization();
     }
@@ -311,6 +339,7 @@ public  final class SigningValidator extends
               .alwaysUseFieldBuilders) {
       }
     }
+    @java.lang.Override
     public Builder clear() {
       super.clear();
       if (validatorBuilder_ == null) {
@@ -324,25 +353,29 @@ public  final class SigningValidator extends
       return this;
     }
 
+    @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return Types.internal_static_com_github_jtendermint_jabci_types_SigningValidator_descriptor;
+      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_VoteInfo_descriptor;
     }
 
-    public SigningValidator getDefaultInstanceForType() {
-      return SigningValidator.getDefaultInstance();
+    @java.lang.Override
+    public com.github.jtendermint.jabci.types.VoteInfo getDefaultInstanceForType() {
+      return com.github.jtendermint.jabci.types.VoteInfo.getDefaultInstance();
     }
 
-    public SigningValidator build() {
-      SigningValidator result = buildPartial();
+    @java.lang.Override
+    public com.github.jtendermint.jabci.types.VoteInfo build() {
+      com.github.jtendermint.jabci.types.VoteInfo result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
       return result;
     }
 
-    public SigningValidator buildPartial() {
-      SigningValidator result = new SigningValidator(this);
+    @java.lang.Override
+    public com.github.jtendermint.jabci.types.VoteInfo buildPartial() {
+      com.github.jtendermint.jabci.types.VoteInfo result = new com.github.jtendermint.jabci.types.VoteInfo(this);
       if (validatorBuilder_ == null) {
         result.validator_ = validator_;
       } else {
@@ -353,66 +386,76 @@ public  final class SigningValidator extends
       return result;
     }
 
+    @java.lang.Override
     public Builder clone() {
       return (Builder) super.clone();
     }
+    @java.lang.Override
     public Builder setField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        Object value) {
+        java.lang.Object value) {
       return (Builder) super.setField(field, value);
     }
+    @java.lang.Override
     public Builder clearField(
         com.google.protobuf.Descriptors.FieldDescriptor field) {
       return (Builder) super.clearField(field);
     }
+    @java.lang.Override
     public Builder clearOneof(
         com.google.protobuf.Descriptors.OneofDescriptor oneof) {
       return (Builder) super.clearOneof(oneof);
     }
+    @java.lang.Override
     public Builder setRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        int index, Object value) {
+        int index, java.lang.Object value) {
       return (Builder) super.setRepeatedField(field, index, value);
     }
+    @java.lang.Override
     public Builder addRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        Object value) {
+        java.lang.Object value) {
       return (Builder) super.addRepeatedField(field, value);
     }
+    @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof SigningValidator) {
-        return mergeFrom((SigningValidator)other);
+      if (other instanceof com.github.jtendermint.jabci.types.VoteInfo) {
+        return mergeFrom((com.github.jtendermint.jabci.types.VoteInfo)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(SigningValidator other) {
-      if (other == SigningValidator.getDefaultInstance()) return this;
+    public Builder mergeFrom(com.github.jtendermint.jabci.types.VoteInfo other) {
+      if (other == com.github.jtendermint.jabci.types.VoteInfo.getDefaultInstance()) return this;
       if (other.hasValidator()) {
         mergeValidator(other.getValidator());
       }
       if (other.getSignedLastBlock() != false) {
         setSignedLastBlock(other.getSignedLastBlock());
       }
+      this.mergeUnknownFields(other.unknownFields);
       onChanged();
       return this;
     }
 
+    @java.lang.Override
     public final boolean isInitialized() {
       return true;
     }
 
+    @java.lang.Override
     public Builder mergeFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      SigningValidator parsedMessage = null;
+      com.github.jtendermint.jabci.types.VoteInfo parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (SigningValidator) e.getUnfinishedMessage();
+        parsedMessage = (com.github.jtendermint.jabci.types.VoteInfo) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -422,29 +465,29 @@ public  final class SigningValidator extends
       return this;
     }
 
-    private Validator validator_ = null;
+    private com.github.jtendermint.jabci.types.Validator validator_ = null;
     private com.google.protobuf.SingleFieldBuilderV3<
-        Validator, Validator.Builder, ValidatorOrBuilder> validatorBuilder_;
+        com.github.jtendermint.jabci.types.Validator, com.github.jtendermint.jabci.types.Validator.Builder, com.github.jtendermint.jabci.types.ValidatorOrBuilder> validatorBuilder_;
     /**
-     * <code>optional .com.github.jtendermint.jabci.types.Validator validator = 1;</code>
+     * <code>.com.github.jtendermint.jabci.types.Validator validator = 1;</code>
      */
     public boolean hasValidator() {
       return validatorBuilder_ != null || validator_ != null;
     }
     /**
-     * <code>optional .com.github.jtendermint.jabci.types.Validator validator = 1;</code>
+     * <code>.com.github.jtendermint.jabci.types.Validator validator = 1;</code>
      */
-    public Validator getValidator() {
+    public com.github.jtendermint.jabci.types.Validator getValidator() {
       if (validatorBuilder_ == null) {
-        return validator_ == null ? Validator.getDefaultInstance() : validator_;
+        return validator_ == null ? com.github.jtendermint.jabci.types.Validator.getDefaultInstance() : validator_;
       } else {
         return validatorBuilder_.getMessage();
       }
     }
     /**
-     * <code>optional .com.github.jtendermint.jabci.types.Validator validator = 1;</code>
+     * <code>.com.github.jtendermint.jabci.types.Validator validator = 1;</code>
      */
-    public Builder setValidator(Validator value) {
+    public Builder setValidator(com.github.jtendermint.jabci.types.Validator value) {
       if (validatorBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -458,10 +501,10 @@ public  final class SigningValidator extends
       return this;
     }
     /**
-     * <code>optional .com.github.jtendermint.jabci.types.Validator validator = 1;</code>
+     * <code>.com.github.jtendermint.jabci.types.Validator validator = 1;</code>
      */
     public Builder setValidator(
-        Validator.Builder builderForValue) {
+        com.github.jtendermint.jabci.types.Validator.Builder builderForValue) {
       if (validatorBuilder_ == null) {
         validator_ = builderForValue.build();
         onChanged();
@@ -472,13 +515,13 @@ public  final class SigningValidator extends
       return this;
     }
     /**
-     * <code>optional .com.github.jtendermint.jabci.types.Validator validator = 1;</code>
+     * <code>.com.github.jtendermint.jabci.types.Validator validator = 1;</code>
      */
-    public Builder mergeValidator(Validator value) {
+    public Builder mergeValidator(com.github.jtendermint.jabci.types.Validator value) {
       if (validatorBuilder_ == null) {
         if (validator_ != null) {
           validator_ =
-            Validator.newBuilder(validator_).mergeFrom(value).buildPartial();
+            com.github.jtendermint.jabci.types.Validator.newBuilder(validator_).mergeFrom(value).buildPartial();
         } else {
           validator_ = value;
         }
@@ -490,7 +533,7 @@ public  final class SigningValidator extends
       return this;
     }
     /**
-     * <code>optional .com.github.jtendermint.jabci.types.Validator validator = 1;</code>
+     * <code>.com.github.jtendermint.jabci.types.Validator validator = 1;</code>
      */
     public Builder clearValidator() {
       if (validatorBuilder_ == null) {
@@ -504,33 +547,33 @@ public  final class SigningValidator extends
       return this;
     }
     /**
-     * <code>optional .com.github.jtendermint.jabci.types.Validator validator = 1;</code>
+     * <code>.com.github.jtendermint.jabci.types.Validator validator = 1;</code>
      */
-    public Validator.Builder getValidatorBuilder() {
-
+    public com.github.jtendermint.jabci.types.Validator.Builder getValidatorBuilder() {
+      
       onChanged();
       return getValidatorFieldBuilder().getBuilder();
     }
     /**
-     * <code>optional .com.github.jtendermint.jabci.types.Validator validator = 1;</code>
+     * <code>.com.github.jtendermint.jabci.types.Validator validator = 1;</code>
      */
-    public ValidatorOrBuilder getValidatorOrBuilder() {
+    public com.github.jtendermint.jabci.types.ValidatorOrBuilder getValidatorOrBuilder() {
       if (validatorBuilder_ != null) {
         return validatorBuilder_.getMessageOrBuilder();
       } else {
         return validator_ == null ?
-            Validator.getDefaultInstance() : validator_;
+            com.github.jtendermint.jabci.types.Validator.getDefaultInstance() : validator_;
       }
     }
     /**
-     * <code>optional .com.github.jtendermint.jabci.types.Validator validator = 1;</code>
+     * <code>.com.github.jtendermint.jabci.types.Validator validator = 1;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        Validator, Validator.Builder, ValidatorOrBuilder>
+        com.github.jtendermint.jabci.types.Validator, com.github.jtendermint.jabci.types.Validator.Builder, com.github.jtendermint.jabci.types.ValidatorOrBuilder> 
         getValidatorFieldBuilder() {
       if (validatorBuilder_ == null) {
         validatorBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            Validator, Validator.Builder, ValidatorOrBuilder>(
+            com.github.jtendermint.jabci.types.Validator, com.github.jtendermint.jabci.types.Validator.Builder, com.github.jtendermint.jabci.types.ValidatorOrBuilder>(
                 getValidator(),
                 getParentForChildren(),
                 isClean());
@@ -541,73 +584,77 @@ public  final class SigningValidator extends
 
     private boolean signedLastBlock_ ;
     /**
-     * <code>optional bool signed_last_block = 2;</code>
+     * <code>bool signed_last_block = 2;</code>
      */
     public boolean getSignedLastBlock() {
       return signedLastBlock_;
     }
     /**
-     * <code>optional bool signed_last_block = 2;</code>
+     * <code>bool signed_last_block = 2;</code>
      */
     public Builder setSignedLastBlock(boolean value) {
-
+      
       signedLastBlock_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>optional bool signed_last_block = 2;</code>
+     * <code>bool signed_last_block = 2;</code>
      */
     public Builder clearSignedLastBlock() {
-
+      
       signedLastBlock_ = false;
       onChanged();
       return this;
     }
+    @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
-      return this;
+      return super.setUnknownFieldsProto3(unknownFields);
     }
 
+    @java.lang.Override
     public final Builder mergeUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
-      return this;
+      return super.mergeUnknownFields(unknownFields);
     }
 
 
-    // @@protoc_insertion_point(builder_scope:com.github.jtendermint.jabci.types.SigningValidator)
+    // @@protoc_insertion_point(builder_scope:com.github.jtendermint.jabci.types.VoteInfo)
   }
 
-  // @@protoc_insertion_point(class_scope:com.github.jtendermint.jabci.types.SigningValidator)
-  private static final SigningValidator DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:com.github.jtendermint.jabci.types.VoteInfo)
+  private static final com.github.jtendermint.jabci.types.VoteInfo DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new SigningValidator();
+    DEFAULT_INSTANCE = new com.github.jtendermint.jabci.types.VoteInfo();
   }
 
-  public static SigningValidator getDefaultInstance() {
+  public static com.github.jtendermint.jabci.types.VoteInfo getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<SigningValidator>
-      PARSER = new com.google.protobuf.AbstractParser<SigningValidator>() {
-    public SigningValidator parsePartialFrom(
+  private static final com.google.protobuf.Parser<VoteInfo>
+      PARSER = new com.google.protobuf.AbstractParser<VoteInfo>() {
+    @java.lang.Override
+    public VoteInfo parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-        return new SigningValidator(input, extensionRegistry);
+      return new VoteInfo(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<SigningValidator> parser() {
+  public static com.google.protobuf.Parser<VoteInfo> parser() {
     return PARSER;
   }
 
-  @Override
-  public com.google.protobuf.Parser<SigningValidator> getParserForType() {
+  @java.lang.Override
+  public com.google.protobuf.Parser<VoteInfo> getParserForType() {
     return PARSER;
   }
 
-  public SigningValidator getDefaultInstanceForType() {
+  @java.lang.Override
+  public com.github.jtendermint.jabci.types.VoteInfo getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

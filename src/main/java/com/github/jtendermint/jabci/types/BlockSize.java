@@ -5,7 +5,7 @@ package com.github.jtendermint.jabci.types;
 
 /**
  * <pre>
- * BlockSize contain limits on the block size.
+ * BlockSize contains limits on the block size.
  * </pre>
  *
  * Protobuf type {@code com.github.jtendermint.jabci.types.BlockSize}
@@ -14,27 +14,32 @@ public  final class BlockSize extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:com.github.jtendermint.jabci.types.BlockSize)
     BlockSizeOrBuilder {
+private static final long serialVersionUID = 0L;
   // Use BlockSize.newBuilder() to construct.
   private BlockSize(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
   private BlockSize() {
     maxBytes_ = 0;
-    maxTxs_ = 0;
     maxGas_ = 0L;
   }
 
-  @Override
+  @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
-    return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+    return this.unknownFields;
   }
   private BlockSize(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     this();
+    if (extensionRegistry == null) {
+      throw new java.lang.NullPointerException();
+    }
     int mutable_bitField0_ = 0;
+    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+        com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
       boolean done = false;
       while (!done) {
@@ -43,12 +48,6 @@ public  final class BlockSize extends
           case 0:
             done = true;
             break;
-          default: {
-            if (!input.skipField(tag)) {
-              done = true;
-            }
-            break;
-          }
           case 8: {
 
             maxBytes_ = input.readInt32();
@@ -56,12 +55,14 @@ public  final class BlockSize extends
           }
           case 16: {
 
-            maxTxs_ = input.readInt32();
+            maxGas_ = input.readInt64();
             break;
           }
-          case 24: {
-
-            maxGas_ = input.readInt64();
+          default: {
+            if (!parseUnknownFieldProto3(
+                input, unknownFields, extensionRegistry, tag)) {
+              done = true;
+            }
             break;
           }
         }
@@ -72,49 +73,43 @@ public  final class BlockSize extends
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
+      this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
     }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return Types.internal_static_com_github_jtendermint_jabci_types_BlockSize_descriptor;
+    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_BlockSize_descriptor;
   }
 
-  protected FieldAccessorTable
+  @java.lang.Override
+  protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return Types.internal_static_com_github_jtendermint_jabci_types_BlockSize_fieldAccessorTable
+    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_BlockSize_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            BlockSize.class, BlockSize.Builder.class);
+            com.github.jtendermint.jabci.types.BlockSize.class, com.github.jtendermint.jabci.types.BlockSize.Builder.class);
   }
 
   public static final int MAX_BYTES_FIELD_NUMBER = 1;
   private int maxBytes_;
   /**
-   * <code>optional int32 max_bytes = 1;</code>
+   * <code>int32 max_bytes = 1;</code>
    */
   public int getMaxBytes() {
     return maxBytes_;
   }
 
-  public static final int MAX_TXS_FIELD_NUMBER = 2;
-  private int maxTxs_;
-  /**
-   * <code>optional int32 max_txs = 2;</code>
-   */
-  public int getMaxTxs() {
-    return maxTxs_;
-  }
-
-  public static final int MAX_GAS_FIELD_NUMBER = 3;
+  public static final int MAX_GAS_FIELD_NUMBER = 2;
   private long maxGas_;
   /**
-   * <code>optional int64 max_gas = 3;</code>
+   * <code>int64 max_gas = 2;</code>
    */
   public long getMaxGas() {
     return maxGas_;
   }
 
   private byte memoizedIsInitialized = -1;
+  @java.lang.Override
   public final boolean isInitialized() {
     byte isInitialized = memoizedIsInitialized;
     if (isInitialized == 1) return true;
@@ -124,19 +119,19 @@ public  final class BlockSize extends
     return true;
   }
 
+  @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
     if (maxBytes_ != 0) {
       output.writeInt32(1, maxBytes_);
     }
-    if (maxTxs_ != 0) {
-      output.writeInt32(2, maxTxs_);
-    }
     if (maxGas_ != 0L) {
-      output.writeInt64(3, maxGas_);
+      output.writeInt64(2, maxGas_);
     }
+    unknownFields.writeTo(output);
   }
 
+  @java.lang.Override
   public int getSerializedSize() {
     int size = memoizedSize;
     if (size != -1) return size;
@@ -146,50 +141,43 @@ public  final class BlockSize extends
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(1, maxBytes_);
     }
-    if (maxTxs_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(2, maxTxs_);
-    }
     if (maxGas_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(3, maxGas_);
+        .computeInt64Size(2, maxGas_);
     }
+    size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
   }
 
-  private static final long serialVersionUID = 0L;
-  @Override
-  public boolean equals(final Object obj) {
+  @java.lang.Override
+  public boolean equals(final java.lang.Object obj) {
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof BlockSize)) {
+    if (!(obj instanceof com.github.jtendermint.jabci.types.BlockSize)) {
       return super.equals(obj);
     }
-    BlockSize other = (BlockSize) obj;
+    com.github.jtendermint.jabci.types.BlockSize other = (com.github.jtendermint.jabci.types.BlockSize) obj;
 
     boolean result = true;
     result = result && (getMaxBytes()
         == other.getMaxBytes());
-    result = result && (getMaxTxs()
-        == other.getMaxTxs());
     result = result && (getMaxGas()
         == other.getMaxGas());
+    result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
 
-  @Override
+  @java.lang.Override
   public int hashCode() {
     if (memoizedHashCode != 0) {
       return memoizedHashCode;
     }
     int hash = 41;
-    hash = (19 * hash) + getDescriptorForType().hashCode();
+    hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + MAX_BYTES_FIELD_NUMBER;
     hash = (53 * hash) + getMaxBytes();
-    hash = (37 * hash) + MAX_TXS_FIELD_NUMBER;
-    hash = (53 * hash) + getMaxTxs();
     hash = (37 * hash) + MAX_GAS_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getMaxGas());
@@ -198,58 +186,69 @@ public  final class BlockSize extends
     return hash;
   }
 
-  public static BlockSize parseFrom(
+  public static com.github.jtendermint.jabci.types.BlockSize parseFrom(
+      java.nio.ByteBuffer data)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    return PARSER.parseFrom(data);
+  }
+  public static com.github.jtendermint.jabci.types.BlockSize parseFrom(
+      java.nio.ByteBuffer data,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    return PARSER.parseFrom(data, extensionRegistry);
+  }
+  public static com.github.jtendermint.jabci.types.BlockSize parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static BlockSize parseFrom(
+  public static com.github.jtendermint.jabci.types.BlockSize parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static BlockSize parseFrom(byte[] data)
+  public static com.github.jtendermint.jabci.types.BlockSize parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static BlockSize parseFrom(
+  public static com.github.jtendermint.jabci.types.BlockSize parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static BlockSize parseFrom(java.io.InputStream input)
+  public static com.github.jtendermint.jabci.types.BlockSize parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static BlockSize parseFrom(
+  public static com.github.jtendermint.jabci.types.BlockSize parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static BlockSize parseDelimitedFrom(java.io.InputStream input)
+  public static com.github.jtendermint.jabci.types.BlockSize parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static BlockSize parseDelimitedFrom(
+  public static com.github.jtendermint.jabci.types.BlockSize parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static BlockSize parseFrom(
+  public static com.github.jtendermint.jabci.types.BlockSize parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static BlockSize parseFrom(
+  public static com.github.jtendermint.jabci.types.BlockSize parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -257,27 +256,29 @@ public  final class BlockSize extends
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
 
+  @java.lang.Override
   public Builder newBuilderForType() { return newBuilder(); }
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(BlockSize prototype) {
+  public static Builder newBuilder(com.github.jtendermint.jabci.types.BlockSize prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
+  @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
         ? new Builder() : new Builder().mergeFrom(this);
   }
 
-  @Override
+  @java.lang.Override
   protected Builder newBuilderForType(
-      BuilderParent parent) {
+      com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
     Builder builder = new Builder(parent);
     return builder;
   }
   /**
    * <pre>
-   * BlockSize contain limits on the block size.
+   * BlockSize contains limits on the block size.
    * </pre>
    *
    * Protobuf type {@code com.github.jtendermint.jabci.types.BlockSize}
@@ -285,17 +286,18 @@ public  final class BlockSize extends
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
       // @@protoc_insertion_point(builder_implements:com.github.jtendermint.jabci.types.BlockSize)
-      BlockSizeOrBuilder {
+      com.github.jtendermint.jabci.types.BlockSizeOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return Types.internal_static_com_github_jtendermint_jabci_types_BlockSize_descriptor;
+      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_BlockSize_descriptor;
     }
 
-    protected FieldAccessorTable
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return Types.internal_static_com_github_jtendermint_jabci_types_BlockSize_fieldAccessorTable
+      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_BlockSize_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              BlockSize.class, BlockSize.Builder.class);
+              com.github.jtendermint.jabci.types.BlockSize.class, com.github.jtendermint.jabci.types.BlockSize.Builder.class);
     }
 
     // Construct using com.github.jtendermint.jabci.types.BlockSize.newBuilder()
@@ -304,7 +306,7 @@ public  final class BlockSize extends
     }
 
     private Builder(
-        BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
       maybeForceBuilderInitialization();
     }
@@ -313,106 +315,115 @@ public  final class BlockSize extends
               .alwaysUseFieldBuilders) {
       }
     }
+    @java.lang.Override
     public Builder clear() {
       super.clear();
       maxBytes_ = 0;
-
-      maxTxs_ = 0;
 
       maxGas_ = 0L;
 
       return this;
     }
 
+    @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return Types.internal_static_com_github_jtendermint_jabci_types_BlockSize_descriptor;
+      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_BlockSize_descriptor;
     }
 
-    public BlockSize getDefaultInstanceForType() {
-      return BlockSize.getDefaultInstance();
+    @java.lang.Override
+    public com.github.jtendermint.jabci.types.BlockSize getDefaultInstanceForType() {
+      return com.github.jtendermint.jabci.types.BlockSize.getDefaultInstance();
     }
 
-    public BlockSize build() {
-      BlockSize result = buildPartial();
+    @java.lang.Override
+    public com.github.jtendermint.jabci.types.BlockSize build() {
+      com.github.jtendermint.jabci.types.BlockSize result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
       return result;
     }
 
-    public BlockSize buildPartial() {
-      BlockSize result = new BlockSize(this);
+    @java.lang.Override
+    public com.github.jtendermint.jabci.types.BlockSize buildPartial() {
+      com.github.jtendermint.jabci.types.BlockSize result = new com.github.jtendermint.jabci.types.BlockSize(this);
       result.maxBytes_ = maxBytes_;
-      result.maxTxs_ = maxTxs_;
       result.maxGas_ = maxGas_;
       onBuilt();
       return result;
     }
 
+    @java.lang.Override
     public Builder clone() {
       return (Builder) super.clone();
     }
+    @java.lang.Override
     public Builder setField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        Object value) {
+        java.lang.Object value) {
       return (Builder) super.setField(field, value);
     }
+    @java.lang.Override
     public Builder clearField(
         com.google.protobuf.Descriptors.FieldDescriptor field) {
       return (Builder) super.clearField(field);
     }
+    @java.lang.Override
     public Builder clearOneof(
         com.google.protobuf.Descriptors.OneofDescriptor oneof) {
       return (Builder) super.clearOneof(oneof);
     }
+    @java.lang.Override
     public Builder setRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        int index, Object value) {
+        int index, java.lang.Object value) {
       return (Builder) super.setRepeatedField(field, index, value);
     }
+    @java.lang.Override
     public Builder addRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        Object value) {
+        java.lang.Object value) {
       return (Builder) super.addRepeatedField(field, value);
     }
+    @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof BlockSize) {
-        return mergeFrom((BlockSize)other);
+      if (other instanceof com.github.jtendermint.jabci.types.BlockSize) {
+        return mergeFrom((com.github.jtendermint.jabci.types.BlockSize)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(BlockSize other) {
-      if (other == BlockSize.getDefaultInstance()) return this;
+    public Builder mergeFrom(com.github.jtendermint.jabci.types.BlockSize other) {
+      if (other == com.github.jtendermint.jabci.types.BlockSize.getDefaultInstance()) return this;
       if (other.getMaxBytes() != 0) {
         setMaxBytes(other.getMaxBytes());
-      }
-      if (other.getMaxTxs() != 0) {
-        setMaxTxs(other.getMaxTxs());
       }
       if (other.getMaxGas() != 0L) {
         setMaxGas(other.getMaxGas());
       }
+      this.mergeUnknownFields(other.unknownFields);
       onChanged();
       return this;
     }
 
+    @java.lang.Override
     public final boolean isInitialized() {
       return true;
     }
 
+    @java.lang.Override
     public Builder mergeFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      BlockSize parsedMessage = null;
+      com.github.jtendermint.jabci.types.BlockSize parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (BlockSize) e.getUnfinishedMessage();
+        parsedMessage = (com.github.jtendermint.jabci.types.BlockSize) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -424,89 +435,65 @@ public  final class BlockSize extends
 
     private int maxBytes_ ;
     /**
-     * <code>optional int32 max_bytes = 1;</code>
+     * <code>int32 max_bytes = 1;</code>
      */
     public int getMaxBytes() {
       return maxBytes_;
     }
     /**
-     * <code>optional int32 max_bytes = 1;</code>
+     * <code>int32 max_bytes = 1;</code>
      */
     public Builder setMaxBytes(int value) {
-
+      
       maxBytes_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>optional int32 max_bytes = 1;</code>
+     * <code>int32 max_bytes = 1;</code>
      */
     public Builder clearMaxBytes() {
-
+      
       maxBytes_ = 0;
-      onChanged();
-      return this;
-    }
-
-    private int maxTxs_ ;
-    /**
-     * <code>optional int32 max_txs = 2;</code>
-     */
-    public int getMaxTxs() {
-      return maxTxs_;
-    }
-    /**
-     * <code>optional int32 max_txs = 2;</code>
-     */
-    public Builder setMaxTxs(int value) {
-
-      maxTxs_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>optional int32 max_txs = 2;</code>
-     */
-    public Builder clearMaxTxs() {
-
-      maxTxs_ = 0;
       onChanged();
       return this;
     }
 
     private long maxGas_ ;
     /**
-     * <code>optional int64 max_gas = 3;</code>
+     * <code>int64 max_gas = 2;</code>
      */
     public long getMaxGas() {
       return maxGas_;
     }
     /**
-     * <code>optional int64 max_gas = 3;</code>
+     * <code>int64 max_gas = 2;</code>
      */
     public Builder setMaxGas(long value) {
-
+      
       maxGas_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>optional int64 max_gas = 3;</code>
+     * <code>int64 max_gas = 2;</code>
      */
     public Builder clearMaxGas() {
-
+      
       maxGas_ = 0L;
       onChanged();
       return this;
     }
+    @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
-      return this;
+      return super.setUnknownFieldsProto3(unknownFields);
     }
 
+    @java.lang.Override
     public final Builder mergeUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
-      return this;
+      return super.mergeUnknownFields(unknownFields);
     }
 
 
@@ -514,22 +501,23 @@ public  final class BlockSize extends
   }
 
   // @@protoc_insertion_point(class_scope:com.github.jtendermint.jabci.types.BlockSize)
-  private static final BlockSize DEFAULT_INSTANCE;
+  private static final com.github.jtendermint.jabci.types.BlockSize DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new BlockSize();
+    DEFAULT_INSTANCE = new com.github.jtendermint.jabci.types.BlockSize();
   }
 
-  public static BlockSize getDefaultInstance() {
+  public static com.github.jtendermint.jabci.types.BlockSize getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
   private static final com.google.protobuf.Parser<BlockSize>
       PARSER = new com.google.protobuf.AbstractParser<BlockSize>() {
+    @java.lang.Override
     public BlockSize parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-        return new BlockSize(input, extensionRegistry);
+      return new BlockSize(input, extensionRegistry);
     }
   };
 
@@ -537,12 +525,13 @@ public  final class BlockSize extends
     return PARSER;
   }
 
-  @Override
+  @java.lang.Override
   public com.google.protobuf.Parser<BlockSize> getParserForType() {
     return PARSER;
   }
 
-  public BlockSize getDefaultInstanceForType() {
+  @java.lang.Override
+  public com.github.jtendermint.jabci.types.BlockSize getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

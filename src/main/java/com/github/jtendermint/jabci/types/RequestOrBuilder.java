@@ -8,103 +8,147 @@ public interface RequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>optional .com.github.jtendermint.jabci.types.RequestEcho echo = 2;</code>
+   * <code>.com.github.jtendermint.jabci.types.RequestEcho echo = 2;</code>
    */
-  RequestEcho getEcho();
+  boolean hasEcho();
   /**
-   * <code>optional .com.github.jtendermint.jabci.types.RequestEcho echo = 2;</code>
+   * <code>.com.github.jtendermint.jabci.types.RequestEcho echo = 2;</code>
    */
-  RequestEchoOrBuilder getEchoOrBuilder();
+  com.github.jtendermint.jabci.types.RequestEcho getEcho();
+  /**
+   * <code>.com.github.jtendermint.jabci.types.RequestEcho echo = 2;</code>
+   */
+  com.github.jtendermint.jabci.types.RequestEchoOrBuilder getEchoOrBuilder();
 
   /**
-   * <code>optional .com.github.jtendermint.jabci.types.RequestFlush flush = 3;</code>
+   * <code>.com.github.jtendermint.jabci.types.RequestFlush flush = 3;</code>
    */
-  RequestFlush getFlush();
+  boolean hasFlush();
   /**
-   * <code>optional .com.github.jtendermint.jabci.types.RequestFlush flush = 3;</code>
+   * <code>.com.github.jtendermint.jabci.types.RequestFlush flush = 3;</code>
    */
-  RequestFlushOrBuilder getFlushOrBuilder();
+  com.github.jtendermint.jabci.types.RequestFlush getFlush();
+  /**
+   * <code>.com.github.jtendermint.jabci.types.RequestFlush flush = 3;</code>
+   */
+  com.github.jtendermint.jabci.types.RequestFlushOrBuilder getFlushOrBuilder();
 
   /**
-   * <code>optional .com.github.jtendermint.jabci.types.RequestInfo info = 4;</code>
+   * <code>.com.github.jtendermint.jabci.types.RequestInfo info = 4;</code>
    */
-  RequestInfo getInfo();
+  boolean hasInfo();
   /**
-   * <code>optional .com.github.jtendermint.jabci.types.RequestInfo info = 4;</code>
+   * <code>.com.github.jtendermint.jabci.types.RequestInfo info = 4;</code>
    */
-  RequestInfoOrBuilder getInfoOrBuilder();
+  com.github.jtendermint.jabci.types.RequestInfo getInfo();
+  /**
+   * <code>.com.github.jtendermint.jabci.types.RequestInfo info = 4;</code>
+   */
+  com.github.jtendermint.jabci.types.RequestInfoOrBuilder getInfoOrBuilder();
 
   /**
-   * <code>optional .com.github.jtendermint.jabci.types.RequestSetOption set_option = 5;</code>
+   * <code>.com.github.jtendermint.jabci.types.RequestSetOption set_option = 5;</code>
    */
-  RequestSetOption getSetOption();
+  boolean hasSetOption();
   /**
-   * <code>optional .com.github.jtendermint.jabci.types.RequestSetOption set_option = 5;</code>
+   * <code>.com.github.jtendermint.jabci.types.RequestSetOption set_option = 5;</code>
    */
-  RequestSetOptionOrBuilder getSetOptionOrBuilder();
+  com.github.jtendermint.jabci.types.RequestSetOption getSetOption();
+  /**
+   * <code>.com.github.jtendermint.jabci.types.RequestSetOption set_option = 5;</code>
+   */
+  com.github.jtendermint.jabci.types.RequestSetOptionOrBuilder getSetOptionOrBuilder();
 
   /**
-   * <code>optional .com.github.jtendermint.jabci.types.RequestInitChain init_chain = 6;</code>
+   * <code>.com.github.jtendermint.jabci.types.RequestInitChain init_chain = 6;</code>
    */
-  RequestInitChain getInitChain();
+  boolean hasInitChain();
   /**
-   * <code>optional .com.github.jtendermint.jabci.types.RequestInitChain init_chain = 6;</code>
+   * <code>.com.github.jtendermint.jabci.types.RequestInitChain init_chain = 6;</code>
    */
-  RequestInitChainOrBuilder getInitChainOrBuilder();
+  com.github.jtendermint.jabci.types.RequestInitChain getInitChain();
+  /**
+   * <code>.com.github.jtendermint.jabci.types.RequestInitChain init_chain = 6;</code>
+   */
+  com.github.jtendermint.jabci.types.RequestInitChainOrBuilder getInitChainOrBuilder();
 
   /**
-   * <code>optional .com.github.jtendermint.jabci.types.RequestQuery query = 7;</code>
+   * <code>.com.github.jtendermint.jabci.types.RequestQuery query = 7;</code>
    */
-  RequestQuery getQuery();
+  boolean hasQuery();
   /**
-   * <code>optional .com.github.jtendermint.jabci.types.RequestQuery query = 7;</code>
+   * <code>.com.github.jtendermint.jabci.types.RequestQuery query = 7;</code>
    */
-  RequestQueryOrBuilder getQueryOrBuilder();
+  com.github.jtendermint.jabci.types.RequestQuery getQuery();
+  /**
+   * <code>.com.github.jtendermint.jabci.types.RequestQuery query = 7;</code>
+   */
+  com.github.jtendermint.jabci.types.RequestQueryOrBuilder getQueryOrBuilder();
 
   /**
-   * <code>optional .com.github.jtendermint.jabci.types.RequestBeginBlock begin_block = 8;</code>
+   * <code>.com.github.jtendermint.jabci.types.RequestBeginBlock begin_block = 8;</code>
    */
-  RequestBeginBlock getBeginBlock();
+  boolean hasBeginBlock();
   /**
-   * <code>optional .com.github.jtendermint.jabci.types.RequestBeginBlock begin_block = 8;</code>
+   * <code>.com.github.jtendermint.jabci.types.RequestBeginBlock begin_block = 8;</code>
    */
-  RequestBeginBlockOrBuilder getBeginBlockOrBuilder();
+  com.github.jtendermint.jabci.types.RequestBeginBlock getBeginBlock();
+  /**
+   * <code>.com.github.jtendermint.jabci.types.RequestBeginBlock begin_block = 8;</code>
+   */
+  com.github.jtendermint.jabci.types.RequestBeginBlockOrBuilder getBeginBlockOrBuilder();
 
   /**
-   * <code>optional .com.github.jtendermint.jabci.types.RequestCheckTx check_tx = 9;</code>
+   * <code>.com.github.jtendermint.jabci.types.RequestCheckTx check_tx = 9;</code>
    */
-  RequestCheckTx getCheckTx();
+  boolean hasCheckTx();
   /**
-   * <code>optional .com.github.jtendermint.jabci.types.RequestCheckTx check_tx = 9;</code>
+   * <code>.com.github.jtendermint.jabci.types.RequestCheckTx check_tx = 9;</code>
    */
-  RequestCheckTxOrBuilder getCheckTxOrBuilder();
+  com.github.jtendermint.jabci.types.RequestCheckTx getCheckTx();
+  /**
+   * <code>.com.github.jtendermint.jabci.types.RequestCheckTx check_tx = 9;</code>
+   */
+  com.github.jtendermint.jabci.types.RequestCheckTxOrBuilder getCheckTxOrBuilder();
 
   /**
-   * <code>optional .com.github.jtendermint.jabci.types.RequestDeliverTx deliver_tx = 19;</code>
+   * <code>.com.github.jtendermint.jabci.types.RequestDeliverTx deliver_tx = 19;</code>
    */
-  RequestDeliverTx getDeliverTx();
+  boolean hasDeliverTx();
   /**
-   * <code>optional .com.github.jtendermint.jabci.types.RequestDeliverTx deliver_tx = 19;</code>
+   * <code>.com.github.jtendermint.jabci.types.RequestDeliverTx deliver_tx = 19;</code>
    */
-  RequestDeliverTxOrBuilder getDeliverTxOrBuilder();
+  com.github.jtendermint.jabci.types.RequestDeliverTx getDeliverTx();
+  /**
+   * <code>.com.github.jtendermint.jabci.types.RequestDeliverTx deliver_tx = 19;</code>
+   */
+  com.github.jtendermint.jabci.types.RequestDeliverTxOrBuilder getDeliverTxOrBuilder();
 
   /**
-   * <code>optional .com.github.jtendermint.jabci.types.RequestEndBlock end_block = 11;</code>
+   * <code>.com.github.jtendermint.jabci.types.RequestEndBlock end_block = 11;</code>
    */
-  RequestEndBlock getEndBlock();
+  boolean hasEndBlock();
   /**
-   * <code>optional .com.github.jtendermint.jabci.types.RequestEndBlock end_block = 11;</code>
+   * <code>.com.github.jtendermint.jabci.types.RequestEndBlock end_block = 11;</code>
    */
-  RequestEndBlockOrBuilder getEndBlockOrBuilder();
+  com.github.jtendermint.jabci.types.RequestEndBlock getEndBlock();
+  /**
+   * <code>.com.github.jtendermint.jabci.types.RequestEndBlock end_block = 11;</code>
+   */
+  com.github.jtendermint.jabci.types.RequestEndBlockOrBuilder getEndBlockOrBuilder();
 
   /**
-   * <code>optional .com.github.jtendermint.jabci.types.RequestCommit commit = 12;</code>
+   * <code>.com.github.jtendermint.jabci.types.RequestCommit commit = 12;</code>
    */
-  RequestCommit getCommit();
+  boolean hasCommit();
   /**
-   * <code>optional .com.github.jtendermint.jabci.types.RequestCommit commit = 12;</code>
+   * <code>.com.github.jtendermint.jabci.types.RequestCommit commit = 12;</code>
    */
-  RequestCommitOrBuilder getCommitOrBuilder();
+  com.github.jtendermint.jabci.types.RequestCommit getCommit();
+  /**
+   * <code>.com.github.jtendermint.jabci.types.RequestCommit commit = 12;</code>
+   */
+  com.github.jtendermint.jabci.types.RequestCommitOrBuilder getCommitOrBuilder();
 
-  public Request.ValueCase getValueCase();
+  public com.github.jtendermint.jabci.types.Request.ValueCase getValueCase();
 }

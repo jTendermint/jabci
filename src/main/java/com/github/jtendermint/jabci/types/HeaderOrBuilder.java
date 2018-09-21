@@ -9,87 +9,153 @@ public interface HeaderOrBuilder extends
 
   /**
    * <pre>
-   * basics
+   * basic block info
    * </pre>
    *
-   * <code>optional string chain_id = 1;</code>
+   * <code>string chain_id = 1;</code>
    */
-  String getChainId();
+  java.lang.String getChainId();
   /**
    * <pre>
-   * basics
+   * basic block info
    * </pre>
    *
-   * <code>optional string chain_id = 1;</code>
+   * <code>string chain_id = 1;</code>
    */
   com.google.protobuf.ByteString
       getChainIdBytes();
 
   /**
-   * <code>optional int64 height = 2;</code>
+   * <code>int64 height = 2;</code>
    */
   long getHeight();
 
   /**
-   * <code>optional int64 time = 3;</code>
+   * <code>.google.protobuf.Timestamp time = 3;</code>
    */
-  long getTime();
+  boolean hasTime();
+  /**
+   * <code>.google.protobuf.Timestamp time = 3;</code>
+   */
+  com.google.protobuf.Timestamp getTime();
+  /**
+   * <code>.google.protobuf.Timestamp time = 3;</code>
+   */
+  com.google.protobuf.TimestampOrBuilder getTimeOrBuilder();
 
   /**
-   * <pre>
-   * txs
-   * </pre>
-   *
-   * <code>optional int32 num_txs = 4;</code>
+   * <code>int64 num_txs = 4;</code>
    */
-  int getNumTxs();
+  long getNumTxs();
 
   /**
-   * <code>optional int64 total_txs = 5;</code>
+   * <code>int64 total_txs = 5;</code>
    */
   long getTotalTxs();
 
   /**
    * <pre>
-   * hashes
+   * prev block info
    * </pre>
    *
-   * <code>optional bytes last_block_hash = 6;</code>
+   * <code>.com.github.jtendermint.jabci.types.BlockID last_block_id = 6;</code>
    */
-  com.google.protobuf.ByteString getLastBlockHash();
+  boolean hasLastBlockId();
+  /**
+   * <pre>
+   * prev block info
+   * </pre>
+   *
+   * <code>.com.github.jtendermint.jabci.types.BlockID last_block_id = 6;</code>
+   */
+  com.github.jtendermint.jabci.types.BlockID getLastBlockId();
+  /**
+   * <pre>
+   * prev block info
+   * </pre>
+   *
+   * <code>.com.github.jtendermint.jabci.types.BlockID last_block_id = 6;</code>
+   */
+  com.github.jtendermint.jabci.types.BlockIDOrBuilder getLastBlockIdOrBuilder();
 
   /**
-   * <code>optional bytes validators_hash = 7;</code>
+   * <pre>
+   * hashes of block data
+   * </pre>
+   *
+   * <code>bytes last_commit_hash = 7;</code>
+   */
+  com.google.protobuf.ByteString getLastCommitHash();
+
+  /**
+   * <pre>
+   * transactions
+   * </pre>
+   *
+   * <code>bytes data_hash = 8;</code>
+   */
+  com.google.protobuf.ByteString getDataHash();
+
+  /**
+   * <pre>
+   * hashes from the app output from the prev block
+   * </pre>
+   *
+   * <code>bytes validators_hash = 9;</code>
    */
   com.google.protobuf.ByteString getValidatorsHash();
 
   /**
-   * <code>optional bytes app_hash = 8;</code>
+   * <pre>
+   * validators for the next block
+   * </pre>
+   *
+   * <code>bytes next_validators_hash = 10;</code>
+   */
+  com.google.protobuf.ByteString getNextValidatorsHash();
+
+  /**
+   * <pre>
+   * consensus params for current block
+   * </pre>
+   *
+   * <code>bytes consensus_hash = 11;</code>
+   */
+  com.google.protobuf.ByteString getConsensusHash();
+
+  /**
+   * <pre>
+   * state after txs from the previous block
+   * </pre>
+   *
+   * <code>bytes app_hash = 12;</code>
    */
   com.google.protobuf.ByteString getAppHash();
 
   /**
    * <pre>
-   * consensus
+   * root hash of all results from the txs from the previous block
    * </pre>
    *
-   * <code>optional .com.github.jtendermint.jabci.types.Validator proposer = 9;</code>
+   * <code>bytes last_results_hash = 13;</code>
    */
-  boolean hasProposer();
+  com.google.protobuf.ByteString getLastResultsHash();
+
   /**
    * <pre>
-   * consensus
+   * consensus info
    * </pre>
    *
-   * <code>optional .com.github.jtendermint.jabci.types.Validator proposer = 9;</code>
+   * <code>bytes evidence_hash = 14;</code>
    */
-  Validator getProposer();
+  com.google.protobuf.ByteString getEvidenceHash();
+
   /**
    * <pre>
-   * consensus
+   * original proposer of the block
    * </pre>
    *
-   * <code>optional .com.github.jtendermint.jabci.types.Validator proposer = 9;</code>
+   * <code>bytes proposer_address = 15;</code>
    */
-  ValidatorOrBuilder getProposerOrBuilder();
+  com.google.protobuf.ByteString getProposerAddress();
 }
