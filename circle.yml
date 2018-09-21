@@ -24,9 +24,6 @@ jobs:
     - store_test_results:
         path: ~/jTendermint/jabci/target/surefire-reports/
   deploy:
-    branches:
-      only:
-        - master
     working_directory: ~/jTendermint/jabci
     parallelism: 1
     shell: /bin/bash --login
@@ -42,4 +39,13 @@ jobs:
     - run: openssl aes-256-cbc -d -in gpg/secret -k $SIGN_SECRET >> ~/.gnupg/secring.gpg
     - run: mvn -B clean install dependency:resolve-plugins dependency:go-offline
     - run: mvn -B -P release -s circleci.settings.xml -DskipTests deploy -Dgpg.passphrase=$GPG_PASSPHRASE
-
+workflows:
+    version: 2
+    build_and_deploy:
+        jobs:
+            - build
+            - deploy:
+                filters:
+                    branches:
+                        only:
+                            - master
