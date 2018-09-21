@@ -73,8 +73,6 @@ public abstract class ASocket {
 
     private final static Logger HANDLER_LOG = LoggerFactory.getLogger(ASocket.class);
 
-    public final static int DEFAULT_LISTEN_SOCKET_PORT = 26658;
-
     private List<Object> _listeners = new ArrayList<>();
 
     protected GeneratedMessageV3 handleRequest(Request request) throws IOException {

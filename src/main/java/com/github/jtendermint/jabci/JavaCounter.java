@@ -32,6 +32,7 @@ import com.github.jtendermint.jabci.api.ICheckTx;
 import com.github.jtendermint.jabci.api.ICommit;
 import com.github.jtendermint.jabci.api.IDeliverTx;
 import com.github.jtendermint.jabci.api.IQuery;
+import com.github.jtendermint.jabci.socket.ExceptionListener.Event;
 import com.github.jtendermint.jabci.socket.TSocket;
 import com.github.jtendermint.jabci.types.RequestCheckTx;
 import com.github.jtendermint.jabci.types.RequestCommit;
@@ -56,11 +57,21 @@ public final class JavaCounter implements IDeliverTx, ICheckTx, ICommit, IQuery 
 
     public JavaCounter() throws InterruptedException {
         System.out.println("starting counter");
-        socket = new TSocket();
+        socket = new TSocket((socket, event, exception) -> {
+            if (event == Event.SocketHandler_handleRequest) {
+                exception.printStackTrace();
+            } else if (event == Event.SocketHandler_readFromStream) {
+                System.err.println("error on " + socket.orElse("NONAME") + "-> SocketHandler_readFromStream: " + exception.getMessage());
+            }
+        }, (socketName, count) -> {
+            System.out.println("CONNECT socketname: " + socketName + " count: " + count);
+        }, (socketName, count) -> {
+            System.out.println("DISCONNET socketname: " + socketName + " count: " + count);
+        });
 
         socket.registerListener(this);
 
-        Thread t = new Thread(() -> socket.start(46658));
+        Thread t = new Thread(() -> socket.start(TSocket.DEFAULT_LISTEN_SOCKET_PORT));
         t.setName("Java Counter Main Thread");
         t.start();
         while (true) {
@@ -113,9 +124,7 @@ public final class JavaCounter implements IDeliverTx, ICheckTx, ICommit, IQuery 
             System.out.println("tx value is: " + txCheck);
 
             if (txCheck < txCount) {
-                String err = "Invalid nonce. Ex"
-                        + ""
-                        + "pected >= " + txCount + ", got " + txCheck;
+                String err = "Invalid nonce. Expected >= " + txCount + ", got " + txCheck;
                 System.out.println(err);
                 return ResponseCheckTx.newBuilder().setCode(CodeType.BadNonce).setLog(err).build();
             }
