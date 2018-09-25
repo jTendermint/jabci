@@ -31,8 +31,7 @@ jobs:
     #  CIRCLE_ARTIFACTS: /tmp/circleci-artifacts
     #  CIRCLE_TEST_REPORTS: /tmp/circleci-test-results
     docker:
-#    - image: maven:3.5.3-jdk-8
-    - image: maven:3.5.0-jdk-8
+    - image: maven:3.5.3-jdk-8
     steps:
     - checkout
     - run: mkdir -p ~/.gnupg
