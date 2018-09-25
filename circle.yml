@@ -36,7 +36,7 @@ jobs:
     - checkout
     - run: mkdir -p ~/.gnupg
     - run: cp gpg/pubring.gpg ~/.gnupg/pubring.gpg
-    - run: openssl aes-256-cbc -d -in gpg/secret -k $SIGN_SECRET >> ~/.gnupg/secring.gpg
+    - run: openssl aes-256-cbc -d -in gpg/secret -k $SIGN_SECRET >> ~/.gnupg/secring.gpg -md md5
     - run: mvn -B clean install dependency:resolve-plugins dependency:go-offline
     - run: mvn -B -P release -s circleci.settings.xml -DskipTests deploy -Dgpg.passphrase=$GPG_PASSPHRASE
 workflows:
