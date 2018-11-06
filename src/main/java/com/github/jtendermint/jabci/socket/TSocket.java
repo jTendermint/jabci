@@ -101,7 +101,7 @@ public class TSocket extends ASocket {
     /**
      * Start listening on the specified port
      *
-     * @param portNumber
+     * @param portNumber tendermint abci port
      */
     public void start(final int portNumber) {
         this.start(portNumber, DEFAULT_LISTEN_SOCKET_TIMEOUT);
