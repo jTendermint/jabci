@@ -56,17 +56,30 @@ private static final long serialVersionUID = 0L;
             done = true;
             break;
           case 10: {
+            com.github.jtendermint.jabci.types.Version.Builder subBuilder = null;
+            if (version_ != null) {
+              subBuilder = version_.toBuilder();
+            }
+            version_ = input.readMessage(com.github.jtendermint.jabci.types.Version.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(version_);
+              version_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 18: {
             java.lang.String s = input.readStringRequireUtf8();
 
             chainId_ = s;
             break;
           }
-          case 16: {
+          case 24: {
 
             height_ = input.readInt64();
             break;
           }
-          case 26: {
+          case 34: {
             com.google.protobuf.Timestamp.Builder subBuilder = null;
             if (time_ != null) {
               subBuilder = time_.toBuilder();
@@ -79,17 +92,17 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 32: {
+          case 40: {
 
             numTxs_ = input.readInt64();
             break;
           }
-          case 40: {
+          case 48: {
 
             totalTxs_ = input.readInt64();
             break;
           }
-          case 50: {
+          case 58: {
             com.github.jtendermint.jabci.types.BlockID.Builder subBuilder = null;
             if (lastBlockId_ != null) {
               subBuilder = lastBlockId_.toBuilder();
@@ -102,47 +115,47 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 58: {
+          case 66: {
 
             lastCommitHash_ = input.readBytes();
             break;
           }
-          case 66: {
+          case 74: {
 
             dataHash_ = input.readBytes();
             break;
           }
-          case 74: {
+          case 82: {
 
             validatorsHash_ = input.readBytes();
             break;
           }
-          case 82: {
+          case 90: {
 
             nextValidatorsHash_ = input.readBytes();
             break;
           }
-          case 90: {
+          case 98: {
 
             consensusHash_ = input.readBytes();
             break;
           }
-          case 98: {
+          case 106: {
 
             appHash_ = input.readBytes();
             break;
           }
-          case 106: {
+          case 114: {
 
             lastResultsHash_ = input.readBytes();
             break;
           }
-          case 114: {
+          case 122: {
 
             evidenceHash_ = input.readBytes();
             break;
           }
-          case 122: {
+          case 130: {
 
             proposerAddress_ = input.readBytes();
             break;
@@ -179,14 +192,43 @@ private static final long serialVersionUID = 0L;
             com.github.jtendermint.jabci.types.Header.class, com.github.jtendermint.jabci.types.Header.Builder.class);
   }
 
-  public static final int CHAIN_ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object chainId_;
+  public static final int VERSION_FIELD_NUMBER = 1;
+  private com.github.jtendermint.jabci.types.Version version_;
   /**
    * <pre>
    * basic block info
    * </pre>
    *
-   * <code>string chain_id = 1;</code>
+   * <code>.com.github.jtendermint.jabci.types.Version version = 1;</code>
+   */
+  public boolean hasVersion() {
+    return version_ != null;
+  }
+  /**
+   * <pre>
+   * basic block info
+   * </pre>
+   *
+   * <code>.com.github.jtendermint.jabci.types.Version version = 1;</code>
+   */
+  public com.github.jtendermint.jabci.types.Version getVersion() {
+    return version_ == null ? com.github.jtendermint.jabci.types.Version.getDefaultInstance() : version_;
+  }
+  /**
+   * <pre>
+   * basic block info
+   * </pre>
+   *
+   * <code>.com.github.jtendermint.jabci.types.Version version = 1;</code>
+   */
+  public com.github.jtendermint.jabci.types.VersionOrBuilder getVersionOrBuilder() {
+    return getVersion();
+  }
+
+  public static final int CHAIN_ID_FIELD_NUMBER = 2;
+  private volatile java.lang.Object chainId_;
+  /**
+   * <code>string chain_id = 2;</code>
    */
   public java.lang.String getChainId() {
     java.lang.Object ref = chainId_;
@@ -201,11 +243,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <pre>
-   * basic block info
-   * </pre>
-   *
-   * <code>string chain_id = 1;</code>
+   * <code>string chain_id = 2;</code>
    */
   public com.google.protobuf.ByteString
       getChainIdBytes() {
@@ -221,62 +259,62 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int HEIGHT_FIELD_NUMBER = 2;
+  public static final int HEIGHT_FIELD_NUMBER = 3;
   private long height_;
   /**
-   * <code>int64 height = 2;</code>
+   * <code>int64 height = 3;</code>
    */
   public long getHeight() {
     return height_;
   }
 
-  public static final int TIME_FIELD_NUMBER = 3;
+  public static final int TIME_FIELD_NUMBER = 4;
   private com.google.protobuf.Timestamp time_;
   /**
-   * <code>.google.protobuf.Timestamp time = 3;</code>
+   * <code>.google.protobuf.Timestamp time = 4;</code>
    */
   public boolean hasTime() {
     return time_ != null;
   }
   /**
-   * <code>.google.protobuf.Timestamp time = 3;</code>
+   * <code>.google.protobuf.Timestamp time = 4;</code>
    */
   public com.google.protobuf.Timestamp getTime() {
     return time_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : time_;
   }
   /**
-   * <code>.google.protobuf.Timestamp time = 3;</code>
+   * <code>.google.protobuf.Timestamp time = 4;</code>
    */
   public com.google.protobuf.TimestampOrBuilder getTimeOrBuilder() {
     return getTime();
   }
 
-  public static final int NUM_TXS_FIELD_NUMBER = 4;
+  public static final int NUM_TXS_FIELD_NUMBER = 5;
   private long numTxs_;
   /**
-   * <code>int64 num_txs = 4;</code>
+   * <code>int64 num_txs = 5;</code>
    */
   public long getNumTxs() {
     return numTxs_;
   }
 
-  public static final int TOTAL_TXS_FIELD_NUMBER = 5;
+  public static final int TOTAL_TXS_FIELD_NUMBER = 6;
   private long totalTxs_;
   /**
-   * <code>int64 total_txs = 5;</code>
+   * <code>int64 total_txs = 6;</code>
    */
   public long getTotalTxs() {
     return totalTxs_;
   }
 
-  public static final int LAST_BLOCK_ID_FIELD_NUMBER = 6;
+  public static final int LAST_BLOCK_ID_FIELD_NUMBER = 7;
   private com.github.jtendermint.jabci.types.BlockID lastBlockId_;
   /**
    * <pre>
    * prev block info
    * </pre>
    *
-   * <code>.com.github.jtendermint.jabci.types.BlockID last_block_id = 6;</code>
+   * <code>.com.github.jtendermint.jabci.types.BlockID last_block_id = 7;</code>
    */
   public boolean hasLastBlockId() {
     return lastBlockId_ != null;
@@ -286,7 +324,7 @@ private static final long serialVersionUID = 0L;
    * prev block info
    * </pre>
    *
-   * <code>.com.github.jtendermint.jabci.types.BlockID last_block_id = 6;</code>
+   * <code>.com.github.jtendermint.jabci.types.BlockID last_block_id = 7;</code>
    */
   public com.github.jtendermint.jabci.types.BlockID getLastBlockId() {
     return lastBlockId_ == null ? com.github.jtendermint.jabci.types.BlockID.getDefaultInstance() : lastBlockId_;
@@ -296,124 +334,124 @@ private static final long serialVersionUID = 0L;
    * prev block info
    * </pre>
    *
-   * <code>.com.github.jtendermint.jabci.types.BlockID last_block_id = 6;</code>
+   * <code>.com.github.jtendermint.jabci.types.BlockID last_block_id = 7;</code>
    */
   public com.github.jtendermint.jabci.types.BlockIDOrBuilder getLastBlockIdOrBuilder() {
     return getLastBlockId();
   }
 
-  public static final int LAST_COMMIT_HASH_FIELD_NUMBER = 7;
+  public static final int LAST_COMMIT_HASH_FIELD_NUMBER = 8;
   private com.google.protobuf.ByteString lastCommitHash_;
   /**
    * <pre>
    * hashes of block data
    * </pre>
    *
-   * <code>bytes last_commit_hash = 7;</code>
+   * <code>bytes last_commit_hash = 8;</code>
    */
   public com.google.protobuf.ByteString getLastCommitHash() {
     return lastCommitHash_;
   }
 
-  public static final int DATA_HASH_FIELD_NUMBER = 8;
+  public static final int DATA_HASH_FIELD_NUMBER = 9;
   private com.google.protobuf.ByteString dataHash_;
   /**
    * <pre>
    * transactions
    * </pre>
    *
-   * <code>bytes data_hash = 8;</code>
+   * <code>bytes data_hash = 9;</code>
    */
   public com.google.protobuf.ByteString getDataHash() {
     return dataHash_;
   }
 
-  public static final int VALIDATORS_HASH_FIELD_NUMBER = 9;
+  public static final int VALIDATORS_HASH_FIELD_NUMBER = 10;
   private com.google.protobuf.ByteString validatorsHash_;
   /**
    * <pre>
    * hashes from the app output from the prev block
    * </pre>
    *
-   * <code>bytes validators_hash = 9;</code>
+   * <code>bytes validators_hash = 10;</code>
    */
   public com.google.protobuf.ByteString getValidatorsHash() {
     return validatorsHash_;
   }
 
-  public static final int NEXT_VALIDATORS_HASH_FIELD_NUMBER = 10;
+  public static final int NEXT_VALIDATORS_HASH_FIELD_NUMBER = 11;
   private com.google.protobuf.ByteString nextValidatorsHash_;
   /**
    * <pre>
    * validators for the next block
    * </pre>
    *
-   * <code>bytes next_validators_hash = 10;</code>
+   * <code>bytes next_validators_hash = 11;</code>
    */
   public com.google.protobuf.ByteString getNextValidatorsHash() {
     return nextValidatorsHash_;
   }
 
-  public static final int CONSENSUS_HASH_FIELD_NUMBER = 11;
+  public static final int CONSENSUS_HASH_FIELD_NUMBER = 12;
   private com.google.protobuf.ByteString consensusHash_;
   /**
    * <pre>
    * consensus params for current block
    * </pre>
    *
-   * <code>bytes consensus_hash = 11;</code>
+   * <code>bytes consensus_hash = 12;</code>
    */
   public com.google.protobuf.ByteString getConsensusHash() {
     return consensusHash_;
   }
 
-  public static final int APP_HASH_FIELD_NUMBER = 12;
+  public static final int APP_HASH_FIELD_NUMBER = 13;
   private com.google.protobuf.ByteString appHash_;
   /**
    * <pre>
    * state after txs from the previous block
    * </pre>
    *
-   * <code>bytes app_hash = 12;</code>
+   * <code>bytes app_hash = 13;</code>
    */
   public com.google.protobuf.ByteString getAppHash() {
     return appHash_;
   }
 
-  public static final int LAST_RESULTS_HASH_FIELD_NUMBER = 13;
+  public static final int LAST_RESULTS_HASH_FIELD_NUMBER = 14;
   private com.google.protobuf.ByteString lastResultsHash_;
   /**
    * <pre>
    * root hash of all results from the txs from the previous block
    * </pre>
    *
-   * <code>bytes last_results_hash = 13;</code>
+   * <code>bytes last_results_hash = 14;</code>
    */
   public com.google.protobuf.ByteString getLastResultsHash() {
     return lastResultsHash_;
   }
 
-  public static final int EVIDENCE_HASH_FIELD_NUMBER = 14;
+  public static final int EVIDENCE_HASH_FIELD_NUMBER = 15;
   private com.google.protobuf.ByteString evidenceHash_;
   /**
    * <pre>
    * consensus info
    * </pre>
    *
-   * <code>bytes evidence_hash = 14;</code>
+   * <code>bytes evidence_hash = 15;</code>
    */
   public com.google.protobuf.ByteString getEvidenceHash() {
     return evidenceHash_;
   }
 
-  public static final int PROPOSER_ADDRESS_FIELD_NUMBER = 15;
+  public static final int PROPOSER_ADDRESS_FIELD_NUMBER = 16;
   private com.google.protobuf.ByteString proposerAddress_;
   /**
    * <pre>
    * original proposer of the block
    * </pre>
    *
-   * <code>bytes proposer_address = 15;</code>
+   * <code>bytes proposer_address = 16;</code>
    */
   public com.google.protobuf.ByteString getProposerAddress() {
     return proposerAddress_;
@@ -433,50 +471,53 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
+    if (version_ != null) {
+      output.writeMessage(1, getVersion());
+    }
     if (!getChainIdBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, chainId_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, chainId_);
     }
     if (height_ != 0L) {
-      output.writeInt64(2, height_);
+      output.writeInt64(3, height_);
     }
     if (time_ != null) {
-      output.writeMessage(3, getTime());
+      output.writeMessage(4, getTime());
     }
     if (numTxs_ != 0L) {
-      output.writeInt64(4, numTxs_);
+      output.writeInt64(5, numTxs_);
     }
     if (totalTxs_ != 0L) {
-      output.writeInt64(5, totalTxs_);
+      output.writeInt64(6, totalTxs_);
     }
     if (lastBlockId_ != null) {
-      output.writeMessage(6, getLastBlockId());
+      output.writeMessage(7, getLastBlockId());
     }
     if (!lastCommitHash_.isEmpty()) {
-      output.writeBytes(7, lastCommitHash_);
+      output.writeBytes(8, lastCommitHash_);
     }
     if (!dataHash_.isEmpty()) {
-      output.writeBytes(8, dataHash_);
+      output.writeBytes(9, dataHash_);
     }
     if (!validatorsHash_.isEmpty()) {
-      output.writeBytes(9, validatorsHash_);
+      output.writeBytes(10, validatorsHash_);
     }
     if (!nextValidatorsHash_.isEmpty()) {
-      output.writeBytes(10, nextValidatorsHash_);
+      output.writeBytes(11, nextValidatorsHash_);
     }
     if (!consensusHash_.isEmpty()) {
-      output.writeBytes(11, consensusHash_);
+      output.writeBytes(12, consensusHash_);
     }
     if (!appHash_.isEmpty()) {
-      output.writeBytes(12, appHash_);
+      output.writeBytes(13, appHash_);
     }
     if (!lastResultsHash_.isEmpty()) {
-      output.writeBytes(13, lastResultsHash_);
+      output.writeBytes(14, lastResultsHash_);
     }
     if (!evidenceHash_.isEmpty()) {
-      output.writeBytes(14, evidenceHash_);
+      output.writeBytes(15, evidenceHash_);
     }
     if (!proposerAddress_.isEmpty()) {
-      output.writeBytes(15, proposerAddress_);
+      output.writeBytes(16, proposerAddress_);
     }
     unknownFields.writeTo(output);
   }
@@ -487,64 +528,68 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
+    if (version_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(1, getVersion());
+    }
     if (!getChainIdBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, chainId_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, chainId_);
     }
     if (height_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(2, height_);
+        .computeInt64Size(3, height_);
     }
     if (time_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(3, getTime());
+        .computeMessageSize(4, getTime());
     }
     if (numTxs_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(4, numTxs_);
+        .computeInt64Size(5, numTxs_);
     }
     if (totalTxs_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(5, totalTxs_);
+        .computeInt64Size(6, totalTxs_);
     }
     if (lastBlockId_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(6, getLastBlockId());
+        .computeMessageSize(7, getLastBlockId());
     }
     if (!lastCommitHash_.isEmpty()) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBytesSize(7, lastCommitHash_);
+        .computeBytesSize(8, lastCommitHash_);
     }
     if (!dataHash_.isEmpty()) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBytesSize(8, dataHash_);
+        .computeBytesSize(9, dataHash_);
     }
     if (!validatorsHash_.isEmpty()) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBytesSize(9, validatorsHash_);
+        .computeBytesSize(10, validatorsHash_);
     }
     if (!nextValidatorsHash_.isEmpty()) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBytesSize(10, nextValidatorsHash_);
+        .computeBytesSize(11, nextValidatorsHash_);
     }
     if (!consensusHash_.isEmpty()) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBytesSize(11, consensusHash_);
+        .computeBytesSize(12, consensusHash_);
     }
     if (!appHash_.isEmpty()) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBytesSize(12, appHash_);
+        .computeBytesSize(13, appHash_);
     }
     if (!lastResultsHash_.isEmpty()) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBytesSize(13, lastResultsHash_);
+        .computeBytesSize(14, lastResultsHash_);
     }
     if (!evidenceHash_.isEmpty()) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBytesSize(14, evidenceHash_);
+        .computeBytesSize(15, evidenceHash_);
     }
     if (!proposerAddress_.isEmpty()) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBytesSize(15, proposerAddress_);
+        .computeBytesSize(16, proposerAddress_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -562,6 +607,11 @@ private static final long serialVersionUID = 0L;
     com.github.jtendermint.jabci.types.Header other = (com.github.jtendermint.jabci.types.Header) obj;
 
     boolean result = true;
+    result = result && (hasVersion() == other.hasVersion());
+    if (hasVersion()) {
+      result = result && getVersion()
+          .equals(other.getVersion());
+    }
     result = result && getChainId()
         .equals(other.getChainId());
     result = result && (getHeight()
@@ -609,6 +659,10 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
+    if (hasVersion()) {
+      hash = (37 * hash) + VERSION_FIELD_NUMBER;
+      hash = (53 * hash) + getVersion().hashCode();
+    }
     hash = (37 * hash) + CHAIN_ID_FIELD_NUMBER;
     hash = (53 * hash) + getChainId().hashCode();
     hash = (37 * hash) + HEIGHT_FIELD_NUMBER;
@@ -779,6 +833,12 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      if (versionBuilder_ == null) {
+        version_ = null;
+      } else {
+        version_ = null;
+        versionBuilder_ = null;
+      }
       chainId_ = "";
 
       height_ = 0L;
@@ -843,6 +903,11 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.github.jtendermint.jabci.types.Header buildPartial() {
       com.github.jtendermint.jabci.types.Header result = new com.github.jtendermint.jabci.types.Header(this);
+      if (versionBuilder_ == null) {
+        result.version_ = version_;
+      } else {
+        result.version_ = versionBuilder_.build();
+      }
       result.chainId_ = chainId_;
       result.height_ = height_;
       if (timeBuilder_ == null) {
@@ -914,6 +979,9 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(com.github.jtendermint.jabci.types.Header other) {
       if (other == com.github.jtendermint.jabci.types.Header.getDefaultInstance()) return this;
+      if (other.hasVersion()) {
+        mergeVersion(other.getVersion());
+      }
       if (!other.getChainId().isEmpty()) {
         chainId_ = other.chainId_;
         onChanged();
@@ -989,13 +1057,162 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object chainId_ = "";
+    private com.github.jtendermint.jabci.types.Version version_ = null;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.github.jtendermint.jabci.types.Version, com.github.jtendermint.jabci.types.Version.Builder, com.github.jtendermint.jabci.types.VersionOrBuilder> versionBuilder_;
     /**
      * <pre>
      * basic block info
      * </pre>
      *
-     * <code>string chain_id = 1;</code>
+     * <code>.com.github.jtendermint.jabci.types.Version version = 1;</code>
+     */
+    public boolean hasVersion() {
+      return versionBuilder_ != null || version_ != null;
+    }
+    /**
+     * <pre>
+     * basic block info
+     * </pre>
+     *
+     * <code>.com.github.jtendermint.jabci.types.Version version = 1;</code>
+     */
+    public com.github.jtendermint.jabci.types.Version getVersion() {
+      if (versionBuilder_ == null) {
+        return version_ == null ? com.github.jtendermint.jabci.types.Version.getDefaultInstance() : version_;
+      } else {
+        return versionBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * basic block info
+     * </pre>
+     *
+     * <code>.com.github.jtendermint.jabci.types.Version version = 1;</code>
+     */
+    public Builder setVersion(com.github.jtendermint.jabci.types.Version value) {
+      if (versionBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        version_ = value;
+        onChanged();
+      } else {
+        versionBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * basic block info
+     * </pre>
+     *
+     * <code>.com.github.jtendermint.jabci.types.Version version = 1;</code>
+     */
+    public Builder setVersion(
+        com.github.jtendermint.jabci.types.Version.Builder builderForValue) {
+      if (versionBuilder_ == null) {
+        version_ = builderForValue.build();
+        onChanged();
+      } else {
+        versionBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * basic block info
+     * </pre>
+     *
+     * <code>.com.github.jtendermint.jabci.types.Version version = 1;</code>
+     */
+    public Builder mergeVersion(com.github.jtendermint.jabci.types.Version value) {
+      if (versionBuilder_ == null) {
+        if (version_ != null) {
+          version_ =
+            com.github.jtendermint.jabci.types.Version.newBuilder(version_).mergeFrom(value).buildPartial();
+        } else {
+          version_ = value;
+        }
+        onChanged();
+      } else {
+        versionBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * basic block info
+     * </pre>
+     *
+     * <code>.com.github.jtendermint.jabci.types.Version version = 1;</code>
+     */
+    public Builder clearVersion() {
+      if (versionBuilder_ == null) {
+        version_ = null;
+        onChanged();
+      } else {
+        version_ = null;
+        versionBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * basic block info
+     * </pre>
+     *
+     * <code>.com.github.jtendermint.jabci.types.Version version = 1;</code>
+     */
+    public com.github.jtendermint.jabci.types.Version.Builder getVersionBuilder() {
+      
+      onChanged();
+      return getVersionFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * basic block info
+     * </pre>
+     *
+     * <code>.com.github.jtendermint.jabci.types.Version version = 1;</code>
+     */
+    public com.github.jtendermint.jabci.types.VersionOrBuilder getVersionOrBuilder() {
+      if (versionBuilder_ != null) {
+        return versionBuilder_.getMessageOrBuilder();
+      } else {
+        return version_ == null ?
+            com.github.jtendermint.jabci.types.Version.getDefaultInstance() : version_;
+      }
+    }
+    /**
+     * <pre>
+     * basic block info
+     * </pre>
+     *
+     * <code>.com.github.jtendermint.jabci.types.Version version = 1;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.github.jtendermint.jabci.types.Version, com.github.jtendermint.jabci.types.Version.Builder, com.github.jtendermint.jabci.types.VersionOrBuilder> 
+        getVersionFieldBuilder() {
+      if (versionBuilder_ == null) {
+        versionBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.github.jtendermint.jabci.types.Version, com.github.jtendermint.jabci.types.Version.Builder, com.github.jtendermint.jabci.types.VersionOrBuilder>(
+                getVersion(),
+                getParentForChildren(),
+                isClean());
+        version_ = null;
+      }
+      return versionBuilder_;
+    }
+
+    private java.lang.Object chainId_ = "";
+    /**
+     * <code>string chain_id = 2;</code>
      */
     public java.lang.String getChainId() {
       java.lang.Object ref = chainId_;
@@ -1010,11 +1227,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <pre>
-     * basic block info
-     * </pre>
-     *
-     * <code>string chain_id = 1;</code>
+     * <code>string chain_id = 2;</code>
      */
     public com.google.protobuf.ByteString
         getChainIdBytes() {
@@ -1030,11 +1243,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <pre>
-     * basic block info
-     * </pre>
-     *
-     * <code>string chain_id = 1;</code>
+     * <code>string chain_id = 2;</code>
      */
     public Builder setChainId(
         java.lang.String value) {
@@ -1047,11 +1256,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <pre>
-     * basic block info
-     * </pre>
-     *
-     * <code>string chain_id = 1;</code>
+     * <code>string chain_id = 2;</code>
      */
     public Builder clearChainId() {
       
@@ -1060,11 +1265,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <pre>
-     * basic block info
-     * </pre>
-     *
-     * <code>string chain_id = 1;</code>
+     * <code>string chain_id = 2;</code>
      */
     public Builder setChainIdBytes(
         com.google.protobuf.ByteString value) {
@@ -1080,13 +1281,13 @@ private static final long serialVersionUID = 0L;
 
     private long height_ ;
     /**
-     * <code>int64 height = 2;</code>
+     * <code>int64 height = 3;</code>
      */
     public long getHeight() {
       return height_;
     }
     /**
-     * <code>int64 height = 2;</code>
+     * <code>int64 height = 3;</code>
      */
     public Builder setHeight(long value) {
       
@@ -1095,7 +1296,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 height = 2;</code>
+     * <code>int64 height = 3;</code>
      */
     public Builder clearHeight() {
       
@@ -1108,13 +1309,13 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> timeBuilder_;
     /**
-     * <code>.google.protobuf.Timestamp time = 3;</code>
+     * <code>.google.protobuf.Timestamp time = 4;</code>
      */
     public boolean hasTime() {
       return timeBuilder_ != null || time_ != null;
     }
     /**
-     * <code>.google.protobuf.Timestamp time = 3;</code>
+     * <code>.google.protobuf.Timestamp time = 4;</code>
      */
     public com.google.protobuf.Timestamp getTime() {
       if (timeBuilder_ == null) {
@@ -1124,7 +1325,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.google.protobuf.Timestamp time = 3;</code>
+     * <code>.google.protobuf.Timestamp time = 4;</code>
      */
     public Builder setTime(com.google.protobuf.Timestamp value) {
       if (timeBuilder_ == null) {
@@ -1140,7 +1341,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp time = 3;</code>
+     * <code>.google.protobuf.Timestamp time = 4;</code>
      */
     public Builder setTime(
         com.google.protobuf.Timestamp.Builder builderForValue) {
@@ -1154,7 +1355,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp time = 3;</code>
+     * <code>.google.protobuf.Timestamp time = 4;</code>
      */
     public Builder mergeTime(com.google.protobuf.Timestamp value) {
       if (timeBuilder_ == null) {
@@ -1172,7 +1373,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp time = 3;</code>
+     * <code>.google.protobuf.Timestamp time = 4;</code>
      */
     public Builder clearTime() {
       if (timeBuilder_ == null) {
@@ -1186,7 +1387,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp time = 3;</code>
+     * <code>.google.protobuf.Timestamp time = 4;</code>
      */
     public com.google.protobuf.Timestamp.Builder getTimeBuilder() {
       
@@ -1194,7 +1395,7 @@ private static final long serialVersionUID = 0L;
       return getTimeFieldBuilder().getBuilder();
     }
     /**
-     * <code>.google.protobuf.Timestamp time = 3;</code>
+     * <code>.google.protobuf.Timestamp time = 4;</code>
      */
     public com.google.protobuf.TimestampOrBuilder getTimeOrBuilder() {
       if (timeBuilder_ != null) {
@@ -1205,7 +1406,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.google.protobuf.Timestamp time = 3;</code>
+     * <code>.google.protobuf.Timestamp time = 4;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
@@ -1223,13 +1424,13 @@ private static final long serialVersionUID = 0L;
 
     private long numTxs_ ;
     /**
-     * <code>int64 num_txs = 4;</code>
+     * <code>int64 num_txs = 5;</code>
      */
     public long getNumTxs() {
       return numTxs_;
     }
     /**
-     * <code>int64 num_txs = 4;</code>
+     * <code>int64 num_txs = 5;</code>
      */
     public Builder setNumTxs(long value) {
       
@@ -1238,7 +1439,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 num_txs = 4;</code>
+     * <code>int64 num_txs = 5;</code>
      */
     public Builder clearNumTxs() {
       
@@ -1249,13 +1450,13 @@ private static final long serialVersionUID = 0L;
 
     private long totalTxs_ ;
     /**
-     * <code>int64 total_txs = 5;</code>
+     * <code>int64 total_txs = 6;</code>
      */
     public long getTotalTxs() {
       return totalTxs_;
     }
     /**
-     * <code>int64 total_txs = 5;</code>
+     * <code>int64 total_txs = 6;</code>
      */
     public Builder setTotalTxs(long value) {
       
@@ -1264,7 +1465,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 total_txs = 5;</code>
+     * <code>int64 total_txs = 6;</code>
      */
     public Builder clearTotalTxs() {
       
@@ -1281,7 +1482,7 @@ private static final long serialVersionUID = 0L;
      * prev block info
      * </pre>
      *
-     * <code>.com.github.jtendermint.jabci.types.BlockID last_block_id = 6;</code>
+     * <code>.com.github.jtendermint.jabci.types.BlockID last_block_id = 7;</code>
      */
     public boolean hasLastBlockId() {
       return lastBlockIdBuilder_ != null || lastBlockId_ != null;
@@ -1291,7 +1492,7 @@ private static final long serialVersionUID = 0L;
      * prev block info
      * </pre>
      *
-     * <code>.com.github.jtendermint.jabci.types.BlockID last_block_id = 6;</code>
+     * <code>.com.github.jtendermint.jabci.types.BlockID last_block_id = 7;</code>
      */
     public com.github.jtendermint.jabci.types.BlockID getLastBlockId() {
       if (lastBlockIdBuilder_ == null) {
@@ -1305,7 +1506,7 @@ private static final long serialVersionUID = 0L;
      * prev block info
      * </pre>
      *
-     * <code>.com.github.jtendermint.jabci.types.BlockID last_block_id = 6;</code>
+     * <code>.com.github.jtendermint.jabci.types.BlockID last_block_id = 7;</code>
      */
     public Builder setLastBlockId(com.github.jtendermint.jabci.types.BlockID value) {
       if (lastBlockIdBuilder_ == null) {
@@ -1325,7 +1526,7 @@ private static final long serialVersionUID = 0L;
      * prev block info
      * </pre>
      *
-     * <code>.com.github.jtendermint.jabci.types.BlockID last_block_id = 6;</code>
+     * <code>.com.github.jtendermint.jabci.types.BlockID last_block_id = 7;</code>
      */
     public Builder setLastBlockId(
         com.github.jtendermint.jabci.types.BlockID.Builder builderForValue) {
@@ -1343,7 +1544,7 @@ private static final long serialVersionUID = 0L;
      * prev block info
      * </pre>
      *
-     * <code>.com.github.jtendermint.jabci.types.BlockID last_block_id = 6;</code>
+     * <code>.com.github.jtendermint.jabci.types.BlockID last_block_id = 7;</code>
      */
     public Builder mergeLastBlockId(com.github.jtendermint.jabci.types.BlockID value) {
       if (lastBlockIdBuilder_ == null) {
@@ -1365,7 +1566,7 @@ private static final long serialVersionUID = 0L;
      * prev block info
      * </pre>
      *
-     * <code>.com.github.jtendermint.jabci.types.BlockID last_block_id = 6;</code>
+     * <code>.com.github.jtendermint.jabci.types.BlockID last_block_id = 7;</code>
      */
     public Builder clearLastBlockId() {
       if (lastBlockIdBuilder_ == null) {
@@ -1383,7 +1584,7 @@ private static final long serialVersionUID = 0L;
      * prev block info
      * </pre>
      *
-     * <code>.com.github.jtendermint.jabci.types.BlockID last_block_id = 6;</code>
+     * <code>.com.github.jtendermint.jabci.types.BlockID last_block_id = 7;</code>
      */
     public com.github.jtendermint.jabci.types.BlockID.Builder getLastBlockIdBuilder() {
       
@@ -1395,7 +1596,7 @@ private static final long serialVersionUID = 0L;
      * prev block info
      * </pre>
      *
-     * <code>.com.github.jtendermint.jabci.types.BlockID last_block_id = 6;</code>
+     * <code>.com.github.jtendermint.jabci.types.BlockID last_block_id = 7;</code>
      */
     public com.github.jtendermint.jabci.types.BlockIDOrBuilder getLastBlockIdOrBuilder() {
       if (lastBlockIdBuilder_ != null) {
@@ -1410,7 +1611,7 @@ private static final long serialVersionUID = 0L;
      * prev block info
      * </pre>
      *
-     * <code>.com.github.jtendermint.jabci.types.BlockID last_block_id = 6;</code>
+     * <code>.com.github.jtendermint.jabci.types.BlockID last_block_id = 7;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.github.jtendermint.jabci.types.BlockID, com.github.jtendermint.jabci.types.BlockID.Builder, com.github.jtendermint.jabci.types.BlockIDOrBuilder> 
@@ -1432,7 +1633,7 @@ private static final long serialVersionUID = 0L;
      * hashes of block data
      * </pre>
      *
-     * <code>bytes last_commit_hash = 7;</code>
+     * <code>bytes last_commit_hash = 8;</code>
      */
     public com.google.protobuf.ByteString getLastCommitHash() {
       return lastCommitHash_;
@@ -1442,7 +1643,7 @@ private static final long serialVersionUID = 0L;
      * hashes of block data
      * </pre>
      *
-     * <code>bytes last_commit_hash = 7;</code>
+     * <code>bytes last_commit_hash = 8;</code>
      */
     public Builder setLastCommitHash(com.google.protobuf.ByteString value) {
       if (value == null) {
@@ -1458,7 +1659,7 @@ private static final long serialVersionUID = 0L;
      * hashes of block data
      * </pre>
      *
-     * <code>bytes last_commit_hash = 7;</code>
+     * <code>bytes last_commit_hash = 8;</code>
      */
     public Builder clearLastCommitHash() {
       
@@ -1473,7 +1674,7 @@ private static final long serialVersionUID = 0L;
      * transactions
      * </pre>
      *
-     * <code>bytes data_hash = 8;</code>
+     * <code>bytes data_hash = 9;</code>
      */
     public com.google.protobuf.ByteString getDataHash() {
       return dataHash_;
@@ -1483,7 +1684,7 @@ private static final long serialVersionUID = 0L;
      * transactions
      * </pre>
      *
-     * <code>bytes data_hash = 8;</code>
+     * <code>bytes data_hash = 9;</code>
      */
     public Builder setDataHash(com.google.protobuf.ByteString value) {
       if (value == null) {
@@ -1499,7 +1700,7 @@ private static final long serialVersionUID = 0L;
      * transactions
      * </pre>
      *
-     * <code>bytes data_hash = 8;</code>
+     * <code>bytes data_hash = 9;</code>
      */
     public Builder clearDataHash() {
       
@@ -1514,7 +1715,7 @@ private static final long serialVersionUID = 0L;
      * hashes from the app output from the prev block
      * </pre>
      *
-     * <code>bytes validators_hash = 9;</code>
+     * <code>bytes validators_hash = 10;</code>
      */
     public com.google.protobuf.ByteString getValidatorsHash() {
       return validatorsHash_;
@@ -1524,7 +1725,7 @@ private static final long serialVersionUID = 0L;
      * hashes from the app output from the prev block
      * </pre>
      *
-     * <code>bytes validators_hash = 9;</code>
+     * <code>bytes validators_hash = 10;</code>
      */
     public Builder setValidatorsHash(com.google.protobuf.ByteString value) {
       if (value == null) {
@@ -1540,7 +1741,7 @@ private static final long serialVersionUID = 0L;
      * hashes from the app output from the prev block
      * </pre>
      *
-     * <code>bytes validators_hash = 9;</code>
+     * <code>bytes validators_hash = 10;</code>
      */
     public Builder clearValidatorsHash() {
       
@@ -1555,7 +1756,7 @@ private static final long serialVersionUID = 0L;
      * validators for the next block
      * </pre>
      *
-     * <code>bytes next_validators_hash = 10;</code>
+     * <code>bytes next_validators_hash = 11;</code>
      */
     public com.google.protobuf.ByteString getNextValidatorsHash() {
       return nextValidatorsHash_;
@@ -1565,7 +1766,7 @@ private static final long serialVersionUID = 0L;
      * validators for the next block
      * </pre>
      *
-     * <code>bytes next_validators_hash = 10;</code>
+     * <code>bytes next_validators_hash = 11;</code>
      */
     public Builder setNextValidatorsHash(com.google.protobuf.ByteString value) {
       if (value == null) {
@@ -1581,7 +1782,7 @@ private static final long serialVersionUID = 0L;
      * validators for the next block
      * </pre>
      *
-     * <code>bytes next_validators_hash = 10;</code>
+     * <code>bytes next_validators_hash = 11;</code>
      */
     public Builder clearNextValidatorsHash() {
       
@@ -1596,7 +1797,7 @@ private static final long serialVersionUID = 0L;
      * consensus params for current block
      * </pre>
      *
-     * <code>bytes consensus_hash = 11;</code>
+     * <code>bytes consensus_hash = 12;</code>
      */
     public com.google.protobuf.ByteString getConsensusHash() {
       return consensusHash_;
@@ -1606,7 +1807,7 @@ private static final long serialVersionUID = 0L;
      * consensus params for current block
      * </pre>
      *
-     * <code>bytes consensus_hash = 11;</code>
+     * <code>bytes consensus_hash = 12;</code>
      */
     public Builder setConsensusHash(com.google.protobuf.ByteString value) {
       if (value == null) {
@@ -1622,7 +1823,7 @@ private static final long serialVersionUID = 0L;
      * consensus params for current block
      * </pre>
      *
-     * <code>bytes consensus_hash = 11;</code>
+     * <code>bytes consensus_hash = 12;</code>
      */
     public Builder clearConsensusHash() {
       
@@ -1637,7 +1838,7 @@ private static final long serialVersionUID = 0L;
      * state after txs from the previous block
      * </pre>
      *
-     * <code>bytes app_hash = 12;</code>
+     * <code>bytes app_hash = 13;</code>
      */
     public com.google.protobuf.ByteString getAppHash() {
       return appHash_;
@@ -1647,7 +1848,7 @@ private static final long serialVersionUID = 0L;
      * state after txs from the previous block
      * </pre>
      *
-     * <code>bytes app_hash = 12;</code>
+     * <code>bytes app_hash = 13;</code>
      */
     public Builder setAppHash(com.google.protobuf.ByteString value) {
       if (value == null) {
@@ -1663,7 +1864,7 @@ private static final long serialVersionUID = 0L;
      * state after txs from the previous block
      * </pre>
      *
-     * <code>bytes app_hash = 12;</code>
+     * <code>bytes app_hash = 13;</code>
      */
     public Builder clearAppHash() {
       
@@ -1678,7 +1879,7 @@ private static final long serialVersionUID = 0L;
      * root hash of all results from the txs from the previous block
      * </pre>
      *
-     * <code>bytes last_results_hash = 13;</code>
+     * <code>bytes last_results_hash = 14;</code>
      */
     public com.google.protobuf.ByteString getLastResultsHash() {
       return lastResultsHash_;
@@ -1688,7 +1889,7 @@ private static final long serialVersionUID = 0L;
      * root hash of all results from the txs from the previous block
      * </pre>
      *
-     * <code>bytes last_results_hash = 13;</code>
+     * <code>bytes last_results_hash = 14;</code>
      */
     public Builder setLastResultsHash(com.google.protobuf.ByteString value) {
       if (value == null) {
@@ -1704,7 +1905,7 @@ private static final long serialVersionUID = 0L;
      * root hash of all results from the txs from the previous block
      * </pre>
      *
-     * <code>bytes last_results_hash = 13;</code>
+     * <code>bytes last_results_hash = 14;</code>
      */
     public Builder clearLastResultsHash() {
       
@@ -1719,7 +1920,7 @@ private static final long serialVersionUID = 0L;
      * consensus info
      * </pre>
      *
-     * <code>bytes evidence_hash = 14;</code>
+     * <code>bytes evidence_hash = 15;</code>
      */
     public com.google.protobuf.ByteString getEvidenceHash() {
       return evidenceHash_;
@@ -1729,7 +1930,7 @@ private static final long serialVersionUID = 0L;
      * consensus info
      * </pre>
      *
-     * <code>bytes evidence_hash = 14;</code>
+     * <code>bytes evidence_hash = 15;</code>
      */
     public Builder setEvidenceHash(com.google.protobuf.ByteString value) {
       if (value == null) {
@@ -1745,7 +1946,7 @@ private static final long serialVersionUID = 0L;
      * consensus info
      * </pre>
      *
-     * <code>bytes evidence_hash = 14;</code>
+     * <code>bytes evidence_hash = 15;</code>
      */
     public Builder clearEvidenceHash() {
       
@@ -1760,7 +1961,7 @@ private static final long serialVersionUID = 0L;
      * original proposer of the block
      * </pre>
      *
-     * <code>bytes proposer_address = 15;</code>
+     * <code>bytes proposer_address = 16;</code>
      */
     public com.google.protobuf.ByteString getProposerAddress() {
       return proposerAddress_;
@@ -1770,7 +1971,7 @@ private static final long serialVersionUID = 0L;
      * original proposer of the block
      * </pre>
      *
-     * <code>bytes proposer_address = 15;</code>
+     * <code>bytes proposer_address = 16;</code>
      */
     public Builder setProposerAddress(com.google.protobuf.ByteString value) {
       if (value == null) {
@@ -1786,7 +1987,7 @@ private static final long serialVersionUID = 0L;
      * original proposer of the block
      * </pre>
      *
-     * <code>bytes proposer_address = 15;</code>
+     * <code>bytes proposer_address = 16;</code>
      */
     public Builder clearProposerAddress() {
       

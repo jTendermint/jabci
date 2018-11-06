@@ -5,23 +5,22 @@ package com.github.jtendermint.jabci.types;
 
 /**
  * <pre>
- * TxSize contains limits on the tx size.
+ * ValidatorParams contains limits on validators.
  * </pre>
  *
- * Protobuf type {@code com.github.jtendermint.jabci.types.TxSize}
+ * Protobuf type {@code com.github.jtendermint.jabci.types.ValidatorParams}
  */
-public  final class TxSize extends
+public  final class ValidatorParams extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:com.github.jtendermint.jabci.types.TxSize)
-    TxSizeOrBuilder {
+    // @@protoc_insertion_point(message_implements:com.github.jtendermint.jabci.types.ValidatorParams)
+    ValidatorParamsOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use TxSize.newBuilder() to construct.
-  private TxSize(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use ValidatorParams.newBuilder() to construct.
+  private ValidatorParams(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private TxSize() {
-    maxBytes_ = 0;
-    maxGas_ = 0L;
+  private ValidatorParams() {
+    pubKeyTypes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
   }
 
   @java.lang.Override
@@ -29,7 +28,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private TxSize(
+  private ValidatorParams(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -48,14 +47,13 @@ private static final long serialVersionUID = 0L;
           case 0:
             done = true;
             break;
-          case 8: {
-
-            maxBytes_ = input.readInt32();
-            break;
-          }
-          case 16: {
-
-            maxGas_ = input.readInt64();
+          case 10: {
+            java.lang.String s = input.readStringRequireUtf8();
+            if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+              pubKeyTypes_ = new com.google.protobuf.LazyStringArrayList();
+              mutable_bitField0_ |= 0x00000001;
+            }
+            pubKeyTypes_.add(s);
             break;
           }
           default: {
@@ -73,39 +71,53 @@ private static final long serialVersionUID = 0L;
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
+      if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+        pubKeyTypes_ = pubKeyTypes_.getUnmodifiableView();
+      }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
     }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_TxSize_descriptor;
+    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ValidatorParams_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_TxSize_fieldAccessorTable
+    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ValidatorParams_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.github.jtendermint.jabci.types.TxSize.class, com.github.jtendermint.jabci.types.TxSize.Builder.class);
+            com.github.jtendermint.jabci.types.ValidatorParams.class, com.github.jtendermint.jabci.types.ValidatorParams.Builder.class);
   }
 
-  public static final int MAX_BYTES_FIELD_NUMBER = 1;
-  private int maxBytes_;
+  public static final int PUB_KEY_TYPES_FIELD_NUMBER = 1;
+  private com.google.protobuf.LazyStringList pubKeyTypes_;
   /**
-   * <code>int32 max_bytes = 1;</code>
+   * <code>repeated string pub_key_types = 1;</code>
    */
-  public int getMaxBytes() {
-    return maxBytes_;
+  public com.google.protobuf.ProtocolStringList
+      getPubKeyTypesList() {
+    return pubKeyTypes_;
   }
-
-  public static final int MAX_GAS_FIELD_NUMBER = 2;
-  private long maxGas_;
   /**
-   * <code>int64 max_gas = 2;</code>
+   * <code>repeated string pub_key_types = 1;</code>
    */
-  public long getMaxGas() {
-    return maxGas_;
+  public int getPubKeyTypesCount() {
+    return pubKeyTypes_.size();
+  }
+  /**
+   * <code>repeated string pub_key_types = 1;</code>
+   */
+  public java.lang.String getPubKeyTypes(int index) {
+    return pubKeyTypes_.get(index);
+  }
+  /**
+   * <code>repeated string pub_key_types = 1;</code>
+   */
+  public com.google.protobuf.ByteString
+      getPubKeyTypesBytes(int index) {
+    return pubKeyTypes_.getByteString(index);
   }
 
   private byte memoizedIsInitialized = -1;
@@ -122,11 +134,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (maxBytes_ != 0) {
-      output.writeInt32(1, maxBytes_);
-    }
-    if (maxGas_ != 0L) {
-      output.writeInt64(2, maxGas_);
+    for (int i = 0; i < pubKeyTypes_.size(); i++) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, pubKeyTypes_.getRaw(i));
     }
     unknownFields.writeTo(output);
   }
@@ -137,13 +146,13 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (maxBytes_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(1, maxBytes_);
-    }
-    if (maxGas_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(2, maxGas_);
+    {
+      int dataSize = 0;
+      for (int i = 0; i < pubKeyTypes_.size(); i++) {
+        dataSize += computeStringSizeNoTag(pubKeyTypes_.getRaw(i));
+      }
+      size += dataSize;
+      size += 1 * getPubKeyTypesList().size();
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -155,16 +164,14 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.github.jtendermint.jabci.types.TxSize)) {
+    if (!(obj instanceof com.github.jtendermint.jabci.types.ValidatorParams)) {
       return super.equals(obj);
     }
-    com.github.jtendermint.jabci.types.TxSize other = (com.github.jtendermint.jabci.types.TxSize) obj;
+    com.github.jtendermint.jabci.types.ValidatorParams other = (com.github.jtendermint.jabci.types.ValidatorParams) obj;
 
     boolean result = true;
-    result = result && (getMaxBytes()
-        == other.getMaxBytes());
-    result = result && (getMaxGas()
-        == other.getMaxGas());
+    result = result && getPubKeyTypesList()
+        .equals(other.getPubKeyTypesList());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -176,79 +183,78 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + MAX_BYTES_FIELD_NUMBER;
-    hash = (53 * hash) + getMaxBytes();
-    hash = (37 * hash) + MAX_GAS_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getMaxGas());
+    if (getPubKeyTypesCount() > 0) {
+      hash = (37 * hash) + PUB_KEY_TYPES_FIELD_NUMBER;
+      hash = (53 * hash) + getPubKeyTypesList().hashCode();
+    }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static com.github.jtendermint.jabci.types.TxSize parseFrom(
+  public static com.github.jtendermint.jabci.types.ValidatorParams parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.github.jtendermint.jabci.types.TxSize parseFrom(
+  public static com.github.jtendermint.jabci.types.ValidatorParams parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.TxSize parseFrom(
+  public static com.github.jtendermint.jabci.types.ValidatorParams parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.github.jtendermint.jabci.types.TxSize parseFrom(
+  public static com.github.jtendermint.jabci.types.ValidatorParams parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.TxSize parseFrom(byte[] data)
+  public static com.github.jtendermint.jabci.types.ValidatorParams parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.github.jtendermint.jabci.types.TxSize parseFrom(
+  public static com.github.jtendermint.jabci.types.ValidatorParams parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.TxSize parseFrom(java.io.InputStream input)
+  public static com.github.jtendermint.jabci.types.ValidatorParams parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.github.jtendermint.jabci.types.TxSize parseFrom(
+  public static com.github.jtendermint.jabci.types.ValidatorParams parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.TxSize parseDelimitedFrom(java.io.InputStream input)
+  public static com.github.jtendermint.jabci.types.ValidatorParams parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.github.jtendermint.jabci.types.TxSize parseDelimitedFrom(
+  public static com.github.jtendermint.jabci.types.ValidatorParams parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.TxSize parseFrom(
+  public static com.github.jtendermint.jabci.types.ValidatorParams parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.github.jtendermint.jabci.types.TxSize parseFrom(
+  public static com.github.jtendermint.jabci.types.ValidatorParams parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -261,7 +267,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.github.jtendermint.jabci.types.TxSize prototype) {
+  public static Builder newBuilder(com.github.jtendermint.jabci.types.ValidatorParams prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -278,29 +284,29 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * TxSize contains limits on the tx size.
+   * ValidatorParams contains limits on validators.
    * </pre>
    *
-   * Protobuf type {@code com.github.jtendermint.jabci.types.TxSize}
+   * Protobuf type {@code com.github.jtendermint.jabci.types.ValidatorParams}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:com.github.jtendermint.jabci.types.TxSize)
-      com.github.jtendermint.jabci.types.TxSizeOrBuilder {
+      // @@protoc_insertion_point(builder_implements:com.github.jtendermint.jabci.types.ValidatorParams)
+      com.github.jtendermint.jabci.types.ValidatorParamsOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_TxSize_descriptor;
+      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ValidatorParams_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_TxSize_fieldAccessorTable
+      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ValidatorParams_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.github.jtendermint.jabci.types.TxSize.class, com.github.jtendermint.jabci.types.TxSize.Builder.class);
+              com.github.jtendermint.jabci.types.ValidatorParams.class, com.github.jtendermint.jabci.types.ValidatorParams.Builder.class);
     }
 
-    // Construct using com.github.jtendermint.jabci.types.TxSize.newBuilder()
+    // Construct using com.github.jtendermint.jabci.types.ValidatorParams.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -318,27 +324,25 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      maxBytes_ = 0;
-
-      maxGas_ = 0L;
-
+      pubKeyTypes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000001);
       return this;
     }
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_TxSize_descriptor;
+      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_ValidatorParams_descriptor;
     }
 
     @java.lang.Override
-    public com.github.jtendermint.jabci.types.TxSize getDefaultInstanceForType() {
-      return com.github.jtendermint.jabci.types.TxSize.getDefaultInstance();
+    public com.github.jtendermint.jabci.types.ValidatorParams getDefaultInstanceForType() {
+      return com.github.jtendermint.jabci.types.ValidatorParams.getDefaultInstance();
     }
 
     @java.lang.Override
-    public com.github.jtendermint.jabci.types.TxSize build() {
-      com.github.jtendermint.jabci.types.TxSize result = buildPartial();
+    public com.github.jtendermint.jabci.types.ValidatorParams build() {
+      com.github.jtendermint.jabci.types.ValidatorParams result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -346,10 +350,14 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public com.github.jtendermint.jabci.types.TxSize buildPartial() {
-      com.github.jtendermint.jabci.types.TxSize result = new com.github.jtendermint.jabci.types.TxSize(this);
-      result.maxBytes_ = maxBytes_;
-      result.maxGas_ = maxGas_;
+    public com.github.jtendermint.jabci.types.ValidatorParams buildPartial() {
+      com.github.jtendermint.jabci.types.ValidatorParams result = new com.github.jtendermint.jabci.types.ValidatorParams(this);
+      int from_bitField0_ = bitField0_;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        pubKeyTypes_ = pubKeyTypes_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000001);
+      }
+      result.pubKeyTypes_ = pubKeyTypes_;
       onBuilt();
       return result;
     }
@@ -388,21 +396,25 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.github.jtendermint.jabci.types.TxSize) {
-        return mergeFrom((com.github.jtendermint.jabci.types.TxSize)other);
+      if (other instanceof com.github.jtendermint.jabci.types.ValidatorParams) {
+        return mergeFrom((com.github.jtendermint.jabci.types.ValidatorParams)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.github.jtendermint.jabci.types.TxSize other) {
-      if (other == com.github.jtendermint.jabci.types.TxSize.getDefaultInstance()) return this;
-      if (other.getMaxBytes() != 0) {
-        setMaxBytes(other.getMaxBytes());
-      }
-      if (other.getMaxGas() != 0L) {
-        setMaxGas(other.getMaxGas());
+    public Builder mergeFrom(com.github.jtendermint.jabci.types.ValidatorParams other) {
+      if (other == com.github.jtendermint.jabci.types.ValidatorParams.getDefaultInstance()) return this;
+      if (!other.pubKeyTypes_.isEmpty()) {
+        if (pubKeyTypes_.isEmpty()) {
+          pubKeyTypes_ = other.pubKeyTypes_;
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          ensurePubKeyTypesIsMutable();
+          pubKeyTypes_.addAll(other.pubKeyTypes_);
+        }
+        onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -419,11 +431,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.github.jtendermint.jabci.types.TxSize parsedMessage = null;
+      com.github.jtendermint.jabci.types.ValidatorParams parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.github.jtendermint.jabci.types.TxSize) e.getUnfinishedMessage();
+        parsedMessage = (com.github.jtendermint.jabci.types.ValidatorParams) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -432,55 +444,98 @@ private static final long serialVersionUID = 0L;
       }
       return this;
     }
+    private int bitField0_;
 
-    private int maxBytes_ ;
-    /**
-     * <code>int32 max_bytes = 1;</code>
-     */
-    public int getMaxBytes() {
-      return maxBytes_;
+    private com.google.protobuf.LazyStringList pubKeyTypes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    private void ensurePubKeyTypesIsMutable() {
+      if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+        pubKeyTypes_ = new com.google.protobuf.LazyStringArrayList(pubKeyTypes_);
+        bitField0_ |= 0x00000001;
+       }
     }
     /**
-     * <code>int32 max_bytes = 1;</code>
+     * <code>repeated string pub_key_types = 1;</code>
      */
-    public Builder setMaxBytes(int value) {
-      
-      maxBytes_ = value;
+    public com.google.protobuf.ProtocolStringList
+        getPubKeyTypesList() {
+      return pubKeyTypes_.getUnmodifiableView();
+    }
+    /**
+     * <code>repeated string pub_key_types = 1;</code>
+     */
+    public int getPubKeyTypesCount() {
+      return pubKeyTypes_.size();
+    }
+    /**
+     * <code>repeated string pub_key_types = 1;</code>
+     */
+    public java.lang.String getPubKeyTypes(int index) {
+      return pubKeyTypes_.get(index);
+    }
+    /**
+     * <code>repeated string pub_key_types = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getPubKeyTypesBytes(int index) {
+      return pubKeyTypes_.getByteString(index);
+    }
+    /**
+     * <code>repeated string pub_key_types = 1;</code>
+     */
+    public Builder setPubKeyTypes(
+        int index, java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  ensurePubKeyTypesIsMutable();
+      pubKeyTypes_.set(index, value);
       onChanged();
       return this;
     }
     /**
-     * <code>int32 max_bytes = 1;</code>
+     * <code>repeated string pub_key_types = 1;</code>
      */
-    public Builder clearMaxBytes() {
-      
-      maxBytes_ = 0;
-      onChanged();
-      return this;
-    }
-
-    private long maxGas_ ;
-    /**
-     * <code>int64 max_gas = 2;</code>
-     */
-    public long getMaxGas() {
-      return maxGas_;
-    }
-    /**
-     * <code>int64 max_gas = 2;</code>
-     */
-    public Builder setMaxGas(long value) {
-      
-      maxGas_ = value;
+    public Builder addPubKeyTypes(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  ensurePubKeyTypesIsMutable();
+      pubKeyTypes_.add(value);
       onChanged();
       return this;
     }
     /**
-     * <code>int64 max_gas = 2;</code>
+     * <code>repeated string pub_key_types = 1;</code>
      */
-    public Builder clearMaxGas() {
-      
-      maxGas_ = 0L;
+    public Builder addAllPubKeyTypes(
+        java.lang.Iterable<java.lang.String> values) {
+      ensurePubKeyTypesIsMutable();
+      com.google.protobuf.AbstractMessageLite.Builder.addAll(
+          values, pubKeyTypes_);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string pub_key_types = 1;</code>
+     */
+    public Builder clearPubKeyTypes() {
+      pubKeyTypes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string pub_key_types = 1;</code>
+     */
+    public Builder addPubKeyTypesBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      ensurePubKeyTypesIsMutable();
+      pubKeyTypes_.add(value);
       onChanged();
       return this;
     }
@@ -497,41 +552,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:com.github.jtendermint.jabci.types.TxSize)
+    // @@protoc_insertion_point(builder_scope:com.github.jtendermint.jabci.types.ValidatorParams)
   }
 
-  // @@protoc_insertion_point(class_scope:com.github.jtendermint.jabci.types.TxSize)
-  private static final com.github.jtendermint.jabci.types.TxSize DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:com.github.jtendermint.jabci.types.ValidatorParams)
+  private static final com.github.jtendermint.jabci.types.ValidatorParams DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.github.jtendermint.jabci.types.TxSize();
+    DEFAULT_INSTANCE = new com.github.jtendermint.jabci.types.ValidatorParams();
   }
 
-  public static com.github.jtendermint.jabci.types.TxSize getDefaultInstance() {
+  public static com.github.jtendermint.jabci.types.ValidatorParams getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<TxSize>
-      PARSER = new com.google.protobuf.AbstractParser<TxSize>() {
+  private static final com.google.protobuf.Parser<ValidatorParams>
+      PARSER = new com.google.protobuf.AbstractParser<ValidatorParams>() {
     @java.lang.Override
-    public TxSize parsePartialFrom(
+    public ValidatorParams parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new TxSize(input, extensionRegistry);
+      return new ValidatorParams(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<TxSize> parser() {
+  public static com.google.protobuf.Parser<ValidatorParams> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<TxSize> getParserForType() {
+  public com.google.protobuf.Parser<ValidatorParams> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.github.jtendermint.jabci.types.TxSize getDefaultInstanceForType() {
+  public com.github.jtendermint.jabci.types.ValidatorParams getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

@@ -28,11 +28,39 @@ package com.github.jtendermint.jabci.api;
  * Bundled Interface of Sub-Interfaces
  * 
  * <br>
- * See <a href="https://github.com/tendermint/abci">https://github.com/tendermint /abci</a> for more info
+ * See
+ * <a href="https://github.com/tendermint/abci">https://github.com/tendermint
+ * /abci</a> for more info
  * 
- * @version 26.05.2016
+ * @version 06.11.2018
  *
  */
-public interface ABCIAPI extends IDeliverTx, IBeginBlock, ICheckTx, ICommit, IEndBlock, IFlush, IInfo, IInitChain, IQuery, ISetOption, IEcho {
-
+public interface ABCIAPI extends //
+        IEcho, // RequestEcho
+        IFlush, // RequestFlush
+        IInfo, // RequestInfo
+        ISetOption, // RequestSetOption
+        IInitChain, // RequestInitChain
+        IQuery, // RequestQuery
+        IBeginBlock, // RequestBeginBlock
+        ICheckTx, // RequestCheckTx
+        IDeliverTx, // RequestDeliverTx
+        IEndBlock, // RequestEndBlock
+        ICommit // RequestCommit
+{
+    // message Request {
+    // oneof value {
+    // RequestEcho echo = 2;
+    // RequestFlush flush = 3;
+    // RequestInfo info = 4;
+    // RequestSetOption set_option = 5;
+    // RequestInitChain init_chain = 6;
+    // RequestQuery query = 7;
+    // RequestBeginBlock begin_block = 8;
+    // RequestCheckTx check_tx = 9;
+    // RequestDeliverTx deliver_tx = 19;
+    // RequestEndBlock end_block = 11;
+    // RequestCommit commit = 12;
+    // }
+    // }
 }

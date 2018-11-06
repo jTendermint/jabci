@@ -8,41 +8,41 @@ public interface ConsensusParamsOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>.com.github.jtendermint.jabci.types.BlockSize block_size = 1;</code>
+   * <code>.com.github.jtendermint.jabci.types.BlockSizeParams block_size = 1;</code>
    */
   boolean hasBlockSize();
   /**
-   * <code>.com.github.jtendermint.jabci.types.BlockSize block_size = 1;</code>
+   * <code>.com.github.jtendermint.jabci.types.BlockSizeParams block_size = 1;</code>
    */
-  com.github.jtendermint.jabci.types.BlockSize getBlockSize();
+  com.github.jtendermint.jabci.types.BlockSizeParams getBlockSize();
   /**
-   * <code>.com.github.jtendermint.jabci.types.BlockSize block_size = 1;</code>
+   * <code>.com.github.jtendermint.jabci.types.BlockSizeParams block_size = 1;</code>
    */
-  com.github.jtendermint.jabci.types.BlockSizeOrBuilder getBlockSizeOrBuilder();
+  com.github.jtendermint.jabci.types.BlockSizeParamsOrBuilder getBlockSizeOrBuilder();
 
   /**
-   * <code>.com.github.jtendermint.jabci.types.TxSize tx_size = 2;</code>
+   * <code>.com.github.jtendermint.jabci.types.EvidenceParams evidence = 2;</code>
    */
-  boolean hasTxSize();
+  boolean hasEvidence();
   /**
-   * <code>.com.github.jtendermint.jabci.types.TxSize tx_size = 2;</code>
+   * <code>.com.github.jtendermint.jabci.types.EvidenceParams evidence = 2;</code>
    */
-  com.github.jtendermint.jabci.types.TxSize getTxSize();
+  com.github.jtendermint.jabci.types.EvidenceParams getEvidence();
   /**
-   * <code>.com.github.jtendermint.jabci.types.TxSize tx_size = 2;</code>
+   * <code>.com.github.jtendermint.jabci.types.EvidenceParams evidence = 2;</code>
    */
-  com.github.jtendermint.jabci.types.TxSizeOrBuilder getTxSizeOrBuilder();
+  com.github.jtendermint.jabci.types.EvidenceParamsOrBuilder getEvidenceOrBuilder();
 
   /**
-   * <code>.com.github.jtendermint.jabci.types.BlockGossip block_gossip = 3;</code>
+   * <code>.com.github.jtendermint.jabci.types.ValidatorParams validator = 3;</code>
    */
-  boolean hasBlockGossip();
+  boolean hasValidator();
   /**
-   * <code>.com.github.jtendermint.jabci.types.BlockGossip block_gossip = 3;</code>
+   * <code>.com.github.jtendermint.jabci.types.ValidatorParams validator = 3;</code>
    */
-  com.github.jtendermint.jabci.types.BlockGossip getBlockGossip();
+  com.github.jtendermint.jabci.types.ValidatorParams getValidator();
   /**
-   * <code>.com.github.jtendermint.jabci.types.BlockGossip block_gossip = 3;</code>
+   * <code>.com.github.jtendermint.jabci.types.ValidatorParams validator = 3;</code>
    */
-  com.github.jtendermint.jabci.types.BlockGossipOrBuilder getBlockGossipOrBuilder();
+  com.github.jtendermint.jabci.types.ValidatorParamsOrBuilder getValidatorOrBuilder();
 }

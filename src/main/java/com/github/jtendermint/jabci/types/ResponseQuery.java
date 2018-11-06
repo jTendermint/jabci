@@ -22,8 +22,8 @@ private static final long serialVersionUID = 0L;
     index_ = 0L;
     key_ = com.google.protobuf.ByteString.EMPTY;
     value_ = com.google.protobuf.ByteString.EMPTY;
-    proof_ = com.google.protobuf.ByteString.EMPTY;
     height_ = 0L;
+    codespace_ = "";
   }
 
   @java.lang.Override
@@ -83,13 +83,27 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 66: {
+            com.github.jtendermint.jabci.types.Proof.Builder subBuilder = null;
+            if (proof_ != null) {
+              subBuilder = proof_.toBuilder();
+            }
+            proof_ = input.readMessage(com.github.jtendermint.jabci.types.Proof.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(proof_);
+              proof_ = subBuilder.buildPartial();
+            }
 
-            proof_ = input.readBytes();
             break;
           }
           case 72: {
 
             height_ = input.readInt64();
+            break;
+          }
+          case 82: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            codespace_ = s;
             break;
           }
           default: {
@@ -245,12 +259,24 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PROOF_FIELD_NUMBER = 8;
-  private com.google.protobuf.ByteString proof_;
+  private com.github.jtendermint.jabci.types.Proof proof_;
   /**
-   * <code>bytes proof = 8;</code>
+   * <code>.com.github.jtendermint.jabci.types.Proof proof = 8;</code>
    */
-  public com.google.protobuf.ByteString getProof() {
-    return proof_;
+  public boolean hasProof() {
+    return proof_ != null;
+  }
+  /**
+   * <code>.com.github.jtendermint.jabci.types.Proof proof = 8;</code>
+   */
+  public com.github.jtendermint.jabci.types.Proof getProof() {
+    return proof_ == null ? com.github.jtendermint.jabci.types.Proof.getDefaultInstance() : proof_;
+  }
+  /**
+   * <code>.com.github.jtendermint.jabci.types.Proof proof = 8;</code>
+   */
+  public com.github.jtendermint.jabci.types.ProofOrBuilder getProofOrBuilder() {
+    return getProof();
   }
 
   public static final int HEIGHT_FIELD_NUMBER = 9;
@@ -260,6 +286,40 @@ private static final long serialVersionUID = 0L;
    */
   public long getHeight() {
     return height_;
+  }
+
+  public static final int CODESPACE_FIELD_NUMBER = 10;
+  private volatile java.lang.Object codespace_;
+  /**
+   * <code>string codespace = 10;</code>
+   */
+  public java.lang.String getCodespace() {
+    java.lang.Object ref = codespace_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      codespace_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string codespace = 10;</code>
+   */
+  public com.google.protobuf.ByteString
+      getCodespaceBytes() {
+    java.lang.Object ref = codespace_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      codespace_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
   }
 
   private byte memoizedIsInitialized = -1;
@@ -294,11 +354,14 @@ private static final long serialVersionUID = 0L;
     if (!value_.isEmpty()) {
       output.writeBytes(7, value_);
     }
-    if (!proof_.isEmpty()) {
-      output.writeBytes(8, proof_);
+    if (proof_ != null) {
+      output.writeMessage(8, getProof());
     }
     if (height_ != 0L) {
       output.writeInt64(9, height_);
+    }
+    if (!getCodespaceBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 10, codespace_);
     }
     unknownFields.writeTo(output);
   }
@@ -331,13 +394,16 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBytesSize(7, value_);
     }
-    if (!proof_.isEmpty()) {
+    if (proof_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBytesSize(8, proof_);
+        .computeMessageSize(8, getProof());
     }
     if (height_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(9, height_);
+    }
+    if (!getCodespaceBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, codespace_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -367,10 +433,15 @@ private static final long serialVersionUID = 0L;
         .equals(other.getKey());
     result = result && getValue()
         .equals(other.getValue());
-    result = result && getProof()
-        .equals(other.getProof());
+    result = result && (hasProof() == other.hasProof());
+    if (hasProof()) {
+      result = result && getProof()
+          .equals(other.getProof());
+    }
     result = result && (getHeight()
         == other.getHeight());
+    result = result && getCodespace()
+        .equals(other.getCodespace());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -395,11 +466,15 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getKey().hashCode();
     hash = (37 * hash) + VALUE_FIELD_NUMBER;
     hash = (53 * hash) + getValue().hashCode();
-    hash = (37 * hash) + PROOF_FIELD_NUMBER;
-    hash = (53 * hash) + getProof().hashCode();
+    if (hasProof()) {
+      hash = (37 * hash) + PROOF_FIELD_NUMBER;
+      hash = (53 * hash) + getProof().hashCode();
+    }
     hash = (37 * hash) + HEIGHT_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getHeight());
+    hash = (37 * hash) + CODESPACE_FIELD_NUMBER;
+    hash = (53 * hash) + getCodespace().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -545,9 +620,15 @@ private static final long serialVersionUID = 0L;
 
       value_ = com.google.protobuf.ByteString.EMPTY;
 
-      proof_ = com.google.protobuf.ByteString.EMPTY;
-
+      if (proofBuilder_ == null) {
+        proof_ = null;
+      } else {
+        proof_ = null;
+        proofBuilder_ = null;
+      }
       height_ = 0L;
+
+      codespace_ = "";
 
       return this;
     }
@@ -581,8 +662,13 @@ private static final long serialVersionUID = 0L;
       result.index_ = index_;
       result.key_ = key_;
       result.value_ = value_;
-      result.proof_ = proof_;
+      if (proofBuilder_ == null) {
+        result.proof_ = proof_;
+      } else {
+        result.proof_ = proofBuilder_.build();
+      }
       result.height_ = height_;
+      result.codespace_ = codespace_;
       onBuilt();
       return result;
     }
@@ -651,11 +737,15 @@ private static final long serialVersionUID = 0L;
       if (other.getValue() != com.google.protobuf.ByteString.EMPTY) {
         setValue(other.getValue());
       }
-      if (other.getProof() != com.google.protobuf.ByteString.EMPTY) {
-        setProof(other.getProof());
+      if (other.hasProof()) {
+        mergeProof(other.getProof());
       }
       if (other.getHeight() != 0L) {
         setHeight(other.getHeight());
+      }
+      if (!other.getCodespace().isEmpty()) {
+        codespace_ = other.codespace_;
+        onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -974,33 +1064,121 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.ByteString proof_ = com.google.protobuf.ByteString.EMPTY;
+    private com.github.jtendermint.jabci.types.Proof proof_ = null;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.github.jtendermint.jabci.types.Proof, com.github.jtendermint.jabci.types.Proof.Builder, com.github.jtendermint.jabci.types.ProofOrBuilder> proofBuilder_;
     /**
-     * <code>bytes proof = 8;</code>
+     * <code>.com.github.jtendermint.jabci.types.Proof proof = 8;</code>
      */
-    public com.google.protobuf.ByteString getProof() {
-      return proof_;
+    public boolean hasProof() {
+      return proofBuilder_ != null || proof_ != null;
     }
     /**
-     * <code>bytes proof = 8;</code>
+     * <code>.com.github.jtendermint.jabci.types.Proof proof = 8;</code>
      */
-    public Builder setProof(com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      proof_ = value;
-      onChanged();
+    public com.github.jtendermint.jabci.types.Proof getProof() {
+      if (proofBuilder_ == null) {
+        return proof_ == null ? com.github.jtendermint.jabci.types.Proof.getDefaultInstance() : proof_;
+      } else {
+        return proofBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.com.github.jtendermint.jabci.types.Proof proof = 8;</code>
+     */
+    public Builder setProof(com.github.jtendermint.jabci.types.Proof value) {
+      if (proofBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        proof_ = value;
+        onChanged();
+      } else {
+        proofBuilder_.setMessage(value);
+      }
+
       return this;
     }
     /**
-     * <code>bytes proof = 8;</code>
+     * <code>.com.github.jtendermint.jabci.types.Proof proof = 8;</code>
+     */
+    public Builder setProof(
+        com.github.jtendermint.jabci.types.Proof.Builder builderForValue) {
+      if (proofBuilder_ == null) {
+        proof_ = builderForValue.build();
+        onChanged();
+      } else {
+        proofBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.com.github.jtendermint.jabci.types.Proof proof = 8;</code>
+     */
+    public Builder mergeProof(com.github.jtendermint.jabci.types.Proof value) {
+      if (proofBuilder_ == null) {
+        if (proof_ != null) {
+          proof_ =
+            com.github.jtendermint.jabci.types.Proof.newBuilder(proof_).mergeFrom(value).buildPartial();
+        } else {
+          proof_ = value;
+        }
+        onChanged();
+      } else {
+        proofBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.com.github.jtendermint.jabci.types.Proof proof = 8;</code>
      */
     public Builder clearProof() {
-      
-      proof_ = getDefaultInstance().getProof();
-      onChanged();
+      if (proofBuilder_ == null) {
+        proof_ = null;
+        onChanged();
+      } else {
+        proof_ = null;
+        proofBuilder_ = null;
+      }
+
       return this;
+    }
+    /**
+     * <code>.com.github.jtendermint.jabci.types.Proof proof = 8;</code>
+     */
+    public com.github.jtendermint.jabci.types.Proof.Builder getProofBuilder() {
+      
+      onChanged();
+      return getProofFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.com.github.jtendermint.jabci.types.Proof proof = 8;</code>
+     */
+    public com.github.jtendermint.jabci.types.ProofOrBuilder getProofOrBuilder() {
+      if (proofBuilder_ != null) {
+        return proofBuilder_.getMessageOrBuilder();
+      } else {
+        return proof_ == null ?
+            com.github.jtendermint.jabci.types.Proof.getDefaultInstance() : proof_;
+      }
+    }
+    /**
+     * <code>.com.github.jtendermint.jabci.types.Proof proof = 8;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.github.jtendermint.jabci.types.Proof, com.github.jtendermint.jabci.types.Proof.Builder, com.github.jtendermint.jabci.types.ProofOrBuilder> 
+        getProofFieldBuilder() {
+      if (proofBuilder_ == null) {
+        proofBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.github.jtendermint.jabci.types.Proof, com.github.jtendermint.jabci.types.Proof.Builder, com.github.jtendermint.jabci.types.ProofOrBuilder>(
+                getProof(),
+                getParentForChildren(),
+                isClean());
+        proof_ = null;
+      }
+      return proofBuilder_;
     }
 
     private long height_ ;
@@ -1025,6 +1203,75 @@ private static final long serialVersionUID = 0L;
     public Builder clearHeight() {
       
       height_ = 0L;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object codespace_ = "";
+    /**
+     * <code>string codespace = 10;</code>
+     */
+    public java.lang.String getCodespace() {
+      java.lang.Object ref = codespace_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        codespace_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string codespace = 10;</code>
+     */
+    public com.google.protobuf.ByteString
+        getCodespaceBytes() {
+      java.lang.Object ref = codespace_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        codespace_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string codespace = 10;</code>
+     */
+    public Builder setCodespace(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      codespace_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string codespace = 10;</code>
+     */
+    public Builder clearCodespace() {
+      
+      codespace_ = getDefaultInstance().getCodespace();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string codespace = 10;</code>
+     */
+    public Builder setCodespaceBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      codespace_ = value;
       onChanged();
       return this;
     }

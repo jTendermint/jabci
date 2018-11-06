@@ -4,11 +4,6 @@
 package com.github.jtendermint.jabci.types;
 
 /**
- * <pre>
- *----------------------------------------
- * Request types
- * </pre>
- *
  * Protobuf type {@code com.github.jtendermint.jabci.types.Request}
  */
 public  final class Request extends
@@ -897,11 +892,6 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * <pre>
-   *----------------------------------------
-   * Request types
-   * </pre>
-   *
    * Protobuf type {@code com.github.jtendermint.jabci.types.Request}
    */
   public static final class Builder extends

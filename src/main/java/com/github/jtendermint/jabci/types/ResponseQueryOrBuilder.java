@@ -64,12 +64,30 @@ public interface ResponseQueryOrBuilder extends
   com.google.protobuf.ByteString getValue();
 
   /**
-   * <code>bytes proof = 8;</code>
+   * <code>.com.github.jtendermint.jabci.types.Proof proof = 8;</code>
    */
-  com.google.protobuf.ByteString getProof();
+  boolean hasProof();
+  /**
+   * <code>.com.github.jtendermint.jabci.types.Proof proof = 8;</code>
+   */
+  com.github.jtendermint.jabci.types.Proof getProof();
+  /**
+   * <code>.com.github.jtendermint.jabci.types.Proof proof = 8;</code>
+   */
+  com.github.jtendermint.jabci.types.ProofOrBuilder getProofOrBuilder();
 
   /**
    * <code>int64 height = 9;</code>
    */
   long getHeight();
+
+  /**
+   * <code>string codespace = 10;</code>
+   */
+  java.lang.String getCodespace();
+  /**
+   * <code>string codespace = 10;</code>
+   */
+  com.google.protobuf.ByteString
+      getCodespaceBytes();
 }

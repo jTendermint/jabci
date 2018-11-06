@@ -4,10 +4,6 @@
 package com.github.jtendermint.jabci.types;
 
 /**
- * <pre>
- * NOTE: validators here have empty pubkeys.
- * </pre>
- *
  * Protobuf type {@code com.github.jtendermint.jabci.types.RequestBeginBlock}
  */
 public  final class RequestBeginBlock extends
@@ -412,10 +408,6 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * <pre>
-   * NOTE: validators here have empty pubkeys.
-   * </pre>
-   *
    * Protobuf type {@code com.github.jtendermint.jabci.types.RequestBeginBlock}
    */
   public static final class Builder extends

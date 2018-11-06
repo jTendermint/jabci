@@ -5,23 +5,22 @@ package com.github.jtendermint.jabci.types;
 
 /**
  * <pre>
- * BlockGossip determine consensus critical
- * elements of how blocks are gossiped
+ * EvidenceParams contains limits on the evidence.
  * </pre>
  *
- * Protobuf type {@code com.github.jtendermint.jabci.types.BlockGossip}
+ * Protobuf type {@code com.github.jtendermint.jabci.types.EvidenceParams}
  */
-public  final class BlockGossip extends
+public  final class EvidenceParams extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:com.github.jtendermint.jabci.types.BlockGossip)
-    BlockGossipOrBuilder {
+    // @@protoc_insertion_point(message_implements:com.github.jtendermint.jabci.types.EvidenceParams)
+    EvidenceParamsOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use BlockGossip.newBuilder() to construct.
-  private BlockGossip(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use EvidenceParams.newBuilder() to construct.
+  private EvidenceParams(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private BlockGossip() {
-    blockPartSizeBytes_ = 0;
+  private EvidenceParams() {
+    maxAge_ = 0L;
   }
 
   @java.lang.Override
@@ -29,7 +28,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private BlockGossip(
+  private EvidenceParams(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -50,7 +49,7 @@ private static final long serialVersionUID = 0L;
             break;
           case 8: {
 
-            blockPartSizeBytes_ = input.readInt32();
+            maxAge_ = input.readInt64();
             break;
           }
           default: {
@@ -74,28 +73,28 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_BlockGossip_descriptor;
+    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_EvidenceParams_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_BlockGossip_fieldAccessorTable
+    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_EvidenceParams_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.github.jtendermint.jabci.types.BlockGossip.class, com.github.jtendermint.jabci.types.BlockGossip.Builder.class);
+            com.github.jtendermint.jabci.types.EvidenceParams.class, com.github.jtendermint.jabci.types.EvidenceParams.Builder.class);
   }
 
-  public static final int BLOCK_PART_SIZE_BYTES_FIELD_NUMBER = 1;
-  private int blockPartSizeBytes_;
+  public static final int MAX_AGE_FIELD_NUMBER = 1;
+  private long maxAge_;
   /**
    * <pre>
-   * Note: must not be 0
+   * Note: must be greater than 0
    * </pre>
    *
-   * <code>int32 block_part_size_bytes = 1;</code>
+   * <code>int64 max_age = 1;</code>
    */
-  public int getBlockPartSizeBytes() {
-    return blockPartSizeBytes_;
+  public long getMaxAge() {
+    return maxAge_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -112,8 +111,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (blockPartSizeBytes_ != 0) {
-      output.writeInt32(1, blockPartSizeBytes_);
+    if (maxAge_ != 0L) {
+      output.writeInt64(1, maxAge_);
     }
     unknownFields.writeTo(output);
   }
@@ -124,9 +123,9 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (blockPartSizeBytes_ != 0) {
+    if (maxAge_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(1, blockPartSizeBytes_);
+        .computeInt64Size(1, maxAge_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -138,14 +137,14 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.github.jtendermint.jabci.types.BlockGossip)) {
+    if (!(obj instanceof com.github.jtendermint.jabci.types.EvidenceParams)) {
       return super.equals(obj);
     }
-    com.github.jtendermint.jabci.types.BlockGossip other = (com.github.jtendermint.jabci.types.BlockGossip) obj;
+    com.github.jtendermint.jabci.types.EvidenceParams other = (com.github.jtendermint.jabci.types.EvidenceParams) obj;
 
     boolean result = true;
-    result = result && (getBlockPartSizeBytes()
-        == other.getBlockPartSizeBytes());
+    result = result && (getMaxAge()
+        == other.getMaxAge());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -157,76 +156,77 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + BLOCK_PART_SIZE_BYTES_FIELD_NUMBER;
-    hash = (53 * hash) + getBlockPartSizeBytes();
+    hash = (37 * hash) + MAX_AGE_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getMaxAge());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static com.github.jtendermint.jabci.types.BlockGossip parseFrom(
+  public static com.github.jtendermint.jabci.types.EvidenceParams parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.github.jtendermint.jabci.types.BlockGossip parseFrom(
+  public static com.github.jtendermint.jabci.types.EvidenceParams parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.BlockGossip parseFrom(
+  public static com.github.jtendermint.jabci.types.EvidenceParams parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.github.jtendermint.jabci.types.BlockGossip parseFrom(
+  public static com.github.jtendermint.jabci.types.EvidenceParams parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.BlockGossip parseFrom(byte[] data)
+  public static com.github.jtendermint.jabci.types.EvidenceParams parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.github.jtendermint.jabci.types.BlockGossip parseFrom(
+  public static com.github.jtendermint.jabci.types.EvidenceParams parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.BlockGossip parseFrom(java.io.InputStream input)
+  public static com.github.jtendermint.jabci.types.EvidenceParams parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.github.jtendermint.jabci.types.BlockGossip parseFrom(
+  public static com.github.jtendermint.jabci.types.EvidenceParams parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.BlockGossip parseDelimitedFrom(java.io.InputStream input)
+  public static com.github.jtendermint.jabci.types.EvidenceParams parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.github.jtendermint.jabci.types.BlockGossip parseDelimitedFrom(
+  public static com.github.jtendermint.jabci.types.EvidenceParams parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.BlockGossip parseFrom(
+  public static com.github.jtendermint.jabci.types.EvidenceParams parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.github.jtendermint.jabci.types.BlockGossip parseFrom(
+  public static com.github.jtendermint.jabci.types.EvidenceParams parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -239,7 +239,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.github.jtendermint.jabci.types.BlockGossip prototype) {
+  public static Builder newBuilder(com.github.jtendermint.jabci.types.EvidenceParams prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -256,30 +256,29 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * BlockGossip determine consensus critical
-   * elements of how blocks are gossiped
+   * EvidenceParams contains limits on the evidence.
    * </pre>
    *
-   * Protobuf type {@code com.github.jtendermint.jabci.types.BlockGossip}
+   * Protobuf type {@code com.github.jtendermint.jabci.types.EvidenceParams}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:com.github.jtendermint.jabci.types.BlockGossip)
-      com.github.jtendermint.jabci.types.BlockGossipOrBuilder {
+      // @@protoc_insertion_point(builder_implements:com.github.jtendermint.jabci.types.EvidenceParams)
+      com.github.jtendermint.jabci.types.EvidenceParamsOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_BlockGossip_descriptor;
+      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_EvidenceParams_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_BlockGossip_fieldAccessorTable
+      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_EvidenceParams_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.github.jtendermint.jabci.types.BlockGossip.class, com.github.jtendermint.jabci.types.BlockGossip.Builder.class);
+              com.github.jtendermint.jabci.types.EvidenceParams.class, com.github.jtendermint.jabci.types.EvidenceParams.Builder.class);
     }
 
-    // Construct using com.github.jtendermint.jabci.types.BlockGossip.newBuilder()
+    // Construct using com.github.jtendermint.jabci.types.EvidenceParams.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -297,7 +296,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      blockPartSizeBytes_ = 0;
+      maxAge_ = 0L;
 
       return this;
     }
@@ -305,17 +304,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_BlockGossip_descriptor;
+      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_EvidenceParams_descriptor;
     }
 
     @java.lang.Override
-    public com.github.jtendermint.jabci.types.BlockGossip getDefaultInstanceForType() {
-      return com.github.jtendermint.jabci.types.BlockGossip.getDefaultInstance();
+    public com.github.jtendermint.jabci.types.EvidenceParams getDefaultInstanceForType() {
+      return com.github.jtendermint.jabci.types.EvidenceParams.getDefaultInstance();
     }
 
     @java.lang.Override
-    public com.github.jtendermint.jabci.types.BlockGossip build() {
-      com.github.jtendermint.jabci.types.BlockGossip result = buildPartial();
+    public com.github.jtendermint.jabci.types.EvidenceParams build() {
+      com.github.jtendermint.jabci.types.EvidenceParams result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -323,9 +322,9 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public com.github.jtendermint.jabci.types.BlockGossip buildPartial() {
-      com.github.jtendermint.jabci.types.BlockGossip result = new com.github.jtendermint.jabci.types.BlockGossip(this);
-      result.blockPartSizeBytes_ = blockPartSizeBytes_;
+    public com.github.jtendermint.jabci.types.EvidenceParams buildPartial() {
+      com.github.jtendermint.jabci.types.EvidenceParams result = new com.github.jtendermint.jabci.types.EvidenceParams(this);
+      result.maxAge_ = maxAge_;
       onBuilt();
       return result;
     }
@@ -364,18 +363,18 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.github.jtendermint.jabci.types.BlockGossip) {
-        return mergeFrom((com.github.jtendermint.jabci.types.BlockGossip)other);
+      if (other instanceof com.github.jtendermint.jabci.types.EvidenceParams) {
+        return mergeFrom((com.github.jtendermint.jabci.types.EvidenceParams)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.github.jtendermint.jabci.types.BlockGossip other) {
-      if (other == com.github.jtendermint.jabci.types.BlockGossip.getDefaultInstance()) return this;
-      if (other.getBlockPartSizeBytes() != 0) {
-        setBlockPartSizeBytes(other.getBlockPartSizeBytes());
+    public Builder mergeFrom(com.github.jtendermint.jabci.types.EvidenceParams other) {
+      if (other == com.github.jtendermint.jabci.types.EvidenceParams.getDefaultInstance()) return this;
+      if (other.getMaxAge() != 0L) {
+        setMaxAge(other.getMaxAge());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -392,11 +391,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.github.jtendermint.jabci.types.BlockGossip parsedMessage = null;
+      com.github.jtendermint.jabci.types.EvidenceParams parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.github.jtendermint.jabci.types.BlockGossip) e.getUnfinishedMessage();
+        parsedMessage = (com.github.jtendermint.jabci.types.EvidenceParams) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -406,40 +405,40 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int blockPartSizeBytes_ ;
+    private long maxAge_ ;
     /**
      * <pre>
-     * Note: must not be 0
+     * Note: must be greater than 0
      * </pre>
      *
-     * <code>int32 block_part_size_bytes = 1;</code>
+     * <code>int64 max_age = 1;</code>
      */
-    public int getBlockPartSizeBytes() {
-      return blockPartSizeBytes_;
+    public long getMaxAge() {
+      return maxAge_;
     }
     /**
      * <pre>
-     * Note: must not be 0
+     * Note: must be greater than 0
      * </pre>
      *
-     * <code>int32 block_part_size_bytes = 1;</code>
+     * <code>int64 max_age = 1;</code>
      */
-    public Builder setBlockPartSizeBytes(int value) {
+    public Builder setMaxAge(long value) {
       
-      blockPartSizeBytes_ = value;
+      maxAge_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Note: must not be 0
+     * Note: must be greater than 0
      * </pre>
      *
-     * <code>int32 block_part_size_bytes = 1;</code>
+     * <code>int64 max_age = 1;</code>
      */
-    public Builder clearBlockPartSizeBytes() {
+    public Builder clearMaxAge() {
       
-      blockPartSizeBytes_ = 0;
+      maxAge_ = 0L;
       onChanged();
       return this;
     }
@@ -456,41 +455,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:com.github.jtendermint.jabci.types.BlockGossip)
+    // @@protoc_insertion_point(builder_scope:com.github.jtendermint.jabci.types.EvidenceParams)
   }
 
-  // @@protoc_insertion_point(class_scope:com.github.jtendermint.jabci.types.BlockGossip)
-  private static final com.github.jtendermint.jabci.types.BlockGossip DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:com.github.jtendermint.jabci.types.EvidenceParams)
+  private static final com.github.jtendermint.jabci.types.EvidenceParams DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.github.jtendermint.jabci.types.BlockGossip();
+    DEFAULT_INSTANCE = new com.github.jtendermint.jabci.types.EvidenceParams();
   }
 
-  public static com.github.jtendermint.jabci.types.BlockGossip getDefaultInstance() {
+  public static com.github.jtendermint.jabci.types.EvidenceParams getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<BlockGossip>
-      PARSER = new com.google.protobuf.AbstractParser<BlockGossip>() {
+  private static final com.google.protobuf.Parser<EvidenceParams>
+      PARSER = new com.google.protobuf.AbstractParser<EvidenceParams>() {
     @java.lang.Override
-    public BlockGossip parsePartialFrom(
+    public EvidenceParams parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new BlockGossip(input, extensionRegistry);
+      return new EvidenceParams(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<BlockGossip> parser() {
+  public static com.google.protobuf.Parser<EvidenceParams> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<BlockGossip> getParserForType() {
+  public com.google.protobuf.Parser<EvidenceParams> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.github.jtendermint.jabci.types.BlockGossip getDefaultInstanceForType() {
+  public com.github.jtendermint.jabci.types.EvidenceParams getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

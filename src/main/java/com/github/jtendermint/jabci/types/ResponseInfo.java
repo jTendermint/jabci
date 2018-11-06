@@ -18,6 +18,7 @@ private static final long serialVersionUID = 0L;
   private ResponseInfo() {
     data_ = "";
     version_ = "";
+    appVersion_ = 0L;
     lastBlockHeight_ = 0L;
     lastBlockAppHash_ = com.google.protobuf.ByteString.EMPTY;
   }
@@ -60,10 +61,15 @@ private static final long serialVersionUID = 0L;
           }
           case 24: {
 
+            appVersion_ = input.readUInt64();
+            break;
+          }
+          case 32: {
+
             lastBlockHeight_ = input.readInt64();
             break;
           }
-          case 34: {
+          case 42: {
 
             lastBlockAppHash_ = input.readBytes();
             break;
@@ -168,19 +174,28 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int LAST_BLOCK_HEIGHT_FIELD_NUMBER = 3;
+  public static final int APP_VERSION_FIELD_NUMBER = 3;
+  private long appVersion_;
+  /**
+   * <code>uint64 app_version = 3;</code>
+   */
+  public long getAppVersion() {
+    return appVersion_;
+  }
+
+  public static final int LAST_BLOCK_HEIGHT_FIELD_NUMBER = 4;
   private long lastBlockHeight_;
   /**
-   * <code>int64 last_block_height = 3;</code>
+   * <code>int64 last_block_height = 4;</code>
    */
   public long getLastBlockHeight() {
     return lastBlockHeight_;
   }
 
-  public static final int LAST_BLOCK_APP_HASH_FIELD_NUMBER = 4;
+  public static final int LAST_BLOCK_APP_HASH_FIELD_NUMBER = 5;
   private com.google.protobuf.ByteString lastBlockAppHash_;
   /**
-   * <code>bytes last_block_app_hash = 4;</code>
+   * <code>bytes last_block_app_hash = 5;</code>
    */
   public com.google.protobuf.ByteString getLastBlockAppHash() {
     return lastBlockAppHash_;
@@ -206,11 +221,14 @@ private static final long serialVersionUID = 0L;
     if (!getVersionBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, version_);
     }
+    if (appVersion_ != 0L) {
+      output.writeUInt64(3, appVersion_);
+    }
     if (lastBlockHeight_ != 0L) {
-      output.writeInt64(3, lastBlockHeight_);
+      output.writeInt64(4, lastBlockHeight_);
     }
     if (!lastBlockAppHash_.isEmpty()) {
-      output.writeBytes(4, lastBlockAppHash_);
+      output.writeBytes(5, lastBlockAppHash_);
     }
     unknownFields.writeTo(output);
   }
@@ -227,13 +245,17 @@ private static final long serialVersionUID = 0L;
     if (!getVersionBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, version_);
     }
+    if (appVersion_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeUInt64Size(3, appVersion_);
+    }
     if (lastBlockHeight_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(3, lastBlockHeight_);
+        .computeInt64Size(4, lastBlockHeight_);
     }
     if (!lastBlockAppHash_.isEmpty()) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBytesSize(4, lastBlockAppHash_);
+        .computeBytesSize(5, lastBlockAppHash_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -255,6 +277,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getData());
     result = result && getVersion()
         .equals(other.getVersion());
+    result = result && (getAppVersion()
+        == other.getAppVersion());
     result = result && (getLastBlockHeight()
         == other.getLastBlockHeight());
     result = result && getLastBlockAppHash()
@@ -274,6 +298,9 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getData().hashCode();
     hash = (37 * hash) + VERSION_FIELD_NUMBER;
     hash = (53 * hash) + getVersion().hashCode();
+    hash = (37 * hash) + APP_VERSION_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getAppVersion());
     hash = (37 * hash) + LAST_BLOCK_HEIGHT_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getLastBlockHeight());
@@ -416,6 +443,8 @@ private static final long serialVersionUID = 0L;
 
       version_ = "";
 
+      appVersion_ = 0L;
+
       lastBlockHeight_ = 0L;
 
       lastBlockAppHash_ = com.google.protobuf.ByteString.EMPTY;
@@ -448,6 +477,7 @@ private static final long serialVersionUID = 0L;
       com.github.jtendermint.jabci.types.ResponseInfo result = new com.github.jtendermint.jabci.types.ResponseInfo(this);
       result.data_ = data_;
       result.version_ = version_;
+      result.appVersion_ = appVersion_;
       result.lastBlockHeight_ = lastBlockHeight_;
       result.lastBlockAppHash_ = lastBlockAppHash_;
       onBuilt();
@@ -505,6 +535,9 @@ private static final long serialVersionUID = 0L;
       if (!other.getVersion().isEmpty()) {
         version_ = other.version_;
         onChanged();
+      }
+      if (other.getAppVersion() != 0L) {
+        setAppVersion(other.getAppVersion());
       }
       if (other.getLastBlockHeight() != 0L) {
         setLastBlockHeight(other.getLastBlockHeight());
@@ -679,15 +712,41 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private long appVersion_ ;
+    /**
+     * <code>uint64 app_version = 3;</code>
+     */
+    public long getAppVersion() {
+      return appVersion_;
+    }
+    /**
+     * <code>uint64 app_version = 3;</code>
+     */
+    public Builder setAppVersion(long value) {
+      
+      appVersion_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>uint64 app_version = 3;</code>
+     */
+    public Builder clearAppVersion() {
+      
+      appVersion_ = 0L;
+      onChanged();
+      return this;
+    }
+
     private long lastBlockHeight_ ;
     /**
-     * <code>int64 last_block_height = 3;</code>
+     * <code>int64 last_block_height = 4;</code>
      */
     public long getLastBlockHeight() {
       return lastBlockHeight_;
     }
     /**
-     * <code>int64 last_block_height = 3;</code>
+     * <code>int64 last_block_height = 4;</code>
      */
     public Builder setLastBlockHeight(long value) {
       
@@ -696,7 +755,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 last_block_height = 3;</code>
+     * <code>int64 last_block_height = 4;</code>
      */
     public Builder clearLastBlockHeight() {
       
@@ -707,13 +766,13 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.ByteString lastBlockAppHash_ = com.google.protobuf.ByteString.EMPTY;
     /**
-     * <code>bytes last_block_app_hash = 4;</code>
+     * <code>bytes last_block_app_hash = 5;</code>
      */
     public com.google.protobuf.ByteString getLastBlockAppHash() {
       return lastBlockAppHash_;
     }
     /**
-     * <code>bytes last_block_app_hash = 4;</code>
+     * <code>bytes last_block_app_hash = 5;</code>
      */
     public Builder setLastBlockAppHash(com.google.protobuf.ByteString value) {
       if (value == null) {
@@ -725,7 +784,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>bytes last_block_app_hash = 4;</code>
+     * <code>bytes last_block_app_hash = 5;</code>
      */
     public Builder clearLastBlockAppHash() {
       

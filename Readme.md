@@ -23,6 +23,12 @@ jABCI v0.24.0 Release is now available via maven central. Use the following depe
 When you make changes to the protobuf file, you can enable the appropriate build-phase for the compiler-plugin to generate the file(s) in the target-directory.
 Just switch the comments on line [pom.xml](https://github.com/jTendermint/jabci/blob/master/pom.xml#L86).
 
+From commandline:
+```
+cd jabci/src/main/java
+protoc  --java_out=. --proto_path=../proto/. ../proto/types.proto
+```
+
 
 #### Compatibility
 
@@ -40,4 +46,4 @@ Just switch the comments on line [pom.xml](https://github.com/jTendermint/jabci/
 | 0.20.0.x | 0.22.x |
 | 0.24.0   | 0.24   |
 | 0.24.0   | 0.25   |
-
+| 0.26.0   | 0.26   |

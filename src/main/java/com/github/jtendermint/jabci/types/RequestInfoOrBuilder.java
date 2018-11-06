@@ -16,4 +16,14 @@ public interface RequestInfoOrBuilder extends
    */
   com.google.protobuf.ByteString
       getVersionBytes();
+
+  /**
+   * <code>uint64 block_version = 2;</code>
+   */
+  long getBlockVersion();
+
+  /**
+   * <code>uint64 p2p_version = 3;</code>
+   */
+  long getP2PVersion();
 }

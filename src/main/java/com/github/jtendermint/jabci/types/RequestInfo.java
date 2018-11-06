@@ -17,6 +17,8 @@ private static final long serialVersionUID = 0L;
   }
   private RequestInfo() {
     version_ = "";
+    blockVersion_ = 0L;
+    p2PVersion_ = 0L;
   }
 
   @java.lang.Override
@@ -47,6 +49,16 @@ private static final long serialVersionUID = 0L;
             java.lang.String s = input.readStringRequireUtf8();
 
             version_ = s;
+            break;
+          }
+          case 16: {
+
+            blockVersion_ = input.readUInt64();
+            break;
+          }
+          case 24: {
+
+            p2PVersion_ = input.readUInt64();
             break;
           }
           default: {
@@ -115,6 +127,24 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int BLOCK_VERSION_FIELD_NUMBER = 2;
+  private long blockVersion_;
+  /**
+   * <code>uint64 block_version = 2;</code>
+   */
+  public long getBlockVersion() {
+    return blockVersion_;
+  }
+
+  public static final int P2P_VERSION_FIELD_NUMBER = 3;
+  private long p2PVersion_;
+  /**
+   * <code>uint64 p2p_version = 3;</code>
+   */
+  public long getP2PVersion() {
+    return p2PVersion_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -132,6 +162,12 @@ private static final long serialVersionUID = 0L;
     if (!getVersionBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, version_);
     }
+    if (blockVersion_ != 0L) {
+      output.writeUInt64(2, blockVersion_);
+    }
+    if (p2PVersion_ != 0L) {
+      output.writeUInt64(3, p2PVersion_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -143,6 +179,14 @@ private static final long serialVersionUID = 0L;
     size = 0;
     if (!getVersionBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, version_);
+    }
+    if (blockVersion_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeUInt64Size(2, blockVersion_);
+    }
+    if (p2PVersion_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeUInt64Size(3, p2PVersion_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -162,6 +206,10 @@ private static final long serialVersionUID = 0L;
     boolean result = true;
     result = result && getVersion()
         .equals(other.getVersion());
+    result = result && (getBlockVersion()
+        == other.getBlockVersion());
+    result = result && (getP2PVersion()
+        == other.getP2PVersion());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -175,6 +223,12 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + VERSION_FIELD_NUMBER;
     hash = (53 * hash) + getVersion().hashCode();
+    hash = (37 * hash) + BLOCK_VERSION_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getBlockVersion());
+    hash = (37 * hash) + P2P_VERSION_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getP2PVersion());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -310,6 +364,10 @@ private static final long serialVersionUID = 0L;
       super.clear();
       version_ = "";
 
+      blockVersion_ = 0L;
+
+      p2PVersion_ = 0L;
+
       return this;
     }
 
@@ -337,6 +395,8 @@ private static final long serialVersionUID = 0L;
     public com.github.jtendermint.jabci.types.RequestInfo buildPartial() {
       com.github.jtendermint.jabci.types.RequestInfo result = new com.github.jtendermint.jabci.types.RequestInfo(this);
       result.version_ = version_;
+      result.blockVersion_ = blockVersion_;
+      result.p2PVersion_ = p2PVersion_;
       onBuilt();
       return result;
     }
@@ -388,6 +448,12 @@ private static final long serialVersionUID = 0L;
       if (!other.getVersion().isEmpty()) {
         version_ = other.version_;
         onChanged();
+      }
+      if (other.getBlockVersion() != 0L) {
+        setBlockVersion(other.getBlockVersion());
+      }
+      if (other.getP2PVersion() != 0L) {
+        setP2PVersion(other.getP2PVersion());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -483,6 +549,58 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       version_ = value;
+      onChanged();
+      return this;
+    }
+
+    private long blockVersion_ ;
+    /**
+     * <code>uint64 block_version = 2;</code>
+     */
+    public long getBlockVersion() {
+      return blockVersion_;
+    }
+    /**
+     * <code>uint64 block_version = 2;</code>
+     */
+    public Builder setBlockVersion(long value) {
+      
+      blockVersion_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>uint64 block_version = 2;</code>
+     */
+    public Builder clearBlockVersion() {
+      
+      blockVersion_ = 0L;
+      onChanged();
+      return this;
+    }
+
+    private long p2PVersion_ ;
+    /**
+     * <code>uint64 p2p_version = 3;</code>
+     */
+    public long getP2PVersion() {
+      return p2PVersion_;
+    }
+    /**
+     * <code>uint64 p2p_version = 3;</code>
+     */
+    public Builder setP2PVersion(long value) {
+      
+      p2PVersion_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>uint64 p2p_version = 3;</code>
+     */
+    public Builder clearP2PVersion() {
+      
+      p2PVersion_ = 0L;
       onChanged();
       return this;
     }

@@ -48,11 +48,11 @@ private static final long serialVersionUID = 0L;
             done = true;
             break;
           case 10: {
-            com.github.jtendermint.jabci.types.BlockSize.Builder subBuilder = null;
+            com.github.jtendermint.jabci.types.BlockSizeParams.Builder subBuilder = null;
             if (blockSize_ != null) {
               subBuilder = blockSize_.toBuilder();
             }
-            blockSize_ = input.readMessage(com.github.jtendermint.jabci.types.BlockSize.parser(), extensionRegistry);
+            blockSize_ = input.readMessage(com.github.jtendermint.jabci.types.BlockSizeParams.parser(), extensionRegistry);
             if (subBuilder != null) {
               subBuilder.mergeFrom(blockSize_);
               blockSize_ = subBuilder.buildPartial();
@@ -61,27 +61,27 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 18: {
-            com.github.jtendermint.jabci.types.TxSize.Builder subBuilder = null;
-            if (txSize_ != null) {
-              subBuilder = txSize_.toBuilder();
+            com.github.jtendermint.jabci.types.EvidenceParams.Builder subBuilder = null;
+            if (evidence_ != null) {
+              subBuilder = evidence_.toBuilder();
             }
-            txSize_ = input.readMessage(com.github.jtendermint.jabci.types.TxSize.parser(), extensionRegistry);
+            evidence_ = input.readMessage(com.github.jtendermint.jabci.types.EvidenceParams.parser(), extensionRegistry);
             if (subBuilder != null) {
-              subBuilder.mergeFrom(txSize_);
-              txSize_ = subBuilder.buildPartial();
+              subBuilder.mergeFrom(evidence_);
+              evidence_ = subBuilder.buildPartial();
             }
 
             break;
           }
           case 26: {
-            com.github.jtendermint.jabci.types.BlockGossip.Builder subBuilder = null;
-            if (blockGossip_ != null) {
-              subBuilder = blockGossip_.toBuilder();
+            com.github.jtendermint.jabci.types.ValidatorParams.Builder subBuilder = null;
+            if (validator_ != null) {
+              subBuilder = validator_.toBuilder();
             }
-            blockGossip_ = input.readMessage(com.github.jtendermint.jabci.types.BlockGossip.parser(), extensionRegistry);
+            validator_ = input.readMessage(com.github.jtendermint.jabci.types.ValidatorParams.parser(), extensionRegistry);
             if (subBuilder != null) {
-              subBuilder.mergeFrom(blockGossip_);
-              blockGossip_ = subBuilder.buildPartial();
+              subBuilder.mergeFrom(validator_);
+              validator_ = subBuilder.buildPartial();
             }
 
             break;
@@ -119,66 +119,66 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int BLOCK_SIZE_FIELD_NUMBER = 1;
-  private com.github.jtendermint.jabci.types.BlockSize blockSize_;
+  private com.github.jtendermint.jabci.types.BlockSizeParams blockSize_;
   /**
-   * <code>.com.github.jtendermint.jabci.types.BlockSize block_size = 1;</code>
+   * <code>.com.github.jtendermint.jabci.types.BlockSizeParams block_size = 1;</code>
    */
   public boolean hasBlockSize() {
     return blockSize_ != null;
   }
   /**
-   * <code>.com.github.jtendermint.jabci.types.BlockSize block_size = 1;</code>
+   * <code>.com.github.jtendermint.jabci.types.BlockSizeParams block_size = 1;</code>
    */
-  public com.github.jtendermint.jabci.types.BlockSize getBlockSize() {
-    return blockSize_ == null ? com.github.jtendermint.jabci.types.BlockSize.getDefaultInstance() : blockSize_;
+  public com.github.jtendermint.jabci.types.BlockSizeParams getBlockSize() {
+    return blockSize_ == null ? com.github.jtendermint.jabci.types.BlockSizeParams.getDefaultInstance() : blockSize_;
   }
   /**
-   * <code>.com.github.jtendermint.jabci.types.BlockSize block_size = 1;</code>
+   * <code>.com.github.jtendermint.jabci.types.BlockSizeParams block_size = 1;</code>
    */
-  public com.github.jtendermint.jabci.types.BlockSizeOrBuilder getBlockSizeOrBuilder() {
+  public com.github.jtendermint.jabci.types.BlockSizeParamsOrBuilder getBlockSizeOrBuilder() {
     return getBlockSize();
   }
 
-  public static final int TX_SIZE_FIELD_NUMBER = 2;
-  private com.github.jtendermint.jabci.types.TxSize txSize_;
+  public static final int EVIDENCE_FIELD_NUMBER = 2;
+  private com.github.jtendermint.jabci.types.EvidenceParams evidence_;
   /**
-   * <code>.com.github.jtendermint.jabci.types.TxSize tx_size = 2;</code>
+   * <code>.com.github.jtendermint.jabci.types.EvidenceParams evidence = 2;</code>
    */
-  public boolean hasTxSize() {
-    return txSize_ != null;
+  public boolean hasEvidence() {
+    return evidence_ != null;
   }
   /**
-   * <code>.com.github.jtendermint.jabci.types.TxSize tx_size = 2;</code>
+   * <code>.com.github.jtendermint.jabci.types.EvidenceParams evidence = 2;</code>
    */
-  public com.github.jtendermint.jabci.types.TxSize getTxSize() {
-    return txSize_ == null ? com.github.jtendermint.jabci.types.TxSize.getDefaultInstance() : txSize_;
+  public com.github.jtendermint.jabci.types.EvidenceParams getEvidence() {
+    return evidence_ == null ? com.github.jtendermint.jabci.types.EvidenceParams.getDefaultInstance() : evidence_;
   }
   /**
-   * <code>.com.github.jtendermint.jabci.types.TxSize tx_size = 2;</code>
+   * <code>.com.github.jtendermint.jabci.types.EvidenceParams evidence = 2;</code>
    */
-  public com.github.jtendermint.jabci.types.TxSizeOrBuilder getTxSizeOrBuilder() {
-    return getTxSize();
+  public com.github.jtendermint.jabci.types.EvidenceParamsOrBuilder getEvidenceOrBuilder() {
+    return getEvidence();
   }
 
-  public static final int BLOCK_GOSSIP_FIELD_NUMBER = 3;
-  private com.github.jtendermint.jabci.types.BlockGossip blockGossip_;
+  public static final int VALIDATOR_FIELD_NUMBER = 3;
+  private com.github.jtendermint.jabci.types.ValidatorParams validator_;
   /**
-   * <code>.com.github.jtendermint.jabci.types.BlockGossip block_gossip = 3;</code>
+   * <code>.com.github.jtendermint.jabci.types.ValidatorParams validator = 3;</code>
    */
-  public boolean hasBlockGossip() {
-    return blockGossip_ != null;
+  public boolean hasValidator() {
+    return validator_ != null;
   }
   /**
-   * <code>.com.github.jtendermint.jabci.types.BlockGossip block_gossip = 3;</code>
+   * <code>.com.github.jtendermint.jabci.types.ValidatorParams validator = 3;</code>
    */
-  public com.github.jtendermint.jabci.types.BlockGossip getBlockGossip() {
-    return blockGossip_ == null ? com.github.jtendermint.jabci.types.BlockGossip.getDefaultInstance() : blockGossip_;
+  public com.github.jtendermint.jabci.types.ValidatorParams getValidator() {
+    return validator_ == null ? com.github.jtendermint.jabci.types.ValidatorParams.getDefaultInstance() : validator_;
   }
   /**
-   * <code>.com.github.jtendermint.jabci.types.BlockGossip block_gossip = 3;</code>
+   * <code>.com.github.jtendermint.jabci.types.ValidatorParams validator = 3;</code>
    */
-  public com.github.jtendermint.jabci.types.BlockGossipOrBuilder getBlockGossipOrBuilder() {
-    return getBlockGossip();
+  public com.github.jtendermint.jabci.types.ValidatorParamsOrBuilder getValidatorOrBuilder() {
+    return getValidator();
   }
 
   private byte memoizedIsInitialized = -1;
@@ -198,11 +198,11 @@ private static final long serialVersionUID = 0L;
     if (blockSize_ != null) {
       output.writeMessage(1, getBlockSize());
     }
-    if (txSize_ != null) {
-      output.writeMessage(2, getTxSize());
+    if (evidence_ != null) {
+      output.writeMessage(2, getEvidence());
     }
-    if (blockGossip_ != null) {
-      output.writeMessage(3, getBlockGossip());
+    if (validator_ != null) {
+      output.writeMessage(3, getValidator());
     }
     unknownFields.writeTo(output);
   }
@@ -217,13 +217,13 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, getBlockSize());
     }
-    if (txSize_ != null) {
+    if (evidence_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(2, getTxSize());
+        .computeMessageSize(2, getEvidence());
     }
-    if (blockGossip_ != null) {
+    if (validator_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(3, getBlockGossip());
+        .computeMessageSize(3, getValidator());
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -246,15 +246,15 @@ private static final long serialVersionUID = 0L;
       result = result && getBlockSize()
           .equals(other.getBlockSize());
     }
-    result = result && (hasTxSize() == other.hasTxSize());
-    if (hasTxSize()) {
-      result = result && getTxSize()
-          .equals(other.getTxSize());
+    result = result && (hasEvidence() == other.hasEvidence());
+    if (hasEvidence()) {
+      result = result && getEvidence()
+          .equals(other.getEvidence());
     }
-    result = result && (hasBlockGossip() == other.hasBlockGossip());
-    if (hasBlockGossip()) {
-      result = result && getBlockGossip()
-          .equals(other.getBlockGossip());
+    result = result && (hasValidator() == other.hasValidator());
+    if (hasValidator()) {
+      result = result && getValidator()
+          .equals(other.getValidator());
     }
     result = result && unknownFields.equals(other.unknownFields);
     return result;
@@ -271,13 +271,13 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + BLOCK_SIZE_FIELD_NUMBER;
       hash = (53 * hash) + getBlockSize().hashCode();
     }
-    if (hasTxSize()) {
-      hash = (37 * hash) + TX_SIZE_FIELD_NUMBER;
-      hash = (53 * hash) + getTxSize().hashCode();
+    if (hasEvidence()) {
+      hash = (37 * hash) + EVIDENCE_FIELD_NUMBER;
+      hash = (53 * hash) + getEvidence().hashCode();
     }
-    if (hasBlockGossip()) {
-      hash = (37 * hash) + BLOCK_GOSSIP_FIELD_NUMBER;
-      hash = (53 * hash) + getBlockGossip().hashCode();
+    if (hasValidator()) {
+      hash = (37 * hash) + VALIDATOR_FIELD_NUMBER;
+      hash = (53 * hash) + getValidator().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -423,17 +423,17 @@ private static final long serialVersionUID = 0L;
         blockSize_ = null;
         blockSizeBuilder_ = null;
       }
-      if (txSizeBuilder_ == null) {
-        txSize_ = null;
+      if (evidenceBuilder_ == null) {
+        evidence_ = null;
       } else {
-        txSize_ = null;
-        txSizeBuilder_ = null;
+        evidence_ = null;
+        evidenceBuilder_ = null;
       }
-      if (blockGossipBuilder_ == null) {
-        blockGossip_ = null;
+      if (validatorBuilder_ == null) {
+        validator_ = null;
       } else {
-        blockGossip_ = null;
-        blockGossipBuilder_ = null;
+        validator_ = null;
+        validatorBuilder_ = null;
       }
       return this;
     }
@@ -466,15 +466,15 @@ private static final long serialVersionUID = 0L;
       } else {
         result.blockSize_ = blockSizeBuilder_.build();
       }
-      if (txSizeBuilder_ == null) {
-        result.txSize_ = txSize_;
+      if (evidenceBuilder_ == null) {
+        result.evidence_ = evidence_;
       } else {
-        result.txSize_ = txSizeBuilder_.build();
+        result.evidence_ = evidenceBuilder_.build();
       }
-      if (blockGossipBuilder_ == null) {
-        result.blockGossip_ = blockGossip_;
+      if (validatorBuilder_ == null) {
+        result.validator_ = validator_;
       } else {
-        result.blockGossip_ = blockGossipBuilder_.build();
+        result.validator_ = validatorBuilder_.build();
       }
       onBuilt();
       return result;
@@ -527,11 +527,11 @@ private static final long serialVersionUID = 0L;
       if (other.hasBlockSize()) {
         mergeBlockSize(other.getBlockSize());
       }
-      if (other.hasTxSize()) {
-        mergeTxSize(other.getTxSize());
+      if (other.hasEvidence()) {
+        mergeEvidence(other.getEvidence());
       }
-      if (other.hasBlockGossip()) {
-        mergeBlockGossip(other.getBlockGossip());
+      if (other.hasValidator()) {
+        mergeValidator(other.getValidator());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -562,29 +562,29 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.github.jtendermint.jabci.types.BlockSize blockSize_ = null;
+    private com.github.jtendermint.jabci.types.BlockSizeParams blockSize_ = null;
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.github.jtendermint.jabci.types.BlockSize, com.github.jtendermint.jabci.types.BlockSize.Builder, com.github.jtendermint.jabci.types.BlockSizeOrBuilder> blockSizeBuilder_;
+        com.github.jtendermint.jabci.types.BlockSizeParams, com.github.jtendermint.jabci.types.BlockSizeParams.Builder, com.github.jtendermint.jabci.types.BlockSizeParamsOrBuilder> blockSizeBuilder_;
     /**
-     * <code>.com.github.jtendermint.jabci.types.BlockSize block_size = 1;</code>
+     * <code>.com.github.jtendermint.jabci.types.BlockSizeParams block_size = 1;</code>
      */
     public boolean hasBlockSize() {
       return blockSizeBuilder_ != null || blockSize_ != null;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.BlockSize block_size = 1;</code>
+     * <code>.com.github.jtendermint.jabci.types.BlockSizeParams block_size = 1;</code>
      */
-    public com.github.jtendermint.jabci.types.BlockSize getBlockSize() {
+    public com.github.jtendermint.jabci.types.BlockSizeParams getBlockSize() {
       if (blockSizeBuilder_ == null) {
-        return blockSize_ == null ? com.github.jtendermint.jabci.types.BlockSize.getDefaultInstance() : blockSize_;
+        return blockSize_ == null ? com.github.jtendermint.jabci.types.BlockSizeParams.getDefaultInstance() : blockSize_;
       } else {
         return blockSizeBuilder_.getMessage();
       }
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.BlockSize block_size = 1;</code>
+     * <code>.com.github.jtendermint.jabci.types.BlockSizeParams block_size = 1;</code>
      */
-    public Builder setBlockSize(com.github.jtendermint.jabci.types.BlockSize value) {
+    public Builder setBlockSize(com.github.jtendermint.jabci.types.BlockSizeParams value) {
       if (blockSizeBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -598,10 +598,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.BlockSize block_size = 1;</code>
+     * <code>.com.github.jtendermint.jabci.types.BlockSizeParams block_size = 1;</code>
      */
     public Builder setBlockSize(
-        com.github.jtendermint.jabci.types.BlockSize.Builder builderForValue) {
+        com.github.jtendermint.jabci.types.BlockSizeParams.Builder builderForValue) {
       if (blockSizeBuilder_ == null) {
         blockSize_ = builderForValue.build();
         onChanged();
@@ -612,13 +612,13 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.BlockSize block_size = 1;</code>
+     * <code>.com.github.jtendermint.jabci.types.BlockSizeParams block_size = 1;</code>
      */
-    public Builder mergeBlockSize(com.github.jtendermint.jabci.types.BlockSize value) {
+    public Builder mergeBlockSize(com.github.jtendermint.jabci.types.BlockSizeParams value) {
       if (blockSizeBuilder_ == null) {
         if (blockSize_ != null) {
           blockSize_ =
-            com.github.jtendermint.jabci.types.BlockSize.newBuilder(blockSize_).mergeFrom(value).buildPartial();
+            com.github.jtendermint.jabci.types.BlockSizeParams.newBuilder(blockSize_).mergeFrom(value).buildPartial();
         } else {
           blockSize_ = value;
         }
@@ -630,7 +630,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.BlockSize block_size = 1;</code>
+     * <code>.com.github.jtendermint.jabci.types.BlockSizeParams block_size = 1;</code>
      */
     public Builder clearBlockSize() {
       if (blockSizeBuilder_ == null) {
@@ -644,33 +644,33 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.BlockSize block_size = 1;</code>
+     * <code>.com.github.jtendermint.jabci.types.BlockSizeParams block_size = 1;</code>
      */
-    public com.github.jtendermint.jabci.types.BlockSize.Builder getBlockSizeBuilder() {
+    public com.github.jtendermint.jabci.types.BlockSizeParams.Builder getBlockSizeBuilder() {
       
       onChanged();
       return getBlockSizeFieldBuilder().getBuilder();
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.BlockSize block_size = 1;</code>
+     * <code>.com.github.jtendermint.jabci.types.BlockSizeParams block_size = 1;</code>
      */
-    public com.github.jtendermint.jabci.types.BlockSizeOrBuilder getBlockSizeOrBuilder() {
+    public com.github.jtendermint.jabci.types.BlockSizeParamsOrBuilder getBlockSizeOrBuilder() {
       if (blockSizeBuilder_ != null) {
         return blockSizeBuilder_.getMessageOrBuilder();
       } else {
         return blockSize_ == null ?
-            com.github.jtendermint.jabci.types.BlockSize.getDefaultInstance() : blockSize_;
+            com.github.jtendermint.jabci.types.BlockSizeParams.getDefaultInstance() : blockSize_;
       }
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.BlockSize block_size = 1;</code>
+     * <code>.com.github.jtendermint.jabci.types.BlockSizeParams block_size = 1;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.github.jtendermint.jabci.types.BlockSize, com.github.jtendermint.jabci.types.BlockSize.Builder, com.github.jtendermint.jabci.types.BlockSizeOrBuilder> 
+        com.github.jtendermint.jabci.types.BlockSizeParams, com.github.jtendermint.jabci.types.BlockSizeParams.Builder, com.github.jtendermint.jabci.types.BlockSizeParamsOrBuilder> 
         getBlockSizeFieldBuilder() {
       if (blockSizeBuilder_ == null) {
         blockSizeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.github.jtendermint.jabci.types.BlockSize, com.github.jtendermint.jabci.types.BlockSize.Builder, com.github.jtendermint.jabci.types.BlockSizeOrBuilder>(
+            com.github.jtendermint.jabci.types.BlockSizeParams, com.github.jtendermint.jabci.types.BlockSizeParams.Builder, com.github.jtendermint.jabci.types.BlockSizeParamsOrBuilder>(
                 getBlockSize(),
                 getParentForChildren(),
                 isClean());
@@ -679,238 +679,238 @@ private static final long serialVersionUID = 0L;
       return blockSizeBuilder_;
     }
 
-    private com.github.jtendermint.jabci.types.TxSize txSize_ = null;
+    private com.github.jtendermint.jabci.types.EvidenceParams evidence_ = null;
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.github.jtendermint.jabci.types.TxSize, com.github.jtendermint.jabci.types.TxSize.Builder, com.github.jtendermint.jabci.types.TxSizeOrBuilder> txSizeBuilder_;
+        com.github.jtendermint.jabci.types.EvidenceParams, com.github.jtendermint.jabci.types.EvidenceParams.Builder, com.github.jtendermint.jabci.types.EvidenceParamsOrBuilder> evidenceBuilder_;
     /**
-     * <code>.com.github.jtendermint.jabci.types.TxSize tx_size = 2;</code>
+     * <code>.com.github.jtendermint.jabci.types.EvidenceParams evidence = 2;</code>
      */
-    public boolean hasTxSize() {
-      return txSizeBuilder_ != null || txSize_ != null;
+    public boolean hasEvidence() {
+      return evidenceBuilder_ != null || evidence_ != null;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.TxSize tx_size = 2;</code>
+     * <code>.com.github.jtendermint.jabci.types.EvidenceParams evidence = 2;</code>
      */
-    public com.github.jtendermint.jabci.types.TxSize getTxSize() {
-      if (txSizeBuilder_ == null) {
-        return txSize_ == null ? com.github.jtendermint.jabci.types.TxSize.getDefaultInstance() : txSize_;
+    public com.github.jtendermint.jabci.types.EvidenceParams getEvidence() {
+      if (evidenceBuilder_ == null) {
+        return evidence_ == null ? com.github.jtendermint.jabci.types.EvidenceParams.getDefaultInstance() : evidence_;
       } else {
-        return txSizeBuilder_.getMessage();
+        return evidenceBuilder_.getMessage();
       }
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.TxSize tx_size = 2;</code>
+     * <code>.com.github.jtendermint.jabci.types.EvidenceParams evidence = 2;</code>
      */
-    public Builder setTxSize(com.github.jtendermint.jabci.types.TxSize value) {
-      if (txSizeBuilder_ == null) {
+    public Builder setEvidence(com.github.jtendermint.jabci.types.EvidenceParams value) {
+      if (evidenceBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        txSize_ = value;
+        evidence_ = value;
         onChanged();
       } else {
-        txSizeBuilder_.setMessage(value);
+        evidenceBuilder_.setMessage(value);
       }
 
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.TxSize tx_size = 2;</code>
+     * <code>.com.github.jtendermint.jabci.types.EvidenceParams evidence = 2;</code>
      */
-    public Builder setTxSize(
-        com.github.jtendermint.jabci.types.TxSize.Builder builderForValue) {
-      if (txSizeBuilder_ == null) {
-        txSize_ = builderForValue.build();
+    public Builder setEvidence(
+        com.github.jtendermint.jabci.types.EvidenceParams.Builder builderForValue) {
+      if (evidenceBuilder_ == null) {
+        evidence_ = builderForValue.build();
         onChanged();
       } else {
-        txSizeBuilder_.setMessage(builderForValue.build());
+        evidenceBuilder_.setMessage(builderForValue.build());
       }
 
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.TxSize tx_size = 2;</code>
+     * <code>.com.github.jtendermint.jabci.types.EvidenceParams evidence = 2;</code>
      */
-    public Builder mergeTxSize(com.github.jtendermint.jabci.types.TxSize value) {
-      if (txSizeBuilder_ == null) {
-        if (txSize_ != null) {
-          txSize_ =
-            com.github.jtendermint.jabci.types.TxSize.newBuilder(txSize_).mergeFrom(value).buildPartial();
+    public Builder mergeEvidence(com.github.jtendermint.jabci.types.EvidenceParams value) {
+      if (evidenceBuilder_ == null) {
+        if (evidence_ != null) {
+          evidence_ =
+            com.github.jtendermint.jabci.types.EvidenceParams.newBuilder(evidence_).mergeFrom(value).buildPartial();
         } else {
-          txSize_ = value;
+          evidence_ = value;
         }
         onChanged();
       } else {
-        txSizeBuilder_.mergeFrom(value);
+        evidenceBuilder_.mergeFrom(value);
       }
 
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.TxSize tx_size = 2;</code>
+     * <code>.com.github.jtendermint.jabci.types.EvidenceParams evidence = 2;</code>
      */
-    public Builder clearTxSize() {
-      if (txSizeBuilder_ == null) {
-        txSize_ = null;
+    public Builder clearEvidence() {
+      if (evidenceBuilder_ == null) {
+        evidence_ = null;
         onChanged();
       } else {
-        txSize_ = null;
-        txSizeBuilder_ = null;
+        evidence_ = null;
+        evidenceBuilder_ = null;
       }
 
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.TxSize tx_size = 2;</code>
+     * <code>.com.github.jtendermint.jabci.types.EvidenceParams evidence = 2;</code>
      */
-    public com.github.jtendermint.jabci.types.TxSize.Builder getTxSizeBuilder() {
+    public com.github.jtendermint.jabci.types.EvidenceParams.Builder getEvidenceBuilder() {
       
       onChanged();
-      return getTxSizeFieldBuilder().getBuilder();
+      return getEvidenceFieldBuilder().getBuilder();
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.TxSize tx_size = 2;</code>
+     * <code>.com.github.jtendermint.jabci.types.EvidenceParams evidence = 2;</code>
      */
-    public com.github.jtendermint.jabci.types.TxSizeOrBuilder getTxSizeOrBuilder() {
-      if (txSizeBuilder_ != null) {
-        return txSizeBuilder_.getMessageOrBuilder();
+    public com.github.jtendermint.jabci.types.EvidenceParamsOrBuilder getEvidenceOrBuilder() {
+      if (evidenceBuilder_ != null) {
+        return evidenceBuilder_.getMessageOrBuilder();
       } else {
-        return txSize_ == null ?
-            com.github.jtendermint.jabci.types.TxSize.getDefaultInstance() : txSize_;
+        return evidence_ == null ?
+            com.github.jtendermint.jabci.types.EvidenceParams.getDefaultInstance() : evidence_;
       }
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.TxSize tx_size = 2;</code>
+     * <code>.com.github.jtendermint.jabci.types.EvidenceParams evidence = 2;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.github.jtendermint.jabci.types.TxSize, com.github.jtendermint.jabci.types.TxSize.Builder, com.github.jtendermint.jabci.types.TxSizeOrBuilder> 
-        getTxSizeFieldBuilder() {
-      if (txSizeBuilder_ == null) {
-        txSizeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.github.jtendermint.jabci.types.TxSize, com.github.jtendermint.jabci.types.TxSize.Builder, com.github.jtendermint.jabci.types.TxSizeOrBuilder>(
-                getTxSize(),
+        com.github.jtendermint.jabci.types.EvidenceParams, com.github.jtendermint.jabci.types.EvidenceParams.Builder, com.github.jtendermint.jabci.types.EvidenceParamsOrBuilder> 
+        getEvidenceFieldBuilder() {
+      if (evidenceBuilder_ == null) {
+        evidenceBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.github.jtendermint.jabci.types.EvidenceParams, com.github.jtendermint.jabci.types.EvidenceParams.Builder, com.github.jtendermint.jabci.types.EvidenceParamsOrBuilder>(
+                getEvidence(),
                 getParentForChildren(),
                 isClean());
-        txSize_ = null;
+        evidence_ = null;
       }
-      return txSizeBuilder_;
+      return evidenceBuilder_;
     }
 
-    private com.github.jtendermint.jabci.types.BlockGossip blockGossip_ = null;
+    private com.github.jtendermint.jabci.types.ValidatorParams validator_ = null;
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.github.jtendermint.jabci.types.BlockGossip, com.github.jtendermint.jabci.types.BlockGossip.Builder, com.github.jtendermint.jabci.types.BlockGossipOrBuilder> blockGossipBuilder_;
+        com.github.jtendermint.jabci.types.ValidatorParams, com.github.jtendermint.jabci.types.ValidatorParams.Builder, com.github.jtendermint.jabci.types.ValidatorParamsOrBuilder> validatorBuilder_;
     /**
-     * <code>.com.github.jtendermint.jabci.types.BlockGossip block_gossip = 3;</code>
+     * <code>.com.github.jtendermint.jabci.types.ValidatorParams validator = 3;</code>
      */
-    public boolean hasBlockGossip() {
-      return blockGossipBuilder_ != null || blockGossip_ != null;
+    public boolean hasValidator() {
+      return validatorBuilder_ != null || validator_ != null;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.BlockGossip block_gossip = 3;</code>
+     * <code>.com.github.jtendermint.jabci.types.ValidatorParams validator = 3;</code>
      */
-    public com.github.jtendermint.jabci.types.BlockGossip getBlockGossip() {
-      if (blockGossipBuilder_ == null) {
-        return blockGossip_ == null ? com.github.jtendermint.jabci.types.BlockGossip.getDefaultInstance() : blockGossip_;
+    public com.github.jtendermint.jabci.types.ValidatorParams getValidator() {
+      if (validatorBuilder_ == null) {
+        return validator_ == null ? com.github.jtendermint.jabci.types.ValidatorParams.getDefaultInstance() : validator_;
       } else {
-        return blockGossipBuilder_.getMessage();
+        return validatorBuilder_.getMessage();
       }
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.BlockGossip block_gossip = 3;</code>
+     * <code>.com.github.jtendermint.jabci.types.ValidatorParams validator = 3;</code>
      */
-    public Builder setBlockGossip(com.github.jtendermint.jabci.types.BlockGossip value) {
-      if (blockGossipBuilder_ == null) {
+    public Builder setValidator(com.github.jtendermint.jabci.types.ValidatorParams value) {
+      if (validatorBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        blockGossip_ = value;
+        validator_ = value;
         onChanged();
       } else {
-        blockGossipBuilder_.setMessage(value);
+        validatorBuilder_.setMessage(value);
       }
 
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.BlockGossip block_gossip = 3;</code>
+     * <code>.com.github.jtendermint.jabci.types.ValidatorParams validator = 3;</code>
      */
-    public Builder setBlockGossip(
-        com.github.jtendermint.jabci.types.BlockGossip.Builder builderForValue) {
-      if (blockGossipBuilder_ == null) {
-        blockGossip_ = builderForValue.build();
+    public Builder setValidator(
+        com.github.jtendermint.jabci.types.ValidatorParams.Builder builderForValue) {
+      if (validatorBuilder_ == null) {
+        validator_ = builderForValue.build();
         onChanged();
       } else {
-        blockGossipBuilder_.setMessage(builderForValue.build());
+        validatorBuilder_.setMessage(builderForValue.build());
       }
 
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.BlockGossip block_gossip = 3;</code>
+     * <code>.com.github.jtendermint.jabci.types.ValidatorParams validator = 3;</code>
      */
-    public Builder mergeBlockGossip(com.github.jtendermint.jabci.types.BlockGossip value) {
-      if (blockGossipBuilder_ == null) {
-        if (blockGossip_ != null) {
-          blockGossip_ =
-            com.github.jtendermint.jabci.types.BlockGossip.newBuilder(blockGossip_).mergeFrom(value).buildPartial();
+    public Builder mergeValidator(com.github.jtendermint.jabci.types.ValidatorParams value) {
+      if (validatorBuilder_ == null) {
+        if (validator_ != null) {
+          validator_ =
+            com.github.jtendermint.jabci.types.ValidatorParams.newBuilder(validator_).mergeFrom(value).buildPartial();
         } else {
-          blockGossip_ = value;
+          validator_ = value;
         }
         onChanged();
       } else {
-        blockGossipBuilder_.mergeFrom(value);
+        validatorBuilder_.mergeFrom(value);
       }
 
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.BlockGossip block_gossip = 3;</code>
+     * <code>.com.github.jtendermint.jabci.types.ValidatorParams validator = 3;</code>
      */
-    public Builder clearBlockGossip() {
-      if (blockGossipBuilder_ == null) {
-        blockGossip_ = null;
+    public Builder clearValidator() {
+      if (validatorBuilder_ == null) {
+        validator_ = null;
         onChanged();
       } else {
-        blockGossip_ = null;
-        blockGossipBuilder_ = null;
+        validator_ = null;
+        validatorBuilder_ = null;
       }
 
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.BlockGossip block_gossip = 3;</code>
+     * <code>.com.github.jtendermint.jabci.types.ValidatorParams validator = 3;</code>
      */
-    public com.github.jtendermint.jabci.types.BlockGossip.Builder getBlockGossipBuilder() {
+    public com.github.jtendermint.jabci.types.ValidatorParams.Builder getValidatorBuilder() {
       
       onChanged();
-      return getBlockGossipFieldBuilder().getBuilder();
+      return getValidatorFieldBuilder().getBuilder();
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.BlockGossip block_gossip = 3;</code>
+     * <code>.com.github.jtendermint.jabci.types.ValidatorParams validator = 3;</code>
      */
-    public com.github.jtendermint.jabci.types.BlockGossipOrBuilder getBlockGossipOrBuilder() {
-      if (blockGossipBuilder_ != null) {
-        return blockGossipBuilder_.getMessageOrBuilder();
+    public com.github.jtendermint.jabci.types.ValidatorParamsOrBuilder getValidatorOrBuilder() {
+      if (validatorBuilder_ != null) {
+        return validatorBuilder_.getMessageOrBuilder();
       } else {
-        return blockGossip_ == null ?
-            com.github.jtendermint.jabci.types.BlockGossip.getDefaultInstance() : blockGossip_;
+        return validator_ == null ?
+            com.github.jtendermint.jabci.types.ValidatorParams.getDefaultInstance() : validator_;
       }
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.BlockGossip block_gossip = 3;</code>
+     * <code>.com.github.jtendermint.jabci.types.ValidatorParams validator = 3;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.github.jtendermint.jabci.types.BlockGossip, com.github.jtendermint.jabci.types.BlockGossip.Builder, com.github.jtendermint.jabci.types.BlockGossipOrBuilder> 
-        getBlockGossipFieldBuilder() {
-      if (blockGossipBuilder_ == null) {
-        blockGossipBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.github.jtendermint.jabci.types.BlockGossip, com.github.jtendermint.jabci.types.BlockGossip.Builder, com.github.jtendermint.jabci.types.BlockGossipOrBuilder>(
-                getBlockGossip(),
+        com.github.jtendermint.jabci.types.ValidatorParams, com.github.jtendermint.jabci.types.ValidatorParams.Builder, com.github.jtendermint.jabci.types.ValidatorParamsOrBuilder> 
+        getValidatorFieldBuilder() {
+      if (validatorBuilder_ == null) {
+        validatorBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.github.jtendermint.jabci.types.ValidatorParams, com.github.jtendermint.jabci.types.ValidatorParams.Builder, com.github.jtendermint.jabci.types.ValidatorParamsOrBuilder>(
+                getValidator(),
                 getParentForChildren(),
                 isClean());
-        blockGossip_ = null;
+        validator_ = null;
       }
-      return blockGossipBuilder_;
+      return validatorBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

@@ -4,24 +4,20 @@
 package com.github.jtendermint.jabci.types;
 
 /**
- * <pre>
- * Validator
- * </pre>
- *
- * Protobuf type {@code com.github.jtendermint.jabci.types.Validator}
+ * Protobuf type {@code com.github.jtendermint.jabci.types.Version}
  */
-public  final class Validator extends
+public  final class Version extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:com.github.jtendermint.jabci.types.Validator)
-    ValidatorOrBuilder {
+    // @@protoc_insertion_point(message_implements:com.github.jtendermint.jabci.types.Version)
+    VersionOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use Validator.newBuilder() to construct.
-  private Validator(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use Version.newBuilder() to construct.
+  private Version(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private Validator() {
-    address_ = com.google.protobuf.ByteString.EMPTY;
-    power_ = 0L;
+  private Version() {
+    block_ = 0L;
+    app_ = 0L;
   }
 
   @java.lang.Override
@@ -29,7 +25,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Validator(
+  private Version(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -48,14 +44,14 @@ private static final long serialVersionUID = 0L;
           case 0:
             done = true;
             break;
-          case 10: {
+          case 8: {
 
-            address_ = input.readBytes();
+            block_ = input.readUInt64();
             break;
           }
-          case 24: {
+          case 16: {
 
-            power_ = input.readInt64();
+            app_ = input.readUInt64();
             break;
           }
           default: {
@@ -79,37 +75,33 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_Validator_descriptor;
+    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_Version_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_Validator_fieldAccessorTable
+    return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_Version_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.github.jtendermint.jabci.types.Validator.class, com.github.jtendermint.jabci.types.Validator.Builder.class);
+            com.github.jtendermint.jabci.types.Version.class, com.github.jtendermint.jabci.types.Version.Builder.class);
   }
 
-  public static final int ADDRESS_FIELD_NUMBER = 1;
-  private com.google.protobuf.ByteString address_;
+  public static final int BLOCK_FIELD_NUMBER = 1;
+  private long block_;
   /**
-   * <code>bytes address = 1;</code>
+   * <code>uint64 Block = 1;</code>
    */
-  public com.google.protobuf.ByteString getAddress() {
-    return address_;
+  public long getBlock() {
+    return block_;
   }
 
-  public static final int POWER_FIELD_NUMBER = 3;
-  private long power_;
+  public static final int APP_FIELD_NUMBER = 2;
+  private long app_;
   /**
-   * <pre>
-   *PubKey pub_key = 2 ;
-   * </pre>
-   *
-   * <code>int64 power = 3;</code>
+   * <code>uint64 App = 2;</code>
    */
-  public long getPower() {
-    return power_;
+  public long getApp() {
+    return app_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -126,11 +118,11 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!address_.isEmpty()) {
-      output.writeBytes(1, address_);
+    if (block_ != 0L) {
+      output.writeUInt64(1, block_);
     }
-    if (power_ != 0L) {
-      output.writeInt64(3, power_);
+    if (app_ != 0L) {
+      output.writeUInt64(2, app_);
     }
     unknownFields.writeTo(output);
   }
@@ -141,13 +133,13 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!address_.isEmpty()) {
+    if (block_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBytesSize(1, address_);
+        .computeUInt64Size(1, block_);
     }
-    if (power_ != 0L) {
+    if (app_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(3, power_);
+        .computeUInt64Size(2, app_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -159,16 +151,16 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.github.jtendermint.jabci.types.Validator)) {
+    if (!(obj instanceof com.github.jtendermint.jabci.types.Version)) {
       return super.equals(obj);
     }
-    com.github.jtendermint.jabci.types.Validator other = (com.github.jtendermint.jabci.types.Validator) obj;
+    com.github.jtendermint.jabci.types.Version other = (com.github.jtendermint.jabci.types.Version) obj;
 
     boolean result = true;
-    result = result && getAddress()
-        .equals(other.getAddress());
-    result = result && (getPower()
-        == other.getPower());
+    result = result && (getBlock()
+        == other.getBlock());
+    result = result && (getApp()
+        == other.getApp());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -180,79 +172,80 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + ADDRESS_FIELD_NUMBER;
-    hash = (53 * hash) + getAddress().hashCode();
-    hash = (37 * hash) + POWER_FIELD_NUMBER;
+    hash = (37 * hash) + BLOCK_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getPower());
+        getBlock());
+    hash = (37 * hash) + APP_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getApp());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static com.github.jtendermint.jabci.types.Validator parseFrom(
+  public static com.github.jtendermint.jabci.types.Version parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.github.jtendermint.jabci.types.Validator parseFrom(
+  public static com.github.jtendermint.jabci.types.Version parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.Validator parseFrom(
+  public static com.github.jtendermint.jabci.types.Version parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.github.jtendermint.jabci.types.Validator parseFrom(
+  public static com.github.jtendermint.jabci.types.Version parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.Validator parseFrom(byte[] data)
+  public static com.github.jtendermint.jabci.types.Version parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.github.jtendermint.jabci.types.Validator parseFrom(
+  public static com.github.jtendermint.jabci.types.Version parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.Validator parseFrom(java.io.InputStream input)
+  public static com.github.jtendermint.jabci.types.Version parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.github.jtendermint.jabci.types.Validator parseFrom(
+  public static com.github.jtendermint.jabci.types.Version parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.Validator parseDelimitedFrom(java.io.InputStream input)
+  public static com.github.jtendermint.jabci.types.Version parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.github.jtendermint.jabci.types.Validator parseDelimitedFrom(
+  public static com.github.jtendermint.jabci.types.Version parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.github.jtendermint.jabci.types.Validator parseFrom(
+  public static com.github.jtendermint.jabci.types.Version parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.github.jtendermint.jabci.types.Validator parseFrom(
+  public static com.github.jtendermint.jabci.types.Version parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -265,7 +258,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.github.jtendermint.jabci.types.Validator prototype) {
+  public static Builder newBuilder(com.github.jtendermint.jabci.types.Version prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -281,30 +274,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * <pre>
-   * Validator
-   * </pre>
-   *
-   * Protobuf type {@code com.github.jtendermint.jabci.types.Validator}
+   * Protobuf type {@code com.github.jtendermint.jabci.types.Version}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:com.github.jtendermint.jabci.types.Validator)
-      com.github.jtendermint.jabci.types.ValidatorOrBuilder {
+      // @@protoc_insertion_point(builder_implements:com.github.jtendermint.jabci.types.Version)
+      com.github.jtendermint.jabci.types.VersionOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_Validator_descriptor;
+      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_Version_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_Validator_fieldAccessorTable
+      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_Version_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.github.jtendermint.jabci.types.Validator.class, com.github.jtendermint.jabci.types.Validator.Builder.class);
+              com.github.jtendermint.jabci.types.Version.class, com.github.jtendermint.jabci.types.Version.Builder.class);
     }
 
-    // Construct using com.github.jtendermint.jabci.types.Validator.newBuilder()
+    // Construct using com.github.jtendermint.jabci.types.Version.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -322,9 +311,9 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      address_ = com.google.protobuf.ByteString.EMPTY;
+      block_ = 0L;
 
-      power_ = 0L;
+      app_ = 0L;
 
       return this;
     }
@@ -332,17 +321,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_Validator_descriptor;
+      return com.github.jtendermint.jabci.types.Types.internal_static_com_github_jtendermint_jabci_types_Version_descriptor;
     }
 
     @java.lang.Override
-    public com.github.jtendermint.jabci.types.Validator getDefaultInstanceForType() {
-      return com.github.jtendermint.jabci.types.Validator.getDefaultInstance();
+    public com.github.jtendermint.jabci.types.Version getDefaultInstanceForType() {
+      return com.github.jtendermint.jabci.types.Version.getDefaultInstance();
     }
 
     @java.lang.Override
-    public com.github.jtendermint.jabci.types.Validator build() {
-      com.github.jtendermint.jabci.types.Validator result = buildPartial();
+    public com.github.jtendermint.jabci.types.Version build() {
+      com.github.jtendermint.jabci.types.Version result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -350,10 +339,10 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public com.github.jtendermint.jabci.types.Validator buildPartial() {
-      com.github.jtendermint.jabci.types.Validator result = new com.github.jtendermint.jabci.types.Validator(this);
-      result.address_ = address_;
-      result.power_ = power_;
+    public com.github.jtendermint.jabci.types.Version buildPartial() {
+      com.github.jtendermint.jabci.types.Version result = new com.github.jtendermint.jabci.types.Version(this);
+      result.block_ = block_;
+      result.app_ = app_;
       onBuilt();
       return result;
     }
@@ -392,21 +381,21 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.github.jtendermint.jabci.types.Validator) {
-        return mergeFrom((com.github.jtendermint.jabci.types.Validator)other);
+      if (other instanceof com.github.jtendermint.jabci.types.Version) {
+        return mergeFrom((com.github.jtendermint.jabci.types.Version)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.github.jtendermint.jabci.types.Validator other) {
-      if (other == com.github.jtendermint.jabci.types.Validator.getDefaultInstance()) return this;
-      if (other.getAddress() != com.google.protobuf.ByteString.EMPTY) {
-        setAddress(other.getAddress());
+    public Builder mergeFrom(com.github.jtendermint.jabci.types.Version other) {
+      if (other == com.github.jtendermint.jabci.types.Version.getDefaultInstance()) return this;
+      if (other.getBlock() != 0L) {
+        setBlock(other.getBlock());
       }
-      if (other.getPower() != 0L) {
-        setPower(other.getPower());
+      if (other.getApp() != 0L) {
+        setApp(other.getApp());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -423,11 +412,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.github.jtendermint.jabci.types.Validator parsedMessage = null;
+      com.github.jtendermint.jabci.types.Version parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.github.jtendermint.jabci.types.Validator) e.getUnfinishedMessage();
+        parsedMessage = (com.github.jtendermint.jabci.types.Version) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -437,69 +426,54 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.ByteString address_ = com.google.protobuf.ByteString.EMPTY;
+    private long block_ ;
     /**
-     * <code>bytes address = 1;</code>
+     * <code>uint64 Block = 1;</code>
      */
-    public com.google.protobuf.ByteString getAddress() {
-      return address_;
+    public long getBlock() {
+      return block_;
     }
     /**
-     * <code>bytes address = 1;</code>
+     * <code>uint64 Block = 1;</code>
      */
-    public Builder setAddress(com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      address_ = value;
+    public Builder setBlock(long value) {
+      
+      block_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>bytes address = 1;</code>
+     * <code>uint64 Block = 1;</code>
      */
-    public Builder clearAddress() {
+    public Builder clearBlock() {
       
-      address_ = getDefaultInstance().getAddress();
+      block_ = 0L;
       onChanged();
       return this;
     }
 
-    private long power_ ;
+    private long app_ ;
     /**
-     * <pre>
-     *PubKey pub_key = 2 ;
-     * </pre>
-     *
-     * <code>int64 power = 3;</code>
+     * <code>uint64 App = 2;</code>
      */
-    public long getPower() {
-      return power_;
+    public long getApp() {
+      return app_;
     }
     /**
-     * <pre>
-     *PubKey pub_key = 2 ;
-     * </pre>
-     *
-     * <code>int64 power = 3;</code>
+     * <code>uint64 App = 2;</code>
      */
-    public Builder setPower(long value) {
+    public Builder setApp(long value) {
       
-      power_ = value;
+      app_ = value;
       onChanged();
       return this;
     }
     /**
-     * <pre>
-     *PubKey pub_key = 2 ;
-     * </pre>
-     *
-     * <code>int64 power = 3;</code>
+     * <code>uint64 App = 2;</code>
      */
-    public Builder clearPower() {
+    public Builder clearApp() {
       
-      power_ = 0L;
+      app_ = 0L;
       onChanged();
       return this;
     }
@@ -516,41 +490,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:com.github.jtendermint.jabci.types.Validator)
+    // @@protoc_insertion_point(builder_scope:com.github.jtendermint.jabci.types.Version)
   }
 
-  // @@protoc_insertion_point(class_scope:com.github.jtendermint.jabci.types.Validator)
-  private static final com.github.jtendermint.jabci.types.Validator DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:com.github.jtendermint.jabci.types.Version)
+  private static final com.github.jtendermint.jabci.types.Version DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.github.jtendermint.jabci.types.Validator();
+    DEFAULT_INSTANCE = new com.github.jtendermint.jabci.types.Version();
   }
 
-  public static com.github.jtendermint.jabci.types.Validator getDefaultInstance() {
+  public static com.github.jtendermint.jabci.types.Version getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<Validator>
-      PARSER = new com.google.protobuf.AbstractParser<Validator>() {
+  private static final com.google.protobuf.Parser<Version>
+      PARSER = new com.google.protobuf.AbstractParser<Version>() {
     @java.lang.Override
-    public Validator parsePartialFrom(
+    public Version parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Validator(input, extensionRegistry);
+      return new Version(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<Validator> parser() {
+  public static com.google.protobuf.Parser<Version> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<Validator> getParserForType() {
+  public com.google.protobuf.Parser<Version> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.github.jtendermint.jabci.types.Validator getDefaultInstanceForType() {
+  public com.github.jtendermint.jabci.types.Version getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

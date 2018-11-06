@@ -86,4 +86,14 @@ public interface ResponseCheckTxOrBuilder extends
    */
   com.github.jtendermint.jabci.types.KVPairOrBuilder getTagsOrBuilder(
       int index);
+
+  /**
+   * <code>string codespace = 8;</code>
+   */
+  java.lang.String getCodespace();
+  /**
+   * <code>string codespace = 8;</code>
+   */
+  com.google.protobuf.ByteString
+      getCodespaceBytes();
 }

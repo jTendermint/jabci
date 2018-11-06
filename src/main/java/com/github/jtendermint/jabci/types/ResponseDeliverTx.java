@@ -23,6 +23,7 @@ private static final long serialVersionUID = 0L;
     gasWanted_ = 0L;
     gasUsed_ = 0L;
     tags_ = java.util.Collections.emptyList();
+    codespace_ = "";
   }
 
   @java.lang.Override
@@ -88,6 +89,12 @@ private static final long serialVersionUID = 0L;
             }
             tags_.add(
                 input.readMessage(com.github.jtendermint.jabci.types.KVPair.parser(), extensionRegistry));
+            break;
+          }
+          case 66: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            codespace_ = s;
             break;
           }
           default: {
@@ -281,6 +288,40 @@ private static final long serialVersionUID = 0L;
     return tags_.get(index);
   }
 
+  public static final int CODESPACE_FIELD_NUMBER = 8;
+  private volatile java.lang.Object codespace_;
+  /**
+   * <code>string codespace = 8;</code>
+   */
+  public java.lang.String getCodespace() {
+    java.lang.Object ref = codespace_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      codespace_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string codespace = 8;</code>
+   */
+  public com.google.protobuf.ByteString
+      getCodespaceBytes() {
+    java.lang.Object ref = codespace_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      codespace_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -315,6 +356,9 @@ private static final long serialVersionUID = 0L;
     }
     for (int i = 0; i < tags_.size(); i++) {
       output.writeMessage(7, tags_.get(i));
+    }
+    if (!getCodespaceBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 8, codespace_);
     }
     unknownFields.writeTo(output);
   }
@@ -351,6 +395,9 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(7, tags_.get(i));
     }
+    if (!getCodespaceBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, codespace_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -381,6 +428,8 @@ private static final long serialVersionUID = 0L;
         == other.getGasUsed());
     result = result && getTagsList()
         .equals(other.getTagsList());
+    result = result && getCodespace()
+        .equals(other.getCodespace());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -410,6 +459,8 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + TAGS_FIELD_NUMBER;
       hash = (53 * hash) + getTagsList().hashCode();
     }
+    hash = (37 * hash) + CODESPACE_FIELD_NUMBER;
+    hash = (53 * hash) + getCodespace().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -562,6 +613,8 @@ private static final long serialVersionUID = 0L;
       } else {
         tagsBuilder_.clear();
       }
+      codespace_ = "";
+
       return this;
     }
 
@@ -605,6 +658,7 @@ private static final long serialVersionUID = 0L;
       } else {
         result.tags_ = tagsBuilder_.build();
       }
+      result.codespace_ = codespace_;
       result.bitField0_ = to_bitField0_;
       onBuilt();
       return result;
@@ -699,6 +753,10 @@ private static final long serialVersionUID = 0L;
             tagsBuilder_.addAllMessages(other.tags_);
           }
         }
+      }
+      if (!other.getCodespace().isEmpty()) {
+        codespace_ = other.codespace_;
+        onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -1253,6 +1311,75 @@ private static final long serialVersionUID = 0L;
         tags_ = null;
       }
       return tagsBuilder_;
+    }
+
+    private java.lang.Object codespace_ = "";
+    /**
+     * <code>string codespace = 8;</code>
+     */
+    public java.lang.String getCodespace() {
+      java.lang.Object ref = codespace_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        codespace_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string codespace = 8;</code>
+     */
+    public com.google.protobuf.ByteString
+        getCodespaceBytes() {
+      java.lang.Object ref = codespace_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        codespace_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string codespace = 8;</code>
+     */
+    public Builder setCodespace(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      codespace_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string codespace = 8;</code>
+     */
+    public Builder clearCodespace() {
+      
+      codespace_ = getDefaultInstance().getCodespace();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string codespace = 8;</code>
+     */
+    public Builder setCodespaceBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      codespace_ = value;
+      onChanged();
+      return this;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

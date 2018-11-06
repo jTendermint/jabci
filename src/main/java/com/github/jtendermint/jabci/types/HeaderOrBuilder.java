@@ -12,44 +12,61 @@ public interface HeaderOrBuilder extends
    * basic block info
    * </pre>
    *
-   * <code>string chain_id = 1;</code>
+   * <code>.com.github.jtendermint.jabci.types.Version version = 1;</code>
    */
-  java.lang.String getChainId();
+  boolean hasVersion();
   /**
    * <pre>
    * basic block info
    * </pre>
    *
-   * <code>string chain_id = 1;</code>
+   * <code>.com.github.jtendermint.jabci.types.Version version = 1;</code>
+   */
+  com.github.jtendermint.jabci.types.Version getVersion();
+  /**
+   * <pre>
+   * basic block info
+   * </pre>
+   *
+   * <code>.com.github.jtendermint.jabci.types.Version version = 1;</code>
+   */
+  com.github.jtendermint.jabci.types.VersionOrBuilder getVersionOrBuilder();
+
+  /**
+   * <code>string chain_id = 2;</code>
+   */
+  java.lang.String getChainId();
+  /**
+   * <code>string chain_id = 2;</code>
    */
   com.google.protobuf.ByteString
       getChainIdBytes();
 
   /**
-   * <code>int64 height = 2;</code>
+   * <code>int64 height = 3;</code>
    */
   long getHeight();
 
   /**
-   * <code>.google.protobuf.Timestamp time = 3;</code>
+   * <code>.google.protobuf.Timestamp time = 4;</code>
    */
   boolean hasTime();
   /**
-   * <code>.google.protobuf.Timestamp time = 3;</code>
+   * <code>.google.protobuf.Timestamp time = 4;</code>
    */
   com.google.protobuf.Timestamp getTime();
   /**
-   * <code>.google.protobuf.Timestamp time = 3;</code>
+   * <code>.google.protobuf.Timestamp time = 4;</code>
    */
   com.google.protobuf.TimestampOrBuilder getTimeOrBuilder();
 
   /**
-   * <code>int64 num_txs = 4;</code>
+   * <code>int64 num_txs = 5;</code>
    */
   long getNumTxs();
 
   /**
-   * <code>int64 total_txs = 5;</code>
+   * <code>int64 total_txs = 6;</code>
    */
   long getTotalTxs();
 
@@ -58,7 +75,7 @@ public interface HeaderOrBuilder extends
    * prev block info
    * </pre>
    *
-   * <code>.com.github.jtendermint.jabci.types.BlockID last_block_id = 6;</code>
+   * <code>.com.github.jtendermint.jabci.types.BlockID last_block_id = 7;</code>
    */
   boolean hasLastBlockId();
   /**
@@ -66,7 +83,7 @@ public interface HeaderOrBuilder extends
    * prev block info
    * </pre>
    *
-   * <code>.com.github.jtendermint.jabci.types.BlockID last_block_id = 6;</code>
+   * <code>.com.github.jtendermint.jabci.types.BlockID last_block_id = 7;</code>
    */
   com.github.jtendermint.jabci.types.BlockID getLastBlockId();
   /**
@@ -74,7 +91,7 @@ public interface HeaderOrBuilder extends
    * prev block info
    * </pre>
    *
-   * <code>.com.github.jtendermint.jabci.types.BlockID last_block_id = 6;</code>
+   * <code>.com.github.jtendermint.jabci.types.BlockID last_block_id = 7;</code>
    */
   com.github.jtendermint.jabci.types.BlockIDOrBuilder getLastBlockIdOrBuilder();
 
@@ -83,7 +100,7 @@ public interface HeaderOrBuilder extends
    * hashes of block data
    * </pre>
    *
-   * <code>bytes last_commit_hash = 7;</code>
+   * <code>bytes last_commit_hash = 8;</code>
    */
   com.google.protobuf.ByteString getLastCommitHash();
 
@@ -92,7 +109,7 @@ public interface HeaderOrBuilder extends
    * transactions
    * </pre>
    *
-   * <code>bytes data_hash = 8;</code>
+   * <code>bytes data_hash = 9;</code>
    */
   com.google.protobuf.ByteString getDataHash();
 
@@ -101,7 +118,7 @@ public interface HeaderOrBuilder extends
    * hashes from the app output from the prev block
    * </pre>
    *
-   * <code>bytes validators_hash = 9;</code>
+   * <code>bytes validators_hash = 10;</code>
    */
   com.google.protobuf.ByteString getValidatorsHash();
 
@@ -110,7 +127,7 @@ public interface HeaderOrBuilder extends
    * validators for the next block
    * </pre>
    *
-   * <code>bytes next_validators_hash = 10;</code>
+   * <code>bytes next_validators_hash = 11;</code>
    */
   com.google.protobuf.ByteString getNextValidatorsHash();
 
@@ -119,7 +136,7 @@ public interface HeaderOrBuilder extends
    * consensus params for current block
    * </pre>
    *
-   * <code>bytes consensus_hash = 11;</code>
+   * <code>bytes consensus_hash = 12;</code>
    */
   com.google.protobuf.ByteString getConsensusHash();
 
@@ -128,7 +145,7 @@ public interface HeaderOrBuilder extends
    * state after txs from the previous block
    * </pre>
    *
-   * <code>bytes app_hash = 12;</code>
+   * <code>bytes app_hash = 13;</code>
    */
   com.google.protobuf.ByteString getAppHash();
 
@@ -137,7 +154,7 @@ public interface HeaderOrBuilder extends
    * root hash of all results from the txs from the previous block
    * </pre>
    *
-   * <code>bytes last_results_hash = 13;</code>
+   * <code>bytes last_results_hash = 14;</code>
    */
   com.google.protobuf.ByteString getLastResultsHash();
 
@@ -146,7 +163,7 @@ public interface HeaderOrBuilder extends
    * consensus info
    * </pre>
    *
-   * <code>bytes evidence_hash = 14;</code>
+   * <code>bytes evidence_hash = 15;</code>
    */
   com.google.protobuf.ByteString getEvidenceHash();
 
@@ -155,7 +172,7 @@ public interface HeaderOrBuilder extends
    * original proposer of the block
    * </pre>
    *
-   * <code>bytes proposer_address = 15;</code>
+   * <code>bytes proposer_address = 16;</code>
    */
   com.google.protobuf.ByteString getProposerAddress();
 }

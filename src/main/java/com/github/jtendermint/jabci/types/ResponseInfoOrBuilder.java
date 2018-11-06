@@ -28,12 +28,17 @@ public interface ResponseInfoOrBuilder extends
       getVersionBytes();
 
   /**
-   * <code>int64 last_block_height = 3;</code>
+   * <code>uint64 app_version = 3;</code>
+   */
+  long getAppVersion();
+
+  /**
+   * <code>int64 last_block_height = 4;</code>
    */
   long getLastBlockHeight();
 
   /**
-   * <code>bytes last_block_app_hash = 4;</code>
+   * <code>bytes last_block_app_hash = 5;</code>
    */
   com.google.protobuf.ByteString getLastBlockAppHash();
 }
