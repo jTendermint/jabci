@@ -1,0 +1,23 @@
+syntax = "proto3";
+package com.github.jtendermint.jabci.merkle;
+
+option java_multiple_files = true;
+
+// This file is copied from http://github.com/tendermint/tendermint
+
+//----------------------------------------
+// Message types
+
+// ProofOp defines an operation used for calculating Merkle root
+// The data could be arbitrary format, providing nessecary data
+// for example neighbouring node hash
+message ProofOp {
+  string type = 1;
+  bytes key = 2;
+  bytes data = 3;
+}
+
+// Proof is Merkle proof defined by the list of ProofOps
+message Proof {
+  repeated ProofOp ops = 1;
+}

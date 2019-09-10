@@ -30,11 +30,10 @@ public interface IEndBlock {
 
     /**
      * Signals the end of a block. Called prior to each Commit after all
-     * transactions Returns:<br>
-     * Validators ([]Validator): Changed validators with new voting powers (0 to
-     * remove)
+     * transactions.
      * 
      * @param req the Request representing data about the EndBlock (height,...)
+     * @return Validator updates ([]ValidatorUpdate), consensus params and tags
      */
     ResponseEndBlock requestEndBlock(RequestEndBlock req);
 

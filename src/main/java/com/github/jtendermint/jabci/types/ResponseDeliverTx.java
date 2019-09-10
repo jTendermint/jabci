@@ -16,13 +16,10 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private ResponseDeliverTx() {
-    code_ = 0;
     data_ = com.google.protobuf.ByteString.EMPTY;
     log_ = "";
     info_ = "";
-    gasWanted_ = 0L;
-    gasUsed_ = 0L;
-    tags_ = java.util.Collections.emptyList();
+    events_ = java.util.Collections.emptyList();
     codespace_ = "";
   }
 
@@ -83,12 +80,12 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 58: {
-            if (!((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
-              tags_ = new java.util.ArrayList<com.github.jtendermint.jabci.types.KVPair>();
+            if (!((mutable_bitField0_ & 0x00000040) != 0)) {
+              events_ = new java.util.ArrayList<com.github.jtendermint.jabci.types.Event>();
               mutable_bitField0_ |= 0x00000040;
             }
-            tags_.add(
-                input.readMessage(com.github.jtendermint.jabci.types.KVPair.parser(), extensionRegistry));
+            events_.add(
+                input.readMessage(com.github.jtendermint.jabci.types.Event.parser(), extensionRegistry));
             break;
           }
           case 66: {
@@ -98,7 +95,7 @@ private static final long serialVersionUID = 0L;
             break;
           }
           default: {
-            if (!parseUnknownFieldProto3(
+            if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
               done = true;
             }
@@ -112,8 +109,8 @@ private static final long serialVersionUID = 0L;
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
-      if (((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
-        tags_ = java.util.Collections.unmodifiableList(tags_);
+      if (((mutable_bitField0_ & 0x00000040) != 0)) {
+        events_ = java.util.Collections.unmodifiableList(events_);
       }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
@@ -253,39 +250,39 @@ private static final long serialVersionUID = 0L;
     return gasUsed_;
   }
 
-  public static final int TAGS_FIELD_NUMBER = 7;
-  private java.util.List<com.github.jtendermint.jabci.types.KVPair> tags_;
+  public static final int EVENTS_FIELD_NUMBER = 7;
+  private java.util.List<com.github.jtendermint.jabci.types.Event> events_;
   /**
-   * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
+   * <code>repeated .com.github.jtendermint.jabci.types.Event events = 7;</code>
    */
-  public java.util.List<com.github.jtendermint.jabci.types.KVPair> getTagsList() {
-    return tags_;
+  public java.util.List<com.github.jtendermint.jabci.types.Event> getEventsList() {
+    return events_;
   }
   /**
-   * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
+   * <code>repeated .com.github.jtendermint.jabci.types.Event events = 7;</code>
    */
-  public java.util.List<? extends com.github.jtendermint.jabci.types.KVPairOrBuilder> 
-      getTagsOrBuilderList() {
-    return tags_;
+  public java.util.List<? extends com.github.jtendermint.jabci.types.EventOrBuilder> 
+      getEventsOrBuilderList() {
+    return events_;
   }
   /**
-   * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
+   * <code>repeated .com.github.jtendermint.jabci.types.Event events = 7;</code>
    */
-  public int getTagsCount() {
-    return tags_.size();
+  public int getEventsCount() {
+    return events_.size();
   }
   /**
-   * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
+   * <code>repeated .com.github.jtendermint.jabci.types.Event events = 7;</code>
    */
-  public com.github.jtendermint.jabci.types.KVPair getTags(int index) {
-    return tags_.get(index);
+  public com.github.jtendermint.jabci.types.Event getEvents(int index) {
+    return events_.get(index);
   }
   /**
-   * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
+   * <code>repeated .com.github.jtendermint.jabci.types.Event events = 7;</code>
    */
-  public com.github.jtendermint.jabci.types.KVPairOrBuilder getTagsOrBuilder(
+  public com.github.jtendermint.jabci.types.EventOrBuilder getEventsOrBuilder(
       int index) {
-    return tags_.get(index);
+    return events_.get(index);
   }
 
   public static final int CODESPACE_FIELD_NUMBER = 8;
@@ -354,8 +351,8 @@ private static final long serialVersionUID = 0L;
     if (gasUsed_ != 0L) {
       output.writeInt64(6, gasUsed_);
     }
-    for (int i = 0; i < tags_.size(); i++) {
-      output.writeMessage(7, tags_.get(i));
+    for (int i = 0; i < events_.size(); i++) {
+      output.writeMessage(7, events_.get(i));
     }
     if (!getCodespaceBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 8, codespace_);
@@ -391,9 +388,9 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(6, gasUsed_);
     }
-    for (int i = 0; i < tags_.size(); i++) {
+    for (int i = 0; i < events_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(7, tags_.get(i));
+        .computeMessageSize(7, events_.get(i));
     }
     if (!getCodespaceBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, codespace_);
@@ -413,25 +410,24 @@ private static final long serialVersionUID = 0L;
     }
     com.github.jtendermint.jabci.types.ResponseDeliverTx other = (com.github.jtendermint.jabci.types.ResponseDeliverTx) obj;
 
-    boolean result = true;
-    result = result && (getCode()
-        == other.getCode());
-    result = result && getData()
-        .equals(other.getData());
-    result = result && getLog()
-        .equals(other.getLog());
-    result = result && getInfo()
-        .equals(other.getInfo());
-    result = result && (getGasWanted()
-        == other.getGasWanted());
-    result = result && (getGasUsed()
-        == other.getGasUsed());
-    result = result && getTagsList()
-        .equals(other.getTagsList());
-    result = result && getCodespace()
-        .equals(other.getCodespace());
-    result = result && unknownFields.equals(other.unknownFields);
-    return result;
+    if (getCode()
+        != other.getCode()) return false;
+    if (!getData()
+        .equals(other.getData())) return false;
+    if (!getLog()
+        .equals(other.getLog())) return false;
+    if (!getInfo()
+        .equals(other.getInfo())) return false;
+    if (getGasWanted()
+        != other.getGasWanted()) return false;
+    if (getGasUsed()
+        != other.getGasUsed()) return false;
+    if (!getEventsList()
+        .equals(other.getEventsList())) return false;
+    if (!getCodespace()
+        .equals(other.getCodespace())) return false;
+    if (!unknownFields.equals(other.unknownFields)) return false;
+    return true;
   }
 
   @java.lang.Override
@@ -455,9 +451,9 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + GAS_USED_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getGasUsed());
-    if (getTagsCount() > 0) {
-      hash = (37 * hash) + TAGS_FIELD_NUMBER;
-      hash = (53 * hash) + getTagsList().hashCode();
+    if (getEventsCount() > 0) {
+      hash = (37 * hash) + EVENTS_FIELD_NUMBER;
+      hash = (53 * hash) + getEventsList().hashCode();
     }
     hash = (37 * hash) + CODESPACE_FIELD_NUMBER;
     hash = (53 * hash) + getCodespace().hashCode();
@@ -589,7 +585,7 @@ private static final long serialVersionUID = 0L;
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessageV3
               .alwaysUseFieldBuilders) {
-        getTagsFieldBuilder();
+        getEventsFieldBuilder();
       }
     }
     @java.lang.Override
@@ -607,11 +603,11 @@ private static final long serialVersionUID = 0L;
 
       gasUsed_ = 0L;
 
-      if (tagsBuilder_ == null) {
-        tags_ = java.util.Collections.emptyList();
+      if (eventsBuilder_ == null) {
+        events_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000040);
       } else {
-        tagsBuilder_.clear();
+        eventsBuilder_.clear();
       }
       codespace_ = "";
 
@@ -649,14 +645,14 @@ private static final long serialVersionUID = 0L;
       result.info_ = info_;
       result.gasWanted_ = gasWanted_;
       result.gasUsed_ = gasUsed_;
-      if (tagsBuilder_ == null) {
-        if (((bitField0_ & 0x00000040) == 0x00000040)) {
-          tags_ = java.util.Collections.unmodifiableList(tags_);
+      if (eventsBuilder_ == null) {
+        if (((bitField0_ & 0x00000040) != 0)) {
+          events_ = java.util.Collections.unmodifiableList(events_);
           bitField0_ = (bitField0_ & ~0x00000040);
         }
-        result.tags_ = tags_;
+        result.events_ = events_;
       } else {
-        result.tags_ = tagsBuilder_.build();
+        result.events_ = eventsBuilder_.build();
       }
       result.codespace_ = codespace_;
       result.bitField0_ = to_bitField0_;
@@ -666,35 +662,35 @@ private static final long serialVersionUID = 0L;
 
     @java.lang.Override
     public Builder clone() {
-      return (Builder) super.clone();
+      return super.clone();
     }
     @java.lang.Override
     public Builder setField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
         java.lang.Object value) {
-      return (Builder) super.setField(field, value);
+      return super.setField(field, value);
     }
     @java.lang.Override
     public Builder clearField(
         com.google.protobuf.Descriptors.FieldDescriptor field) {
-      return (Builder) super.clearField(field);
+      return super.clearField(field);
     }
     @java.lang.Override
     public Builder clearOneof(
         com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-      return (Builder) super.clearOneof(oneof);
+      return super.clearOneof(oneof);
     }
     @java.lang.Override
     public Builder setRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
         int index, java.lang.Object value) {
-      return (Builder) super.setRepeatedField(field, index, value);
+      return super.setRepeatedField(field, index, value);
     }
     @java.lang.Override
     public Builder addRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
         java.lang.Object value) {
-      return (Builder) super.addRepeatedField(field, value);
+      return super.addRepeatedField(field, value);
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -728,29 +724,29 @@ private static final long serialVersionUID = 0L;
       if (other.getGasUsed() != 0L) {
         setGasUsed(other.getGasUsed());
       }
-      if (tagsBuilder_ == null) {
-        if (!other.tags_.isEmpty()) {
-          if (tags_.isEmpty()) {
-            tags_ = other.tags_;
+      if (eventsBuilder_ == null) {
+        if (!other.events_.isEmpty()) {
+          if (events_.isEmpty()) {
+            events_ = other.events_;
             bitField0_ = (bitField0_ & ~0x00000040);
           } else {
-            ensureTagsIsMutable();
-            tags_.addAll(other.tags_);
+            ensureEventsIsMutable();
+            events_.addAll(other.events_);
           }
           onChanged();
         }
       } else {
-        if (!other.tags_.isEmpty()) {
-          if (tagsBuilder_.isEmpty()) {
-            tagsBuilder_.dispose();
-            tagsBuilder_ = null;
-            tags_ = other.tags_;
+        if (!other.events_.isEmpty()) {
+          if (eventsBuilder_.isEmpty()) {
+            eventsBuilder_.dispose();
+            eventsBuilder_ = null;
+            events_ = other.events_;
             bitField0_ = (bitField0_ & ~0x00000040);
-            tagsBuilder_ = 
+            eventsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                 getTagsFieldBuilder() : null;
+                 getEventsFieldBuilder() : null;
           } else {
-            tagsBuilder_.addAllMessages(other.tags_);
+            eventsBuilder_.addAllMessages(other.events_);
           }
         }
       }
@@ -1073,244 +1069,244 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.util.List<com.github.jtendermint.jabci.types.KVPair> tags_ =
+    private java.util.List<com.github.jtendermint.jabci.types.Event> events_ =
       java.util.Collections.emptyList();
-    private void ensureTagsIsMutable() {
-      if (!((bitField0_ & 0x00000040) == 0x00000040)) {
-        tags_ = new java.util.ArrayList<com.github.jtendermint.jabci.types.KVPair>(tags_);
+    private void ensureEventsIsMutable() {
+      if (!((bitField0_ & 0x00000040) != 0)) {
+        events_ = new java.util.ArrayList<com.github.jtendermint.jabci.types.Event>(events_);
         bitField0_ |= 0x00000040;
        }
     }
 
     private com.google.protobuf.RepeatedFieldBuilderV3<
-        com.github.jtendermint.jabci.types.KVPair, com.github.jtendermint.jabci.types.KVPair.Builder, com.github.jtendermint.jabci.types.KVPairOrBuilder> tagsBuilder_;
+        com.github.jtendermint.jabci.types.Event, com.github.jtendermint.jabci.types.Event.Builder, com.github.jtendermint.jabci.types.EventOrBuilder> eventsBuilder_;
 
     /**
-     * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
+     * <code>repeated .com.github.jtendermint.jabci.types.Event events = 7;</code>
      */
-    public java.util.List<com.github.jtendermint.jabci.types.KVPair> getTagsList() {
-      if (tagsBuilder_ == null) {
-        return java.util.Collections.unmodifiableList(tags_);
+    public java.util.List<com.github.jtendermint.jabci.types.Event> getEventsList() {
+      if (eventsBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(events_);
       } else {
-        return tagsBuilder_.getMessageList();
+        return eventsBuilder_.getMessageList();
       }
     }
     /**
-     * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
+     * <code>repeated .com.github.jtendermint.jabci.types.Event events = 7;</code>
      */
-    public int getTagsCount() {
-      if (tagsBuilder_ == null) {
-        return tags_.size();
+    public int getEventsCount() {
+      if (eventsBuilder_ == null) {
+        return events_.size();
       } else {
-        return tagsBuilder_.getCount();
+        return eventsBuilder_.getCount();
       }
     }
     /**
-     * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
+     * <code>repeated .com.github.jtendermint.jabci.types.Event events = 7;</code>
      */
-    public com.github.jtendermint.jabci.types.KVPair getTags(int index) {
-      if (tagsBuilder_ == null) {
-        return tags_.get(index);
+    public com.github.jtendermint.jabci.types.Event getEvents(int index) {
+      if (eventsBuilder_ == null) {
+        return events_.get(index);
       } else {
-        return tagsBuilder_.getMessage(index);
+        return eventsBuilder_.getMessage(index);
       }
     }
     /**
-     * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
+     * <code>repeated .com.github.jtendermint.jabci.types.Event events = 7;</code>
      */
-    public Builder setTags(
-        int index, com.github.jtendermint.jabci.types.KVPair value) {
-      if (tagsBuilder_ == null) {
+    public Builder setEvents(
+        int index, com.github.jtendermint.jabci.types.Event value) {
+      if (eventsBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        ensureTagsIsMutable();
-        tags_.set(index, value);
+        ensureEventsIsMutable();
+        events_.set(index, value);
         onChanged();
       } else {
-        tagsBuilder_.setMessage(index, value);
+        eventsBuilder_.setMessage(index, value);
       }
       return this;
     }
     /**
-     * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
+     * <code>repeated .com.github.jtendermint.jabci.types.Event events = 7;</code>
      */
-    public Builder setTags(
-        int index, com.github.jtendermint.jabci.types.KVPair.Builder builderForValue) {
-      if (tagsBuilder_ == null) {
-        ensureTagsIsMutable();
-        tags_.set(index, builderForValue.build());
+    public Builder setEvents(
+        int index, com.github.jtendermint.jabci.types.Event.Builder builderForValue) {
+      if (eventsBuilder_ == null) {
+        ensureEventsIsMutable();
+        events_.set(index, builderForValue.build());
         onChanged();
       } else {
-        tagsBuilder_.setMessage(index, builderForValue.build());
+        eventsBuilder_.setMessage(index, builderForValue.build());
       }
       return this;
     }
     /**
-     * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
+     * <code>repeated .com.github.jtendermint.jabci.types.Event events = 7;</code>
      */
-    public Builder addTags(com.github.jtendermint.jabci.types.KVPair value) {
-      if (tagsBuilder_ == null) {
+    public Builder addEvents(com.github.jtendermint.jabci.types.Event value) {
+      if (eventsBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        ensureTagsIsMutable();
-        tags_.add(value);
+        ensureEventsIsMutable();
+        events_.add(value);
         onChanged();
       } else {
-        tagsBuilder_.addMessage(value);
+        eventsBuilder_.addMessage(value);
       }
       return this;
     }
     /**
-     * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
+     * <code>repeated .com.github.jtendermint.jabci.types.Event events = 7;</code>
      */
-    public Builder addTags(
-        int index, com.github.jtendermint.jabci.types.KVPair value) {
-      if (tagsBuilder_ == null) {
+    public Builder addEvents(
+        int index, com.github.jtendermint.jabci.types.Event value) {
+      if (eventsBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        ensureTagsIsMutable();
-        tags_.add(index, value);
+        ensureEventsIsMutable();
+        events_.add(index, value);
         onChanged();
       } else {
-        tagsBuilder_.addMessage(index, value);
+        eventsBuilder_.addMessage(index, value);
       }
       return this;
     }
     /**
-     * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
+     * <code>repeated .com.github.jtendermint.jabci.types.Event events = 7;</code>
      */
-    public Builder addTags(
-        com.github.jtendermint.jabci.types.KVPair.Builder builderForValue) {
-      if (tagsBuilder_ == null) {
-        ensureTagsIsMutable();
-        tags_.add(builderForValue.build());
+    public Builder addEvents(
+        com.github.jtendermint.jabci.types.Event.Builder builderForValue) {
+      if (eventsBuilder_ == null) {
+        ensureEventsIsMutable();
+        events_.add(builderForValue.build());
         onChanged();
       } else {
-        tagsBuilder_.addMessage(builderForValue.build());
+        eventsBuilder_.addMessage(builderForValue.build());
       }
       return this;
     }
     /**
-     * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
+     * <code>repeated .com.github.jtendermint.jabci.types.Event events = 7;</code>
      */
-    public Builder addTags(
-        int index, com.github.jtendermint.jabci.types.KVPair.Builder builderForValue) {
-      if (tagsBuilder_ == null) {
-        ensureTagsIsMutable();
-        tags_.add(index, builderForValue.build());
+    public Builder addEvents(
+        int index, com.github.jtendermint.jabci.types.Event.Builder builderForValue) {
+      if (eventsBuilder_ == null) {
+        ensureEventsIsMutable();
+        events_.add(index, builderForValue.build());
         onChanged();
       } else {
-        tagsBuilder_.addMessage(index, builderForValue.build());
+        eventsBuilder_.addMessage(index, builderForValue.build());
       }
       return this;
     }
     /**
-     * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
+     * <code>repeated .com.github.jtendermint.jabci.types.Event events = 7;</code>
      */
-    public Builder addAllTags(
-        java.lang.Iterable<? extends com.github.jtendermint.jabci.types.KVPair> values) {
-      if (tagsBuilder_ == null) {
-        ensureTagsIsMutable();
+    public Builder addAllEvents(
+        java.lang.Iterable<? extends com.github.jtendermint.jabci.types.Event> values) {
+      if (eventsBuilder_ == null) {
+        ensureEventsIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, tags_);
+            values, events_);
         onChanged();
       } else {
-        tagsBuilder_.addAllMessages(values);
+        eventsBuilder_.addAllMessages(values);
       }
       return this;
     }
     /**
-     * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
+     * <code>repeated .com.github.jtendermint.jabci.types.Event events = 7;</code>
      */
-    public Builder clearTags() {
-      if (tagsBuilder_ == null) {
-        tags_ = java.util.Collections.emptyList();
+    public Builder clearEvents() {
+      if (eventsBuilder_ == null) {
+        events_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000040);
         onChanged();
       } else {
-        tagsBuilder_.clear();
+        eventsBuilder_.clear();
       }
       return this;
     }
     /**
-     * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
+     * <code>repeated .com.github.jtendermint.jabci.types.Event events = 7;</code>
      */
-    public Builder removeTags(int index) {
-      if (tagsBuilder_ == null) {
-        ensureTagsIsMutable();
-        tags_.remove(index);
+    public Builder removeEvents(int index) {
+      if (eventsBuilder_ == null) {
+        ensureEventsIsMutable();
+        events_.remove(index);
         onChanged();
       } else {
-        tagsBuilder_.remove(index);
+        eventsBuilder_.remove(index);
       }
       return this;
     }
     /**
-     * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
+     * <code>repeated .com.github.jtendermint.jabci.types.Event events = 7;</code>
      */
-    public com.github.jtendermint.jabci.types.KVPair.Builder getTagsBuilder(
+    public com.github.jtendermint.jabci.types.Event.Builder getEventsBuilder(
         int index) {
-      return getTagsFieldBuilder().getBuilder(index);
+      return getEventsFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
+     * <code>repeated .com.github.jtendermint.jabci.types.Event events = 7;</code>
      */
-    public com.github.jtendermint.jabci.types.KVPairOrBuilder getTagsOrBuilder(
+    public com.github.jtendermint.jabci.types.EventOrBuilder getEventsOrBuilder(
         int index) {
-      if (tagsBuilder_ == null) {
-        return tags_.get(index);  } else {
-        return tagsBuilder_.getMessageOrBuilder(index);
+      if (eventsBuilder_ == null) {
+        return events_.get(index);  } else {
+        return eventsBuilder_.getMessageOrBuilder(index);
       }
     }
     /**
-     * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
+     * <code>repeated .com.github.jtendermint.jabci.types.Event events = 7;</code>
      */
-    public java.util.List<? extends com.github.jtendermint.jabci.types.KVPairOrBuilder> 
-         getTagsOrBuilderList() {
-      if (tagsBuilder_ != null) {
-        return tagsBuilder_.getMessageOrBuilderList();
+    public java.util.List<? extends com.github.jtendermint.jabci.types.EventOrBuilder> 
+         getEventsOrBuilderList() {
+      if (eventsBuilder_ != null) {
+        return eventsBuilder_.getMessageOrBuilderList();
       } else {
-        return java.util.Collections.unmodifiableList(tags_);
+        return java.util.Collections.unmodifiableList(events_);
       }
     }
     /**
-     * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
+     * <code>repeated .com.github.jtendermint.jabci.types.Event events = 7;</code>
      */
-    public com.github.jtendermint.jabci.types.KVPair.Builder addTagsBuilder() {
-      return getTagsFieldBuilder().addBuilder(
-          com.github.jtendermint.jabci.types.KVPair.getDefaultInstance());
+    public com.github.jtendermint.jabci.types.Event.Builder addEventsBuilder() {
+      return getEventsFieldBuilder().addBuilder(
+          com.github.jtendermint.jabci.types.Event.getDefaultInstance());
     }
     /**
-     * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
+     * <code>repeated .com.github.jtendermint.jabci.types.Event events = 7;</code>
      */
-    public com.github.jtendermint.jabci.types.KVPair.Builder addTagsBuilder(
+    public com.github.jtendermint.jabci.types.Event.Builder addEventsBuilder(
         int index) {
-      return getTagsFieldBuilder().addBuilder(
-          index, com.github.jtendermint.jabci.types.KVPair.getDefaultInstance());
+      return getEventsFieldBuilder().addBuilder(
+          index, com.github.jtendermint.jabci.types.Event.getDefaultInstance());
     }
     /**
-     * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
+     * <code>repeated .com.github.jtendermint.jabci.types.Event events = 7;</code>
      */
-    public java.util.List<com.github.jtendermint.jabci.types.KVPair.Builder> 
-         getTagsBuilderList() {
-      return getTagsFieldBuilder().getBuilderList();
+    public java.util.List<com.github.jtendermint.jabci.types.Event.Builder> 
+         getEventsBuilderList() {
+      return getEventsFieldBuilder().getBuilderList();
     }
     private com.google.protobuf.RepeatedFieldBuilderV3<
-        com.github.jtendermint.jabci.types.KVPair, com.github.jtendermint.jabci.types.KVPair.Builder, com.github.jtendermint.jabci.types.KVPairOrBuilder> 
-        getTagsFieldBuilder() {
-      if (tagsBuilder_ == null) {
-        tagsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-            com.github.jtendermint.jabci.types.KVPair, com.github.jtendermint.jabci.types.KVPair.Builder, com.github.jtendermint.jabci.types.KVPairOrBuilder>(
-                tags_,
-                ((bitField0_ & 0x00000040) == 0x00000040),
+        com.github.jtendermint.jabci.types.Event, com.github.jtendermint.jabci.types.Event.Builder, com.github.jtendermint.jabci.types.EventOrBuilder> 
+        getEventsFieldBuilder() {
+      if (eventsBuilder_ == null) {
+        eventsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+            com.github.jtendermint.jabci.types.Event, com.github.jtendermint.jabci.types.Event.Builder, com.github.jtendermint.jabci.types.EventOrBuilder>(
+                events_,
+                ((bitField0_ & 0x00000040) != 0),
                 getParentForChildren(),
                 isClean());
-        tags_ = null;
+        events_ = null;
       }
-      return tagsBuilder_;
+      return eventsBuilder_;
     }
 
     private java.lang.Object codespace_ = "";
@@ -1384,7 +1380,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
-      return super.setUnknownFieldsProto3(unknownFields);
+      return super.setUnknownFields(unknownFields);
     }
 
     @java.lang.Override

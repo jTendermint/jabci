@@ -16,13 +16,10 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private ResponseQuery() {
-    code_ = 0;
     log_ = "";
     info_ = "";
-    index_ = 0L;
     key_ = com.google.protobuf.ByteString.EMPTY;
     value_ = com.google.protobuf.ByteString.EMPTY;
-    height_ = 0L;
     codespace_ = "";
   }
 
@@ -83,11 +80,11 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 66: {
-            com.github.jtendermint.jabci.types.Proof.Builder subBuilder = null;
+            com.github.jtendermint.jabci.merkle.Proof.Builder subBuilder = null;
             if (proof_ != null) {
               subBuilder = proof_.toBuilder();
             }
-            proof_ = input.readMessage(com.github.jtendermint.jabci.types.Proof.parser(), extensionRegistry);
+            proof_ = input.readMessage(com.github.jtendermint.jabci.merkle.Proof.parser(), extensionRegistry);
             if (subBuilder != null) {
               subBuilder.mergeFrom(proof_);
               proof_ = subBuilder.buildPartial();
@@ -107,7 +104,7 @@ private static final long serialVersionUID = 0L;
             break;
           }
           default: {
-            if (!parseUnknownFieldProto3(
+            if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
               done = true;
             }
@@ -259,23 +256,23 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PROOF_FIELD_NUMBER = 8;
-  private com.github.jtendermint.jabci.types.Proof proof_;
+  private com.github.jtendermint.jabci.merkle.Proof proof_;
   /**
-   * <code>.com.github.jtendermint.jabci.types.Proof proof = 8;</code>
+   * <code>.com.github.jtendermint.jabci.merkle.Proof proof = 8;</code>
    */
   public boolean hasProof() {
     return proof_ != null;
   }
   /**
-   * <code>.com.github.jtendermint.jabci.types.Proof proof = 8;</code>
+   * <code>.com.github.jtendermint.jabci.merkle.Proof proof = 8;</code>
    */
-  public com.github.jtendermint.jabci.types.Proof getProof() {
-    return proof_ == null ? com.github.jtendermint.jabci.types.Proof.getDefaultInstance() : proof_;
+  public com.github.jtendermint.jabci.merkle.Proof getProof() {
+    return proof_ == null ? com.github.jtendermint.jabci.merkle.Proof.getDefaultInstance() : proof_;
   }
   /**
-   * <code>.com.github.jtendermint.jabci.types.Proof proof = 8;</code>
+   * <code>.com.github.jtendermint.jabci.merkle.Proof proof = 8;</code>
    */
-  public com.github.jtendermint.jabci.types.ProofOrBuilder getProofOrBuilder() {
+  public com.github.jtendermint.jabci.merkle.ProofOrBuilder getProofOrBuilder() {
     return getProof();
   }
 
@@ -420,30 +417,29 @@ private static final long serialVersionUID = 0L;
     }
     com.github.jtendermint.jabci.types.ResponseQuery other = (com.github.jtendermint.jabci.types.ResponseQuery) obj;
 
-    boolean result = true;
-    result = result && (getCode()
-        == other.getCode());
-    result = result && getLog()
-        .equals(other.getLog());
-    result = result && getInfo()
-        .equals(other.getInfo());
-    result = result && (getIndex()
-        == other.getIndex());
-    result = result && getKey()
-        .equals(other.getKey());
-    result = result && getValue()
-        .equals(other.getValue());
-    result = result && (hasProof() == other.hasProof());
+    if (getCode()
+        != other.getCode()) return false;
+    if (!getLog()
+        .equals(other.getLog())) return false;
+    if (!getInfo()
+        .equals(other.getInfo())) return false;
+    if (getIndex()
+        != other.getIndex()) return false;
+    if (!getKey()
+        .equals(other.getKey())) return false;
+    if (!getValue()
+        .equals(other.getValue())) return false;
+    if (hasProof() != other.hasProof()) return false;
     if (hasProof()) {
-      result = result && getProof()
-          .equals(other.getProof());
+      if (!getProof()
+          .equals(other.getProof())) return false;
     }
-    result = result && (getHeight()
-        == other.getHeight());
-    result = result && getCodespace()
-        .equals(other.getCodespace());
-    result = result && unknownFields.equals(other.unknownFields);
-    return result;
+    if (getHeight()
+        != other.getHeight()) return false;
+    if (!getCodespace()
+        .equals(other.getCodespace())) return false;
+    if (!unknownFields.equals(other.unknownFields)) return false;
+    return true;
   }
 
   @java.lang.Override
@@ -675,35 +671,35 @@ private static final long serialVersionUID = 0L;
 
     @java.lang.Override
     public Builder clone() {
-      return (Builder) super.clone();
+      return super.clone();
     }
     @java.lang.Override
     public Builder setField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
         java.lang.Object value) {
-      return (Builder) super.setField(field, value);
+      return super.setField(field, value);
     }
     @java.lang.Override
     public Builder clearField(
         com.google.protobuf.Descriptors.FieldDescriptor field) {
-      return (Builder) super.clearField(field);
+      return super.clearField(field);
     }
     @java.lang.Override
     public Builder clearOneof(
         com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-      return (Builder) super.clearOneof(oneof);
+      return super.clearOneof(oneof);
     }
     @java.lang.Override
     public Builder setRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
         int index, java.lang.Object value) {
-      return (Builder) super.setRepeatedField(field, index, value);
+      return super.setRepeatedField(field, index, value);
     }
     @java.lang.Override
     public Builder addRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
         java.lang.Object value) {
-      return (Builder) super.addRepeatedField(field, value);
+      return super.addRepeatedField(field, value);
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -1064,29 +1060,29 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.github.jtendermint.jabci.types.Proof proof_ = null;
+    private com.github.jtendermint.jabci.merkle.Proof proof_;
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.github.jtendermint.jabci.types.Proof, com.github.jtendermint.jabci.types.Proof.Builder, com.github.jtendermint.jabci.types.ProofOrBuilder> proofBuilder_;
+        com.github.jtendermint.jabci.merkle.Proof, com.github.jtendermint.jabci.merkle.Proof.Builder, com.github.jtendermint.jabci.merkle.ProofOrBuilder> proofBuilder_;
     /**
-     * <code>.com.github.jtendermint.jabci.types.Proof proof = 8;</code>
+     * <code>.com.github.jtendermint.jabci.merkle.Proof proof = 8;</code>
      */
     public boolean hasProof() {
       return proofBuilder_ != null || proof_ != null;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.Proof proof = 8;</code>
+     * <code>.com.github.jtendermint.jabci.merkle.Proof proof = 8;</code>
      */
-    public com.github.jtendermint.jabci.types.Proof getProof() {
+    public com.github.jtendermint.jabci.merkle.Proof getProof() {
       if (proofBuilder_ == null) {
-        return proof_ == null ? com.github.jtendermint.jabci.types.Proof.getDefaultInstance() : proof_;
+        return proof_ == null ? com.github.jtendermint.jabci.merkle.Proof.getDefaultInstance() : proof_;
       } else {
         return proofBuilder_.getMessage();
       }
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.Proof proof = 8;</code>
+     * <code>.com.github.jtendermint.jabci.merkle.Proof proof = 8;</code>
      */
-    public Builder setProof(com.github.jtendermint.jabci.types.Proof value) {
+    public Builder setProof(com.github.jtendermint.jabci.merkle.Proof value) {
       if (proofBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -1100,10 +1096,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.Proof proof = 8;</code>
+     * <code>.com.github.jtendermint.jabci.merkle.Proof proof = 8;</code>
      */
     public Builder setProof(
-        com.github.jtendermint.jabci.types.Proof.Builder builderForValue) {
+        com.github.jtendermint.jabci.merkle.Proof.Builder builderForValue) {
       if (proofBuilder_ == null) {
         proof_ = builderForValue.build();
         onChanged();
@@ -1114,13 +1110,13 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.Proof proof = 8;</code>
+     * <code>.com.github.jtendermint.jabci.merkle.Proof proof = 8;</code>
      */
-    public Builder mergeProof(com.github.jtendermint.jabci.types.Proof value) {
+    public Builder mergeProof(com.github.jtendermint.jabci.merkle.Proof value) {
       if (proofBuilder_ == null) {
         if (proof_ != null) {
           proof_ =
-            com.github.jtendermint.jabci.types.Proof.newBuilder(proof_).mergeFrom(value).buildPartial();
+            com.github.jtendermint.jabci.merkle.Proof.newBuilder(proof_).mergeFrom(value).buildPartial();
         } else {
           proof_ = value;
         }
@@ -1132,7 +1128,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.Proof proof = 8;</code>
+     * <code>.com.github.jtendermint.jabci.merkle.Proof proof = 8;</code>
      */
     public Builder clearProof() {
       if (proofBuilder_ == null) {
@@ -1146,33 +1142,33 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.Proof proof = 8;</code>
+     * <code>.com.github.jtendermint.jabci.merkle.Proof proof = 8;</code>
      */
-    public com.github.jtendermint.jabci.types.Proof.Builder getProofBuilder() {
+    public com.github.jtendermint.jabci.merkle.Proof.Builder getProofBuilder() {
       
       onChanged();
       return getProofFieldBuilder().getBuilder();
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.Proof proof = 8;</code>
+     * <code>.com.github.jtendermint.jabci.merkle.Proof proof = 8;</code>
      */
-    public com.github.jtendermint.jabci.types.ProofOrBuilder getProofOrBuilder() {
+    public com.github.jtendermint.jabci.merkle.ProofOrBuilder getProofOrBuilder() {
       if (proofBuilder_ != null) {
         return proofBuilder_.getMessageOrBuilder();
       } else {
         return proof_ == null ?
-            com.github.jtendermint.jabci.types.Proof.getDefaultInstance() : proof_;
+            com.github.jtendermint.jabci.merkle.Proof.getDefaultInstance() : proof_;
       }
     }
     /**
-     * <code>.com.github.jtendermint.jabci.types.Proof proof = 8;</code>
+     * <code>.com.github.jtendermint.jabci.merkle.Proof proof = 8;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.github.jtendermint.jabci.types.Proof, com.github.jtendermint.jabci.types.Proof.Builder, com.github.jtendermint.jabci.types.ProofOrBuilder> 
+        com.github.jtendermint.jabci.merkle.Proof, com.github.jtendermint.jabci.merkle.Proof.Builder, com.github.jtendermint.jabci.merkle.ProofOrBuilder> 
         getProofFieldBuilder() {
       if (proofBuilder_ == null) {
         proofBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.github.jtendermint.jabci.types.Proof, com.github.jtendermint.jabci.types.Proof.Builder, com.github.jtendermint.jabci.types.ProofOrBuilder>(
+            com.github.jtendermint.jabci.merkle.Proof, com.github.jtendermint.jabci.merkle.Proof.Builder, com.github.jtendermint.jabci.merkle.ProofOrBuilder>(
                 getProof(),
                 getParentForChildren(),
                 isClean());
@@ -1278,7 +1274,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
-      return super.setUnknownFieldsProto3(unknownFields);
+      return super.setUnknownFields(unknownFields);
     }
 
     @java.lang.Override

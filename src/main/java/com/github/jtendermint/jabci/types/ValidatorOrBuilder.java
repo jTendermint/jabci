@@ -14,7 +14,7 @@ public interface ValidatorOrBuilder extends
 
   /**
    * <pre>
-   *PubKey pub_key = 2 ;
+   *PubKey pub_key = 2;
    * </pre>
    *
    * <code>int64 power = 3;</code>

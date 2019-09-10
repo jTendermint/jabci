@@ -8,17 +8,17 @@ public interface ConsensusParamsOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>.com.github.jtendermint.jabci.types.BlockSizeParams block_size = 1;</code>
+   * <code>.com.github.jtendermint.jabci.types.BlockParams block = 1;</code>
    */
-  boolean hasBlockSize();
+  boolean hasBlock();
   /**
-   * <code>.com.github.jtendermint.jabci.types.BlockSizeParams block_size = 1;</code>
+   * <code>.com.github.jtendermint.jabci.types.BlockParams block = 1;</code>
    */
-  com.github.jtendermint.jabci.types.BlockSizeParams getBlockSize();
+  com.github.jtendermint.jabci.types.BlockParams getBlock();
   /**
-   * <code>.com.github.jtendermint.jabci.types.BlockSizeParams block_size = 1;</code>
+   * <code>.com.github.jtendermint.jabci.types.BlockParams block = 1;</code>
    */
-  com.github.jtendermint.jabci.types.BlockSizeParamsOrBuilder getBlockSizeOrBuilder();
+  com.github.jtendermint.jabci.types.BlockParamsOrBuilder getBlockOrBuilder();
 
   /**
    * <code>.com.github.jtendermint.jabci.types.EvidenceParams evidence = 2;</code>

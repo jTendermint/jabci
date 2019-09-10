@@ -64,17 +64,17 @@ public interface ResponseQueryOrBuilder extends
   com.google.protobuf.ByteString getValue();
 
   /**
-   * <code>.com.github.jtendermint.jabci.types.Proof proof = 8;</code>
+   * <code>.com.github.jtendermint.jabci.merkle.Proof proof = 8;</code>
    */
   boolean hasProof();
   /**
-   * <code>.com.github.jtendermint.jabci.types.Proof proof = 8;</code>
+   * <code>.com.github.jtendermint.jabci.merkle.Proof proof = 8;</code>
    */
-  com.github.jtendermint.jabci.types.Proof getProof();
+  com.github.jtendermint.jabci.merkle.Proof getProof();
   /**
-   * <code>.com.github.jtendermint.jabci.types.Proof proof = 8;</code>
+   * <code>.com.github.jtendermint.jabci.merkle.Proof proof = 8;</code>
    */
-  com.github.jtendermint.jabci.types.ProofOrBuilder getProofOrBuilder();
+  com.github.jtendermint.jabci.merkle.ProofOrBuilder getProofOrBuilder();
 
   /**
    * <code>int64 height = 9;</code>
