@@ -23,8 +23,8 @@
  */
 package com.github.jtendermint.jabci.api;
 
-import com.github.jtendermint.jabci.types.RequestCommit;
-import com.github.jtendermint.jabci.types.ResponseCommit;
+import com.github.jtendermint.jabci.proto.types.RequestCommit;
+import com.github.jtendermint.jabci.proto.types.ResponseCommit;
 
 public interface ICommit {
 

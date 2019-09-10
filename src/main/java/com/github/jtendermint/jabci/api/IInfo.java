@@ -23,8 +23,8 @@
  */
 package com.github.jtendermint.jabci.api;
 
-import com.github.jtendermint.jabci.types.RequestInfo;
-import com.github.jtendermint.jabci.types.ResponseInfo;
+import com.github.jtendermint.jabci.proto.types.RequestInfo;
+import com.github.jtendermint.jabci.proto.types.ResponseInfo;
 
 public interface IInfo {
 

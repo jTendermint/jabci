@@ -23,8 +23,8 @@
  */
 package com.github.jtendermint.jabci.api;
 
-import com.github.jtendermint.jabci.types.RequestEndBlock;
-import com.github.jtendermint.jabci.types.ResponseEndBlock;
+import com.github.jtendermint.jabci.proto.types.RequestEndBlock;
+import com.github.jtendermint.jabci.proto.types.ResponseEndBlock;
 
 public interface IEndBlock {
 

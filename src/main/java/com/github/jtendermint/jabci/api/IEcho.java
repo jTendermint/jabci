@@ -23,8 +23,8 @@
  */
 package com.github.jtendermint.jabci.api;
 
-import com.github.jtendermint.jabci.types.RequestEcho;
-import com.github.jtendermint.jabci.types.ResponseEcho;
+import com.github.jtendermint.jabci.proto.types.RequestEcho;
+import com.github.jtendermint.jabci.proto.types.ResponseEcho;
 
 public interface IEcho {
 

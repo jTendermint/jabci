@@ -34,14 +34,14 @@ import com.github.jtendermint.jabci.api.IDeliverTx;
 import com.github.jtendermint.jabci.api.IQuery;
 import com.github.jtendermint.jabci.socket.ExceptionListener.Event;
 import com.github.jtendermint.jabci.socket.TSocket;
-import com.github.jtendermint.jabci.types.RequestCheckTx;
-import com.github.jtendermint.jabci.types.RequestCommit;
-import com.github.jtendermint.jabci.types.RequestDeliverTx;
-import com.github.jtendermint.jabci.types.RequestQuery;
-import com.github.jtendermint.jabci.types.ResponseCheckTx;
-import com.github.jtendermint.jabci.types.ResponseCommit;
-import com.github.jtendermint.jabci.types.ResponseDeliverTx;
-import com.github.jtendermint.jabci.types.ResponseQuery;
+import com.github.jtendermint.jabci.proto.types.RequestCheckTx;
+import com.github.jtendermint.jabci.proto.types.RequestCommit;
+import com.github.jtendermint.jabci.proto.types.RequestDeliverTx;
+import com.github.jtendermint.jabci.proto.types.RequestQuery;
+import com.github.jtendermint.jabci.proto.types.ResponseCheckTx;
+import com.github.jtendermint.jabci.proto.types.ResponseCommit;
+import com.github.jtendermint.jabci.proto.types.ResponseDeliverTx;
+import com.github.jtendermint.jabci.proto.types.ResponseQuery;
 import com.google.protobuf.ByteString;
 
 /**
