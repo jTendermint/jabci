@@ -1,5 +1,5 @@
 syntax = "proto3";
-package com.github.jtendermint.jabci.common;
+package com.github.jtendermint.jabci.proto.common;
 
 option java_multiple_files = true;
 
