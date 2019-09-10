@@ -23,8 +23,8 @@
  */
 package com.github.jtendermint.jabci.api;
 
-import com.github.jtendermint.jabci.proto.types.RequestBeginBlock;
-import com.github.jtendermint.jabci.proto.types.ResponseBeginBlock;
+import com.github.jtendermint.jabci.types.RequestBeginBlock;
+import com.github.jtendermint.jabci.types.ResponseBeginBlock;
 
 public interface IBeginBlock {
 

@@ -23,8 +23,8 @@
  */
 package com.github.jtendermint.jabci.api;
 
-import com.github.jtendermint.jabci.proto.types.RequestFlush;
-import com.github.jtendermint.jabci.proto.types.ResponseFlush;
+import com.github.jtendermint.jabci.types.RequestFlush;
+import com.github.jtendermint.jabci.types.ResponseFlush;
 
 public interface IFlush {
 

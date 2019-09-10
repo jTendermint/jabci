@@ -38,8 +38,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.github.jtendermint.jabci.socket.ExceptionListener.Event;
-import com.github.jtendermint.jabci.proto.types.Request;
-import com.github.jtendermint.jabci.proto.types.ResponseException;
+import com.github.jtendermint.jabci.types.Request;
+import com.github.jtendermint.jabci.types.ResponseException;
 import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.GeneratedMessageV3;
 import com.google.protobuf.InvalidProtocolBufferException;

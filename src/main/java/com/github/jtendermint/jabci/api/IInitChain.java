@@ -23,8 +23,8 @@
  */
 package com.github.jtendermint.jabci.api;
 
-import com.github.jtendermint.jabci.proto.types.RequestInitChain;
-import com.github.jtendermint.jabci.proto.types.ResponseInitChain;
+import com.github.jtendermint.jabci.types.RequestInitChain;
+import com.github.jtendermint.jabci.types.ResponseInitChain;
 
 public interface IInitChain {
     /**
