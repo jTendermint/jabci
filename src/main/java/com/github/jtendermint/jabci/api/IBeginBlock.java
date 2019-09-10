@@ -41,7 +41,7 @@ public interface IBeginBlock {
      *     validators that acted maliciously.
      *</ul>
      *
-     *<p>Returns:<p/>
+     *<p>Returns:</p>
      *<ul>
      *<li>{@code Tags ([]cmn.KVPair)}: Key-Value tags for filtering and indexing
      *</ul>

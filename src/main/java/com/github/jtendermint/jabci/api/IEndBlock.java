@@ -36,7 +36,7 @@ public interface IEndBlock {
      * <ul>
      *   <li>{@code Height (int64)}: Height of the block just executed.
      * </ul>
-     * <p>Returns:<p/>
+     * <p>Returns:</p>
      * <ul>
      *   <li>{@code ValidatorUpdates ([]ValidatorUpdate)}: Changes to validator set (set
      *     voting power to 0 to remove).

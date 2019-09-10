@@ -124,7 +124,7 @@
                             <goal>jar</goal>
                         </goals>
                         <configuration>
-                            <excludePackageNames>com.github.jtendermint.jabci.types</excludePackageNames>
+                            <excludePackageNames>com.github.jtendermint.jabci.proto</excludePackageNames>
                         </configuration>
                     </execution>
                 </executions>

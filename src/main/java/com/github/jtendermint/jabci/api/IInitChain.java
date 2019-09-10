@@ -47,7 +47,7 @@ public interface IInitChain {
      *   <li>{@code Validators ([]ValidatorUpdate)}: Initial genesis validators.
      *   <li>{@code AppStateBytes ([]byte)}: Serialized initial application state. Amino-encoded JSON bytes.
      * </ul>
-     * <p>Returns:<p/>
+     * <p>Returns:</p>
      * <ul>
      *   <li>{@code ConsensusParams (ConsensusParams)}: Initial
      *     consensus-critical parameters.

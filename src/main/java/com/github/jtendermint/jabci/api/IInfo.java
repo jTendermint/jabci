@@ -29,9 +29,9 @@ import com.github.jtendermint.jabci.proto.types.ResponseInfo;
 public interface IInfo {
 
     /**
-     * <p>Return information about the application state. </p
-     * <p>Used to sync Tendermint with the application during a handshake that happens on startup.</p
-     * <p>The returned {@code AppVersion} will be included in the Header of every block.</p
+     * <p>Return information about the application state. </p>
+     * <p>Used to sync Tendermint with the application during a handshake that happens on startup.</p>
+     * <p>The returned {@code AppVersion} will be included in the Header of every block.</p>
      * <p>Tendermint expects {@code LastBlockAppHash} and {@code LastBlockHeight} to be updated during {@code Commit},
      * ensuring that {@code Commit} is never called twice for the same block height.</p>
      *
@@ -42,7 +42,7 @@ public interface IInfo {
      * <li>{@code BlockVersion (uint64)}: The Tendermint Block Protocol version
      * <li>{@code P2PVersion (uint64)}: The Tendermint P2P Protocol version
      * </ul>
-     * <p>Returns:<p/>
+     * <p>Returns:</p>
      * <ul>
      * <li>{@code Data (string)}: Some arbitrary information
      * <li>{@code Version (string)}: The application software semantic version
