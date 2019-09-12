@@ -26,12 +26,12 @@ package com.github.jtendermint.jabci.api;
 /**
  * ABCI-Protocol<br>
  * Bundled Interface of Sub-Interfaces
- *
+ * 
  * <br>
  * See
  * <a href="https://github.com/tendermint/abci">https://github.com/tendermint
  * /abci</a> for more info
- *
+ * 
  * @version 06.11.2018
  *
  */
