@@ -29,9 +29,25 @@ import com.github.jtendermint.jabci.types.ResponseBeginBlock;
 public interface IBeginBlock {
 
     /**
-     * Signals the beginning of a new block. Called prior to any DeliverTxs.
+     * <p>Signals the beginning of a new block. Called prior to any DeliverTxs.</p>
+     * <p>Arguments:</p>
+     * <ul>
+     *   <li>{@code Hash ([]byte)}: The block's hash. This can be derived from the
+     *     block header.
+     *   <li>{@code Header}: The block header.
+     *   <li>{@code LastCommitInfo (LastCommitInfo)}: Info about the last commit, including the
+     *     round, and the list of validators and which ones signed the last block.
+     *   <li>{@code ByzantineValidators ([]Evidence)}: List of evidence of
+     *     validators that acted maliciously.
+     *</ul>
+     *
+     *<p>Returns:</p>
+     *<ul>
+     *<li>{@code Tags ([]cmn.KVPair)}: Key-Value tags for filtering and indexing
+     *</ul>
      * @param req
      * @return
+     * @see <a href="https://tendermint.com/docs/spec/abci/abci.html#beginblock">In Documentation</a>
      */
     ResponseBeginBlock requestBeginBlock(RequestBeginBlock req);
 

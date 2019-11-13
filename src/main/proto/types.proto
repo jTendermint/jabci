@@ -1,50 +1,15 @@
 syntax = "proto3";
 package com.github.jtendermint.jabci.types;
+
 option java_multiple_files = true;
 
-// For more information on gogo.proto, see:
-// https://github.com/gogo/protobuf/blob/master/extensions.md
-//import "github.com/gogo/protobuf/gogoproto/gogo.proto";
+import "merkle.proto";
+import "common.proto";
 import "google/protobuf/timestamp.proto";
 
-// This file is copied from http://github.com/tendermint/abci
+// This file is copied from http://github.com/tendermint/tendermint
 // NOTE: When using custom types, mind the warnings.
 // https://github.com/gogo/protobuf/blob/master/custom_types.md#warnings-and-issues
-
-//option (gogoproto.marshaler_all) = true;
-//option (gogoproto.unmarshaler_all) = true;
-//option (gogoproto.sizer_all) = true;
-//option (gogoproto.goproto_registration) = true;
-// Generate tests
-//option (gogoproto.populate_all) = true;
-//option (gogoproto.equal_all) = true;
-//option (gogoproto.testgen_all) = true;
-
-// Define these here for compatibility but use tmlibs/common.KVPair.
-message KVPair {
-  bytes key = 1;
-  bytes value = 2;
-}
-
-// Define these here for compatibility but use tmlibs/common.KI64Pair.
-message KI64Pair {
-  bytes key = 1;
-  int64 value = 2;
-}
-
-
-// import "github.com/tendermint/tendermint/crypto/merkle/merkle.proto";
-message ProofOp {
-  string type = 1;
-  bytes key = 2;
-  bytes data = 3;
-}
-
-// Proof is Merkle proof defined by the list of ProofOps
-message Proof {
-  repeated ProofOp ops = 1;
-}
-
 
 //----------------------------------------
 // Request types
@@ -85,10 +50,10 @@ message RequestSetOption {
 }
 
 message RequestInitChain {
-  google.protobuf.Timestamp time = 1  ;
+  google.protobuf.Timestamp time = 1;
   string chain_id = 2;
   ConsensusParams consensus_params = 3;
-  repeated ValidatorUpdate validators = 4  ;
+  repeated ValidatorUpdate validators = 4;
   bytes app_state_bytes = 5;
 }
 
@@ -101,13 +66,19 @@ message RequestQuery {
 
 message RequestBeginBlock {
   bytes hash = 1;
-  Header header = 2 ;
-  LastCommitInfo last_commit_info = 3 ;
-  repeated Evidence byzantine_validators = 4 ;
+  Header header = 2;
+  LastCommitInfo last_commit_info = 3;
+  repeated Evidence byzantine_validators = 4;
+}
+
+enum CheckTxType {
+  New = 0;
+  Recheck = 1;
 }
 
 message RequestCheckTx {
   bytes tx = 1;
+  CheckTxType type = 2;
 }
 
 message RequestDeliverTx {
@@ -173,7 +144,7 @@ message ResponseSetOption {
 
 message ResponseInitChain {
   ConsensusParams consensus_params = 1;
-  repeated ValidatorUpdate validators = 2 ;
+  repeated ValidatorUpdate validators = 2;
 }
 
 message ResponseQuery {
@@ -190,7 +161,7 @@ message ResponseQuery {
 }
 
 message ResponseBeginBlock {
-  repeated KVPair tags = 1 ;
+  repeated Event events = 1;
 }
 
 message ResponseCheckTx {
@@ -200,7 +171,7 @@ message ResponseCheckTx {
   string info = 4; // nondeterministic
   int64 gas_wanted  = 5;
   int64 gas_used = 6;
-  repeated KVPair tags = 7 ;
+  repeated Event events = 7;
   string codespace = 8;
 }
 
@@ -211,14 +182,14 @@ message ResponseDeliverTx {
   string info = 4; // nondeterministic
   int64 gas_wanted = 5;
   int64 gas_used = 6;
-  repeated KVPair tags = 7 ;
+  repeated Event events = 7;
   string codespace = 8;
 }
 
 message ResponseEndBlock {
-  repeated ValidatorUpdate validator_updates = 1 ;
+  repeated ValidatorUpdate validator_updates = 1;
   ConsensusParams consensus_param_updates = 2;
-  repeated KVPair tags = 3 ;
+  repeated Event events = 3;
 }
 
 message ResponseCommit {
@@ -232,13 +203,13 @@ message ResponseCommit {
 // ConsensusParams contains all consensus-relevant parameters
 // that can be adjusted by the abci app
 message ConsensusParams {
-  BlockSizeParams block_size = 1;
+  BlockParams block = 1;
   EvidenceParams evidence = 2;
   ValidatorParams validator = 3;
 }
 
-// BlockSize contains limits on the block size.
-message BlockSizeParams {
+// BlockParams contains limits on the block size.
+message BlockParams {
   // Note: must be greater than 0
   int64 max_bytes = 1;
   // Note: must be greater or equal to -1
@@ -258,7 +229,12 @@ message ValidatorParams {
 
 message LastCommitInfo {
   int32 round = 1;
-  repeated VoteInfo votes = 2 ;
+  repeated VoteInfo votes = 2;
+}
+
+message Event {
+  string type = 1;
+  repeated KVPair attributes = 2;
 }
 
 //----------------------------------------
@@ -266,15 +242,15 @@ message LastCommitInfo {
 
 message Header {
   // basic block info
-  Version version = 1 ;
-  string chain_id = 2 ;
+  Version version = 1;
+  string chain_id = 2;
   int64 height = 3;
-  google.protobuf.Timestamp time = 4 ;
+  google.protobuf.Timestamp time = 4;
   int64 num_txs = 5;
   int64 total_txs = 6;
 
   // prev block info
-  BlockID last_block_id = 7 ;
+  BlockID last_block_id = 7;
 
   // hashes of block data
   bytes last_commit_hash = 8; // commit from validators from the last block
@@ -300,7 +276,7 @@ message Version {
 
 message BlockID {
   bytes hash = 1;
-  PartSetHeader parts_header = 2 ;
+  PartSetHeader parts_header = 2;
 }
 
 message PartSetHeader {
@@ -311,19 +287,19 @@ message PartSetHeader {
 // Validator
 message Validator {
   bytes address = 1;
-  //PubKey pub_key = 2 ;
+  //PubKey pub_key = 2;
   int64 power = 3;
 }
 
 // ValidatorUpdate
 message ValidatorUpdate {
-  PubKey pub_key = 1 ;
+  PubKey pub_key = 1;
   int64 power = 2;
 }
 
 // VoteInfo
 message VoteInfo {
-  Validator validator = 1 ;
+  Validator validator = 1;
   bool signed_last_block = 2;
 }
 
@@ -334,9 +310,9 @@ message PubKey {
 
 message Evidence {
   string type = 1;
-  Validator validator = 2 ;
+  Validator validator = 2;
   int64 height = 3;
-  google.protobuf.Timestamp time = 4 ;
+  google.protobuf.Timestamp time = 4;
   int64 total_voting_power = 5;
 }
 
@@ -344,7 +320,7 @@ message Evidence {
 // Service Definition
 
 service ABCIApplication {
-  rpc Echo(RequestEcho) returns (ResponseEcho) ;
+  rpc Echo(RequestEcho) returns (ResponseEcho);
   rpc Flush(RequestFlush) returns (ResponseFlush);
   rpc Info(RequestInfo) returns (ResponseInfo);
   rpc SetOption(RequestSetOption) returns (ResponseSetOption);

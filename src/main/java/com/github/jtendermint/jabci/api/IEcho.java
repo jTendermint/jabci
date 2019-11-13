@@ -29,9 +29,12 @@ import com.github.jtendermint.jabci.types.ResponseEcho;
 public interface IEcho {
 
     /**
-     * Undocumented
-     * @param req
-     * @return
+     * Echo a string to test an abci client/server implementation
+     *
+     * @param req A request containing a message
+     * @return A response containing the message sent in request
+     *
+     * @see <a href="https://tendermint.com/docs/spec/abci/abci.html#echo">In Documentation</a>
      */
     ResponseEcho requestEcho(RequestEcho req);
 

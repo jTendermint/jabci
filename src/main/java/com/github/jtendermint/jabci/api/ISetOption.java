@@ -29,9 +29,27 @@ import com.github.jtendermint.jabci.types.ResponseSetOption;
 public interface ISetOption {
 
     /**
-     * Set application options. E.g. Key="mode", Value="mempool" for a mempool connection, or Key="mode", Value="consensus" for a consensus connection. Other options are application specific.
+     * Set non-consensus critical application specific options. e.g. Key="min-fee",
+     * Value="100fermion" could set the minimum fee required for CheckTx (but not
+     * DeliverTx - that would be consensus critical).
+     *
+     * <p>Arguments:</p>
+     * <ul>
+     *   <li>{@code Key (string)}: Key to set
+     *   <li>{@code Value (string)}: Value to set for key
+     * </ul>
+     * <p>Returns:</p>
+     * <ul>
+     *   <li>{@code Code (uint32)}: Response code
+     *   <li>{@code Log (string)}: The output of the application's logger. May
+     *     be non-deterministic.
+     *   <li>{@code Info (string)}: Additional information. May
+     *     be non-deterministic.
+     * </ul>
      * @param req
      * @return
+     *
+     * @see <a href="https://tendermint.com/docs/spec/abci/abci.html#setoption">In Documentation</a>
      */
     ResponseSetOption requestSetOption(RequestSetOption req);
 

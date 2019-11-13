@@ -197,7 +197,7 @@ private static final long serialVersionUID = 0L;
             break;
           }
           default: {
-            if (!parseUnknownFieldProto3(
+            if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
               done = true;
             }
@@ -685,60 +685,57 @@ private static final long serialVersionUID = 0L;
     }
     com.github.jtendermint.jabci.types.Request other = (com.github.jtendermint.jabci.types.Request) obj;
 
-    boolean result = true;
-    result = result && getValueCase().equals(
-        other.getValueCase());
-    if (!result) return false;
+    if (!getValueCase().equals(other.getValueCase())) return false;
     switch (valueCase_) {
       case 2:
-        result = result && getEcho()
-            .equals(other.getEcho());
+        if (!getEcho()
+            .equals(other.getEcho())) return false;
         break;
       case 3:
-        result = result && getFlush()
-            .equals(other.getFlush());
+        if (!getFlush()
+            .equals(other.getFlush())) return false;
         break;
       case 4:
-        result = result && getInfo()
-            .equals(other.getInfo());
+        if (!getInfo()
+            .equals(other.getInfo())) return false;
         break;
       case 5:
-        result = result && getSetOption()
-            .equals(other.getSetOption());
+        if (!getSetOption()
+            .equals(other.getSetOption())) return false;
         break;
       case 6:
-        result = result && getInitChain()
-            .equals(other.getInitChain());
+        if (!getInitChain()
+            .equals(other.getInitChain())) return false;
         break;
       case 7:
-        result = result && getQuery()
-            .equals(other.getQuery());
+        if (!getQuery()
+            .equals(other.getQuery())) return false;
         break;
       case 8:
-        result = result && getBeginBlock()
-            .equals(other.getBeginBlock());
+        if (!getBeginBlock()
+            .equals(other.getBeginBlock())) return false;
         break;
       case 9:
-        result = result && getCheckTx()
-            .equals(other.getCheckTx());
+        if (!getCheckTx()
+            .equals(other.getCheckTx())) return false;
         break;
       case 19:
-        result = result && getDeliverTx()
-            .equals(other.getDeliverTx());
+        if (!getDeliverTx()
+            .equals(other.getDeliverTx())) return false;
         break;
       case 11:
-        result = result && getEndBlock()
-            .equals(other.getEndBlock());
+        if (!getEndBlock()
+            .equals(other.getEndBlock())) return false;
         break;
       case 12:
-        result = result && getCommit()
-            .equals(other.getCommit());
+        if (!getCommit()
+            .equals(other.getCommit())) return false;
         break;
       case 0:
       default:
     }
-    result = result && unknownFields.equals(other.unknownFields);
-    return result;
+    if (!unknownFields.equals(other.unknownFields)) return false;
+    return true;
   }
 
   @java.lang.Override
@@ -1041,35 +1038,35 @@ private static final long serialVersionUID = 0L;
 
     @java.lang.Override
     public Builder clone() {
-      return (Builder) super.clone();
+      return super.clone();
     }
     @java.lang.Override
     public Builder setField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
         java.lang.Object value) {
-      return (Builder) super.setField(field, value);
+      return super.setField(field, value);
     }
     @java.lang.Override
     public Builder clearField(
         com.google.protobuf.Descriptors.FieldDescriptor field) {
-      return (Builder) super.clearField(field);
+      return super.clearField(field);
     }
     @java.lang.Override
     public Builder clearOneof(
         com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-      return (Builder) super.clearOneof(oneof);
+      return super.clearOneof(oneof);
     }
     @java.lang.Override
     public Builder setRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
         int index, java.lang.Object value) {
-      return (Builder) super.setRepeatedField(field, index, value);
+      return super.setRepeatedField(field, index, value);
     }
     @java.lang.Override
     public Builder addRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
         java.lang.Object value) {
-      return (Builder) super.addRepeatedField(field, value);
+      return super.addRepeatedField(field, value);
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -2674,7 +2671,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
-      return super.setUnknownFieldsProto3(unknownFields);
+      return super.setUnknownFields(unknownFields);
     }
 
     @java.lang.Override

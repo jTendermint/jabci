@@ -5,7 +5,7 @@
 
     <groupId>com.github.jtendermint</groupId>
     <artifactId>jabci</artifactId>
-    <version>0.26.0</version>
+    <version>0.32.3</version>
 
     <name>com.github.jtendermint:jabci</name>
     <description>Java implementation for ABCI consensus protocol from tendermint.com and related tools</description>
@@ -124,7 +124,7 @@
                             <goal>jar</goal>
                         </goals>
                         <configuration>
-                            <excludePackageNames>com.github.jtendermint.jabci.types</excludePackageNames>
+                            <excludePackageNames>com.github.jtendermint.jabci.proto</excludePackageNames>
                         </configuration>
                     </execution>
                 </executions>
@@ -141,7 +141,7 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-simple</artifactId>
-            <version>1.7.25</version>
+            <version>1.7.28</version>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>

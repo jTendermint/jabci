@@ -29,10 +29,32 @@ import com.github.jtendermint.jabci.types.ResponseInfo;
 public interface IInfo {
 
     /**
-     * Return information about the application state. Application specific.
-     * 
+     * <p>Return information about the application state. </p>
+     * <p>Used to sync Tendermint with the application during a handshake that happens on startup.</p>
+     * <p>The returned {@code AppVersion} will be included in the Header of every block.</p>
+     * <p>Tendermint expects {@code LastBlockAppHash} and {@code LastBlockHeight} to be updated during {@code Commit},
+     * ensuring that {@code Commit} is never called twice for the same block height.</p>
+     *
+     *
+     * <p>Arguments:</p>
+     * <ul>
+     * <li>{@code Version (string)}: The Tendermint software semantic version
+     * <li>{@code BlockVersion (uint64)}: The Tendermint Block Protocol version
+     * <li>{@code P2PVersion (uint64)}: The Tendermint P2P Protocol version
+     * </ul>
+     * <p>Returns:</p>
+     * <ul>
+     * <li>{@code Data (string)}: Some arbitrary information
+     * <li>{@code Version (string)}: The application software semantic version
+     * <li>{@code AppVersion (uint64)}: The application protocol version
+     * <li>{@code LastBlockHeight (int64)}: Latest block for which the app has
+     called Commit
+     * <li>{@code LastBlockAppHash ([]byte)}: Latest result of Commit
+     * </ul>
      * @param req
      * @return
+     *
+     * @see <a href="https://tendermint.com/docs/spec/abci/abci.html#info">In Documentation</a>
      */
     ResponseInfo requestInfo(RequestInfo req);
 

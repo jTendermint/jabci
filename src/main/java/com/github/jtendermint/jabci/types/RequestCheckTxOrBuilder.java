@@ -11,4 +11,13 @@ public interface RequestCheckTxOrBuilder extends
    * <code>bytes tx = 1;</code>
    */
   com.google.protobuf.ByteString getTx();
+
+  /**
+   * <code>.com.github.jtendermint.jabci.types.CheckTxType type = 2;</code>
+   */
+  int getTypeValue();
+  /**
+   * <code>.com.github.jtendermint.jabci.types.CheckTxType type = 2;</code>
+   */
+  com.github.jtendermint.jabci.types.CheckTxType getType();
 }
