@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  * 
- * Copyright (c) 2016 - 2018
+ * Copyright (c) 2016 - 2019
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -30,8 +30,28 @@ public interface IDeliverTx {
 
     /**
      * Append and run a transaction. If the transaction is valid, returns CodeType.OK
+     *
+     * <p>Arguments:</p>
+     * <ul>
+     *     <li> {@code Tx ([]byte)}: The request transaction bytes.
+     * </ul>
+     * <p>Returns:</p>
+     * <ul>
+     *   <li> {@code Code (uint32)}: Response code.
+     *   <li> {@code Data ([]byte)}: Result bytes, if any.
+     *   <li> {@code Log (string)}: The output of the application's logger. May
+     *     be non-deterministic.
+     *   <li> {@code Info (string)}: Additional information. May
+     *     be non-deterministic.
+     *   <li> {@code GasWanted (int64)}: Amount of gas requested for transaction.
+     *   <li> {@code GasUsed (int64)}: Amount of gas consumed by transaction.
+     *   <li> {@code Tags ([]cmn.KVPair)}: Key-Value tags for filtering and indexing
+     *     transactions (eg. by account).
+     *   <li> {@code Codespace (string)}: Namespace for the `Code`.
+     * </ul>
      * @param req
      * @return
+     * @see <a href="https://tendermint.com/docs/spec/abci/abci.html#delivertx">In Documentation</a>
      */
     ResponseDeliverTx receivedDeliverTx(RequestDeliverTx req);
 

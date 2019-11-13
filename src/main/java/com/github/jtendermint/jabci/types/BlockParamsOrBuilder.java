@@ -3,8 +3,8 @@
 
 package com.github.jtendermint.jabci.types;
 
-public interface BlockSizeParamsOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:com.github.jtendermint.jabci.types.BlockSizeParams)
+public interface BlockParamsOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:com.github.jtendermint.jabci.types.BlockParams)
     com.google.protobuf.MessageOrBuilder {
 
   /**

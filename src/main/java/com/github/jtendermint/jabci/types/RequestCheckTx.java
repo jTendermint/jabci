@@ -17,6 +17,7 @@ private static final long serialVersionUID = 0L;
   }
   private RequestCheckTx() {
     tx_ = com.google.protobuf.ByteString.EMPTY;
+    type_ = 0;
   }
 
   @java.lang.Override
@@ -48,8 +49,14 @@ private static final long serialVersionUID = 0L;
             tx_ = input.readBytes();
             break;
           }
+          case 16: {
+            int rawValue = input.readEnum();
+
+            type_ = rawValue;
+            break;
+          }
           default: {
-            if (!parseUnknownFieldProto3(
+            if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
               done = true;
             }
@@ -89,6 +96,23 @@ private static final long serialVersionUID = 0L;
     return tx_;
   }
 
+  public static final int TYPE_FIELD_NUMBER = 2;
+  private int type_;
+  /**
+   * <code>.com.github.jtendermint.jabci.types.CheckTxType type = 2;</code>
+   */
+  public int getTypeValue() {
+    return type_;
+  }
+  /**
+   * <code>.com.github.jtendermint.jabci.types.CheckTxType type = 2;</code>
+   */
+  public com.github.jtendermint.jabci.types.CheckTxType getType() {
+    @SuppressWarnings("deprecation")
+    com.github.jtendermint.jabci.types.CheckTxType result = com.github.jtendermint.jabci.types.CheckTxType.valueOf(type_);
+    return result == null ? com.github.jtendermint.jabci.types.CheckTxType.UNRECOGNIZED : result;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -106,6 +130,9 @@ private static final long serialVersionUID = 0L;
     if (!tx_.isEmpty()) {
       output.writeBytes(1, tx_);
     }
+    if (type_ != com.github.jtendermint.jabci.types.CheckTxType.New.getNumber()) {
+      output.writeEnum(2, type_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -118,6 +145,10 @@ private static final long serialVersionUID = 0L;
     if (!tx_.isEmpty()) {
       size += com.google.protobuf.CodedOutputStream
         .computeBytesSize(1, tx_);
+    }
+    if (type_ != com.github.jtendermint.jabci.types.CheckTxType.New.getNumber()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(2, type_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -134,11 +165,11 @@ private static final long serialVersionUID = 0L;
     }
     com.github.jtendermint.jabci.types.RequestCheckTx other = (com.github.jtendermint.jabci.types.RequestCheckTx) obj;
 
-    boolean result = true;
-    result = result && getTx()
-        .equals(other.getTx());
-    result = result && unknownFields.equals(other.unknownFields);
-    return result;
+    if (!getTx()
+        .equals(other.getTx())) return false;
+    if (type_ != other.type_) return false;
+    if (!unknownFields.equals(other.unknownFields)) return false;
+    return true;
   }
 
   @java.lang.Override
@@ -150,6 +181,8 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + TX_FIELD_NUMBER;
     hash = (53 * hash) + getTx().hashCode();
+    hash = (37 * hash) + TYPE_FIELD_NUMBER;
+    hash = (53 * hash) + type_;
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -285,6 +318,8 @@ private static final long serialVersionUID = 0L;
       super.clear();
       tx_ = com.google.protobuf.ByteString.EMPTY;
 
+      type_ = 0;
+
       return this;
     }
 
@@ -312,41 +347,42 @@ private static final long serialVersionUID = 0L;
     public com.github.jtendermint.jabci.types.RequestCheckTx buildPartial() {
       com.github.jtendermint.jabci.types.RequestCheckTx result = new com.github.jtendermint.jabci.types.RequestCheckTx(this);
       result.tx_ = tx_;
+      result.type_ = type_;
       onBuilt();
       return result;
     }
 
     @java.lang.Override
     public Builder clone() {
-      return (Builder) super.clone();
+      return super.clone();
     }
     @java.lang.Override
     public Builder setField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
         java.lang.Object value) {
-      return (Builder) super.setField(field, value);
+      return super.setField(field, value);
     }
     @java.lang.Override
     public Builder clearField(
         com.google.protobuf.Descriptors.FieldDescriptor field) {
-      return (Builder) super.clearField(field);
+      return super.clearField(field);
     }
     @java.lang.Override
     public Builder clearOneof(
         com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-      return (Builder) super.clearOneof(oneof);
+      return super.clearOneof(oneof);
     }
     @java.lang.Override
     public Builder setRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
         int index, java.lang.Object value) {
-      return (Builder) super.setRepeatedField(field, index, value);
+      return super.setRepeatedField(field, index, value);
     }
     @java.lang.Override
     public Builder addRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
         java.lang.Object value) {
-      return (Builder) super.addRepeatedField(field, value);
+      return super.addRepeatedField(field, value);
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -362,6 +398,9 @@ private static final long serialVersionUID = 0L;
       if (other == com.github.jtendermint.jabci.types.RequestCheckTx.getDefaultInstance()) return this;
       if (other.getTx() != com.google.protobuf.ByteString.EMPTY) {
         setTx(other.getTx());
+      }
+      if (other.type_ != 0) {
+        setTypeValue(other.getTypeValue());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -420,10 +459,55 @@ private static final long serialVersionUID = 0L;
       onChanged();
       return this;
     }
+
+    private int type_ = 0;
+    /**
+     * <code>.com.github.jtendermint.jabci.types.CheckTxType type = 2;</code>
+     */
+    public int getTypeValue() {
+      return type_;
+    }
+    /**
+     * <code>.com.github.jtendermint.jabci.types.CheckTxType type = 2;</code>
+     */
+    public Builder setTypeValue(int value) {
+      type_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.com.github.jtendermint.jabci.types.CheckTxType type = 2;</code>
+     */
+    public com.github.jtendermint.jabci.types.CheckTxType getType() {
+      @SuppressWarnings("deprecation")
+      com.github.jtendermint.jabci.types.CheckTxType result = com.github.jtendermint.jabci.types.CheckTxType.valueOf(type_);
+      return result == null ? com.github.jtendermint.jabci.types.CheckTxType.UNRECOGNIZED : result;
+    }
+    /**
+     * <code>.com.github.jtendermint.jabci.types.CheckTxType type = 2;</code>
+     */
+    public Builder setType(com.github.jtendermint.jabci.types.CheckTxType value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      
+      type_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.com.github.jtendermint.jabci.types.CheckTxType type = 2;</code>
+     */
+    public Builder clearType() {
+      
+      type_ = 0;
+      onChanged();
+      return this;
+    }
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
-      return super.setUnknownFieldsProto3(unknownFields);
+      return super.setUnknownFields(unknownFields);
     }
 
     @java.lang.Override

@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  * 
- * Copyright (c) 2016 - 2018
+ * Copyright (c) 2016 - 2019
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -30,11 +30,23 @@ public interface IEndBlock {
 
     /**
      * Signals the end of a block. Called prior to each Commit after all
-     * transactions Returns:<br>
-     * Validators ([]Validator): Changed validators with new voting powers (0 to
-     * remove)
-     * 
-     * @param req the Request representing data about the EndBlock (height,...)
+     * transactions.
+     *
+     * <p>Arguments:</p>
+     * <ul>
+     *   <li>{@code Height (int64)}: Height of the block just executed.
+     * </ul>
+     * <p>Returns:</p>
+     * <ul>
+     *   <li>{@code ValidatorUpdates ([]ValidatorUpdate)}: Changes to validator set (set
+     *     voting power to 0 to remove).
+     *   <li>{@code ConsensusParamUpdates (ConsensusParams)}: Changes to
+     *     consensus-critical time, size, and other parameters.
+     *   <li>{@code Tags ([]cmn.KVPair)}: Key-Value tags for filtering and indexing
+     * </ul>
+     *
+     * @param req
+     * @see <a href="https://tendermint.com/docs/spec/abci/abci.html#delivertx">In Documentation</a>
      */
     ResponseEndBlock requestEndBlock(RequestEndBlock req);
 

@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  * 
- * Copyright (c) 2016 - 2018
+ * Copyright (c) 2016 - 2019
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -29,9 +29,15 @@ import com.github.jtendermint.jabci.types.ResponseFlush;
 public interface IFlush {
 
     /**
-     * Flush the response queue. Applications that implement types.Application need not implement this message -- it's handled by the project.
+     * Signals that messages queued on the client should be flushed to the server.
+     * It is called periodically by the client implementation to ensure asynchronous
+     * requests are actually sent, and is called immediately to make a synchronous
+     * request, which returns when the Flush response comes back.
+     *
      * @param reqfl
      * @return
+     *
+     * @see <a href="https://tendermint.com/docs/spec/abci/abci.html#flush">In Documentation</a>
      */
     ResponseFlush requestFlush(RequestFlush reqfl);
 

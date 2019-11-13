@@ -64,27 +64,27 @@ public interface ResponseCheckTxOrBuilder extends
   long getGasUsed();
 
   /**
-   * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
+   * <code>repeated .com.github.jtendermint.jabci.types.Event events = 7;</code>
    */
-  java.util.List<com.github.jtendermint.jabci.types.KVPair> 
-      getTagsList();
+  java.util.List<com.github.jtendermint.jabci.types.Event> 
+      getEventsList();
   /**
-   * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
+   * <code>repeated .com.github.jtendermint.jabci.types.Event events = 7;</code>
    */
-  com.github.jtendermint.jabci.types.KVPair getTags(int index);
+  com.github.jtendermint.jabci.types.Event getEvents(int index);
   /**
-   * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
+   * <code>repeated .com.github.jtendermint.jabci.types.Event events = 7;</code>
    */
-  int getTagsCount();
+  int getEventsCount();
   /**
-   * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
+   * <code>repeated .com.github.jtendermint.jabci.types.Event events = 7;</code>
    */
-  java.util.List<? extends com.github.jtendermint.jabci.types.KVPairOrBuilder> 
-      getTagsOrBuilderList();
+  java.util.List<? extends com.github.jtendermint.jabci.types.EventOrBuilder> 
+      getEventsOrBuilderList();
   /**
-   * <code>repeated .com.github.jtendermint.jabci.types.KVPair tags = 7;</code>
+   * <code>repeated .com.github.jtendermint.jabci.types.Event events = 7;</code>
    */
-  com.github.jtendermint.jabci.types.KVPairOrBuilder getTagsOrBuilder(
+  com.github.jtendermint.jabci.types.EventOrBuilder getEventsOrBuilder(
       int index);
 
   /**

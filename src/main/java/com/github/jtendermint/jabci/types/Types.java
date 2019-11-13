@@ -15,26 +15,6 @@ public final class Types {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_github_jtendermint_jabci_types_KVPair_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_github_jtendermint_jabci_types_KVPair_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_github_jtendermint_jabci_types_KI64Pair_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_github_jtendermint_jabci_types_KI64Pair_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_github_jtendermint_jabci_types_ProofOp_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_github_jtendermint_jabci_types_ProofOp_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_github_jtendermint_jabci_types_Proof_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_github_jtendermint_jabci_types_Proof_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_github_jtendermint_jabci_types_Request_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -165,10 +145,10 @@ public final class Types {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_github_jtendermint_jabci_types_ConsensusParams_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_github_jtendermint_jabci_types_BlockSizeParams_descriptor;
+    internal_static_com_github_jtendermint_jabci_types_BlockParams_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_github_jtendermint_jabci_types_BlockSizeParams_fieldAccessorTable;
+      internal_static_com_github_jtendermint_jabci_types_BlockParams_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_github_jtendermint_jabci_types_EvidenceParams_descriptor;
   static final 
@@ -184,6 +164,11 @@ public final class Types {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_github_jtendermint_jabci_types_LastCommitInfo_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_github_jtendermint_jabci_types_Event_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_github_jtendermint_jabci_types_Event_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_github_jtendermint_jabci_types_Header_descriptor;
   static final 
@@ -239,183 +224,183 @@ public final class Types {
   static {
     java.lang.String[] descriptorData = {
       "\n\013types.proto\022\"com.github.jtendermint.ja" +
-      "bci.types\032\037google/protobuf/timestamp.pro" +
-      "to\"$\n\006KVPair\022\013\n\003key\030\001 \001(\014\022\r\n\005value\030\002 \001(\014" +
-      "\"&\n\010KI64Pair\022\013\n\003key\030\001 \001(\014\022\r\n\005value\030\002 \001(\003" +
-      "\"2\n\007ProofOp\022\014\n\004type\030\001 \001(\t\022\013\n\003key\030\002 \001(\014\022\014" +
-      "\n\004data\030\003 \001(\014\"A\n\005Proof\0228\n\003ops\030\001 \003(\0132+.com" +
-      ".github.jtendermint.jabci.types.ProofOp\"" +
-      "\243\006\n\007Request\022?\n\004echo\030\002 \001(\0132/.com.github.j" +
-      "tendermint.jabci.types.RequestEchoH\000\022A\n\005" +
-      "flush\030\003 \001(\01320.com.github.jtendermint.jab" +
-      "ci.types.RequestFlushH\000\022?\n\004info\030\004 \001(\0132/." +
-      "com.github.jtendermint.jabci.types.Reque" +
-      "stInfoH\000\022J\n\nset_option\030\005 \001(\01324.com.githu" +
-      "b.jtendermint.jabci.types.RequestSetOpti" +
-      "onH\000\022J\n\ninit_chain\030\006 \001(\01324.com.github.jt" +
-      "endermint.jabci.types.RequestInitChainH\000" +
-      "\022A\n\005query\030\007 \001(\01320.com.github.jtendermint" +
-      ".jabci.types.RequestQueryH\000\022L\n\013begin_blo" +
-      "ck\030\010 \001(\01325.com.github.jtendermint.jabci." +
-      "types.RequestBeginBlockH\000\022F\n\010check_tx\030\t " +
-      "\001(\01322.com.github.jtendermint.jabci.types" +
-      ".RequestCheckTxH\000\022J\n\ndeliver_tx\030\023 \001(\01324." +
-      "com.github.jtendermint.jabci.types.Reque" +
-      "stDeliverTxH\000\022H\n\tend_block\030\013 \001(\01323.com.g" +
-      "ithub.jtendermint.jabci.types.RequestEnd" +
-      "BlockH\000\022C\n\006commit\030\014 \001(\01321.com.github.jte" +
-      "ndermint.jabci.types.RequestCommitH\000B\007\n\005" +
-      "value\"\036\n\013RequestEcho\022\017\n\007message\030\001 \001(\t\"\016\n" +
-      "\014RequestFlush\"J\n\013RequestInfo\022\017\n\007version\030" +
-      "\001 \001(\t\022\025\n\rblock_version\030\002 \001(\004\022\023\n\013p2p_vers" +
-      "ion\030\003 \001(\004\".\n\020RequestSetOption\022\013\n\003key\030\001 \001" +
-      "(\t\022\r\n\005value\030\002 \001(\t\"\377\001\n\020RequestInitChain\022(" +
-      "\n\004time\030\001 \001(\0132\032.google.protobuf.Timestamp" +
-      "\022\020\n\010chain_id\030\002 \001(\t\022M\n\020consensus_params\030\003" +
-      " \001(\01323.com.github.jtendermint.jabci.type" +
-      "s.ConsensusParams\022G\n\nvalidators\030\004 \003(\01323." +
-      "com.github.jtendermint.jabci.types.Valid" +
-      "atorUpdate\022\027\n\017app_state_bytes\030\005 \001(\014\"I\n\014R" +
-      "equestQuery\022\014\n\004data\030\001 \001(\014\022\014\n\004path\030\002 \001(\t\022" +
-      "\016\n\006height\030\003 \001(\003\022\r\n\005prove\030\004 \001(\010\"\367\001\n\021Reque" +
-      "stBeginBlock\022\014\n\004hash\030\001 \001(\014\022:\n\006header\030\002 \001" +
-      "(\0132*.com.github.jtendermint.jabci.types." +
-      "Header\022L\n\020last_commit_info\030\003 \001(\01322.com.g" +
-      "ithub.jtendermint.jabci.types.LastCommit" +
-      "Info\022J\n\024byzantine_validators\030\004 \003(\0132,.com" +
-      ".github.jtendermint.jabci.types.Evidence" +
-      "\"\034\n\016RequestCheckTx\022\n\n\002tx\030\001 \001(\014\"\036\n\020Reques" +
-      "tDeliverTx\022\n\n\002tx\030\001 \001(\014\"!\n\017RequestEndBloc" +
-      "k\022\016\n\006height\030\001 \001(\003\"\017\n\rRequestCommit\"\373\006\n\010R" +
-      "esponse\022J\n\texception\030\001 \001(\01325.com.github." +
-      "jtendermint.jabci.types.ResponseExceptio" +
-      "nH\000\022@\n\004echo\030\002 \001(\01320.com.github.jtendermi" +
-      "nt.jabci.types.ResponseEchoH\000\022B\n\005flush\030\003" +
-      " \001(\01321.com.github.jtendermint.jabci.type" +
-      "s.ResponseFlushH\000\022@\n\004info\030\004 \001(\01320.com.gi" +
-      "thub.jtendermint.jabci.types.ResponseInf" +
-      "oH\000\022K\n\nset_option\030\005 \001(\01325.com.github.jte" +
-      "ndermint.jabci.types.ResponseSetOptionH\000" +
-      "\022K\n\ninit_chain\030\006 \001(\01325.com.github.jtende" +
-      "rmint.jabci.types.ResponseInitChainH\000\022B\n" +
-      "\005query\030\007 \001(\01321.com.github.jtendermint.ja" +
-      "bci.types.ResponseQueryH\000\022M\n\013begin_block" +
-      "\030\010 \001(\01326.com.github.jtendermint.jabci.ty" +
-      "pes.ResponseBeginBlockH\000\022G\n\010check_tx\030\t \001" +
-      "(\01323.com.github.jtendermint.jabci.types." +
-      "ResponseCheckTxH\000\022K\n\ndeliver_tx\030\n \001(\01325." +
+      "bci.types\032\014merkle.proto\032\014common.proto\032\037g" +
+      "oogle/protobuf/timestamp.proto\"\243\006\n\007Reque" +
+      "st\022?\n\004echo\030\002 \001(\0132/.com.github.jtendermin" +
+      "t.jabci.types.RequestEchoH\000\022A\n\005flush\030\003 \001" +
+      "(\01320.com.github.jtendermint.jabci.types." +
+      "RequestFlushH\000\022?\n\004info\030\004 \001(\0132/.com.githu" +
+      "b.jtendermint.jabci.types.RequestInfoH\000\022" +
+      "J\n\nset_option\030\005 \001(\01324.com.github.jtender" +
+      "mint.jabci.types.RequestSetOptionH\000\022J\n\ni" +
+      "nit_chain\030\006 \001(\01324.com.github.jtendermint" +
+      ".jabci.types.RequestInitChainH\000\022A\n\005query" +
+      "\030\007 \001(\01320.com.github.jtendermint.jabci.ty" +
+      "pes.RequestQueryH\000\022L\n\013begin_block\030\010 \001(\0132" +
+      "5.com.github.jtendermint.jabci.types.Req" +
+      "uestBeginBlockH\000\022F\n\010check_tx\030\t \001(\01322.com" +
+      ".github.jtendermint.jabci.types.RequestC" +
+      "heckTxH\000\022J\n\ndeliver_tx\030\023 \001(\01324.com.githu" +
+      "b.jtendermint.jabci.types.RequestDeliver" +
+      "TxH\000\022H\n\tend_block\030\013 \001(\01323.com.github.jte" +
+      "ndermint.jabci.types.RequestEndBlockH\000\022C" +
+      "\n\006commit\030\014 \001(\01321.com.github.jtendermint." +
+      "jabci.types.RequestCommitH\000B\007\n\005value\"\036\n\013" +
+      "RequestEcho\022\017\n\007message\030\001 \001(\t\"\016\n\014RequestF" +
+      "lush\"J\n\013RequestInfo\022\017\n\007version\030\001 \001(\t\022\025\n\r" +
+      "block_version\030\002 \001(\004\022\023\n\013p2p_version\030\003 \001(\004" +
+      "\".\n\020RequestSetOption\022\013\n\003key\030\001 \001(\t\022\r\n\005val" +
+      "ue\030\002 \001(\t\"\377\001\n\020RequestInitChain\022(\n\004time\030\001 " +
+      "\001(\0132\032.google.protobuf.Timestamp\022\020\n\010chain" +
+      "_id\030\002 \001(\t\022M\n\020consensus_params\030\003 \001(\01323.co" +
+      "m.github.jtendermint.jabci.types.Consens" +
+      "usParams\022G\n\nvalidators\030\004 \003(\01323.com.githu" +
+      "b.jtendermint.jabci.types.ValidatorUpdat" +
+      "e\022\027\n\017app_state_bytes\030\005 \001(\014\"I\n\014RequestQue" +
+      "ry\022\014\n\004data\030\001 \001(\014\022\014\n\004path\030\002 \001(\t\022\016\n\006height" +
+      "\030\003 \001(\003\022\r\n\005prove\030\004 \001(\010\"\367\001\n\021RequestBeginBl" +
+      "ock\022\014\n\004hash\030\001 \001(\014\022:\n\006header\030\002 \001(\0132*.com." +
+      "github.jtendermint.jabci.types.Header\022L\n" +
+      "\020last_commit_info\030\003 \001(\01322.com.github.jte" +
+      "ndermint.jabci.types.LastCommitInfo\022J\n\024b" +
+      "yzantine_validators\030\004 \003(\0132,.com.github.j" +
+      "tendermint.jabci.types.Evidence\"[\n\016Reque" +
+      "stCheckTx\022\n\n\002tx\030\001 \001(\014\022=\n\004type\030\002 \001(\0162/.co" +
+      "m.github.jtendermint.jabci.types.CheckTx" +
+      "Type\"\036\n\020RequestDeliverTx\022\n\n\002tx\030\001 \001(\014\"!\n\017" +
+      "RequestEndBlock\022\016\n\006height\030\001 \001(\003\"\017\n\rReque" +
+      "stCommit\"\373\006\n\010Response\022J\n\texception\030\001 \001(\013" +
+      "25.com.github.jtendermint.jabci.types.Re" +
+      "sponseExceptionH\000\022@\n\004echo\030\002 \001(\01320.com.gi" +
+      "thub.jtendermint.jabci.types.ResponseEch" +
+      "oH\000\022B\n\005flush\030\003 \001(\01321.com.github.jtenderm" +
+      "int.jabci.types.ResponseFlushH\000\022@\n\004info\030" +
+      "\004 \001(\01320.com.github.jtendermint.jabci.typ" +
+      "es.ResponseInfoH\000\022K\n\nset_option\030\005 \001(\01325." +
       "com.github.jtendermint.jabci.types.Respo" +
-      "nseDeliverTxH\000\022I\n\tend_block\030\013 \001(\01324.com." +
-      "github.jtendermint.jabci.types.ResponseE" +
-      "ndBlockH\000\022D\n\006commit\030\014 \001(\01322.com.github.j" +
-      "tendermint.jabci.types.ResponseCommitH\000B" +
-      "\007\n\005value\"\"\n\021ResponseException\022\r\n\005error\030\001" +
-      " \001(\t\"\037\n\014ResponseEcho\022\017\n\007message\030\001 \001(\t\"\017\n" +
-      "\rResponseFlush\"z\n\014ResponseInfo\022\014\n\004data\030\001" +
-      " \001(\t\022\017\n\007version\030\002 \001(\t\022\023\n\013app_version\030\003 \001" +
-      "(\004\022\031\n\021last_block_height\030\004 \001(\003\022\033\n\023last_bl" +
-      "ock_app_hash\030\005 \001(\014\"<\n\021ResponseSetOption\022" +
-      "\014\n\004code\030\001 \001(\r\022\013\n\003log\030\003 \001(\t\022\014\n\004info\030\004 \001(\t" +
-      "\"\253\001\n\021ResponseInitChain\022M\n\020consensus_para" +
-      "ms\030\001 \001(\01323.com.github.jtendermint.jabci." +
-      "types.ConsensusParams\022G\n\nvalidators\030\002 \003(" +
-      "\01323.com.github.jtendermint.jabci.types.V" +
-      "alidatorUpdate\"\300\001\n\rResponseQuery\022\014\n\004code" +
-      "\030\001 \001(\r\022\013\n\003log\030\003 \001(\t\022\014\n\004info\030\004 \001(\t\022\r\n\005ind" +
-      "ex\030\005 \001(\003\022\013\n\003key\030\006 \001(\014\022\r\n\005value\030\007 \001(\014\0228\n\005" +
-      "proof\030\010 \001(\0132).com.github.jtendermint.jab" +
-      "ci.types.Proof\022\016\n\006height\030\t \001(\003\022\021\n\tcodesp" +
-      "ace\030\n \001(\t\"N\n\022ResponseBeginBlock\0228\n\004tags\030" +
-      "\001 \003(\0132*.com.github.jtendermint.jabci.typ" +
-      "es.KVPair\"\273\001\n\017ResponseCheckTx\022\014\n\004code\030\001 " +
-      "\001(\r\022\014\n\004data\030\002 \001(\014\022\013\n\003log\030\003 \001(\t\022\014\n\004info\030\004" +
-      " \001(\t\022\022\n\ngas_wanted\030\005 \001(\003\022\020\n\010gas_used\030\006 \001" +
-      "(\003\0228\n\004tags\030\007 \003(\0132*.com.github.jtendermin" +
-      "t.jabci.types.KVPair\022\021\n\tcodespace\030\010 \001(\t\"" +
-      "\275\001\n\021ResponseDeliverTx\022\014\n\004code\030\001 \001(\r\022\014\n\004d" +
-      "ata\030\002 \001(\014\022\013\n\003log\030\003 \001(\t\022\014\n\004info\030\004 \001(\t\022\022\n\n" +
-      "gas_wanted\030\005 \001(\003\022\020\n\010gas_used\030\006 \001(\003\0228\n\004ta" +
-      "gs\030\007 \003(\0132*.com.github.jtendermint.jabci." +
-      "types.KVPair\022\021\n\tcodespace\030\010 \001(\t\"\362\001\n\020Resp" +
-      "onseEndBlock\022N\n\021validator_updates\030\001 \003(\0132" +
-      "3.com.github.jtendermint.jabci.types.Val" +
-      "idatorUpdate\022T\n\027consensus_param_updates\030" +
-      "\002 \001(\01323.com.github.jtendermint.jabci.typ" +
-      "es.ConsensusParams\0228\n\004tags\030\003 \003(\0132*.com.g" +
-      "ithub.jtendermint.jabci.types.KVPair\"\036\n\016" +
-      "ResponseCommit\022\014\n\004data\030\002 \001(\014\"\350\001\n\017Consens" +
-      "usParams\022G\n\nblock_size\030\001 \001(\01323.com.githu" +
-      "b.jtendermint.jabci.types.BlockSizeParam" +
-      "s\022D\n\010evidence\030\002 \001(\01322.com.github.jtender" +
-      "mint.jabci.types.EvidenceParams\022F\n\tvalid" +
-      "ator\030\003 \001(\01323.com.github.jtendermint.jabc" +
-      "i.types.ValidatorParams\"5\n\017BlockSizePara" +
-      "ms\022\021\n\tmax_bytes\030\001 \001(\003\022\017\n\007max_gas\030\002 \001(\003\"!" +
-      "\n\016EvidenceParams\022\017\n\007max_age\030\001 \001(\003\"(\n\017Val" +
-      "idatorParams\022\025\n\rpub_key_types\030\001 \003(\t\"\\\n\016L" +
-      "astCommitInfo\022\r\n\005round\030\001 \001(\005\022;\n\005votes\030\002 " +
-      "\003(\0132,.com.github.jtendermint.jabci.types" +
-      ".VoteInfo\"\324\003\n\006Header\022<\n\007version\030\001 \001(\0132+." +
-      "com.github.jtendermint.jabci.types.Versi" +
-      "on\022\020\n\010chain_id\030\002 \001(\t\022\016\n\006height\030\003 \001(\003\022(\n\004" +
-      "time\030\004 \001(\0132\032.google.protobuf.Timestamp\022\017" +
-      "\n\007num_txs\030\005 \001(\003\022\021\n\ttotal_txs\030\006 \001(\003\022B\n\rla" +
-      "st_block_id\030\007 \001(\0132+.com.github.jtendermi" +
-      "nt.jabci.types.BlockID\022\030\n\020last_commit_ha" +
-      "sh\030\010 \001(\014\022\021\n\tdata_hash\030\t \001(\014\022\027\n\017validator" +
-      "s_hash\030\n \001(\014\022\034\n\024next_validators_hash\030\013 \001" +
-      "(\014\022\026\n\016consensus_hash\030\014 \001(\014\022\020\n\010app_hash\030\r" +
-      " \001(\014\022\031\n\021last_results_hash\030\016 \001(\014\022\025\n\revide" +
-      "nce_hash\030\017 \001(\014\022\030\n\020proposer_address\030\020 \001(\014" +
-      "\"%\n\007Version\022\r\n\005Block\030\001 \001(\004\022\013\n\003App\030\002 \001(\004\"" +
-      "`\n\007BlockID\022\014\n\004hash\030\001 \001(\014\022G\n\014parts_header" +
-      "\030\002 \001(\01321.com.github.jtendermint.jabci.ty" +
-      "pes.PartSetHeader\",\n\rPartSetHeader\022\r\n\005to" +
-      "tal\030\001 \001(\005\022\014\n\004hash\030\002 \001(\014\"+\n\tValidator\022\017\n\007" +
-      "address\030\001 \001(\014\022\r\n\005power\030\003 \001(\003\"]\n\017Validato" +
-      "rUpdate\022;\n\007pub_key\030\001 \001(\0132*.com.github.jt" +
-      "endermint.jabci.types.PubKey\022\r\n\005power\030\002 " +
-      "\001(\003\"g\n\010VoteInfo\022@\n\tvalidator\030\001 \001(\0132-.com" +
-      ".github.jtendermint.jabci.types.Validato" +
-      "r\022\031\n\021signed_last_block\030\002 \001(\010\"$\n\006PubKey\022\014" +
-      "\n\004type\030\001 \001(\t\022\014\n\004data\030\002 \001(\014\"\260\001\n\010Evidence\022" +
-      "\014\n\004type\030\001 \001(\t\022@\n\tvalidator\030\002 \001(\0132-.com.g" +
-      "ithub.jtendermint.jabci.types.Validator\022" +
-      "\016\n\006height\030\003 \001(\003\022(\n\004time\030\004 \001(\0132\032.google.p" +
-      "rotobuf.Timestamp\022\032\n\022total_voting_power\030" +
-      "\005 \001(\0032\212\n\n\017ABCIApplication\022i\n\004Echo\022/.com." +
-      "github.jtendermint.jabci.types.RequestEc" +
-      "ho\0320.com.github.jtendermint.jabci.types." +
-      "ResponseEcho\022l\n\005Flush\0220.com.github.jtend" +
-      "ermint.jabci.types.RequestFlush\0321.com.gi" +
-      "thub.jtendermint.jabci.types.ResponseFlu" +
-      "sh\022i\n\004Info\022/.com.github.jtendermint.jabc" +
-      "i.types.RequestInfo\0320.com.github.jtender" +
-      "mint.jabci.types.ResponseInfo\022x\n\tSetOpti" +
-      "on\0224.com.github.jtendermint.jabci.types." +
-      "RequestSetOption\0325.com.github.jtendermin" +
-      "t.jabci.types.ResponseSetOption\022x\n\tDeliv" +
-      "erTx\0224.com.github.jtendermint.jabci.type" +
-      "s.RequestDeliverTx\0325.com.github.jtenderm" +
-      "int.jabci.types.ResponseDeliverTx\022r\n\007Che" +
-      "ckTx\0222.com.github.jtendermint.jabci.type" +
-      "s.RequestCheckTx\0323.com.github.jtendermin" +
-      "t.jabci.types.ResponseCheckTx\022l\n\005Query\0220" +
+      "nseSetOptionH\000\022K\n\ninit_chain\030\006 \001(\01325.com" +
+      ".github.jtendermint.jabci.types.Response" +
+      "InitChainH\000\022B\n\005query\030\007 \001(\01321.com.github." +
+      "jtendermint.jabci.types.ResponseQueryH\000\022" +
+      "M\n\013begin_block\030\010 \001(\01326.com.github.jtende" +
+      "rmint.jabci.types.ResponseBeginBlockH\000\022G" +
+      "\n\010check_tx\030\t \001(\01323.com.github.jtendermin" +
+      "t.jabci.types.ResponseCheckTxH\000\022K\n\ndeliv" +
+      "er_tx\030\n \001(\01325.com.github.jtendermint.jab" +
+      "ci.types.ResponseDeliverTxH\000\022I\n\tend_bloc" +
+      "k\030\013 \001(\01324.com.github.jtendermint.jabci.t" +
+      "ypes.ResponseEndBlockH\000\022D\n\006commit\030\014 \001(\0132" +
+      "2.com.github.jtendermint.jabci.types.Res" +
+      "ponseCommitH\000B\007\n\005value\"\"\n\021ResponseExcept" +
+      "ion\022\r\n\005error\030\001 \001(\t\"\037\n\014ResponseEcho\022\017\n\007me" +
+      "ssage\030\001 \001(\t\"\017\n\rResponseFlush\"z\n\014Response" +
+      "Info\022\014\n\004data\030\001 \001(\t\022\017\n\007version\030\002 \001(\t\022\023\n\013a" +
+      "pp_version\030\003 \001(\004\022\031\n\021last_block_height\030\004 " +
+      "\001(\003\022\033\n\023last_block_app_hash\030\005 \001(\014\"<\n\021Resp" +
+      "onseSetOption\022\014\n\004code\030\001 \001(\r\022\013\n\003log\030\003 \001(\t" +
+      "\022\014\n\004info\030\004 \001(\t\"\253\001\n\021ResponseInitChain\022M\n\020" +
+      "consensus_params\030\001 \001(\01323.com.github.jten" +
+      "dermint.jabci.types.ConsensusParams\022G\n\nv" +
+      "alidators\030\002 \003(\01323.com.github.jtendermint" +
+      ".jabci.types.ValidatorUpdate\"\300\001\n\rRespons" +
+      "eQuery\022\014\n\004code\030\001 \001(\r\022\013\n\003log\030\003 \001(\t\022\014\n\004inf" +
+      "o\030\004 \001(\t\022\r\n\005index\030\005 \001(\003\022\013\n\003key\030\006 \001(\014\022\r\n\005v" +
+      "alue\030\007 \001(\014\0228\n\005proof\030\010 \001(\0132).com.github.j" +
+      "tendermint.jabci.types.Proof\022\016\n\006height\030\t" +
+      " \001(\003\022\021\n\tcodespace\030\n \001(\t\"O\n\022ResponseBegin" +
+      "Block\0229\n\006events\030\001 \003(\0132).com.github.jtend" +
+      "ermint.jabci.types.Event\"\274\001\n\017ResponseChe" +
+      "ckTx\022\014\n\004code\030\001 \001(\r\022\014\n\004data\030\002 \001(\014\022\013\n\003log\030" +
+      "\003 \001(\t\022\014\n\004info\030\004 \001(\t\022\022\n\ngas_wanted\030\005 \001(\003\022" +
+      "\020\n\010gas_used\030\006 \001(\003\0229\n\006events\030\007 \003(\0132).com." +
+      "github.jtendermint.jabci.types.Event\022\021\n\t" +
+      "codespace\030\010 \001(\t\"\276\001\n\021ResponseDeliverTx\022\014\n" +
+      "\004code\030\001 \001(\r\022\014\n\004data\030\002 \001(\014\022\013\n\003log\030\003 \001(\t\022\014" +
+      "\n\004info\030\004 \001(\t\022\022\n\ngas_wanted\030\005 \001(\003\022\020\n\010gas_" +
+      "used\030\006 \001(\003\0229\n\006events\030\007 \003(\0132).com.github." +
+      "jtendermint.jabci.types.Event\022\021\n\tcodespa" +
+      "ce\030\010 \001(\t\"\363\001\n\020ResponseEndBlock\022N\n\021validat" +
+      "or_updates\030\001 \003(\01323.com.github.jtendermin" +
+      "t.jabci.types.ValidatorUpdate\022T\n\027consens" +
+      "us_param_updates\030\002 \001(\01323.com.github.jten" +
+      "dermint.jabci.types.ConsensusParams\0229\n\006e" +
+      "vents\030\003 \003(\0132).com.github.jtendermint.jab" +
+      "ci.types.Event\"\036\n\016ResponseCommit\022\014\n\004data" +
+      "\030\002 \001(\014\"\337\001\n\017ConsensusParams\022>\n\005block\030\001 \001(" +
+      "\0132/.com.github.jtendermint.jabci.types.B" +
+      "lockParams\022D\n\010evidence\030\002 \001(\01322.com.githu" +
+      "b.jtendermint.jabci.types.EvidenceParams" +
+      "\022F\n\tvalidator\030\003 \001(\01323.com.github.jtender" +
+      "mint.jabci.types.ValidatorParams\"1\n\013Bloc" +
+      "kParams\022\021\n\tmax_bytes\030\001 \001(\003\022\017\n\007max_gas\030\002 " +
+      "\001(\003\"!\n\016EvidenceParams\022\017\n\007max_age\030\001 \001(\003\"(" +
+      "\n\017ValidatorParams\022\025\n\rpub_key_types\030\001 \003(\t" +
+      "\"\\\n\016LastCommitInfo\022\r\n\005round\030\001 \001(\005\022;\n\005vot" +
+      "es\030\002 \003(\0132,.com.github.jtendermint.jabci." +
+      "types.VoteInfo\"U\n\005Event\022\014\n\004type\030\001 \001(\t\022>\n" +
+      "\nattributes\030\002 \003(\0132*.com.github.jtendermi" +
+      "nt.jabci.types.KVPair\"\324\003\n\006Header\022<\n\007vers" +
+      "ion\030\001 \001(\0132+.com.github.jtendermint.jabci" +
+      ".types.Version\022\020\n\010chain_id\030\002 \001(\t\022\016\n\006heig" +
+      "ht\030\003 \001(\003\022(\n\004time\030\004 \001(\0132\032.google.protobuf" +
+      ".Timestamp\022\017\n\007num_txs\030\005 \001(\003\022\021\n\ttotal_txs" +
+      "\030\006 \001(\003\022B\n\rlast_block_id\030\007 \001(\0132+.com.gith" +
+      "ub.jtendermint.jabci.types.BlockID\022\030\n\020la" +
+      "st_commit_hash\030\010 \001(\014\022\021\n\tdata_hash\030\t \001(\014\022" +
+      "\027\n\017validators_hash\030\n \001(\014\022\034\n\024next_validat" +
+      "ors_hash\030\013 \001(\014\022\026\n\016consensus_hash\030\014 \001(\014\022\020" +
+      "\n\010app_hash\030\r \001(\014\022\031\n\021last_results_hash\030\016 " +
+      "\001(\014\022\025\n\revidence_hash\030\017 \001(\014\022\030\n\020proposer_a" +
+      "ddress\030\020 \001(\014\"%\n\007Version\022\r\n\005Block\030\001 \001(\004\022\013" +
+      "\n\003App\030\002 \001(\004\"`\n\007BlockID\022\014\n\004hash\030\001 \001(\014\022G\n\014" +
+      "parts_header\030\002 \001(\01321.com.github.jtenderm" +
+      "int.jabci.types.PartSetHeader\",\n\rPartSet" +
+      "Header\022\r\n\005total\030\001 \001(\005\022\014\n\004hash\030\002 \001(\014\"+\n\tV" +
+      "alidator\022\017\n\007address\030\001 \001(\014\022\r\n\005power\030\003 \001(\003" +
+      "\"]\n\017ValidatorUpdate\022;\n\007pub_key\030\001 \001(\0132*.c" +
+      "om.github.jtendermint.jabci.types.PubKey" +
+      "\022\r\n\005power\030\002 \001(\003\"g\n\010VoteInfo\022@\n\tvalidator" +
+      "\030\001 \001(\0132-.com.github.jtendermint.jabci.ty" +
+      "pes.Validator\022\031\n\021signed_last_block\030\002 \001(\010" +
+      "\"$\n\006PubKey\022\014\n\004type\030\001 \001(\t\022\014\n\004data\030\002 \001(\014\"\260" +
+      "\001\n\010Evidence\022\014\n\004type\030\001 \001(\t\022@\n\tvalidator\030\002" +
+      " \001(\0132-.com.github.jtendermint.jabci.type" +
+      "s.Validator\022\016\n\006height\030\003 \001(\003\022(\n\004time\030\004 \001(" +
+      "\0132\032.google.protobuf.Timestamp\022\032\n\022total_v" +
+      "oting_power\030\005 \001(\003*#\n\013CheckTxType\022\007\n\003New\020" +
+      "\000\022\013\n\007Recheck\020\0012\212\n\n\017ABCIApplication\022i\n\004Ec" +
+      "ho\022/.com.github.jtendermint.jabci.types." +
+      "RequestEcho\0320.com.github.jtendermint.jab" +
+      "ci.types.ResponseEcho\022l\n\005Flush\0220.com.git" +
+      "hub.jtendermint.jabci.types.RequestFlush" +
+      "\0321.com.github.jtendermint.jabci.types.Re" +
+      "sponseFlush\022i\n\004Info\022/.com.github.jtender" +
+      "mint.jabci.types.RequestInfo\0320.com.githu" +
+      "b.jtendermint.jabci.types.ResponseInfo\022x" +
+      "\n\tSetOption\0224.com.github.jtendermint.jab" +
+      "ci.types.RequestSetOption\0325.com.github.j" +
+      "tendermint.jabci.types.ResponseSetOption" +
+      "\022x\n\tDeliverTx\0224.com.github.jtendermint.j" +
+      "abci.types.RequestDeliverTx\0325.com.github" +
+      ".jtendermint.jabci.types.ResponseDeliver" +
+      "Tx\022r\n\007CheckTx\0222.com.github.jtendermint.j" +
+      "abci.types.RequestCheckTx\0323.com.github.j" +
+      "tendermint.jabci.types.ResponseCheckTx\022l" +
+      "\n\005Query\0220.com.github.jtendermint.jabci.t" +
+      "ypes.RequestQuery\0321.com.github.jtendermi" +
+      "nt.jabci.types.ResponseQuery\022o\n\006Commit\0221" +
       ".com.github.jtendermint.jabci.types.Requ" +
-      "estQuery\0321.com.github.jtendermint.jabci." +
-      "types.ResponseQuery\022o\n\006Commit\0221.com.gith" +
-      "ub.jtendermint.jabci.types.RequestCommit" +
-      "\0322.com.github.jtendermint.jabci.types.Re" +
-      "sponseCommit\022x\n\tInitChain\0224.com.github.j" +
-      "tendermint.jabci.types.RequestInitChain\032" +
-      "5.com.github.jtendermint.jabci.types.Res" +
-      "ponseInitChain\022{\n\nBeginBlock\0225.com.githu" +
-      "b.jtendermint.jabci.types.RequestBeginBl" +
-      "ock\0326.com.github.jtendermint.jabci.types" +
-      ".ResponseBeginBlock\022u\n\010EndBlock\0223.com.gi" +
-      "thub.jtendermint.jabci.types.RequestEndB" +
-      "lock\0324.com.github.jtendermint.jabci.type" +
-      "s.ResponseEndBlockB\002P\001b\006proto3"
+      "estCommit\0322.com.github.jtendermint.jabci" +
+      ".types.ResponseCommit\022x\n\tInitChain\0224.com" +
+      ".github.jtendermint.jabci.types.RequestI" +
+      "nitChain\0325.com.github.jtendermint.jabci." +
+      "types.ResponseInitChain\022{\n\nBeginBlock\0225." +
+      "com.github.jtendermint.jabci.types.Reque" +
+      "stBeginBlock\0326.com.github.jtendermint.ja" +
+      "bci.types.ResponseBeginBlock\022u\n\010EndBlock" +
+      "\0223.com.github.jtendermint.jabci.types.Re" +
+      "questEndBlock\0324.com.github.jtendermint.j" +
+      "abci.types.ResponseEndBlockB\002P\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -428,266 +413,252 @@ public final class Types {
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          com.github.jtendermint.jabci.types.Merkle.getDescriptor(),
+          com.github.jtendermint.jabci.types.Common.getDescriptor(),
           com.google.protobuf.TimestampProto.getDescriptor(),
         }, assigner);
-    internal_static_com_github_jtendermint_jabci_types_KVPair_descriptor =
-      getDescriptor().getMessageTypes().get(0);
-    internal_static_com_github_jtendermint_jabci_types_KVPair_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_github_jtendermint_jabci_types_KVPair_descriptor,
-        new java.lang.String[] { "Key", "Value", });
-    internal_static_com_github_jtendermint_jabci_types_KI64Pair_descriptor =
-      getDescriptor().getMessageTypes().get(1);
-    internal_static_com_github_jtendermint_jabci_types_KI64Pair_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_github_jtendermint_jabci_types_KI64Pair_descriptor,
-        new java.lang.String[] { "Key", "Value", });
-    internal_static_com_github_jtendermint_jabci_types_ProofOp_descriptor =
-      getDescriptor().getMessageTypes().get(2);
-    internal_static_com_github_jtendermint_jabci_types_ProofOp_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_github_jtendermint_jabci_types_ProofOp_descriptor,
-        new java.lang.String[] { "Type", "Key", "Data", });
-    internal_static_com_github_jtendermint_jabci_types_Proof_descriptor =
-      getDescriptor().getMessageTypes().get(3);
-    internal_static_com_github_jtendermint_jabci_types_Proof_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_github_jtendermint_jabci_types_Proof_descriptor,
-        new java.lang.String[] { "Ops", });
     internal_static_com_github_jtendermint_jabci_types_Request_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(0);
     internal_static_com_github_jtendermint_jabci_types_Request_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_github_jtendermint_jabci_types_Request_descriptor,
         new java.lang.String[] { "Echo", "Flush", "Info", "SetOption", "InitChain", "Query", "BeginBlock", "CheckTx", "DeliverTx", "EndBlock", "Commit", "Value", });
     internal_static_com_github_jtendermint_jabci_types_RequestEcho_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(1);
     internal_static_com_github_jtendermint_jabci_types_RequestEcho_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_github_jtendermint_jabci_types_RequestEcho_descriptor,
         new java.lang.String[] { "Message", });
     internal_static_com_github_jtendermint_jabci_types_RequestFlush_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(2);
     internal_static_com_github_jtendermint_jabci_types_RequestFlush_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_github_jtendermint_jabci_types_RequestFlush_descriptor,
         new java.lang.String[] { });
     internal_static_com_github_jtendermint_jabci_types_RequestInfo_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(3);
     internal_static_com_github_jtendermint_jabci_types_RequestInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_github_jtendermint_jabci_types_RequestInfo_descriptor,
         new java.lang.String[] { "Version", "BlockVersion", "P2PVersion", });
     internal_static_com_github_jtendermint_jabci_types_RequestSetOption_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_com_github_jtendermint_jabci_types_RequestSetOption_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_github_jtendermint_jabci_types_RequestSetOption_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_com_github_jtendermint_jabci_types_RequestInitChain_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_com_github_jtendermint_jabci_types_RequestInitChain_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_github_jtendermint_jabci_types_RequestInitChain_descriptor,
         new java.lang.String[] { "Time", "ChainId", "ConsensusParams", "Validators", "AppStateBytes", });
     internal_static_com_github_jtendermint_jabci_types_RequestQuery_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_com_github_jtendermint_jabci_types_RequestQuery_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_github_jtendermint_jabci_types_RequestQuery_descriptor,
         new java.lang.String[] { "Data", "Path", "Height", "Prove", });
     internal_static_com_github_jtendermint_jabci_types_RequestBeginBlock_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_com_github_jtendermint_jabci_types_RequestBeginBlock_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_github_jtendermint_jabci_types_RequestBeginBlock_descriptor,
         new java.lang.String[] { "Hash", "Header", "LastCommitInfo", "ByzantineValidators", });
     internal_static_com_github_jtendermint_jabci_types_RequestCheckTx_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_com_github_jtendermint_jabci_types_RequestCheckTx_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_github_jtendermint_jabci_types_RequestCheckTx_descriptor,
-        new java.lang.String[] { "Tx", });
+        new java.lang.String[] { "Tx", "Type", });
     internal_static_com_github_jtendermint_jabci_types_RequestDeliverTx_descriptor =
-      getDescriptor().getMessageTypes().get(13);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_com_github_jtendermint_jabci_types_RequestDeliverTx_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_github_jtendermint_jabci_types_RequestDeliverTx_descriptor,
         new java.lang.String[] { "Tx", });
     internal_static_com_github_jtendermint_jabci_types_RequestEndBlock_descriptor =
-      getDescriptor().getMessageTypes().get(14);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_com_github_jtendermint_jabci_types_RequestEndBlock_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_github_jtendermint_jabci_types_RequestEndBlock_descriptor,
         new java.lang.String[] { "Height", });
     internal_static_com_github_jtendermint_jabci_types_RequestCommit_descriptor =
-      getDescriptor().getMessageTypes().get(15);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_com_github_jtendermint_jabci_types_RequestCommit_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_github_jtendermint_jabci_types_RequestCommit_descriptor,
         new java.lang.String[] { });
     internal_static_com_github_jtendermint_jabci_types_Response_descriptor =
-      getDescriptor().getMessageTypes().get(16);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_com_github_jtendermint_jabci_types_Response_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_github_jtendermint_jabci_types_Response_descriptor,
         new java.lang.String[] { "Exception", "Echo", "Flush", "Info", "SetOption", "InitChain", "Query", "BeginBlock", "CheckTx", "DeliverTx", "EndBlock", "Commit", "Value", });
     internal_static_com_github_jtendermint_jabci_types_ResponseException_descriptor =
-      getDescriptor().getMessageTypes().get(17);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_com_github_jtendermint_jabci_types_ResponseException_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_github_jtendermint_jabci_types_ResponseException_descriptor,
         new java.lang.String[] { "Error", });
     internal_static_com_github_jtendermint_jabci_types_ResponseEcho_descriptor =
-      getDescriptor().getMessageTypes().get(18);
+      getDescriptor().getMessageTypes().get(14);
     internal_static_com_github_jtendermint_jabci_types_ResponseEcho_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_github_jtendermint_jabci_types_ResponseEcho_descriptor,
         new java.lang.String[] { "Message", });
     internal_static_com_github_jtendermint_jabci_types_ResponseFlush_descriptor =
-      getDescriptor().getMessageTypes().get(19);
+      getDescriptor().getMessageTypes().get(15);
     internal_static_com_github_jtendermint_jabci_types_ResponseFlush_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_github_jtendermint_jabci_types_ResponseFlush_descriptor,
         new java.lang.String[] { });
     internal_static_com_github_jtendermint_jabci_types_ResponseInfo_descriptor =
-      getDescriptor().getMessageTypes().get(20);
+      getDescriptor().getMessageTypes().get(16);
     internal_static_com_github_jtendermint_jabci_types_ResponseInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_github_jtendermint_jabci_types_ResponseInfo_descriptor,
         new java.lang.String[] { "Data", "Version", "AppVersion", "LastBlockHeight", "LastBlockAppHash", });
     internal_static_com_github_jtendermint_jabci_types_ResponseSetOption_descriptor =
-      getDescriptor().getMessageTypes().get(21);
+      getDescriptor().getMessageTypes().get(17);
     internal_static_com_github_jtendermint_jabci_types_ResponseSetOption_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_github_jtendermint_jabci_types_ResponseSetOption_descriptor,
         new java.lang.String[] { "Code", "Log", "Info", });
     internal_static_com_github_jtendermint_jabci_types_ResponseInitChain_descriptor =
-      getDescriptor().getMessageTypes().get(22);
+      getDescriptor().getMessageTypes().get(18);
     internal_static_com_github_jtendermint_jabci_types_ResponseInitChain_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_github_jtendermint_jabci_types_ResponseInitChain_descriptor,
         new java.lang.String[] { "ConsensusParams", "Validators", });
     internal_static_com_github_jtendermint_jabci_types_ResponseQuery_descriptor =
-      getDescriptor().getMessageTypes().get(23);
+      getDescriptor().getMessageTypes().get(19);
     internal_static_com_github_jtendermint_jabci_types_ResponseQuery_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_github_jtendermint_jabci_types_ResponseQuery_descriptor,
         new java.lang.String[] { "Code", "Log", "Info", "Index", "Key", "Value", "Proof", "Height", "Codespace", });
     internal_static_com_github_jtendermint_jabci_types_ResponseBeginBlock_descriptor =
-      getDescriptor().getMessageTypes().get(24);
+      getDescriptor().getMessageTypes().get(20);
     internal_static_com_github_jtendermint_jabci_types_ResponseBeginBlock_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_github_jtendermint_jabci_types_ResponseBeginBlock_descriptor,
-        new java.lang.String[] { "Tags", });
+        new java.lang.String[] { "Events", });
     internal_static_com_github_jtendermint_jabci_types_ResponseCheckTx_descriptor =
-      getDescriptor().getMessageTypes().get(25);
+      getDescriptor().getMessageTypes().get(21);
     internal_static_com_github_jtendermint_jabci_types_ResponseCheckTx_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_github_jtendermint_jabci_types_ResponseCheckTx_descriptor,
-        new java.lang.String[] { "Code", "Data", "Log", "Info", "GasWanted", "GasUsed", "Tags", "Codespace", });
+        new java.lang.String[] { "Code", "Data", "Log", "Info", "GasWanted", "GasUsed", "Events", "Codespace", });
     internal_static_com_github_jtendermint_jabci_types_ResponseDeliverTx_descriptor =
-      getDescriptor().getMessageTypes().get(26);
+      getDescriptor().getMessageTypes().get(22);
     internal_static_com_github_jtendermint_jabci_types_ResponseDeliverTx_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_github_jtendermint_jabci_types_ResponseDeliverTx_descriptor,
-        new java.lang.String[] { "Code", "Data", "Log", "Info", "GasWanted", "GasUsed", "Tags", "Codespace", });
+        new java.lang.String[] { "Code", "Data", "Log", "Info", "GasWanted", "GasUsed", "Events", "Codespace", });
     internal_static_com_github_jtendermint_jabci_types_ResponseEndBlock_descriptor =
-      getDescriptor().getMessageTypes().get(27);
+      getDescriptor().getMessageTypes().get(23);
     internal_static_com_github_jtendermint_jabci_types_ResponseEndBlock_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_github_jtendermint_jabci_types_ResponseEndBlock_descriptor,
-        new java.lang.String[] { "ValidatorUpdates", "ConsensusParamUpdates", "Tags", });
+        new java.lang.String[] { "ValidatorUpdates", "ConsensusParamUpdates", "Events", });
     internal_static_com_github_jtendermint_jabci_types_ResponseCommit_descriptor =
-      getDescriptor().getMessageTypes().get(28);
+      getDescriptor().getMessageTypes().get(24);
     internal_static_com_github_jtendermint_jabci_types_ResponseCommit_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_github_jtendermint_jabci_types_ResponseCommit_descriptor,
         new java.lang.String[] { "Data", });
     internal_static_com_github_jtendermint_jabci_types_ConsensusParams_descriptor =
-      getDescriptor().getMessageTypes().get(29);
+      getDescriptor().getMessageTypes().get(25);
     internal_static_com_github_jtendermint_jabci_types_ConsensusParams_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_github_jtendermint_jabci_types_ConsensusParams_descriptor,
-        new java.lang.String[] { "BlockSize", "Evidence", "Validator", });
-    internal_static_com_github_jtendermint_jabci_types_BlockSizeParams_descriptor =
-      getDescriptor().getMessageTypes().get(30);
-    internal_static_com_github_jtendermint_jabci_types_BlockSizeParams_fieldAccessorTable = new
+        new java.lang.String[] { "Block", "Evidence", "Validator", });
+    internal_static_com_github_jtendermint_jabci_types_BlockParams_descriptor =
+      getDescriptor().getMessageTypes().get(26);
+    internal_static_com_github_jtendermint_jabci_types_BlockParams_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_github_jtendermint_jabci_types_BlockSizeParams_descriptor,
+        internal_static_com_github_jtendermint_jabci_types_BlockParams_descriptor,
         new java.lang.String[] { "MaxBytes", "MaxGas", });
     internal_static_com_github_jtendermint_jabci_types_EvidenceParams_descriptor =
-      getDescriptor().getMessageTypes().get(31);
+      getDescriptor().getMessageTypes().get(27);
     internal_static_com_github_jtendermint_jabci_types_EvidenceParams_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_github_jtendermint_jabci_types_EvidenceParams_descriptor,
         new java.lang.String[] { "MaxAge", });
     internal_static_com_github_jtendermint_jabci_types_ValidatorParams_descriptor =
-      getDescriptor().getMessageTypes().get(32);
+      getDescriptor().getMessageTypes().get(28);
     internal_static_com_github_jtendermint_jabci_types_ValidatorParams_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_github_jtendermint_jabci_types_ValidatorParams_descriptor,
         new java.lang.String[] { "PubKeyTypes", });
     internal_static_com_github_jtendermint_jabci_types_LastCommitInfo_descriptor =
-      getDescriptor().getMessageTypes().get(33);
+      getDescriptor().getMessageTypes().get(29);
     internal_static_com_github_jtendermint_jabci_types_LastCommitInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_github_jtendermint_jabci_types_LastCommitInfo_descriptor,
         new java.lang.String[] { "Round", "Votes", });
+    internal_static_com_github_jtendermint_jabci_types_Event_descriptor =
+      getDescriptor().getMessageTypes().get(30);
+    internal_static_com_github_jtendermint_jabci_types_Event_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_github_jtendermint_jabci_types_Event_descriptor,
+        new java.lang.String[] { "Type", "Attributes", });
     internal_static_com_github_jtendermint_jabci_types_Header_descriptor =
-      getDescriptor().getMessageTypes().get(34);
+      getDescriptor().getMessageTypes().get(31);
     internal_static_com_github_jtendermint_jabci_types_Header_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_github_jtendermint_jabci_types_Header_descriptor,
         new java.lang.String[] { "Version", "ChainId", "Height", "Time", "NumTxs", "TotalTxs", "LastBlockId", "LastCommitHash", "DataHash", "ValidatorsHash", "NextValidatorsHash", "ConsensusHash", "AppHash", "LastResultsHash", "EvidenceHash", "ProposerAddress", });
     internal_static_com_github_jtendermint_jabci_types_Version_descriptor =
-      getDescriptor().getMessageTypes().get(35);
+      getDescriptor().getMessageTypes().get(32);
     internal_static_com_github_jtendermint_jabci_types_Version_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_github_jtendermint_jabci_types_Version_descriptor,
         new java.lang.String[] { "Block", "App", });
     internal_static_com_github_jtendermint_jabci_types_BlockID_descriptor =
-      getDescriptor().getMessageTypes().get(36);
+      getDescriptor().getMessageTypes().get(33);
     internal_static_com_github_jtendermint_jabci_types_BlockID_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_github_jtendermint_jabci_types_BlockID_descriptor,
         new java.lang.String[] { "Hash", "PartsHeader", });
     internal_static_com_github_jtendermint_jabci_types_PartSetHeader_descriptor =
-      getDescriptor().getMessageTypes().get(37);
+      getDescriptor().getMessageTypes().get(34);
     internal_static_com_github_jtendermint_jabci_types_PartSetHeader_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_github_jtendermint_jabci_types_PartSetHeader_descriptor,
         new java.lang.String[] { "Total", "Hash", });
     internal_static_com_github_jtendermint_jabci_types_Validator_descriptor =
-      getDescriptor().getMessageTypes().get(38);
+      getDescriptor().getMessageTypes().get(35);
     internal_static_com_github_jtendermint_jabci_types_Validator_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_github_jtendermint_jabci_types_Validator_descriptor,
         new java.lang.String[] { "Address", "Power", });
     internal_static_com_github_jtendermint_jabci_types_ValidatorUpdate_descriptor =
-      getDescriptor().getMessageTypes().get(39);
+      getDescriptor().getMessageTypes().get(36);
     internal_static_com_github_jtendermint_jabci_types_ValidatorUpdate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_github_jtendermint_jabci_types_ValidatorUpdate_descriptor,
         new java.lang.String[] { "PubKey", "Power", });
     internal_static_com_github_jtendermint_jabci_types_VoteInfo_descriptor =
-      getDescriptor().getMessageTypes().get(40);
+      getDescriptor().getMessageTypes().get(37);
     internal_static_com_github_jtendermint_jabci_types_VoteInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_github_jtendermint_jabci_types_VoteInfo_descriptor,
         new java.lang.String[] { "Validator", "SignedLastBlock", });
     internal_static_com_github_jtendermint_jabci_types_PubKey_descriptor =
-      getDescriptor().getMessageTypes().get(41);
+      getDescriptor().getMessageTypes().get(38);
     internal_static_com_github_jtendermint_jabci_types_PubKey_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_github_jtendermint_jabci_types_PubKey_descriptor,
         new java.lang.String[] { "Type", "Data", });
     internal_static_com_github_jtendermint_jabci_types_Evidence_descriptor =
-      getDescriptor().getMessageTypes().get(42);
+      getDescriptor().getMessageTypes().get(39);
     internal_static_com_github_jtendermint_jabci_types_Evidence_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_github_jtendermint_jabci_types_Evidence_descriptor,
         new java.lang.String[] { "Type", "Validator", "Height", "Time", "TotalVotingPower", });
+    com.github.jtendermint.jabci.types.Merkle.getDescriptor();
+    com.github.jtendermint.jabci.types.Common.getDescriptor();
     com.google.protobuf.TimestampProto.getDescriptor();
   }
 

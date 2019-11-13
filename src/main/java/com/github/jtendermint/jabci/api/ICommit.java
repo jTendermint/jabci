@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  * 
- * Copyright (c) 2016 - 2018
+ * Copyright (c) 2016 - 2019
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -29,7 +29,16 @@ import com.github.jtendermint.jabci.types.ResponseCommit;
 public interface ICommit {
 
     /***
-     * Return a Merkle root hash of the application state.
+     * <p>Persist the application state.</p>
+     * <p>Return an (optional) Merkle root hash of the application state</p>
+     * <p>ResponseCommit.Data is included as the Header.AppHash in the next block</p>
+     *
+     * <p>Returns:</p>
+     * <ul>
+     *     <li>- {@code Data ([]byte)}: The Merkle root hash of the application state
+     * </ul>
+     *
+     * @see <a href="https://tendermint.com/docs/spec/abci/abci.html#checktx">In Documentation</a>
      */
     ResponseCommit requestCommit(RequestCommit requestCommit);
 
