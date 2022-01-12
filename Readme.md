@@ -1,3 +1,6 @@
+# Deprecation Notice
+This project is no longer under active development and may be archived soon.
+
 # jABCI
 
 A Java implementation of the Tendermint Application BlockChain Interface ([ABCI](https://github.com/tendermint/tendermint/tree/master/types))
